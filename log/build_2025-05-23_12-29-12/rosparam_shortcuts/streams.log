@@ -1,0 +1,40 @@
+[0.188s] Invoking command in '/home/a/ws_moveit2/build/rosparam_shortcuts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/rosparam_shortcuts -- -j4 -l4
+[0.679s] [ 15%] Built target gtest_main
+[0.700s] [ 30%] Built target gtest
+[0.741s] [ 53%] Built target rosparam_shortcuts
+[1.090s] [ 69%] Built target rosparam_shortcuts_example
+[1.204s] [ 84%] Built target test_node_parameters
+[1.206s] [100%] Built target rosparam_shortcuts_node_parameters_example
+[1.283s] Invoked command in '/home/a/ws_moveit2/build/rosparam_shortcuts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/rosparam_shortcuts -- -j4 -l4
+[1.320s] Invoking command in '/home/a/ws_moveit2/build/rosparam_shortcuts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --install /home/a/ws_moveit2/build/rosparam_shortcuts
+[1.385s] -- Install configuration: "Debug"
+[1.403s] -- Execute custom install script
+[1.413s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/lib/rosparam_shortcuts/example
+[1.422s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/lib/rosparam_shortcuts/node_parameters_example
+[1.439s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/include/rosparam_shortcuts/node_parameters.h
+[1.446s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/include/rosparam_shortcuts/rosparam_shortcuts.h
+[1.469s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/launch/example.launch.py
+[1.488s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/config/example.yaml
+[1.492s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/environment/library_path.sh
+[1.493s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/environment/library_path.dsv
+[1.500s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/ament_index/resource_index/package_run_dependencies/rosparam_shortcuts
+[1.509s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/ament_index/resource_index/parent_prefix_path/rosparam_shortcuts
+[1.515s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/environment/ament_prefix_path.sh
+[1.520s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/environment/ament_prefix_path.dsv
+[1.525s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/environment/path.sh
+[1.529s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/environment/path.dsv
+[1.547s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/local_setup.bash
+[1.557s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/local_setup.sh
+[1.564s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/local_setup.zsh
+[1.568s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/local_setup.dsv
+[1.568s] -- Symlinking: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/package.dsv
+[1.607s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/ament_index/resource_index/packages/rosparam_shortcuts
+[1.617s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/cmake/ament_cmake_export_targets-extras.cmake
+[1.622s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.636s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/cmake/rosparam_shortcutsConfig.cmake
+[1.643s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/cmake/rosparam_shortcutsConfig-version.cmake
+[1.643s] -- Up-to-date symlink: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/package.xml
+[1.647s] -- Up-to-date: /home/a/ws_moveit2/install/rosparam_shortcuts/lib/librosparam_shortcuts.so
+[1.674s] -- Up-to-date: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/cmake/export_rosparam_shortcutsExport.cmake
+[1.687s] -- Up-to-date: /home/a/ws_moveit2/install/rosparam_shortcuts/share/rosparam_shortcuts/cmake/export_rosparam_shortcutsExport-debug.cmake
+[1.707s] Invoked command in '/home/a/ws_moveit2/build/rosparam_shortcuts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --install /home/a/ws_moveit2/build/rosparam_shortcuts

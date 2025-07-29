@@ -1,0 +1,77 @@
+# ros2_controllers.yaml
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz (コントローラーの更新レート)
+
+    # ジョイントの状態をrosトピックに公開するコントローラー
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # ロボットの関節を制御するためのコントローラー
+    # MoveItでロボットを動かすためにはこれが必須です
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      command_interfaces:
+        - position # 位置制御を使用する場合
+        # - velocity # 速度制御も使う場合
+        # - effort   # 力制御も使う場合
+      state_interfaces:
+        - position
+        - velocity
+        # - effort
+
+      # ここに、制御したいすべてのジョイントの名前をリストアップします。
+      # URDFの<joint name="...">と完全に一致させる必要があります。
+      joints:
+        - Revolute 1
+        - Revolute 2
+        - Revolute 3
+        - Revolute 4
+        - Revolute 5
+        - Revolute 6
+        - Slider 1
+        - Slider 2
+
+      # 拘束 (tolerances) - 必要に応じて調整
+      state_tolerance:
+        Revolute 1: 0.01
+        Revolute 2: 0.01
+        Revolute 3: 0.01
+        Revolute 4: 0.01
+        Revolute 5: 0.01
+        Revolute 6: 0.01
+        Slider 1: 0.001
+        Slider 2: 0.001
+      goal_tolerance:
+        Revolute 1: 0.01
+        Revolute 2: 0.01
+        Revolute 3: 0.01
+        Revolute 4: 0.01
+        Revolute 5: 0.01
+        Revolute 6: 0.01
+        Slider 1: 0.001
+        Slider 2: 0.001
+      stop_tolerance:
+        Revolute 1: 0.005
+        Revolute 2: 0.005
+        Revolute 3: 0.005
+        Revolute 4: 0.005
+        Revolute 5: 0.005
+        Revolute 6: 0.005
+        Slider 1: 0.0005
+        Slider 2: 0.0005
+
+      # ロボットのコントローラーの制御周期 (publish_rate)
+      # これがcontroller_managerのupdate_rate以下であることを確認してください。
+      # このpublish_rateは、controller_managerがジョイントの状態をどれくらいの頻度で公開するかを決定します。
+      # ほとんどの場合、controller_managerのupdate_rateと同じで問題ありません。
+      publish_rate: 100 # Hz
+
+# コントローラーマネージャーで起動するコントローラー
+# spawnerノードがこれらのコントローラーを自動的に起動します
+joint_state_broadcaster:
+  ros__parameters:
+    # このセクションは通常、空か、最小限のパラメータを持ちます。
+    # 上のcontroller_managerセクションでタイプが定義されているため、
+    # ここでは追加の特別な設定が必要な場合のみ使用します。
+    # 多くの場合は必要ありません。

@@ -1,0 +1,7 @@
+[01m[K/home/a/ws_moveit2/src/mtc_tutorial/src/mtc_tutorial.cpp:2:10:[m[K [01;31m[Kfatal error: [m[Kmoveit/planning_scene/planning_scene.h: そのようなファイルやディレクトリはありません
+    2 | #include [01;31m[K<moveit/planning_scene/planning_scene.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mtc_tutorial.dir/build.make:76: CMakeFiles/mtc_tutorial.dir/src/mtc_tutorial.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/mtc_tutorial.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

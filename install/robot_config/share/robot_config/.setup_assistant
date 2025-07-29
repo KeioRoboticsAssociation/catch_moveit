@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: 0525_arm_description
+    relative_path: urdf/0525_arm.urdf
+  srdf:
+    relative_path: config/0525_arm.srdf
+  package_settings:
+    author_name: a
+    author_email: kiratosakata@keio.jp
+    generated_timestamp: 1751895822
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

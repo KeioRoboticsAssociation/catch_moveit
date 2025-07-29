@@ -1,0 +1,43 @@
+[0.101s] Invoking command in '/home/a/ws_moveit2/build/0525_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/0525_arm_description -- -j4 -l4
+[0.198s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.436s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[1.957s] WARNING: Package name "0525_arm_description" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+[2.003s] -- Configuring done (1.8s)
+[2.017s] -- Generating done (0.0s)
+[2.028s] -- Build files have been written to: /home/a/ws_moveit2/build/0525_arm_description
+[2.091s] Invoked command in '/home/a/ws_moveit2/build/0525_arm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/0525_arm_description -- -j4 -l4
+[2.111s] Invoking command in '/home/a/ws_moveit2/build/0525_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --install /home/a/ws_moveit2/build/0525_arm_description
+[2.125s] -- Install configuration: ""
+[2.125s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes
+[2.126s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/link1_1.stl
+[2.126s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/link3_1.stl
+[2.126s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/base_link.stl
+[2.127s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/left_finger_1.stl
+[2.128s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/link6_1.stl
+[2.128s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/link4_1.stl
+[2.129s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/EndEffector_1.stl
+[2.130s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/right_finger_1.stl
+[2.130s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/link5_1.stl
+[2.131s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/meshes/link2_1.stl
+[2.132s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/urdf
+[2.132s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/urdf/0525_arm.trans
+[2.132s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/urdf/0525_arm.urdf
+[2.133s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/urdf/materials.urdf
+[2.133s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/launch
+[2.133s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/launch/robot_description.launch.py
+[2.137s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/ament_index/resource_index/package_run_dependencies/0525_arm_description
+[2.138s] -- Installing: /home/a/ws_moveit2/install/0525_arm_description/share/ament_index/resource_index/parent_prefix_path/0525_arm_description
+[2.139s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/environment/ament_prefix_path.sh
+[2.139s] -- Installing: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/environment/ament_prefix_path.dsv
+[2.140s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/environment/path.sh
+[2.141s] -- Installing: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/environment/path.dsv
+[2.142s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/local_setup.bash
+[2.143s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/local_setup.sh
+[2.143s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/local_setup.zsh
+[2.144s] -- Installing: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/local_setup.dsv
+[2.145s] -- Installing: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/package.dsv
+[2.146s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/ament_index/resource_index/packages/0525_arm_description
+[2.148s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/cmake/0525_arm_descriptionConfig.cmake
+[2.148s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/cmake/0525_arm_descriptionConfig-version.cmake
+[2.149s] -- Up-to-date: /home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/package.xml
+[2.154s] Invoked command in '/home/a/ws_moveit2/build/0525_arm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --install /home/a/ws_moveit2/build/0525_arm_description

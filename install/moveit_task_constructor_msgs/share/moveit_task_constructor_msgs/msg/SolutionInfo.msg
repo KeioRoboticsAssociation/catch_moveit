@@ -1,0 +1,1 @@
+/home/a/ws_moveit2/src/moveit_task_constructor/msgs/msg/SolutionInfo.msg

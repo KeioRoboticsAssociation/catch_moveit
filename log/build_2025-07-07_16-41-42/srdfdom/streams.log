@@ -1,0 +1,38 @@
+[0.281s] Invoking command in '/home/a/ws_moveit2/build/srdfdom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake /home/a/ws_moveit2/src/srdfdom -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/srdfdom
+[0.601s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.487s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[3.592s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[4.148s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[4.722s] -- Found ament_cmake_gtest: 1.3.11 (/opt/ros/humble/share/ament_cmake_gtest/cmake)
+[4.728s] -- Found ament_cmake_pytest: 1.3.11 (/opt/ros/humble/share/ament_cmake_pytest/cmake)
+[8.458s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[8.568s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[8.794s] -- Configuring done (8.5s)
+[9.171s] -- Generating done (0.3s)
+[9.240s] -- Build files have been written to: /home/a/ws_moveit2/build/srdfdom
+[9.292s] Invoked command in '/home/a/ws_moveit2/build/srdfdom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake /home/a/ws_moveit2/src/srdfdom -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/srdfdom
+[9.301s] Invoking command in '/home/a/ws_moveit2/build/srdfdom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/srdfdom -- -j4 -l4
+[9.768s] [  0%] Built target ament_cmake_python_symlink_srdfdom
+[9.861s] [  9%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[9.900s] [ 18%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[10.127s] [ 27%] [32mBuilding CXX object CMakeFiles/srdfdom.dir/src/model.cpp.o[0m
+[15.756s] running egg_info
+[15.775s] writing srdfdom.egg-info/PKG-INFO
+[15.782s] writing dependency_links to srdfdom.egg-info/dependency_links.txt
+[15.803s] writing top-level names to srdfdom.egg-info/top_level.txt
+[15.857s] reading manifest file 'srdfdom.egg-info/SOURCES.txt'
+[15.870s] writing manifest file 'srdfdom.egg-info/SOURCES.txt'
+[16.441s] [ 27%] Built target ament_cmake_python_build_srdfdom_egg
+[16.530s] [ 36%] [32mBuilding CXX object CMakeFiles/srdfdom.dir/src/srdf_writer.cpp.o[0m
+[40.709s] [ 45%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[41.547s] [ 45%] Built target gtest_main
+[57.822s] [ 54%] [32m[1mLinking CXX shared library libsrdfdom.so[0m
+[59.301s] [ 54%] Built target srdfdom
+[67.577s] [ 63%] [32m[1mLinking CXX static library libgtest.a[0m
+[67.980s] [ 63%] Built target gtest
+[68.132s] [ 72%] [32mBuilding CXX object CMakeFiles/test_cpp_C.dir/test/test_parser.cpp.o[0m
+[84.440s] [ 81%] [32m[1mLinking CXX executable test_cpp_C[0m
+[86.309s] [ 81%] Built target test_cpp_C
+[86.471s] [ 90%] [32mBuilding CXX object CMakeFiles/test_cpp_nl_NL.UTF-8.dir/test/test_parser.cpp.o[0m
+[110.264s] [100%] [32m[1mLinking CXX executable test_cpp_nl_NL.UTF-8[0m
+[111.648s] [100%] Built target test_cpp_nl_NL.UTF-8

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="0525_arm">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml"/>
+    <xacro:arg name="use_fake_hardware" default="false"/>
+
+    <xacro:include filename="$(find 0525_arm_description)/urdf/0525_arm.urdf"/>
+
+    <xacro:include filename="0525_arm.ros2_control.xacro"/>
+
+    <xacro:arm_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)" use_fake_hardware="$(arg use_fake_hardware)"/>
+
+    <xacro:macro name="transmission_block" params="joint_name">
+        <transmission name="${joint_name}_transmission">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <xacro:transmission_block joint_name="Revolute 1"/>
+    <xacro:transmission_block joint_name="Revolute 2"/>
+    <xacro:transmission_block joint_name="Revolute 3"/>
+    <xacro:transmission_block joint_name="Revolute 4"/>
+    <xacro:transmission_block joint_name="Revolute 5"/>
+    <xacro:transmission_block joint_name="Revolute 6"/>
+    <xacro:transmission_block joint_name="Slider 1"/>
+    <xacro:transmission_block joint_name="Slider 2"/>
+</robot>

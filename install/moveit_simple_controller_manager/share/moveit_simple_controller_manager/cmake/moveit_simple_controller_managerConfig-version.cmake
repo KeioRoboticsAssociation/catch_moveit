@@ -1,0 +1,1 @@
+/home/a/ws_moveit2/build/moveit_simple_controller_manager/ament_cmake_core/moveit_simple_controller_managerConfig-version.cmake

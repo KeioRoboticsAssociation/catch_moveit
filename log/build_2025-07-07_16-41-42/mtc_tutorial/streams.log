@@ -1,0 +1,39 @@
+[0.409s] Invoking command in '/home/a/ws_moveit2/build/mtc_tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake /home/a/ws_moveit2/src/mtc_tutorial -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/mtc_tutorial
+[4.452s] -- The C compiler identification is GNU 11.4.0
+[7.204s] -- The CXX compiler identification is GNU 11.4.0
+[7.424s] -- Detecting C compiler ABI info
+[8.764s] -- Detecting C compiler ABI info - done
+[8.948s] -- Check for working C compiler: /usr/bin/cc - skipped
+[8.953s] -- Detecting C compile features
+[8.958s] -- Detecting C compile features - done
+[9.241s] -- Detecting CXX compiler ABI info
+[13.453s] -- Detecting CXX compiler ABI info - done
+[13.620s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[13.630s] -- Detecting CXX compile features
+[13.647s] -- Detecting CXX compile features - done
+[13.792s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[18.236s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[20.686s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[22.390s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[22.401s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/a/ws_moveit2/src/mtc_tutorial/include>
+[22.401s] -- Configured cppcheck exclude dirs and/or files: 
+[22.432s] -- Added test 'flake8' to check Python code syntax and style conventions
+[22.470s] -- Added test 'lint_cmake' to check CMake code style
+[22.506s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[22.531s] -- Added test 'uncrustify' to check C / C++ code style
+[22.535s] -- Configured uncrustify additional arguments: 
+[22.568s] -- Added test 'xmllint' to check XML markup files
+[22.614s] -- Configuring done (22.1s)
+[22.644s] -- Generating done (0.0s)
+[22.658s] -- Build files have been written to: /home/a/ws_moveit2/build/mtc_tutorial
+[22.715s] Invoked command in '/home/a/ws_moveit2/build/mtc_tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake /home/a/ws_moveit2/src/mtc_tutorial -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/mtc_tutorial
+[22.723s] Invoking command in '/home/a/ws_moveit2/build/mtc_tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/mtc_tutorial -- -j4 -l4
+[23.164s] [ 50%] [32mBuilding CXX object CMakeFiles/mtc_tutorial.dir/src/mtc_tutorial.cpp.o[0m
+[23.305s] [01m[K/home/a/ws_moveit2/src/mtc_tutorial/src/mtc_tutorial.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Krclcpp/rclcpp.hpp: そのようなファイルやディレクトリはありません
+[23.305s]     1 | #include [01;31m[K<rclcpp/rclcpp.hpp>[m[K
+[23.306s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[23.306s] compilation terminated.
+[23.323s] gmake[2]: *** [CMakeFiles/mtc_tutorial.dir/build.make:76: CMakeFiles/mtc_tutorial.dir/src/mtc_tutorial.cpp.o] エラー 1
+[23.323s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/mtc_tutorial.dir/all] エラー 2
+[23.324s] gmake: *** [Makefile:146: all] エラー 2
+[23.347s] Invoked command in '/home/a/ws_moveit2/build/mtc_tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/mtc_tutorial -- -j4 -l4

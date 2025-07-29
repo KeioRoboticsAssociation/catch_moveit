@@ -1,0 +1,1 @@
+/home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h
