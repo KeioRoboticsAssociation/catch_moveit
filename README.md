@@ -1,5 +1,5 @@
 # これはrvizにキャチアームを表示して動作計画を体験できるものです
-moveitの環境構築ができたら0525_arm_description-20250707T055749Z-1-001とrobot_configをクローンして、
+moveitの環境構築ができたらsrc下にある0525_arm_description-20250707T055749Z-1-001とrobot_configをクローンして、
 
 ```
 cd your_workspace_name
