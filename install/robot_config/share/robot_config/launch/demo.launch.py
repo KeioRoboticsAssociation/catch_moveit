@@ -38,7 +38,9 @@ def generate_launch_description():
             file_path="config/0525_arm.urdf.xacro",
             mappings={
                 "use_fake_hardware": "true",
-                # initial_positions.yaml の内容を直接ここに記述
+                "initial_positions_file": PathJoinSubstitution(
+                    [FindPackageShare("robot_config"), "config", "initial_positions.yaml"]
+                ),
             },
         )
         .to_moveit_configs()

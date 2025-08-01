@@ -3,7 +3,7 @@ moveitの環境構築ができたらsrc下にある0525_arm_description-20250707
 
 ```
 cd your_workspace_name
-colcon build --packages-select 0525_arm_description-20250707T055749Z-1-001 robot_config
+colcon build --packages-select 0525_arm_description robot_config
 source install/setup.bash
 ros2 launch robot_config demo.launch.py
 ```
