@@ -1,0 +1,84 @@
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:247:21:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_msgs[m[K’ was not declared in this scope
+  247 |   rclcpp::Publisher<[01;31m[Ktrajectory_msgs[m[K::msg::JointTrajectory>::SharedPtr hand_cmd_pub_;
+      |                     [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:247:58:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  247 |   rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory[01;31m[K>[m[K::SharedPtr hand_cmd_pub_;
+      |                                                          [01;31m[K^[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:247:61:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+  247 |   rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::[01;31m[KSharedPtr[m[K hand_cmd_pub_;
+      |                                                             [01;31m[K^~~~~~~~~[m[K
+      |                                                                      [32m[K;[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:247:71:[m[K [01;31m[Kerror: [m[K‘[01m[Khand_cmd_pub_[m[K’ does not name a type
+  247 |   rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr [01;31m[Khand_cmd_pub_[m[K;
+      |                                                                       [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:[m[K In constructor ‘[01m[Kmoveit_servo::JoyToServoPub::JoyToServoPub(const rclcpp::NodeOptions&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:166:5:[m[K [01;31m[Kerror: [m[K‘[01m[Khand_cmd_pub_[m[K’ was not declared in this scope
+  166 |     [01;31m[Khand_cmd_pub_[m[K = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(HAND_TRAJECTORY_TOPIC, rclcpp::SystemDefaultsQoS());
+      |     [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:166:44:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_msgs[m[K’ was not declared in this scope
+  166 |     hand_cmd_pub_ = this->create_publisher<[01;31m[Ktrajectory_msgs[m[K::msg::JointTrajectory>(HAND_TRAJECTORY_TOPIC, rclcpp::SystemDefaultsQoS());
+      |                                            [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:166:27:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+  166 |     hand_cmd_pub_ = this->[01;31m[Kcreate_publisher<trajectory_msgs::msg::JointTrajectory>[m[K(HAND_TRAJECTORY_TOPIC, rclcpp::SystemDefaultsQoS());
+      |                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:166:83:[m[K [01;31m[Kerror: [m[K‘[01m[KHAND_TRAJECTORY_TOPIC[m[K’ was not declared in this scope
+  166 |     hand_cmd_pub_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>([01;31m[KHAND_TRAJECTORY_TOPIC[m[K, rclcpp::SystemDefaultsQoS());
+      |                                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:[m[K In member function ‘[01m[Kvoid moveit_servo::JoyToServoPub::publishHandCommand(bool)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:221:36:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_msgs[m[K’ was not declared in this scope
+  221 |   auto traj_msg = std::make_unique<[01;31m[Ktrajectory_msgs[m[K::msg::JointTrajectory>();
+      |                                    [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:221:24:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+  221 |   auto traj_msg = std::[01;31m[Kmake_unique<trajectory_msgs::msg::JointTrajectory>[m[K();
+      |                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:221:74:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmake_unique<<expression error> >()[m[K’
+  221 |   auto traj_msg = [01;31m[Kstd::make_unique<trajectory_msgs::msg::JointTrajectory>()[m[K;
+      |                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/usr/include/c++/11/memory:76[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:41[m[K:
+[01m[K/usr/include/c++/11/bits/unique_ptr.h:961:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class ... _Args> typename std::_MakeUniq<_Tp>::__single_object std::make_unique(_Args&& ...)[m[K’
+  961 |     [01;36m[Kmake_unique[m[K(_Args&&... __args)
+      |     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/unique_ptr.h:961:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:221:74:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  221 |   auto traj_msg = [01;31m[Kstd::make_unique<trajectory_msgs::msg::JointTrajectory>()[m[K;
+      |                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/usr/include/c++/11/memory:76[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:41[m[K:
+[01m[K/usr/include/c++/11/bits/unique_ptr.h:967:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> typename std::_MakeUniq<_Tp>::__array std::make_unique(std::size_t)[m[K’
+  967 |     [01;36m[Kmake_unique[m[K(size_t __num)
+      |     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/unique_ptr.h:967:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:221:74:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  221 |   auto traj_msg = [01;31m[Kstd::make_unique<trajectory_msgs::msg::JointTrajectory>()[m[K;
+      |                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/usr/include/c++/11/memory:76[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:41[m[K:
+[01m[K/usr/include/c++/11/bits/unique_ptr.h:973:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class ... _Args> typename std::_MakeUniq<_Tp>::__invalid_type std::make_unique(_Args&& ...)[m[K’ (deleted)
+  973 |     [01;36m[Kmake_unique[m[K(_Args&&...) = delete;
+      |     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/unique_ptr.h:973:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:221:74:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  221 |   auto traj_msg = [01;31m[Kstd::make_unique<trajectory_msgs::msg::JointTrajectory>()[m[K;
+      |                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:226:3:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_msgs[m[K’ is not a class, namespace, or enumeration
+  226 |   [01;31m[Ktrajectory_msgs[m[K::msg::JointTrajectoryPoint point;
+      |   [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:231:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpoint[m[K’ was not declared in this scope
+  231 |     [01;31m[Kpoint[m[K.positions = {0.5}; // 開いた状態の角度
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:237:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpoint[m[K’ was not declared in this scope
+  237 |     [01;31m[Kpoint[m[K.positions = {0.0}; // 閉じた状態の角度
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:239:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kpoint[m[K’ was not declared in this scope
+  239 |   [01;31m[Kpoint[m[K.time_from_start = rclcpp::Duration::from_seconds(0.5);
+      |   [01;31m[K^~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:242:3:[m[K [01;31m[Kerror: [m[K‘[01m[Khand_cmd_pub_[m[K’ was not declared in this scope
+  242 |   [01;31m[Khand_cmd_pub_[m[K->publish(std::move(traj_msg));
+      |   [01;31m[K^~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/joystick_servo.dir/build.make:76: CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/joystick_servo.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

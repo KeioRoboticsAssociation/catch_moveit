@@ -53,11 +53,13 @@
 #include <rclcpp/time.hpp>
 #include <rclcpp/utilities.hpp>
 #include <thread>
-
+#include <trajectory_msgs/msg/joint_trajectory.hpp>
+#include <trajectory_msgs/msg/joint_trajectory_point.hpp>
 // We'll just set up parameters here
 const std::string JOY_TOPIC = "/joy";
 const std::string TWIST_TOPIC = "/servo_node/delta_twist_cmds";
 const std::string JOINT_TOPIC = "/servo_node/delta_joint_cmds";
+const std::string HAND_TRAJECTORY_TOPIC = "/hand_controller/joint_trajectory";
 const std::string EEF_FRAME_ID = "EndEffector_1";
 const std::string BASE_FRAME_ID = "base_link";
 
@@ -109,24 +111,17 @@ bool convertJoyToCmd(const std::vector<float>& axes, const std::vector<int>& but
 {
   // Give joint jogging priority because it is only buttons
   // If any joint jog command is requested, we are only publishing joint commands
-  if (buttons[A] || buttons[B] || buttons[X] || buttons[Y] || axes[D_PAD_X] || axes[D_PAD_Y])
-  {
-    // Map the D_PAD to the proximal joints
-    joint->joint_names.push_back("Revolute_1");
-    joint->velocities.push_back(axes[D_PAD_X]);
-    joint->joint_names.push_back("Revolute_2");
-    joint->velocities.push_back(axes[D_PAD_Y]);
-
-    // Map the diamond to the distal joints
-    joint->joint_names.push_back("Revolute_6");
-    joint->velocities.push_back(buttons[B] - buttons[X]);
-    joint->joint_names.push_back("Revolute_5");
-    joint->velocities.push_back(buttons[Y] - buttons[A]);
-    return false;
-  }
+  // if (axes[D_PAD_Y] != 0.0)
+  // {
+  //   joint->joint_names.push_back("Slider_1");
+  //   joint->velocities.push_back(axes[D_PAD_Y] > 0 ? axes[D_PAD_Y] : 0.0); // D_PAD_Y up for Slider_1 (closes gripper)
+  //   joint->joint_names.push_back("Slider_2");
+  //   joint->velocities.push_back(axes[D_PAD_Y] < 0 ? axes[D_PAD_Y] : 0.0); // D_PAD_Y down for Slider_2 (opens gripper)
+  //   return false;
+  // }
 
   // The bread and butter: map buttons to twist commands
-  twist->twist.linear.z = axes[RIGHT_STICK_Y];
+  twist->twist.linear.z = axes[RIGHT_STICK_Y]; 
   twist->twist.linear.y = axes[RIGHT_STICK_X];
 
   double lin_x_right = -0.5 * (axes[RIGHT_TRIGGER] - AXIS_DEFAULTS.at(RIGHT_TRIGGER));
@@ -136,8 +131,8 @@ bool convertJoyToCmd(const std::vector<float>& axes, const std::vector<int>& but
   twist->twist.angular.y = axes[LEFT_STICK_Y];
   twist->twist.angular.x = axes[LEFT_STICK_X];
 
-  double roll_positive = buttons[RIGHT_BUMPER];
-  double roll_negative = -1 * (buttons[LEFT_BUMPER]);
+  double roll_positive = -1 * (buttons[RIGHT_BUMPER]);
+  double roll_negative = buttons[LEFT_BUMPER];
   twist->twist.angular.z = roll_positive + roll_negative;
 
   return true;
@@ -170,6 +165,7 @@ public:
 
     twist_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>(TWIST_TOPIC, rclcpp::SystemDefaultsQoS());
     joint_pub_ = this->create_publisher<control_msgs::msg::JointJog>(JOINT_TOPIC, rclcpp::SystemDefaultsQoS());
+    hand_cmd_pub_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(HAND_TRAJECTORY_TOPIC, rclcpp::SystemDefaultsQoS());
 
     // Create a service client to start the ServoNode
     servo_start_client_ = this->create_client<std_srvs::srv::Trigger>("/servo_node/start_servo");
@@ -184,6 +180,18 @@ public:
   void joyCB(const sensor_msgs::msg::Joy::ConstSharedPtr& msg)
   {
     // Create the messages we might publish
+    // ▼▼▼ ハンド制御のロジックをここに追加 ▼▼▼
+    // Bボタンで開く、Aボタンで閉じる
+    if (msg->buttons[B] == 1 && last_b_button_state_ == 0)
+    {
+      publishHandCommand(true); // 開く
+    }
+    else if (msg->buttons[A] == 1 && last_a_button_state_ == 0)
+    {
+      publishHandCommand(false); // 閉じる
+    }
+    last_a_button_state_ = msg->buttons[A];
+    last_b_button_state_ = msg->buttons[B];
     auto twist_msg = std::make_unique<geometry_msgs::msg::TwistStamped>();
     auto joint_msg = std::make_unique<control_msgs::msg::JointJog>();
 
@@ -210,9 +218,37 @@ public:
   }
 
 private:
+  void publishHandCommand(bool open)
+  {
+    auto traj_msg = std::make_unique<trajectory_msgs::msg::JointTrajectory>();
+    
+    // ▼▼▼ 制御する関節を Slider_1 のみに減らす ▼▼▼
+    traj_msg->joint_names = {"Slider_1"};
+
+    trajectory_msgs::msg::JointTrajectoryPoint point;
+    if (open)
+    {
+      RCLCPP_INFO(this->get_logger(), "Opening hand...");
+      // ▼▼▼ Slider_1 の目標角度だけを指定 ▼▼▼
+      point.positions = {0.024}; // 開いた状態の角度
+    }
+    else
+    {
+      RCLCPP_INFO(this->get_logger(), "Closing hand...");
+      // ▼▼▼ Slider_1 の目標角度だけを指定 ▼▼▼
+      point.positions = {0.0}; // 閉じた状態の角度
+    }
+    point.time_from_start = rclcpp::Duration::from_seconds(0.5);
+
+    traj_msg->points.push_back(point);
+    hand_cmd_pub_->publish(std::move(traj_msg));
+  }
   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
   rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr twist_pub_;
   rclcpp::Publisher<control_msgs::msg::JointJog>::SharedPtr joint_pub_;
+  rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr hand_cmd_pub_;
+  int last_a_button_state_ = 0;
+  int last_b_button_state_ = 0;
   rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr servo_start_client_;
 
   std::string frame_to_publish_;
