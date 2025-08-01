@@ -8,42 +8,42 @@ default_acceleration_scaling_factor: 0.1
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
-  Revolute 1:
+  Revolute_1:
     has_velocity_limits: false
     max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
-  Revolute 2:
+  Revolute_2:
     has_velocity_limits: false
     max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
-  Revolute 3:
+  Revolute_3:
     has_velocity_limits: false
     max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
-  Revolute 4:
+  Revolute_4:
     has_velocity_limits: false
     max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
-  Revolute 5:
+  Revolute_5:
     has_velocity_limits: false
     max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
-  Revolute 6:
+  Revolute_6:
     has_velocity_limits: false
     max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
-  Slider 1:
+  Slider_1:
     has_velocity_limits: true
     max_velocity: 100.0
     has_acceleration_limits: false
     max_acceleration: 0
-  Slider 2:
+  Slider_2:
     has_velocity_limits: true
     max_velocity: 100.0
     has_acceleration_limits: false

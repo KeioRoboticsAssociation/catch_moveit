@@ -82,7 +82,7 @@ struct ServoParameters
   std::string joint_topic{ "/joint_states" };
   std::string smoothing_filter_plugin_name{ "online_signal_smoothing::ButterworthFilterPlugin" };
   // MoveIt properties
-  std::string move_group_name{ "panda_arm" };
+  std::string move_group_name{ "0525_arm" };
   std::string planning_frame{ "panda_link0" };
   std::string ee_frame_name{ "panda_link8" };
   bool is_primary_planning_scene_monitor = { true };

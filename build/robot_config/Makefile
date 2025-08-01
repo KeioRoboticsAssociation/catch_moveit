@@ -197,6 +197,43 @@ robot_config_uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_config_uninstall.dir/build.make CMakeFiles/robot_config_uninstall.dir/build
 .PHONY : robot_config_uninstall/fast
 
+#=============================================================================
+# Target rules for targets named joystick_servo
+
+# Build rule for target.
+joystick_servo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 joystick_servo
+.PHONY : joystick_servo
+
+# fast build rule for target.
+joystick_servo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joystick_servo.dir/build.make CMakeFiles/joystick_servo.dir/build
+.PHONY : joystick_servo/fast
+
+src/joystick_servo.o: src/joystick_servo.cpp.o
+.PHONY : src/joystick_servo.o
+
+# target to build an object file
+src/joystick_servo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joystick_servo.dir/build.make CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.o
+.PHONY : src/joystick_servo.cpp.o
+
+src/joystick_servo.i: src/joystick_servo.cpp.i
+.PHONY : src/joystick_servo.i
+
+# target to preprocess a source file
+src/joystick_servo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joystick_servo.dir/build.make CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.i
+.PHONY : src/joystick_servo.cpp.i
+
+src/joystick_servo.s: src/joystick_servo.cpp.s
+.PHONY : src/joystick_servo.s
+
+# target to generate assembly for a file
+src/joystick_servo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joystick_servo.dir/build.make CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.s
+.PHONY : src/joystick_servo.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +249,10 @@ help:
 	@echo "... test"
 	@echo "... robot_config_uninstall"
 	@echo "... uninstall"
+	@echo "... joystick_servo"
+	@echo "... src/joystick_servo.o"
+	@echo "... src/joystick_servo.i"
+	@echo "... src/joystick_servo.s"
 .PHONY : help
 
 

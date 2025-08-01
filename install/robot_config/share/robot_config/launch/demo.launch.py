@@ -38,6 +38,7 @@ def generate_launch_description():
             file_path="config/0525_arm.urdf.xacro",
             mappings={
                 "use_fake_hardware": "true",
+                # initial_positions.yaml の内容を直接ここに記述
             },
         )
         .to_moveit_configs()
@@ -105,6 +106,12 @@ def generate_launch_description():
         parameters=[
             moveit_config.to_dict(),
             {"use_sim_time": use_sim_time},
+            # Disable OctoMap updates
+            {"planning_scene_monitor_options.publish_planning_scene": True},
+            {"planning_scene_monitor_options.publish_geometry_updates": True},
+            {"planning_scene_monitor_options.publish_state_updates": True},
+            {"planning_scene_monitor_options.publish_transforms_updates": True},
+            {"planning_scene_monitor_options.octomap_resolution": 0.0},
         ],
         arguments=["--ros-log-level", "info"],
     )
@@ -134,6 +141,71 @@ def generate_launch_description():
         arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
     )
 
+    # Servo node for realtime control
+    servo_node = Node(
+        package="moveit_servo",
+        executable="servo_node_main",
+        parameters=[
+            moveit_config.robot_description,
+            moveit_config.robot_description_semantic,
+            moveit_config.robot_description_kinematics,
+            {"use_sim_time": use_sim_time},
+            {
+                "moveit_servo": {
+                    "use_gazebo": False,
+                    "command_in_type": "speed_units",
+                    "scale": {
+                        "linear": 0.003,
+                        "rotational": 0.006,
+                        "joint": 0.01,
+                    },
+                    "low_latency_mode": False,
+                    "publish_period": 0.01,
+                    "command_out_type": "trajectory_msgs/JointTrajectory",
+                    "publish_joint_positions": True,
+                    "publish_joint_velocities": False,
+                    "publish_joint_accelerations": False,
+                    "smoothing_filter_plugin_name": "online_signal_smoothing::ButterworthFilterPlugin",
+                    "move_group_name": "arm",
+                    "planning_frame": "base_link",
+                    "ee_frame_name": "EndEffector_1",
+                    "robot_link_command_frame": "base_link",
+                    "incoming_command_timeout": 1.0,
+                    "num_outgoing_halt_msgs_to_publish": 1,
+                    "lower_singularity_threshold": 30.0,
+                    "hard_stop_singularity_threshold": 90.0,
+                    "joint_limit_margin": 0.1,
+                    "cartesian_command_in_topic": "servo_node/delta_twist_cmds",
+                    "joint_command_in_topic": "servo_node/delta_joint_cmds",
+                    "joint_topic": "joint_states",
+                    "status_topic": "servo_node/status",
+                    "command_out_topic": "/arm_controller/joint_trajectory",
+                    "check_collisions": True,
+                    "collision_check_rate": 5.0,
+                    "self_collision_proximity_threshold": 0.01,
+                    "scene_collision_proximity_threshold": 0.03,
+                }
+            },
+        ],
+        output="screen",
+    )
+
+    # Joy node for controller input
+    joy_node = Node(
+        package="joy",
+        executable="joy_node",
+        name="joy_node",
+        output="screen",
+    )
+
+    # Your teleop node
+    teleop_node = Node(
+        package="robot_config",
+        executable="joystick_servo",
+        name="joystick_servo",
+        output="screen",
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -144,5 +216,8 @@ def generate_launch_description():
             # ros2_control_node と イベントハンドラを起動リストに追加
             ros2_control_node,
             delay_spawn_controllers,
+            servo_node,
+            joy_node,
+            teleop_node,
         ]
     )

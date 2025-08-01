@@ -12,16 +12,16 @@ moveit_simple_controller_manager:
     action_ns: follow_joint_trajectory
     default: true
     joints:
-      - Revolute 1
-      - Revolute 2
-      - Revolute 3
-      - Revolute 4
-      - Revolute 5
-      - Revolute 6
+      - Revolute_1
+      - Revolute_2
+      - Revolute_3
+      - Revolute_4
+      - Revolute_5
+      - Revolute_6
   hand_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     default: true
     joints:
-      - Slider 1
-      - Slider 2
+      - Slider_1
+      - Slider_2

@@ -11,82 +11,82 @@
     <color rgba="0.0 1.0 0.0 1.0"/>
   </material>
 
-  <transmission name="Revolute 1_tran">
+  <transmission name="Revolute_1_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Revolute 1">
+    <joint name="Revolute_1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Revolute 1_actr">
+    <actuator name="Revolute_1_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <transmission name="Revolute 2_tran">
+  <transmission name="Revolute_2_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Revolute 2">
+    <joint name="Revolute_2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Revolute 2_actr">
+    <actuator name="Revolute_2_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <transmission name="Revolute 3_tran">
+  <transmission name="Revolute_3_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Revolute 3">
+    <joint name="Revolute_3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Revolute 3_actr">
+    <actuator name="Revolute_3_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <transmission name="Revolute 4_tran">
+  <transmission name="Revolute_4_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Revolute 4">
+    <joint name="Revolute_4">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Revolute 4_actr">
+    <actuator name="Revolute_4_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <transmission name="Revolute 5_tran">
+  <transmission name="Revolute_5_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Revolute 5">
+    <joint name="Revolute_5">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Revolute 5_actr">
+    <actuator name="Revolute_5_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <transmission name="Revolute 6_tran">
+  <transmission name="Revolute_6_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Revolute 6">
+    <joint name="Revolute_6">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Revolute 6_actr">
+    <actuator name="Revolute_6_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <transmission name="Slider 1_tran">
+  <transmission name="Slider_1_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Slider 1">
+    <joint name="Slider_1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Slider 1_actr">
+    <actuator name="Slider_1_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <transmission name="Slider 2_tran">
+  <transmission name="Slider_2_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="Slider 2">
+    <joint name="Slider_2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="Slider 2_actr">
+    <actuator name="Slider_2_actr">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -297,102 +297,102 @@
     <hardware>
       <plugin>mock_components/GenericSystem</plugin>
     </hardware>
-    <joint name="Revolute 1">
+    <joint name="Revolute_1">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Revolute 2">
+    <joint name="Revolute_2">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Revolute 3">
+    <joint name="Revolute_3">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Revolute 4">
+    <joint name="Revolute_4">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Revolute 5">
+    <joint name="Revolute_5">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Revolute 6">
+    <joint name="Revolute_6">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Slider 1">
+    <joint name="Slider_1">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Slider 2">
+    <joint name="Slider_2">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
   </ros2_control>
 
-  <joint name="Revolute 1" type="continuous">
+  <joint name="Revolute_1" type="continuous">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0555"/>
     <parent link="base_link"/>
     <child link="link1_1"/>
     <axis xyz="-0.0 0.0 1.0"/>
   </joint>
-  <joint name="Revolute 2" type="continuous">
+  <joint name="Revolute_2" type="continuous">
     <origin rpy="0 0 0" xyz="-3.7e-05 0.024464 0.06805"/>
     <parent link="link1_1"/>
     <child link="link2_1"/>
     <axis xyz="-0.000898 1.0 -0.0"/>
   </joint>
-  <joint name="Revolute 3" type="continuous">
+  <joint name="Revolute_3" type="continuous">
     <origin rpy="0 0 0" xyz="0.034905 -0.060969 0.35175"/>
     <parent link="link2_1"/>
     <child link="link3_1"/>
     <axis xyz="0.000898 -1.0 -0.0"/>
   </joint>
-  <joint name="Revolute 4" type="continuous">
+  <joint name="Revolute_4" type="continuous">
     <origin rpy="0 0 0" xyz="0.325567 0.036793 -0.0001"/>
     <parent link="link3_1"/>
     <child link="link4_1"/>
     <axis xyz="1.0 0.000898 0.0"/>
   </joint>
-  <joint name="Revolute 5" type="continuous">
-    <origin rpy="0 0 0" xyz="0.078683 0.019071 0.0"/>
+  <joint name="Revolute_5" type="continuous">
+    <origin rpy="0 1.57 0" xyz="0.078683 0.019071 0.0"/>
     <parent link="link4_1"/>
     <child link="link5_1"/>
     <axis xyz="-0.000898 1.0 0.0"/>
   </joint>
-  <joint name="Revolute 6" type="continuous">
+  <joint name="Revolute_6" type="continuous">
     <origin rpy="0 0 0" xyz="0.064817 -0.018842 0.0"/>
     <parent link="link5_1"/>
     <child link="link6_1"/>
     <axis xyz="1.0 0.000898 0.0"/>
   </joint>
-  <joint name="Rigid 7" type="fixed">
+  <joint name="Rigid_7" type="fixed">
     <origin rpy="0 0 0" xyz="0.045 4e-05 -5e-05"/>
     <parent link="link6_1"/>
     <child link="EndEffector_1"/>
   </joint>
-  <joint name="Slider 1" type="prismatic">
+  <joint name="Slider_1" type="prismatic">
     <origin rpy="0 0 0" xyz="0.007999 3e-05 0.055"/>
     <parent link="EndEffector_1"/>
     <child link="right_finger_1"/>
     <axis xyz="0.0 0.0 -1.0"/>
     <limit effort="100" lower="0.0" upper="0.024" velocity="100"/>
   </joint>
-  <joint name="Slider 2" type="prismatic">
+  <joint name="Slider_2" type="prismatic">
     <origin rpy="0 0 0" xyz="0.008 -1.6e-05 -0.055"/>
     <parent link="EndEffector_1"/>
     <child link="left_finger_1"/>
     <axis xyz="0.0 0.0 -1.0"/>
     <limit effort="100" lower="-0.024" upper="0.0" velocity="100"/>
-    <mimic joint="Slider 1" multiplier="-1.0" offset="0.0"/>
+    <mimic joint="Slider_1" multiplier="-1.0" offset="0.0"/>
   </joint>
 </robot>

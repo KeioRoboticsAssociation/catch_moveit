@@ -27,6 +27,7 @@
 . "/home/a/ws_moveit2/install/moveit_ros_planning_interface/share/moveit_ros_planning_interface/package.sh"
 . "/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support/share/moveit_resources_prbt_pg70_support/package.sh"
 . "/home/a/ws_moveit2/install/moveit_ros_visualization/share/moveit_ros_visualization/package.sh"
+. "/home/a/ws_moveit2/install/moveit_servo/share/moveit_servo/package.sh"
 . "/home/a/ws_moveit2/install/moveit_setup_framework/share/moveit_setup_framework/package.sh"
 . "/home/a/ws_moveit2/install/pilz_industrial_motion_planner/share/pilz_industrial_motion_planner/package.sh"
 . "/home/a/ws_moveit2/install/moveit_planners/share/moveit_planners/package.sh"

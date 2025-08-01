@@ -35,6 +35,12 @@
   <depend>rviz2</depend>
   <depend>rviz_common</depend>
   <depend>rviz_default_plugins</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>moveit_servo</depend>
+  <depend>rclcpp</depend>
 
   <export>
       <build_type>ament_cmake</build_type>

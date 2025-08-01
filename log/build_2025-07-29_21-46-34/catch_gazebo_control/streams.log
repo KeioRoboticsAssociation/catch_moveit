@@ -1,0 +1,161 @@
+[0.061s] Invoking command in '/home/a/ws_moveit2/build/catch_gazebo_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake /home/a/ws_moveit2/src/catch_gazebo_control -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/catch_gazebo_control
+[1.420s] -- The C compiler identification is GNU 11.4.0
+[2.159s] -- The CXX compiler identification is GNU 11.4.0
+[2.291s] -- Detecting C compiler ABI info
+[2.792s] -- Detecting C compiler ABI info - done
+[2.870s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.883s] -- Detecting C compile features
+[2.896s] -- Detecting C compile features - done
+[2.997s] -- Detecting CXX compiler ABI info
+[3.532s] -- Detecting CXX compiler ABI info - done
+[3.577s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.579s] -- Detecting CXX compile features
+[3.582s] -- Detecting CXX compile features - done
+[3.639s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[4.244s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[5.015s] -- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[5.606s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[5.677s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[5.755s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[5.865s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.024s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.483s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[6.525s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[7.214s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[7.353s] -- Found FastRTPS: /opt/ros/humble/include  
+[7.557s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[7.654s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[8.138s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[8.140s] -- Found Threads: TRUE  
+[8.576s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[8.583s] -- Checking for module 'bullet>=2.82'
+[8.687s] --   Found bullet, version 3.05
+[9.785s] -- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") 
+[10.309s] -- Found assimp: /usr/include (found version "5.2.0") 
+[10.658s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[11.049s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[11.181s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[11.241s] -- Looking for ignition-math6 -- found version 6.15.1
+[11.291s] -- Searching for dependencies of ignition-math6
+[11.297s] -- Looking for OGRE...
+[11.300s] -- OGRE_PREFIX_WATCH changed.
+[11.324s] -- Checking for module 'OGRE'
+[11.464s] --   Found OGRE, version 1.9.0
+[11.775s] -- Found Ogre Ghadamon (1.9.0)
+[11.877s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[11.949s] -- Looking for OGRE_Paging...
+[12.047s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[12.048s] -- Looking for OGRE_Terrain...
+[12.160s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[12.161s] -- Looking for OGRE_Property...
+[12.266s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[12.266s] -- Looking for OGRE_RTShaderSystem...
+[12.365s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[12.366s] -- Looking for OGRE_Volume...
+[12.445s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[12.446s] -- Looking for OGRE_Overlay...
+[12.518s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[14.298s] -- Looking for ignition-math6 -- found version 6.15.1
+[14.356s] -- Looking for ignition-transport8 -- found version 8.2.1
+[14.359s] -- Searching for dependencies of ignition-transport8
+[14.466s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[14.520s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[14.542s] -- Checking for module 'libzmq >= 4'
+[14.645s] --   Found libzmq, version 4.3.4
+[14.906s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[14.957s] -- Checking for module 'uuid'
+[15.045s] --   Found uuid, version 2.37.2
+[15.242s] -- Found UUID: TRUE  
+[15.274s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[15.274s] -- Searching for dependencies of ignition-msgs5
+[15.359s] -- Looking for ignition-math6 -- found version 6.15.1
+[15.384s] -- Checking for module 'tinyxml2'
+[15.471s] --   Found tinyxml2, version 9.0.0
+[15.679s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[15.714s] -- Looking for ignition-common3 -- found version 3.14.0
+[15.714s] -- Searching for dependencies of ignition-common3
+[15.723s] -- Looking for dlfcn.h - found
+[15.730s] -- Looking for libdl - found
+[15.736s] -- Found DL: TRUE  
+[15.806s] -- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") 
+[15.812s] -- Searching for <ignition-common3> component [graphics]
+[15.848s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[15.849s] -- Searching for dependencies of ignition-common3-graphics
+[15.851s] -- Looking for ignition-math6 -- found version 6.15.1
+[15.878s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[15.880s] -- Searching for dependencies of ignition-fuel_tools4
+[16.373s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  
+[16.401s] [0mCMake Deprecation Warning at /usr/lib/x86_64-linux-gnu/cmake/jsoncpp/jsoncppConfig.cmake:2 (cmake_policy):
+[16.402s]   Compatibility with CMake < 3.5 will be removed from a future version of
+[16.402s]   CMake.
+[16.403s] 
+[16.403s]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+[16.406s]   CMake that the project does not need compatibility with older versions.
+[16.407s] Call Stack (most recent call first):
+[16.408s]   /usr/share/cmake/ignition-cmake2/cmake2/FindJSONCPP.cmake:34 (find_package)
+[16.408s]   /usr/lib/x86_64-linux-gnu/cmake/ignition-fuel_tools4/ignition-fuel_tools4-config.cmake:94 (find_package)
+[16.408s]   /usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake:251 (find_package)
+[16.409s]   /opt/ros/humble/share/gazebo_dev/cmake/gazebo_dev-extras.cmake:3 (find_package)
+[16.410s]   /opt/ros/humble/share/gazebo_dev/cmake/gazebo_devConfig.cmake:41 (include)
+[16.412s]   /opt/ros/humble/share/gazebo_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[16.412s]   /opt/ros/humble/share/gazebo_ros/cmake/gazebo_rosConfig.cmake:41 (include)
+[16.419s]   CMakeLists.txt:10 (find_package)
+[16.419s] 
+[16.420s] [0m
+[16.438s] -- Checking for module 'jsoncpp'
+[16.525s] --   Found jsoncpp, version 1.9.5
+[16.721s] -- Found JSONCPP: TRUE  
+[16.752s] -- Checking for module 'libzip'
+[16.834s] --   Found libzip, version 1.7.3
+[17.028s] -- Found ZIP: TRUE  
+[17.031s] -- Looking for ignition-common3 -- found version 3.14.0
+[17.035s] -- Looking for ignition-math6 -- found version 6.15.1
+[17.038s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[17.072s] -- Gazebo version: 11.10
+[17.073s] -- Checking for module 'tbb'
+[17.172s] --   Found tbb, version 2021.5.0
+[17.402s] -- Found gazebo_ros2_control: 0.4.10 (/opt/ros/humble/share/gazebo_ros2_control/cmake)
+[18.891s] -- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)
+[19.014s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[19.019s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[19.020s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[19.649s] -- Found ros2_control: 2.51.0 (/opt/ros/humble/share/ros2_control/cmake)
+[19.676s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[20.103s] -- Added test 'flake8' to check Python code syntax and style conventions
+[20.111s] -- Added test 'lint_cmake' to check CMake code style
+[20.119s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[20.130s] -- Added test 'xmllint' to check XML markup files
+[20.150s] -- Configuring done (20.0s)
+[20.181s] -- Generating done (0.0s)
+[20.195s] -- Build files have been written to: /home/a/ws_moveit2/build/catch_gazebo_control
+[20.252s] Invoked command in '/home/a/ws_moveit2/build/catch_gazebo_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake /home/a/ws_moveit2/src/catch_gazebo_control -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/catch_gazebo_control
+[20.268s] Invoking command in '/home/a/ws_moveit2/build/catch_gazebo_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/catch_gazebo_control -- -j4 -l4
+[20.365s] Invoked command in '/home/a/ws_moveit2/build/catch_gazebo_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/catch_gazebo_control -- -j4 -l4
+[20.394s] Invoking command in '/home/a/ws_moveit2/build/catch_gazebo_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --install /home/a/ws_moveit2/build/catch_gazebo_control
+[20.407s] -- Install configuration: ""
+[20.408s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//urdf
+[20.408s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//urdf/0525_arm.trans
+[20.414s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//urdf/0525_arm.urdf
+[20.414s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//urdf/materials.urdf
+[20.415s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//launch
+[20.415s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//launch/gazebo.launch.py
+[20.415s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//worlds
+[20.416s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//worlds/basic.world
+[20.421s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//config
+[20.422s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control//config/ros2_controllers.yaml
+[20.424s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/ament_index/resource_index/package_run_dependencies/catch_gazebo_control
+[20.425s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/ament_index/resource_index/parent_prefix_path/catch_gazebo_control
+[20.426s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/environment/ament_prefix_path.sh
+[20.428s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/environment/ament_prefix_path.dsv
+[20.428s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/environment/path.sh
+[20.429s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/environment/path.dsv
+[20.430s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/local_setup.bash
+[20.430s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/local_setup.sh
+[20.431s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/local_setup.zsh
+[20.432s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/local_setup.dsv
+[20.433s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/package.dsv
+[20.435s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/ament_index/resource_index/packages/catch_gazebo_control
+[20.435s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/cmake/catch_gazebo_controlConfig.cmake
+[20.436s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/cmake/catch_gazebo_controlConfig-version.cmake
+[20.437s] -- Installing: /home/a/ws_moveit2/install/catch_gazebo_control/share/catch_gazebo_control/package.xml
+[20.442s] Invoked command in '/home/a/ws_moveit2/build/catch_gazebo_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --install /home/a/ws_moveit2/build/catch_gazebo_control

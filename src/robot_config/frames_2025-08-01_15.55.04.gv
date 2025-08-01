@@ -1,0 +1,16 @@
+digraph G {
+"base_link" -> "link1_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+"world" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"link1_1" -> "link2_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+"link2_1" -> "link3_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+"link3_1" -> "link4_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+"link4_1" -> "link5_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+"link5_1" -> "link6_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+"EndEffector_1" -> "right_finger_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+"link6_1" -> "EndEffector_1"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"EndEffector_1" -> "left_finger_1"[label=" Broadcaster: default_authority\nAverage rate: 17.924\nBuffer length: 5.188\nMost recent transform: 1754031304.78721\nOldest transform: 1754031299.598763\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1754031304.8842356"[ shape=plaintext ] ;
+}->"world";
+}

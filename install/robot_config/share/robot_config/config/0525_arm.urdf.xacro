@@ -22,12 +22,12 @@
         </transmission>
     </xacro:macro>
 
-    <xacro:transmission_block joint_name="Revolute 1"/>
-    <xacro:transmission_block joint_name="Revolute 2"/>
-    <xacro:transmission_block joint_name="Revolute 3"/>
-    <xacro:transmission_block joint_name="Revolute 4"/>
-    <xacro:transmission_block joint_name="Revolute 5"/>
-    <xacro:transmission_block joint_name="Revolute 6"/>
-    <xacro:transmission_block joint_name="Slider 1"/>
-    <xacro:transmission_block joint_name="Slider 2"/>
+    <xacro:transmission_block joint_name="Revolute_1"/>
+    <xacro:transmission_block joint_name="Revolute_2"/>
+    <xacro:transmission_block joint_name="Revolute_3"/>
+    <xacro:transmission_block joint_name="Revolute_4"/>
+    <xacro:transmission_block joint_name="Revolute_5"/>
+    <xacro:transmission_block joint_name="Revolute_6"/>
+    <xacro:transmission_block joint_name="Slider_1"/>
+    <xacro:transmission_block joint_name="Slider_2"/>
 </robot>
