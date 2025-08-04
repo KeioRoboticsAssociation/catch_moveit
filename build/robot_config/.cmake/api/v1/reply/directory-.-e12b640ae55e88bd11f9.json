@@ -236,6 +236,12 @@
 				"file" : 4,
 				"line" : 43,
 				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 4,
+				"line" : 49,
+				"parent" : 0
 			}
 		]
 	},
@@ -434,6 +440,16 @@
 			},
 			"destination" : "lib/robot_config",
 			"type" : "cxxModuleBmi"
+		},
+		{
+			"backtrace" : 36,
+			"component" : "Unspecified",
+			"destination" : "lib/robot_config",
+			"paths" : 
+			[
+				"src/gui.py"
+			],
+			"type" : "file"
 		}
 	],
 	"paths" : 

@@ -44,3 +44,9 @@ install(TARGETS
   joystick_servo
   DESTINATION lib/${PROJECT_NAME}
 )
+
+# Install python script
+install(PROGRAMS
+  src/gui.py
+  DESTINATION lib/${PROJECT_NAME}
+)
