@@ -1,0 +1,5 @@
+[0.114s] Invoking command in '/home/a/ws_moveit2/build/field_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/field_description -- -j4 -l4
+[0.709s] [0mCMake Error: The source directory "/home/a/ws_moveit2/src/field_description-20250802T034935Z-1-001/field_description" does not exist.
+[0.710s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.726s] gmake: *** [Makefile:226: cmake_check_build_system] エラー 1
+[0.736s] Invoked command in '/home/a/ws_moveit2/build/field_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/opt/ros/humble /opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake --build /home/a/ws_moveit2/build/field_description -- -j4 -l4
