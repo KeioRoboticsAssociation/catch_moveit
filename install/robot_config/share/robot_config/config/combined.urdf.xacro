@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot name="combined_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- Include the arm description -->
-  <xacro:include filename="$(find 0525_arm_description)/urdf/0525_arm.urdf" />
+  <!-- Include the arm description from robot_config -->
+  <xacro:include filename="$(find robot_config)/config/0525_arm.urdf.xacro" />
 
   <!-- Include the field description -->
   <xacro:include filename="$(find field_description)/urdf/field.urdf" />

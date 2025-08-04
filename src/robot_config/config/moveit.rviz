@@ -16,11 +16,6 @@ Visualization Manager:
     - Class: rviz_default_plugins/TF
       Name: TF
       Value: false
-    - Class: rviz_default_plugins/RobotModel
-      Name: RobotModel
-      Value: true
-      Description Source: File
-      Description File: /home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description/urdf/field.urdf
     - Class: moveit_rviz_plugin/MotionPlanning
       Name: MotionPlanning
       Planned Path:
