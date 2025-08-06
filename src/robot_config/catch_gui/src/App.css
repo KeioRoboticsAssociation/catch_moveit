@@ -1,0 +1,273 @@
+.app-container {
+  background-color: #f3f4f6;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.app-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.status-text {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.status-indicator {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
+}
+
+.status-connected {
+  background-color: #bbf7d0;
+  color: #166534;
+}
+
+.status-error {
+  background-color: #fecaca;
+  color: #991b1b;
+}
+
+.status-disconnected {
+  background-color: #fef08a;
+  color: #854d0e;
+}
+
+/* 4行5列のグリッド - 重要な部分 */
+.button-grid {
+  flex: 1;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  min-height: 0;
+}
+
+.grid-button {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 2px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.grid-button:hover {
+  background-color: #f3f4f6;
+}
+
+.grid-button:active {
+  background-color: #bfdbfe;
+}
+
+.grid-button:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.subscriber-area {
+  flex-shrink: 0;
+  background-color: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.subscriber-label {
+  font-weight: 600;
+  color: #6b7280;
+  margin-right: 0.5rem;
+}
+
+.subscriber-value {
+  font-family: monospace;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.control-area {
+  flex-shrink: 0;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.goal-button {
+  background-color: #fff;
+  border: 2px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 0 2rem;
+  height: 100%;
+  cursor: pointer;
+}
+
+.goal-button:hover {
+  background-color: #f3f4f6;
+}
+
+.goal-button:active {
+  background-color: #bfdbfe;
+}
+
+.goal-button:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.arm-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arm-button {
+  background-color: #fff;
+  border: 2px solid #9ca3af;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 0 2rem;
+  height: 100%;
+  min-width: 140px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.arm-button:hover {
+  background-color: #f3f4f6;
+}
+
+.arm-button:active {
+  background-color: #bfdbfe;
+}
+
+.arm-button:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .app-title {
+    font-size: 1.25rem;
+  }
+  
+  .button-grid {
+    gap: 0.5rem;
+  }
+  
+  .grid-button {
+    font-size: 0.875rem;
+  }
+  
+  .control-area {
+    height: 5rem;
+  }
+  
+  .arm-button {
+    min-width: 100px;
+    font-size: 0.875rem;
+    padding: 0 1rem;
+  }
+}
+
+/* トグルボタンのスタイルを追加 */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle-button {
+  background-color: #fff;
+  border: 2px solid #6b7280;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-button:hover {
+  background-color: #f3f4f6;
+}
+
+.toggle-button:active {
+  background-color: #e5e7eb;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .header-controls {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+  
+  .toggle-button {
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+  }
+}
+
+/* 下部コントロールエリアのレイアウト調整 */
+.control-area {
+  flex-shrink: 0;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* モバイル対応 - 下部コントロール */
+@media (max-width: 768px) {
+  .control-area {
+    height: auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  
+  .arm-controls {
+    width: 100%;
+    justify-content: center;
+  }
+}
