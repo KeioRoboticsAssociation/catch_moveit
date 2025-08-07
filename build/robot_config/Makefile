@@ -210,6 +210,19 @@ joystick_servo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joystick_servo.dir/build.make CMakeFiles/joystick_servo.dir/build
 .PHONY : joystick_servo/fast
 
+#=============================================================================
+# Target rules for targets named move_to_pose_cpp
+
+# Build rule for target.
+move_to_pose_cpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 move_to_pose_cpp
+.PHONY : move_to_pose_cpp
+
+# fast build rule for target.
+move_to_pose_cpp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_cpp.dir/build.make CMakeFiles/move_to_pose_cpp.dir/build
+.PHONY : move_to_pose_cpp/fast
+
 src/joystick_servo.o: src/joystick_servo.cpp.o
 .PHONY : src/joystick_servo.o
 
@@ -234,6 +247,30 @@ src/joystick_servo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joystick_servo.dir/build.make CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.s
 .PHONY : src/joystick_servo.cpp.s
 
+src/move_to_pose_cpp.o: src/move_to_pose_cpp.cpp.o
+.PHONY : src/move_to_pose_cpp.o
+
+# target to build an object file
+src/move_to_pose_cpp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_cpp.dir/build.make CMakeFiles/move_to_pose_cpp.dir/src/move_to_pose_cpp.cpp.o
+.PHONY : src/move_to_pose_cpp.cpp.o
+
+src/move_to_pose_cpp.i: src/move_to_pose_cpp.cpp.i
+.PHONY : src/move_to_pose_cpp.i
+
+# target to preprocess a source file
+src/move_to_pose_cpp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_cpp.dir/build.make CMakeFiles/move_to_pose_cpp.dir/src/move_to_pose_cpp.cpp.i
+.PHONY : src/move_to_pose_cpp.cpp.i
+
+src/move_to_pose_cpp.s: src/move_to_pose_cpp.cpp.s
+.PHONY : src/move_to_pose_cpp.s
+
+# target to generate assembly for a file
+src/move_to_pose_cpp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_cpp.dir/build.make CMakeFiles/move_to_pose_cpp.dir/src/move_to_pose_cpp.cpp.s
+.PHONY : src/move_to_pose_cpp.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +287,13 @@ help:
 	@echo "... robot_config_uninstall"
 	@echo "... uninstall"
 	@echo "... joystick_servo"
+	@echo "... move_to_pose_cpp"
 	@echo "... src/joystick_servo.o"
 	@echo "... src/joystick_servo.i"
 	@echo "... src/joystick_servo.s"
+	@echo "... src/move_to_pose_cpp.o"
+	@echo "... src/move_to_pose_cpp.i"
+	@echo "... src/move_to_pose_cpp.s"
 .PHONY : help
 
 

@@ -11,6 +11,10 @@ find_package(sensor_msgs REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(moveit_ros_planning_interface REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
 ament_package()
 
@@ -37,6 +41,7 @@ ament_target_dependencies(
   std_srvs
   moveit_msgs
   moveit_servo
+  tf2_ros
 )
 
 # Install the teleop node
@@ -48,5 +53,24 @@ install(TARGETS
 # Install python script
 install(PROGRAMS
   src/gui.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Add the executable for the move_to_pose_cpp node
+add_executable(move_to_pose_cpp src/move_to_pose_cpp.cpp)
+
+# Add dependencies for the move_to_pose_cpp node
+ament_target_dependencies(
+  move_to_pose_cpp
+  rclcpp
+  moveit_ros_planning_interface
+  geometry_msgs
+  std_msgs
+  tf2_geometry_msgs
+)
+
+# Install the move_to_pose_cpp node
+install(TARGETS
+  move_to_pose_cpp
   DESTINATION lib/${PROJECT_NAME}
 )

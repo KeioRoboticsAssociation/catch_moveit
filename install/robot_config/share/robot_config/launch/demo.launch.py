@@ -208,6 +208,20 @@ def generate_launch_description():
         output="screen",
     )
 
+    # C++ node for moving to a pose
+    move_to_pose_cpp_node = Node(
+        package="robot_config",
+        executable="move_to_pose_cpp",
+        name="move_to_pose_cpp",
+        output="screen",
+        # Pass the MoveIt-generated parameters to this node
+        parameters=[
+            moveit_config.robot_description,
+            moveit_config.robot_description_semantic,
+            moveit_config.robot_description_kinematics,
+        ],
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -221,5 +235,6 @@ def generate_launch_description():
             servo_node,
             joy_node,
             teleop_node,
+            move_to_pose_cpp_node,
         ]
     )

@@ -95,6 +95,7 @@ joystick_servo: CMakeFiles/joystick_servo.dir/build.make
 joystick_servo: /home/a/ws_moveit2/install/moveit_servo/lib/libpose_tracking.so
 joystick_servo: /home/a/ws_moveit2/install/moveit_servo/lib/libservo_node.so
 joystick_servo: /home/a/ws_moveit2/install/moveit_servo/lib/libservo_controller_input.so
+joystick_servo: /opt/ros/humble/lib/libstatic_transform_broadcaster_node.so
 joystick_servo: /home/a/ws_moveit2/install/moveit_servo/lib/libmoveit_servo_lib.so.2.5.9
 joystick_servo: /home/a/ws_moveit2/install/moveit_servo/lib/libmoveit_servo_lib_parameters.so.2.5.9
 joystick_servo: /opt/ros/humble/lib/libstd_srvs__rosidl_typesupport_fastrtps_c.so
@@ -275,8 +276,6 @@ joystick_servo: /opt/ros/humble/lib/libcomposition_interfaces__rosidl_typesuppor
 joystick_servo: /opt/ros/humble/lib/libcomposition_interfaces__rosidl_generator_c.so
 joystick_servo: /opt/ros/humble/lib/libtf2_ros.so
 joystick_servo: /opt/ros/humble/lib/libmessage_filters.so
-joystick_servo: /opt/ros/humble/lib/libtf2.so
-joystick_servo: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.1.0
 joystick_servo: /opt/ros/humble/lib/librclcpp_action.so
 joystick_servo: /opt/ros/humble/lib/librclcpp.so
 joystick_servo: /opt/ros/humble/lib/liblibstatistics_collector.so
@@ -314,6 +313,8 @@ joystick_servo: /opt/ros/humble/lib/libament_index_cpp.so
 joystick_servo: /opt/ros/humble/lib/librcl_logging_spdlog.so
 joystick_servo: /opt/ros/humble/lib/librcl_logging_interface.so
 joystick_servo: /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1
+joystick_servo: /opt/ros/humble/lib/libtf2.so
+joystick_servo: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.1.0
 joystick_servo: /opt/ros/humble/lib/libtf2_msgs__rosidl_typesupport_fastrtps_c.so
 joystick_servo: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
 joystick_servo: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
@@ -364,14 +365,14 @@ joystick_servo: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_c.so
 joystick_servo: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_c.so
 joystick_servo: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
 joystick_servo: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
-joystick_servo: /opt/ros/humble/lib/librosidl_typesupport_c.so
-joystick_servo: /opt/ros/humble/lib/librcpputils.so
 joystick_servo: /opt/ros/humble/lib/libtf2_msgs__rosidl_generator_c.so
 joystick_servo: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_c.so
 joystick_servo: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_c.so
 joystick_servo: /opt/ros/humble/lib/libaction_msgs__rosidl_generator_c.so
 joystick_servo: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so
 joystick_servo: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_c.so
+joystick_servo: /opt/ros/humble/lib/librosidl_typesupport_c.so
+joystick_servo: /opt/ros/humble/lib/librcpputils.so
 joystick_servo: /opt/ros/humble/lib/librosidl_runtime_c.so
 joystick_servo: /opt/ros/humble/lib/librcutils.so
 joystick_servo: CMakeFiles/joystick_servo.dir/link.txt
