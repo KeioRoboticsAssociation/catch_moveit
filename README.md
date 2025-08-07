@@ -10,4 +10,4 @@ ros2 launch robot_config demo.launch.py
 
 rviz上にアームが出てきてplanとexecuteができたら成功
 
-フィールドを出現させたい場合はrvizが開けたらMotionplanningのSceneObjectsを選択し、左下のドロップダウンリストを押し、MeshfromFileを選択、fieldのstlファイル(catch/src/field_description-20250804T033832Z-1-001/field_description/meshes/base_link.stl)を選択する。ちゃんと表示されたらpublishボタンを押す。
+
