@@ -246,7 +246,7 @@
 			{
 				"command" : 0,
 				"file" : 4,
-				"line" : 73,
+				"line" : 74,
 				"parent" : 0
 			}
 		]
@@ -453,7 +453,8 @@
 			"destination" : "lib/robot_config",
 			"paths" : 
 			[
-				"src/gui.py"
+				"src/gui.py",
+				"src/publish_collision_mesh.py"
 			],
 			"type" : "file"
 		},

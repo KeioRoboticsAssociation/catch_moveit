@@ -222,6 +222,14 @@ def generate_launch_description():
         ],
     )
 
+    # Node to publish collision mesh
+    publish_collision_mesh_node = Node(
+        package="robot_config",
+        executable="publish_collision_mesh.py",
+        name="publish_collision_mesh",
+        output="screen",
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -236,5 +244,6 @@ def generate_launch_description():
             joy_node,
             teleop_node,
             move_to_pose_cpp_node,
+            publish_collision_mesh_node,
         ]
     )

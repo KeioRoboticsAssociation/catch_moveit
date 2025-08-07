@@ -53,6 +53,7 @@ install(TARGETS
 # Install python script
 install(PROGRAMS
   src/gui.py
+  src/publish_collision_mesh.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

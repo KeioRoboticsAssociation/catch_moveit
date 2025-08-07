@@ -138,7 +138,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/robot_config" TYPE PROGRAM FILES "/home/a/ws_moveit2/src/robot_config/src/gui.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/robot_config" TYPE PROGRAM FILES
+    "/home/a/ws_moveit2/src/robot_config/src/gui.py"
+    "/home/a/ws_moveit2/src/robot_config/src/publish_collision_mesh.py"
+    )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
