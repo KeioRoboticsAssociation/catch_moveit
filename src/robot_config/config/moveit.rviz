@@ -19,10 +19,13 @@ Visualization Manager:
     - Class: moveit_rviz_plugin/MotionPlanning
       Name: MotionPlanning
       Planned Path:
-        Loop Animation: true
+        Loop Animation: false
+        Show Robot Visual: false
         State Display Time: 0.05 s
         Trajectory Topic: display_planned_path
       Planning Scene Topic: monitored_planning_scene
+      Planning Request:
+        Query Goal State: false
       Robot Description: robot_description
       Scene Geometry:
         Scene Alpha: 1
