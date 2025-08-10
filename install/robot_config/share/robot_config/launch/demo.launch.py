@@ -1,8 +1,9 @@
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, RegisterEventHandler
+from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription, ExecuteProcess
 from launch.event_handlers import OnProcessStart
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from moveit_configs_utils import MoveItConfigsBuilder
@@ -230,6 +231,27 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Rosbridge server
+    rosbridge_websocket = Node(
+        package="rosbridge_server",
+        executable="rosbridge_websocket",
+        output="screen",
+    )
+
+    rosapi_node = Node(
+        package="rosapi",
+        executable="rosapi_node",
+        output="screen",
+    )
+
+    # NPM dev server
+    npm_run_dev = ExecuteProcess(
+        cmd=['npm', 'run', 'dev'],
+        cwd='/home/a/ws_moveit2/src/robot_config/catch_gui',
+        shell=True,
+        output='screen'
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -245,5 +267,9 @@ def generate_launch_description():
             teleop_node,
             move_to_pose_cpp_node,
             publish_collision_mesh_node,
+            # Additional nodes
+            rosbridge_websocket,
+            rosapi_node,
+            npm_run_dev,
         ]
     )
