@@ -222,7 +222,7 @@ def generate_launch_description():
         output="screen",
     )
 
-    # C++ node for moving to a pose
+    # C++ node for moving to a pose (single arm)
     # move_to_pose_cpp_node = Node(
     #     package="robot_config",
     #     executable="move_to_pose_cpp",
@@ -235,6 +235,20 @@ def generate_launch_description():
     #         moveit_config.robot_description_kinematics,
     #     ],
     # )
+
+    # C++ node for moving to a pose (dual arm)
+    move_to_pose_dual_cpp_node = Node(
+        package="robot_config",
+        executable="move_to_pose_dual_cpp",
+        name="move_to_pose_dual_cpp",
+        output="screen",
+        # Pass the MoveIt-generated parameters to this node
+        parameters=[
+            moveit_config.robot_description,
+            moveit_config.robot_description_semantic,
+            moveit_config.robot_description_kinematics,
+        ],
+    )
 
     # Node to publish collision mesh
     publish_collision_mesh_node = Node(
@@ -279,6 +293,7 @@ def generate_launch_description():
             joy_node,
             teleop_node,
             # move_to_pose_cpp_node,
+            move_to_pose_dual_cpp_node, # Add the new dual arm node
             publish_collision_mesh_node,
             # Additional nodes
             rosbridge_websocket,

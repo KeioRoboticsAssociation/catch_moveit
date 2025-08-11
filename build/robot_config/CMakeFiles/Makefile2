@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/robot_config
 # The main recursive "all" target.
 all: CMakeFiles/joystick_servo.dir/all
 all: CMakeFiles/move_to_pose_cpp.dir/all
+all: CMakeFiles/move_to_pose_dual_cpp.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,6 +77,7 @@ clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/robot_config_uninstall.dir/clean
 clean: CMakeFiles/joystick_servo.dir/clean
 clean: CMakeFiles/move_to_pose_cpp.dir/clean
+clean: CMakeFiles/move_to_pose_dual_cpp.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -181,6 +183,32 @@ move_to_pose_cpp: CMakeFiles/move_to_pose_cpp.dir/rule
 CMakeFiles/move_to_pose_cpp.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_cpp.dir/build.make CMakeFiles/move_to_pose_cpp.dir/clean
 .PHONY : CMakeFiles/move_to_pose_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/move_to_pose_dual_cpp.dir
+
+# All Build rule for target.
+CMakeFiles/move_to_pose_dual_cpp.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_dual_cpp.dir/build.make CMakeFiles/move_to_pose_dual_cpp.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_dual_cpp.dir/build.make CMakeFiles/move_to_pose_dual_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/a/ws_moveit2/build/robot_config/CMakeFiles --progress-num=5,6 "Built target move_to_pose_dual_cpp"
+.PHONY : CMakeFiles/move_to_pose_dual_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/move_to_pose_dual_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/a/ws_moveit2/build/robot_config/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/move_to_pose_dual_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/a/ws_moveit2/build/robot_config/CMakeFiles 0
+.PHONY : CMakeFiles/move_to_pose_dual_cpp.dir/rule
+
+# Convenience name for target.
+move_to_pose_dual_cpp: CMakeFiles/move_to_pose_dual_cpp.dir/rule
+.PHONY : move_to_pose_dual_cpp
+
+# clean rule for target.
+CMakeFiles/move_to_pose_dual_cpp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_dual_cpp.dir/build.make CMakeFiles/move_to_pose_dual_cpp.dir/clean
+.PHONY : CMakeFiles/move_to_pose_dual_cpp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

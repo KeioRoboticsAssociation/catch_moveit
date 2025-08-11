@@ -75,3 +75,22 @@ install(TARGETS
   move_to_pose_cpp
   DESTINATION lib/${PROJECT_NAME}
 )
+
+# Add the executable for the move_to_pose_dual_cpp node
+add_executable(move_to_pose_dual_cpp src/move_to_pose_dual_cpp.cpp)
+
+# Add dependencies for the move_to_pose_dual_cpp node
+ament_target_dependencies(
+  move_to_pose_dual_cpp
+  rclcpp
+  moveit_ros_planning_interface
+  geometry_msgs
+  std_msgs
+  tf2_geometry_msgs
+)
+
+# Install the move_to_pose_dual_cpp node
+install(TARGETS
+  move_to_pose_dual_cpp
+  DESTINATION lib/${PROJECT_NAME}
+)

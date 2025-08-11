@@ -1349,4 +1349,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/robot_config_uninstall.dir/DependInfo.cmake"
   "CMakeFiles/joystick_servo.dir/DependInfo.cmake"
   "CMakeFiles/move_to_pose_cpp.dir/DependInfo.cmake"
+  "CMakeFiles/move_to_pose_dual_cpp.dir/DependInfo.cmake"
   )
