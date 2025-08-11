@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="0525_dual_arm">
+
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml"/>
+    <xacro:arg name="use_fake_hardware" default="false"/>
+
+    <!-- 外部のアーム定義をインクルード -->
+    <xacro:include filename="$(find 0525_arm_description)/urdf/0525_arm.urdf"/>
+
+    <!-- 1本目のアーム -->
+    <joint name="arm1_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="world"/>
+        <child link="arm1_base_link"/>
+    </joint>
+    <xacro:arm prefix="arm1_"/>
+
+    <!-- 2本目のアーム -->
+    <joint name="arm2_base_joint" type="fixed">
+        <origin xyz="1.0 0 0" rpy="0 0 0"/> <!-- 1m右に配置 -->
+        <parent link="world"/>
+        <child link="arm2_base_link"/>
+    </joint>
+    <xacro:arm prefix="arm2_"/>
+
+    <!-- ros2_control -->
+    <xacro:include filename="0525_arm.ros2_control.xacro"/>
+    <xacro:arm_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)" use_fake_hardware="$(arg use_fake_hardware)"/>
+
+    <!-- Transmissions -->
+    <xacro:macro name="transmission_block" params="joint_name">
+        <transmission name="${joint_name}_transmission">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <!-- Arm1 transmissions -->
+    <xacro:transmission_block joint_name="arm1_Revolute_1"/>
+    <xacro:transmission_block joint_name="arm1_Revolute_2"/>
+    <xacro:transmission_block joint_name="arm1_Revolute_3"/>
+    <xacro:transmission_block joint_name="arm1_Revolute_4"/>
+    <xacro:transmission_block joint_name="arm1_Revolute_5"/>
+    <xacro:transmission_block joint_name="arm1_Revolute_6"/>
+    <xacro:transmission_block joint_name="arm1_Slider_1"/>
+    <xacro:transmission_block joint_name="arm1_Slider_2"/>
+
+    <!-- Arm2 transmissions -->
+    <xacro:transmission_block joint_name="arm2_Revolute_1"/>
+    <xacro:transmission_block joint_name="arm2_Revolute_2"/>
+    <xacro:transmission_block joint_name="arm2_Revolute_3"/>
+    <xacro:transmission_block joint_name="arm2_Revolute_4"/>
+    <xacro:transmission_block joint_name="arm2_Revolute_5"/>
+    <xacro:transmission_block joint_name="arm2_Revolute_6"/>
+    <xacro:transmission_block joint_name="arm2_Slider_1"/>
+    <xacro:transmission_block joint_name="arm2_Slider_2"/>
+
+</robot>
