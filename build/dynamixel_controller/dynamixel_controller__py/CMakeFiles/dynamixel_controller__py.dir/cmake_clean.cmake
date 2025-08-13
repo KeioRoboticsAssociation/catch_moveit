@@ -1,0 +1,14 @@
+file(REMOVE_RECURSE
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_c.c"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_introspection_c.c"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/__init__.py"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller.py"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller_s.c"
+  "CMakeFiles/dynamixel_controller__py"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/dynamixel_controller__py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
