@@ -258,6 +258,14 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Node to sort joint states
+    joint_states_sorter_node = Node(
+        package="robot_config",
+        executable="joint_states_sorter.py",
+        name="joint_states_sorter",
+        output="screen",
+    )
+
     # Rosbridge server
     rosbridge_websocket = Node(
         package="rosbridge_server",
@@ -295,6 +303,7 @@ def generate_launch_description():
             # move_to_pose_cpp_node,
             move_to_pose_dual_cpp_node, # Add the new dual arm node
             publish_collision_mesh_node,
+            joint_states_sorter_node,  # Add the joint states sorter node
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,
