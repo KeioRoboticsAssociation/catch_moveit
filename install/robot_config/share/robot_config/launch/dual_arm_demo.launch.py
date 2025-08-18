@@ -28,10 +28,18 @@ def generate_launch_description():
             description="Path to RViz configuration file",
         )
     )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "field",
+            default_value="none",
+            description="Field type: 'red' or 'blue' to apply rotation, 'none' for no rotation",
+        )
+    )
 
     # Initialize Arguments
     use_sim_time = LaunchConfiguration("use_sim_time")
     rviz_config = LaunchConfiguration("rviz_config")
+    field = LaunchConfiguration("field")
 
     # Get MoveIt configs for dual arm
     moveit_config = (
@@ -256,6 +264,7 @@ def generate_launch_description():
         executable="publish_collision_mesh.py",
         name="publish_collision_mesh",
         output="screen",
+        parameters=[{"field": field}],
     )
 
     # Node to sort joint states
