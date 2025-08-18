@@ -1233,7 +1233,7 @@ test/CMakeFiles/benchmark_ik.dir/benchmark_ik.cpp.o: \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
  /usr/include/tinyxml2.h /opt/ros/humble/include/urdf/urdf/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/link.h \
@@ -1247,7 +1247,7 @@ test/CMakeFiles/benchmark_ik.dir/benchmark_ik.cpp.o: \
  /opt/ros/humble/include/urdf/urdf/urdfdom_compatibility.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
  /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp \
@@ -1658,4 +1658,4 @@ test/CMakeFiles/benchmark_ik.dir/benchmark_ik.cpp.o: \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
  /home/a/ws_moveit2/install/moveit_core/include/moveit_planning_scene_export.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/utils/robot_model_test_utils.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/srdf_writer.h
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/srdf_writer.h

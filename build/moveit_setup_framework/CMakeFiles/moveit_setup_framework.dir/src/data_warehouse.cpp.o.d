@@ -632,8 +632,8 @@ CMakeFiles/moveit_setup_framework.dir/src/data_warehouse.cpp.o: \
  /home/a/ws_moveit2/src/moveit2/moveit_setup_assistant/moveit_setup_framework/include/moveit_setup_framework/data/srdf_config.hpp \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp \
@@ -1247,5 +1247,5 @@ CMakeFiles/moveit_setup_framework.dir/src/data_warehouse.cpp.o: \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__type_support.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
  /home/a/ws_moveit2/install/moveit_core/include/moveit_planning_scene_export.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/srdf_writer.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/srdf_writer.h \
  /home/a/ws_moveit2/src/moveit2/moveit_setup_assistant/moveit_setup_framework/include/moveit_setup_framework/data/package_settings_config.hpp

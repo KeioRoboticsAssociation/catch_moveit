@@ -241,7 +241,7 @@ motion_planning_tasks/properties/CMakeFiles/motion_planning_tasks_properties.dir
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
  /usr/include/c++/11/typeindex \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/properties.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/properties.h \
  /usr/include/boost/any.hpp /usr/include/boost/config.hpp \
  /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \

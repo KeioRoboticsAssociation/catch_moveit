@@ -1,1 +1,11 @@
-/home/a/ws_moveit2/src/moveit2/moveit_setup_assistant/moveit_setup_framework/moveit_setup_framework_plugins.xml
+<library path="moveit_setup_framework">
+  <class type="moveit_setup::URDFConfig" base_class_type="moveit_setup::SetupConfig">
+    <description>Data for the URDF</description>
+  </class>
+  <class type="moveit_setup::SRDFConfig" base_class_type="moveit_setup::SetupConfig">
+    <description>Data for the SRDF</description>
+  </class>
+  <class type="moveit_setup::PackageSettingsConfig" base_class_type="moveit_setup::SetupConfig">
+    <description>Data for general settings for the MoveIt config package</description>
+  </class>
+</library>

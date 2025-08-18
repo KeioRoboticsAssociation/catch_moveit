@@ -1,1 +1,5 @@
-/home/a/ws_moveit2/src/moveit_task_constructor/msgs/msg/SubSolution.msg
+# generic solution information
+SolutionInfo info
+
+# IDs of subsolutions
+uint32[] sub_solution_id

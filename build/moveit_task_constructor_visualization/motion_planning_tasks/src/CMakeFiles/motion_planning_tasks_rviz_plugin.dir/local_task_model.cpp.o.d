@@ -434,22 +434,22 @@ motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin.dir/local
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/stage.h \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/trajectory_execution_info.h \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/trajectory_execution_info.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/stage.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/trajectory_execution_info.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/trajectory_execution_info.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__struct.hpp \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_initialization.h \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__builder.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__builder.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__traits.hpp \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/traits.hpp \
  /usr/include/c++/11/codecvt /usr/include/c++/11/iomanip \
  /usr/include/c++/11/bits/quoted_string.h \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__type_support.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__type_support.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_typesupport_cpp/message_type_support.hpp \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/utils.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/utils.h \
  /usr/include/eigen3/Eigen/Geometry /usr/include/eigen3/Eigen/Core \
  /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h \
  /usr/include/eigen3/Eigen/src/Core/util/Macros.h \
@@ -647,8 +647,8 @@ motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin.dir/local
  /usr/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/storage.h \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/properties.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/storage.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/properties.h \
  /usr/include/boost/any.hpp /usr/include/boost/config.hpp \
  /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
@@ -708,11 +708,11 @@ motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin.dir/local
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
  /opt/ros/humble/include/rclcpp/rclcpp/serialization.hpp \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/cost_queue.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/cost_queue.h \
  /usr/include/c++/11/queue /usr/include/c++/11/bits/stl_queue.h \
  /usr/include/c++/11/iostream \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/solution.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/solution.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__struct.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__struct.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__struct.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/joint_state__struct.hpp \
@@ -748,18 +748,18 @@ motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin.dir/local
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene_world__struct.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__struct.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_solution__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution_info__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_solution__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution_info__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__struct.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_trajectory__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_trajectory__struct.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__struct.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory__struct.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory_point__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__builder.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__builder.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__traits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__traits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__traits.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/joint_state__traits.hpp \
@@ -795,17 +795,17 @@ motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin.dir/local
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene_world__traits.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__traits.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_solution__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution_info__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_solution__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution_info__traits.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__traits.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__traits.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_trajectory__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_trajectory__traits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__traits.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory__traits.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory_point__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__type_support.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__type_support.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker_array.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__builder.hpp \
@@ -1012,22 +1012,22 @@ motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin.dir/local
  /opt/ros/humble/include/rclcpp/rclcpp/create_timer.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/get_node_base_interface.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_base_interface_traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/task_description.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_description__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/stage_description__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/property__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_description__builder.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_description__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/stage_description__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/property__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_description__type_support.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/task_statistics.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_statistics__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/stage_statistics__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_statistics__builder.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_statistics__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/stage_statistics__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/task_statistics__type_support.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/task_description.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_description__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/stage_description__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/property__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_description__builder.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_description__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/stage_description__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/property__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_description__type_support.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/task_statistics.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_statistics__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/stage_statistics__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_statistics__builder.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_statistics__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/stage_statistics__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/task_statistics__type_support.hpp \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTreeView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtreeview.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h \
@@ -1064,14 +1064,14 @@ motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin.dir/local
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QPointer \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qpointer.h \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/task.h \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/container.h \
- /home/a/ws_moveit2/src/moveit_task_constructor/core/include/moveit/task_constructor/introspection.h \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/srv/get_solution.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/srv/detail/get_solution__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/srv/detail/get_solution__builder.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/srv/detail/get_solution__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/srv/detail/get_solution__type_support.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/task.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/container.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_core/include/moveit/task_constructor/introspection.h \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/srv/get_solution.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/srv/detail/get_solution__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/srv/detail/get_solution__builder.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/srv/detail/get_solution__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/srv/detail/get_solution__type_support.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/move_it_error_codes.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__struct.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__builder.hpp \

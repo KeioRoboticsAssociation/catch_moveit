@@ -1,7 +1,0 @@
-[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:[m[K In constructor ‘[01m[Kmoveit_servo::JoyToServoPub::JoyToServoPub(const rclcpp::NodeOptions&)[m[K’:
-[01m[K/home/a/ws_moveit2/src/robot_config/src/joystick_servo.cpp:167:83:[m[K [01;31m[Kerror: [m[K‘[01m[KHAND_TRAJECTORY_TOPIC[m[K’ was not declared in this scope
-  167 |     hand_cmd_pub_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>([01;31m[KHAND_TRAJECTORY_TOPIC[m[K, rclcpp::SystemDefaultsQoS());
-      |                                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
-gmake[2]: *** [CMakeFiles/joystick_servo.dir/build.make:76: CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.o] エラー 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/joystick_servo.dir/all] エラー 2
-gmake: *** [Makefile:146: all] エラー 2

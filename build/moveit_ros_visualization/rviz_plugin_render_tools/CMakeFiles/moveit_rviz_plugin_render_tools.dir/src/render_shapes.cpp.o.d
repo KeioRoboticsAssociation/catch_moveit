@@ -928,7 +928,8 @@ rviz_plugin_render_tools/CMakeFiles/moveit_rviz_plugin_render_tools.dir/src/rend
  /opt/ros/humble/include/tf2/tf2/exceptions.h \
  /opt/ros/humble/include/tf2/tf2/exceptions.hpp \
  /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h \
- /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.hpp \
  /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp \

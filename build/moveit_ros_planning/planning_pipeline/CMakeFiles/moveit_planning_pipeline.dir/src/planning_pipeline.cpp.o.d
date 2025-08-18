@@ -296,7 +296,7 @@ planning_pipeline/CMakeFiles/moveit_planning_pipeline.dir/src/planning_pipeline.
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h /usr/include/tinyxml2.h \
@@ -349,7 +349,7 @@ planning_pipeline/CMakeFiles/moveit_planning_pipeline.dir/src/planning_pipeline.
  /opt/ros/humble/include/urdf/urdf/urdfdom_compatibility.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
  /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h \
  /usr/include/c++/11/iostream \

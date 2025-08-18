@@ -956,7 +956,7 @@ collision_detection_bullet/CMakeFiles/test_bullet_continuous_collision_checking.
  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/class_forward.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/exceptions/include/moveit/exceptions/exceptions.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
  /usr/include/tinyxml2.h /opt/ros/humble/include/urdf/urdf/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/link.h \
@@ -970,7 +970,7 @@ collision_detection_bullet/CMakeFiles/test_bullet_continuous_collision_checking.
  /opt/ros/humble/include/urdf/urdf/urdfdom_compatibility.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
  /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/robot_model/include/moveit/robot_model/joint_model_group.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/robot_model/include/moveit/robot_model/joint_model.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp \
@@ -1224,7 +1224,7 @@ collision_detection_bullet/CMakeFiles/test_bullet_continuous_collision_checking.
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp \
  /home/a/ws_moveit2/src/moveit2/moveit_core/utils/include/moveit/utils/robot_model_test_utils.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/srdf_writer.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/srdf_writer.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/collision_detection_bullet/include/moveit/collision_detection_bullet/collision_env_bullet.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/collision_detection/include/moveit/collision_detection/collision_env.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/link_padding.hpp \

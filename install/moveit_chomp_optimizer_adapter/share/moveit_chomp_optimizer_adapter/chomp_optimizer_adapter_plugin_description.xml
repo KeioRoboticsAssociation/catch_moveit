@@ -1,1 +1,9 @@
-/home/a/ws_moveit2/src/moveit2/moveit_planners/chomp/chomp_optimizer_adapter/chomp_optimizer_adapter_plugin_description.xml
+<library path="moveit_chomp_optimizer_adapter">
+
+  <class name="chomp/OptimizerAdapter" type="chomp::OptimizerAdapter"
+         base_class_type="planning_request_adapter::PlanningRequestAdapter">
+    <description>
+    </description>
+  </class>
+
+</library>

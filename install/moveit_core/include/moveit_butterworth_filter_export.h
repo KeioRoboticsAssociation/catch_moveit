@@ -1,1 +1,42 @@
-/home/a/ws_moveit2/build/moveit_core/online_signal_smoothing/moveit_butterworth_filter_export.h
+
+#ifndef MOVEIT_BUTTERWORTH_FILTER_EXPORT_H
+#define MOVEIT_BUTTERWORTH_FILTER_EXPORT_H
+
+#ifdef MOVEIT_BUTTERWORTH_FILTER_STATIC_DEFINE
+#  define MOVEIT_BUTTERWORTH_FILTER_EXPORT
+#  define MOVEIT_BUTTERWORTH_FILTER_NO_EXPORT
+#else
+#  ifndef MOVEIT_BUTTERWORTH_FILTER_EXPORT
+#    ifdef moveit_butterworth_filter_EXPORTS
+        /* We are building this library */
+#      define MOVEIT_BUTTERWORTH_FILTER_EXPORT __attribute__((visibility("default")))
+#    else
+        /* We are using this library */
+#      define MOVEIT_BUTTERWORTH_FILTER_EXPORT __attribute__((visibility("default")))
+#    endif
+#  endif
+
+#  ifndef MOVEIT_BUTTERWORTH_FILTER_NO_EXPORT
+#    define MOVEIT_BUTTERWORTH_FILTER_NO_EXPORT __attribute__((visibility("hidden")))
+#  endif
+#endif
+
+#ifndef MOVEIT_BUTTERWORTH_FILTER_DEPRECATED
+#  define MOVEIT_BUTTERWORTH_FILTER_DEPRECATED __attribute__ ((__deprecated__))
+#endif
+
+#ifndef MOVEIT_BUTTERWORTH_FILTER_DEPRECATED_EXPORT
+#  define MOVEIT_BUTTERWORTH_FILTER_DEPRECATED_EXPORT MOVEIT_BUTTERWORTH_FILTER_EXPORT MOVEIT_BUTTERWORTH_FILTER_DEPRECATED
+#endif
+
+#ifndef MOVEIT_BUTTERWORTH_FILTER_DEPRECATED_NO_EXPORT
+#  define MOVEIT_BUTTERWORTH_FILTER_DEPRECATED_NO_EXPORT MOVEIT_BUTTERWORTH_FILTER_NO_EXPORT MOVEIT_BUTTERWORTH_FILTER_DEPRECATED
+#endif
+
+#if 0 /* DEFINE_NO_DEPRECATED */
+#  ifndef MOVEIT_BUTTERWORTH_FILTER_NO_DEPRECATED
+#    define MOVEIT_BUTTERWORTH_FILTER_NO_DEPRECATED
+#  endif
+#endif
+
+#endif /* MOVEIT_BUTTERWORTH_FILTER_EXPORT_H */

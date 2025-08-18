@@ -1,1 +1,6 @@
-/home/a/ws_moveit2/src/moveit2/moveit_planners/test_configs/prbt_ikfast_manipulator_plugin/prbt_manipulator_moveit_ikfast_plugin_description.xml
+<?xml version='1.0' encoding='UTF-8'?>
+<library path="prbt_manipulator_moveit_ikfast_plugin">
+  <class base_class_type="kinematics::KinematicsBase" name="prbt_manipulator/IKFastKinematicsPlugin" type="prbt_manipulator::IKFastKinematicsPlugin">
+    <description>IKFast61 plugin for closed-form kinematics of prbt manipulator</description>
+  </class>
+</library>

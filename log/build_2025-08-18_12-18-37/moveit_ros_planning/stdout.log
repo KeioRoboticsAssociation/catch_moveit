@@ -1,0 +1,183 @@
+[  2%] Built target gtest_main
+[  7%] Built target gmock
+[ 10%] Built target gmock_main
+[ 13%] Built target gtest
+[ 16%] Built target moveit_collision_plugin_loader
+[ 20%] Built target moveit_rdf_loader
+[ 23%] Built target moveit_planning_pipeline
+[ 26%] Built target moveit_list_request_adapter_plugins
+[ 42%] Built target moveit_default_planning_request_adapter_plugins
+[ 45%] Built target moveit_kinematics_plugin_loader
+[ 48%] Built target moveit_constraint_sampler_manager_loader
+[ 51%] Built target moveit_robot_model_loader
+[ 54%] Built target moveit_print_planning_model_info
+[ 63%] Built target moveit_planning_scene_monitor
+[ 64%] [32mBuilding CXX object planning_scene_monitor/CMakeFiles/demo_scene.dir/demos/demo_scene.cpp.o[0m
+[ 66%] [32mBuilding CXX object planning_components_tools/CMakeFiles/moveit_display_random_state.dir/src/display_random_state.cpp.o[0m
+[ 67%] [32mBuilding CXX object planning_components_tools/CMakeFiles/moveit_print_planning_scene_info.dir/src/print_planning_scene_info.cpp.o[0m
+[ 69%] [32mBuilding CXX object planning_scene_monitor/CMakeFiles/trajectory_monitor_tests.dir/test/trajectory_monitor_tests.cpp.o[0m
+[ 70%] [32mBuilding CXX object planning_components_tools/CMakeFiles/moveit_publish_scene_from_text.dir/src/publish_scene_from_text.cpp.o[0m
+[ 72%] [32mBuilding CXX object trajectory_execution_manager/CMakeFiles/moveit_trajectory_execution_manager.dir/src/trajectory_execution_manager.cpp.o[0m
+[ 73%] [32mBuilding CXX object planning_scene_monitor/CMakeFiles/current_state_monitor_tests.dir/test/current_state_monitor_tests.cpp.o[0m
+[ 75%] [32mBuilding CXX object planning_scene_monitor/CMakeFiles/planning_scene_monitor_test.dir/test/planning_scene_monitor_test.cpp.o[0m
+[ 76%] [32mBuilding CXX object planning_components_tools/CMakeFiles/moveit_evaluate_collision_checking_speed.dir/src/evaluate_collision_checking_speed.cpp.o[0m
+[ 77%] [32mBuilding CXX object planning_components_tools/CMakeFiles/moveit_visualize_robot_collision_volume.dir/src/visualize_robot_collision_volume.cpp.o[0m
+[ 79%] [32m[1mLinking CXX executable moveit_print_planning_scene_info[0m
+[ 79%] Built target moveit_print_planning_scene_info
+[ 80%] [32m[1mLinking CXX executable trajectory_monitor_tests[0m
+[ 82%] [32m[1mLinking CXX executable moveit_evaluate_collision_checking_speed[0m
+[ 82%] Built target trajectory_monitor_tests
+[ 82%] Built target moveit_evaluate_collision_checking_speed
+[ 83%] [32m[1mLinking CXX executable planning_scene_monitor_test[0m
+[ 85%] [32m[1mLinking CXX executable demo_scene[0m
+[ 86%] [32m[1mLinking CXX executable moveit_display_random_state[0m
+[ 86%] Built target demo_scene
+[ 86%] Built target moveit_display_random_state
+[ 86%] Built target planning_scene_monitor_test
+[ 88%] [32m[1mLinking CXX executable moveit_visualize_robot_collision_volume[0m
+[ 89%] [32m[1mLinking CXX executable moveit_publish_scene_from_text[0m
+[ 89%] Built target moveit_publish_scene_from_text
+[ 89%] Built target moveit_visualize_robot_collision_volume
+[ 91%] [32m[1mLinking CXX executable current_state_monitor_tests[0m
+[ 91%] Built target current_state_monitor_tests
+[ 92%] [32m[1mLinking CXX shared library libmoveit_trajectory_execution_manager.so[0m
+[ 92%] Built target moveit_trajectory_execution_manager
+[ 94%] [32mBuilding CXX object moveit_cpp/CMakeFiles/moveit_cpp.dir/src/planning_component.cpp.o[0m
+[ 95%] [32mBuilding CXX object moveit_cpp/CMakeFiles/moveit_cpp.dir/src/moveit_cpp.cpp.o[0m
+[ 97%] [32mBuilding CXX object plan_execution/CMakeFiles/moveit_plan_execution.dir/src/plan_execution.cpp.o[0m
+[ 98%] [32m[1mLinking CXX shared library libmoveit_plan_execution.so[0m
+[ 98%] Built target moveit_plan_execution
+[100%] [32m[1mLinking CXX shared library libmoveit_cpp.so[0m
+[100%] Built target moveit_cpp
+-- Install configuration: "Release"
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/rdf_loader
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/rdf_loader/synchronized_string_parameter.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/rdf_loader/rdf_loader.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/data
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/data/robin.srdf.xacro
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/data/gonzo.srdf
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/data/kermit.srdf
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/data/kermit.urdf
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/data/gonzo.urdf
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/launch
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/rdf_loader/test/launch/test_rdf_integration.test.py
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/collision_plugin_loader
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/collision_plugin_loader/collision_plugin_loader.h
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/kinematics_plugin_loader
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/kinematics_plugin_loader/kinematics_plugin_loader.h
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/robot_model_loader
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/robot_model_loader/robot_model_loader.h
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/constraint_sampler_manager_loader
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/constraint_sampler_manager_loader/constraint_sampler_manager_loader.h
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_pipeline
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_pipeline/planning_pipeline.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit_planning_pipeline_export.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_list_request_adapter_plugins
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_list_request_adapter_plugins" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/demo_scene
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/demo_scene" to ""
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/planning_scene_monitor.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/trajectory_monitor.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/trajectory_monitor_middleware_handle.hpp
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/current_state_monitor.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/current_state_monitor_middleware_handle.hpp
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit_planning_scene_monitor_export.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_print_planning_model_info
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_print_planning_model_info" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_print_planning_scene_info
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_print_planning_scene_info" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_display_random_state
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_display_random_state" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_visualize_robot_collision_volume
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_visualize_robot_collision_volume" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_evaluate_collision_checking_speed
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_evaluate_collision_checking_speed" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_publish_scene_from_text
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/moveit_ros_planning/moveit_publish_scene_from_text" to ""
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/trajectory_execution_manager
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/trajectory_execution_manager/trajectory_execution_manager.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit_trajectory_execution_manager_export.h
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/plan_execution
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/plan_execution/plan_execution.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/plan_execution/plan_representation.h
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include
+-- Up-to-date: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/moveit_cpp
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/moveit_cpp/moveit_cpp.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/moveit_cpp/planning_component.h
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_rdf_loader.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_rdf_loader.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_rdf_loader.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_kinematics_plugin_loader.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_kinematics_plugin_loader.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_kinematics_plugin_loader.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_robot_model_loader.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_robot_model_loader.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_robot_model_loader.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_constraint_sampler_manager_loader.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_constraint_sampler_manager_loader.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_constraint_sampler_manager_loader.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_planning_pipeline.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_planning_pipeline.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_planning_pipeline.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_trajectory_execution_manager.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_trajectory_execution_manager.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_trajectory_execution_manager.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_plan_execution.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_plan_execution.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_plan_execution.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_planning_scene_monitor.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_planning_scene_monitor.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_planning_scene_monitor.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_collision_plugin_loader.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_collision_plugin_loader.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_collision_plugin_loader.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_default_planning_request_adapter_plugins.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_default_planning_request_adapter_plugins.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_default_planning_request_adapter_plugins.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_cpp.so.2.5.9
+-- Set runtime path of "/home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_cpp.so.2.5.9" to ""
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/lib/libmoveit_cpp.so
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/environment/library_path.sh
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/environment/library_path.dsv
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/planning_request_adapters_plugin_description.xml
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/ament_index/resource_index/package_run_dependencies/moveit_ros_planning
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/ament_index/resource_index/parent_prefix_path/moveit_ros_planning
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/environment/ament_prefix_path.sh
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/environment/ament_prefix_path.dsv
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/environment/path.sh
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/environment/path.dsv
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/local_setup.bash
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/local_setup.sh
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/local_setup.zsh
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/local_setup.dsv
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/package.dsv
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/ament_index/resource_index/packages/moveit_ros_planning
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/ament_index/resource_index/moveit_core__pluginlib__plugin/moveit_ros_planning
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/cmake/export_moveit_ros_planningExport.cmake
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/cmake/export_moveit_ros_planningExport-release.cmake
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/cmake/ConfigExtras.cmake
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/cmake/moveit_ros_planningConfig.cmake
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/cmake/moveit_ros_planningConfig-version.cmake
+-- Installing: /home/a/ws_moveit2/install/moveit_ros_planning/share/moveit_ros_planning/package.xml

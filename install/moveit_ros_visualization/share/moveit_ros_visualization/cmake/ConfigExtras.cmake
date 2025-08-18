@@ -1,1 +1,3 @@
-/home/a/ws_moveit2/src/moveit2/moveit_ros/visualization/ConfigExtras.cmake
+# Extras module needed for dependencies to find boost components
+
+find_package(Boost REQUIRED thread date_time system filesystem)

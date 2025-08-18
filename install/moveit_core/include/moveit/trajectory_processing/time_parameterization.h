@@ -1,1 +1,27 @@
-/home/a/ws_moveit2/src/moveit2/moveit_core/trajectory_processing/include/moveit/trajectory_processing/time_parameterization.h
+#pragma once
+
+#include <moveit/robot_trajectory/robot_trajectory.h>
+
+namespace trajectory_processing
+{
+/**
+ * @brief Base class for trajectory parameterization algorithms
+ */
+MOVEIT_CLASS_FORWARD(TimeParameterization);
+class TimeParameterization
+{
+public:
+  TimeParameterization() = default;
+  TimeParameterization(const TimeParameterization&) = default;
+  TimeParameterization(TimeParameterization&&) = default;
+  TimeParameterization& operator=(const TimeParameterization&) = default;
+  TimeParameterization& operator=(TimeParameterization&&) = default;
+  virtual ~TimeParameterization() = default;
+  virtual bool computeTimeStamps(robot_trajectory::RobotTrajectory& trajectory,
+                                 const double max_velocity_scaling_factor = 1.0,
+                                 const double max_acceleration_scaling_factor = 1.0) const = 0;
+  virtual bool computeTimeStamps(robot_trajectory::RobotTrajectory& trajectory,
+                                 const std::unordered_map<std::string, double>& velocity_limits,
+                                 const std::unordered_map<std::string, double>& acceleration_limits) const = 0;
+};
+}  // namespace trajectory_processing

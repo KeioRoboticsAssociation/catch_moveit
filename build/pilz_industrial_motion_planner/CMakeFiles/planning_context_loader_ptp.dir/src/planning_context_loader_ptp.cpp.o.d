@@ -327,7 +327,7 @@ CMakeFiles/planning_context_loader_ptp.dir/src/planning_context_loader_ptp.cpp.o
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
  /usr/include/tinyxml2.h /usr/include/c++/11/climits \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
@@ -353,7 +353,7 @@ CMakeFiles/planning_context_loader_ptp.dir/src/planning_context_loader_ptp.cpp.o
  /opt/ros/humble/include/urdf/urdf/urdfdom_compatibility.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
  /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h \
  /usr/include/c++/11/iostream \

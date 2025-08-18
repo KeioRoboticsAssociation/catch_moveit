@@ -482,7 +482,7 @@ ompl_interface/CMakeFiles/moveit_ompl_interface.dir/src/parameterization/joint_s
  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
  /usr/include/tinyxml2.h /opt/ros/humble/include/urdf/urdf/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/link.h \
@@ -504,7 +504,7 @@ ompl_interface/CMakeFiles/moveit_ompl_interface.dir/src/parameterization/joint_s
  /opt/ros/humble/include/urdf/urdf/urdfdom_compatibility.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
  /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h \
  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp \

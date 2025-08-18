@@ -4,37 +4,29 @@
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml"/>
     <xacro:arg name="use_fake_hardware" default="false"/>
 
-    <!-- Define materials -->
-    <material name="silver_default">
-        <color rgba="0.700 0.700 0.700 1.000"/>
-    </material>
-    <material name="steel_satin">
-        <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
-    </material>
-    <material name="opaque02550">
-        <color rgba="0.0 1.0 0.0 1.0"/>
-    </material>
+    <!-- Import materials from urdf_0816 -->
+    <xacro:include filename="$(find urdf_0816_description)/urdf/materials.xacro" />
 
     <!-- Macro to create an arm with a prefix -->
     <xacro:macro name="arm_instance" params="prefix origin_xyz origin_rpy">
         <!-- Create base link for this arm instance -->
         <link name="${prefix}base_link">
             <inertial>
-                <origin rpy="0 0 0" xyz="-0.040820856158369646 0.00036104809684655377 0.015213618835662102"/>
+                <origin rpy="0 0 0" xyz="-0.040820856158367766 0.00036104809684655377 0.015213618835662102"/>
                 <mass value="0.700086994811545"/>
                 <inertia ixx="0.001733" ixy="1.7e-05" ixz="-2.5e-05" iyy="0.002626" iyz="-4e-06" izz="0.004024"/>
             </inertial>
             <visual>
                 <origin rpy="0 0 0" xyz="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="steel_satin"/>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
@@ -49,189 +41,189 @@
         <!-- Create all the links and joints for this arm instance -->
         <link name="${prefix}link1_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="-0.00010633595242680766 0.00020725329457724903 0.02696631976786002"/>
+                <origin rpy="0 0 0" xyz="-0.00010633595242580096 0.00020725329457724776 0.026966319767860035"/>
                 <mass value="0.28442007333799074"/>
                 <inertia ixx="0.000333" ixy="0.0" ixz="-1e-06" iyy="0.000325" iyz="-2e-06" izz="0.000378"/>
             </inertial>
             <visual>
                 <origin rpy="0 0 0" xyz="0.0 -0.0 -0.0555"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver_default"/>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 -0.0 -0.0555"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}link2_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="0.00637292515398388 -0.031033732131428293 0.2266539332199798"/>
-                <mass value="1.9808964170638441"/>
-                <inertia ixx="0.030156" ixy="6e-05" ixz="-0.001568" iyy="0.030203" iyz="0.000907" izz="0.000908"/>
+                <origin rpy="0 0 0" xyz="0.0060522563742429385 -0.03069852838470896 0.26309687039061297"/>
+                <mass value="2.088012841774827"/>
+                <inertia ixx="0.049506" ixy="6.4e-05" ixz="-0.00211" iyy="0.049552" iyz="0.00105" izz="0.000925"/>
             </inertial>
             <visual>
                 <origin rpy="0 0 0" xyz="3.7e-05 -0.024464 -0.12355"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver_default"/>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="3.7e-05 -0.024464 -0.12355"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}link3_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="0.16381077990224677 0.02885444035638012 0.0001998411564803071"/>
-                <mass value="1.595534741397531"/>
-                <inertia ixx="0.000496" ixy="-0.00082" ixz="4e-05" iyy="0.016604" iyz="1e-06" izz="0.016792"/>
+                <origin rpy="0 0 0" xyz="0.19536238170651474 -0.019556966486173572 0.00017773410978028092"/>
+                <mass value="1.722735495745173"/>
+                <inertia ixx="0.000514" ixy="-0.001219" ixz="5.5e-05" iyy="0.031424" iyz="1e-06" izz="0.03162"/>
             </inertial>
             <visual>
-                <origin rpy="0 0 0" xyz="-0.034868 0.036505 -0.4753"/>
+                <origin rpy="0 0 0" xyz="-0.034824 -0.012495 -0.5553"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver_default"/>
             </visual>
             <collision>
-                <origin rpy="0 0 0" xyz="-0.034868 0.036505 -0.4753"/>
+                <origin rpy="0 0 0" xyz="-0.034824 -0.012495 -0.5553"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}link4_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="0.04210024944627366 0.005170122132596722 -1.2073697515102566e-06"/>
+                <origin rpy="0 0 0" xyz="0.04200033140116871 0.00507003235961316 -1.2073697562842156e-06"/>
                 <mass value="0.828744250174943"/>
                 <inertia ixx="0.00023" ixy="9.5e-05" ixz="-0.0" iyy="0.000619" iyz="0.0" izz="0.000688"/>
             </inertial>
             <visual>
-                <origin rpy="0 0 0" xyz="-0.360435 -0.000288 -0.4752"/>
+                <origin rpy="0 0 0" xyz="-0.455435 -0.000288 -0.5552"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link4_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link4_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver_default"/>
             </visual>
             <collision>
-                <origin rpy="0 0 0" xyz="-0.360435 -0.000288 -0.4752"/>
+                <origin rpy="0 0 0" xyz="-0.455435 -0.000288 -0.5552"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link4_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link4_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}link5_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="0.04429399783850041 -0.0185328285303192 0.011633483161794023"/>
-                <mass value="0.14912306056799499"/>
-                <inertia ixx="4.4e-05" ixy="1e-06" ixz="-3e-06" iyy="4.6e-05" iyz="0.0" izz="4.1e-05"/>
+                <origin rpy="0 0 0" xyz="0.011649390529319126 -0.018561235276543478 -0.04427731409723035"/>
+                <mass value="0.149123060567995"/>
+                <inertia ixx="4.1e-05" ixy="0.0" ixz="3e-06" iyy="4.6e-05" iyz="-1e-06" izz="4.4e-05"/>
             </inertial>
             <visual>
-                <origin rpy="0 0 0" xyz="-0.439118 -0.019359 -0.4752"/>
+                <origin rpy="0 0 0" xyz="-0.534018 -0.019258 -0.5552"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link5_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link5_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver_default"/>
             </visual>
             <collision>
-                <origin rpy="0 0 0" xyz="-0.439118 -0.019359 -0.4752"/>
+                <origin rpy="0 0 0" xyz="-0.534018 -0.019258 -0.5552"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link5_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link5_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}link6_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="0.021371181918969362 -0.0110541257671988 1.700855828679071e-06"/>
+                <origin rpy="0 0 0" xyz="1.0851645860010528e-05 -0.011072592980630363 -0.021361276335835733"/>
                 <mass value="0.4351295137369132"/>
-                <inertia ixx="0.000113" ixy="6e-06" ixz="0.0" iyy="0.000105" iyz="-0.0" izz="0.000158"/>
+                <inertia ixx="0.000158" ixy="-0.0" ixz="-0.0" iyy="0.000105" iyz="-6e-06" izz="0.000113"/>
             </inertial>
             <visual>
-                <origin rpy="0 0 0" xyz="-0.503935 -0.000517 -0.4752"/>
+                <origin rpy="0 0 0" xyz="-0.534035 -0.000358 -0.4904"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link6_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link6_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver_default"/>
             </visual>
             <collision>
-                <origin rpy="0 0 0" xyz="-0.503935 -0.000517 -0.4752"/>
+                <origin rpy="0 0 0" xyz="-0.534035 -0.000358 -0.4904"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/link6_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/link6_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}EndEffector_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="-0.004885954407517601 -0.0036198984293666116 4.046185011813419e-05"/>
-                <mass value="0.2999455316821665"/>
-                <inertia ixx="0.000277" ixy="-2e-06" ixz="0.0" iyy="0.000236" iyz="-0.0" izz="0.000109"/>
+                <origin rpy="0 0 0" xyz="4.291544277090775e-05 -0.0036152140147807737 0.004889155227827402"/>
+                <mass value="0.2999455316821713"/>
+                <inertia ixx="0.000109" ixy="-0.0" ixz="-0.0" iyy="0.000236" iyz="2e-06" izz="0.000277"/>
             </inertial>
             <visual>
-                <origin rpy="0 0 0" xyz="-0.548935 -0.000557 -0.47515"/>
+                <origin rpy="0 0 0" xyz="-0.533985 -0.000358 -0.4454"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/EndEffector_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/EndEffector_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="opaque02550"/>
             </visual>
             <collision>
-                <origin rpy="0 0 0" xyz="-0.548935 -0.000557 -0.47515"/>
+                <origin rpy="0 0 0" xyz="-0.533985 -0.000358 -0.4454"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/EndEffector_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/EndEffector_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}left_finger_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="0.03403901633983453 -6.823868918867074e-06 0.010602891865212738"/>
-                <mass value="0.3076181632680406"/>
-                <inertia ixx="0.000321" ixy="0.0" ixz="-3.9e-05" iyy="0.000254" iyz="-0.0" izz="0.000538"/>
+                <origin rpy="0 0 0" xyz="0.010602170828002466 -2.819158263641687e-05 -0.03403902699335176"/>
+                <mass value="0.30761816326804103"/>
+                <inertia ixx="0.000538" ixy="0.0" ixz="3.9e-05" iyy="0.000254" iyz="-0.0" izz="0.000321"/>
             </inertial>
             <visual>
-                <origin rpy="0 0 0" xyz="-0.556935 -0.000541 -0.42015"/>
+                <origin rpy="0 0 0" xyz="-0.478985 -0.000286 -0.4374"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/left_finger_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/left_finger_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="steel_satin"/>
             </visual>
             <collision>
-                <origin rpy="0 0 0" xyz="-0.556935 -0.000541 -0.42015"/>
+                <origin rpy="0 0 0" xyz="-0.478985 -0.000286 -0.4374"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/left_finger_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/left_finger_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
         <link name="${prefix}right_finger_1">
             <inertial>
-                <origin rpy="0 0 0" xyz="0.03403959186151451 -6.4562398618145e-06 -0.010601306968202273"/>
+                <origin rpy="0 0 0" xyz="-0.010602105454361022 -4.707945734816726e-05 -0.034038644156227704"/>
                 <mass value="0.3076182712077128"/>
-                <inertia ixx="0.000321" ixy="0.0" ixz="3.9e-05" iyy="0.000254" iyz="-0.0" izz="0.000538"/>
+                <inertia ixx="0.000538" ixy="0.0" ixz="-3.9e-05" iyy="0.000254" iyz="-0.0" izz="0.000321"/>
             </inertial>
             <visual>
-                <origin rpy="0 0 0" xyz="-0.556934 -0.000587 -0.53015"/>
+                <origin rpy="0 0 0" xyz="-0.588985 -0.000431 -0.4374"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/right_finger_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/right_finger_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="steel_satin"/>
             </visual>
             <collision>
-                <origin rpy="0 0 0" xyz="-0.556934 -0.000587 -0.53015"/>
+                <origin rpy="0 0 0" xyz="-0.588985 -0.000431 -0.4374"/>
                 <geometry>
-                    <mesh filename="package://0525_arm_description/meshes/right_finger_1.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://urdf_0816_description/meshes/right_finger_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
@@ -243,53 +235,55 @@
             <child link="${prefix}link1_1"/>
             <axis xyz="-0.0 0.0 1.0"/>
         </joint>
-        <joint name="${prefix}Revolute_2" type="continuous">
+        <joint name="${prefix}Revolute_2" type="revolute">
             <origin rpy="0 0 0" xyz="-3.7e-05 0.024464 0.06805"/>
             <parent link="${prefix}link1_1"/>
             <child link="${prefix}link2_1"/>
             <axis xyz="-0.000898 1.0 -0.0"/>
+            <limit effort="100" lower="-1.570796" upper="1.570796" velocity="100"/>
         </joint>
-        <joint name="${prefix}Revolute_3" type="continuous">
-            <origin rpy="0 0 0" xyz="0.034905 -0.060969 0.35175"/>
+        <joint name="${prefix}Revolute_3" type="revolute">
+            <origin rpy="0 0 0" xyz="0.034861 -0.011969 0.43175"/>
             <parent link="${prefix}link2_1"/>
             <child link="${prefix}link3_1"/>
-            <axis xyz="0.000898 -1.0 -0.0"/>
+            <axis xyz="-0.000898 1.0 0.0"/>
+            <limit effort="100" lower="-1.570796" upper="1.570796" velocity="100"/>
         </joint>
         <joint name="${prefix}Revolute_4" type="continuous">
-            <origin rpy="0 0 0" xyz="0.325567 0.036793 -0.0001"/>
+            <origin rpy="0 0 0" xyz="0.420611 -0.012207 -0.0001"/>
             <parent link="${prefix}link3_1"/>
             <child link="${prefix}link4_1"/>
             <axis xyz="1.0 0.000898 0.0"/>
         </joint>
         <joint name="${prefix}Revolute_5" type="continuous">
-            <origin rpy="0 1.57 0" xyz="0.078683 0.019071 0.0"/>
+            <origin rpy="0 0 0" xyz="0.078583 0.01897 0.0"/>
             <parent link="${prefix}link4_1"/>
             <child link="${prefix}link5_1"/>
             <axis xyz="-0.000898 1.0 0.0"/>
         </joint>
         <joint name="${prefix}Revolute_6" type="continuous">
-            <origin rpy="0 0 0" xyz="0.064817 -0.018842 0.0"/>
+            <origin rpy="0 0 0" xyz="1.7e-05 -0.0189 -0.0648"/>
             <parent link="${prefix}link5_1"/>
             <child link="${prefix}link6_1"/>
-            <axis xyz="1.0 0.000898 0.0"/>
+            <axis xyz="0.0 0.0 -1.0"/>
         </joint>
         <joint name="${prefix}Rigid_7" type="fixed">
-            <origin rpy="0 0 0" xyz="0.045 4e-05 -5e-05"/>
+            <origin rpy="0 0 0" xyz="-5e-05 0.0 -0.045"/>
             <parent link="${prefix}link6_1"/>
             <child link="${prefix}EndEffector_1"/>
         </joint>
         <joint name="${prefix}Slider_1" type="prismatic">
-            <origin rpy="0 0 0" xyz="0.007999 3e-05 0.055"/>
+            <origin rpy="0 0 0" xyz="0.055 7.3e-05 -0.008"/>
             <parent link="${prefix}EndEffector_1"/>
             <child link="${prefix}right_finger_1"/>
-            <axis xyz="0.0 0.0 -1.0"/>
+            <axis xyz="-1.0 -0.000898 -0.0"/>
             <limit effort="100" lower="0.0" upper="0.024" velocity="100"/>
         </joint>
         <joint name="${prefix}Slider_2" type="prismatic">
-            <origin rpy="0 0 0" xyz="0.008 -1.6e-05 -0.055"/>
+            <origin rpy="0 0 0" xyz="-0.055 -7.2e-05 -0.008"/>
             <parent link="${prefix}EndEffector_1"/>
             <child link="${prefix}left_finger_1"/>
-            <axis xyz="0.0 0.0 -1.0"/>
+            <axis xyz="-1.0 -0.000898 -0.0"/>
             <limit effort="100" lower="-0.024" upper="0.0" velocity="100"/>
             <mimic joint="${prefix}Slider_1" multiplier="-1.0" offset="0.0"/>
         </joint>

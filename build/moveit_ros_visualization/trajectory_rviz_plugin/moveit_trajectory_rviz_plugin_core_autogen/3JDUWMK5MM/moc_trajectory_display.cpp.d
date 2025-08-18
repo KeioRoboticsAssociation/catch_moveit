@@ -1,7 +1,7 @@
 /home/a/ws_moveit2/build/moveit_ros_visualization/trajectory_rviz_plugin/moveit_trajectory_rviz_plugin_core_autogen/3JDUWMK5MM/moc_trajectory_display.cpp: /home/a/ws_moveit2/src/moveit2/moveit_ros/visualization/trajectory_rviz_plugin/include/moveit/trajectory_rviz_plugin/trajectory_display.h \
   /home/a/ws_moveit2/build/moveit_ros_visualization/trajectory_rviz_plugin/moveit_trajectory_rviz_plugin_core_autogen/moc_predefs.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/class_forward.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
   /home/a/ws_moveit2/src/moveit2/moveit_ros/visualization/rviz_plugin_render_tools/include/moveit/rviz_plugin_render_tools/trajectory_visualization.h \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
@@ -408,7 +408,8 @@
   /opt/ros/humble/include/tf2/tf2/transform_storage.hpp \
   /opt/ros/humble/include/tf2/tf2/visibility_control.h \
   /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h \
-  /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.hpp \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.hpp \
   /opt/ros/humble/include/tracetools/tracetools/config.h \
   /opt/ros/humble/include/tracetools/tracetools/tracetools.h \
   /opt/ros/humble/include/tracetools/tracetools/utils.hpp \

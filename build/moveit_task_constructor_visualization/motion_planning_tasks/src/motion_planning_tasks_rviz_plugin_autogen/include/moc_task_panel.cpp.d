@@ -1,7 +1,7 @@
 /home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/motion_planning_tasks_rviz_plugin_autogen/include/moc_task_panel.cpp: /home/a/ws_moveit2/src/moveit_task_constructor/visualization/motion_planning_tasks/src/task_panel.h \
   /home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/motion_planning_tasks_rviz_plugin_autogen/moc_predefs.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/class_forward.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
   /opt/ros/humble/include/rviz_common/rviz_common/config.hpp \
   /opt/ros/humble/include/rviz_common/rviz_common/panel.hpp \
   /opt/ros/humble/include/rviz_common/rviz_common/visibility_control.hpp \

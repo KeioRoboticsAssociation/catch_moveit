@@ -1,1 +1,5 @@
-/home/a/ws_moveit2/src/moveit_task_constructor/msgs/msg/TaskStatistics.msg
+# unique id of generating task
+string task_id
+
+# list of all stages, including the task stage itself
+StageStatistics[] stages

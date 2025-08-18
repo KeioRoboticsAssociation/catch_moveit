@@ -1,1 +1,5 @@
-/home/a/ws_moveit2/src/moveit2/moveit_planners/pilz_industrial_motion_planner/test/unit_tests/config/unittest_trajectory_functions.yaml
+planning_group : "manipulator"
+group_tip_link : "prbt_flange"
+tcp_link : "prbt_tcp"
+ik_fast_link : "prbt_flange"
+random_test_number : 1000

@@ -1,1 +1,7 @@
-/home/a/ws_moveit2/src/moveit2/moveit_ros/visualization/robot_state_rviz_plugin_description.xml
+<library path="moveit_robot_state_rviz_plugin">
+  <class name="moveit_rviz_plugin/RobotState" type="moveit_rviz_plugin::RobotStateDisplay" base_class_type="rviz_common::Display">
+    <description>
+      Displays a robot state.
+    </description>
+  </class>
+</library>

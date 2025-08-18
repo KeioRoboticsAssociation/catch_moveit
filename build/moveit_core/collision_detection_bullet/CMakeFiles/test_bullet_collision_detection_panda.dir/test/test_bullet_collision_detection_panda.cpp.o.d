@@ -372,7 +372,7 @@ collision_detection_bullet/CMakeFiles/test_bullet_collision_detection_panda.dir/
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/exceptions/include/moveit/exceptions/exceptions.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
  /usr/include/tinyxml2.h /opt/ros/humble/include/urdf/urdf/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/link.h \
@@ -394,7 +394,7 @@ collision_detection_bullet/CMakeFiles/test_bullet_collision_detection_panda.dir/
  /opt/ros/humble/include/urdf/urdf/urdfdom_compatibility.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
  /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/robot_model/include/moveit/robot_model/joint_model_group.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/robot_model/include/moveit/robot_model/joint_model.h \
  /usr/include/c++/11/iostream \
@@ -1122,7 +1122,7 @@ collision_detection_bullet/CMakeFiles/test_bullet_collision_detection_panda.dir/
  /home/a/ws_moveit2/build/moveit_core/collision_detection_bullet/moveit_collision_detection_bullet_export.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/collision_detection/include/moveit/collision_detection/test_collision_common_panda.h \
  /home/a/ws_moveit2/src/moveit2/moveit_core/utils/include/moveit/utils/robot_model_test_utils.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/srdf_writer.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/srdf_writer.h \
  /opt/ros/humble/include/urdfdom/urdf_parser/urdf_parser.h \
  /usr/include/tinyxml.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/color.h \

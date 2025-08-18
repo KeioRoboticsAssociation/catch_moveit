@@ -694,8 +694,8 @@ CMakeFiles/moveit_setup_framework.dir/src/urdf_config.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/model.h \
- /home/a/ws_moveit2/src/srdfdom/include/srdfdom/visibility_control.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
+ /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
  /usr/include/boost/algorithm/string/join.hpp \
  /usr/include/boost/algorithm/string/config.hpp \
  /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \

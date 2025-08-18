@@ -52,3 +52,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/a/ws_moveit2/build/pilz_industrial_motion_planner/test/integration_tests/cmake_install.cmake")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pilz_industrial_motion_planner" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/moveit2/moveit_planners/pilz_industrial_motion_planner/test/test_data")
+endif()
+

@@ -1,7 +1,7 @@
 /home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/motion_planning_tasks_rviz_plugin_autogen/EWIEGA46WW/moc_meta_task_list_model.cpp: /home/a/ws_moveit2/src/moveit_task_constructor/visualization/motion_planning_tasks/src/meta_task_list_model.h \
   /home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/motion_planning_tasks_rviz_plugin_autogen/moc_predefs.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/class_forward.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
   /home/a/ws_moveit2/src/moveit_task_constructor/visualization/motion_planning_tasks/utils/tree_merge_proxy_model.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \

@@ -3,15 +3,15 @@
 	"CMAKE_BINARY_DIR" : "/home/a/ws_moveit2/build/moveit_task_constructor_visualization",
 	"CMAKE_CURRENT_BINARY_DIR" : "/home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src",
 	"CMAKE_CURRENT_SOURCE_DIR" : "/home/a/ws_moveit2/src/moveit_task_constructor/visualization/motion_planning_tasks/src",
-	"CMAKE_EXECUTABLE" : "/opt/st/stm32cubeclt_1.17.0/CMake/bin/cmake",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
 		"/home/a/ws_moveit2/src/moveit_task_constructor/visualization/motion_planning_tasks/src/CMakeLists.txt",
 		"/home/a/ws_moveit2/src/moveit_task_constructor/visualization/motion_planning_tasks/src/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/a/ws_moveit2/src/moveit_task_constructor/visualization",
-	"DEP_FILE" : "/home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/motion_planning_tasks_rviz_plugin_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "motion_planning_tasks_rviz_plugin_autogen/timestamp",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
@@ -227,11 +227,10 @@
 	"MOC_PREDEFS_CMD" : 
 	[
 		"/usr/bin/c++",
-		"-std=c++17",
 		"-dM",
 		"-E",
 		"-c",
-		"/opt/st/stm32cubeclt_1.17.0/CMake/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp"
+		"/usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp"
 	],
 	"MOC_PREDEFS_FILE" : "/home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/motion_planning_tasks_rviz_plugin_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
@@ -242,7 +241,7 @@
 		"/home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/ui_task_view.h"
 	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 4,
+	"PARALLEL" : 16,
 	"PARSE_CACHE_FILE" : "/home/a/ws_moveit2/build/moveit_task_constructor_visualization/motion_planning_tasks/src/CMakeFiles/motion_planning_tasks_rviz_plugin_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",

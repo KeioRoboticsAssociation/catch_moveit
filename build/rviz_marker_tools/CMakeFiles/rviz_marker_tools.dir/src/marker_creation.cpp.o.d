@@ -504,15 +504,15 @@ CMakeFiles/rviz_marker_tools.dir/src/marker_creation.cpp.o: \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/bits/parse_numbers.h \
  /opt/ros/humble/include/tf2/tf2/time.hpp \
- /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.hpp \
  /usr/include/c++/11/future /usr/include/c++/11/mutex \
  /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h \
  /usr/include/c++/11/condition_variable \
  /usr/include/c++/11/bits/atomic_futex.h \
  /usr/include/c++/11/bits/std_thread.h \
- /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h \
- /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.hpp \
  /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp \
@@ -532,7 +532,7 @@ CMakeFiles/rviz_marker_tools.dir/src/marker_creation.cpp.o: \
  /opt/ros/humble/include/tf2/tf2/transform_storage.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp \
- /opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__type_support.hpp \
@@ -912,7 +912,7 @@ CMakeFiles/rviz_marker_tools.dir/src/marker_creation.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp \
- /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \

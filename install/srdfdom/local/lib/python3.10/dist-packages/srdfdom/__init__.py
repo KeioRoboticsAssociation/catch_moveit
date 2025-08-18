@@ -1,1 +1,0 @@
-/home/a/ws_moveit2/src/srdfdom/srdfdom/__init__.py

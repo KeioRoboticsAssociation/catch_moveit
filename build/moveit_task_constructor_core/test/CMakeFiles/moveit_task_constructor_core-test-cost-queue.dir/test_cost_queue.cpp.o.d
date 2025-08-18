@@ -314,8 +314,8 @@ test/CMakeFiles/moveit_task_constructor_core-test-cost-queue.dir/test_cost_queue
  /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
  /usr/include/c++/11/bits/locale_conv.h \
  /usr/include/c++/11/bits/quoted_string.h \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/solution.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/solution.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__struct.hpp \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_initialization.h \
@@ -354,19 +354,19 @@ test/CMakeFiles/moveit_task_constructor_core-test-cost-queue.dir/test_cost_queue
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene_world__struct.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__struct.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_solution__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution_info__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_solution__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution_info__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__struct.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_trajectory__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_trajectory__struct.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__struct.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__struct.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory__struct.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory_point__struct.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__builder.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__builder.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__traits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__traits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__traits.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/joint_state__traits.hpp \
@@ -402,19 +402,19 @@ test/CMakeFiles/moveit_task_constructor_core-test-cost-queue.dir/test_cost_queue
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene_world__traits.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__traits.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_solution__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution_info__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_solution__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution_info__traits.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__traits.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__traits.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/sub_trajectory__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/sub_trajectory__traits.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/trajectory_execution_info__traits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__traits.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory__traits.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory_point__traits.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/detail/solution__type_support.hpp \
- /home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_generator_cpp/moveit_task_constructor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/detail/solution__type_support.hpp \
+ /home/a/ws_moveit2/install/moveit_task_constructor_msgs/include/moveit_task_constructor_msgs/moveit_task_constructor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker_array.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__struct.hpp \
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__builder.hpp \

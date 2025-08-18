@@ -1,1 +1,3 @@
-/home/a/ws_moveit2/build/moveit_task_constructor_msgs/rosidl_cmake/srv/GetSolution_Request.msg
+# ID of solution (as published in Task msg)
+uint32 solution_id
+

@@ -1,7 +1,7 @@
 /home/a/ws_moveit2/build/moveit_task_constructor_visualization/visualization_tools/moveit_task_visualization_tools_autogen/CTAMQ4RPTO/moc_marker_visualization.cpp: /home/a/ws_moveit2/src/moveit_task_constructor/visualization/visualization_tools/include/moveit/visualization_tools/marker_visualization.h \
   /home/a/ws_moveit2/build/moveit_task_constructor_visualization/visualization_tools/moveit_task_visualization_tools_autogen/moc_predefs.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/class_forward.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp \

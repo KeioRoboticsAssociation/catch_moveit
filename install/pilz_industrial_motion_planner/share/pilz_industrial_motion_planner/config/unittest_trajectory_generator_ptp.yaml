@@ -1,1 +1,6 @@
-/home/a/ws_moveit2/src/moveit2/moveit_planners/pilz_industrial_motion_planner/test/unit_tests/config/unittest_trajectory_generator_ptp.yaml
+planning_group : "manipulator"
+target_link : "prbt_tcp"
+joint_position_tolerance : 1.0e-8
+joint_velocity_tolerance : 1.0e-8
+joint_acceleration_tolerance : 1.0e-8
+pose_norm_tolerance : 1.0e-6

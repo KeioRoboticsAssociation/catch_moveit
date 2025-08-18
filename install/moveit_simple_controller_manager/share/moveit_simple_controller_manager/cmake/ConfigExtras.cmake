@@ -1,1 +1,3 @@
-/home/a/ws_moveit2/src/moveit2/moveit_plugins/moveit_simple_controller_manager/ConfigExtras.cmake
+# Extras module needed for dependencies to find boost components
+
+find_package(Boost REQUIRED thread)

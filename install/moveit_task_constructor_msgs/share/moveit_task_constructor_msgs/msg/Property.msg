@@ -1,1 +1,4 @@
-/home/a/ws_moveit2/src/moveit_task_constructor/msgs/msg/Property.msg
+string name
+string description
+string type
+string value

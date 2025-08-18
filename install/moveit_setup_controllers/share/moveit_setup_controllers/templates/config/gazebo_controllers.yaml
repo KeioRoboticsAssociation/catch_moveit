@@ -1,1 +1,4 @@
-/home/a/ws_moveit2/src/moveit2/moveit_setup_assistant/moveit_setup_controllers/templates/config/gazebo_controllers.yaml
+# Publish joint_states
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50

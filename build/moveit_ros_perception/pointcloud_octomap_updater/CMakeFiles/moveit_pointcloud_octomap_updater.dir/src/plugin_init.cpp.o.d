@@ -636,6 +636,7 @@ pointcloud_octomap_updater/CMakeFiles/moveit_pointcloud_octomap_updater.dir/src/
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp \
  /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.hpp \
  /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp \
@@ -674,7 +675,7 @@ pointcloud_octomap_updater/CMakeFiles/moveit_pointcloud_octomap_updater.dir/src/
  /opt/ros/humble/include/tf2/tf2/transform_storage.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp \
- /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp \
@@ -683,6 +684,7 @@ pointcloud_octomap_updater/CMakeFiles/moveit_pointcloud_octomap_updater.dir/src/
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
  /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp \
  /opt/ros/humble/include/tf2_ros/tf2_ros/message_filter.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/message_filter.hpp \
  /opt/ros/humble/include/message_filters/message_filters/connection.h \
  /opt/ros/humble/include/message_filters/message_filters/visibility_control.h \
  /opt/ros/humble/include/message_filters/message_filters/message_traits.h \
@@ -690,13 +692,13 @@ pointcloud_octomap_updater/CMakeFiles/moveit_pointcloud_octomap_updater.dir/src/
  /opt/ros/humble/include/message_filters/message_filters/signal1.h \
  /opt/ros/humble/include/message_filters/message_filters/message_event.h \
  /opt/ros/humble/include/message_filters/message_filters/parameter_adapter.h \
- /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.hpp \
  /opt/ros/humble/include/tf2/tf2/transform_datatypes.hpp \
- /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h \
- /opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.hpp \
  /opt/ros/humble/include/tf2/tf2/convert.hpp \
  /opt/ros/humble/include/tf2/tf2/impl/convert.hpp \
- /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \

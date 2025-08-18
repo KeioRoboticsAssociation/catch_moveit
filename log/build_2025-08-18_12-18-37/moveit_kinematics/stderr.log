@@ -1,0 +1,15 @@
+gmake[2]: *** Deleting file 'lma_kinematics_plugin/libmoveit_lma_kinematics_plugin.so.2.5.9'
+gmake[2]: *** [test/CMakeFiles/benchmark_ik.dir/build.make:76: test/CMakeFiles/benchmark_ik.dir/benchmark_ik.cpp.o] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:424: test/CMakeFiles/benchmark_ik.dir/all] Interrupt
+gmake[2]: *** [lma_kinematics_plugin/CMakeFiles/moveit_lma_kinematics_plugin.dir/build.make:326: lma_kinematics_plugin/libmoveit_lma_kinematics_plugin.so.2.5.9] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:344: lma_kinematics_plugin/CMakeFiles/moveit_lma_kinematics_plugin.dir/all] Interrupt
+gmake[2]: *** [srv_kinematics_plugin/CMakeFiles/moveit_srv_kinematics_plugin.dir/build.make:76: srv_kinematics_plugin/CMakeFiles/moveit_srv_kinematics_plugin.dir/src/srv_kinematics_plugin.cpp.o] Interrupt
+gmake[2]: *** [kdl_kinematics_plugin/CMakeFiles/moveit_kdl_kinematics_plugin.dir/build.make:76: kdl_kinematics_plugin/CMakeFiles/moveit_kdl_kinematics_plugin.dir/src/kdl_kinematics_plugin.cpp.o] Interrupt
+gmake[2]: *** wait: No child processes.  Stop.
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** wait: No child processes.  Stop.
+gmake[1]: *** [CMakeFiles/Makefile2:370: srv_kinematics_plugin/CMakeFiles/moveit_srv_kinematics_plugin.dir/all] Interrupt
+gmake[2]: *** [cached_ik_kinematics_plugin/CMakeFiles/moveit_cached_ik_kinematics_base.dir/build.make:76: cached_ik_kinematics_plugin/CMakeFiles/moveit_cached_ik_kinematics_base.dir/src/ik_cache.cpp.o] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:318: kdl_kinematics_plugin/CMakeFiles/moveit_kdl_kinematics_plugin.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:264: cached_ik_kinematics_plugin/CMakeFiles/moveit_cached_ik_kinematics_base.dir/all] Interrupt
+gmake: *** [Makefile:146: all] Interrupt

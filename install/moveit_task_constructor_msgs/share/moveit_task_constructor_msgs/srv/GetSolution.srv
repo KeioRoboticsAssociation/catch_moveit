@@ -1,1 +1,6 @@
-/home/a/ws_moveit2/src/moveit_task_constructor/msgs/srv/GetSolution.srv
+# ID of solution (as published in Task msg)
+uint32 solution_id
+
+---
+
+Solution solution

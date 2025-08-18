@@ -1,7 +1,7 @@
 /home/a/ws_moveit2/build/moveit_ros_visualization/motion_planning_rviz_plugin/moveit_motion_planning_rviz_plugin_core_autogen/AQRHKWRNKI/moc_motion_planning_param_widget.cpp: /home/a/ws_moveit2/src/moveit2/moveit_ros/visualization/motion_planning_rviz_plugin/include/moveit/motion_planning_rviz_plugin/motion_planning_param_widget.h \
   /home/a/ws_moveit2/build/moveit_ros_visualization/motion_planning_rviz_plugin/moveit_motion_planning_rviz_plugin_core_autogen/moc_predefs.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/class_forward.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
   /opt/ros/humble/include/rviz_common/rviz_common/config.hpp \
   /opt/ros/humble/include/rviz_common/rviz_common/properties/property_tree_model.hpp \
   /opt/ros/humble/include/rviz_common/rviz_common/properties/property_tree_widget.hpp \

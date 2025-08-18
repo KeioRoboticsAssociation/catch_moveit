@@ -1,1 +1,10 @@
-/home/a/ws_moveit2/src/moveit2/moveit_plugins/moveit_simple_controller_manager/moveit_simple_controller_manager_plugin_description.xml
+<library path="moveit_simple_controller_manager">
+
+  <class name="moveit_simple_controller_manager/MoveItSimpleControllerManager"
+         type="moveit_simple_controller_manager::MoveItSimpleControllerManager"
+         base_class_type="moveit_controller_manager::MoveItControllerManager">
+    <description>
+    </description>
+  </class>
+
+</library>

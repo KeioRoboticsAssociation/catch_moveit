@@ -1,7 +1,7 @@
 /home/a/ws_moveit2/build/moveit_ros_visualization/rviz_plugin_render_tools/moveit_rviz_plugin_render_tools_autogen/QDX35O74K6/moc_trajectory_visualization.cpp: /home/a/ws_moveit2/src/moveit2/moveit_ros/visualization/rviz_plugin_render_tools/include/moveit/rviz_plugin_render_tools/trajectory_visualization.h \
   /home/a/ws_moveit2/build/moveit_ros_visualization/rviz_plugin_render_tools/moveit_rviz_plugin_render_tools_autogen/moc_predefs.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/class_forward.h \
-  /home/a/ws_moveit2/src/moveit2/moveit_core/macros/include/moveit/macros/declare_ptr.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
+  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp \
