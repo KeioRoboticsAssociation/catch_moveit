@@ -38,7 +38,7 @@ planner_configs:
     type: geometric::PRMstar
 
 left_arm:
-  default_planner_config: RRTConnectkConfigDefault
+  default_planner_config: RRTstarkConfigDefault
   planner_configs:
     - RRTConnectkConfigDefault
     - RRTstarkConfigDefault
@@ -49,7 +49,7 @@ left_arm:
   longest_valid_segment_fraction: 0.01
 
 right_arm:
-  default_planner_config: RRTConnectkConfigDefault
+  default_planner_config: RRTstarkConfigDefault
   planner_configs:
     - RRTConnectkConfigDefault
     - RRTstarkConfigDefault

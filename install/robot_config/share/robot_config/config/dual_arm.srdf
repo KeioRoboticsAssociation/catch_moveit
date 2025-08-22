@@ -32,14 +32,12 @@
 
     <!-- Left hand group -->
     <group name="left_hand">
-        <joint name="left_Rigid_7"/>
         <joint name="left_Slider_1"/>
         <joint name="left_Slider_2"/>
     </group>
 
     <!-- Right hand group -->
     <group name="right_hand">
-        <joint name="right_Rigid_7"/>
         <joint name="right_Slider_1"/>
         <joint name="right_Slider_2"/>
     </group>

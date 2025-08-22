@@ -271,3 +271,31 @@
     justify-content: center;
   }
 }
+
+/* 掴むボタンのスタイル */
+.grab-button {
+  background-color: #fef08a !important; /* 黄色 */
+  border-color: #f59e0b !important;
+}
+
+.grab-button:hover {
+  background-color: #fde047 !important;
+}
+
+.grab-button:active {
+  background-color: #facc15 !important;
+}
+
+/* 離すボタンのスタイル */
+.release-button {
+  background-color: #fecaca !important; /* 赤色 */
+  border-color: #ef4444 !important;
+}
+
+.release-button:hover {
+  background-color: #fca5a5 !important;
+}
+
+.release-button:active {
+  background-color: #f87171 !important;
+}

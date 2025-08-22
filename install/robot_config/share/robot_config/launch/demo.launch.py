@@ -8,7 +8,6 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from moveit_configs_utils import MoveItConfigsBuilder
 
-
 def generate_launch_description():
     # Declare arguments
     declared_arguments = []
@@ -28,24 +27,16 @@ def generate_launch_description():
             description="Path to RViz configuration file",
         )
     )
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "field",
-            default_value="none",
-            description="Field type: 'red' or 'blue' to apply rotation, 'none' for no rotation",
-        )
-    )
 
     # Initialize Arguments
     use_sim_time = LaunchConfiguration("use_sim_time")
     rviz_config = LaunchConfiguration("rviz_config")
-    field = LaunchConfiguration("field")
 
-    # Get MoveIt configs for dual arm
+    # Get MoveIt configs
     moveit_config = (
-        MoveItConfigsBuilder("dual_arm", package_name="robot_config")
+        MoveItConfigsBuilder("0525_arm", package_name="robot_config")
         .robot_description(
-            file_path="config/dual_arm.urdf.xacro",
+            file_path="config/0525_arm.urdf.xacro",
             mappings={
                 "use_fake_hardware": "true",
                 "initial_positions_file": PathJoinSubstitution(
@@ -53,15 +44,12 @@ def generate_launch_description():
                 ),
             },
         )
-        .robot_description_semantic(file_path="config/dual_arm.srdf")
-        .robot_description_kinematics(file_path="config/dual_arm_kinematics.yaml")
-        .joint_limits(file_path="config/dual_arm_joint_limits.yaml")
         .planning_pipelines(
             pipelines=["ompl"],
             default_planning_pipeline="ompl",
         )
         .trajectory_execution(
-            file_path="config/dual_arm_moveit_controllers.yaml",
+            file_path="config/moveit_controllers.yaml",
         )
         .to_moveit_configs()
     )
@@ -82,7 +70,7 @@ def generate_launch_description():
         [
             FindPackageShare("robot_config"),
             "config",
-            "dual_arm_controllers.yaml",
+            "ros2_controllers.yaml",
         ]
     )
     ros2_control_node = Node(
@@ -99,7 +87,7 @@ def generate_launch_description():
     # ## 2. spawnerノードのリストを準備 ##
     # ##################################################################
     spawn_controllers = []
-    for controller in ["left_arm_controller", "right_arm_controller", "left_hand_controller", "right_hand_controller", "joint_state_broadcaster"]:
+    for controller in ["arm_controller", "hand_controller", "joint_state_broadcaster"]:
         spawn_controllers.append(
             Node(
                 package="controller_manager",
@@ -162,10 +150,10 @@ def generate_launch_description():
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "left_base_link"],
+        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
     )
 
-    # Servo node for realtime control (configured for left arm)
+    # Servo node for realtime control
     servo_node = Node(
         package="moveit_servo",
         executable="servo_node_main",
@@ -190,10 +178,10 @@ def generate_launch_description():
                     "publish_joint_velocities": False,
                     "publish_joint_accelerations": False,
                     "smoothing_filter_plugin_name": "online_signal_smoothing::ButterworthFilterPlugin",
-                    "move_group_name": "left_arm",
-                    "planning_frame": "world",
-                    "ee_frame_name": "left_EndEffector_1",
-                    "robot_link_command_frame": "world",
+                    "move_group_name": "arm",
+                    "planning_frame": "base_link",
+                    "ee_frame_name": "EndEffector_1",
+                    "robot_link_command_frame": "base_link",
                     "incoming_command_timeout": 1.0,
                     "num_outgoing_halt_msgs_to_publish": 1,
                     "lower_singularity_threshold": 30.0,
@@ -203,7 +191,7 @@ def generate_launch_description():
                     "joint_command_in_topic": "servo_node/delta_joint_cmds",
                     "joint_topic": "joint_states",
                     "status_topic": "servo_node/status",
-                    "command_out_topic": "/left_arm_controller/joint_trajectory",
+                    "command_out_topic": "/arm_controller/joint_trajectory",
                     "check_collisions": True,
                     "collision_check_rate": 5.0,
                     "self_collision_proximity_threshold": 0.01,
@@ -230,25 +218,11 @@ def generate_launch_description():
         output="screen",
     )
 
-    # C++ node for moving to a pose (single arm)
-    # move_to_pose_cpp_node = Node(
-    #     package="robot_config",
-    #     executable="move_to_pose_cpp",
-    #     name="move_to_pose_cpp",
-    #     output="screen",
-    #     # Pass the MoveIt-generated parameters to this node
-    #     parameters=[
-    #         moveit_config.robot_description,
-    #         moveit_config.robot_description_semantic,
-    #         moveit_config.robot_description_kinematics,
-    #     ],
-    # )
-
-    # C++ node for moving to a pose (dual arm)
-    move_to_pose_dual_cpp_node = Node(
+    # C++ node for moving to a pose
+    move_to_pose_cpp_node = Node(
         package="robot_config",
-        executable="move_to_pose_dual_cpp",
-        name="move_to_pose_dual_cpp",
+        executable="move_to_pose_cpp",
+        name="move_to_pose_cpp",
         output="screen",
         # Pass the MoveIt-generated parameters to this node
         parameters=[
@@ -263,15 +237,6 @@ def generate_launch_description():
         package="robot_config",
         executable="publish_collision_mesh.py",
         name="publish_collision_mesh",
-        output="screen",
-        parameters=[{"field": field}],
-    )
-
-    # Node to sort joint states
-    joint_states_sorter_node = Node(
-        package="robot_config",
-        executable="joint_states_sorter.py",
-        name="joint_states_sorter",
         output="screen",
     )
 
@@ -309,10 +274,8 @@ def generate_launch_description():
             servo_node,
             joy_node,
             teleop_node,
-            # move_to_pose_cpp_node,
-            move_to_pose_dual_cpp_node, # Add the new dual arm node
+            move_to_pose_cpp_node,
             publish_collision_mesh_node,
-            joint_states_sorter_node,  # Add the joint states sorter node
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,

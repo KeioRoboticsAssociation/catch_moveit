@@ -1,5 +1,4 @@
 # generated from colcon_core/shell/template/command_prefix.sh.em
-. "/home/a/ws_moveit2/install/0525_arm_description/share/0525_arm_description/package.sh"
 . "/home/a/ws_moveit2/install/launch_param_builder/share/launch_param_builder/package.sh"
 . "/home/a/ws_moveit2/install/moveit_common/share/moveit_common/package.sh"
 . "/home/a/ws_moveit2/install/moveit_resources_fanuc_description/share/moveit_resources_fanuc_description/package.sh"

@@ -45,7 +45,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_BUILD_TYPE:STRING=
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -248,7 +248,7 @@ TINYXML2_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libtinyxml2.so
 TinyXML2_DIR:PATH=TinyXML2_DIR-NOTFOUND
 
 //Path to a library.
-_lib:FILEPATH=/usr/lib/x86_64-linux-gnu/libdl.a
+_lib:FILEPATH=/usr/lib/x86_64-linux-gnu/libdl.so
 
 //The directory containing a CMake configuration file for ament_cmake.
 ament_cmake_DIR:PATH=/opt/ros/humble/share/ament_cmake/cmake
@@ -314,7 +314,7 @@ field_description_BINARY_DIR:STATIC=/home/a/ws_moveit2/build/field_description
 field_description_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-field_description_SOURCE_DIR:STATIC=/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description
+field_description_SOURCE_DIR:STATIC=/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description
 
 //Path to a library.
 onelib:FILEPATH=/opt/ros/humble/lib/x86_64-linux-gnu/liburdfdom_world.so
@@ -431,7 +431,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

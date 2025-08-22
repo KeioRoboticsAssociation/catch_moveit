@@ -1,0 +1,5 @@
+[0.018s] Invoking command in '/home/a/ws_moveit2/build/field_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_client:/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/build/field_description -- -j22 -l22
+[0.051s] [0mCMake Error: The source directory "/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description" does not exist.
+[0.051s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.051s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.053s] Invoked command in '/home/a/ws_moveit2/build/field_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_client:/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/build/field_description -- -j22 -l22

@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.1.7:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/left_target_pose_rpy";
@@ -199,6 +199,26 @@ export default function App() {
     }
   };
 
+  // アーム1の掴むコマンドをpublish
+  const handleArm1Grab = () => {
+    handleButtonClick("アーム1 抓む");
+  };
+
+  // アーム1の離すコマンドをpublish
+  const handleArm1Release = () => {
+    handleButtonClick("アーム1 離す");
+  };
+
+  // アーム2の掴むコマンドをpublish
+  const handleArm2Grab = () => {
+    handleButtonClick("アーム2 抓む");
+  };
+
+  // アーム2の離すコマンドをpublish
+  const handleArm2Release = () => {
+    handleButtonClick("アーム2 離す");
+  };
+
   const toggleBackgroundColor = () => {
     setBackgroundColor(prevColor => prevColor === "red" ? "blue" : "red");
   };
@@ -281,6 +301,24 @@ export default function App() {
           >
             アーム1<br/>ゴール
           </button>
+          
+          {/* アーム1の掴むボタン */}
+          <button 
+            className="arm-button grab-button"
+            onClick={handleArm1Grab}
+            disabled={connectionStatus !== 'Connected'}
+          >
+            アーム1<br/>掴む
+          </button>
+          
+          {/* アーム1の離すボタン */}
+          <button 
+            className="arm-button release-button"
+            onClick={handleArm1Release}
+            disabled={connectionStatus !== 'Connected'}
+          >
+            アーム1<br/>離す
+          </button>
         </div>
         
         {/* アーム2のコントロールボタン群 */}
@@ -301,6 +339,24 @@ export default function App() {
             disabled={connectionStatus !== 'Connected'}
           >
             アーム2<br/>ゴール
+          </button>
+          
+          {/* アーム2の掴むボタン */}
+          <button 
+            className="arm-button grab-button"
+            onClick={handleArm2Grab}
+            disabled={connectionStatus !== 'Connected'}
+          >
+            アーム2<br/>掴む
+          </button>
+          
+          {/* アーム2の離すボタン */}
+          <button 
+            className="arm-button release-button"
+            onClick={handleArm2Release}
+            disabled={connectionStatus !== 'Connected'}
+          >
+            アーム2<br/>離す
           </button>
         </div>
       </div>

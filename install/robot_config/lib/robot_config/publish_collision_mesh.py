@@ -26,7 +26,7 @@ class CollisionMeshPublisher(Node):
         collision_object.header.frame_id = "world"
         collision_object.id = "base_link_stl"
 
-        mesh_path = "/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description/meshes/base_link.stl"
+        mesh_path = "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"
 
         try:
             your_mesh = mesh.Mesh.from_file(mesh_path)

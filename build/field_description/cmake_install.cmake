@@ -1,4 +1,4 @@
-# Install script for directory: /home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description
+# Install script for directory: /home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -44,9 +44,9 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/field_description" TYPE DIRECTORY FILES
-    "/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description/meshes"
-    "/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description/urdf"
-    "/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description/launch"
+    "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes"
+    "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/urdf"
+    "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/launch"
     )
 endif()
 
@@ -106,7 +106,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/field_description" TYPE FILE FILES "/home/a/ws_moveit2/src/field_description-20250804T033832Z-1-001/field_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/field_description" TYPE FILE FILES "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

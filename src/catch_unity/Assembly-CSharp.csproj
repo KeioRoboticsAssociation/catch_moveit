@@ -72,8 +72,12 @@
     <Compile Include="Assets/Scripts/TorqueModeController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets/catch_unity/field_description/package.xml" />
+    <None Include="Assets/catch_unity/object_description/CMakeLists.txt" />
     <None Include="Assets/catch_unity/urdf_0816_description/CMakeLists.txt" />
     <None Include="Assets/catch_unity/urdf_0816_description/package.xml" />
+    <None Include="Assets/catch_unity/field_description/CMakeLists.txt" />
+    <None Include="Assets/catch_unity/object_description/package.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

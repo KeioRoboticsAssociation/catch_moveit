@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<robot name="object" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find object_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find object_description)/urdf/object.trans" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="1.3880000000000001 -0.7295000000000013 0.00750000000000316" rpy="0 0 0"/>
+    <mass value="0.20327104000000024"/>
+    <inertia ixx="1.7e-05" iyy="5.8e-05" izz="6.6e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://object_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque202209238"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://object_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+</robot>

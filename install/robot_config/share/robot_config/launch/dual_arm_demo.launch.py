@@ -229,7 +229,6 @@ def generate_launch_description():
         name="joystick_servo",
         output="screen",
     )
-
     # C++ node for moving to a pose (single arm)
     # move_to_pose_cpp_node = Node(
     #     package="robot_config",
@@ -288,6 +287,14 @@ def generate_launch_description():
         output="screen",
     )
 
+    # ROS TCP Endpoint for Unity
+    ros_tcp_endpoint = Node(
+        package="ros_tcp_endpoint",
+        executable="default_server_endpoint",
+        output="screen",
+        parameters=[{"ROS_IP": "0.0.0.0"}],
+    )
+
     # NPM dev server
     npm_run_dev = ExecuteProcess(
         cmd=['npm', 'run', 'dev'],
@@ -316,6 +323,7 @@ def generate_launch_description():
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,
+            ros_tcp_endpoint,  # Add the ROS TCP Endpoint for Unity
             npm_run_dev,
         ]
     )

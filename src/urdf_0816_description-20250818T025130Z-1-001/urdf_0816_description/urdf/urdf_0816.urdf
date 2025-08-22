@@ -347,7 +347,7 @@
     <axis xyz="1.0 0.000898 0.0"/>
   </joint>
   <joint name="Revolute_3" type="revolute">
-    <origin rpy="0 0 0" xyz="0.034861 -0.011969 0.43175"/>
+    <origin rpy="0 -1.570796 0" xyz="0.034861 -0.011969 0.43175"/>
     <parent link="link2_1"/>
     <child link="link3_1"/>
     <axis xyz="-0.000898 1.0 0.0"/>
