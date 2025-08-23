@@ -230,7 +230,7 @@
 
         <!-- Joints for this arm instance -->
         <joint name="${prefix}Revolute_1" type="continuous">
-            <origin rpy="0 0 0" xyz="0.0 0.0 0.0555"/>
+            <origin rpy="0 0 3.1415926535" xyz="0.0 0.0 0.0555"/>
             <parent link="${prefix}base_link"/>
             <child link="${prefix}link1_1"/>
             <axis xyz="-0.0 0.0 1.0"/>
@@ -243,7 +243,7 @@
             <limit effort="100" lower="-1.570796" upper="1.570796" velocity="100"/>
         </joint>
         <joint name="${prefix}Revolute_3" type="revolute">
-            <origin rpy="0 -1.570796 0" xyz="0.034861 -0.011969 0.43175"/>
+            <origin rpy="0 0 0" xyz="0.034861 -0.011969 0.43175"/>
             <parent link="${prefix}link2_1"/>
             <child link="${prefix}link3_1"/>
             <axis xyz="-0.000898 1.0 0.0"/>
@@ -285,7 +285,6 @@
             <child link="${prefix}left_finger_1"/>
             <axis xyz="-1.0 -0.000898 -0.0"/>
             <limit effort="100" lower="-0.024" upper="0.0" velocity="100"/>
-            <mimic joint="${prefix}Slider_1" multiplier="-1.0" offset="0.0"/>
         </joint>
 
         <!-- Transmissions for this arm instance -->

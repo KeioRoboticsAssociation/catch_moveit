@@ -126,4 +126,19 @@
     <!-- <disable_collisions link1="left_link4_1" link2="right_link4_1" reason="Never"/> -->
     <!-- <disable_collisions link1="left_link5_1" link2="right_link5_1" reason="Never"/> -->
     <!-- <disable_collisions link1="left_link6_1" link2="right_link6_1" reason="Never"/> -->
+
+    <!-- Planner configurations for left arm -->
+    <group_meta group="left_arm">
+        <group_default_planner_config>RRTConnectkConfigDefault</group_default_planner_config>
+    </group_meta>
+
+    <!-- Planner configurations for right arm -->
+    <group_meta group="right_arm">
+        <group_default_planner_config>RRTConnectkConfigDefault</group_default_planner_config>
+    </group_meta>
+
+    <!-- Planner configurations for both arms -->
+    <group_meta group="both_arms">
+        <group_default_planner_config>RRTConnectkConfigDefault</group_default_planner_config>
+    </group_meta>
 </robot>

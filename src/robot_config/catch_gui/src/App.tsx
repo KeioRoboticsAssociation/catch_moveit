@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.1.7:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/left_target_pose_rpy";
@@ -98,7 +98,7 @@ export default function App() {
     13: [7.0, 8.0, 9.0, 1.2, 1.2, 1.2],
     14: [7.5, 8.5, 9.5, 1.3, 1.3, 1.3],
     15: [8.0, 9.0, 10.0, 1.4, 1.4, 1.4],
-    16: [0.235, 0.331,0.098 , 0.041, 1.57, 0.041],
+    16: [0.287, 0.372, 0.086, 0.0, 0.0, 1.57],
     17: [9.0, 10.0, 11.0, 1.6, 1.6, 1.6],
     18: [9.5, 10.5, 11.5, 1.7, 1.7, 1.7],
     19: [10.0, 11.0, 12.0, 1.8, 1.8, 1.8],

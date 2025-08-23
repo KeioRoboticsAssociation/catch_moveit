@@ -1,4 +1,5 @@
 import os
+import yaml
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription, ExecuteProcess
 from launch.event_handlers import OnProcessStart
@@ -7,6 +8,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from moveit_configs_utils import MoveItConfigsBuilder
+from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
@@ -58,13 +60,27 @@ def generate_launch_description():
         .joint_limits(file_path="config/dual_arm_joint_limits.yaml")
         .planning_pipelines(
             pipelines=["ompl"],
-            default_planning_pipeline="ompl",
+            default_planning_pipeline="ompl"
         )
         .trajectory_execution(
             file_path="config/dual_arm_moveit_controllers.yaml",
         )
         .to_moveit_configs()
     )
+    
+    # Explicitly load OMPL configuration from file
+    ompl_config_file = os.path.join(
+        get_package_share_directory("robot_config"),
+        "config",
+        "dual_arm_ompl_planning.yaml"
+    )
+    
+    # Load the OMPL configuration
+    with open(ompl_config_file, 'r') as file:
+        ompl_config = yaml.safe_load(file)
+    
+    # Update the moveit_config with the loaded OMPL configuration
+    moveit_config.planning_pipelines["ompl"].update(ompl_config)
 
     # Robot state publisher
     robot_state_publisher = Node(
@@ -136,26 +152,30 @@ def generate_launch_description():
             {"planning_scene_monitor_options.octomap_resolution": 0.0},
             # Set OMPL random seed for reproducible planning
             {"ompl/random_seed": 42},
+            # Explicitly set planning pipeline
+            {"default_planning_pipeline": "ompl"},
         ],
         arguments=["--ros-log-level", "info"],
     )
 
     # RViz
     rviz_node = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="log",
-        arguments=["-d", rviz_config],
-        parameters=[
-            moveit_config.robot_description,
-            moveit_config.robot_description_semantic,
-            moveit_config.planning_pipelines,
-            moveit_config.robot_description_kinematics,
-            moveit_config.joint_limits,
-        ],
+    package="rviz2",
+    executable="rviz2",
+    name="rviz2",
+    output="log",
+    arguments=["-d", rviz_config],
+    parameters=[
+        moveit_config.robot_description,
+        moveit_config.robot_description_semantic,
+        moveit_config.robot_description_kinematics,
+        moveit_config.joint_limits,
+        # Explicitly set planning pipeline
+        {"default_planning_pipeline": "ompl"},
+        # Pass the full planning pipeline configuration
+        moveit_config.planning_pipelines,
+    ],
     )
-
     # Static TF
     static_tf = Node(
         package="tf2_ros",
@@ -263,7 +283,12 @@ def generate_launch_description():
         executable="publish_collision_mesh.py",
         name="publish_collision_mesh",
         output="screen",
-        parameters=[{"field": field}],
+        parameters=[
+            {"field": field},
+            {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
+            {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
+            {"object_mesh_positions": [0.0, 0.0, 0.0, 0.0,-1.156,1.1,0,0,-1.056,1.1,0,0,-0.956,1.1,0,0,-0.856,1.1,0,0,-1.156,1,0,0,-1.056,1,0,0,-0.956,1,0,0,-0.856,1,0,0]}  # Example: Two cubes at different positions
+        ],
     )
 
     # Node to sort joint states
