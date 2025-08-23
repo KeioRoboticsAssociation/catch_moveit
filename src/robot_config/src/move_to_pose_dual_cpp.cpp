@@ -201,7 +201,15 @@ private:
     void detachMeshObject(const std::string& object_id, const std::string& arm_name)
     {
         if (arm_name == "left" && left_move_group_interface_) {
+            // First detach from robot
             left_move_group_interface_->detachObject(object_id);
+            
+            // Then remove completely from world using PlanningSceneInterface
+            if (planning_scene_interface_) {
+                std::vector<std::string> object_ids = {object_id};
+                planning_scene_interface_->removeCollisionObjects(object_ids);
+                RCLCPP_INFO(this->get_logger(), "Removed mesh object '%s' from world", object_id.c_str());
+            }
             
             // Reset planning parameters to default values after detach
             left_move_group_interface_->setGoalPositionTolerance(0.001); // Back to 1mm precision
@@ -213,11 +221,19 @@ private:
             left_move_group_interface_->stop(); // Stop any ongoing motion
             
             // Small delay to ensure planning scene is updated
-            rclcpp::sleep_for(std::chrono::milliseconds(100));
+            rclcpp::sleep_for(std::chrono::milliseconds(200));
             
-            RCLCPP_INFO(this->get_logger(), "Detached mesh object '%s' from left arm and reset planning parameters", object_id.c_str());
+            RCLCPP_INFO(this->get_logger(), "Detached and removed mesh object '%s' from left arm", object_id.c_str());
         } else if (arm_name == "right" && right_move_group_interface_) {
+            // First detach from robot
             right_move_group_interface_->detachObject(object_id);
+            
+            // Then remove completely from world using PlanningSceneInterface
+            if (planning_scene_interface_) {
+                std::vector<std::string> object_ids = {object_id};
+                planning_scene_interface_->removeCollisionObjects(object_ids);
+                RCLCPP_INFO(this->get_logger(), "Removed mesh object '%s' from world", object_id.c_str());
+            }
             
             // Reset planning parameters to default values after detach
             right_move_group_interface_->setGoalPositionTolerance(0.001);
@@ -229,9 +245,9 @@ private:
             right_move_group_interface_->stop(); // Stop any ongoing motion
             
             // Small delay to ensure planning scene is updated
-            rclcpp::sleep_for(std::chrono::milliseconds(100));
+            rclcpp::sleep_for(std::chrono::milliseconds(200));
             
-            RCLCPP_INFO(this->get_logger(), "Detached mesh object '%s' from right arm and reset planning parameters", object_id.c_str());
+            RCLCPP_INFO(this->get_logger(), "Detached and removed mesh object '%s' from right arm", object_id.c_str());
         } else {
             RCLCPP_ERROR(this->get_logger(), "Cannot detach object: MoveGroupInterface not initialized for %s arm", arm_name.c_str());
         }
