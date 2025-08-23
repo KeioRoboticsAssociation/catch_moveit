@@ -133,7 +133,7 @@ planner_configs:
     type: geometric::TrajOpt
 
 left_arm:
-  default_planner_config: RRTstarkConfigDefault
+  default_planner_config: PRMstarkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -164,7 +164,7 @@ left_arm:
   scene_collision_proximity_threshold: 0.05
 
 right_arm:
-  default_planner_config: RRTstarkConfigDefault 
+  default_planner_config: PRMstarkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -195,7 +195,7 @@ right_arm:
   scene_collision_proximity_threshold: 0.05
 
 both_arms:
-  default_planner_config: RRTstarkConfigDefault
+  default_planner_config: PRMstarkConfigDefault
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault

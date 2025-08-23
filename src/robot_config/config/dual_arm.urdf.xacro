@@ -424,6 +424,6 @@
     <xacro:arm_instance prefix="left_" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
 
     <!-- Create right arm instance -->
-    <xacro:arm_instance prefix="right_" origin_xyz="0 -0.36 0" origin_rpy="0 0 0"/>
+    <xacro:arm_instance prefix="right_" origin_xyz="0 -0.359 0" origin_rpy="0 0 0"/>
 
 </robot>
