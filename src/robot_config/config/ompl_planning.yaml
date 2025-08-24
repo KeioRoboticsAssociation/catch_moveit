@@ -13,7 +13,7 @@ planner_configs:
   RRTConnectkConfigDefault:
     type: geometric::RRTConnect
     range: 0.0
-    
+              default_planning_pipeline="ompl"
   RRTstarkConfigDefault:
     type: geometric::RRTstar
     delay_collision_checking: 1

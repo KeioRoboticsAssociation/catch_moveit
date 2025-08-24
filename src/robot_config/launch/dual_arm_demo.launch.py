@@ -37,11 +37,484 @@ def generate_launch_description():
             description="Field type: 'red' or 'blue' to apply rotation, 'none' for no rotation",
         )
     )
+    # Declare arguments for left arm initial positions
+    # Declare arguments for left arm joint limits
+    
+    # Declare arguments for left arm joint limits
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_2_lower_limit",
+            default_value="-1.570796",
+            description="Lower limit for left arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_2_upper_limit",
+            default_value="1.570796",
+            description="Upper limit for left arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_3_lower_limit",
+            default_value="-1.570796",
+            description="Lower limit for left arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_3_upper_limit",
+            default_value="3.14159265359",
+            description="Upper limit for left arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_1_lower_limit",
+            default_value="0.0",
+            description="Lower limit for left arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_1_upper_limit",
+            default_value="0.024",
+            description="Upper limit for left arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_2_lower_limit",
+            default_value="-0.024",
+            description="Lower limit for left arm Slider_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_2_upper_limit",
+            default_value="0.0",
+            description="Upper limit for left arm Slider_2 joint",
+        )
+    )
+    
+    # Declare arguments for right arm joint limits
+    
+    # Declare arguments for left arm joint origins
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_1_xyz",
+            default_value="0.0 0.0 0.0555",
+            description="XYZ origin for left arm Revolute_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_1_rpy",
+            default_value="0 0 1.57",
+            description="RPY origin for left arm Revolute_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_2_xyz",
+            default_value="-3.7e-05 0.024464 0.06805",
+            description="XYZ origin for left arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_2_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_3_xyz",
+            default_value="0.034861 -0.011969 0.43175",
+            description="XYZ origin for left arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_3_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_4_xyz",
+            default_value="0.420611 -0.012207 -0.0001",
+            description="XYZ origin for left arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_4_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_5_xyz",
+            default_value="0.078583 0.01897 0.0",
+            description="XYZ origin for left arm Revolute_5 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_5_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Revolute_5 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_6_xyz",
+            default_value="1.7e-05 -0.0189 -0.0648",
+            description="XYZ origin for left arm Revolute_6 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_6_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Revolute_6 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Rigid_7_xyz",
+            default_value="-5e-05 0.0 -0.045",
+            description="XYZ origin for left arm Rigid_7 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Rigid_7_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Rigid_7 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_1_xyz",
+            default_value="0.055 7.3e-05 -0.008",
+            description="XYZ origin for left arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_1_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_2_xyz",
+            default_value="-0.055 -7.2e-05 -0.008",
+            description="XYZ origin for left arm Slider_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Slider_2_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm Slider_2 joint",
+        )
+    )
+    
+    # Declare arguments for right arm joint origins
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_1_xyz",
+            default_value="0.0 0.0 0.0555",
+            description="XYZ origin for right arm Revolute_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_1_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Revolute_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_2_xyz",
+            default_value="-3.7e-05 0.024464 0.06805",
+            description="XYZ origin for right arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_2_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_3_xyz",
+            default_value="0.034861 -0.011969 0.43175",
+            description="XYZ origin for right arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_3_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_4_xyz",
+            default_value="0.420611 -0.012207 -0.0001",
+            description="XYZ origin for right arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_4_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_5_xyz",
+            default_value="0.078583 0.01897 0.0",
+            description="XYZ origin for right arm Revolute_5 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_5_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Revolute_5 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_6_xyz",
+            default_value="1.7e-05 -0.0189 -0.0648",
+            description="XYZ origin for right arm Revolute_6 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_6_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Revolute_6 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Rigid_7_xyz",
+            default_value="-5e-05 0.0 -0.045",
+            description="XYZ origin for right arm Rigid_7 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Rigid_7_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Rigid_7 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_1_xyz",
+            default_value="0.055 7.3e-05 -0.008",
+            description="XYZ origin for right arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_1_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_2_xyz",
+            default_value="-0.055 -7.2e-05 -0.008",
+            description="XYZ origin for right arm Slider_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_2_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm Slider_2 joint",
+        )
+    )
+    
+    # Declare arguments for arm origins
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_origin_xyz",
+            default_value="0 0 0",
+            description="XYZ origin for left arm base",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_origin_rpy",
+            default_value="0 0 0",
+            description="RPY origin for left arm base",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_origin_xyz",
+            default_value="0 -0.359 0",
+            description="XYZ origin for right arm base",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_origin_rpy",
+            default_value="0 0 0",
+            description="RPY origin for right arm base",
+        )
+    )
+    
+    # Declare arguments for right arm joint limits
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_2_lower_limit",
+            default_value="-1.570796",
+            description="Lower limit for right arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_2_upper_limit",
+            default_value="1.570796",
+            description="Upper limit for right arm Revolute_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_3_lower_limit",
+            default_value="-1.570796",
+            description="Lower limit for right arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_3_upper_limit",
+            default_value="3.14159265359",
+            description="Upper limit for right arm Revolute_3 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_1_lower_limit",
+            default_value="0.0",
+            description="Lower limit for right arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_1_upper_limit",
+            default_value="0.024",
+            description="Upper limit for right arm Slider_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_2_lower_limit",
+            default_value="-0.024",
+            description="Lower limit for right arm Slider_2 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Slider_2_upper_limit",
+            default_value="0.0",
+            description="Upper limit for right arm Slider_2 joint",
+        )
+    )
 
     # Initialize Arguments
     use_sim_time = LaunchConfiguration("use_sim_time")
     rviz_config = LaunchConfiguration("rviz_config")
     field = LaunchConfiguration("field")
+    
+    # Initialize arguments for left arm joint limits
+    left_Revolute_2_lower_limit = LaunchConfiguration("left_Revolute_2_lower_limit")
+    left_Revolute_2_upper_limit = LaunchConfiguration("left_Revolute_2_upper_limit")
+    left_Revolute_3_lower_limit = LaunchConfiguration("left_Revolute_3_lower_limit")
+    left_Revolute_3_upper_limit = LaunchConfiguration("left_Revolute_3_upper_limit")
+    left_Slider_1_lower_limit = LaunchConfiguration("left_Slider_1_lower_limit")
+    left_Slider_1_upper_limit = LaunchConfiguration("left_Slider_1_upper_limit")
+    left_Slider_2_lower_limit = LaunchConfiguration("left_Slider_2_lower_limit")
+    left_Slider_2_upper_limit = LaunchConfiguration("left_Slider_2_upper_limit")
+    
+    # Initialize arguments for right arm joint limits
+    right_Revolute_2_lower_limit = LaunchConfiguration("right_Revolute_2_lower_limit")
+    right_Revolute_2_upper_limit = LaunchConfiguration("right_Revolute_2_upper_limit")
+    right_Revolute_3_lower_limit = LaunchConfiguration("right_Revolute_3_lower_limit")
+    right_Revolute_3_upper_limit = LaunchConfiguration("right_Revolute_3_upper_limit")
+    right_Slider_1_lower_limit = LaunchConfiguration("right_Slider_1_lower_limit")
+    right_Slider_1_upper_limit = LaunchConfiguration("right_Slider_1_upper_limit")
+    right_Slider_2_lower_limit = LaunchConfiguration("right_Slider_2_lower_limit")
+    right_Slider_2_upper_limit = LaunchConfiguration("right_Slider_2_upper_limit")
+    
+    # Initialize arguments for left arm joint origins
+    left_Revolute_1_xyz = LaunchConfiguration("left_Revolute_1_xyz")
+    left_Revolute_1_rpy = LaunchConfiguration("left_Revolute_1_rpy")
+    left_Revolute_2_xyz = LaunchConfiguration("left_Revolute_2_xyz")
+    left_Revolute_2_rpy = LaunchConfiguration("left_Revolute_2_rpy")
+    left_Revolute_3_xyz = LaunchConfiguration("left_Revolute_3_xyz")
+    left_Revolute_3_rpy = LaunchConfiguration("left_Revolute_3_rpy")
+    left_Revolute_4_xyz = LaunchConfiguration("left_Revolute_4_xyz")
+    left_Revolute_4_rpy = LaunchConfiguration("left_Revolute_4_rpy")
+    left_Revolute_5_xyz = LaunchConfiguration("left_Revolute_5_xyz")
+    left_Revolute_5_rpy = LaunchConfiguration("left_Revolute_5_rpy")
+    left_Revolute_6_xyz = LaunchConfiguration("left_Revolute_6_xyz")
+    left_Revolute_6_rpy = LaunchConfiguration("left_Revolute_6_rpy")
+    left_Rigid_7_xyz = LaunchConfiguration("left_Rigid_7_xyz")
+    left_Rigid_7_rpy = LaunchConfiguration("left_Rigid_7_rpy")
+    left_Slider_1_xyz = LaunchConfiguration("left_Slider_1_xyz")
+    left_Slider_1_rpy = LaunchConfiguration("left_Slider_1_rpy")
+    left_Slider_2_xyz = LaunchConfiguration("left_Slider_2_xyz")
+    left_Slider_2_rpy = LaunchConfiguration("left_Slider_2_rpy")
+    
+    # Initialize arguments for right arm joint origins
+    right_Revolute_1_xyz = LaunchConfiguration("right_Revolute_1_xyz")
+    right_Revolute_1_rpy = LaunchConfiguration("right_Revolute_1_rpy")
+    right_Revolute_2_xyz = LaunchConfiguration("right_Revolute_2_xyz")
+    right_Revolute_2_rpy = LaunchConfiguration("right_Revolute_2_rpy")
+    right_Revolute_3_xyz = LaunchConfiguration("right_Revolute_3_xyz")
+    right_Revolute_3_rpy = LaunchConfiguration("right_Revolute_3_rpy")
+    right_Revolute_4_xyz = LaunchConfiguration("right_Revolute_4_xyz")
+    right_Revolute_4_rpy = LaunchConfiguration("right_Revolute_4_rpy")
+    right_Revolute_5_xyz = LaunchConfiguration("right_Revolute_5_xyz")
+    right_Revolute_5_rpy = LaunchConfiguration("right_Revolute_5_rpy")
+    right_Revolute_6_xyz = LaunchConfiguration("right_Revolute_6_xyz")
+    right_Revolute_6_rpy = LaunchConfiguration("right_Revolute_6_rpy")
+    right_Rigid_7_xyz = LaunchConfiguration("right_Rigid_7_xyz")
+    right_Rigid_7_rpy = LaunchConfiguration("right_Rigid_7_rpy")
+    right_Slider_1_xyz = LaunchConfiguration("right_Slider_1_xyz")
+    right_Slider_1_rpy = LaunchConfiguration("right_Slider_1_rpy")
+    right_Slider_2_xyz = LaunchConfiguration("right_Slider_2_xyz")
+    right_Slider_2_rpy = LaunchConfiguration("right_Slider_2_rpy")
+    
+    # Initialize arguments for arm origins
+    left_origin_xyz = LaunchConfiguration("left_origin_xyz")
+    left_origin_rpy = LaunchConfiguration("left_origin_rpy")
+    right_origin_xyz = LaunchConfiguration("right_origin_xyz")
+    right_origin_rpy = LaunchConfiguration("right_origin_rpy")
+    
 
     # Get MoveIt configs for dual arm
     moveit_config = (
@@ -50,16 +523,74 @@ def generate_launch_description():
             file_path="config/dual_arm.urdf.xacro",
             mappings={
                 "use_fake_hardware": "true",
-                "initial_positions_file": PathJoinSubstitution(
-                    [FindPackageShare("robot_config"), "config", "initial_positions.yaml"]
-                ),
+                # Joint limits for left arm
+                "left_Revolute_2_lower_limit": left_Revolute_2_lower_limit,
+                "left_Revolute_2_upper_limit": left_Revolute_2_upper_limit,
+                "left_Revolute_3_lower_limit": left_Revolute_3_lower_limit,
+                "left_Revolute_3_upper_limit": left_Revolute_3_upper_limit,
+                "left_Slider_1_lower_limit": left_Slider_1_lower_limit,
+                "left_Slider_1_upper_limit": left_Slider_1_upper_limit,
+                "left_Slider_2_lower_limit": left_Slider_2_lower_limit,
+                "left_Slider_2_upper_limit": left_Slider_2_upper_limit,
+                # Joint limits for right arm
+                "right_Revolute_2_lower_limit": right_Revolute_2_lower_limit,
+                "right_Revolute_2_upper_limit": right_Revolute_2_upper_limit,
+                "right_Revolute_3_lower_limit": right_Revolute_3_lower_limit,
+                "right_Revolute_3_upper_limit": right_Revolute_3_upper_limit,
+                "right_Slider_1_lower_limit": right_Slider_1_lower_limit,
+                "right_Slider_1_upper_limit": right_Slider_1_upper_limit,
+                "right_Slider_2_lower_limit": right_Slider_2_lower_limit,
+                "right_Slider_2_upper_limit": right_Slider_2_upper_limit,
+                # Joint origins for left arm
+                "left_Revolute_1_xyz": left_Revolute_1_xyz,
+                "left_Revolute_1_rpy": left_Revolute_1_rpy,
+                "left_Revolute_2_xyz": left_Revolute_2_xyz,
+                "left_Revolute_2_rpy": left_Revolute_2_rpy,
+                "left_Revolute_3_xyz": left_Revolute_3_xyz,
+                "left_Revolute_3_rpy": left_Revolute_3_rpy,
+                "left_Revolute_4_xyz": left_Revolute_4_xyz,
+                "left_Revolute_4_rpy": left_Revolute_4_rpy,
+                "left_Revolute_5_xyz": left_Revolute_5_xyz,
+                "left_Revolute_5_rpy": left_Revolute_5_rpy,
+                "left_Revolute_6_xyz": left_Revolute_6_xyz,
+                "left_Revolute_6_rpy": left_Revolute_6_rpy,
+                "left_Rigid_7_xyz": left_Rigid_7_xyz,
+                "left_Rigid_7_rpy": left_Rigid_7_rpy,
+                "left_Slider_1_xyz": left_Slider_1_xyz,
+                "left_Slider_1_rpy": left_Slider_1_rpy,
+                "left_Slider_2_xyz": left_Slider_2_xyz,
+                "left_Slider_2_rpy": left_Slider_2_rpy,
+                # Joint origins for right arm
+                "right_Revolute_1_xyz": right_Revolute_1_xyz,
+                "right_Revolute_1_rpy": right_Revolute_1_rpy,
+                "right_Revolute_2_xyz": right_Revolute_2_xyz,
+                "right_Revolute_2_rpy": right_Revolute_2_rpy,
+                "right_Revolute_3_xyz": right_Revolute_3_xyz,
+                "right_Revolute_3_rpy": right_Revolute_3_rpy,
+                "right_Revolute_4_xyz": right_Revolute_4_xyz,
+                "right_Revolute_4_rpy": right_Revolute_4_rpy,
+                "right_Revolute_5_xyz": right_Revolute_5_xyz,
+                "right_Revolute_5_rpy": right_Revolute_5_rpy,
+                "right_Revolute_6_xyz": right_Revolute_6_xyz,
+                "right_Revolute_6_rpy": right_Revolute_6_rpy,
+                "right_Rigid_7_xyz": right_Rigid_7_xyz,
+                "right_Rigid_7_rpy": right_Rigid_7_rpy,
+                "right_Slider_1_xyz": right_Slider_1_xyz,
+                "right_Slider_1_rpy": right_Slider_1_rpy,
+                "right_Slider_2_xyz": right_Slider_2_xyz,
+                "right_Slider_2_rpy": right_Slider_2_rpy,
+                # Arm origins
+                "left_origin_xyz": left_origin_xyz,
+                "left_origin_rpy": left_origin_rpy,
+                "right_origin_xyz": right_origin_xyz,
+                "right_origin_rpy": right_origin_rpy,
             },
         )
         .robot_description_semantic(file_path="config/dual_arm.srdf")
         .robot_description_kinematics(file_path="config/dual_arm_kinematics.yaml")
         .joint_limits(file_path="config/dual_arm_joint_limits.yaml")
         .planning_pipelines(
-            pipelines=["ompl"],
+            pipelines=["ompl", "pilz_industrial_motion_planner"],
             default_planning_pipeline="ompl"
         )
         .trajectory_execution(
@@ -276,6 +807,14 @@ def generate_launch_description():
             moveit_config.robot_description_kinematics,
         ],
     )
+    
+    # Node to set initial pose
+    set_initial_pose_node = Node(
+        package="robot_config",
+        executable="set_initial_pose_fixed.py",
+        name="set_initial_pose",
+        output="screen",
+    )
 
     # Node to publish collision mesh
     publish_collision_mesh_node = Node(
@@ -345,6 +884,7 @@ def generate_launch_description():
             move_to_pose_dual_cpp_node, # Add the new dual arm node
             publish_collision_mesh_node,
             joint_states_sorter_node,  # Add the joint states sorter node
+            set_initial_pose_node,  # Add the initial pose setter node
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,

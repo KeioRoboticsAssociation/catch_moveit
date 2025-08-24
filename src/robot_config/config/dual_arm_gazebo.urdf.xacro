@@ -3,6 +3,8 @@
 
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml"/>
     <xacro:arg name="use_fake_hardware" default="false"/>
+    <xacro:arg name="left_initial_positions_file" default="initial_positions.yaml"/>
+    <xacro:arg name="right_initial_positions_file" default="initial_positions.yaml"/>
 
     <!-- Import materials from urdf_0816 -->
     <xacro:include filename="$(find urdf_0816_description)/urdf/materials.xacro" />
@@ -379,41 +381,49 @@
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Revolute_1', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Revolute_1', 0.0)}</param>
             </joint>
             <joint name="${prefix}Revolute_2">
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Revolute_2', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Revolute_2', 0.0)}</param>
             </joint>
             <joint name="${prefix}Revolute_3">
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Revolute_3', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Revolute_3', 0.0)}</param>
             </joint>
             <joint name="${prefix}Revolute_4">
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Revolute_4', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Revolute_4', 0.0)}</param>
             </joint>
             <joint name="${prefix}Revolute_5">
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Revolute_5', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Revolute_5', 0.0)}</param>
             </joint>
             <joint name="${prefix}Revolute_6">
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Revolute_6', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Revolute_6', 0.0)}</param>
             </joint>
             <joint name="${prefix}Slider_1">
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Slider_1', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Slider_1', 0.0)}</param>
             </joint>
             <joint name="${prefix}Slider_2">
                 <command_interface name="position"/>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
+                <param name="initial_position">${left_initial_positions.get(prefix + 'Slider_2', 0.0) if prefix == 'left_' else right_initial_positions.get(prefix + 'Slider_2', 0.0)}</param>
             </joint>
         </ros2_control>
 
@@ -421,13 +431,18 @@
         <gazebo>
             <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
                 <parameters>$(find robot_config)/config/dual_arm_controllers.yaml</parameters>
-                <parameters>$(arg initial_positions_file)</parameters>
+                <parameters>$(find robot_config)/config/$(arg left_initial_positions_file)</parameters>
+                <parameters>$(find robot_config)/config/$(arg right_initial_positions_file)</parameters>
             </plugin>
         </gazebo>
     </xacro:macro>
 
     <!-- Create the world link -->
     <link name="world"/>
+
+    <!-- Load initial positions from separate files -->
+    <xacro:property name="left_initial_positions" value="${load_yaml('$(find robot_config)/config/' + left_initial_positions_file).initial_positions}"/>
+    <xacro:property name="right_initial_positions" value="${load_yaml('$(find robot_config)/config/' + right_initial_positions_file).initial_positions}"/>
 
     <!-- Create left arm instance -->
     <xacro:arm_instance prefix="left_" origin_xyz="0 0 0" origin_rpy="0 0 0"/>

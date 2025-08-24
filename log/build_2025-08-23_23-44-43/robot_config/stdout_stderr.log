@@ -1,0 +1,79 @@
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 33%] Built target joystick_servo
+[ 66%] Built target move_to_pose_cpp
+[ 83%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::executeSafeTrajectory(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:375:46:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+  375 |             RCLCPP_ERROR(this->get_logger(), [01;35m[K"Phase 3 failed: Cannot reach final target"[m[K, arm_name.c_str());
+      |                                              [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[100%] [32m[1mLinking CXX executable move_to_pose_dual_cpp[0m
+[100%] Built target move_to_pose_dual_cpp
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/ament_index/resource_index/package_run_dependencies/robot_config
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/ament_index/resource_index/parent_prefix_path/robot_config
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/environment/path.sh
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/environment/path.dsv
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/local_setup.bash
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/local_setup.sh
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/local_setup.zsh
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/local_setup.dsv
+-- Symlinking: /home/a/ws_moveit2/install/robot_config/share/robot_config/package.dsv
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/ament_index/resource_index/packages/robot_config
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/cmake/robot_configConfig.cmake
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/cmake/robot_configConfig-version.cmake
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/package.xml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/demo.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/dual_arm_demo.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/dual_arm_gazebo.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/move_group.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/moveit_rviz.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/rsp.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/setup_assistant.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/spawn_controllers.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/static_virtual_joint_tfs.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/warehouse_db.launch.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/0525_arm.ros2_control.xacro
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/0525_arm.srdf
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro.bak
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm.srdf
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm.urdf.xacro
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_controllers.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_gazebo.urdf.xacro
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_gazebo_controllers.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_joint_limits.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_kinematics.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_moveit_controllers.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_ompl_planning.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/initial_positions.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/joint_limits.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/kinematics.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/moveit.rviz
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/moveit_controllers.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/ompl_planning.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/pilz_cartesian_limits.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/pilz_planning.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/ros2_controllers.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/config/servo.yaml
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/share/robot_config/.setup_assistant
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/lib/robot_config/joystick_servo
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/lib/robot_config/gui.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/lib/robot_config/publish_collision_mesh.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/lib/robot_config/joint_states_sorter.py
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/lib/robot_config/move_to_pose_cpp
+-- Up-to-date symlink: /home/a/ws_moveit2/install/robot_config/lib/robot_config/move_to_pose_dual_cpp

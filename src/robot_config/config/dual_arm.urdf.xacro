@@ -3,12 +3,65 @@
 
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml"/>
     <xacro:arg name="use_fake_hardware" default="false"/>
+    <xacro:arg name="left_Revolute_1_initial" default="0.0"/>
+    <xacro:arg name="left_Revolute_2_initial" default="0.0"/>
+    <xacro:arg name="left_Revolute_3_initial" default="0.0"/>
+    <xacro:arg name="left_Revolute_4_initial" default="0.0"/>
+    <xacro:arg name="left_Revolute_5_initial" default="0.0"/>
+    <xacro:arg name="left_Revolute_6_initial" default="0.0"/>
+    <xacro:arg name="left_Slider_1_initial" default="0.0"/>
+    <xacro:arg name="left_Slider_2_initial" default="0.0"/>
+    <xacro:arg name="right_Revolute_1_initial" default="0.0"/>
+    <xacro:arg name="right_Revolute_2_initial" default="0.0"/>
+    <xacro:arg name="right_Revolute_3_initial" default="0.0"/>
+    <xacro:arg name="right_Revolute_4_initial" default="0.0"/>
+    <xacro:arg name="right_Revolute_5_initial" default="0.0"/>
+    <xacro:arg name="right_Revolute_6_initial" default="0.0"/>
+    <xacro:arg name="right_Slider_1_initial" default="0.0"/>
+    <xacro:arg name="right_Slider_2_initial" default="0.0"/>
+    
+    <!-- Joint limits for left arm revolute joints -->
+    <xacro:arg name="left_Revolute_2_lower_limit" default="-1.570796"/>
+    <xacro:arg name="left_Revolute_2_upper_limit" default="1.570796"/>
+    <xacro:arg name="left_Revolute_3_lower_limit" default="-1.570796"/>
+    <xacro:arg name="left_Revolute_3_upper_limit" default="3.14159265359"/>
+    <xacro:arg name="left_Slider_1_lower_limit" default="0.0"/>
+    <xacro:arg name="left_Slider_1_upper_limit" default="0.024"/>
+    <xacro:arg name="left_Slider_2_lower_limit" default="-0.024"/>
+    <xacro:arg name="left_Slider_2_upper_limit" default="0.0"/>
+    
+    <!-- Joint limits for right arm revolute joints -->
+    <xacro:arg name="right_Revolute_2_lower_limit" default="-1.570796"/>
+    <xacro:arg name="right_Revolute_2_upper_limit" default="1.570796"/>
+    <xacro:arg name="right_Revolute_3_lower_limit" default="-1.570796"/>
+    <xacro:arg name="right_Revolute_3_upper_limit" default="3.14159265359"/>
+    <xacro:arg name="right_Slider_1_lower_limit" default="0.0"/>
+    <xacro:arg name="right_Slider_1_upper_limit" default="0.024"/>
+    <xacro:arg name="right_Slider_2_lower_limit" default="-0.024"/>
+    <xacro:arg name="right_Slider_2_upper_limit" default="0.0"/>
+    
+    <!-- Left arm origin -->
+    <xacro:arg name="left_origin_xyz" default="0 0 0"/>
+    <xacro:arg name="left_origin_rpy" default="0 0 0"/>
+    <!-- Right arm origin -->
+    <xacro:arg name="right_origin_xyz" default="0 -0.359 0"/>
+    <xacro:arg name="right_origin_rpy" default="0 0 0"/>
 
     <!-- Import materials from urdf_0816 -->
     <xacro:include filename="$(find urdf_0816_description)/urdf/materials.xacro" />
 
     <!-- Macro to create an arm with a prefix -->
-    <xacro:macro name="arm_instance" params="prefix origin_xyz origin_rpy">
+    <xacro:macro name="arm_instance" params="prefix 
+        base_origin_xyz base_origin_rpy
+        Revolute_1_xyz Revolute_1_rpy
+        Revolute_2_xyz Revolute_2_rpy
+        Revolute_3_xyz Revolute_3_rpy
+        Revolute_4_xyz Revolute_4_rpy
+        Revolute_5_xyz Revolute_5_rpy
+        Revolute_6_xyz Revolute_6_rpy
+        Rigid_7_xyz Rigid_7_rpy
+        Slider_1_xyz Slider_1_rpy
+        Slider_2_xyz Slider_2_rpy">
         <!-- Create base link for this arm instance -->
         <link name="${prefix}base_link">
             <inertial>
@@ -33,7 +86,7 @@
 
         <!-- Connect to world -->
         <joint name="${prefix}base_joint" type="fixed">
-            <origin xyz="${origin_xyz}" rpy="${origin_rpy}"/>
+            <origin xyz="${base_origin_xyz}" rpy="${base_origin_rpy}"/>
             <parent link="world"/>
             <child link="${prefix}base_link"/>
         </joint>
@@ -230,61 +283,61 @@
 
         <!-- Joints for this arm instance -->
         <joint name="${prefix}Revolute_1" type="continuous">
-            <origin rpy="0 0 3.1415926535" xyz="0.0 0.0 0.0555"/>
+            <origin rpy="${Revolute_1_rpy}" xyz="${Revolute_1_xyz}"/>
             <parent link="${prefix}base_link"/>
             <child link="${prefix}link1_1"/>
             <axis xyz="-0.0 0.0 1.0"/>
         </joint>
         <joint name="${prefix}Revolute_2" type="revolute">
-            <origin rpy="0 0 0" xyz="-3.7e-05 0.024464 0.06805"/>
+            <origin rpy="${Revolute_2_rpy}" xyz="${Revolute_2_xyz}"/>
             <parent link="${prefix}link1_1"/>
             <child link="${prefix}link2_1"/>
             <axis xyz="-0.000898 1.0 -0.0"/>
-            <limit effort="100" lower="-1.570796" upper="1.570796" velocity="100"/>
+            <limit effort="100" lower="$(arg ${prefix}Revolute_2_lower_limit)" upper="$(arg ${prefix}Revolute_2_upper_limit)" velocity="100"/>
         </joint>
         <joint name="${prefix}Revolute_3" type="revolute">
-            <origin rpy="0 0 0" xyz="0.034861 -0.011969 0.43175"/>
+            <origin rpy="${Revolute_3_rpy}" xyz="${Revolute_3_xyz}"/>
             <parent link="${prefix}link2_1"/>
             <child link="${prefix}link3_1"/>
             <axis xyz="-0.000898 1.0 0.0"/>
-            <limit effort="100" lower="-1.570796" upper="3.14159265359" velocity="100"/>
+            <limit effort="100" lower="$(arg ${prefix}Revolute_3_lower_limit)" upper="$(arg ${prefix}Revolute_3_upper_limit)" velocity="100"/>
         </joint>
         <joint name="${prefix}Revolute_4" type="continuous">
-            <origin rpy="0 0 0" xyz="0.420611 -0.012207 -0.0001"/>
+            <origin rpy="${Revolute_4_rpy}" xyz="${Revolute_4_xyz}"/>
             <parent link="${prefix}link3_1"/>
             <child link="${prefix}link4_1"/>
             <axis xyz="1.0 0.000898 0.0"/>
         </joint>
         <joint name="${prefix}Revolute_5" type="continuous">
-            <origin rpy="0 0 0" xyz="0.078583 0.01897 0.0"/>
+            <origin rpy="${Revolute_5_rpy}" xyz="${Revolute_5_xyz}"/>
             <parent link="${prefix}link4_1"/>
             <child link="${prefix}link5_1"/>
             <axis xyz="-0.000898 1.0 0.0"/>
         </joint>
         <joint name="${prefix}Revolute_6" type="continuous">
-            <origin rpy="0 0 0" xyz="1.7e-05 -0.0189 -0.0648"/>
+            <origin rpy="${Revolute_6_rpy}" xyz="${Revolute_6_xyz}"/>
             <parent link="${prefix}link5_1"/>
             <child link="${prefix}link6_1"/>
             <axis xyz="0.0 0.0 -1.0"/>
         </joint>
         <joint name="${prefix}Rigid_7" type="fixed">
-            <origin rpy="0 0 0" xyz="-5e-05 0.0 -0.045"/>
+            <origin rpy="${Rigid_7_rpy}" xyz="${Rigid_7_xyz}"/>
             <parent link="${prefix}link6_1"/>
             <child link="${prefix}EndEffector_1"/>
         </joint>
         <joint name="${prefix}Slider_1" type="prismatic">
-            <origin rpy="0 0 0" xyz="0.055 7.3e-05 -0.008"/>
+            <origin rpy="${Slider_1_rpy}" xyz="${Slider_1_xyz}"/>
             <parent link="${prefix}EndEffector_1"/>
             <child link="${prefix}right_finger_1"/>
             <axis xyz="-1.0 -0.000898 -0.0"/>
-            <limit effort="100" lower="0.0" upper="0.024" velocity="100"/>
+            <limit effort="100" lower="$(arg ${prefix}Slider_1_lower_limit)" upper="$(arg ${prefix}Slider_1_upper_limit)" velocity="100"/>
         </joint>
         <joint name="${prefix}Slider_2" type="prismatic">
-            <origin rpy="0 0 0" xyz="-0.055 -7.2e-05 -0.008"/>
+            <origin rpy="${Slider_2_rpy}" xyz="${Slider_2_xyz}"/>
             <parent link="${prefix}EndEffector_1"/>
             <child link="${prefix}left_finger_1"/>
             <axis xyz="-1.0 -0.000898 -0.0"/>
-            <limit effort="100" lower="-0.024" upper="0.0" velocity="100"/>
+            <limit effort="100" lower="$(arg ${prefix}Slider_2_lower_limit)" upper="$(arg ${prefix}Slider_2_upper_limit)" velocity="100"/>
         </joint>
 
         <!-- Transmissions for this arm instance -->
@@ -421,9 +474,53 @@
     <link name="world"/>
 
     <!-- Create left arm instance -->
-    <xacro:arm_instance prefix="left_" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
+    <xacro:arm_instance 
+        prefix="left_" 
+        base_origin_xyz="$(arg left_origin_xyz)" 
+        base_origin_rpy="$(arg left_origin_rpy)"
+        Revolute_1_xyz="0.0 0.0 0.0555"
+        Revolute_1_rpy="0 0 1.57"
+        Revolute_2_xyz="-3.7e-05 0.024464 0.06805"
+        Revolute_2_rpy="0 0 0"
+        Revolute_3_xyz="0.034861 -0.011969 0.43175"
+        Revolute_3_rpy="0 0 0"
+        Revolute_4_xyz="0.420611 -0.012207 -0.0001"
+        Revolute_4_rpy="0 0 0"
+        Revolute_5_xyz="0.078583 0.01897 0.0"
+        Revolute_5_rpy="0 0 0"
+        Revolute_6_xyz="1.7e-05 -0.0189 -0.0648"
+        Revolute_6_rpy="0 0 0"
+        Rigid_7_xyz="-5e-05 0.0 -0.045"
+        Rigid_7_rpy="0 0 0"
+        Slider_1_xyz="0.055 7.3e-05 -0.008"
+        Slider_1_rpy="0 0 0"
+        Slider_2_xyz="-0.055 -7.2e-05 -0.008"
+        Slider_2_rpy="0 0 0"
+    />
 
     <!-- Create right arm instance -->
-    <xacro:arm_instance prefix="right_" origin_xyz="0 -0.359 0" origin_rpy="0 0 0"/>
+    <xacro:arm_instance 
+        prefix="right_" 
+        base_origin_xyz="$(arg right_origin_xyz)" 
+        base_origin_rpy="$(arg right_origin_rpy)"
+        Revolute_1_xyz="0.0 0.0 0.0555"
+        Revolute_1_rpy="0 0 -1.57"
+        Revolute_2_xyz="-3.7e-05 0.024464 0.06805"
+        Revolute_2_rpy="0 0 0"
+        Revolute_3_xyz="0.034861 -0.011969 0.43175"
+        Revolute_3_rpy="0 0 0"
+        Revolute_4_xyz="0.420611 -0.012207 -0.0001"
+        Revolute_4_rpy="0 0 0"
+        Revolute_5_xyz="0.078583 0.01897 0.0"
+        Revolute_5_rpy="0 0 0"
+        Revolute_6_xyz="1.7e-05 -0.0189 -0.0648"
+        Revolute_6_rpy="0 0 0"
+        Rigid_7_xyz="-5e-05 0.0 -0.045"
+        Rigid_7_rpy="0 0 0"
+        Slider_1_xyz="0.055 7.3e-05 -0.008"
+        Slider_1_rpy="0 0 0"
+        Slider_2_xyz="-0.055 -7.2e-05 -0.008"
+        Slider_2_rpy="0 0 0"
+    />
 
 </robot>

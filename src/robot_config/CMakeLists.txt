@@ -55,6 +55,8 @@ install(PROGRAMS
   src/gui.py
   src/publish_collision_mesh.py
   src/joint_states_sorter.py
+  src/set_initial_pose.py
+  src/set_initial_pose_fixed.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

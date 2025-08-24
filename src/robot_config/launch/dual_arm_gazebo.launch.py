@@ -58,8 +58,11 @@ def generate_launch_description():
             file_path="config/dual_arm.urdf.xacro",
             mappings={
                 "use_fake_hardware": "false", # Use real hardware simulation (Gazebo)
-                "initial_positions_file": PathJoinSubstitution(
-                    [FindPackageShare("robot_config"), "config", "initial_positions.yaml"]
+                "left_initial_positions_file": PathJoinSubstitution(
+                    [FindPackageShare("robot_config"), "config", "left_initial_positions.yaml"]
+                ),
+                "right_initial_positions_file": PathJoinSubstitution(
+                    [FindPackageShare("robot_config"), "config", "right_initial_positions.yaml"]
                 ),
             },
         )
@@ -99,9 +102,14 @@ def generate_launch_description():
                 " ",
                 "use_fake_hardware:=false",
                 " ",
-                "initial_positions_file:=",
+                "left_initial_positions_file:=",
                 PathJoinSubstitution([
-                    FindPackageShare("robot_config"), "config", "initial_positions.yaml"
+                    FindPackageShare("robot_config"), "config", "left_initial_positions.yaml"
+                ]),
+                " ",
+                "right_initial_positions_file:=",
+                PathJoinSubstitution([
+                    FindPackageShare("robot_config"), "config", "right_initial_positions.yaml"
                 ]),
             ]),
             "use_sim_time": use_sim_time,

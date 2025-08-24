@@ -129,21 +129,20 @@ public class JointStateSubscriber : MonoBehaviour
         {
             string jointName = kvp.Key;
             double targetAngleRad = kvp.Value;
-            // Debug.Log($"Joint: {jointName}, Target Angle (rad): {targetAngleRad}");
 
             if (jointNameToBody.TryGetValue(jointName, out ArticulationBody body))
             {
-                // xDriveを取得・更新
                 ArticulationDrive drive = body.xDrive;
-                drive.target = (float)targetAngleRad * Mathf.Rad2Deg; // ✅ radian のまま！
-                drive.forceLimit = 1000000f; // 適切な力の制限を設定
+                if (jointName == "left_Slider_1" || jointName == "left_Slider_2" || jointName == "right_Slider_1" || jointName == "right_Slider_2")
+                {
+                    drive.target = (float)targetAngleRad;
+                }
+                else
+                {
+                    drive.target = (float)targetAngleRad * Mathf.Rad2Deg;
+                }
+                drive.forceLimit = 1000000f;
                 body.xDrive = drive;
-                // Debug.Log($"Updated {jointName} to {targetAngleRad} rad");
-            
-            }
-            else
-            {
-                // Debug.Log($"Joint not found in Unity: {jointName}");
             }
         }
     }

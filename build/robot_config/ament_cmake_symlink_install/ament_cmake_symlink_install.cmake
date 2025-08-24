@@ -364,8 +364,8 @@ ament_cmake_symlink_install_files("/home/a/ws_moveit2/src/robot_config" FILES ".
 # install("TARGETS" "joystick_servo" "DESTINATION" "lib/robot_config")
 include("/home/a/ws_moveit2/build/robot_config/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(PROGRAMS "src/gui.py" "src/publish_collision_mesh.py" "src/joint_states_sorter.py" "DESTINATION" "lib/robot_config")
-ament_cmake_symlink_install_programs("/home/a/ws_moveit2/src/robot_config" PROGRAMS "src/gui.py" "src/publish_collision_mesh.py" "src/joint_states_sorter.py" "DESTINATION" "lib/robot_config")
+# install(PROGRAMS "src/gui.py" "src/publish_collision_mesh.py" "src/joint_states_sorter.py" "src/set_initial_pose.py" "src/set_initial_pose_fixed.py" "DESTINATION" "lib/robot_config")
+ament_cmake_symlink_install_programs("/home/a/ws_moveit2/src/robot_config" PROGRAMS "src/gui.py" "src/publish_collision_mesh.py" "src/joint_states_sorter.py" "src/set_initial_pose.py" "src/set_initial_pose_fixed.py" "DESTINATION" "lib/robot_config")
 
 # install("TARGETS" "move_to_pose_cpp" "DESTINATION" "lib/robot_config")
 include("/home/a/ws_moveit2/build/robot_config/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
