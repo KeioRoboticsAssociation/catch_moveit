@@ -1,0 +1,45 @@
+[0.010s] Invoking command in '/home/a/ws_moveit2/build/trac_ik_lib': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/opt/ros/humble /usr/bin/cmake /home/a/ws_moveit2/src/trac_ik/trac_ik_lib -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/trac_ik_lib
+[0.103s] -- The C compiler identification is GNU 11.4.0
+[0.151s] -- The CXX compiler identification is GNU 11.4.0
+[0.162s] -- Detecting C compiler ABI info
+[0.230s] -- Detecting C compiler ABI info - done
+[0.237s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.237s] -- Detecting C compile features
+[0.238s] -- Detecting C compile features - done
+[0.241s] -- Detecting CXX compiler ABI info
+[0.312s] -- Detecting CXX compiler ABI info - done
+[0.318s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.318s] -- Detecting CXX compile features
+[0.318s] -- Detecting CXX compile features - done
+[0.325s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.448s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.574s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.578s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.644s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.657s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.671s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.690s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.714s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.761s] -- Found kdl_parser: 2.6.4 (/opt/ros/humble/share/kdl_parser/cmake)
+[0.773s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.773s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.788s] CMake Error at CMakeLists.txt:14 (find_package):
+[0.788s]   By not providing "FindNLopt.cmake" in CMAKE_MODULE_PATH this project has
+[0.788s]   asked CMake to find a package configuration file provided by "NLopt", but
+[0.788s]   CMake did not find one.
+[0.788s] 
+[0.788s]   Could not find a package configuration file provided by "NLopt" with any of
+[0.788s]   the following names:
+[0.788s] 
+[0.788s]     NLoptConfig.cmake
+[0.788s]     nlopt-config.cmake
+[0.788s] 
+[0.788s]   Add the installation prefix of "NLopt" to CMAKE_PREFIX_PATH or set
+[0.788s]   "NLopt_DIR" to a directory containing one of the above files.  If "NLopt"
+[0.788s]   provides a separate development package or SDK, be sure it has been
+[0.788s]   installed.
+[0.788s] 
+[0.788s] 
+[0.789s] -- Configuring incomplete, errors occurred!
+[0.789s] See also "/home/a/ws_moveit2/build/trac_ik_lib/CMakeFiles/CMakeOutput.log".
+[0.792s] Invoked command in '/home/a/ws_moveit2/build/trac_ik_lib' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/opt/ros/humble /usr/bin/cmake /home/a/ws_moveit2/src/trac_ik/trac_ik_lib -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/trac_ik_lib

@@ -46,6 +46,7 @@
   <depend>std_msgs</depend>
   <depend>tf2_geometry_msgs</depend>
   <depend>pilz_industrial_motion_planner</depend>
+  <depend>trac_ik_kinematics_plugin</depend>
 
   <export>
       <build_type>ament_cmake</build_type>

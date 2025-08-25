@@ -1,0 +1,9 @@
+[35m[1mConsolidate compiler generated dependencies of target trac_ik[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/trac_ik.dir/src/trac_ik.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/trac_ik/trac_ik_lib/src/trac_ik.cpp:37:10:[m[K [01;31m[Kfatal error: [m[Kurdf/model.hpp: No such file or directory
+   37 | #include [01;31m[K<urdf/model.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/trac_ik.dir/build.make:104: CMakeFiles/trac_ik.dir/src/trac_ik.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/trac_ik.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
