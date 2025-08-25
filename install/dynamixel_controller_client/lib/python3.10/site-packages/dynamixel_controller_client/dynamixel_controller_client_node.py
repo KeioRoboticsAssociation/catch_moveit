@@ -30,37 +30,40 @@ class DynamixelControllerClient(Node):
             self.rx_callback,
             10
         )
+        # 初期化時にトルクオン
+        # self.enable_torque()
+        
         # 5秒ごとに SYNC_WRITE 命令, 1秒ごとに SYNC_READ 命令を送信するタイマー
         # self.write_timer = self.create_timer(5.0, self.write_callback)
         self.read_timer = self.create_timer(1.0, self.read_callback)
+    
+    # def enable_torque(self):
+    #     # ID=3のモーターのトルクを有効にする
+    #     msg = DynamixelCommand()
+    #     msg.command = DynamixelController.SYNC_WRITE
+    #     msg.address = 64   # TORQUE_ENABLE アドレス
+    #     msg.length = 1     # 1バイト
+    #     msg.ids = [3]      # ID=3のモーター
+    #     msg.data = [1]     # 1=トルクON
+        
+    #     self.tx_publisher.publish(msg)
+    #     self.get_logger().info(f'Torque enabled for ID={msg.ids[0]}')
         
     # def write_callback(self):
-    #     # SYNC_WRITE 命令のフォーマット: [SYNC_WRITE, goal_address, data_length, id(1), joint_position(1)]
-    #     msg = UInt8MultiArray()
-    #     SYNC_WRITE = 131   # DynamixelController.msg で定義した SYNC_WRITE (0x83)
-    #     goal_address = 116  # 目標位置アドレス
-    #     data_length = 4
+    #     # SYNC_WRITE テスト: モーターID=3 に目標位置を送信
+    #     msg = DynamixelCommand()
+    #     msg.command = DynamixelController.SYNC_WRITE
+    #     msg.address = 116  # GOAL_POSITION アドレス
+    #     msg.length = 4     # 4バイト
+    #     msg.ids = [3]      # テスト対象: ID=3のモーター1つ
         
-    #     def encode_goal_position(dxl_id, position):
-    #     # 位置を4バイトのリトルエンディアンに変換
-    #         pos_bytes = position.to_bytes(4, 'little')
-    #         return [dxl_id] + list(pos_bytes)
-
-    #     joint_positions = {
-    #         1: 512, # joint1 (TTL,XM540)
-    #         2: 400, # joint2 (TTL, XM540)
-    #         3: 300, # joint3 (RS485, XL430)
-    #         4: 600, # joint4 (RS485, XL430)
-    #         5: 200, # joint5 (RS485, XL430)
-    #         6: 128, # joint6 (RS485, XL430)
-    #         7: 900  # joint7 (RS485, XL430)
-    #     }
-
-    #     msg.data = [SYNC_WRITE, goal_address, data_length]
-    #     for dxl_id in self.ids:
-    #         msg.data += encode_goal_position(dxl_id, joint_positions[dxl_id])
+    #     # 目標位置: 512 (中央位置)
+    #     target_position = 512
+    #     position_bytes = target_position.to_bytes(4, 'little')
+    #     msg.data = list(position_bytes)
+        
     #     self.tx_publisher.publish(msg)
-    #     self.get_logger().info(f'Publisher SYNC_WRITE command: {msg.data}')
+    #     self.get_logger().info(f'Published SYNC_WRITE: ID={msg.ids[0]}, Position={target_position}')
         
     def read_callback(self):
         # SYNC_READ 命令
@@ -68,7 +71,7 @@ class DynamixelControllerClient(Node):
         msg.command = DynamixelController.SYNC_READ
         msg.address = 132   # PRESENT_POSITION アドレス
         msg.length = 4      # 4バイト
-        msg.ids = [3, 4, 5, 6]
+        msg.ids = [1, 3, 4, 5, 6]
         msg.data = []       # SYNC_READでは空
         
         self.tx_publisher.publish(msg)
