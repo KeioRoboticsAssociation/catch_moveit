@@ -161,7 +161,7 @@ left_arm:
     - TrajOptDefault
   projection_evaluator: joints(left_Revolute_1,left_Revolute_2)
   longest_valid_segment_fraction: 0.001
-  scene_collision_proximity_threshold: 0.002
+  scene_collision_proximity_threshold: 0.02
 
 right_arm:
   default_planner_config: RRTConnectkConfigDefault
@@ -192,7 +192,7 @@ right_arm:
     - TrajOptDefault
   projection_evaluator: joints(right_Revolute_1,right_Revolute_2)
   longest_valid_segment_fraction: 0.001
-  scene_collision_proximity_threshold: 0.002
+  scene_collision_proximity_threshold: 0.02
 
 both_arms:
   default_planner_config: RRTConnectkConfigDefault
@@ -222,4 +222,4 @@ both_arms:
     - SPARStwokConfigDefault
     - TrajOptDefault
   longest_valid_segment_fraction: 0.001
-  scene_collision_proximity_threshold: 0.002
+  scene_collision_proximity_threshold: 0.02

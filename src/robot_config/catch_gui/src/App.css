@@ -299,3 +299,114 @@
 .release-button:active {
   background-color: #f87171 !important;
 }
+
+/* 4行5列グリッドとup/downボタンのコンテナ */
+.button-grid-container {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+}
+
+/* up/downボタンの列 */
+.up-down-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80px;
+}
+
+/* up/downボタンのスタイル */
+.up-down-button {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 2px solid #6b7280;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.up-down-button:hover {
+  background-color: #f3f4f6;
+}
+
+.up-down-button:active {
+  background-color: #e5e7eb;
+}
+
+.up-down-button:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.up-button {
+  background-color: #dcfce7 !important; /* 緑色 */
+  border-color: #22c55e !important;
+}
+
+.up-button:hover {
+  background-color: #bbf7d0 !important;
+}
+
+.down-button {
+  background-color: #fee2e2 !important; /* 赤色 */
+  border-color: #ef4444 !important;
+}
+
+.down-button:hover {
+  background-color: #fecaca !important;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .button-grid-container {
+    flex-direction: column;
+  }
+  
+  .up-down-column {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .up-down-button {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+}
+
+/* up/downボタンのグループ */
+.up-down-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.75rem;
+}
+
+.up-down-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  color: #374151;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .up-down-group {
+    padding: 0.25rem;
+  }
+  
+  .up-down-title {
+    font-size: 0.75rem;
+  }
+}

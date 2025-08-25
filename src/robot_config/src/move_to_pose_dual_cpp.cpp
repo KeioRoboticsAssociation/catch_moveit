@@ -21,8 +21,8 @@ public:
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for left_arm...");
             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
             left_move_group_interface_->setEndEffectorLink("left_EndEffector_1");
-            left_move_group_interface_->setPlannerId("PTP");
-            left_move_group_interface_->setPlanningPipelineId("pilz_industrial_motion_planner");
+            left_move_group_interface_->setPlannerId("RRTConnect");
+            left_move_group_interface_->setPlanningPipelineId("ompl");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for left_arm initialized.");
 
             // 左アーム用RPYサブスクライバ
@@ -37,8 +37,8 @@ public:
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for right_arm...");
             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
             right_move_group_interface_->setEndEffectorLink("right_EndEffector_1");
-            right_move_group_interface_->setPlannerId("PTP");
-            right_move_group_interface_->setPlanningPipelineId("pilz_industrial_motion_planner");
+            right_move_group_interface_->setPlannerId("RRTConnect");
+            right_move_group_interface_->setPlanningPipelineId("ompl");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for right_arm initialized.");
 
             // 右アーム用RPYサブスクライバ
@@ -58,7 +58,17 @@ public:
         right_detach_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/right_detach_object", 10, std::bind(&MoveToPoseDualCpp::right_detach_callback, this, std::placeholders::_1));
 
-        RCLCPP_INFO(this->get_logger(), "Ready to receive attach/detach commands");
+        // Arm up/down subscribers
+        left_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/left_arm_up", 10, std::bind(&MoveToPoseDualCpp::left_arm_up_callback, this, std::placeholders::_1));
+        left_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/left_arm_down", 10, std::bind(&MoveToPoseDualCpp::left_arm_down_callback, this, std::placeholders::_1));
+        right_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/right_arm_up", 10, std::bind(&MoveToPoseDualCpp::right_arm_up_callback, this, std::placeholders::_1));
+        right_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/right_arm_down", 10, std::bind(&MoveToPoseDualCpp::right_arm_down_callback, this, std::placeholders::_1));
+
+        RCLCPP_INFO(this->get_logger(), "Ready to receive attach/detach and arm up/down commands");
         
         // Initialize PlanningSceneInterface after node initialization
         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
@@ -99,6 +109,10 @@ private:
         target_pose.pose.position.z = msg->data[2];
         target_pose.pose.orientation = tf2::toMsg(q);
 
+        // Store the received pose for arm up/down functionality
+        last_left_pose_rpy_ = msg->data;
+        left_pose_received_ = true;
+
         move_to_pose(left_move_group_interface_, target_pose);
     }
 
@@ -124,6 +138,10 @@ private:
         target_pose.pose.position.z = msg->data[2];
         target_pose.pose.orientation = tf2::toMsg(q);
 
+        // Store the received pose for arm up/down functionality
+        last_right_pose_rpy_ = msg->data;
+        right_pose_received_ = true;
+
         move_to_pose(right_move_group_interface_, target_pose);
     }
 
@@ -136,9 +154,9 @@ private:
 
         move_group_interface->setPoseTarget(target_pose);
         
-        // プランナーをpilzのPTPに指定
-        move_group_interface->setPlannerId("PTP");
-        move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
+        // プランナーをOMPLのRRTConnectに指定
+        move_group_interface->setPlannerId("RRTConnect");
+        move_group_interface->setPlanningPipelineId("ompl");
 
         moveit::planning_interface::MoveGroupInterface::Plan my_plan;
         bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
@@ -261,17 +279,121 @@ private:
         }
     }
 
+    void left_arm_up_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Left arm up command received");
+        if (!left_pose_received_) {
+            RCLCPP_ERROR(this->get_logger(), "No left pose received yet. Cannot execute arm_up.");
+            return;
+        }
+        move_arm_z("left", arm_up_z_value_);
+    }
+
+    void left_arm_down_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Left arm down command received");
+        if (!left_pose_received_) {
+            RCLCPP_ERROR(this->get_logger(), "No left pose received yet. Cannot execute arm_down.");
+            return;
+        }
+        move_arm_z("left", arm_down_z_value_);
+    }
+
+    void right_arm_up_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Right arm up command received");
+        if (!right_pose_received_) {
+            RCLCPP_ERROR(this->get_logger(), "No right pose received yet. Cannot execute arm_up.");
+            return;
+        }
+        move_arm_z("right", arm_up_z_value_);
+    }
+
+    void right_arm_down_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Right arm down command received");
+        if (!right_pose_received_) {
+            RCLCPP_ERROR(this->get_logger(), "No right pose received yet. Cannot execute arm_down.");
+            return;
+        }
+        move_arm_z("right", arm_down_z_value_);
+    }
+
+    void move_arm_z(const std::string& arm_name, double target_z)
+    {
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface;
+        std::vector<double> current_pose_rpy;
+
+        if (arm_name == "left") {
+            move_group_interface = left_move_group_interface_;
+            current_pose_rpy = last_left_pose_rpy_;
+        } else if (arm_name == "right") {
+            move_group_interface = right_move_group_interface_;
+            current_pose_rpy = last_right_pose_rpy_;
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+            return;
+        }
+
+        if (!move_group_interface) {
+            RCLCPP_ERROR(this->get_logger(), "MoveGroupInterface not initialized for %s arm", arm_name.c_str());
+            return;
+        }
+
+        // Create target pose with modified z-coordinate
+        geometry_msgs::msg::PoseStamped target_pose;
+        target_pose.header.frame_id = "world";
+        target_pose.header.stamp = this->get_clock()->now();
+        target_pose.pose.position.x = current_pose_rpy[0];
+        target_pose.pose.position.y = current_pose_rpy[1];
+        target_pose.pose.position.z = target_z;  // Set absolute z value
+
+        // Convert RPY to quaternion
+        tf2::Quaternion q;
+        q.setRPY(current_pose_rpy[3], current_pose_rpy[4], current_pose_rpy[5]);
+        target_pose.pose.orientation = tf2::toMsg(q);
+
+        // Use Pilz LIN planner for straight line motion
+        move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
+        move_group_interface->setPlannerId("LIN");
+        move_group_interface->setPoseTarget(target_pose);
+
+        moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+        bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+
+        if (success) {
+            RCLCPP_INFO(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing it.", arm_name.c_str());
+            move_group_interface->execute(my_plan);
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+        }
+    }
+
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr left_rpy_sub_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr right_rpy_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_attach_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_detach_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_attach_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_detach_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_up_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_down_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_up_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_down_sub_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> left_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> right_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
     std::thread left_init_thread_;
     std::thread right_init_thread_;
+    
+    // Store last received poses for arm up/down functionality
+    std::vector<double> last_left_pose_rpy_;
+    std::vector<double> last_right_pose_rpy_;
+    bool left_pose_received_ = false;
+    bool right_pose_received_ = false;
+    
+    // Configurable z-coordinate values for arm up/down
+    double arm_up_z_value_ = 0.2;   // Absolute z coordinate for arm up position
+    double arm_down_z_value_ = 0.086; // Absolute z coordinate for arm down position
 };
 
 int main(int argc, char *argv[])
