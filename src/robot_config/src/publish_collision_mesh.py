@@ -4,7 +4,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.parameter import Parameter
 from moveit_msgs.msg import CollisionObject
-from shape_msgs.msg import Mesh, MeshTriangle
+from shape_msgs.msg import Mesh, MeshTriangle, SolidPrimitive
 from geometry_msgs.msg import Pose, Point
 from std_msgs.msg import Header
 import numpy as np
@@ -21,6 +21,12 @@ class CollisionMeshPublisher(Node):
         # Example: [[0.0, 0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 90.0]]
         self.declare_parameter(
             'object_mesh_positions', 
+            Parameter.Type.DOUBLE_ARRAY
+        )
+        # Parameter for box objects: list of 8 points [x1,y1,z1, x2,y2,z2, ..., x8,y8,z8]
+        # Creates box primitives from 8 corner coordinates
+        self.declare_parameter(
+            'box_coordinates',
             Parameter.Type.DOUBLE_ARRAY
         )
         self.publisher_ = self.create_publisher(CollisionObject, 'collision_object', 10)
@@ -103,6 +109,77 @@ class CollisionMeshPublisher(Node):
             shape_mesh.triangles.append(triangle)
             
         return shape_mesh
+    
+    def calculate_box_from_8_points(self, coordinates):
+        """Calculate box center, dimensions, and orientation from 8 corner points"""
+        if len(coordinates) != 24:  # 8 points * 3 coordinates each
+            self.get_logger().error('Box coordinates must contain exactly 24 values (8 points with x,y,z each)')
+            return None
+            
+        # Extract 8 points
+        points = []
+        for i in range(0, 24, 3):
+            points.append([coordinates[i], coordinates[i+1], coordinates[i+2]])
+        
+        # Convert to numpy array for easier calculation
+        points_array = np.array(points)
+        
+        # Calculate center (average of all points)
+        center = np.mean(points_array, axis=0)
+        
+        # Calculate bounding box dimensions
+        min_coords = np.min(points_array, axis=0)
+        max_coords = np.max(points_array, axis=0)
+        dimensions = max_coords - min_coords
+        
+        return {
+            'center': center,
+            'dimensions': dimensions
+        }
+    
+    def create_plane_mesh(self, coordinates):
+        """Create a planar mesh from 4 coordinate points"""
+        if len(coordinates) != 12:  # 4 points * 3 coordinates each
+            self.get_logger().error('Plane coordinates must contain exactly 12 values (4 points with x,y,z each)')
+            return None
+            
+        # Extract 4 points
+        points = []
+        for i in range(0, 12, 3):
+            points.append([coordinates[i], coordinates[i+1], coordinates[i+2]])
+        
+        shape_mesh = Mesh()
+        
+        # Add vertices
+        for point in points:
+            p = Point()
+            p.x = float(point[0])
+            p.y = float(point[1]) 
+            p.z = float(point[2])
+            shape_mesh.vertices.append(p)
+        
+        # Create two triangles to form a rectangular plane with proper winding order
+        # Ensure counter-clockwise winding for correct normals
+        # Triangle 1: points 0, 1, 2 (counter-clockwise)
+        triangle1 = MeshTriangle()
+        triangle1.vertex_indices = [0, 1, 2]
+        shape_mesh.triangles.append(triangle1)
+        
+        # Triangle 2: points 0, 2, 3 (counter-clockwise)
+        triangle2 = MeshTriangle()
+        triangle2.vertex_indices = [0, 2, 3]
+        shape_mesh.triangles.append(triangle2)
+        
+        # Add reverse triangles for double-sided plane (visible from both sides)
+        triangle3 = MeshTriangle()
+        triangle3.vertex_indices = [0, 2, 1]  # Reverse winding
+        shape_mesh.triangles.append(triangle3)
+        
+        triangle4 = MeshTriangle()
+        triangle4.vertex_indices = [0, 3, 2]  # Reverse winding
+        shape_mesh.triangles.append(triangle4)
+        
+        return shape_mesh
 
     def publish_collision_mesh(self):
         # Get parameters
@@ -110,6 +187,10 @@ class CollisionMeshPublisher(Node):
         field_mesh_path = self.get_parameter('field_mesh_path').get_parameter_value().string_value
         object_mesh_path = self.get_parameter('object_mesh_path').get_parameter_value().string_value
         object_mesh_positions = self.get_parameter('object_mesh_positions').get_parameter_value().double_array_value
+        try:
+            box_coordinates = self.get_parameter('box_coordinates').get_parameter_value().double_array_value
+        except:
+            box_coordinates = []
         
         self.get_logger().info(f'Field parameter: {field}')
         self.get_logger().info(f'Field mesh path: {field_mesh_path}')
@@ -196,6 +277,51 @@ class CollisionMeshPublisher(Node):
 
                     self.publisher_.publish(collision_object)
                     self.get_logger().info(f'Publishing object collision mesh {idx} at position ({px}, {py}, {pz}) with yaw {yaw_deg} degrees')
+
+        # 3. Publish box primitive objects from 8 corner coordinates
+        if box_coordinates:
+            # Each box needs 24 values (8 points × 3 coordinates)
+            if len(box_coordinates) % 24 != 0:
+                self.get_logger().error('box_coordinates parameter must contain groups of 24 values (8 points with x,y,z each)')
+            else:
+                num_boxes = len(box_coordinates) // 24
+                # Limit to 50 box objects
+                max_boxes = 50
+                if num_boxes > max_boxes:
+                    self.get_logger().warn(f'Too many box coordinates specified ({num_boxes}). Limiting to {max_boxes}.')
+                    num_boxes = max_boxes
+                
+                for i in range(num_boxes):
+                    start_idx = i * 24
+                    box_coords = box_coordinates[start_idx:start_idx + 24]
+                    
+                    box_info = self.calculate_box_from_8_points(box_coords)
+                    if box_info is not None:
+                        collision_object = CollisionObject()
+                        collision_object.header.frame_id = "world"
+                        collision_object.id = f"box_from_8points_{mesh_index}"
+                        mesh_index += 1
+                        
+                        # Create box primitive
+                        box_primitive = SolidPrimitive()
+                        box_primitive.type = SolidPrimitive.BOX
+                        box_primitive.dimensions = [float(box_info['dimensions'][0]), 
+                                                   float(box_info['dimensions'][1]), 
+                                                   float(box_info['dimensions'][2])]
+                        
+                        # Set pose (center position)
+                        pose = Pose()
+                        pose.position.x = float(box_info['center'][0])
+                        pose.position.y = float(box_info['center'][1])
+                        pose.position.z = float(box_info['center'][2])
+                        pose.orientation.w = 1.0
+                        
+                        collision_object.primitives.append(box_primitive)
+                        collision_object.primitive_poses.append(pose)
+                        collision_object.operation = CollisionObject.ADD
+                        
+                        self.publisher_.publish(collision_object)
+                        self.get_logger().info(f'Publishing box from 8 points {i} at ({box_info["center"][0]:.3f}, {box_info["center"][1]:.3f}, {box_info["center"][2]:.3f}) with dimensions ({box_info["dimensions"][0]:.3f}, {box_info["dimensions"][1]:.3f}, {box_info["dimensions"][2]:.3f})')
 
         self.get_logger().info('Finished publishing all collision meshes')
         self.timer.cancel() # Publish only once

@@ -826,7 +826,8 @@ def generate_launch_description():
             {"field": field},
             {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
             {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
-            {"object_mesh_positions": [0.0, 0.0, 0.0, 0.0,-1.156,1.1,0,0,-1.056,1.1,0,0,-0.956,1.1,0,0,-0.856,1.1,0,0,-1.156,1,0,0,-1.056,1,0,0,-0.956,1,0,0,-0.856,1,0,0]}  # Example: Two cubes at different positions
+            {"object_mesh_positions": [0.0, 0.0, 0.0, 0.0,-1.156,1.1,0,0,-1.056,1.1,0,0,-0.956,1.1,0,0,-0.856,1.1,0,0,-1.156,1,0,0,-1.056,1,0,0,-0.956,1,0,0,-0.856,1,0,0]},  # Example: Two cubes at different positions
+            {"box_coordinates": [-0.160,-0.180,-0.001,-0.160,-0.180,0.5,-0.160,-0.179,-0.001,-0.160,-0.179,0.5,1.78,-0.180,-0.001,1.78,-0.180,0.5,1.78,-0.179,-0.001,1.78,-0.179,0.5]},  # Example: 1x1x0.2m box from 8 corner points
         ],
     )
 
