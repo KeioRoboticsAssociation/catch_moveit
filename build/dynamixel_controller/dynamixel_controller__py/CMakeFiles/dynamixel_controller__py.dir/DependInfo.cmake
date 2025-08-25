@@ -15,8 +15,12 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_c.c" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_introspection_c.c" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/__init__.py" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command.py" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command_s.c" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller.py" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller_s.c" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response.py" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response_s.c" "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 

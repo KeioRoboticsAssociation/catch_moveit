@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_controller
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_controller
@@ -78,6 +78,8 @@ rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controll
 rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__rosidl_typesupport_fastrtps_c.h.em
 rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em
 rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dynamixel_controller/msg/DynamixelController.idl
+rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dynamixel_controller/msg/DynamixelCommand.idl
+rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dynamixel_controller/msg/DynamixelResponse.idl
 rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -116,6 +118,18 @@ rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controll
 rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp
 
+rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__rosidl_typesupport_fastrtps_c.h
+
+rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp
+
+rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__rosidl_typesupport_fastrtps_c.h
+
+rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp
+
 CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.o: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/flags.make
 CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp
 CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.o: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
@@ -130,14 +144,46 @@ CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesu
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp -o CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.s
 
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/flags.make
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o -MF CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o.d -o CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o -c /home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp
+
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp > CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.i
+
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp -o CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.s
+
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/flags.make
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o -MF CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o.d -o CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o -c /home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp
+
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp > CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.i
+
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp -o CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.s
+
 # Object files for target dynamixel_controller__rosidl_typesupport_fastrtps_c
 dynamixel_controller__rosidl_typesupport_fastrtps_c_OBJECTS = \
-"CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.o"
+"CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.o" \
+"CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o" \
+"CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o"
 
 # External object files for target dynamixel_controller__rosidl_typesupport_fastrtps_c
 dynamixel_controller__rosidl_typesupport_fastrtps_c_EXTERNAL_OBJECTS =
 
 libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.o
+libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o
+libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o
 libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/build.make
 libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: libdynamixel_controller__rosidl_generator_c.so
 libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
@@ -151,7 +197,7 @@ libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/l
 libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librcutils.so
 libdynamixel_controller__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libdynamixel_controller__rosidl_typesupport_fastrtps_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library libdynamixel_controller__rosidl_typesupport_fastrtps_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -162,8 +208,12 @@ CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/clean
 
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__rosidl_typesupport_fastrtps_c.h
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp
 CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp
-	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/DependInfo.cmake --color=$(COLOR)
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__rosidl_typesupport_fastrtps_c.h
+CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp
+	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/depend
 

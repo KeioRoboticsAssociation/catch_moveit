@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_sdk/ros/dynamixel_sdk
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/DynamixelSDK/dynamixel_sdk
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_sdk
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/a/ws_moveit2/build/dynamixel_sdk && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_sdk/ros/dynamixel_sdk /home/a/ws_moveit2/src/dynamixel_sdk/ros/dynamixel_sdk /home/a/ws_moveit2/build/dynamixel_sdk /home/a/ws_moveit2/build/dynamixel_sdk /home/a/ws_moveit2/build/dynamixel_sdk/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/a/ws_moveit2/build/dynamixel_sdk && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_ros2/DynamixelSDK/dynamixel_sdk /home/a/ws_moveit2/src/dynamixel_ros2/DynamixelSDK/dynamixel_sdk /home/a/ws_moveit2/build/dynamixel_sdk /home/a/ws_moveit2/build/dynamixel_sdk /home/a/ws_moveit2/build/dynamixel_sdk/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

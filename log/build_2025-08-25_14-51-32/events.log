@@ -1,0 +1,606 @@
+[0.000000] (-) TimerEvent: {}
+[0.000355] (-) JobUnselected: {'identifier': 'catch_gazebo_ros2_control'}
+[0.000399] (-) JobUnselected: {'identifier': 'chomp_motion_planner'}
+[0.000430] (-) JobUnselected: {'identifier': 'com'}
+[0.000559] (-) JobUnselected: {'identifier': 'dynamixel_sdk_custom_interfaces'}
+[0.000595] (-) JobUnselected: {'identifier': 'dynamixel_sdk_examples'}
+[0.000643] (-) JobUnselected: {'identifier': 'field_description'}
+[0.000667] (-) JobUnselected: {'identifier': 'field_description'}
+[0.000691] (-) JobUnselected: {'identifier': 'hello_moveit'}
+[0.000746] (-) JobUnselected: {'identifier': 'launch_param_builder'}
+[0.000784] (-) JobUnselected: {'identifier': 'moveit'}
+[0.000810] (-) JobUnselected: {'identifier': 'moveit2_tutorials'}
+[0.000835] (-) JobUnselected: {'identifier': 'moveit_chomp_optimizer_adapter'}
+[0.000860] (-) JobUnselected: {'identifier': 'moveit_common'}
+[0.000896] (-) JobUnselected: {'identifier': 'moveit_configs_utils'}
+[0.000944] (-) JobUnselected: {'identifier': 'moveit_core'}
+[0.000969] (-) JobUnselected: {'identifier': 'moveit_hybrid_planning'}
+[0.001029] (-) JobUnselected: {'identifier': 'moveit_kinematics'}
+[0.001087] (-) JobUnselected: {'identifier': 'moveit_planners'}
+[0.001111] (-) JobUnselected: {'identifier': 'moveit_planners_chomp'}
+[0.001136] (-) JobUnselected: {'identifier': 'moveit_planners_ompl'}
+[0.001170] (-) JobUnselected: {'identifier': 'moveit_plugins'}
+[0.001275] (-) JobUnselected: {'identifier': 'moveit_resources'}
+[0.001319] (-) JobUnselected: {'identifier': 'moveit_resources_fanuc_description'}
+[0.001355] (-) JobUnselected: {'identifier': 'moveit_resources_fanuc_moveit_config'}
+[0.001390] (-) JobUnselected: {'identifier': 'moveit_resources_panda_description'}
+[0.001439] (-) JobUnselected: {'identifier': 'moveit_resources_panda_moveit_config'}
+[0.001462] (-) JobUnselected: {'identifier': 'moveit_resources_pr2_description'}
+[0.001494] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_ikfast_manipulator_plugin'}
+[0.001518] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_moveit_config'}
+[0.001565] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_pg70_support'}
+[0.001601] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_support'}
+[0.001626] (-) JobUnselected: {'identifier': 'moveit_ros'}
+[0.001651] (-) JobUnselected: {'identifier': 'moveit_ros_benchmarks'}
+[0.001676] (-) JobUnselected: {'identifier': 'moveit_ros_control_interface'}
+[0.001700] (-) JobUnselected: {'identifier': 'moveit_ros_move_group'}
+[0.001724] (-) JobUnselected: {'identifier': 'moveit_ros_occupancy_map_monitor'}
+[0.001749] (-) JobUnselected: {'identifier': 'moveit_ros_perception'}
+[0.001782] (-) JobUnselected: {'identifier': 'moveit_ros_planning'}
+[0.001830] (-) JobUnselected: {'identifier': 'moveit_ros_planning_interface'}
+[0.001854] (-) JobUnselected: {'identifier': 'moveit_ros_robot_interaction'}
+[0.001879] (-) JobUnselected: {'identifier': 'moveit_ros_visualization'}
+[0.001936] (-) JobUnselected: {'identifier': 'moveit_ros_warehouse'}
+[0.001993] (-) JobUnselected: {'identifier': 'moveit_runtime'}
+[0.002017] (-) JobUnselected: {'identifier': 'moveit_servo'}
+[0.002042] (-) JobUnselected: {'identifier': 'moveit_setup_app_plugins'}
+[0.002073] (-) JobUnselected: {'identifier': 'moveit_setup_assistant'}
+[0.002420] (-) JobUnselected: {'identifier': 'moveit_setup_controllers'}
+[0.002449] (-) JobUnselected: {'identifier': 'moveit_setup_core_plugins'}
+[0.002474] (-) JobUnselected: {'identifier': 'moveit_setup_framework'}
+[0.002501] (-) JobUnselected: {'identifier': 'moveit_setup_srdf_plugins'}
+[0.002522] (-) JobUnselected: {'identifier': 'moveit_simple_controller_manager'}
+[0.002540] (-) JobUnselected: {'identifier': 'moveit_task_constructor_capabilities'}
+[0.002559] (-) JobUnselected: {'identifier': 'moveit_task_constructor_core'}
+[0.002577] (-) JobUnselected: {'identifier': 'moveit_task_constructor_demo'}
+[0.002595] (-) JobUnselected: {'identifier': 'moveit_task_constructor_msgs'}
+[0.002614] (-) JobUnselected: {'identifier': 'moveit_task_constructor_visualization'}
+[0.002634] (-) JobUnselected: {'identifier': 'moveit_visual_tools'}
+[0.002727] (-) JobUnselected: {'identifier': 'mtc_tutorial'}
+[0.002748] (-) JobUnselected: {'identifier': 'object_description'}
+[0.002766] (-) JobUnselected: {'identifier': 'object_description'}
+[0.002783] (-) JobUnselected: {'identifier': 'pilz_industrial_motion_planner'}
+[0.002801] (-) JobUnselected: {'identifier': 'pilz_industrial_motion_planner_testutils'}
+[0.002819] (-) JobUnselected: {'identifier': 'robot_config'}
+[0.002838] (-) JobUnselected: {'identifier': 'ros_tcp_endpoint'}
+[0.002856] (-) JobUnselected: {'identifier': 'rosparam_shortcuts'}
+[0.002875] (-) JobUnselected: {'identifier': 'rviz_marker_tools'}
+[0.002895] (-) JobUnselected: {'identifier': 'srdfdom'}
+[0.002916] (-) JobUnselected: {'identifier': 'urdf_0816_description'}
+[0.002937] (-) JobUnselected: {'identifier': 'urdf_0816_description'}
+[0.002970] (dynamixel_sdk) JobQueued: {'identifier': 'dynamixel_sdk', 'dependencies': OrderedDict()}
+[0.003010] (dynamixel_controller) JobQueued: {'identifier': 'dynamixel_controller', 'dependencies': OrderedDict([('dynamixel_sdk', '/home/a/ws_moveit2/install/dynamixel_sdk')])}
+[0.003044] (dynamixel_controller_gui) JobQueued: {'identifier': 'dynamixel_controller_gui', 'dependencies': OrderedDict([('dynamixel_sdk', '/home/a/ws_moveit2/install/dynamixel_sdk'), ('dynamixel_controller', '/home/a/ws_moveit2/install/dynamixel_controller')])}
+[0.003072] (dynamixel_sdk) JobStarted: {'identifier': 'dynamixel_sdk'}
+[0.009552] (dynamixel_sdk) JobProgress: {'identifier': 'dynamixel_sdk', 'progress': 'cmake'}
+[0.010115] (dynamixel_sdk) Command: {'cmd': ['/usr/bin/cmake', '/home/a/ws_moveit2/src/dynamixel_ros2/DynamixelSDK/dynamixel_sdk', '-DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/dynamixel_sdk'], 'cwd': '/home/a/ws_moveit2/build/dynamixel_sdk', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1163'), ('SYSTEMD_EXEC_PID', '1386'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5264'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:14682'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1353,unix/a:/tmp/.ICE-unix/1353'), ('INVOCATION_ID', '8f705a4ad7ce4e5bba0167500141c239'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.ID0JB3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:99c1158c-fadc-4cd1-a618-ba25dd1e422f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/build/dynamixel_sdk'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099369] (-) TimerEvent: {}
+[0.139736] (dynamixel_sdk) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.199530] (-) TimerEvent: {}
+[0.256650] (dynamixel_sdk) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.266741] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.299704] (-) TimerEvent: {}
+[0.328054] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.332331] (dynamixel_sdk) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.333035] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.333867] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.336630] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.394575] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.399330] (dynamixel_sdk) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.399442] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.399590] (dynamixel_sdk) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.399752] (-) TimerEvent: {}
+[0.408113] (dynamixel_sdk) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.499874] (-) TimerEvent: {}
+[0.512949] (dynamixel_sdk) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.600008] (-) TimerEvent: {}
+[0.644786] (dynamixel_sdk) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.647310] (dynamixel_sdk) StdoutLine: {'line': b'-- Generating done\n'}
+[0.648369] (dynamixel_sdk) StdoutLine: {'line': b'-- Build files have been written to: /home/a/ws_moveit2/build/dynamixel_sdk\n'}
+[0.651228] (dynamixel_sdk) CommandEnded: {'returncode': 0}
+[0.652064] (dynamixel_sdk) JobProgress: {'identifier': 'dynamixel_sdk', 'progress': 'build'}
+[0.653333] (dynamixel_sdk) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/a/ws_moveit2/build/dynamixel_sdk', '--', '-j22', '-l22'], 'cwd': '/home/a/ws_moveit2/build/dynamixel_sdk', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1163'), ('SYSTEMD_EXEC_PID', '1386'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5264'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:14682'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1353,unix/a:/tmp/.ICE-unix/1353'), ('INVOCATION_ID', '8f705a4ad7ce4e5bba0167500141c239'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.ID0JB3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:99c1158c-fadc-4cd1-a618-ba25dd1e422f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/build/dynamixel_sdk'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.690242] (dynamixel_sdk) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/port_handler.cpp.o\x1b[0m\n'}
+[0.690581] (dynamixel_sdk) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_bulk_read.cpp.o\x1b[0m\n'}
+[0.690675] (dynamixel_sdk) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/protocol1_packet_handler.cpp.o\x1b[0m\n'}
+[0.690986] (dynamixel_sdk) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_sync_write.cpp.o\x1b[0m\n'}
+[0.691385] (dynamixel_sdk) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_bulk_write.cpp.o\x1b[0m\n'}
+[0.691546] (dynamixel_sdk) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/protocol2_packet_handler.cpp.o\x1b[0m\n'}
+[0.691754] (dynamixel_sdk) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_sync_read.cpp.o\x1b[0m\n'}
+[0.691906] (dynamixel_sdk) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/packet_handler.cpp.o\x1b[0m\n'}
+[0.693003] (dynamixel_sdk) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/port_handler_linux.cpp.o\x1b[0m\n'}
+[0.700103] (-) TimerEvent: {}
+[0.800532] (-) TimerEvent: {}
+[0.900844] (-) TimerEvent: {}
+[0.981378] (dynamixel_sdk) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_sdk.so\x1b[0m\n'}
+[1.000942] (-) TimerEvent: {}
+[1.036500] (dynamixel_sdk) StdoutLine: {'line': b'[100%] Built target dynamixel_sdk\n'}
+[1.047978] (dynamixel_sdk) CommandEnded: {'returncode': 0}
+[1.048795] (dynamixel_sdk) JobProgress: {'identifier': 'dynamixel_sdk', 'progress': 'install'}
+[1.056791] (dynamixel_sdk) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/a/ws_moveit2/build/dynamixel_sdk'], 'cwd': '/home/a/ws_moveit2/build/dynamixel_sdk', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1163'), ('SYSTEMD_EXEC_PID', '1386'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5264'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:14682'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1353,unix/a:/tmp/.ICE-unix/1353'), ('INVOCATION_ID', '8f705a4ad7ce4e5bba0167500141c239'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.ID0JB3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:99c1158c-fadc-4cd1-a618-ba25dd1e422f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/build/dynamixel_sdk'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.064177] (dynamixel_sdk) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.064247] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include/\n'}
+[1.064416] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk\n'}
+[1.064456] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_mac.h\n'}
+[1.064518] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/protocol2_packet_handler.h\n'}
+[1.064568] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/packet_handler.h\n'}
+[1.064643] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/group_sync_read.h\n'}
+[1.064723] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/dynamixel_sdk.h\n'}
+[1.064792] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/port_handler.h\n'}
+[1.064871] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/group_bulk_read.h\n'}
+[1.064966] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/group_bulk_write.h\n'}
+[1.065021] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_windows.h\n'}
+[1.065114] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_arduino.h\n'}
+[1.065188] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/protocol1_packet_handler.h\n'}
+[1.065282] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_linux.h\n'}
+[1.065456] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/include//dynamixel_sdk/group_sync_write.h\n'}
+[1.065675] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/lib/libdynamixel_sdk.so\n'}
+[1.066070] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/environment/library_path.sh\n'}
+[1.066154] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/environment/library_path.dsv\n'}
+[1.066326] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/ament_index/resource_index/package_run_dependencies/dynamixel_sdk\n'}
+[1.066455] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/ament_index/resource_index/parent_prefix_path/dynamixel_sdk\n'}
+[1.066552] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/environment/ament_prefix_path.sh\n'}
+[1.066643] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/environment/ament_prefix_path.dsv\n'}
+[1.066736] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/environment/path.sh\n'}
+[1.066830] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/environment/path.dsv\n'}
+[1.066928] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.bash\n'}
+[1.067018] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.sh\n'}
+[1.067112] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.zsh\n'}
+[1.067202] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.dsv\n'}
+[1.067290] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/package.dsv\n'}
+[1.067424] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/ament_index/resource_index/packages/dynamixel_sdk\n'}
+[1.067547] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[1.067640] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[1.067738] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/cmake/dynamixel_sdkConfig.cmake\n'}
+[1.067816] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/cmake/dynamixel_sdkConfig-version.cmake\n'}
+[1.067908] (dynamixel_sdk) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/package.xml\n'}
+[1.069153] (dynamixel_sdk) CommandEnded: {'returncode': 0}
+[1.079908] (dynamixel_sdk) JobEnded: {'identifier': 'dynamixel_sdk', 'rc': 0}
+[1.080326] (dynamixel_controller) JobStarted: {'identifier': 'dynamixel_controller'}
+[1.084766] (dynamixel_controller) JobProgress: {'identifier': 'dynamixel_controller', 'progress': 'cmake'}
+[1.085240] (dynamixel_controller) Command: {'cmd': ['/usr/bin/cmake', '/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller', '-DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/dynamixel_controller'], 'cwd': '/home/a/ws_moveit2/build/dynamixel_controller', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1163'), ('SYSTEMD_EXEC_PID', '1386'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5264'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:14682'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1353,unix/a:/tmp/.ICE-unix/1353'), ('INVOCATION_ID', '8f705a4ad7ce4e5bba0167500141c239'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.ID0JB3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:99c1158c-fadc-4cd1-a618-ba25dd1e422f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/build/dynamixel_controller'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk:/opt/ros/humble')]), 'shell': False}
+[1.101012] (-) TimerEvent: {}
+[1.127982] (dynamixel_controller) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[1.161646] (dynamixel_controller) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.166537] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.201136] (-) TimerEvent: {}
+[1.215031] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.220474] (dynamixel_controller) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.220622] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.220717] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.222467] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.280132] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.287539] (dynamixel_controller) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.287704] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.287963] (dynamixel_controller) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.289171] (dynamixel_controller) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.301218] (-) TimerEvent: {}
+[1.390289] (dynamixel_controller) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.401321] (-) TimerEvent: {}
+[1.446777] (dynamixel_controller) StdoutLine: {'line': b'-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.495985] (dynamixel_controller) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.501412] (-) TimerEvent: {}
+[1.501825] (dynamixel_controller) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.510960] (dynamixel_controller) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.526160] (dynamixel_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.543329] (dynamixel_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.589345] (dynamixel_controller) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.592497] (dynamixel_controller) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.601496] (-) TimerEvent: {}
+[1.685354] (dynamixel_controller) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[1.701595] (-) TimerEvent: {}
+[1.706328] (dynamixel_controller) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[1.737501] (dynamixel_controller) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.751870] (dynamixel_controller) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.801711] (-) TimerEvent: {}
+[1.806237] (dynamixel_controller) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.806673] (dynamixel_controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.859781] (dynamixel_controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[1.861385] (dynamixel_controller) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.901792] (-) TimerEvent: {}
+[1.915176] (dynamixel_controller) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[1.922687] (dynamixel_controller) StdoutLine: {'line': b'-- Found dynamixel_sdk: 3.7.60 (/home/a/ws_moveit2/install/dynamixel_sdk/share/dynamixel_sdk/cmake)\n'}
+[2.001926] (-) TimerEvent: {}
+[2.102258] (-) TimerEvent: {}
+[2.102700] (dynamixel_controller) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[2.202369] (-) TimerEvent: {}
+[2.302689] (-) TimerEvent: {}
+[2.321049] (dynamixel_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.402799] (-) TimerEvent: {}
+[2.404307] (dynamixel_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.419494] (dynamixel_controller) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[2.421335] (dynamixel_controller) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[2.443711] (dynamixel_controller) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[2.443926] (dynamixel_controller) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.444030] (dynamixel_controller) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[2.444119] (dynamixel_controller) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[2.459622] (dynamixel_controller) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[2.494697] (dynamixel_controller) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.502892] (-) TimerEvent: {}
+[2.517075] (dynamixel_controller) StdoutLine: {'line': b'-- Generating done\n'}
+[2.524223] (dynamixel_controller) StdoutLine: {'line': b'-- Build files have been written to: /home/a/ws_moveit2/build/dynamixel_controller\n'}
+[2.532410] (dynamixel_controller) CommandEnded: {'returncode': 0}
+[2.532678] (dynamixel_controller) JobProgress: {'identifier': 'dynamixel_controller', 'progress': 'build'}
+[2.532693] (dynamixel_controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/a/ws_moveit2/build/dynamixel_controller', '--', '-j22', '-l22'], 'cwd': '/home/a/ws_moveit2/build/dynamixel_controller', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1163'), ('SYSTEMD_EXEC_PID', '1386'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5264'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:14682'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1353,unix/a:/tmp/.ICE-unix/1353'), ('INVOCATION_ID', '8f705a4ad7ce4e5bba0167500141c239'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.ID0JB3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:99c1158c-fadc-4cd1-a618-ba25dd1e422f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/build/dynamixel_controller'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk:/opt/ros/humble')]), 'shell': False}
+[2.565286] (dynamixel_controller) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[2.572771] (dynamixel_controller) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[2.580131] (dynamixel_controller) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_dynamixel_controller\n'}
+[2.603038] (-) TimerEvent: {}
+[2.703379] (-) TimerEvent: {}
+[2.728303] (dynamixel_controller) StdoutLine: {'line': b'running egg_info\n'}
+[2.728954] (dynamixel_controller) StdoutLine: {'line': b'creating dynamixel_controller.egg-info\n'}
+[2.729319] (dynamixel_controller) StdoutLine: {'line': b'writing dynamixel_controller.egg-info/PKG-INFO\n'}
+[2.729460] (dynamixel_controller) StdoutLine: {'line': b'writing dependency_links to dynamixel_controller.egg-info/dependency_links.txt\n'}
+[2.729742] (dynamixel_controller) StdoutLine: {'line': b'writing top-level names to dynamixel_controller.egg-info/top_level.txt\n'}
+[2.729871] (dynamixel_controller) StdoutLine: {'line': b"writing manifest file 'dynamixel_controller.egg-info/SOURCES.txt'\n"}
+[2.732531] (dynamixel_controller) StdoutLine: {'line': b"reading manifest file 'dynamixel_controller.egg-info/SOURCES.txt'\n"}
+[2.732710] (dynamixel_controller) StdoutLine: {'line': b"writing manifest file 'dynamixel_controller.egg-info/SOURCES.txt'\n"}
+[2.749554] (dynamixel_controller) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_build_dynamixel_controller_egg\n'}
+[2.803476] (-) TimerEvent: {}
+[2.903840] (-) TimerEvent: {}
+[3.004310] (-) TimerEvent: {}
+[3.104755] (-) TimerEvent: {}
+[3.205193] (-) TimerEvent: {}
+[3.275117] (dynamixel_controller) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.o\x1b[0m\n'}
+[3.275369] (dynamixel_controller) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o\x1b[0m\n'}
+[3.275467] (dynamixel_controller) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o\x1b[0m\n'}
+[3.305308] (-) TimerEvent: {}
+[3.311644] (dynamixel_controller) StdoutLine: {'line': b'[ 10%] Built target dynamixel_controller__cpp\n'}
+[3.317657] (dynamixel_controller) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[3.320536] (dynamixel_controller) StdoutLine: {'line': b'[ 14%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.320766] (dynamixel_controller) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.326567] (dynamixel_controller) StdoutLine: {'line': b'[ 18%] \x1b[32m\x1b[1mLinking C shared library libdynamixel_controller__rosidl_generator_c.so\x1b[0m\n'}
+[3.355776] (dynamixel_controller) StdoutLine: {'line': b'[ 18%] Built target dynamixel_controller__rosidl_generator_c\n'}
+[3.363283] (dynamixel_controller) StdoutLine: {'line': b'[ 20%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[3.364847] (dynamixel_controller) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.364934] (dynamixel_controller) StdoutLine: {'line': b'[ 24%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.405392] (-) TimerEvent: {}
+[3.505682] (-) TimerEvent: {}
+[3.606070] (-) TimerEvent: {}
+[3.706602] (-) TimerEvent: {}
+[3.807072] (-) TimerEvent: {}
+[3.907445] (-) TimerEvent: {}
+[4.007777] (-) TimerEvent: {}
+[4.014152] (dynamixel_controller) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_controller/msg/dynamixel_command__type_support.cpp.o\x1b[0m\n'}
+[4.014365] (dynamixel_controller) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_controller/msg/dynamixel_controller__type_support.cpp.o\x1b[0m\n'}
+[4.014448] (dynamixel_controller) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_controller/msg/dynamixel_response__type_support.cpp.o\x1b[0m\n'}
+[4.031136] (dynamixel_controller) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_controller/msg/detail/dynamixel_controller__type_support.cpp.o\x1b[0m\n'}
+[4.033338] (dynamixel_controller) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_controller/msg/detail/dynamixel_command__type_support.cpp.o\x1b[0m\n'}
+[4.033922] (dynamixel_controller) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_controller/msg/detail/dynamixel_response__type_support.cpp.o\x1b[0m\n'}
+[4.034109] (dynamixel_controller) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_controller/msg/detail/dds_fastrtps/dynamixel_command__type_support.cpp.o\x1b[0m\n'}
+[4.034204] (dynamixel_controller) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_controller/msg/detail/dds_fastrtps/dynamixel_controller__type_support.cpp.o\x1b[0m\n'}
+[4.034287] (dynamixel_controller) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_controller/msg/detail/dds_fastrtps/dynamixel_response__type_support.cpp.o\x1b[0m\n'}
+[4.107886] (-) TimerEvent: {}
+[4.127014] (dynamixel_controller) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_controller/msg/detail/dynamixel_command__type_support.c.o\x1b[0m\n'}
+[4.128897] (dynamixel_controller) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support.c.o\x1b[0m\n'}
+[4.129447] (dynamixel_controller) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_controller/msg/detail/dynamixel_response__type_support.c.o\x1b[0m\n'}
+[4.170718] (dynamixel_controller) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking C shared library libdynamixel_controller__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[4.183969] (dynamixel_controller) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_controller/msg/dynamixel_response__type_support.cpp.o\x1b[0m\n'}
+[4.184191] (dynamixel_controller) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_controller/msg/dynamixel_controller__type_support.cpp.o\x1b[0m\n'}
+[4.184275] (dynamixel_controller) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_controller/msg/dynamixel_command__type_support.cpp.o\x1b[0m\n'}
+[4.201340] (dynamixel_controller) StdoutLine: {'line': b'[ 57%] Built target dynamixel_controller__rosidl_typesupport_introspection_c\n'}
+[4.208001] (-) TimerEvent: {}
+[4.211037] (dynamixel_controller) StdoutLine: {'line': b'[ 59%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_controller__rosidl_typesupport_c.so\x1b[0m\n'}
+[4.213476] (dynamixel_controller) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_command__type_support_c.cpp.o\x1b[0m\n'}
+[4.214590] (dynamixel_controller) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support_c.cpp.o\x1b[0m\n'}
+[4.214799] (dynamixel_controller) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_controller/msg/detail/dynamixel_response__type_support_c.cpp.o\x1b[0m\n'}
+[4.254266] (dynamixel_controller) StdoutLine: {'line': b'[ 65%] Built target dynamixel_controller__rosidl_typesupport_c\n'}
+[4.308130] (-) TimerEvent: {}
+[4.315224] (dynamixel_controller) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_controller__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[4.347809] (dynamixel_controller) StdoutLine: {'line': b'[ 67%] Built target dynamixel_controller__rosidl_typesupport_cpp\n'}
+[4.364523] (dynamixel_controller) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_controller_node.dir/src/dynamixel_controller.cpp.o\x1b[0m\n'}
+[4.408260] (-) TimerEvent: {}
+[4.418193] (dynamixel_controller) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_controller__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[4.432138] (dynamixel_controller) StdoutLine: {'line': b'[ 73%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_controller__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[4.474695] (dynamixel_controller) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_controller__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[4.474997] (dynamixel_controller) StdoutLine: {'line': b'[ 75%] Built target dynamixel_controller__rosidl_typesupport_fastrtps_cpp\n'}
+[4.480755] (dynamixel_controller) StdoutLine: {'line': b'[ 75%] Built target dynamixel_controller__rosidl_typesupport_introspection_cpp\n'}
+[4.508355] (-) TimerEvent: {}
+[4.525810] (dynamixel_controller) StdoutLine: {'line': b'[ 75%] Built target dynamixel_controller__rosidl_typesupport_fastrtps_c\n'}
+[4.541622] (dynamixel_controller) StdoutLine: {'line': b'[ 75%] Built target dynamixel_controller\n'}
+[4.552900] (dynamixel_controller) StdoutLine: {'line': b'[ 77%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[4.608426] (-) TimerEvent: {}
+[4.708634] (-) TimerEvent: {}
+[4.808838] (-) TimerEvent: {}
+[4.909032] (-) TimerEvent: {}
+[5.009235] (-) TimerEvent: {}
+[5.109717] (-) TimerEvent: {}
+[5.210035] (-) TimerEvent: {}
+[5.310365] (-) TimerEvent: {}
+[5.410737] (-) TimerEvent: {}
+[5.511074] (-) TimerEvent: {}
+[5.611416] (-) TimerEvent: {}
+[5.711756] (-) TimerEvent: {}
+[5.812182] (dynamixel_controller) StdoutLine: {'line': b'[ 77%] Built target dynamixel_controller__py\n'}
+[5.812347] (-) TimerEvent: {}
+[5.828097] (dynamixel_controller) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller_s.c.o\x1b[0m\n'}
+[5.829406] (dynamixel_controller) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command_s.c.o\x1b[0m\n'}
+[5.829553] (dynamixel_controller) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response_s.c.o\x1b[0m\n'}
+[5.912564] (-) TimerEvent: {}
+[5.936544] (dynamixel_controller) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_controller/libdynamixel_controller__rosidl_generator_py.so\x1b[0m\n'}
+[5.967740] (dynamixel_controller) StdoutLine: {'line': b'[ 85%] Built target dynamixel_controller__rosidl_generator_py\n'}
+[5.984538] (dynamixel_controller) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[5.984970] (dynamixel_controller) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[5.985264] (dynamixel_controller) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/dynamixel_controller__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[6.012703] (-) TimerEvent: {}
+[6.051947] (dynamixel_controller) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[6.052199] (dynamixel_controller) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[6.052321] (dynamixel_controller) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[6.082825] (dynamixel_controller) StdoutLine: {'line': b'[ 97%] Built target dynamixel_controller__rosidl_typesupport_fastrtps_c__pyext\n'}
+[6.083051] (dynamixel_controller) StdoutLine: {'line': b'[ 97%] Built target dynamixel_controller__rosidl_typesupport_c__pyext\n'}
+[6.083125] (dynamixel_controller) StdoutLine: {'line': b'[ 97%] Built target dynamixel_controller__rosidl_typesupport_introspection_c__pyext\n'}
+[6.112817] (-) TimerEvent: {}
+[6.213182] (-) TimerEvent: {}
+[6.313702] (-) TimerEvent: {}
+[6.414052] (-) TimerEvent: {}
+[6.514395] (-) TimerEvent: {}
+[6.614730] (-) TimerEvent: {}
+[6.715068] (-) TimerEvent: {}
+[6.815374] (-) TimerEvent: {}
+[6.915677] (-) TimerEvent: {}
+[7.015952] (-) TimerEvent: {}
+[7.116259] (-) TimerEvent: {}
+[7.216613] (-) TimerEvent: {}
+[7.316953] (-) TimerEvent: {}
+[7.417285] (-) TimerEvent: {}
+[7.517630] (-) TimerEvent: {}
+[7.617974] (-) TimerEvent: {}
+[7.718427] (-) TimerEvent: {}
+[7.818750] (-) TimerEvent: {}
+[7.919077] (-) TimerEvent: {}
+[8.019368] (-) TimerEvent: {}
+[8.119684] (-) TimerEvent: {}
+[8.220016] (-) TimerEvent: {}
+[8.320349] (-) TimerEvent: {}
+[8.420675] (-) TimerEvent: {}
+[8.520987] (-) TimerEvent: {}
+[8.621312] (-) TimerEvent: {}
+[8.721638] (-) TimerEvent: {}
+[8.821974] (-) TimerEvent: {}
+[8.922361] (-) TimerEvent: {}
+[9.022787] (-) TimerEvent: {}
+[9.123172] (-) TimerEvent: {}
+[9.223512] (-) TimerEvent: {}
+[9.323907] (-) TimerEvent: {}
+[9.424256] (-) TimerEvent: {}
+[9.524655] (-) TimerEvent: {}
+[9.624997] (-) TimerEvent: {}
+[9.725328] (-) TimerEvent: {}
+[9.810339] (dynamixel_controller) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable dynamixel_controller_node\x1b[0m\n'}
+[9.825406] (-) TimerEvent: {}
+[9.925687] (-) TimerEvent: {}
+[10.026064] (-) TimerEvent: {}
+[10.077537] (dynamixel_controller) StdoutLine: {'line': b'[100%] Built target dynamixel_controller_node\n'}
+[10.087150] (dynamixel_controller) CommandEnded: {'returncode': 0}
+[10.087977] (dynamixel_controller) JobProgress: {'identifier': 'dynamixel_controller', 'progress': 'install'}
+[10.088220] (dynamixel_controller) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/a/ws_moveit2/build/dynamixel_controller'], 'cwd': '/home/a/ws_moveit2/build/dynamixel_controller', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1163'), ('SYSTEMD_EXEC_PID', '1386'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5264'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:14682'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1353,unix/a:/tmp/.ICE-unix/1353'), ('INVOCATION_ID', '8f705a4ad7ce4e5bba0167500141c239'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.ID0JB3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:99c1158c-fadc-4cd1-a618-ba25dd1e422f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/build/dynamixel_controller'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/a/ws_moveit2/install/dynamixel_sdk:/opt/ros/humble')]), 'shell': False}
+[10.096018] (dynamixel_controller) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.096148] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/ament_index/resource_index/rosidl_interfaces/dynamixel_controller\n'}
+[10.096310] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller\n'}
+[10.096344] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg\n'}
+[10.096582] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/rosidl_generator_c__visibility_control.h\n'}
+[10.096741] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/dynamixel_controller.h\n'}
+[10.096782] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/dynamixel_response.h\n'}
+[10.096872] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail\n'}
+[10.096953] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__functions.c\n'}
+[10.097007] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__functions.c\n'}
+[10.097036] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__functions.h\n'}
+[10.097079] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__type_support.h\n'}
+[10.097137] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__functions.h\n'}
+[10.097212] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__functions.h\n'}
+[10.097285] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__type_support.h\n'}
+[10.097367] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__struct.h\n'}
+[10.097438] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__struct.h\n'}
+[10.097517] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__type_support.h\n'}
+[10.097596] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__functions.c\n'}
+[10.097677] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__struct.h\n'}
+[10.097751] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/dynamixel_command.h\n'}
+[10.097928] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/library_path.sh\n'}
+[10.098039] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/library_path.dsv\n'}
+[10.098195] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_generator_c.so\n'}
+[10.098502] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_generator_c.so" to ""\n'}
+[10.098575] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller\n'}
+[10.098617] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg\n'}
+[10.098664] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[10.098699] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail\n'}
+[10.098740] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_c.h\n'}
+[10.098850] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__rosidl_typesupport_fastrtps_c.h\n'}
+[10.098897] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__rosidl_typesupport_fastrtps_c.h\n'}
+[10.099005] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_fastrtps_c.so\n'}
+[10.099223] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[10.099275] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller\n'}
+[10.099320] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg\n'}
+[10.099345] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/dynamixel_command.hpp\n'}
+[10.099383] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/dynamixel_response.hpp\n'}
+[10.099426] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[10.099488] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/dynamixel_controller.hpp\n'}
+[10.099532] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail\n'}
+[10.099570] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__type_support.hpp\n'}
+[10.099619] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__struct.hpp\n'}
+[10.099677] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__struct.hpp\n'}
+[10.099748] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__builder.hpp\n'}
+[10.099808] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__builder.hpp\n'}
+[10.099893] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__traits.hpp\n'}
+[10.099934] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__type_support.hpp\n'}
+[10.099991] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__traits.hpp\n'}
+[10.100047] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__builder.hpp\n'}
+[10.100106] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__struct.hpp\n'}
+[10.100167] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__type_support.hpp\n'}
+[10.100223] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__traits.hpp\n'}
+[10.100311] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller\n'}
+[10.100374] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg\n'}
+[10.100399] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail\n'}
+[10.100423] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[10.100469] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[10.100508] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[10.100558] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dds_fastrtps\n'}
+[10.100618] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[10.100713] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_fastrtps_cpp.so\n'}
+[10.100948] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[10.100992] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller\n'}
+[10.101019] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg\n'}
+[10.101056] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[10.101107] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail\n'}
+[10.101132] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__type_support.c\n'}
+[10.101158] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__type_support.c\n'}
+[10.101196] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__type_support.c\n'}
+[10.101241] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_introspection_c.h\n'}
+[10.101268] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__rosidl_typesupport_introspection_c.h\n'}
+[10.101309] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__rosidl_typesupport_introspection_c.h\n'}
+[10.101351] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_introspection_c.so\n'}
+[10.101438] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_introspection_c.so" to ""\n'}
+[10.101475] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_c.so\n'}
+[10.101570] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_c.so" to ""\n'}
+[10.101618] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller\n'}
+[10.101645] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg\n'}
+[10.101669] (dynamixel_controller) StdoutLine: {'line': b'-- Up-to-date: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail\n'}
+[10.101707] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__type_support.cpp\n'}
+[10.101748] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__type_support.cpp\n'}
+[10.101775] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_response__rosidl_typesupport_introspection_cpp.hpp\n'}
+[10.101820] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__type_support.cpp\n'}
+[10.101846] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_controller__rosidl_typesupport_introspection_cpp.hpp\n'}
+[10.101884] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/include/dynamixel_controller/dynamixel_controller/msg/detail/dynamixel_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[10.101924] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_introspection_cpp.so\n'}
+[10.102028] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[10.102072] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_cpp.so\n'}
+[10.102166] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_typesupport_cpp.so" to ""\n'}
+[10.102207] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/pythonpath.sh\n'}
+[10.102245] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/pythonpath.dsv\n'}
+[10.102282] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller-0.0.0-py3.10.egg-info\n'}
+[10.102350] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[10.102389] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[10.102428] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[10.102467] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[10.102507] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller\n'}
+[10.102540] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg\n'}
+[10.102578] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_response.py\n'}
+[10.102617] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_controller_s.c\n'}
+[10.102657] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_controller.py\n'}
+[10.102692] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/__init__.py\n'}
+[10.102730] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_response_s.c\n'}
+[10.102769] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_command.py\n'}
+[10.102805] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_command_s.c\n'}
+[10.102843] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[10.102885] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[10.102928] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/__init__.py\n'}
+[10.103118] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[10.103166] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[10.103190] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[10.103212] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_c.c\n'}
+[10.103234] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/libdynamixel_controller__rosidl_generator_py.so\n'}
+[10.126131] (-) TimerEvent: {}
+[10.127738] (dynamixel_controller) StdoutLine: {'line': b"Listing '/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller'...\n"}
+[10.127879] (dynamixel_controller) StdoutLine: {'line': b"Compiling '/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/__init__.py'...\n"}
+[10.127944] (dynamixel_controller) StdoutLine: {'line': b"Listing '/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg'...\n"}
+[10.127999] (dynamixel_controller) StdoutLine: {'line': b"Compiling '/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/__init__.py'...\n"}
+[10.128052] (dynamixel_controller) StdoutLine: {'line': b"Compiling '/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_command.py'...\n"}
+[10.128106] (dynamixel_controller) StdoutLine: {'line': b"Compiling '/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_controller.py'...\n"}
+[10.128161] (dynamixel_controller) StdoutLine: {'line': b"Compiling '/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/msg/_dynamixel_response.py'...\n"}
+[10.130749] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[10.130963] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[10.131024] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[10.131216] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[10.131485] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[10.131548] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[10.131602] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_generator_py.so\n'}
+[10.131653] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/libdynamixel_controller__rosidl_generator_py.so" to ""\n'}
+[10.131710] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/msg/DynamixelController.idl\n'}
+[10.131766] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/msg/DynamixelCommand.idl\n'}
+[10.131973] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/msg/DynamixelResponse.idl\n'}
+[10.132036] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/msg/DynamixelController.msg\n'}
+[10.132095] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/msg/DynamixelCommand.msg\n'}
+[10.132172] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/msg/DynamixelResponse.msg\n'}
+[10.132224] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/lib/dynamixel_controller/dynamixel_controller_node\n'}
+[10.133357] (dynamixel_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/install/dynamixel_controller/lib/dynamixel_controller/dynamixel_controller_node" to ""\n'}
+[10.133410] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/config\n'}
+[10.133458] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/config/bus_config.yaml\n'}
+[10.133619] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/ament_index/resource_index/package_run_dependencies/dynamixel_controller\n'}
+[10.133670] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/ament_index/resource_index/parent_prefix_path/dynamixel_controller\n'}
+[10.133720] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/ament_prefix_path.sh\n'}
+[10.133765] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/ament_prefix_path.dsv\n'}
+[10.133848] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/path.sh\n'}
+[10.133902] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/environment/path.dsv\n'}
+[10.133953] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/local_setup.bash\n'}
+[10.134003] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/local_setup.sh\n'}
+[10.134088] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/local_setup.zsh\n'}
+[10.134140] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/local_setup.dsv\n'}
+[10.134190] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/package.dsv\n'}
+[10.134239] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/ament_index/resource_index/packages/dynamixel_controller\n'}
+[10.134287] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_cExport.cmake\n'}
+[10.134368] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_cExport-noconfig.cmake\n'}
+[10.134470] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[10.134523] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[10.134571] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_cppExport.cmake\n'}
+[10.134645] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[10.134695] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[10.134746] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cExport.cmake\n'}
+[10.134794] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[10.134843] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cExport.cmake\n'}
+[10.134892] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[10.134961] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[10.135056] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[10.135094] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cppExport.cmake\n'}
+[10.135130] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[10.135167] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_pyExport.cmake\n'}
+[10.135203] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_pyExport-noconfig.cmake\n'}
+[10.135241] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/rosidl_cmake-extras.cmake\n'}
+[10.135277] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[10.135331] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[10.135415] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[10.135453] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[10.135485] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[10.135518] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[10.135549] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controllerConfig.cmake\n'}
+[10.135581] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/cmake/dynamixel_controllerConfig-version.cmake\n'}
+[10.135613] (dynamixel_controller) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/install/dynamixel_controller/share/dynamixel_controller/package.xml\n'}
+[10.137216] (dynamixel_controller) CommandEnded: {'returncode': 0}
+[10.148338] (dynamixel_controller) JobEnded: {'identifier': 'dynamixel_controller', 'rc': 0}
+[10.148749] (dynamixel_controller_gui) JobStarted: {'identifier': 'dynamixel_controller_gui'}
+[10.226283] (-) TimerEvent: {}
+[10.326571] (-) TimerEvent: {}
+[10.426844] (-) TimerEvent: {}
+[10.527137] (-) TimerEvent: {}
+[10.627410] (-) TimerEvent: {}
+[10.695742] (dynamixel_controller_gui) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../../build/dynamixel_controller_gui', 'build', '--build-base', '/home/a/ws_moveit2/build/dynamixel_controller_gui/build', 'install', '--record', '/home/a/ws_moveit2/build/dynamixel_controller_gui/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller_gui', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'a', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/a/ws_moveit2/install/dynamixel_controller/lib:/home/a/ws_moveit2/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/a', 'OLDPWD': '/home/a/ws_moveit2/src', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/a/.nvm/versions/node/v22.18.0/bin', 'NVM_INC': '/home/a/.nvm/versions/node/v22.18.0/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1163', 'SYSTEMD_EXEC_PID': '1386', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '5264', 'NVM_DIR': '/home/a/.nvm', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'a', 'JOURNAL_STREAM': '8:14682', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'a', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/a:@/tmp/.ICE-unix/1353,unix/a:/tmp/.ICE-unix/1353', 'INVOCATION_ID': '8f705a4ad7ce4e5bba0167500141c239', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.ID0JB3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:99c1158c-fadc-4cd1-a618-ba25dd1e422f', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/a/ws_moveit2/build/dynamixel_controller_gui', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/a/ws_moveit2/build/dynamixel_controller_gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages:/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk'}, 'shell': False}
+[10.727481] (-) TimerEvent: {}
+[10.827729] (-) TimerEvent: {}
+[10.836275] (dynamixel_controller_gui) StdoutLine: {'line': b'running egg_info\n'}
+[10.836691] (dynamixel_controller_gui) StdoutLine: {'line': b'creating ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info\n'}
+[10.836833] (dynamixel_controller_gui) StdoutLine: {'line': b'writing ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/PKG-INFO\n'}
+[10.837114] (dynamixel_controller_gui) StdoutLine: {'line': b'writing dependency_links to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/dependency_links.txt\n'}
+[10.837240] (dynamixel_controller_gui) StdoutLine: {'line': b'writing entry points to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/entry_points.txt\n'}
+[10.837315] (dynamixel_controller_gui) StdoutLine: {'line': b'writing requirements to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/requires.txt\n'}
+[10.837383] (dynamixel_controller_gui) StdoutLine: {'line': b'writing top-level names to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/top_level.txt\n'}
+[10.837437] (dynamixel_controller_gui) StdoutLine: {'line': b"writing manifest file '../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/SOURCES.txt'\n"}
+[10.837872] (dynamixel_controller_gui) StdoutLine: {'line': b"reading manifest file '../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/SOURCES.txt'\n"}
+[10.838263] (dynamixel_controller_gui) StdoutLine: {'line': b"writing manifest file '../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/SOURCES.txt'\n"}
+[10.838409] (dynamixel_controller_gui) StdoutLine: {'line': b'running build\n'}
+[10.838469] (dynamixel_controller_gui) StdoutLine: {'line': b'running build_py\n'}
+[10.838528] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/build/dynamixel_controller_gui/build\n'}
+[10.838583] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/build/dynamixel_controller_gui/build/lib\n'}
+[10.838635] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/build/dynamixel_controller_gui/build/lib/dynamixel_controller_gui\n'}
+[10.838733] (dynamixel_controller_gui) StdoutLine: {'line': b'copying dynamixel_controller_gui/__init__.py -> /home/a/ws_moveit2/build/dynamixel_controller_gui/build/lib/dynamixel_controller_gui\n'}
+[10.838791] (dynamixel_controller_gui) StdoutLine: {'line': b'copying dynamixel_controller_gui/dynamixel_gui.py -> /home/a/ws_moveit2/build/dynamixel_controller_gui/build/lib/dynamixel_controller_gui\n'}
+[10.838874] (dynamixel_controller_gui) StdoutLine: {'line': b'running install\n'}
+[10.838965] (dynamixel_controller_gui) StdoutLine: {'line': b'running install_lib\n'}
+[10.839025] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui\n'}
+[10.839104] (dynamixel_controller_gui) StdoutLine: {'line': b'copying /home/a/ws_moveit2/build/dynamixel_controller_gui/build/lib/dynamixel_controller_gui/__init__.py -> /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui\n'}
+[10.839190] (dynamixel_controller_gui) StdoutLine: {'line': b'copying /home/a/ws_moveit2/build/dynamixel_controller_gui/build/lib/dynamixel_controller_gui/dynamixel_gui.py -> /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui\n'}
+[10.839371] (dynamixel_controller_gui) StdoutLine: {'line': b'byte-compiling /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui/__init__.py to __init__.cpython-310.pyc\n'}
+[10.839471] (dynamixel_controller_gui) StdoutLine: {'line': b'byte-compiling /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui/dynamixel_gui.py to dynamixel_gui.cpython-310.pyc\n'}
+[10.841212] (dynamixel_controller_gui) StdoutLine: {'line': b'running install_data\n'}
+[10.841287] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/install/dynamixel_controller_gui/share/ament_index\n'}
+[10.841371] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/install/dynamixel_controller_gui/share/ament_index/resource_index\n'}
+[10.841420] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/install/dynamixel_controller_gui/share/ament_index/resource_index/packages\n'}
+[10.841496] (dynamixel_controller_gui) StdoutLine: {'line': b'copying resource/dynamixel_controller_gui -> /home/a/ws_moveit2/install/dynamixel_controller_gui/share/ament_index/resource_index/packages\n'}
+[10.841540] (dynamixel_controller_gui) StdoutLine: {'line': b'copying package.xml -> /home/a/ws_moveit2/install/dynamixel_controller_gui/share/dynamixel_controller_gui\n'}
+[10.841581] (dynamixel_controller_gui) StdoutLine: {'line': b'creating /home/a/ws_moveit2/install/dynamixel_controller_gui/share/dynamixel_controller_gui/launch\n'}
+[10.841621] (dynamixel_controller_gui) StdoutLine: {'line': b'copying launch/test_gui.launch.py -> /home/a/ws_moveit2/install/dynamixel_controller_gui/share/dynamixel_controller_gui/launch\n'}
+[10.841660] (dynamixel_controller_gui) StdoutLine: {'line': b'running install_egg_info\n'}
+[10.842467] (dynamixel_controller_gui) StdoutLine: {'line': b'Copying ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info to /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui-0.0.0-py3.10.egg-info\n'}
+[10.842804] (dynamixel_controller_gui) StdoutLine: {'line': b'running install_scripts\n'}
+[10.854710] (dynamixel_controller_gui) StdoutLine: {'line': b'Installing dynamixel_gui script to /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/dynamixel_controller_gui\n'}
+[10.855033] (dynamixel_controller_gui) StdoutLine: {'line': b"writing list of installed files to '/home/a/ws_moveit2/build/dynamixel_controller_gui/install.log'\n"}
+[10.868652] (dynamixel_controller_gui) CommandEnded: {'returncode': 0}
+[10.872988] (dynamixel_controller_gui) JobEnded: {'identifier': 'dynamixel_controller_gui', 'rc': 0}
+[10.873850] (-) EventReactorShutdown: {}

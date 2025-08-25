@@ -1,4 +1,4 @@
-# Install script for directory: /home/a/ws_moveit2/src/dynamixel_controller
+# Install script for directory: /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -263,6 +263,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       )
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py/cmake_install.cmake")
+endif()
+
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/dynamixel_controller/dynamixel_controller_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so")
@@ -360,7 +365,23 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/dynamixel_controller/msg/DynamixelController.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/msg" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_adapter/dynamixel_controller/msg/DynamixelCommand.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/msg" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/rosidl_adapter/dynamixel_controller/msg/DynamixelResponse.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/msg/DynamixelController.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/msg/DynamixelCommand.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/msg/DynamixelResponse.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -384,7 +405,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/dynamixel_controller/config")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/config")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -449,8 +470,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_cExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_cExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -468,8 +489,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -503,8 +524,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cppExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cppExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake")
   endif()
 endif()
 
@@ -522,8 +543,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -541,8 +562,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cExport-noconfig.cmake")
   endif()
 endif()
 
@@ -560,8 +581,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cppExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cppExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_introspection_cppExport-noconfig.cmake")
   endif()
 endif()
 
@@ -579,8 +600,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cppExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cppExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/dynamixel_controller__rosidl_typesupport_cppExport-noconfig.cmake")
   endif()
 endif()
 
@@ -598,8 +619,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_pyExport.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_pyExport-release.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/Export/share/dynamixel_controller/cmake/export_dynamixel_controller__rosidl_generator_pyExport-noconfig.cmake")
   endif()
 endif()
 
@@ -639,13 +660,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller" TYPE FILE FILES "/home/a/ws_moveit2/src/dynamixel_controller/package.xml")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py/cmake_install.cmake")
-
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dynamixel_controller" TYPE FILE FILES "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

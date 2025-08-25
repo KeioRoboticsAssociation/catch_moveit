@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dynamixel_controller/msg/DynamixelCommand.msg
+// generated code does not contain a copyright notice
+
+
+module dynamixel_controller {
+  module msg {
+    @verbatim (language="comment", text=
+      "DynamixelCommand.msg" "\n"
+      "Command message for Dynamixel operations")
+    struct DynamixelCommand {
+      @verbatim (language="comment", text=
+        "Command type (PING, READ_DATA, WRITE_DATA, SYNC_READ, SYNC_WRITE, etc.)")
+      uint8 command;
+
+      @verbatim (language="comment", text=
+        "Dynamixel IDs to target")
+      sequence<uint8> ids;
+
+      @verbatim (language="comment", text=
+        "Register address")
+      uint16 address;
+
+      @verbatim (language="comment", text=
+        "Data length")
+      uint16 length;
+
+      @verbatim (language="comment", text=
+        "Data payload for write operations")
+      sequence<uint8> data;
+    };
+  };
+};

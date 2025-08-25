@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_controller
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_controller
@@ -70,8 +70,12 @@ dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_p
 dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_introspection_c.c
 dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_c.c
 dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller.py
+dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command.py
+dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response.py
 dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/__init__.py
 dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller_s.c
+dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command_s.c
+dynamixel_controller__py/CMakeFiles/dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response_s.c
 
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/__init__.py
@@ -87,6 +91,8 @@ rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_types
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv_pkg_typesupport_entry_point.c.em
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/dynamixel_controller/msg/DynamixelController.idl
+rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/dynamixel_controller/msg/DynamixelCommand.idl
+rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/dynamixel_controller/msg/DynamixelResponse.idl
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -131,19 +137,35 @@ rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_types
 rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller.py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller.py
 
+rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command.py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command.py
+
+rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response.py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response.py
+
 rosidl_generator_py/dynamixel_controller/msg/__init__.py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dynamixel_controller/msg/__init__.py
 
 rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller_s.c: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller_s.c
 
+rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command_s.c: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command_s.c
+
+rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response_s.c: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response_s.c
+
 dynamixel_controller__py: dynamixel_controller__py/CMakeFiles/dynamixel_controller__py
 dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_c.c
 dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_fastrtps_c.c
 dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/_dynamixel_controller_s.ep.rosidl_typesupport_introspection_c.c
 dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/__init__.py
+dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command.py
+dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_command_s.c
 dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller.py
 dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_controller_s.c
+dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response.py
+dynamixel_controller__py: rosidl_generator_py/dynamixel_controller/msg/_dynamixel_response_s.c
 dynamixel_controller__py: dynamixel_controller__py/CMakeFiles/dynamixel_controller__py.dir/build.make
 .PHONY : dynamixel_controller__py
 
@@ -156,6 +178,6 @@ dynamixel_controller__py/CMakeFiles/dynamixel_controller__py.dir/clean:
 .PHONY : dynamixel_controller__py/CMakeFiles/dynamixel_controller__py.dir/clean
 
 dynamixel_controller__py/CMakeFiles/dynamixel_controller__py.dir/depend:
-	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py /home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py/CMakeFiles/dynamixel_controller__py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py /home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py/CMakeFiles/dynamixel_controller__py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : dynamixel_controller__py/CMakeFiles/dynamixel_controller__py.dir/depend
 

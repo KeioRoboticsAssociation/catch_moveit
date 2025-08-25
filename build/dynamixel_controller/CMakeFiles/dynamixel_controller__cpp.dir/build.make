@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_controller
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_controller
@@ -71,6 +71,16 @@ CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/
 CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__struct.hpp
 CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__traits.hpp
 CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__type_support.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_command.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__builder.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__struct.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__traits.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__type_support.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_response.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__builder.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__struct.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__traits.hpp
+CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__type_support.hpp
 CMakeFiles/dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -89,6 +99,8 @@ rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: /opt/ros
 rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: rosidl_adapter/dynamixel_controller/msg/DynamixelController.idl
+rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: rosidl_adapter/dynamixel_controller/msg/DynamixelCommand.idl
+rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: rosidl_adapter/dynamixel_controller/msg/DynamixelResponse.idl
 rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -136,12 +148,52 @@ rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__trait
 rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__type_support.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__type_support.hpp
 
+rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_command.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_command.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__builder.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__builder.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__struct.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__struct.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__traits.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__traits.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__type_support.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__type_support.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_response.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_response.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__builder.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__builder.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__struct.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__struct.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__traits.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__traits.hpp
+
+rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__type_support.hpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__type_support.hpp
+
 dynamixel_controller__cpp: CMakeFiles/dynamixel_controller__cpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__builder.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__struct.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__traits.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_command__type_support.hpp
 dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__builder.hpp
 dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__struct.hpp
 dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__traits.hpp
 dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_controller__type_support.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__builder.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__struct.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__traits.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/detail/dynamixel_response__type_support.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_command.hpp
 dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_controller.hpp
+dynamixel_controller__cpp: rosidl_generator_cpp/dynamixel_controller/msg/dynamixel_response.hpp
 dynamixel_controller__cpp: CMakeFiles/dynamixel_controller__cpp.dir/build.make
 .PHONY : dynamixel_controller__cpp
 
@@ -154,6 +206,6 @@ CMakeFiles/dynamixel_controller__cpp.dir/clean:
 .PHONY : CMakeFiles/dynamixel_controller__cpp.dir/clean
 
 CMakeFiles/dynamixel_controller__cpp.dir/depend:
-	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dynamixel_controller__cpp.dir/depend
 

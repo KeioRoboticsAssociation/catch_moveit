@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_controller
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_controller
@@ -136,6 +136,6 @@ CMakeFiles/dynamixel_controller__rosidl_typesupport_c__pyext.dir/clean:
 .PHONY : CMakeFiles/dynamixel_controller__rosidl_typesupport_c__pyext.dir/clean
 
 CMakeFiles/dynamixel_controller__rosidl_typesupport_c__pyext.dir/depend:
-	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__rosidl_typesupport_c__pyext.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__rosidl_typesupport_c__pyext.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dynamixel_controller__rosidl_typesupport_c__pyext.dir/depend
 

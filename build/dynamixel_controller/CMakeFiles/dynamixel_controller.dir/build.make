@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_controller
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_controller
@@ -66,7 +66,9 @@ include CMakeFiles/dynamixel_controller.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/dynamixel_controller.dir/progress.make
 
-CMakeFiles/dynamixel_controller: /home/a/ws_moveit2/src/dynamixel_controller/msg/DynamixelController.msg
+CMakeFiles/dynamixel_controller: /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/msg/DynamixelController.msg
+CMakeFiles/dynamixel_controller: /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/msg/DynamixelCommand.msg
+CMakeFiles/dynamixel_controller: /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/msg/DynamixelResponse.msg
 CMakeFiles/dynamixel_controller: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 CMakeFiles/dynamixel_controller: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 CMakeFiles/dynamixel_controller: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -111,6 +113,6 @@ CMakeFiles/dynamixel_controller.dir/clean:
 .PHONY : CMakeFiles/dynamixel_controller.dir/clean
 
 CMakeFiles/dynamixel_controller.dir/depend:
-	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dynamixel_controller.dir/depend
 

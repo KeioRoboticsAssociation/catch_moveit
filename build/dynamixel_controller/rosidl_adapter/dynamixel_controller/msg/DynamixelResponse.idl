@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dynamixel_controller/msg/DynamixelResponse.msg
+// generated code does not contain a copyright notice
+
+
+module dynamixel_controller {
+  module msg {
+    @verbatim (language="comment", text=
+      "DynamixelResponse.msg" "\n"
+      "Response message from Dynamixel operations")
+    struct DynamixelResponse {
+      @verbatim (language="comment", text=
+        "Original command type")
+      uint8 command;
+
+      @verbatim (language="comment", text=
+        "Dynamixel IDs that responded")
+      sequence<uint8> ids;
+
+      @verbatim (language="comment", text=
+        "Error status for each ID")
+      sequence<uint8> error;
+
+      @verbatim (language="comment", text=
+        "Response data payload")
+      sequence<uint8> data;
+    };
+  };
+};

@@ -57,7 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_sdk/ros/dynamixel_sdk
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/DynamixelSDK/dynamixel_sdk
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_sdk
@@ -210,32 +210,6 @@ dynamixel_sdk/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/build
 .PHONY : dynamixel_sdk/fast
 
-#=============================================================================
-# Target rules for targets named ament_cmake_python_copy_dynamixel_sdk
-
-# Build rule for target.
-ament_cmake_python_copy_dynamixel_sdk: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_copy_dynamixel_sdk
-.PHONY : ament_cmake_python_copy_dynamixel_sdk
-
-# fast build rule for target.
-ament_cmake_python_copy_dynamixel_sdk/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_copy_dynamixel_sdk.dir/build.make CMakeFiles/ament_cmake_python_copy_dynamixel_sdk.dir/build
-.PHONY : ament_cmake_python_copy_dynamixel_sdk/fast
-
-#=============================================================================
-# Target rules for targets named ament_cmake_python_build_dynamixel_sdk_egg
-
-# Build rule for target.
-ament_cmake_python_build_dynamixel_sdk_egg: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_build_dynamixel_sdk_egg
-.PHONY : ament_cmake_python_build_dynamixel_sdk_egg
-
-# fast build rule for target.
-ament_cmake_python_build_dynamixel_sdk_egg/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_build_dynamixel_sdk_egg.dir/build.make CMakeFiles/ament_cmake_python_build_dynamixel_sdk_egg.dir/build
-.PHONY : ament_cmake_python_build_dynamixel_sdk_egg/fast
-
 src/dynamixel_sdk/group_bulk_read.o: src/dynamixel_sdk/group_bulk_read.cpp.o
 .PHONY : src/dynamixel_sdk/group_bulk_read.o
 
@@ -283,78 +257,6 @@ src/dynamixel_sdk/group_bulk_write.s: src/dynamixel_sdk/group_bulk_write.cpp.s
 src/dynamixel_sdk/group_bulk_write.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_bulk_write.cpp.s
 .PHONY : src/dynamixel_sdk/group_bulk_write.cpp.s
-
-src/dynamixel_sdk/group_fast_bulk_read.o: src/dynamixel_sdk/group_fast_bulk_read.cpp.o
-.PHONY : src/dynamixel_sdk/group_fast_bulk_read.o
-
-# target to build an object file
-src/dynamixel_sdk/group_fast_bulk_read.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_bulk_read.cpp.o
-.PHONY : src/dynamixel_sdk/group_fast_bulk_read.cpp.o
-
-src/dynamixel_sdk/group_fast_bulk_read.i: src/dynamixel_sdk/group_fast_bulk_read.cpp.i
-.PHONY : src/dynamixel_sdk/group_fast_bulk_read.i
-
-# target to preprocess a source file
-src/dynamixel_sdk/group_fast_bulk_read.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_bulk_read.cpp.i
-.PHONY : src/dynamixel_sdk/group_fast_bulk_read.cpp.i
-
-src/dynamixel_sdk/group_fast_bulk_read.s: src/dynamixel_sdk/group_fast_bulk_read.cpp.s
-.PHONY : src/dynamixel_sdk/group_fast_bulk_read.s
-
-# target to generate assembly for a file
-src/dynamixel_sdk/group_fast_bulk_read.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_bulk_read.cpp.s
-.PHONY : src/dynamixel_sdk/group_fast_bulk_read.cpp.s
-
-src/dynamixel_sdk/group_fast_sync_read.o: src/dynamixel_sdk/group_fast_sync_read.cpp.o
-.PHONY : src/dynamixel_sdk/group_fast_sync_read.o
-
-# target to build an object file
-src/dynamixel_sdk/group_fast_sync_read.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_sync_read.cpp.o
-.PHONY : src/dynamixel_sdk/group_fast_sync_read.cpp.o
-
-src/dynamixel_sdk/group_fast_sync_read.i: src/dynamixel_sdk/group_fast_sync_read.cpp.i
-.PHONY : src/dynamixel_sdk/group_fast_sync_read.i
-
-# target to preprocess a source file
-src/dynamixel_sdk/group_fast_sync_read.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_sync_read.cpp.i
-.PHONY : src/dynamixel_sdk/group_fast_sync_read.cpp.i
-
-src/dynamixel_sdk/group_fast_sync_read.s: src/dynamixel_sdk/group_fast_sync_read.cpp.s
-.PHONY : src/dynamixel_sdk/group_fast_sync_read.s
-
-# target to generate assembly for a file
-src/dynamixel_sdk/group_fast_sync_read.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_sync_read.cpp.s
-.PHONY : src/dynamixel_sdk/group_fast_sync_read.cpp.s
-
-src/dynamixel_sdk/group_handler.o: src/dynamixel_sdk/group_handler.cpp.o
-.PHONY : src/dynamixel_sdk/group_handler.o
-
-# target to build an object file
-src/dynamixel_sdk/group_handler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_handler.cpp.o
-.PHONY : src/dynamixel_sdk/group_handler.cpp.o
-
-src/dynamixel_sdk/group_handler.i: src/dynamixel_sdk/group_handler.cpp.i
-.PHONY : src/dynamixel_sdk/group_handler.i
-
-# target to preprocess a source file
-src/dynamixel_sdk/group_handler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_handler.cpp.i
-.PHONY : src/dynamixel_sdk/group_handler.cpp.i
-
-src/dynamixel_sdk/group_handler.s: src/dynamixel_sdk/group_handler.cpp.s
-.PHONY : src/dynamixel_sdk/group_handler.s
-
-# target to generate assembly for a file
-src/dynamixel_sdk/group_handler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamixel_sdk.dir/build.make CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_handler.cpp.s
-.PHONY : src/dynamixel_sdk/group_handler.cpp.s
 
 src/dynamixel_sdk/group_sync_read.o: src/dynamixel_sdk/group_sync_read.cpp.o
 .PHONY : src/dynamixel_sdk/group_sync_read.o
@@ -537,8 +439,6 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... ament_cmake_python_build_dynamixel_sdk_egg"
-	@echo "... ament_cmake_python_copy_dynamixel_sdk"
 	@echo "... dynamixel_sdk_uninstall"
 	@echo "... uninstall"
 	@echo "... dynamixel_sdk"
@@ -548,15 +448,6 @@ help:
 	@echo "... src/dynamixel_sdk/group_bulk_write.o"
 	@echo "... src/dynamixel_sdk/group_bulk_write.i"
 	@echo "... src/dynamixel_sdk/group_bulk_write.s"
-	@echo "... src/dynamixel_sdk/group_fast_bulk_read.o"
-	@echo "... src/dynamixel_sdk/group_fast_bulk_read.i"
-	@echo "... src/dynamixel_sdk/group_fast_bulk_read.s"
-	@echo "... src/dynamixel_sdk/group_fast_sync_read.o"
-	@echo "... src/dynamixel_sdk/group_fast_sync_read.i"
-	@echo "... src/dynamixel_sdk/group_fast_sync_read.s"
-	@echo "... src/dynamixel_sdk/group_handler.o"
-	@echo "... src/dynamixel_sdk/group_handler.i"
-	@echo "... src/dynamixel_sdk/group_handler.s"
 	@echo "... src/dynamixel_sdk/group_sync_read.o"
 	@echo "... src/dynamixel_sdk/group_sync_read.i"
 	@echo "... src/dynamixel_sdk/group_sync_read.s"

@@ -1,5 +1,5 @@
 # CMake generated Testfile for 
-# Source directory: /home/a/ws_moveit2/src/dynamixel_controller
+# Source directory: /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 # Build directory: /home/a/ws_moveit2/build/dynamixel_controller
 # 
 # This file includes the relevant testing commands required for 

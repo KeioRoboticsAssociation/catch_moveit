@@ -1,0 +1,5 @@
+<library path="right_arm_ikfast_moveit_plugin">
+  <class name="right_arm_ikfast_plugin/IKFastKinematicsPlugin" type="ikfast_kinematics_plugin::IKFastKinematicsPlugin" base_class_type="moveit::core::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics for the right arm</description>
+  </class>
+</library>

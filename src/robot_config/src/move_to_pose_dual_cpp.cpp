@@ -21,6 +21,8 @@ public:
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for left_arm...");
             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
             left_move_group_interface_->setEndEffectorLink("left_EndEffector_1");
+            left_move_group_interface_->setPlannerId("PTP");
+            left_move_group_interface_->setPlanningPipelineId("pilz_industrial_motion_planner");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for left_arm initialized.");
 
             // 左アーム用RPYサブスクライバ
@@ -35,6 +37,8 @@ public:
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for right_arm...");
             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
             right_move_group_interface_->setEndEffectorLink("right_EndEffector_1");
+            right_move_group_interface_->setPlannerId("PTP");
+            right_move_group_interface_->setPlanningPipelineId("pilz_industrial_motion_planner");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for right_arm initialized.");
 
             // 右アーム用RPYサブスクライバ
@@ -131,6 +135,10 @@ private:
         }
 
         move_group_interface->setPoseTarget(target_pose);
+        
+        // プランナーをpilzのPTPに指定
+        move_group_interface->setPlannerId("PTP");
+        move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
 
         moveit::planning_interface::MoveGroupInterface::Plan my_plan;
         bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);

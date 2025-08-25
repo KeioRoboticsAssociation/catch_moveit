@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_controller
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/dynamixel_controller
@@ -83,6 +83,8 @@ rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: /opt/ros/hum
 rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__type_support.h.em
 rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: rosidl_adapter/dynamixel_controller/msg/DynamixelController.idl
+rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: rosidl_adapter/dynamixel_controller/msg/DynamixelCommand.idl
+rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: rosidl_adapter/dynamixel_controller/msg/DynamixelResponse.idl
 rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -127,8 +129,38 @@ rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__struct.
 rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support.h
 
+rosidl_generator_c/dynamixel_controller/msg/dynamixel_command.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/dynamixel_command.h
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.h
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__struct.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__struct.h
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__type_support.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__type_support.h
+
+rosidl_generator_c/dynamixel_controller/msg/dynamixel_response.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/dynamixel_response.h
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.h
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__struct.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__struct.h
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__type_support.h: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__type_support.h
+
 rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c
+
+rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c
 
 CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.o: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/flags.make
 CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.o: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c
@@ -144,21 +176,53 @@ CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynam
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c -o CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.s
 
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/flags.make
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o -MF CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o.d -o CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o -c /home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c
+
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c > CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.i
+
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c -o CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.s
+
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/flags.make
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o -MF CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o.d -o CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o -c /home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c
+
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c > CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.i
+
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c -o CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.s
+
 # Object files for target dynamixel_controller__rosidl_generator_c
 dynamixel_controller__rosidl_generator_c_OBJECTS = \
-"CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.o"
+"CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.o" \
+"CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o" \
+"CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o"
 
 # External object files for target dynamixel_controller__rosidl_generator_c
 dynamixel_controller__rosidl_generator_c_EXTERNAL_OBJECTS =
 
 libdynamixel_controller__rosidl_generator_c.so: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c.o
+libdynamixel_controller__rosidl_generator_c.so: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c.o
+libdynamixel_controller__rosidl_generator_c.so: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c.o
 libdynamixel_controller__rosidl_generator_c.so: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/build.make
 libdynamixel_controller__rosidl_generator_c.so: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_c.so
 libdynamixel_controller__rosidl_generator_c.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so
 libdynamixel_controller__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libdynamixel_controller__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libdynamixel_controller__rosidl_generator_c.so: CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libdynamixel_controller__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C shared library libdynamixel_controller__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -169,11 +233,21 @@ CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/clean
 
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.c
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__functions.h
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__struct.h
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_command__type_support.h
 CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.c
 CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__functions.h
 CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__struct.h
 CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_controller__type_support.h
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.c
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__functions.h
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__struct.h
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/detail/dynamixel_response__type_support.h
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/dynamixel_command.h
 CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/dynamixel_controller.h
-	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
+CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/dynamixel_controller/msg/dynamixel_response.h
+	cd /home/a/ws_moveit2/build/dynamixel_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller /home/a/ws_moveit2/build/dynamixel_controller/CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dynamixel_controller__rosidl_generator_c.dir/depend
 

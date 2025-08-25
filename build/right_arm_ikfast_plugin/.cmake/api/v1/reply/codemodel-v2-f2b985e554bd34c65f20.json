@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-ddc8f735607223347304.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "right_arm_ikfast_plugin",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "right_arm_ikfast_moveit_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-right_arm_ikfast_moveit_plugin-4d8e99bef3a6118e8430.json",
+					"name" : "right_arm_ikfast_moveit_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "right_arm_ikfast_plugin_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-right_arm_ikfast_plugin_uninstall-dbd98de717e568e11030.json",
+					"name" : "right_arm_ikfast_plugin_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-321964660cba8899fc2f.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/a/ws_moveit2/build/right_arm_ikfast_plugin",
+		"source" : "/home/a/ws_moveit2/src/right_arm_ikfast_plugin"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
