@@ -43,6 +43,20 @@ def generate_launch_description():
     # Declare arguments for left arm joint limits
     declared_arguments.append(
         DeclareLaunchArgument(
+            "left_Revolute_1_lower_limit",
+            default_value="-3.14",
+            description="Lower limit for left arm Revolute_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_1_upper_limit",
+            default_value="3.14",
+            description="Upper limit for left arm Revolute_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "left_Revolute_2_lower_limit",
             default_value="-1.570796",
             description="Lower limit for left arm Revolute_2 joint",
@@ -360,7 +374,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_origin_xyz",
-            default_value="0 0 0",
+            default_value="0 0.0 0",
             description="XYZ origin for left arm base",
         )
     )
@@ -387,6 +401,20 @@ def generate_launch_description():
     )
     
     # Declare arguments for right arm joint limits
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_1_lower_limit",
+            default_value="-1.570796",
+            description="Lower limit for right arm Revolute_1 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_1_upper_limit",
+            default_value="1.570796",
+            description="Upper limit for right arm Revolute_1 joint",
+        )
+    )
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_2_lower_limit",
@@ -450,6 +478,8 @@ def generate_launch_description():
     field = LaunchConfiguration("field")
     
     # Initialize arguments for left arm joint limits
+    left_Revolute_1_lower_limit = LaunchConfiguration("left_Revolute_1_lower_limit")
+    left_Revolute_1_upper_limit = LaunchConfiguration("left_Revolute_1_upper_limit")
     left_Revolute_2_lower_limit = LaunchConfiguration("left_Revolute_2_lower_limit")
     left_Revolute_2_upper_limit = LaunchConfiguration("left_Revolute_2_upper_limit")
     left_Revolute_3_lower_limit = LaunchConfiguration("left_Revolute_3_lower_limit")
@@ -460,6 +490,8 @@ def generate_launch_description():
     left_Slider_2_upper_limit = LaunchConfiguration("left_Slider_2_upper_limit")
     
     # Initialize arguments for right arm joint limits
+    right_Revolute_1_lower_limit = LaunchConfiguration("right_Revolute_1_lower_limit")
+    right_Revolute_1_upper_limit = LaunchConfiguration("right_Revolute_1_upper_limit")
     right_Revolute_2_lower_limit = LaunchConfiguration("right_Revolute_2_lower_limit")
     right_Revolute_2_upper_limit = LaunchConfiguration("right_Revolute_2_upper_limit")
     right_Revolute_3_lower_limit = LaunchConfiguration("right_Revolute_3_lower_limit")
@@ -524,6 +556,8 @@ def generate_launch_description():
             mappings={
                 "use_fake_hardware": "true",
                 # Joint limits for left arm
+                "left_Revolute_1_lower_limit": left_Revolute_1_lower_limit,
+                "left_Revolute_1_upper_limit": left_Revolute_1_upper_limit,
                 "left_Revolute_2_lower_limit": left_Revolute_2_lower_limit,
                 "left_Revolute_2_upper_limit": left_Revolute_2_upper_limit,
                 "left_Revolute_3_lower_limit": left_Revolute_3_lower_limit,
@@ -533,6 +567,8 @@ def generate_launch_description():
                 "left_Slider_2_lower_limit": left_Slider_2_lower_limit,
                 "left_Slider_2_upper_limit": left_Slider_2_upper_limit,
                 # Joint limits for right arm
+                "right_Revolute_1_lower_limit": right_Revolute_1_lower_limit,
+                "right_Revolute_1_upper_limit": right_Revolute_1_upper_limit,
                 "right_Revolute_2_lower_limit": right_Revolute_2_lower_limit,
                 "right_Revolute_2_upper_limit": right_Revolute_2_upper_limit,
                 "right_Revolute_3_lower_limit": right_Revolute_3_lower_limit,
@@ -826,8 +862,8 @@ def generate_launch_description():
             {"field": field},
             {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
             {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
-            {"object_mesh_positions": [0.0, 0.0, 0.0, 0.0,-1.156,1.1,0,0,-1.056,1.1,0,0,-0.956,1.1,0,0,-0.856,1.1,0,0,-1.156,1,0,0,-1.056,1,0,0,-0.956,1,0,0,-0.856,1,0,0]},  # Example: Two cubes at different positions
-            {"box_coordinates": [-0.160,-0.180,-0.001,-0.160,-0.180,0.5,-0.160,-0.179,-0.001,-0.160,-0.179,0.5,1.78,-0.180,-0.001,1.78,-0.180,0.5,1.78,-0.179,-0.001,1.78,-0.179,0.5]},  # Example: 1x1x0.2m box from 8 corner points
+            {"object_mesh_positions": [-1.156,1.1,0,0,-1.056,1.1,0,0,-0.956,1.1,0,0,-0.856,1.1,0,0,-1.156,1,0,0,-1.056,1,0,0,-0.956,1,0,0,-0.856,1,0,0,-1.156,0.85,0,0,-1.056,0.85,0,0,-0.956,0.85,0,0,-0.856,0.85,0,0,-1.156,0.75,0,0,-1.056,0.75,0,0,-0.956,0.75,0,0,-0.856,0.75,0,0,-1.156,0.6,0,0,-1.056,0.6,0,0,-0.956,0.6,0,0,-0.856,0.6,0,0,-1.156,0.5,0,0,-1.056,0.5,0,0,-0.956,0.5,0,0,-0.856,0.5,0,0,-1.156,0.35,0,0,-1.056,0.35,0,0,-0.956,0.35,0,0,-0.856,0.35,0,0,-1.156,0.25,0,0,-1.056,0.25,0,0,-0.956,0.25,0,0,-0.856,0.25,0,0,-1.156,0.1,0,0,-1.056,0.1,0,0,-0.956,0.1,0,0,-0.856,0.1,0,0,-1.156,0,0,0,-1.056,0,0,0,-0.956,0,0,0,-0.856,0,0,0,-0.3,1.1,0,0,-0.2,1.1,0,0,-0.1,1.1,0,0,0,1.1,0,0,-0.3,1,0,0,-0.2,1,0,0,-0.1,1,0,0,0,1,0,0,-0.3,0.85,0,0,-0.2,0.85,0,0,-0.1,0.85,0,0,0,0.85,0,0,-0.3,0.75,0,0,-0.2,0.75,0,0,-0.1,0.75,0,0,0,0.75,0,0,-0.3,0.6,0,0,-0.2,0.6,0,0,-0.1,0.6,0,0,0,0.6,0,0,-0.3,0.5,0,0,-0.2,0.5,0,0,-0.1,0.5,0,0,0,0.5,0,0,-0.3,0.35,0,0,-0.2,0.35,0,0,-0.1,0.35,0,0,0,0.35,0,0,-0.3,0.25,0,0,-0.2,0.25,0,0,-0.1,0.25,0,0,0,0.25,0,0,-0.3,0.1,0,0,-0.2,0.1,0,0,-0.1,0.1,0,0,0,0.1,0,0,-0.3,0,0,0,-0.2,0,0,0,-0.1,0,0,0,0,0,0,0,-0.528,0.0175,0.003,0,-0.628,0.0175,0.003,0,-0.528,0.1175,0.003,0,-0.628,0.1175,0.003,0,-0.528,0.2175,0.003,0,-0.628,0.2175,0.003,0,-0.528,0.3175,0.003,0,-0.628,0.3175,0.003,0,-0.528,0.4175,0.003,0,-0.628,0.4175,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.6825,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.7825,0.003,0,-0.528,0.7825,0.003,0,-0.628,0.8825,0.003,0,-0.528,0.8825,0.003,0,-0.628,0.9825,0.003,0,-0.528,0.9825,0.003,0,-0.628,1.0825,0.003,0,-0.528,1.0825,0.003,0]},  # 16 objects total
+            {"box_coordinates": [0.134,-0.180,-0.001,0.134,-0.180,1.0,0.134,-0.179,-0.001,0.134,-0.179,1.0,1.489,-0.180,-0.001,1.489,-0.180,1.0,1.489,-0.179,-0.001,1.489,-0.179,1.0]},  # Example: 1x1x0.2m box from 8 corner points
         ],
     )
 

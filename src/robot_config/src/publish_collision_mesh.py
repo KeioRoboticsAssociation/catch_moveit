@@ -3,6 +3,7 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.parameter import Parameter
+from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
 from moveit_msgs.msg import CollisionObject
 from shape_msgs.msg import Mesh, MeshTriangle, SolidPrimitive
 from geometry_msgs.msg import Pose, Point
@@ -10,6 +11,7 @@ from std_msgs.msg import Header
 import numpy as np
 from stl import mesh
 import math
+import time
 
 class CollisionMeshPublisher(Node):
     def __init__(self):
@@ -29,8 +31,18 @@ class CollisionMeshPublisher(Node):
             'box_coordinates',
             Parameter.Type.DOUBLE_ARRAY
         )
-        self.publisher_ = self.create_publisher(CollisionObject, 'collision_object', 10)
-        self.timer = self.create_timer(1.0, self.publish_collision_mesh)
+        # Use reliable QoS to ensure all messages are delivered
+        qos_profile = QoSProfile(
+            depth=200,
+            reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.TRANSIENT_LOCAL
+        )
+        self.publisher_ = self.create_publisher(CollisionObject, 'collision_object', qos_profile)
+        self.object_index = 0
+        self.all_positions = []
+        self.field_published = False
+        self.object_timer = None
+        self.timer = self.create_timer(3.0, self.publish_collision_mesh)
 
     def load_mesh_and_calculate_center(self, mesh_path, scale=0.001):
         """Load mesh and calculate its bounding box center"""
@@ -180,6 +192,33 @@ class CollisionMeshPublisher(Node):
         shape_mesh.triangles.append(triangle4)
         
         return shape_mesh
+    
+    def remove_all_collision_objects(self):
+        """Remove all existing collision objects"""
+        self.get_logger().info("Removing all existing collision objects")
+        
+        # Remove field mesh
+        collision_object = CollisionObject()
+        collision_object.header.frame_id = "world"
+        collision_object.id = "field_mesh_0"
+        collision_object.operation = CollisionObject.REMOVE
+        self.publisher_.publish(collision_object)
+        
+        # Remove up to 100 object meshes (safe upper bound)
+        for i in range(1, 101):
+            collision_object = CollisionObject()
+            collision_object.header.frame_id = "world"
+            collision_object.id = f"object_mesh_{i}"
+            collision_object.operation = CollisionObject.REMOVE
+            self.publisher_.publish(collision_object)
+        
+        # Remove box objects
+        for i in range(200):
+            collision_object = CollisionObject()
+            collision_object.header.frame_id = "world"
+            collision_object.id = f"box_from_8points_{i}"
+            collision_object.operation = CollisionObject.REMOVE
+            self.publisher_.publish(collision_object)
 
     def publish_collision_mesh(self):
         # Get parameters
@@ -195,6 +234,7 @@ class CollisionMeshPublisher(Node):
         self.get_logger().info(f'Field parameter: {field}')
         self.get_logger().info(f'Field mesh path: {field_mesh_path}')
         self.get_logger().info(f'Object mesh path: {object_mesh_path}')
+        self.get_logger().info(f'Object mesh positions array length: {len(object_mesh_positions)}')
         
         scale = 0.001
         mesh_index = 0
@@ -233,6 +273,9 @@ class CollisionMeshPublisher(Node):
 
                 self.publisher_.publish(collision_object)
                 self.get_logger().info('Publishing field collision mesh')
+                
+                # Small delay to ensure message is sent
+                time.sleep(0.1)
 
         # 2. Publish object meshes (multiple instances with positions)
         if object_mesh_path and object_mesh_positions:
@@ -242,7 +285,7 @@ class CollisionMeshPublisher(Node):
                 return
             
             # Limit to 100 objects
-            max_objects = 100
+            max_objects = 101
             num_objects = len(object_mesh_positions) // 4
             if num_objects > max_objects:
                 self.get_logger().warn(f'Too many object positions specified ({num_objects}). Limiting to {max_objects}.')
@@ -254,6 +297,7 @@ class CollisionMeshPublisher(Node):
             
             your_mesh, center = self.load_mesh_and_calculate_center(object_mesh_path, scale)
             if your_mesh is not None and center is not None:
+                self.get_logger().info(f'Publishing {len(positions)} object meshes')
                 for idx, (px, py, pz, yaw_deg) in enumerate(positions):
                     collision_object = CollisionObject()
                     collision_object.header.frame_id = "world"
@@ -276,7 +320,10 @@ class CollisionMeshPublisher(Node):
                     collision_object.operation = CollisionObject.ADD
 
                     self.publisher_.publish(collision_object)
-                    self.get_logger().info(f'Publishing object collision mesh {idx} at position ({px}, {py}, {pz}) with yaw {yaw_deg} degrees')
+                    self.get_logger().info(f'Publishing object collision mesh {idx} (ID: {collision_object.id}) at position ({px}, {py}, {pz}) with yaw {yaw_deg} degrees')
+                    
+                    # Small delay between object meshes
+                    time.sleep(0.3)
 
         # 3. Publish box primitive objects from 8 corner coordinates
         if box_coordinates:
@@ -322,7 +369,12 @@ class CollisionMeshPublisher(Node):
                         
                         self.publisher_.publish(collision_object)
                         self.get_logger().info(f'Publishing box from 8 points {i} at ({box_info["center"][0]:.3f}, {box_info["center"][1]:.3f}, {box_info["center"][2]:.3f}) with dimensions ({box_info["dimensions"][0]:.3f}, {box_info["dimensions"][1]:.3f}, {box_info["dimensions"][2]:.3f})')
+                        
+                        # Small delay between box objects
+                        time.sleep(0.05)
 
+        # Ensure all messages are sent before canceling timer
+        time.sleep(0.1)
         self.get_logger().info('Finished publishing all collision meshes')
         self.timer.cancel() # Publish only once
 
