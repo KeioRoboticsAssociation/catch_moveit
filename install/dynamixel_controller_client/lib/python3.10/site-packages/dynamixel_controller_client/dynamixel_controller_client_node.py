@@ -5,7 +5,7 @@ from sensor_msgs.msg import JointState
 from dynamixel_controller.msg import DynamixelController, DynamixelResponse, DynamixelCommand  # C++ノードで定義したメッセージをインポート
 
 class DynamixelControllerClient(Node):
-    ids = [2, 3]
+    ids = [6]
     def __init__(self):
         super().__init__('dynamixel_controller_client')
         
@@ -50,7 +50,7 @@ class DynamixelControllerClient(Node):
         self.enable_torque()
         
         # 5秒ごとに SYNC_WRITE 命令, 1秒ごとに SYNC_READ 命令を送信するタイマー
-        self.write_timer = self.create_timer(5.0, self.write_callback)
+        self.write_timer = self.create_timer(0.001, self.write_callback)
         self.read_timer = self.create_timer(1.0, self.read_callback)
     
     def enable_torque(self):
@@ -76,11 +76,11 @@ class DynamixelControllerClient(Node):
         # 各モーターの目標位置
         target_positions = {
             # 1: 2048 + self.joint_positions["left_Revolute_2"],   # joint1 (TTL,XM540)
-            2: 3072 + self.joint_positions["left_Revolute_3"],  # joint2 (TTL, XM540) 
-            3: 3072 + self.joint_positions["left_Revolute_4"],  # joint3 (RS485, XL430)
+            # 2: 3072 + self.joint_positions["left_Revolute_3"],  # joint2 (TTL, XM540) 
+            # 3: 3072 + self.joint_positions["left_Revolute_4"],  # joint3 (RS485, XL430)
             # 4: 4096 + self.joint_positions["left_Revolute_5"],  # joint4 (RS485, XL430)
             # 5: 3072 + self.joint_positions["left_Revolute_6"],   # joint5 (RS485, XL430)
-            # 6: 800 + self.joint_positions["left_Slider_1"],   # joint6 (RS485, XL430)
+            6: 114 + int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 853),   # joint6 (RS485, XL430)
         }
         
         # 各モーターの位置データを4バイトずつ結合
@@ -118,7 +118,7 @@ class DynamixelControllerClient(Node):
         # 辞書形式で保存（ジョイント名をキーに）
         for i, name in enumerate(msg.name):
             if i < len(msg.position):
-                self.joint_positions[name] = int(msg.position[i] * 2048 / 3.14)
+                self.joint_positions[name] = msg.position[i]
                 self.get_logger().info(f'{name}: {self.joint_positions[name]}')
             if i < len(msg.velocity):
                 self.joint_velocities[name] = msg.velocity[i]

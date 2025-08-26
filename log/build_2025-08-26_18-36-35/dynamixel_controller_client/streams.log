@@ -1,0 +1,24 @@
+[0.405s] Invoking command in '/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller_client': PYTHONPATH=/home/a/ws_moveit2/build/dynamixel_controller_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dynamixel_controller_client build --build-base /home/a/ws_moveit2/build/dynamixel_controller_client/build install --record /home/a/ws_moveit2/build/dynamixel_controller_client/install.log --single-version-externally-managed install_data
+[0.559s] running egg_info
+[0.560s] writing ../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info/PKG-INFO
+[0.560s] writing dependency_links to ../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info/dependency_links.txt
+[0.560s] writing entry points to ../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info/entry_points.txt
+[0.560s] writing requirements to ../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info/requires.txt
+[0.560s] writing top-level names to ../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info/top_level.txt
+[0.561s] reading manifest file '../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info/SOURCES.txt'
+[0.562s] writing manifest file '../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info/SOURCES.txt'
+[0.562s] running build
+[0.562s] running build_py
+[0.562s] copying dynamixel_controller_client/dynamixel_controller_client_node.py -> /home/a/ws_moveit2/build/dynamixel_controller_client/build/lib/dynamixel_controller_client
+[0.562s] running install
+[0.562s] running install_lib
+[0.563s] copying /home/a/ws_moveit2/build/dynamixel_controller_client/build/lib/dynamixel_controller_client/dynamixel_controller_client_node.py -> /home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages/dynamixel_controller_client
+[0.563s] byte-compiling /home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages/dynamixel_controller_client/dynamixel_controller_client_node.py to dynamixel_controller_client_node.cpython-310.pyc
+[0.564s] running install_data
+[0.564s] running install_egg_info
+[0.565s] removing '/home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages/dynamixel_controller_client-0.0.0-py3.10.egg-info' (and everything under it)
+[0.565s] Copying ../../../build/dynamixel_controller_client/dynamixel_controller_client.egg-info to /home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages/dynamixel_controller_client-0.0.0-py3.10.egg-info
+[0.565s] running install_scripts
+[0.578s] Installing dynamixel_controller_client_node script to /home/a/ws_moveit2/install/dynamixel_controller_client/lib/dynamixel_controller_client
+[0.578s] writing list of installed files to '/home/a/ws_moveit2/build/dynamixel_controller_client/install.log'
+[0.593s] Invoked command in '/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller_client' returned '0': PYTHONPATH=/home/a/ws_moveit2/build/dynamixel_controller_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dynamixel_controller_client build --build-base /home/a/ws_moveit2/build/dynamixel_controller_client/build install --record /home/a/ws_moveit2/build/dynamixel_controller_client/install.log --single-version-externally-managed install_data
