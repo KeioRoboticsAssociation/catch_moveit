@@ -3,7 +3,7 @@ import yaml
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription, ExecuteProcess
 from launch.event_handlers import OnProcessStart
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -33,8 +33,8 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "field",
-            default_value="none",
-            description="Field type: 'red' or 'blue' to apply rotation, 'none' for no rotation",
+            default_value="red",
+            description="Field type: 'red' for red team position, 'blue' for blue team position",
         )
     )
     # Declare arguments for left arm initial positions
@@ -374,8 +374,8 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_origin_xyz",
-            default_value="0 0.0 0",
-            description="XYZ origin for left arm base",
+            default_value="0 0.2 0",
+            description="XYZ origin for left arm base (red team default)",
         )
     )
     declared_arguments.append(
@@ -388,8 +388,8 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_origin_xyz",
-            default_value="0 -0.359 0",
-            description="XYZ origin for right arm base",
+            default_value="0 -0.2 0",
+            description="XYZ origin for right arm base (red team default)",
         )
     )
     declared_arguments.append(
@@ -472,11 +472,6 @@ def generate_launch_description():
         )
     )
 
-    # Initialize Arguments
-    use_sim_time = LaunchConfiguration("use_sim_time")
-    rviz_config = LaunchConfiguration("rviz_config")
-    field = LaunchConfiguration("field")
-    
     # Initialize arguments for left arm joint limits
     left_Revolute_1_lower_limit = LaunchConfiguration("left_Revolute_1_lower_limit")
     left_Revolute_1_upper_limit = LaunchConfiguration("left_Revolute_1_upper_limit")
@@ -541,11 +536,51 @@ def generate_launch_description():
     right_Slider_2_xyz = LaunchConfiguration("right_Slider_2_xyz")
     right_Slider_2_rpy = LaunchConfiguration("right_Slider_2_rpy")
     
-    # Initialize arguments for arm origins
-    left_origin_xyz = LaunchConfiguration("left_origin_xyz")
+    # Initialize Arguments
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    rviz_config = LaunchConfiguration("rviz_config")
+    field = LaunchConfiguration("field")
+    
+    # Set arm positions dynamically based on field parameter
+    left_origin_xyz = PythonExpression([
+        '"1.69 0 0" if "', field, '" == "red" else ',
+        '"0 0 0" if "', field, '" == "blue" else "', 
+        LaunchConfiguration("left_origin_xyz"), '"'
+    ])
+    
+    right_origin_xyz = PythonExpression([
+        '"1.69 -0.359 0" if "', field, '" == "red" else ',
+        '"0 -0.359 0" if "', field, '" == "blue" else "',
+        LaunchConfiguration("right_origin_xyz"), '"'
+    ])
+    
     left_origin_rpy = LaunchConfiguration("left_origin_rpy")
-    right_origin_xyz = LaunchConfiguration("right_origin_xyz")
     right_origin_rpy = LaunchConfiguration("right_origin_rpy")
+    
+    # Define object positions for different field types
+    def get_object_positions(field_value):
+        """Get object positions based on field parameter"""
+        red_positions = [-0.3,1.1,0,0,-0.2,1.1,0,0,-0.1,1.1,0,0,0,1.1,0,0,-0.3,1,0,0,-0.2,1,0,0,-0.1,1,0,0,0,1,0,0,-0.3,0.85,0,0,-0.2,0.85,0,0,-0.1,0.85,0,0,0,0.85,0,0,-0.3,0.75,0,0,-0.2,0.75,0,0,-0.1,0.75,0,0,0,0.75,0,0,-0.3,0.6,0,0,-0.2,0.6,0,0,-0.1,0.6,0,0,0,0.6,0,0,-0.3,0.5,0,0,-0.2,0.5,0,0,-0.1,0.5,0,0,0,0.5,0,0,-0.3,0.35,0,0,-0.2,0.35,0,0,-0.1,0.35,0,0,0,0.35,0,0,-0.3,0.25,0,0,-0.2,0.25,0,0,-0.1,0.25,0,0,0,0.25,0,0,-0.3,0.1,0,0,-0.2,0.1,0,0,-0.1,0.1,0,0,0,0.1,0,0,-0.3,0,0,0,-0.2,0,0,0,-0.1,0,0,0,0,0,0,0,-0.528,0.0175,0.003,0,-0.628,0.0175,0.003,0,-0.528,0.1175,0.003,0,-0.628,0.1175,0.003,0,-0.528,0.2175,0.003,0,-0.628,0.2175,0.003,0,-0.528,0.3175,0.003,0,-0.628,0.3175,0.003,0,-0.528,0.4175,0.003,0,-0.628,0.4175,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.6825,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.7825,0.003,0,-0.528,0.7825,0.003,0,-0.628,0.8825,0.003,0,-0.528,0.8825,0.003,0,-0.628,0.9825,0.003,0,-0.528,0.9825,0.003,0,-0.628,1.0825,0.003,0,-0.528,1.0825,0.003,0]
+        
+        blue_positions = [-1.156,1.1,0,0,-1.056,1.1,0,0,-0.956,1.1,0,0,-0.856,1.1,0,0,-1.156,1,0,0,-1.056,1,0,0,-0.956,1,0,0,-0.856,1,0,0,-1.156,0.85,0,0,-1.056,0.85,0,0,-0.956,0.85,0,0,-0.856,0.85,0,0,-1.156,0.75,0,0,-1.056,0.75,0,0,-0.956,0.75,0,0,-0.856,0.75,0,0,-1.156,0.6,0,0,-1.056,0.6,0,0,-0.956,0.6,0,0,-0.856,0.6,0,0,-1.156,0.5,0,0,-1.056,0.5,0,0,-0.956,0.5,0,0,-0.856,0.5,0,0,-1.156,0.35,0,0,-1.056,0.35,0,0,-0.956,0.35,0,0,-0.856,0.35,0,0,-1.156,0.25,0,0,-1.056,0.25,0,0,-0.956,0.25,0,0,-0.856,0.25,0,0,-1.156,0.1,0,0,-1.056,0.1,0,0,-0.956,0.1,0,0,-0.856,0.1,0,0,-1.156,0,0,0,-1.056,0,0,0,-0.956,0,0,0,-0.856,0,0,0,-0.528,0.0175,0.003,0,-0.628,0.0175,0.003,0,-0.528,0.1175,0.003,0,-0.628,0.1175,0.003,0,-0.528,0.2175,0.003,0,-0.628,0.2175,0.003,0,-0.528,0.3175,0.003,0,-0.628,0.3175,0.003,0,-0.528,0.4175,0.003,0,-0.628,0.4175,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.6825,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.7825,0.003,0,-0.528,0.7825,0.003,0,-0.628,0.8825,0.003,0,-0.528,0.8825,0.003,0,-0.628,0.9825,0.003,0,-0.528,0.9825,0.003,0,-0.628,1.0825,0.003,0,-0.528,1.0825,0.003,0]
+        
+        if field_value == "blue":
+            return blue_positions
+        else:
+            return red_positions
+    
+    # Get field value (need to extract from LaunchConfiguration)
+    import os
+    field_value = os.environ.get('FIELD', 'red')  # Default to red
+    # Check command line arguments for field parameter
+    import sys
+    for arg in sys.argv:
+        if arg.startswith('field:='):
+            field_value = arg.split(':=')[1]
+            break
+    
+    # Set object positions based on field
+    object_mesh_positions = get_object_positions(field_value)
     
 
     # Get MoveIt configs for dual arm
@@ -862,7 +897,7 @@ def generate_launch_description():
             {"field": field},
             {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
             {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
-            {"object_mesh_positions": [-1.156,1.1,0,0,-1.056,1.1,0,0,-0.956,1.1,0,0,-0.856,1.1,0,0,-1.156,1,0,0,-1.056,1,0,0,-0.956,1,0,0,-0.856,1,0,0,-1.156,0.85,0,0,-1.056,0.85,0,0,-0.956,0.85,0,0,-0.856,0.85,0,0,-1.156,0.75,0,0,-1.056,0.75,0,0,-0.956,0.75,0,0,-0.856,0.75,0,0,-1.156,0.6,0,0,-1.056,0.6,0,0,-0.956,0.6,0,0,-0.856,0.6,0,0,-1.156,0.5,0,0,-1.056,0.5,0,0,-0.956,0.5,0,0,-0.856,0.5,0,0,-1.156,0.35,0,0,-1.056,0.35,0,0,-0.956,0.35,0,0,-0.856,0.35,0,0,-1.156,0.25,0,0,-1.056,0.25,0,0,-0.956,0.25,0,0,-0.856,0.25,0,0,-1.156,0.1,0,0,-1.056,0.1,0,0,-0.956,0.1,0,0,-0.856,0.1,0,0,-1.156,0,0,0,-1.056,0,0,0,-0.956,0,0,0,-0.856,0,0,0,-0.3,1.1,0,0,-0.2,1.1,0,0,-0.1,1.1,0,0,0,1.1,0,0,-0.3,1,0,0,-0.2,1,0,0,-0.1,1,0,0,0,1,0,0,-0.3,0.85,0,0,-0.2,0.85,0,0,-0.1,0.85,0,0,0,0.85,0,0,-0.3,0.75,0,0,-0.2,0.75,0,0,-0.1,0.75,0,0,0,0.75,0,0,-0.3,0.6,0,0,-0.2,0.6,0,0,-0.1,0.6,0,0,0,0.6,0,0,-0.3,0.5,0,0,-0.2,0.5,0,0,-0.1,0.5,0,0,0,0.5,0,0,-0.3,0.35,0,0,-0.2,0.35,0,0,-0.1,0.35,0,0,0,0.35,0,0,-0.3,0.25,0,0,-0.2,0.25,0,0,-0.1,0.25,0,0,0,0.25,0,0,-0.3,0.1,0,0,-0.2,0.1,0,0,-0.1,0.1,0,0,0,0.1,0,0,-0.3,0,0,0,-0.2,0,0,0,-0.1,0,0,0,0,0,0,0,-0.528,0.0175,0.003,0,-0.628,0.0175,0.003,0,-0.528,0.1175,0.003,0,-0.628,0.1175,0.003,0,-0.528,0.2175,0.003,0,-0.628,0.2175,0.003,0,-0.528,0.3175,0.003,0,-0.628,0.3175,0.003,0,-0.528,0.4175,0.003,0,-0.628,0.4175,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.6825,0.003,0,-0.528,0.6825,0.003,0,-0.628,0.7825,0.003,0,-0.528,0.7825,0.003,0,-0.628,0.8825,0.003,0,-0.528,0.8825,0.003,0,-0.628,0.9825,0.003,0,-0.528,0.9825,0.003,0,-0.628,1.0825,0.003,0,-0.528,1.0825,0.003,0]},  # 16 objects total
+            {"object_mesh_positions": object_mesh_positions},
             {"box_coordinates": [0.134,-0.180,-0.001,0.134,-0.180,1.0,0.134,-0.179,-0.001,0.134,-0.179,1.0,1.489,-0.180,-0.001,1.489,-0.180,1.0,1.489,-0.179,-0.001,1.489,-0.179,1.0]},  # Example: 1x1x0.2m box from 8 corner points
         ],
     )

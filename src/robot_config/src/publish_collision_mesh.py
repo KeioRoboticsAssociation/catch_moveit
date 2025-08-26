@@ -239,27 +239,16 @@ class CollisionMeshPublisher(Node):
         scale = 0.001
         mesh_index = 0
 
-        # 1. Publish field mesh (with rotation based on field parameter)
+        # 1. Publish field mesh (without rotation)
         if field_mesh_path:
             your_mesh, center = self.load_mesh_and_calculate_center(field_mesh_path, scale)
             if your_mesh is not None and center is not None:
-                # Determine rotation angle based on field parameter
-                rotation_angle = 0.0
-                if field == 'red':
-                    rotation_angle = math.radians(0)   # No rotation for red
-                elif field == 'blue':
-                    rotation_angle = math.radians(180) # 180 degrees rotation for blue
-                else:
-                    rotation_angle = 0.0  # Default no rotation
-
-                self.get_logger().info(f'Applying rotation of {math.degrees(rotation_angle)} degrees to field mesh')
-
                 collision_object = CollisionObject()
                 collision_object.header.frame_id = "world"
                 collision_object.id = f"field_mesh_{mesh_index}"
                 mesh_index += 1
 
-                shape_mesh = self.create_mesh_with_pose(your_mesh, center, scale, rotation_angle)
+                shape_mesh = self.create_mesh_with_pose(your_mesh, center, scale, 0.0)
                 
                 pose = Pose()
                 pose.position.x = 0.0
@@ -285,7 +274,7 @@ class CollisionMeshPublisher(Node):
                 return
             
             # Limit to 100 objects
-            max_objects = 101
+            max_objects = 120
             num_objects = len(object_mesh_positions) // 4
             if num_objects > max_objects:
                 self.get_logger().warn(f'Too many object positions specified ({num_objects}). Limiting to {max_objects}.')
@@ -323,7 +312,7 @@ class CollisionMeshPublisher(Node):
                     self.get_logger().info(f'Publishing object collision mesh {idx} (ID: {collision_object.id}) at position ({px}, {py}, {pz}) with yaw {yaw_deg} degrees')
                     
                     # Small delay between object meshes
-                    time.sleep(0.3)
+                    time.sleep(0.5)
 
         # 3. Publish box primitive objects from 8 corner coordinates
         if box_coordinates:
