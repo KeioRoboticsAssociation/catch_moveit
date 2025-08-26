@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.1.7:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/left_target_pose_rpy";
@@ -12,6 +12,10 @@ const ARM1_UP_TOPIC = "/left_arm_up";        // アーム1用upトピック
 const ARM1_DOWN_TOPIC = "/left_arm_down";    // アーム1用downトピック
 const ARM2_UP_TOPIC = "/right_arm_up";        // アーム2用upトピック
 const ARM2_DOWN_TOPIC = "/right_arm_down";    // アーム2用downトピック
+const ARM1_GRAB_TOPIC = "/left_arm_close";    // アーム1掴むトピック
+const ARM1_RELEASE_TOPIC = "/left_arm_open";  // アーム1離すトピック
+const ARM2_GRAB_TOPIC = "/right_arm_close";   // アーム2掴むトピック
+const ARM2_RELEASE_TOPIC = "/right_arm_open"; // アーム2離すトピック
 const UP_DOWN_MESSAGE_TYPE = "std_msgs/msg/String";
 
 export default function App() {
@@ -23,6 +27,10 @@ export default function App() {
   const [arm1DownPublisher, setArm1DownPublisher] = useState(null); // アーム1用downパブリッシャー
   const [arm2UpPublisher, setArm2UpPublisher] = useState(null);    // アーム2用upパブリッシャー
   const [arm2DownPublisher, setArm2DownPublisher] = useState(null); // アーム2用downパブリッシャー
+  const [arm1GrabPublisher, setArm1GrabPublisher] = useState(null);    // アーム1掴むパブリッシャー
+  const [arm1ReleasePublisher, setArm1ReleasePublisher] = useState(null); // アーム1離すパブリッシャー
+  const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);    // アーム2掴むパブリッシャー
+  const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null); // アーム2離すパブリッシャー
 
   const ros = useRef(null);
   const publisher = useRef(null);
@@ -40,6 +48,7 @@ export default function App() {
       initializeSubscriber();
       initializePosePublisher();
       initializeUpDownPublishers(); // up/downパブリッシャー初期化
+      initializeGrabReleasePublishers(); // 掴む/離すパブリッシャー初期化
     });
 
     ros.current.on('error', (error) => {
@@ -110,6 +119,39 @@ export default function App() {
       messageType: UP_DOWN_MESSAGE_TYPE
     });
     setArm2DownPublisher(arm2DownPub);
+  };
+
+  // 掴む/離すパブリッシャーの初期化
+  const initializeGrabReleasePublishers = () => {
+    // アーム1用
+    const arm1GrabPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: ARM1_GRAB_TOPIC,
+      messageType: UP_DOWN_MESSAGE_TYPE
+    });
+    setArm1GrabPublisher(arm1GrabPub);
+
+    const arm1ReleasePub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: ARM1_RELEASE_TOPIC,
+      messageType: UP_DOWN_MESSAGE_TYPE
+    });
+    setArm1ReleasePublisher(arm1ReleasePub);
+
+    // アーム2用
+    const arm2GrabPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: ARM2_GRAB_TOPIC,
+      messageType: UP_DOWN_MESSAGE_TYPE
+    });
+    setArm2GrabPublisher(arm2GrabPub);
+
+    const arm2ReleasePub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: ARM2_RELEASE_TOPIC,
+      messageType: UP_DOWN_MESSAGE_TYPE
+    });
+    setArm2ReleasePublisher(arm2ReleasePub);
   };
 
   const initializeSubscriber = () => {
@@ -238,6 +280,62 @@ export default function App() {
     }
   };
 
+  // アーム1の掴むボタンをpublishする関数
+  const handleArm1Grab = () => {
+    if (arm1GrabPublisher && connectionStatus === 'Connected') {
+      const message = new ROSLIB.Message({
+        data: "close"
+      });
+      arm1GrabPublisher.publish(message);
+      console.log(`✋ Published to ${ARM1_GRAB_TOPIC}: "close"`);
+    } else {
+      console.warn(`Cannot send arm1 grab command. ROS Status: ${connectionStatus}`);
+    }
+    // handleButtonClick("アーム1 抓む"); // 元のコマンドは削除
+  };
+
+  // アーム1の離すボタンをpublishする関数
+  const handleArm1Release = () => {
+    if (arm1ReleasePublisher && connectionStatus === 'Connected') {
+      const message = new ROSLIB.Message({
+        data: "open"
+      });
+      arm1ReleasePublisher.publish(message);
+      console.log(`👐 Published to ${ARM1_RELEASE_TOPIC}: "open"`);
+    } else {
+      console.warn(`Cannot send arm1 release command. ROS Status: ${connectionStatus}`);
+    }
+    // handleButtonClick("アーム1 離す"); // 元のコマンドは削除
+  };
+
+  // アーム2の掴むボタンをpublishする関数
+  const handleArm2Grab = () => {
+    if (arm2GrabPublisher && connectionStatus === 'Connected') {
+      const message = new ROSLIB.Message({
+        data: "close"
+      });
+      arm2GrabPublisher.publish(message);
+      console.log(`✋ Published to ${ARM2_GRAB_TOPIC}: "close"`);
+    } else {
+      console.warn(`Cannot send arm2 grab command. ROS Status: ${connectionStatus}`);
+    }
+    // handleButtonClick("アーム2 抓む"); // 元のコマンドは削除
+  };
+
+  // アーム2の離すボタンをpublishする関数
+  const handleArm2Release = () => {
+    if (arm2ReleasePublisher && connectionStatus === 'Connected') {
+      const message = new ROSLIB.Message({
+        data: "open"
+      });
+      arm2ReleasePublisher.publish(message);
+      console.log(`👐 Published to ${ARM2_RELEASE_TOPIC}: "open"`);
+    } else {
+      console.warn(`Cannot send arm2 release command. ROS Status: ${connectionStatus}`);
+    }
+    // handleButtonClick("アーム2 離す"); // 元のコマンドは削除
+  };
+
   // アーム1の初期位置をpublish
   const handleArm1Initial = () => {
     if (posePublisher && connectionStatus === 'Connected') {
@@ -292,26 +390,6 @@ export default function App() {
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
-  };
-
-  // アーム1の掴むコマンドをpublish
-  const handleArm1Grab = () => {
-    handleButtonClick("アーム1 抓む");
-  };
-
-  // アーム1の離すコマンドをpublish
-  const handleArm1Release = () => {
-    handleButtonClick("アーム1 離す");
-  };
-
-  // アーム2の掴むコマンドをpublish
-  const handleArm2Grab = () => {
-    handleButtonClick("アーム2 抓む");
-  };
-
-  // アーム2の離すコマンドをpublish
-  const handleArm2Release = () => {
-    handleButtonClick("アーム2 離す");
   };
 
   const toggleBackgroundColor = () => {

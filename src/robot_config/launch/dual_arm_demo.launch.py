@@ -79,7 +79,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_3_upper_limit",
-            default_value="3.14159265359",
+            default_value="1.570796",
             description="Upper limit for left arm Revolute_3 joint",
         )
     )
@@ -439,7 +439,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_3_upper_limit",
-            default_value="3.14159265359",
+            default_value="1.570796",
             description="Upper limit for right arm Revolute_3 joint",
         )
     )

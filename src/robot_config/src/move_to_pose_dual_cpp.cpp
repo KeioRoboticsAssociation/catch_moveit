@@ -4,6 +4,8 @@
 #include <std_msgs/msg/string.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
+#include <moveit/robot_state/robot_state.h>
+#include <moveit/robot_model_loader/robot_model_loader.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 #include <thread>
@@ -21,9 +23,16 @@ public:
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for left_arm...");
             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
             left_move_group_interface_->setEndEffectorLink("left_EndEffector_1");
-            left_move_group_interface_->setPlannerId("RRTConnect");
             left_move_group_interface_->setPlanningPipelineId("ompl");
+            left_move_group_interface_->setPlannerId("RRTConnect");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for left_arm initialized.");
+
+            // 左ハンド（グリッパー）の初期化
+            RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for left_hand...");
+            left_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");
+            left_hand_move_group_interface_->setPlanningPipelineId("ompl");
+            left_hand_move_group_interface_->setPlannerId("RRTConnect");
+            RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for left_hand initialized.");
 
             // 左アーム用RPYサブスクライバ
             left_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
@@ -37,9 +46,16 @@ public:
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for right_arm...");
             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
             right_move_group_interface_->setEndEffectorLink("right_EndEffector_1");
-            right_move_group_interface_->setPlannerId("RRTConnect");
             right_move_group_interface_->setPlanningPipelineId("ompl");
+            right_move_group_interface_->setPlannerId("RRTConnect");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for right_arm initialized.");
+
+            // 右ハンド（グリッパー）の初期化
+            RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for right_hand...");
+            right_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");
+            right_hand_move_group_interface_->setPlanningPipelineId("ompl");
+            right_hand_move_group_interface_->setPlannerId("RRTConnect");
+            RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for right_hand initialized.");
 
             // 右アーム用RPYサブスクライバ
             right_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
@@ -68,7 +84,17 @@ public:
         right_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/right_arm_down", 10, std::bind(&MoveToPoseDualCpp::right_arm_down_callback, this, std::placeholders::_1));
 
-        RCLCPP_INFO(this->get_logger(), "Ready to receive attach/detach and arm up/down commands");
+        // Gripper open/close subscribers
+        left_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/left_arm_open", 10, std::bind(&MoveToPoseDualCpp::left_arm_open_callback, this, std::placeholders::_1));
+        left_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/left_arm_close", 10, std::bind(&MoveToPoseDualCpp::left_arm_close_callback, this, std::placeholders::_1));
+        right_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/right_arm_open", 10, std::bind(&MoveToPoseDualCpp::right_arm_open_callback, this, std::placeholders::_1));
+        right_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/right_arm_close", 10, std::bind(&MoveToPoseDualCpp::right_arm_close_callback, this, std::placeholders::_1));
+
+        RCLCPP_INFO(this->get_logger(), "Ready to receive attach/detach, arm up/down, and gripper open/close commands");
         
         // Initialize PlanningSceneInterface after node initialization
         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
@@ -155,8 +181,8 @@ private:
         move_group_interface->setPoseTarget(target_pose);
         
         // プランナーをOMPLのRRTConnectに指定
-        move_group_interface->setPlannerId("RRTConnect");
         move_group_interface->setPlanningPipelineId("ompl");
+        move_group_interface->setPlannerId("RRTConnect");
 
         moveit::planning_interface::MoveGroupInterface::Plan my_plan;
         bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
@@ -369,6 +395,83 @@ private:
         }
     }
 
+    void left_arm_open_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Left arm open command received");
+        set_gripper_position("left", 0.0, 0.0);
+    }
+
+    void left_arm_close_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Left arm close command received");
+        set_gripper_position("left", 0.024, -0.024);
+    }
+
+    void right_arm_open_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Right arm open command received");
+        set_gripper_position("right", 0.0, 0.0);
+    }
+
+    void right_arm_close_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Right arm close command received");
+        set_gripper_position("right", 0.024, -0.024);
+    }
+
+    void set_gripper_position(const std::string& arm_name, double slider1_value, double slider2_value)
+    {
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> hand_move_group_interface;
+        
+        if (arm_name == "left") {
+            hand_move_group_interface = left_hand_move_group_interface_;
+        } else if (arm_name == "right") {
+            hand_move_group_interface = right_hand_move_group_interface_;
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+            return;
+        }
+
+        if (!hand_move_group_interface) {
+            RCLCPP_ERROR(this->get_logger(), "MoveGroupInterface not initialized for %s hand", arm_name.c_str());
+            return;
+        }
+
+        // Get joint names to understand the structure
+        std::vector<std::string> joint_names = hand_move_group_interface->getJointNames();
+        RCLCPP_INFO(this->get_logger(), "Joint names for %s hand:", arm_name.c_str());
+        for (size_t i = 0; i < joint_names.size(); i++) {
+            RCLCPP_INFO(this->get_logger(), "  [%zu]: %s", i, joint_names[i].c_str());
+        }
+        
+        // Create joint target map for specific gripper joints
+        std::map<std::string, double> joint_targets;
+        
+        // Set specific gripper joint names based on arm
+        std::string slider1_name = arm_name + "_Slider_1";
+        std::string slider2_name = arm_name + "_Slider_2";
+        
+        joint_targets[slider1_name] = slider1_value;
+        joint_targets[slider2_name] = slider2_value;
+        
+        RCLCPP_INFO(this->get_logger(), "Setting %s hand gripper: %s=%f, %s=%f", 
+                   arm_name.c_str(), slider1_name.c_str(), slider1_value, 
+                   slider2_name.c_str(), slider2_value);
+        
+        // Use named targets for gripper control
+        hand_move_group_interface->setJointValueTarget(joint_targets);
+        
+        moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+        bool success = (hand_move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+        
+        if (success) {
+            RCLCPP_INFO(this->get_logger(), "Gripper position plan found for %s hand, executing...", arm_name.c_str());
+            hand_move_group_interface->execute(my_plan);
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
+        }
+    }
+
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr left_rpy_sub_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr right_rpy_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_attach_sub_;
@@ -379,8 +482,14 @@ private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_down_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_up_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_down_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_open_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_close_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_open_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_close_sub_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> left_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> right_move_group_interface_;
+    std::shared_ptr<moveit::planning_interface::MoveGroupInterface> left_hand_move_group_interface_;
+    std::shared_ptr<moveit::planning_interface::MoveGroupInterface> right_hand_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
     std::thread left_init_thread_;
     std::thread right_init_thread_;
