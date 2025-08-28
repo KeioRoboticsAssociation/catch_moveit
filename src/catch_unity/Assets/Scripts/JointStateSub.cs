@@ -135,7 +135,7 @@ public class JointStateSubscriber : MonoBehaviour
                 ArticulationDrive drive = body.xDrive;
                 if (jointName == "left_Slider_1" || jointName == "left_Slider_2" || jointName == "right_Slider_1" || jointName == "right_Slider_2")
                 {
-                    drive.target = (float)targetAngleRad;
+                    drive.target = (float)(targetAngleRad / 0.024 * 0.026);
                 }
                 else
                 {

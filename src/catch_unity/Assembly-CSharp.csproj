@@ -66,11 +66,13 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/GripperAddForce.cs" />
     <Compile Include="Assets/Scripts/TimeStamp.cs" />
+    <Compile Include="Assets/Scripts/GripperTriggerGrab.cs" />
     <Compile Include="Assets/Scripts/JointStatePub.cs" />
     <Compile Include="Assets/Scripts/Clock.cs" />
     <Compile Include="Assets/Scripts/JointStateSub.cs" />
     <Compile Include="Assets/Scripts/MyPublisher.cs" />
     <Compile Include="Assets/Scripts/TorqueModeController.cs" />
+    <Compile Include="Assets/Scripts/GripperTriggerAttach.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/catch_unity/field_description/package.xml" />

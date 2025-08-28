@@ -1,0 +1,349 @@
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:700:13: error: expected unqualified-id before ‘if’
+  700 |             if (collision_result.collision) {
+      |             ^~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:10: error: expected ‘;’ after class definition
+  726 |         }
+      |          ^
+      |          ;
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor ‘MoveToPoseDualCpp::MoveToPoseDualCpp()’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:30:9: error: ‘left_init_thread_’ was not declared in this scope
+   30 |         left_init_thread_ = std::thread([this]() {
+      |         ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:32:13: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+   32 |             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |             get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:40:13: error: ‘left_hand_move_group_interface_’ was not declared in this scope
+   40 |             left_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor ‘MoveToPoseDualCpp::MoveToPoseDualCpp()’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:53:9: error: ‘right_init_thread_’ was not declared in this scope
+   53 |         right_init_thread_ = std::thread([this]() {
+      |         ^~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:55:13: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+   55 |             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |             get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:63:13: error: ‘right_hand_move_group_interface_’ was not declared in this scope
+   63 |             right_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:69:13: error: ‘right_rpy_sub_’ was not declared in this scope; did you mean ‘left_rpy_sub_’?
+   69 |             right_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      |             ^~~~~~~~~~~~~~
+      |             left_rpy_sub_
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor ‘MoveToPoseDualCpp::MoveToPoseDualCpp()’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:76:9: error: ‘left_attach_sub_’ was not declared in this scope; did you mean ‘left_rpy_sub_’?
+   76 |         left_attach_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~
+      |         left_rpy_sub_
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:78:9: error: ‘left_detach_sub_’ was not declared in this scope; did you mean ‘left_rpy_sub_’?
+   78 |         left_detach_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~
+      |         left_rpy_sub_
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:80:9: error: ‘right_attach_sub_’ was not declared in this scope; did you mean ‘right_attach_callback’?
+   80 |         right_attach_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~
+      |         right_attach_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:82:9: error: ‘right_detach_sub_’ was not declared in this scope; did you mean ‘right_detach_callback’?
+   82 |         right_detach_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~
+      |         right_detach_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:86:9: error: ‘left_arm_up_sub_’ was not declared in this scope; did you mean ‘left_rpy_sub_’?
+   86 |         left_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~
+      |         left_rpy_sub_
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:88:9: error: ‘left_arm_down_sub_’ was not declared in this scope; did you mean ‘left_arm_down_callback’?
+   88 |         left_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~~
+      |         left_arm_down_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:90:9: error: ‘right_arm_up_sub_’ was not declared in this scope; did you mean ‘right_arm_up_callback’?
+   90 |         right_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~
+      |         right_arm_up_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:92:9: error: ‘right_arm_down_sub_’ was not declared in this scope; did you mean ‘right_arm_down_callback’?
+   92 |         right_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         right_arm_down_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:96:9: error: ‘left_arm_open_sub_’ was not declared in this scope; did you mean ‘left_rpy_sub_’?
+   96 |         left_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~~
+      |         left_rpy_sub_
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:98:9: error: ‘left_arm_close_sub_’ was not declared in this scope; did you mean ‘left_arm_close_callback’?
+   98 |         left_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         left_arm_close_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:100:9: error: ‘right_arm_open_sub_’ was not declared in this scope; did you mean ‘right_arm_open_callback’?
+  100 |         right_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         right_arm_open_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:102:9: error: ‘right_arm_close_sub_’ was not declared in this scope; did you mean ‘right_arm_close_callback’?
+  102 |         right_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         right_arm_close_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:9: error: ‘planning_scene_interface_’ was not declared in this scope; did you mean ‘planning_scene_callback’?
+  108 |         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |         planning_scene_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:111:9: error: ‘planning_scene_sub_’ was not declared in this scope; did you mean ‘planning_scene’?
+  111 |         planning_scene_sub_ = this->create_subscription<moveit_msgs::msg::PlanningScene>(
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         planning_scene
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:115:9: error: ‘register_coordinate_sub_’ was not declared in this scope; did you mean ‘register_coordinate_callback’?
+  115 |         register_coordinate_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+      |         register_coordinate_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In destructor ‘virtual MoveToPoseDualCpp::~MoveToPoseDualCpp()’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:128:13: error: ‘left_init_thread_’ was not declared in this scope
+  128 |         if (left_init_thread_.joinable())
+      |             ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:132:13: error: ‘right_init_thread_’ was not declared in this scope
+  132 |         if (right_init_thread_.joinable())
+      |             ^~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::left_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:162:9: error: ‘last_left_pose_rpy_’ was not declared in this scope
+  162 |         last_left_pose_rpy_ = msg->data;
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:163:9: error: ‘left_pose_received_’ was not declared in this scope
+  163 |         left_pose_received_ = true;
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:165:22: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+  165 |         move_to_pose(left_move_group_interface_, target_pose);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                      get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::right_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:191:9: error: ‘last_right_pose_rpy_’ was not declared in this scope
+  191 |         last_right_pose_rpy_ = msg->data;
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:9: error: ‘right_pose_received_’ was not declared in this scope
+  192 |         right_pose_received_ = true;
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:194:22: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+  194 |         move_to_pose(right_move_group_interface_, target_pose);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                      get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::attachMeshObject(const string&, const string&)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:250:35: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+  250 |         if (arm_name == "left" && left_move_group_interface_) {
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:265:43: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+  265 |         } else if (arm_name == "right" && right_move_group_interface_) {
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::detachMeshObject(const string&, const string&)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:286:35: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+  286 |         if (arm_name == "left" && left_move_group_interface_) {
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:291:17: error: ‘planning_scene_interface_’ was not declared in this scope; did you mean ‘planning_scene_callback’?
+  291 |             if (planning_scene_interface_) {
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 planning_scene_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:310:43: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+  310 |         } else if (arm_name == "right" && right_move_group_interface_) {
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           get_node_graph_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:315:17: error: ‘planning_scene_interface_’ was not declared in this scope; did you mean ‘planning_scene_callback’?
+  315 |             if (planning_scene_interface_) {
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 planning_scene_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::left_arm_up_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:342:14: error: ‘left_pose_received_’ was not declared in this scope
+  342 |         if (!left_pose_received_) {
+      |              ^~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:346:28: error: ‘arm_up_z_value_’ was not declared in this scope
+  346 |         move_arm_z("left", arm_up_z_value_);
+      |                            ^~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::left_arm_down_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:352:14: error: ‘left_pose_received_’ was not declared in this scope
+  352 |         if (!left_pose_received_) {
+      |              ^~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:356:28: error: ‘arm_down_z_value_’ was not declared in this scope
+  356 |         move_arm_z("left", arm_down_z_value_);
+      |                            ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::right_arm_up_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:362:14: error: ‘right_pose_received_’ was not declared in this scope
+  362 |         if (!right_pose_received_) {
+      |              ^~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:366:29: error: ‘arm_up_z_value_’ was not declared in this scope
+  366 |         move_arm_z("right", arm_up_z_value_);
+      |                             ^~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::right_arm_down_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:372:14: error: ‘right_pose_received_’ was not declared in this scope
+  372 |         if (!right_pose_received_) {
+      |              ^~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:376:29: error: ‘arm_down_z_value_’ was not declared in this scope
+  376 |         move_arm_z("right", arm_down_z_value_);
+      |                             ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::move_arm_z(const string&, double)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:385:36: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘move_group_interface’?
+  385 |             move_group_interface = left_move_group_interface_;
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    move_group_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:386:32: error: ‘last_left_pose_rpy_’ was not declared in this scope
+  386 |             current_pose_rpy = last_left_pose_rpy_;
+      |                                ^~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:388:36: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘move_group_interface’?
+  388 |             move_group_interface = right_move_group_interface_;
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    move_group_interface
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:389:32: error: ‘last_right_pose_rpy_’ was not declared in this scope
+  389 |             current_pose_rpy = last_right_pose_rpy_;
+      |                                ^~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::left_arm_open_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:435:9: error: ‘detach_attached_objects’ was not declared in this scope
+  435 |         detach_attached_objects("left");
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::right_arm_open_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:455:9: error: ‘detach_attached_objects’ was not declared in this scope
+  455 |         detach_attached_objects("right");
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::set_gripper_position(const string&, double, double, std::function<void()>)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:492:18: error: ‘left_gripper_pub_’ was not declared in this scope; did you mean ‘left_rpy_sub_’?
+  492 |             if (!left_gripper_pub_) {
+      |                  ^~~~~~~~~~~~~~~~~
+      |                  left_rpy_sub_
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:495:13: error: ‘left_gripper_pub_’ was not declared in this scope; did you mean ‘left_rpy_sub_’?
+  495 |             left_gripper_pub_->publish(trajectory_msg);
+      |             ^~~~~~~~~~~~~~~~~
+      |             left_rpy_sub_
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:497:18: error: ‘right_gripper_pub_’ was not declared in this scope
+  497 |             if (!right_gripper_pub_) {
+      |                  ^~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:500:13: error: ‘right_gripper_pub_’ was not declared in this scope
+  500 |             right_gripper_pub_->publish(trajectory_msg);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::initialize_object_positions()’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:537:46: error: ‘object_mutex_’ was not declared in this scope
+  537 |             std::lock_guard<std::mutex> lock(object_mutex_);
+      |                                              ^~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:548:21: error: ‘object_mesh_positions_’ was not declared in this scope
+  548 |                     object_mesh_positions_[collision_obj.id] = obj_pos;
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:557:21: error: ‘object_mesh_positions_’ was not declared in this scope
+  557 |                     object_mesh_positions_[collision_obj.id] = obj_pos;
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155,
+                 from /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:563:101: error: ‘object_mesh_positions_’ was not declared in this scope
+  563 |             RCLCPP_INFO(this->get_logger(), "Object positions initialized: %zu objects registered", object_mesh_positions_.size());
+      |                                                                                                     ^~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::planning_scene_callback(moveit_msgs::msg::PlanningScene_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:574:42: error: ‘object_mutex_’ was not declared in this scope
+  574 |         std::lock_guard<std::mutex> lock(object_mutex_);
+      |                                          ^~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:17: error: ‘object_mesh_positions_’ was not declared in this scope
+  585 |                 object_mesh_positions_[collision_obj.id] = obj_pos;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:592:17: error: ‘object_mesh_positions_’ was not declared in this scope
+  592 |                 object_mesh_positions_[collision_obj.id] = obj_pos;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::register_coordinate_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:605:46: error: ‘coordinate_dict_mutex_’ was not declared in this scope
+  605 |             std::lock_guard<std::mutex> lock(coordinate_dict_mutex_);
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:606:13: error: ‘grasp_coordinate_dictionary_’ was not declared in this scope
+  606 |             grasp_coordinate_dictionary_[key_pos] = std::make_pair(obj1_pos, obj2_pos);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘std::string MoveToPoseDualCpp::find_nearest_object_by_position(const std::array<double, 3>&, double)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:625:42: error: ‘object_mutex_’ was not declared in this scope
+  625 |         std::lock_guard<std::mutex> lock(object_mutex_);
+      |                                          ^~~~~~~~~~~~~
+In file included from /opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155,
+                 from /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:628:82: error: ‘object_mesh_positions_’ was not declared in this scope
+  628 |         RCLCPP_INFO(this->get_logger(), "Object mesh positions has %zu entries", object_mesh_positions_.size());
+      |                                                                                  ^~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:633:38: error: ‘object_mesh_positions_’ was not declared in this scope
+  633 |         for (const auto& obj_entry : object_mesh_positions_) {
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::check_for_grasp_attachment(const string&)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:661:54: error: ‘planning_scene_interface_’ was not declared in this scope; did you mean ‘planning_scene_callback’?
+  661 |             std::vector<std::string> known_objects = planning_scene_interface_->getKnownObjectNames();
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                      planning_scene_callback
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: At global scope:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:729:9: error: expected unqualified-id before ‘for’
+  729 |         for (const std::string& obj_name : objects_to_attach) {
+      |         ^~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:738:9: error: expected unqualified-id before ‘if’
+  738 |         if (objects_to_attach.empty()) {
+      |         ^~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:741:5: error: expected declaration before ‘}’ token
+  741 |     }
+      |     ^
+In file included from /opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155,
+                 from /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In function ‘void detach_attached_objects(const string&)’:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21: error: invalid use of ‘this’ in non-member function
+  746 |         RCLCPP_INFO(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |                     ^~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21: error: invalid use of ‘this’ in non-member function
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:9: error: template argument 1 is invalid
+  746 |         RCLCPP_INFO(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |         ^~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:9: error: template argument 1 is invalid
+  746 |         RCLCPP_INFO(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |         ^~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:9: error: template argument 1 is invalid
+  746 |         RCLCPP_INFO(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |         ^~~~~~~~~~~
+In file included from /opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155,
+                 from /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21: error: invalid use of ‘this’ in non-member function
+  746 |         RCLCPP_INFO(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |                     ^~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21: error: invalid use of ‘this’ in non-member function
+  746 |         RCLCPP_INFO(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |                     ^~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:17: error: ‘detachMeshObject’ was not declared in this scope
+  752 |                 detachMeshObject(obj_name, arm_name);
+      |                 ^~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: At global scope:
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:804:1: error: expected declaration before ‘}’ token
+  804 | };
+      | ^
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

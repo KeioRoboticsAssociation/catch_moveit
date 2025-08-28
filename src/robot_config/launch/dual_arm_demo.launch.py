@@ -827,7 +827,7 @@ def generate_launch_description():
                     "status_topic": "servo_node/status",
                     "command_out_topic": "/left_arm_controller/joint_trajectory",
                     "check_collisions": True,
-                    "collision_check_rate": 5.0,
+                    "collision_check_rate": 50.0,
                     "self_collision_proximity_threshold": 0.01,
                     "scene_collision_proximity_threshold": 0.03,
                 }

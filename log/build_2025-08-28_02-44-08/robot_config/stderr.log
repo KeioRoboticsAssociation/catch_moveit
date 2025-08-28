@@ -1,0 +1,349 @@
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:700:13:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+  700 |             [01;31m[Kif[m[K (collision_result.collision) {
+      |             [01;31m[K^~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:10:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ after class definition
+  726 |         }
+      |          [01;31m[K^[m[K
+      |          [32m[K;[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:30:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_init_thread_[m[K’ was not declared in this scope
+   30 |         [01;31m[Kleft_init_thread_[m[K = std::thread([this]() {
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:32:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+   32 |             [01;31m[Kleft_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:40:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_hand_move_group_interface_[m[K’ was not declared in this scope
+   40 |             [01;31m[Kleft_hand_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:53:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_init_thread_[m[K’ was not declared in this scope
+   53 |         [01;31m[Kright_init_thread_[m[K = std::thread([this]() {
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:55:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+   55 |             [01;31m[Kright_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:63:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_hand_move_group_interface_[m[K’ was not declared in this scope
+   63 |             [01;31m[Kright_hand_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:69:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_rpy_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_rpy_sub_[m[K’?
+   69 |             [01;31m[Kright_rpy_sub_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      |             [01;31m[K^~~~~~~~~~~~~~[m[K
+      |             [32m[Kleft_rpy_sub_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:76:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_attach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_rpy_sub_[m[K’?
+   76 |         [01;31m[Kleft_attach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_rpy_sub_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:78:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_detach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_rpy_sub_[m[K’?
+   78 |         [01;31m[Kleft_detach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_rpy_sub_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:80:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_attach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_attach_callback[m[K’?
+   80 |         [01;31m[Kright_attach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_attach_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:82:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_detach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_detach_callback[m[K’?
+   82 |         [01;31m[Kright_detach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_detach_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:86:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_up_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_rpy_sub_[m[K’?
+   86 |         [01;31m[Kleft_arm_up_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_rpy_sub_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:88:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_down_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_arm_down_callback[m[K’?
+   88 |         [01;31m[Kleft_arm_down_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_arm_down_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:90:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_up_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_arm_up_callback[m[K’?
+   90 |         [01;31m[Kright_arm_up_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_arm_up_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:92:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_down_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_arm_down_callback[m[K’?
+   92 |         [01;31m[Kright_arm_down_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_arm_down_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:96:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_open_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_rpy_sub_[m[K’?
+   96 |         [01;31m[Kleft_arm_open_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_rpy_sub_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:98:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_close_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_arm_close_callback[m[K’?
+   98 |         [01;31m[Kleft_arm_close_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_arm_close_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:100:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_open_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_arm_open_callback[m[K’?
+  100 |         [01;31m[Kright_arm_open_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_arm_open_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:102:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_close_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_arm_close_callback[m[K’?
+  102 |         [01;31m[Kright_arm_close_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_arm_close_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_callback[m[K’?
+  108 |         [01;31m[Kplanning_scene_interface_[m[K = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kplanning_scene_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:111:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene[m[K’?
+  111 |         [01;31m[Kplanning_scene_sub_[m[K = this->create_subscription<moveit_msgs::msg::PlanningScene>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kplanning_scene[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:115:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kregister_coordinate_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kregister_coordinate_callback[m[K’?
+  115 |         [01;31m[Kregister_coordinate_sub_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kregister_coordinate_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In destructor ‘[01m[Kvirtual MoveToPoseDualCpp::~MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:128:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_init_thread_[m[K’ was not declared in this scope
+  128 |         if ([01;31m[Kleft_init_thread_[m[K.joinable())
+      |             [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:132:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_init_thread_[m[K’ was not declared in this scope
+  132 |         if ([01;31m[Kright_init_thread_[m[K.joinable())
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:162:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_left_pose_rpy_[m[K’ was not declared in this scope
+  162 |         [01;31m[Klast_left_pose_rpy_[m[K = msg->data;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:163:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose_received_[m[K’ was not declared in this scope
+  163 |         [01;31m[Kleft_pose_received_[m[K = true;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:165:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  165 |         move_to_pose([01;31m[Kleft_move_group_interface_[m[K, target_pose);
+      |                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                      [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:191:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_right_pose_rpy_[m[K’ was not declared in this scope
+  191 |         [01;31m[Klast_right_pose_rpy_[m[K = msg->data;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose_received_[m[K’ was not declared in this scope
+  192 |         [01;31m[Kright_pose_received_[m[K = true;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:194:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  194 |         move_to_pose([01;31m[Kright_move_group_interface_[m[K, target_pose);
+      |                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                      [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::attachMeshObject(const string&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:250:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  250 |         if (arm_name == "left" && [01;31m[Kleft_move_group_interface_[m[K) {
+      |                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                   [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:265:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  265 |         } else if (arm_name == "right" && [01;31m[Kright_move_group_interface_[m[K) {
+      |                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                           [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::detachMeshObject(const string&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:286:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  286 |         if (arm_name == "left" && [01;31m[Kleft_move_group_interface_[m[K) {
+      |                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                   [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:291:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_callback[m[K’?
+  291 |             if ([01;31m[Kplanning_scene_interface_[m[K) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                 [32m[Kplanning_scene_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:310:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  310 |         } else if (arm_name == "right" && [01;31m[Kright_move_group_interface_[m[K) {
+      |                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                           [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:315:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_callback[m[K’?
+  315 |             if ([01;31m[Kplanning_scene_interface_[m[K) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                 [32m[Kplanning_scene_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_arm_up_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:342:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose_received_[m[K’ was not declared in this scope
+  342 |         if (![01;31m[Kleft_pose_received_[m[K) {
+      |              [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:346:28:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_up_z_value_[m[K’ was not declared in this scope
+  346 |         move_arm_z("left", [01;31m[Karm_up_z_value_[m[K);
+      |                            [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_arm_down_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:352:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose_received_[m[K’ was not declared in this scope
+  352 |         if (![01;31m[Kleft_pose_received_[m[K) {
+      |              [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:356:28:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_down_z_value_[m[K’ was not declared in this scope
+  356 |         move_arm_z("left", [01;31m[Karm_down_z_value_[m[K);
+      |                            [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_arm_up_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:362:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose_received_[m[K’ was not declared in this scope
+  362 |         if (![01;31m[Kright_pose_received_[m[K) {
+      |              [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:366:29:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_up_z_value_[m[K’ was not declared in this scope
+  366 |         move_arm_z("right", [01;31m[Karm_up_z_value_[m[K);
+      |                             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_arm_down_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:372:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose_received_[m[K’ was not declared in this scope
+  372 |         if (![01;31m[Kright_pose_received_[m[K) {
+      |              [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:376:29:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_down_z_value_[m[K’ was not declared in this scope
+  376 |         move_arm_z("right", [01;31m[Karm_down_z_value_[m[K);
+      |                             [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::move_arm_z(const string&, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:385:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmove_group_interface[m[K’?
+  385 |             move_group_interface = [01;31m[Kleft_move_group_interface_[m[K;
+      |                                    [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                    [32m[Kmove_group_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:386:32:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_left_pose_rpy_[m[K’ was not declared in this scope
+  386 |             current_pose_rpy = [01;31m[Klast_left_pose_rpy_[m[K;
+      |                                [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:388:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmove_group_interface[m[K’?
+  388 |             move_group_interface = [01;31m[Kright_move_group_interface_[m[K;
+      |                                    [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                    [32m[Kmove_group_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:389:32:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_right_pose_rpy_[m[K’ was not declared in this scope
+  389 |             current_pose_rpy = [01;31m[Klast_right_pose_rpy_[m[K;
+      |                                [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_arm_open_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:435:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kdetach_attached_objects[m[K’ was not declared in this scope
+  435 |         [01;31m[Kdetach_attached_objects[m[K("left");
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_arm_open_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:455:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kdetach_attached_objects[m[K’ was not declared in this scope
+  455 |         [01;31m[Kdetach_attached_objects[m[K("right");
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::set_gripper_position(const string&, double, double, std::function<void()>)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:492:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_gripper_pub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_rpy_sub_[m[K’?
+  492 |             if (![01;31m[Kleft_gripper_pub_[m[K) {
+      |                  [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |                  [32m[Kleft_rpy_sub_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:495:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_gripper_pub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_rpy_sub_[m[K’?
+  495 |             [01;31m[Kleft_gripper_pub_[m[K->publish(trajectory_msg);
+      |             [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kleft_rpy_sub_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:497:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_gripper_pub_[m[K’ was not declared in this scope
+  497 |             if (![01;31m[Kright_gripper_pub_[m[K) {
+      |                  [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:500:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_gripper_pub_[m[K’ was not declared in this scope
+  500 |             [01;31m[Kright_gripper_pub_[m[K->publish(trajectory_msg);
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::initialize_object_positions()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:537:46:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mutex_[m[K’ was not declared in this scope
+  537 |             std::lock_guard<std::mutex> lock([01;31m[Kobject_mutex_[m[K);
+      |                                              [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:548:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mesh_positions_[m[K’ was not declared in this scope
+  548 |                     [01;31m[Kobject_mesh_positions_[m[K[collision_obj.id] = obj_pos;
+      |                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:557:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mesh_positions_[m[K’ was not declared in this scope
+  557 |                     [01;31m[Kobject_mesh_positions_[m[K[collision_obj.id] = obj_pos;
+      |                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:563:101:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mesh_positions_[m[K’ was not declared in this scope
+  563 |             RCLCPP_INFO(this->get_logger(), "Object positions initialized: %zu objects registered", [01;31m[Kobject_mesh_positions_[m[K.size());
+      |                                                                                                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::planning_scene_callback(moveit_msgs::msg::PlanningScene_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:574:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mutex_[m[K’ was not declared in this scope
+  574 |         std::lock_guard<std::mutex> lock([01;31m[Kobject_mutex_[m[K);
+      |                                          [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mesh_positions_[m[K’ was not declared in this scope
+  585 |                 [01;31m[Kobject_mesh_positions_[m[K[collision_obj.id] = obj_pos;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:592:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mesh_positions_[m[K’ was not declared in this scope
+  592 |                 [01;31m[Kobject_mesh_positions_[m[K[collision_obj.id] = obj_pos;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::register_coordinate_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:605:46:[m[K [01;31m[Kerror: [m[K‘[01m[Kcoordinate_dict_mutex_[m[K’ was not declared in this scope
+  605 |             std::lock_guard<std::mutex> lock([01;31m[Kcoordinate_dict_mutex_[m[K);
+      |                                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:606:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kgrasp_coordinate_dictionary_[m[K’ was not declared in this scope
+  606 |             [01;31m[Kgrasp_coordinate_dictionary_[m[K[key_pos] = std::make_pair(obj1_pos, obj2_pos);
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kstd::string MoveToPoseDualCpp::find_nearest_object_by_position(const std::array<double, 3>&, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:625:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mutex_[m[K’ was not declared in this scope
+  625 |         std::lock_guard<std::mutex> lock([01;31m[Kobject_mutex_[m[K);
+      |                                          [01;31m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:628:82:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mesh_positions_[m[K’ was not declared in this scope
+  628 |         RCLCPP_INFO(this->get_logger(), "Object mesh positions has %zu entries", [01;31m[Kobject_mesh_positions_[m[K.size());
+      |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:633:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kobject_mesh_positions_[m[K’ was not declared in this scope
+  633 |         for (const auto& obj_entry : [01;31m[Kobject_mesh_positions_[m[K) {
+      |                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::check_for_grasp_attachment(const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:661:54:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_callback[m[K’?
+  661 |             std::vector<std::string> known_objects = [01;31m[Kplanning_scene_interface_[m[K->getKnownObjectNames();
+      |                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                      [32m[Kplanning_scene_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K At global scope:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:729:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kfor[m[K’
+  729 |         [01;31m[Kfor[m[K (const std::string& obj_name : objects_to_attach) {
+      |         [01;31m[K^~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:738:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+  738 |         [01;31m[Kif[m[K (objects_to_attach.empty()) {
+      |         [01;31m[K^~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:741:5:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+  741 |     [01;31m[K}[m[K
+      |     [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid detach_attached_objects(const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  746 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  746 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  746 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  746 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  746 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:746:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  746 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Detaching objects from %s arm (gripper opened)", arm_name.c_str());
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:17:[m[K [01;31m[Kerror: [m[K‘[01m[KdetachMeshObject[m[K’ was not declared in this scope
+  752 |                 [01;31m[KdetachMeshObject[m[K(obj_name, arm_name);
+      |                 [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K At global scope:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:804:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+  804 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

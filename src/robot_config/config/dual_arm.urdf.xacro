@@ -335,14 +335,14 @@
             <parent link="${prefix}EndEffector_1"/>
             <child link="${prefix}right_finger_1"/>
             <axis xyz="-1.0 -0.000898 -0.0"/>
-            <limit effort="100" lower="$(arg ${prefix}Slider_1_lower_limit)" upper="$(arg ${prefix}Slider_1_upper_limit)" velocity="100"/>
+            <limit effort="1000000000" lower="$(arg ${prefix}Slider_1_lower_limit)" upper="$(arg ${prefix}Slider_1_upper_limit)" velocity="100"/>
         </joint>
         <joint name="${prefix}Slider_2" type="prismatic">
             <origin rpy="${Slider_2_rpy}" xyz="${Slider_2_xyz}"/>
             <parent link="${prefix}EndEffector_1"/>
             <child link="${prefix}left_finger_1"/>
             <axis xyz="-1.0 -0.000898 -0.0"/>
-            <limit effort="100" lower="$(arg ${prefix}Slider_2_lower_limit)" upper="$(arg ${prefix}Slider_2_upper_limit)" velocity="100"/>
+            <limit effort="1000000000" lower="$(arg ${prefix}Slider_2_lower_limit)" upper="$(arg ${prefix}Slider_2_upper_limit)" velocity="100"/>
         </joint>
 
         <!-- Transmissions for this arm instance -->

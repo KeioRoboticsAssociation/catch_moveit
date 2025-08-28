@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1306970941001973193}
   m_Layer: 0
   m_Name: Collisions
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 7037168574963135637}
   m_Layer: 0
   m_Name: unnamed
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,9 +102,10 @@ GameObject:
   - component: {fileID: 8217239086915562198}
   - component: {fileID: 4326098547625460783}
   - component: {fileID: 7153768037567431812}
+  - component: {fileID: 8006836246906467594}
   m_Layer: 0
   m_Name: object
-  m_TagString: robot
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +165,33 @@ MonoBehaviour:
   torque: 100
   acceleration: 5
   highLightColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!54 &8006836246906467594
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5132473479303250712}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 1
 --- !u!1 &5450424699440891077
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +248,7 @@ GameObject:
   - component: {fileID: 3639313173092235627}
   m_Layer: 0
   m_Name: unnamed
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +296,7 @@ GameObject:
   - component: {fileID: 8285500742342611634}
   m_Layer: 0
   m_Name: base_link
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,7 +338,7 @@ ArticulationBody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7370273138784795026}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Mass: 0.20327105
   m_ParentAnchorPosition: {x: 0, y: 0, z: 0}
@@ -399,7 +427,7 @@ GameObject:
   - component: {fileID: 2418497754967943807}
   m_Layer: 0
   m_Name: Visuals
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,6 +472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: base_link
       objectReference: {fileID: 0}
+    - target: {fileID: 3409279915973812513, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
+      propertyPath: m_TagString
+      value: object
+      objectReference: {fileID: 0}
     - target: {fileID: 5477186367177209241, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -484,6 +516,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7411630314602509395, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
+      propertyPath: m_TagString
+      value: object
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5464707182544645894, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
     - {fileID: 3346080578028357564, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
@@ -506,7 +542,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6280388703858861733}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1895dae1c159a406d8c132c9b4fd41d5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -537,6 +573,10 @@ PrefabInstance:
     - target: {fileID: 3409279915973812513, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
       propertyPath: m_Name
       value: base_link
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409279915973812513, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
+      propertyPath: m_TagString
+      value: object
       objectReference: {fileID: 0}
     - target: {fileID: 5464707182544645894, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -581,6 +621,10 @@ PrefabInstance:
     - target: {fileID: 5477186367177209241, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411630314602509395, guid: bf914721d8e02fb3e96a404768062b24, type: 3}
+      propertyPath: m_TagString
+      value: object
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
