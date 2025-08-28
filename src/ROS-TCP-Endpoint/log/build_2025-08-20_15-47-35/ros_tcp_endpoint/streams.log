@@ -1,0 +1,70 @@
+[0.296s] Invoking command in '/home/a/ws_moveit2/src/ROS-TCP-Endpoint': PYTHONPATH=/home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/ros_tcp_endpoint build --build-base /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build install --record /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/install.log --single-version-externally-managed install_data
+[0.406s] running egg_info
+[0.407s] creating build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info
+[0.407s] writing build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/PKG-INFO
+[0.407s] writing dependency_links to build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/dependency_links.txt
+[0.407s] writing entry points to build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/entry_points.txt
+[0.407s] writing requirements to build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/requires.txt
+[0.407s] writing top-level names to build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/top_level.txt
+[0.407s] writing manifest file 'build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
+[0.408s] reading manifest file 'build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
+[0.408s] adding license file 'LICENSE'
+[0.408s] writing manifest file 'build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
+[0.408s] running build
+[0.408s] running build_py
+[0.408s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build
+[0.408s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib
+[0.409s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/client.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/publisher.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/default_server_endpoint.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/thread_pauser.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/service.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/server.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/__init__.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/unity_service.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/communication.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/tcp_sender.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/exceptions.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] copying ros_tcp_endpoint/subscriber.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint
+[0.409s] running install
+[0.409s] running install_lib
+[0.410s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/client.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/publisher.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/default_server_endpoint.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/thread_pauser.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/service.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/server.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/__init__.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/unity_service.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/communication.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/tcp_sender.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/exceptions.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] copying /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build/lib/ros_tcp_endpoint/subscriber.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint
+[0.410s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/client.py to client.cpython-310.pyc
+[0.411s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/publisher.py to publisher.cpython-310.pyc
+[0.411s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/default_server_endpoint.py to default_server_endpoint.cpython-310.pyc
+[0.411s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/thread_pauser.py to thread_pauser.cpython-310.pyc
+[0.411s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/service.py to service.cpython-310.pyc
+[0.412s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/server.py to server.cpython-310.pyc
+[0.413s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/__init__.py to __init__.cpython-310.pyc
+[0.413s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/unity_service.py to unity_service.cpython-310.pyc
+[0.413s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/communication.py to communication.cpython-310.pyc
+[0.413s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/tcp_sender.py to tcp_sender.cpython-310.pyc
+[0.414s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/exceptions.py to exceptions.cpython-310.pyc
+[0.414s] byte-compiling /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint/subscriber.py to subscriber.cpython-310.pyc
+[0.414s] running install_data
+[0.414s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/share/ament_index
+[0.414s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/share/ament_index/resource_index
+[0.414s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/share/ament_index/resource_index/packages
+[0.414s] copying resource/ros_tcp_endpoint -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/share/ament_index/resource_index/packages
+[0.414s] copying package.xml -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/share/ros_tcp_endpoint
+[0.414s] creating /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/share/ros_tcp_endpoint/launch
+[0.414s] copying launch/endpoint.py -> /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/share/ros_tcp_endpoint/launch
+[0.414s] running install_egg_info
+[0.415s] Copying build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info to /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint-0.0.1-py3.10.egg-info
+[0.415s] running install_scripts
+[0.426s] Installing default_server_endpoint script to /home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/ros_tcp_endpoint
+[0.427s] writing list of installed files to '/home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/install.log'
+[0.441s] Invoked command in '/home/a/ws_moveit2/src/ROS-TCP-Endpoint' returned '0': PYTHONPATH=/home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/src/ROS-TCP-Endpoint/install/ros_tcp_endpoint/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/ros_tcp_endpoint build --build-base /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/build install --record /home/a/ws_moveit2/src/ROS-TCP-Endpoint/build/ros_tcp_endpoint/install.log --single-version-externally-managed install_data
