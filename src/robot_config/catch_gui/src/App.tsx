@@ -8,14 +8,14 @@ const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/left_target_pose_rpy";
 const POSE_MESSAGE_TYPE = "std_msgs/msg/Float64MultiArray";
-const ARM1_UP_TOPIC = "/left_arm_up";        // アーム1用upトピック
-const ARM1_DOWN_TOPIC = "/left_arm_down";    // アーム1用downトピック
-const ARM2_UP_TOPIC = "/right_arm_up";        // アーム2用upトピック
-const ARM2_DOWN_TOPIC = "/right_arm_down";    // アーム2用downトピック
-const ARM1_GRAB_TOPIC = "/left_arm_close";    // アーム1掴むトピック
-const ARM1_RELEASE_TOPIC = "/left_arm_open";  // アーム1離すトピック
-const ARM2_GRAB_TOPIC = "/right_arm_close";   // アーム2掴むトピック
-const ARM2_RELEASE_TOPIC = "/right_arm_open"; // アーム2離すトピック
+const ARM1_UP_TOPIC = "/left_arm_up";
+const ARM1_DOWN_TOPIC = "/left_arm_down";
+const ARM2_UP_TOPIC = "/right_arm_up";
+const ARM2_DOWN_TOPIC = "/right_arm_down";
+const ARM1_GRAB_TOPIC = "/left_arm_close";
+const ARM1_RELEASE_TOPIC = "/left_arm_open";
+const ARM2_GRAB_TOPIC = "/right_arm_close";
+const ARM2_RELEASE_TOPIC = "/right_arm_open";
 const UP_DOWN_MESSAGE_TYPE = "std_msgs/msg/String";
 
 export default function App() {
@@ -23,14 +23,14 @@ export default function App() {
   const [lastReceivedMessage, setLastReceivedMessage] = useState("");
   const [backgroundColor, setBackgroundColor] = useState("red");
   const [posePublisher, setPosePublisher] = useState(null);
-  const [arm1UpPublisher, setArm1UpPublisher] = useState(null);    // アーム1用upパブリッシャー
-  const [arm1DownPublisher, setArm1DownPublisher] = useState(null); // アーム1用downパブリッシャー
-  const [arm2UpPublisher, setArm2UpPublisher] = useState(null);    // アーム2用upパブリッシャー
-  const [arm2DownPublisher, setArm2DownPublisher] = useState(null); // アーム2用downパブリッシャー
-  const [arm1GrabPublisher, setArm1GrabPublisher] = useState(null);    // アーム1掴むパブリッシャー
-  const [arm1ReleasePublisher, setArm1ReleasePublisher] = useState(null); // アーム1離すパブリッシャー
-  const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);    // アーム2掴むパブリッシャー
-  const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null); // アーム2離すパブリッシャー
+  const [arm1UpPublisher, setArm1UpPublisher] = useState(null);
+  const [arm1DownPublisher, setArm1DownPublisher] = useState(null);
+  const [arm2UpPublisher, setArm2UpPublisher] = useState(null);
+  const [arm2DownPublisher, setArm2DownPublisher] = useState(null);
+  const [arm1GrabPublisher, setArm1GrabPublisher] = useState(null);
+  const [arm1ReleasePublisher, setArm1ReleasePublisher] = useState(null);
+  const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);
+  const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null);
 
   const ros = useRef(null);
   const publisher = useRef(null);
@@ -47,8 +47,8 @@ export default function App() {
       initializePublisher();
       initializeSubscriber();
       initializePosePublisher();
-      initializeUpDownPublishers(); // up/downパブリッシャー初期化
-      initializeGrabReleasePublishers(); // 掴む/離すパブリッシャー初期化
+      initializeUpDownPublishers();
+      initializeGrabReleasePublishers();
     });
 
     ros.current.on('error', (error) => {
@@ -88,9 +88,7 @@ export default function App() {
     setPosePublisher(posePub);
   };
 
-  // up/downパブリッシャーの初期化
   const initializeUpDownPublishers = () => {
-    // アーム1用
     const arm1UpPub = new ROSLIB.Topic({
       ros: ros.current,
       name: ARM1_UP_TOPIC,
@@ -105,7 +103,6 @@ export default function App() {
     });
     setArm1DownPublisher(arm1DownPub);
 
-    // アーム2用
     const arm2UpPub = new ROSLIB.Topic({
       ros: ros.current,
       name: ARM2_UP_TOPIC,
@@ -121,9 +118,7 @@ export default function App() {
     setArm2DownPublisher(arm2DownPub);
   };
 
-  // 掴む/離すパブリッシャーの初期化
   const initializeGrabReleasePublishers = () => {
-    // アーム1用
     const arm1GrabPub = new ROSLIB.Topic({
       ros: ros.current,
       name: ARM1_GRAB_TOPIC,
@@ -138,7 +133,6 @@ export default function App() {
     });
     setArm1ReleasePublisher(arm1ReleasePub);
 
-    // アーム2用
     const arm2GrabPub = new ROSLIB.Topic({
       ros: ros.current,
       name: ARM2_GRAB_TOPIC,
@@ -166,7 +160,6 @@ export default function App() {
     });
   };
 
-  // 各ボタンに対応するPose値の定義
   const buttonPoseValues = {
     1: [1.0, 2.0, 3.0, 0.0, 0.0, 0.0],
     2: [1.5, 2.5, 3.5, 0.1, 0.1, 0.1],
@@ -190,13 +183,11 @@ export default function App() {
     20: [10.5, 11.5, 12.5, 1.9, 1.9, 1.9]
   };
 
-  // アーム1の初期位置とゴール位置
   const arm1Positions = {
     initial: [-0.534, 0.00, 0.445, 0.0, 0, 3.1415],
     goal: [-0.320, -0.7345, 0.186, 0.0, 0.0, 0.0]
   };
 
-  // アーム2の初期位置とゴール位置
   const arm2Positions = {
     initial: [2.0, 2.0, 2.0, 0.0, 0.0, 0.0],
     goal: [3.0, 3.0, 3.0, 0.5, 0.5, 0.5]
@@ -214,7 +205,6 @@ export default function App() {
     }
   };
 
-  // Pose値をpublishする関数
   const handlePoseButtonClick = (buttonNumber) => {
     if (posePublisher && connectionStatus === 'Connected') {
       const poseValues = buttonPoseValues[buttonNumber] || [0, 0, 0, 0, 0, 0];
@@ -228,7 +218,6 @@ export default function App() {
     }
   };
 
-  // アーム1のupボタンをpublishする関数
   const handleArm1UpButtonClick = () => {
     if (arm1UpPublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
@@ -241,7 +230,6 @@ export default function App() {
     }
   };
 
-  // アーム1のdownボタンをpublishする関数
   const handleArm1DownButtonClick = () => {
     if (arm1DownPublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
@@ -254,7 +242,6 @@ export default function App() {
     }
   };
 
-  // アーム2のupボタンをpublishする関数
   const handleArm2UpButtonClick = () => {
     if (arm2UpPublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
@@ -267,7 +254,6 @@ export default function App() {
     }
   };
 
-  // アーム2のdownボタンをpublishする関数
   const handleArm2DownButtonClick = () => {
     if (arm2DownPublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
@@ -280,21 +266,18 @@ export default function App() {
     }
   };
 
-  // アーム1の掴むボタンをpublishする関数
   const handleArm1Grab = () => {
     if (arm1GrabPublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
         data: "close"
       });
       arm1GrabPublisher.publish(message);
-      console.log(`✋ Published to ${ARM1_GRAB_TOPIC}: "close"`);
+      console.log(`✊ Published to ${ARM1_GRAB_TOPIC}: "close"`);
     } else {
       console.warn(`Cannot send arm1 grab command. ROS Status: ${connectionStatus}`);
     }
-    // handleButtonClick("アーム1 抓む"); // 元のコマンドは削除
   };
 
-  // アーム1の離すボタンをpublishする関数
   const handleArm1Release = () => {
     if (arm1ReleasePublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
@@ -305,24 +288,20 @@ export default function App() {
     } else {
       console.warn(`Cannot send arm1 release command. ROS Status: ${connectionStatus}`);
     }
-    // handleButtonClick("アーム1 離す"); // 元のコマンドは削除
   };
 
-  // アーム2の掴むボタンをpublishする関数
   const handleArm2Grab = () => {
     if (arm2GrabPublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
         data: "close"
       });
       arm2GrabPublisher.publish(message);
-      console.log(`✋ Published to ${ARM2_GRAB_TOPIC}: "close"`);
+      console.log(`✊ Published to ${ARM2_GRAB_TOPIC}: "close"`);
     } else {
       console.warn(`Cannot send arm2 grab command. ROS Status: ${connectionStatus}`);
     }
-    // handleButtonClick("アーム2 抓む"); // 元のコマンドは削除
   };
 
-  // アーム2の離すボタンをpublishする関数
   const handleArm2Release = () => {
     if (arm2ReleasePublisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
@@ -333,10 +312,8 @@ export default function App() {
     } else {
       console.warn(`Cannot send arm2 release command. ROS Status: ${connectionStatus}`);
     }
-    // handleButtonClick("アーム2 離す"); // 元のコマンドは削除
   };
 
-  // アーム1の初期位置をpublish
   const handleArm1Initial = () => {
     if (posePublisher && connectionStatus === 'Connected') {
       const poseValues = arm1Positions.initial;
@@ -350,7 +327,6 @@ export default function App() {
     }
   };
 
-  // アーム1のゴール位置をpublish
   const handleArm1Goal = () => {
     if (posePublisher && connectionStatus === 'Connected') {
       const poseValues = arm1Positions.goal;
@@ -364,7 +340,6 @@ export default function App() {
     }
   };
 
-  // アーム2の初期位置をpublish
   const handleArm2Initial = () => {
     if (posePublisher && connectionStatus === 'Connected') {
       const poseValues = arm2Positions.initial;
@@ -378,7 +353,6 @@ export default function App() {
     }
   };
 
-  // アーム2のゴール位置をpublish
   const handleArm2Goal = () => {
     if (posePublisher && connectionStatus === 'Connected') {
       const poseValues = arm2Positions.goal;
@@ -409,12 +383,11 @@ export default function App() {
   return (
     <div 
       className="app-container"
-      style={{ backgroundColor: backgroundColor === "red" ? "#fee2e2" : "#dbeafe" }}
+      data-background={backgroundColor}
     >
       
-      {/* ヘッダー */}
       <header className="app-header">
-        <h1 className="app-title">Custom Robot Controller</h1>
+        <h1 className="app-title">🤖 Custom Robot Controller</h1>
         <div className="header-controls">
           <p className="status-text">
             Status: 
@@ -430,14 +403,13 @@ export default function App() {
             className="toggle-button"
             onClick={toggleBackgroundColor}
           >
-            field: {backgroundColor === "red" ? "赤" : "青"}
+            🎨 Field: {backgroundColor === "red" ? "赤" : "青"}
           </button>
         </div>
       </header>
       
-      {/* 4行5列のグリッド + up/downボタン */}
-      <div className="button-grid-container">
-        <div className="button-grid">
+      <div className="pose-grid-container">
+        <div className="pose-grid">
           {Array.from({ length: 20 }).map((_, index) => (
             <GridButton 
               key={index + 1} 
@@ -445,11 +417,19 @@ export default function App() {
             />
           ))}
         </div>
-        
-        {/* アーム1のup/downボタン */}
-        <div className="up-down-column">
-          <div className="up-down-group">
-            <h3 className="up-down-title">アーム1</h3>
+      </div>
+
+      <div className="subscriber-area">
+        <span className="subscriber-label">📡 Last Published Command:</span>
+        <span className="subscriber-value">
+          {lastReceivedMessage || "---"}
+        </span>
+      </div>
+
+      <div className="middle-control-area">
+        <div className="arm-control-group">
+          <h3 className="arm-control-title">🦾 アーム1</h3>
+          <div className="up-down-buttons">
             <button 
               className="up-down-button up-button"
               onClick={handleArm1UpButtonClick}
@@ -465,10 +445,11 @@ export default function App() {
               ⬇️ DOWN
             </button>
           </div>
-          
-          {/* アーム2のup/downボタン */}
-          <div className="up-down-group">
-            <h3 className="up-down-title">アーム2</h3>
+        </div>
+        
+        <div className="arm-control-group">
+          <h3 className="arm-control-title">🦾 アーム2</h3>
+          <div className="up-down-buttons">
             <button 
               className="up-down-button up-button"
               onClick={handleArm2UpButtonClick}
@@ -487,91 +468,72 @@ export default function App() {
         </div>
       </div>
 
-      {/* Subscriber表示エリア */}
-      <div className="subscriber-area">
-        <span className="subscriber-label">Last Published Command:</span>
-        <span className="subscriber-value">
-          {lastReceivedMessage || "---"}
-        </span>
-      </div>
-
-      {/* 下部コントロール */}
-      <div className="control-area">
-        {/* アーム1のコントロールボタン群 */}
+      <div className="bottom-control-area">
         <div className="arm-controls">
-          {/* アーム1の初期位置ボタン */}
           <button 
-            className="arm-button"
+            className="arm-button initial-button"
             onClick={handleArm1Initial}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム1<br/>初期位置
+            🏁 アーム1<br/>初期位置
           </button>
           
-          {/* アーム1のゴールボタン */}
           <button 
-            className="arm-button"
+            className="arm-button goal-button"
             onClick={handleArm1Goal}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム1<br/>ゴール
+            🎯 アーム1<br/>ゴール
           </button>
           
-          {/* アーム1の掴むボタン */}
           <button 
             className="arm-button grab-button"
             onClick={handleArm1Grab}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム1<br/>掴む
+            ✊ アーム1<br/>掴む
           </button>
           
-          {/* アーム1の離すボタン */}
           <button 
             className="arm-button release-button"
             onClick={handleArm1Release}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム1<br/>離す
+            🖐️ アーム1<br/>離す
           </button>
         </div>
         
-        {/* アーム2のコントロールボタン群 */}
         <div className="arm-controls">
-          {/* アーム2の初期位置ボタン */}
           <button 
-            className="arm-button"
+            className="arm-button initial-button"
             onClick={handleArm2Initial}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム2<br/>初期位置
+            🏁 アーム2<br/>初期位置
           </button>
           
-          {/* アーム2のゴールボタン */}
           <button 
-            className="arm-button"
+            className="arm-button goal-button"
             onClick={handleArm2Goal}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム2<br/>ゴール
+            🎯 アーム2<br/>ゴール
           </button>
           
-          {/* アーム2の掴むボタン */}
           <button 
             className="arm-button grab-button"
             onClick={handleArm2Grab}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム2<br/>掴む
+            ✊ アーム2<br/>掴む
           </button>
           
-          {/* アーム2の離すボタン */}
           <button 
             className="arm-button release-button"
             onClick={handleArm2Release}
             disabled={connectionStatus !== 'Connected'}
           >
-            アーム2<br/>離す
+            🖐️ アーム2<br/>離す
           </button>
         </div>
       </div>
