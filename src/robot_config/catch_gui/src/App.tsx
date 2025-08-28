@@ -6,8 +6,8 @@ import './App.css';
 const ROSBRIDGE_SERVER_URL = "ws://192.168.1.7:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
-const POSE_TOPIC_NAME = "/left_target_pose_rpy";
-const POSE_MESSAGE_TYPE = "std_msgs/msg/Float64MultiArray";
+const POSE_TOPIC_NAME = "/button_command";
+const POSE_MESSAGE_TYPE = "std_msgs/msg/String";
 const ARM1_UP_TOPIC = "/left_arm_up";
 const ARM1_DOWN_TOPIC = "/left_arm_down";
 const ARM2_UP_TOPIC = "/right_arm_up";
@@ -161,36 +161,56 @@ export default function App() {
   };
 
   const buttonPoseValues = {
-    1: [1.0, 2.0, 3.0, 0.0, 0.0, 0.0],
-    2: [1.5, 2.5, 3.5, 0.1, 0.1, 0.1],
-    3: [2.0, 3.0, 4.0, 0.2, 0.2, 0.2],
-    4: [2.5, 3.5, 4.5, 0.3, 0.3, 0.3],
-    5: [3.0, 4.0, 5.0, 0.4, 0.4, 0.4],
-    6: [3.5, 4.5, 5.5, 0.5, 0.5, 0.5],
-    7: [4.0, 5.0, 6.0, 0.6, 0.6, 0.6],
-    8: [4.5, 5.5, 6.5, 0.7, 0.7, 0.7],
-    9: [5.0, 6.0, 7.0, 0.8, 0.8, 0.8],
-    10: [5.5, 6.5, 7.5, 0.9, 0.9, 0.9],
-    11: [6.0, 7.0, 8.0, 1.0, 1.0, 1.0],
-    12: [6.5, 7.5, 8.5, 1.1, 1.1, 1.1],
-    13: [7.0, 8.0, 9.0, 1.2, 1.2, 1.2],
-    14: [7.5, 8.5, 9.5, 1.3, 1.3, 1.3],
-    15: [8.0, 9.0, 10.0, 1.4, 1.4, 1.4],
-    16: [0.282, 0.3705, 0.2, 0.0, 0.0, 1.57],
-    17: [0.282, 0.3705, 0.086, 0.0, 0.0, 1.57],
-    18: [9.5, 10.5, 11.5, 1.7, 1.7, 1.7],
-    19: [10.0, 11.0, 12.0, 1.8, 1.8, 1.8],
-    20: [10.5, 11.5, 12.5, 1.9, 1.9, 1.9]
+    // 1: [1.0, 2.0, 3.0, 0.0, 0.0, 0.0],
+    // 2: [1.5, 2.5, 3.5, 0.1, 0.1, 0.1],
+    // 3: [2.0, 3.0, 4.0, 0.2, 0.2, 0.2],
+    // 4: [2.5, 3.5, 4.5, 0.3, 0.3, 0.3],
+    // 5: [3.0, 4.0, 5.0, 0.4, 0.4, 0.4],
+    // 6: [3.5, 4.5, 5.5, 0.5, 0.5, 0.5],
+    // 7: [4.0, 5.0, 6.0, 0.6, 0.6, 0.6],
+    // 8: [4.5, 5.5, 6.5, 0.7, 0.7, 0.7],
+    // 9: [5.0, 6.0, 7.0, 0.8, 0.8, 0.8],
+    // 10: [5.5, 6.5, 7.5, 0.9, 0.9, 0.9],
+    // 11: [6.0, 7.0, 8.0, 1.0, 1.0, 1.0],
+    // 12: [6.5, 7.5, 8.5, 1.1, 1.1, 1.1],
+    // 13: [7.0, 8.0, 9.0, 1.2, 1.2, 1.2],
+    // 14: [7.5, 8.5, 9.5, 1.3, 1.3, 1.3],
+    // 15: [8.0, 9.0, 10.0, 1.4, 1.4, 1.4],
+    // 16: [0.282, 0.3705, 0.2, 0.0, 0.0, 1.57],
+    // 17: [0.282, 0.3705, 0.086, 0.0, 0.0, 1.57],
+    // 18: [9.5, 10.5, 11.5, 1.7, 1.7, 1.7],
+    // 19: [10.0, 11.0, 12.0, 1.8, 1.8, 1.8],
+    // 20: [10.5, 11.5, 12.5, 1.9, 1.9, 1.9]
+    1:"Pose1",
+    2:"Pose2",
+    3:"Pose3",
+    4:"Pose4",
+    5:"Pose5",
+    6:"Pose6",
+    7:"Pose7",
+    8:"Pose8",
+    9:"Pose9",
+    10:"Pose10",
+    11:"Pose11",
+    12:"Pose12",
+    13:"Pose13",
+    14:"Pose14",
+    15:"Pose15",
+    16:"Pose16",
+    17:"Pose17",
+    18:"Pose18",
+    19:"Pose19",
+    20:"Pose20"
   };
 
   const arm1Positions = {
-    initial: [-0.534, 0.00, 0.445, 0.0, 0, 3.1415],
-    goal: [-0.320, -0.7345, 0.186, 0.0, 0.0, 0.0]
+    initial: "left_initial",
+    goal: "left_goal"
   };
 
   const arm2Positions = {
-    initial: [2.0, 2.0, 2.0, 0.0, 0.0, 0.0],
-    goal: [3.0, 3.0, 3.0, 0.5, 0.5, 0.5]
+    initial: "right_initial",
+    goal: "right_goal"
   };
 
   const handleButtonClick = (commandText) => {
@@ -207,12 +227,12 @@ export default function App() {
 
   const handlePoseButtonClick = (buttonNumber) => {
     if (posePublisher && connectionStatus === 'Connected') {
-      const poseValues = buttonPoseValues[buttonNumber] || [0, 0, 0, 0, 0, 0];
+      const poseValue = buttonPoseValues[buttonNumber] || "Pose1";
       const message = new ROSLIB.Message({
-        data: poseValues
+        data: poseValue
       });
       posePublisher.publish(message);
-      console.log(`🎯 Published pose to ${POSE_TOPIC_NAME}: [${poseValues.join(', ')}]`);
+      console.log(`🎯 Published pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -316,12 +336,12 @@ export default function App() {
 
   const handleArm1Initial = () => {
     if (posePublisher && connectionStatus === 'Connected') {
-      const poseValues = arm1Positions.initial;
+      const poseValue = arm1Positions.initial;
       const message = new ROSLIB.Message({
-        data: poseValues
+        data: poseValue
       });
       posePublisher.publish(message);
-      console.log(`🎯 Published Arm1 Initial pose to ${POSE_TOPIC_NAME}: [${poseValues.join(', ')}]`);
+      console.log(`🎯 Published Arm1 Initial pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -329,12 +349,12 @@ export default function App() {
 
   const handleArm1Goal = () => {
     if (posePublisher && connectionStatus === 'Connected') {
-      const poseValues = arm1Positions.goal;
+      const poseValue = arm1Positions.goal;
       const message = new ROSLIB.Message({
-        data: poseValues
+        data: poseValue
       });
       posePublisher.publish(message);
-      console.log(`🎯 Published Arm1 Goal pose to ${POSE_TOPIC_NAME}: [${poseValues.join(', ')}]`);
+      console.log(`🎯 Published Arm1 Goal pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -342,12 +362,12 @@ export default function App() {
 
   const handleArm2Initial = () => {
     if (posePublisher && connectionStatus === 'Connected') {
-      const poseValues = arm2Positions.initial;
+      const poseValue = arm2Positions.initial;
       const message = new ROSLIB.Message({
-        data: poseValues
+        data: poseValue
       });
       posePublisher.publish(message);
-      console.log(`🎯 Published Arm2 Initial pose to ${POSE_TOPIC_NAME}: [${poseValues.join(', ')}]`);
+      console.log(`🎯 Published Arm2 Initial pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -355,12 +375,12 @@ export default function App() {
 
   const handleArm2Goal = () => {
     if (posePublisher && connectionStatus === 'Connected') {
-      const poseValues = arm2Positions.goal;
+      const poseValue = arm2Positions.goal;
       const message = new ROSLIB.Message({
-        data: poseValues
+        data: poseValue
       });
       posePublisher.publish(message);
-      console.log(`🎯 Published Arm2 Goal pose to ${POSE_TOPIC_NAME}: [${poseValues.join(', ')}]`);
+      console.log(`🎯 Published Arm2 Goal pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -428,7 +448,7 @@ export default function App() {
 
       <div className="middle-control-area">
         <div className="arm-control-group">
-          <h3 className="arm-control-title">🦾 アーム1</h3>
+          <h3 className="arm-control-title">🦾 左アーム</h3>
           <div className="up-down-buttons">
             <button 
               className="up-down-button up-button"
@@ -448,7 +468,7 @@ export default function App() {
         </div>
         
         <div className="arm-control-group">
-          <h3 className="arm-control-title">🦾 アーム2</h3>
+          <h3 className="arm-control-title">🦾 右アーム</h3>
           <div className="up-down-buttons">
             <button 
               className="up-down-button up-button"
@@ -475,7 +495,7 @@ export default function App() {
             onClick={handleArm1Initial}
             disabled={connectionStatus !== 'Connected'}
           >
-            🏁 アーム1<br/>初期位置
+            🏁 左アーム<br/>初期位置
           </button>
           
           <button 
@@ -483,7 +503,7 @@ export default function App() {
             onClick={handleArm1Goal}
             disabled={connectionStatus !== 'Connected'}
           >
-            🎯 アーム1<br/>ゴール
+            🎯 左アーム<br/>ゴール
           </button>
           
           <button 
@@ -491,7 +511,7 @@ export default function App() {
             onClick={handleArm1Grab}
             disabled={connectionStatus !== 'Connected'}
           >
-            ✊ アーム1<br/>掴む
+            ✊ 左アーム<br/>掴む
           </button>
           
           <button 
@@ -499,7 +519,7 @@ export default function App() {
             onClick={handleArm1Release}
             disabled={connectionStatus !== 'Connected'}
           >
-            🖐️ アーム1<br/>離す
+            🖐️ 左アーム<br/>離す
           </button>
         </div>
         
@@ -509,7 +529,7 @@ export default function App() {
             onClick={handleArm2Initial}
             disabled={connectionStatus !== 'Connected'}
           >
-            🏁 アーム2<br/>初期位置
+            🏁 右アーム<br/>初期位置
           </button>
           
           <button 
@@ -517,7 +537,7 @@ export default function App() {
             onClick={handleArm2Goal}
             disabled={connectionStatus !== 'Connected'}
           >
-            🎯 アーム2<br/>ゴール
+            🎯 右アーム<br/>ゴール
           </button>
           
           <button 
@@ -525,7 +545,7 @@ export default function App() {
             onClick={handleArm2Grab}
             disabled={connectionStatus !== 'Connected'}
           >
-            ✊ アーム2<br/>掴む
+            ✊ 右アーム<br/>掴む
           </button>
           
           <button 
@@ -533,7 +553,7 @@ export default function App() {
             onClick={handleArm2Release}
             disabled={connectionStatus !== 'Connected'}
           >
-            🖐️ アーム2<br/>離す
+            🖐️ 右アーム<br/>離す
           </button>
         </div>
       </div>

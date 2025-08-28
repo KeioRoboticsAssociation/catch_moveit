@@ -15,6 +15,7 @@ find_package(tf2_ros REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 ament_package()
 
@@ -95,5 +96,24 @@ ament_target_dependencies(
 # Install the move_to_pose_dual_cpp node
 install(TARGETS
   move_to_pose_dual_cpp
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Add the executable for the pose_command_publisher node
+add_executable(pose_command_publisher src/pose_command_publisher.cpp)
+
+# Add dependencies for the pose_command_publisher node
+ament_target_dependencies(
+  pose_command_publisher
+  rclcpp
+  std_msgs
+)
+
+# Link yaml-cpp library
+target_link_libraries(pose_command_publisher yaml-cpp)
+
+# Install the pose_command_publisher node
+install(TARGETS
+  pose_command_publisher
   DESTINATION lib/${PROJECT_NAME}
 )

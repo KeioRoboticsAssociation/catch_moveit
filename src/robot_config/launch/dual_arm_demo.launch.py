@@ -939,6 +939,14 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Pose command publisher node
+    pose_command_publisher_node = Node(
+        package="robot_config",
+        executable="pose_command_publisher",
+        name="pose_command_publisher",
+        output="screen",
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -962,5 +970,6 @@ def generate_launch_description():
             rosapi_node,
             ros_tcp_endpoint,  # Add the ROS TCP Endpoint for Unity
             npm_run_dev,
+            pose_command_publisher_node,  # Add pose command publisher node
         ]
     )

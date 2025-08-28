@@ -372,3 +372,6 @@ include("/home/a/ws_moveit2/build/robot_config/ament_cmake_symlink_install_targe
 
 # install("TARGETS" "move_to_pose_dual_cpp" "DESTINATION" "lib/robot_config")
 include("/home/a/ws_moveit2/build/robot_config/ament_cmake_symlink_install_targets_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install("TARGETS" "pose_command_publisher" "DESTINATION" "lib/robot_config")
+include("/home/a/ws_moveit2/build/robot_config/ament_cmake_symlink_install_targets_3_${CMAKE_INSTALL_CONFIG_NAME}.cmake")

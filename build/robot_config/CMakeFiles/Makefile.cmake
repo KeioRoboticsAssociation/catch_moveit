@@ -1273,6 +1273,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/x86_64-linux-gnu/cmake/spdlog/spdlogConfigTargets-none.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/spdlog/spdlogConfigTargets.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/spdlog/spdlogConfigVersion.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config-version.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets-none.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets.cmake"
   "/usr/lib/x86_64-linux-gnu/console_bridge/cmake/console_bridge-config-version.cmake"
   "/usr/lib/x86_64-linux-gnu/console_bridge/cmake/console_bridge-config.cmake"
   "/usr/lib/x86_64-linux-gnu/console_bridge/cmake/console_bridge-targets-none.cmake"
@@ -1346,6 +1350,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "ament_cmake_symlink_install_targets_0_Release.cmake"
   "ament_cmake_symlink_install_targets_1_Release.cmake"
   "ament_cmake_symlink_install_targets_2_Release.cmake"
+  "ament_cmake_symlink_install_targets_3_Release.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -1356,4 +1361,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/joystick_servo.dir/DependInfo.cmake"
   "CMakeFiles/move_to_pose_cpp.dir/DependInfo.cmake"
   "CMakeFiles/move_to_pose_dual_cpp.dir/DependInfo.cmake"
+  "CMakeFiles/pose_command_publisher.dir/DependInfo.cmake"
   )

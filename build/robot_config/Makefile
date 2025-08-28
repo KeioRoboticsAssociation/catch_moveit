@@ -236,6 +236,19 @@ move_to_pose_dual_cpp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_dual_cpp.dir/build.make CMakeFiles/move_to_pose_dual_cpp.dir/build
 .PHONY : move_to_pose_dual_cpp/fast
 
+#=============================================================================
+# Target rules for targets named pose_command_publisher
+
+# Build rule for target.
+pose_command_publisher: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pose_command_publisher
+.PHONY : pose_command_publisher
+
+# fast build rule for target.
+pose_command_publisher/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/build
+.PHONY : pose_command_publisher/fast
+
 src/joystick_servo.o: src/joystick_servo.cpp.o
 .PHONY : src/joystick_servo.o
 
@@ -308,6 +321,30 @@ src/move_to_pose_dual_cpp.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_dual_cpp.dir/build.make CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.s
 .PHONY : src/move_to_pose_dual_cpp.cpp.s
 
+src/pose_command_publisher.o: src/pose_command_publisher.cpp.o
+.PHONY : src/pose_command_publisher.o
+
+# target to build an object file
+src/pose_command_publisher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/src/pose_command_publisher.cpp.o
+.PHONY : src/pose_command_publisher.cpp.o
+
+src/pose_command_publisher.i: src/pose_command_publisher.cpp.i
+.PHONY : src/pose_command_publisher.i
+
+# target to preprocess a source file
+src/pose_command_publisher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/src/pose_command_publisher.cpp.i
+.PHONY : src/pose_command_publisher.cpp.i
+
+src/pose_command_publisher.s: src/pose_command_publisher.cpp.s
+.PHONY : src/pose_command_publisher.s
+
+# target to generate assembly for a file
+src/pose_command_publisher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/src/pose_command_publisher.cpp.s
+.PHONY : src/pose_command_publisher.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -326,6 +363,7 @@ help:
 	@echo "... joystick_servo"
 	@echo "... move_to_pose_cpp"
 	@echo "... move_to_pose_dual_cpp"
+	@echo "... pose_command_publisher"
 	@echo "... src/joystick_servo.o"
 	@echo "... src/joystick_servo.i"
 	@echo "... src/joystick_servo.s"
@@ -335,6 +373,9 @@ help:
 	@echo "... src/move_to_pose_dual_cpp.o"
 	@echo "... src/move_to_pose_dual_cpp.i"
 	@echo "... src/move_to_pose_dual_cpp.s"
+	@echo "... src/pose_command_publisher.o"
+	@echo "... src/pose_command_publisher.i"
+	@echo "... src/pose_command_publisher.s"
 .PHONY : help
 
 
