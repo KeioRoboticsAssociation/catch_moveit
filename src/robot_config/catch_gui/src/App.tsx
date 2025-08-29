@@ -162,26 +162,36 @@ export default function App() {
 
   const buttonPoseValues = {
     red: {
-    1:"Red_Pose1",
-    2:"Red_Pose2",
-    3:"Red_Pose3",
-    4:"Red_Pose4",
-    5:"Red_Pose5",
-    6:"Red_Pose6",
-    7:"Red_Pose7",
-    8:"Red_Pose8",
-    9:"Red_Pose9",
-    10:"Red_Pose10",
-    11:"Red_Pose11",
-    12:"Red_Pose12",
-    13:"Red_Pose13",
-    14:"Red_Pose14",
-    15:"Red_Pose15",
-    16:"Red_Pose16",
-    17:"Red_Pose17",
-    18:"Red_Pose18",
-    19:"Red_Pose19",
-    20:"Red_Pose20"
+      1:"Red_Pose1",
+      2:"Red_Pose2",
+      3:"Red_Pose3",
+      4:"Red_Pose4",
+      5:"Red_Pose5",
+      6:"Red_Pose6",
+      7:"Red_Pose7",
+      8:"Red_Pose8",
+      9:"Red_Pose9",
+      10:"Red_Pose10",
+      11:"Red_Pose11",
+      12:"Red_Pose12",
+      13:"Red_Pose13",
+      14:"Red_Pose14",
+      15:"Red_Pose15",
+      16:"Red_Pose16",
+      17:"Red_Pose17",
+      18:"Red_Pose18",
+      19:"Red_Pose19",
+      20:"Red_Pose20",
+      21:"Red_Pose21",
+      22:"Red_Pose22",
+      23:"Red_Pose23",
+      24:"Red_Pose24",
+      25:"Red_Pose25",
+      26:"Red_Pose26",
+      27:"Red_Pose27",
+      28:"Red_Pose28",
+      29:"Red_Pose29",
+      30:"Red_Pose30"
     },
     blue: {
       1:"Blue_Pose1",
@@ -203,32 +213,42 @@ export default function App() {
       17:"Blue_Pose17",
       18:"Blue_Pose18",
       19:"Blue_Pose19",
-      20:"Blue_Pose20"
+      20:"Blue_Pose20",
+      21:"Blue_Pose21",
+      22:"Blue_Pose22",
+      23:"Blue_Pose23",
+      24:"Blue_Pose24",
+      25:"Blue_Pose25",
+      26:"Blue_Pose26",
+      27:"Blue_Pose27",
+      28:"Blue_Pose28",
+      29:"Blue_Pose29",
+      30:"Blue_Pose30"
     }
   };
 
   const armPositions = {
-  red: {
-    arm1: {
-      initial: "Red_Left_Initial",
-      goal: "Red_Left_Goal"
+    red: {
+      arm1: {
+        initial: "Red_Left_Initial",
+        goal: "Red_Left_Goal"
+      },
+      arm2: {
+        initial: "Red_Right_Initial",
+        goal: "Red_Right_Goal"
+      }
     },
-    arm2: {
-      initial: "Red_Right_Initial",
-      goal: "Red_Right_Goal"
+    blue: {
+      arm1: {
+        initial: "Blue_Left_Initial",
+        goal: "Blue_Left_Goal"
+      },
+      arm2: {
+        initial: "Blue_Right_Initial",
+        goal: "Blue_Right_Goal"
+      }
     }
-  },
-  blue: {
-    arm1: {
-      initial: "Blue_Left_Initial",
-      goal: "Blue_Left_Goal"
-    },
-    arm2: {
-      initial: "Blue_Right_Initial",
-      goal: "Blue_Right_Goal"
-    }
-  }
-};
+  };
 
   const handleButtonClick = (commandText) => {
     if (publisher.current && connectionStatus === 'Connected') {
@@ -353,7 +373,7 @@ export default function App() {
     }
   };
 
-    // 変更：アーム1初期位置
+  // 変更：アーム1初期位置
   const handleArm1Initial = () => {
     if (posePublisher && connectionStatus === 'Connected') {
       const poseValue = armPositions[backgroundColor].arm1.initial;
@@ -381,7 +401,7 @@ export default function App() {
     }
   };
 
-    // 変更：アーム2初期位置
+  // 変更：アーム2初期位置
   const handleArm2Initial = () => {
     if (posePublisher && connectionStatus === 'Connected') {
       const poseValue = armPositions[backgroundColor].arm2.initial;
@@ -453,7 +473,7 @@ export default function App() {
       
       <div className="pose-grid-container">
         <div className="pose-grid">
-          {Array.from({ length: 20 }).map((_, index) => (
+          {Array.from({ length: 30 }).map((_, index) => (
             <GridButton 
               key={index + 1} 
               buttonNumber={index + 1}
@@ -462,12 +482,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className="subscriber-area">
-        <span className="subscriber-label">📡 Last Published Command:</span>
-        <span className="subscriber-value">
-          {lastReceivedMessage || "---"}
-        </span>
-      </div>
+      
 
       <div className="middle-control-area">
         <div className="arm-control-group">
