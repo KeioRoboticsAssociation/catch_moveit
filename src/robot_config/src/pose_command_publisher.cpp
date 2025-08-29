@@ -76,16 +76,28 @@ private:
             if (config["left_poses"]) {
                 for (const auto& pose : config["left_poses"]) {
                     std::string command = pose.first.as<std::string>();
+                    if (pose.second.IsNull() || !pose.second.IsSequence()) {
+                        RCLCPP_WARN(this->get_logger(), "Skipping left command '%s' - empty or invalid value", command.c_str());
+                        continue;
+                    }
                     auto values = pose.second.as<std::vector<double>>();
                     left_pose_configs_[command] = values;
+                    RCLCPP_DEBUG(this->get_logger(), "Loaded left pose '%s': [%f, %f, %f, %f, %f, %f]", 
+                               command.c_str(), values[0], values[1], values[2], values[3], values[4], values[5]);
                 }
             }
 
             if (config["right_poses"]) {
                 for (const auto& pose : config["right_poses"]) {
                     std::string command = pose.first.as<std::string>();
+                    if (pose.second.IsNull() || !pose.second.IsSequence()) {
+                        RCLCPP_WARN(this->get_logger(), "Skipping command '%s' - empty or invalid value", command.c_str());
+                        continue;
+                    }
                     auto values = pose.second.as<std::vector<double>>();
                     right_pose_configs_[command] = values;
+                    RCLCPP_DEBUG(this->get_logger(), "Loaded right pose '%s': [%f, %f, %f, %f, %f, %f]", 
+                               command.c_str(), values[0], values[1], values[2], values[3], values[4], values[5]);
                 }
             }
 

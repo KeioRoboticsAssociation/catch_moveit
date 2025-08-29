@@ -404,14 +404,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_1_lower_limit",
-            default_value="-1.570796",
+            default_value="-3.141592",
             description="Lower limit for right arm Revolute_1 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_1_upper_limit",
-            default_value="1.570796",
+            default_value="3.141592",
             description="Upper limit for right arm Revolute_1 joint",
         )
     )
@@ -471,7 +471,22 @@ def generate_launch_description():
             description="Upper limit for right arm Slider_2 joint",
         )
     )
+    
+    # Declare argument for box coordinates (24 coordinates per box: 8 corner points with x,y,z each)
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "box_coordinates",
+            default_value="0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0",
+            description="Box coordinates: 24 values per box (8 corner points with x,y,z each). Must be multiple of 24 to create multiple boxes.",
+        )
+    )
 
+    # Initialize Arguments FIRST
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    rviz_config = LaunchConfiguration("rviz_config")
+    field = LaunchConfiguration("field")
+    box_coordinates = LaunchConfiguration("box_coordinates")
+    
     # Initialize arguments for left arm joint limits
     left_Revolute_1_lower_limit = LaunchConfiguration("left_Revolute_1_lower_limit")
     left_Revolute_1_upper_limit = LaunchConfiguration("left_Revolute_1_upper_limit")
@@ -498,7 +513,11 @@ def generate_launch_description():
     
     # Initialize arguments for left arm joint origins
     left_Revolute_1_xyz = LaunchConfiguration("left_Revolute_1_xyz")
-    left_Revolute_1_rpy = LaunchConfiguration("left_Revolute_1_rpy")
+    left_Revolute_1_rpy = PythonExpression([
+        '"0 0 -1.57" if "', field, '" == "red" else ',
+        '"0 0 1.57" if "', field, '" == "blue" else "',
+        LaunchConfiguration("left_Revolute_1_rpy"), '"'
+    ])
     left_Revolute_2_xyz = LaunchConfiguration("left_Revolute_2_xyz")
     left_Revolute_2_rpy = LaunchConfiguration("left_Revolute_2_rpy")
     left_Revolute_3_xyz = LaunchConfiguration("left_Revolute_3_xyz")
@@ -518,7 +537,11 @@ def generate_launch_description():
     
     # Initialize arguments for right arm joint origins
     right_Revolute_1_xyz = LaunchConfiguration("right_Revolute_1_xyz")
-    right_Revolute_1_rpy = LaunchConfiguration("right_Revolute_1_rpy")
+    right_Revolute_1_rpy = PythonExpression([
+        '"0 0 1.57" if "', field, '" == "red" else ',
+        '"0 0 -1.57" if "', field, '" == "blue" else "',
+        LaunchConfiguration("right_Revolute_1_rpy"), '"'
+    ])
     right_Revolute_2_xyz = LaunchConfiguration("right_Revolute_2_xyz")
     right_Revolute_2_rpy = LaunchConfiguration("right_Revolute_2_rpy")
     right_Revolute_3_xyz = LaunchConfiguration("right_Revolute_3_xyz")
@@ -536,20 +559,15 @@ def generate_launch_description():
     right_Slider_2_xyz = LaunchConfiguration("right_Slider_2_xyz")
     right_Slider_2_rpy = LaunchConfiguration("right_Slider_2_rpy")
     
-    # Initialize Arguments
-    use_sim_time = LaunchConfiguration("use_sim_time")
-    rviz_config = LaunchConfiguration("rviz_config")
-    field = LaunchConfiguration("field")
-    
     # Set arm positions dynamically based on field parameter
     left_origin_xyz = PythonExpression([
-        '"1.69 0 0" if "', field, '" == "red" else ',
+        '"1.69 -0.359 0" if "', field, '" == "red" else ',
         '"0 0 0" if "', field, '" == "blue" else "', 
         LaunchConfiguration("left_origin_xyz"), '"'
     ])
     
     right_origin_xyz = PythonExpression([
-        '"1.69 -0.359 0" if "', field, '" == "red" else ',
+        '"1.69 0 0" if "', field, '" == "red" else ',
         '"0 -0.359 0" if "', field, '" == "blue" else "',
         LaunchConfiguration("right_origin_xyz"), '"'
     ])
@@ -572,13 +590,43 @@ def generate_launch_description():
     # Get field value (need to extract from LaunchConfiguration)
     import os
     field_value = os.environ.get('FIELD', 'red')  # Default to red
-    # Check command line arguments for field parameter
+    
+    # Define box coordinates for different field types
+    def get_box_coordinates(field_value):
+        """Get box coordinates based on field parameter"""
+        # Current box_coordinates split into blue (first 24) and red (last 24)
+        full_coordinates = [0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0,1.481994,-0.30428,-0.001,1.481994,-0.30428,-0.001,1.481994,-0.30428,1.0,1.481994,-0.30428,1.0,1.066994,-0.30428,-0.001,1.066994,-0.30428,-0.001,1.066994,-0.30428,1.0,1.066994,-0.30428,1.0]
+        
+        blue_coordinates = full_coordinates[:24]  # First 24 values for blue
+        red_coordinates = full_coordinates[24:]   # Last 24 values for red
+        
+        if field_value == "blue":
+            return blue_coordinates
+        else:
+            return red_coordinates
+    
+    # Get box_coordinates value from command line (or use field-based default)
+    box_coordinates_value = None  # Will be set based on field or command line
+    
+    # Check command line arguments for both field and box_coordinates parameters
     import sys
     for arg in sys.argv:
         if arg.startswith('field:='):
             field_value = arg.split(':=')[1]
-            break
+        elif arg.startswith('box_coordinates:='):
+            box_coordinates_value = arg.split(':=')[1]
     
+    # If no box_coordinates specified via command line, use field-based default
+    if box_coordinates_value is None:
+        box_coordinates_list = get_box_coordinates(field_value)
+    else:
+        # Convert box_coordinates string to list of floats
+        try:
+            box_coordinates_list = [float(x.strip()) for x in box_coordinates_value.split(',')]
+        except ValueError:
+            print(f"Warning: Invalid box_coordinates format: {box_coordinates_value}")
+            # Use field-based default values
+            box_coordinates_list = get_box_coordinates(field_value)
     # Set object positions based on field
     object_mesh_positions = get_object_positions(field_value)
     
@@ -898,10 +946,15 @@ def generate_launch_description():
             {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
             {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
             {"object_mesh_positions": object_mesh_positions},
-            {"box_coordinates": [0.134,-0.180,-0.001,0.134,-0.180,1.0,0.134,-0.179,-0.001,0.134,-0.179,1.0,1.489,-0.180,-0.001,1.489,-0.180,1.0,1.489,-0.179,-0.001,1.489,-0.179,1.0]},  # Example: 1x1x0.2m box from 8 corner points
+            {"box_coordinates": box_coordinates_list},  # Now uses parsed list of coordinates
         ],
     )
 
+    # Get box_coordinates value from command line
+    box_coordinates_value = "0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0"  # Default
+    
+    # Check command line arguments for both field and box_coordinates parameters
+    import sys
     # Node to sort joint states
     joint_states_sorter_node = Node(
         package="robot_config",

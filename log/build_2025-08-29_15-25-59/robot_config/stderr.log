@@ -1,0 +1,13 @@
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:26:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class moveit::planning_interface::MoveGroupInterface[m[K’ {aka ‘[01m[Kclass moveit::planning_interface::MoveGroupInterface[m[K’} has no member named ‘[01m[KsetPlanningFrame[m[K’; did you mean ‘[01m[KgetPlanningFrame[m[K’?
+   26 |             left_move_group_interface_->[01;31m[KsetPlanningFrame[m[K("world");  // Explicitly set planning frame
+      |                                         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                         [32m[KgetPlanningFrame[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:50:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class moveit::planning_interface::MoveGroupInterface[m[K’ {aka ‘[01m[Kclass moveit::planning_interface::MoveGroupInterface[m[K’} has no member named ‘[01m[KsetPlanningFrame[m[K’; did you mean ‘[01m[KgetPlanningFrame[m[K’?
+   50 |             right_move_group_interface_->[01;31m[KsetPlanningFrame[m[K("world");  // Explicitly set planning frame
+      |                                          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                          [32m[KgetPlanningFrame[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:195: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

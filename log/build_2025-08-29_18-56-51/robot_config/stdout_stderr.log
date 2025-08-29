@@ -1,0 +1,15 @@
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 25%] Built target pose_command_publisher
+[ 50%] Built target joystick_servo
+[ 75%] Built target move_to_pose_cpp
+[ 87%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::move_arm_z(const string&, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:400:59:[m[K [01;31m[Kerror: [m[K‘[01m[Kfrom_nanosec[m[K’ is not a member of ‘[01m[Krclcpp::Duration[m[K’
+  400 |                 point.time_from_start = rclcpp::Duration::[01;31m[Kfrom_nanosec[m[K(
+      |                                                           [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:401:71:[m[K [01;31m[Kerror: [m[Kexpression cannot be used as a function
+  401 |                     static_cast<int64_t>([01;31m[Kpoint.time_from_start.nanosec()[m[K / scale_factor));
+      |                                          [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:195: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
