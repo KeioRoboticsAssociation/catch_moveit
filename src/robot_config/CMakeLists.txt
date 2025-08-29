@@ -5,6 +5,7 @@ find_package(ament_cmake REQUIRED)
 
 # Find dependencies
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
 find_package(moveit_servo REQUIRED)
 find_package(moveit_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
@@ -87,10 +88,12 @@ add_executable(move_to_pose_dual_cpp src/move_to_pose_dual_cpp.cpp)
 ament_target_dependencies(
   move_to_pose_dual_cpp
   rclcpp
+  rclcpp_action
   moveit_ros_planning_interface
   geometry_msgs
   std_msgs
   tf2_geometry_msgs
+  control_msgs
 )
 
 # Install the move_to_pose_dual_cpp node

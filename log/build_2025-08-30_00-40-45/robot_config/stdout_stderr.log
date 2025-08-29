@@ -1,0 +1,12 @@
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 25%] Built target pose_command_publisher
+[ 50%] Built target joystick_servo
+[ 75%] Built target move_to_pose_cpp
+[ 87%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:12:10:[m[K [01;31m[Kfatal error: [m[Kcontrol_msgs/action/follow_joint_trajectory.hpp: No such file or directory
+   12 | #include [01;31m[K<control_msgs/action/follow_joint_trajectory.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:195: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

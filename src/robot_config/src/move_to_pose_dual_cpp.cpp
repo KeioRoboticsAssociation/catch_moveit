@@ -8,6 +8,9 @@
 #include <moveit/robot_model_loader/robot_model_loader.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <trajectory_msgs/msg/joint_trajectory.hpp>
+#include <control_msgs/action/follow_joint_trajectory.hpp>
+#include <rclcpp_action/rclcpp_action.hpp>
 #include <thread>
 #include <memory>
 #include <chrono>
@@ -98,6 +101,12 @@ public:
         
         // Initialize PlanningSceneInterface after node initialization
         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+        
+        // Initialize action clients for direct trajectory execution
+        left_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
+            this, "/left_arm_controller/follow_joint_trajectory");
+        right_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
+            this, "/right_arm_controller/follow_joint_trajectory");
     }
 
     ~MoveToPoseDualCpp()
@@ -178,24 +187,68 @@ private:
             return;
         }
 
-        move_group_interface->setPoseTarget(target_pose);
+        // 非同期実行のためのスレッドを作成
+        std::thread([this, move_group_interface, target_pose]() {
+            RCLCPP_INFO(this->get_logger(), "Planning for %s arm asynchronously", move_group_interface->getName().c_str());
+            
+            move_group_interface->setPoseTarget(target_pose);
+            
+            // プランナーをOMPLのRRTConnectに指定
+            move_group_interface->setPlanningPipelineId("ompl");
+            move_group_interface->setPlannerId("RRTConnect");
+
+            moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+            bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+
+            if (success)
+            {
+                std::string arm_name = (move_group_interface->getName() == "left_arm") ? "left" : "right";
+                RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing via direct trajectory.", arm_name.c_str());
+                execute_trajectory_directly(move_group_interface, my_plan, arm_name);  // 直接軌道送信
+            }
+            else
+            {
+                RCLCPP_ERROR(this->get_logger(), "Planning failed for %s.", move_group_interface->getName().c_str());
+            }
+        }).detach();  // スレッドをデタッチして非同期実行
+    }
+
+    void execute_trajectory_directly(
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
+        const moveit::planning_interface::MoveGroupInterface::Plan& plan,
+        const std::string& arm_name)
+    {
+        // アクションクライアントを選択
+        auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
         
-        // プランナーをOMPLのRRTConnectに指定
-        move_group_interface->setPlanningPipelineId("ompl");
-        move_group_interface->setPlannerId("RRTConnect");
-
-        moveit::planning_interface::MoveGroupInterface::Plan my_plan;
-        bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
-
-        if (success)
-        {
-            RCLCPP_INFO(this->get_logger(), "Planner found a plan, executing it.");
-            move_group_interface->execute(my_plan);
+        if (!action_client) {
+            RCLCPP_ERROR(this->get_logger(), "Action client not initialized for %s arm", arm_name.c_str());
+            return;
         }
-        else
-        {
-            RCLCPP_ERROR(this->get_logger(), "Planning failed.");
+
+        // アクションサーバーを待機
+        if (!action_client->wait_for_action_server(std::chrono::seconds(1))) {
+            RCLCPP_ERROR(this->get_logger(), "Action server not available for %s arm", arm_name.c_str());
+            return;
         }
+
+        // ゴールを作成
+        auto goal_msg = FollowJointTrajectory::Goal();
+        goal_msg.trajectory = plan.trajectory_.joint_trajectory;
+
+        // 非同期で送信
+        auto send_goal_options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+        send_goal_options.goal_response_callback =
+            [this, arm_name](auto) {
+                RCLCPP_INFO(this->get_logger(), "Goal accepted by %s arm controller", arm_name.c_str());
+            };
+        send_goal_options.result_callback =
+            [this, arm_name](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
+                RCLCPP_INFO(this->get_logger(), "Trajectory execution completed for %s arm", arm_name.c_str());
+            };
+
+        action_client->async_send_goal(goal_msg, send_goal_options);
+        RCLCPP_INFO(this->get_logger(), "Trajectory sent directly to %s arm controller", arm_name.c_str());
     }
 
     void left_attach_callback(const std_msgs::msg::String::SharedPtr msg)
@@ -379,20 +432,25 @@ private:
         q.setRPY(current_pose_rpy[3], current_pose_rpy[4], current_pose_rpy[5]);
         target_pose.pose.orientation = tf2::toMsg(q);
 
-        // Use Pilz LIN planner for straight line motion
-        move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
-        move_group_interface->setPlannerId("LIN");
-        move_group_interface->setPoseTarget(target_pose);
+        // 非同期実行でz-movementを実行
+        std::thread([this, move_group_interface, target_pose, arm_name]() {
+            RCLCPP_INFO(this->get_logger(), "Planning %s arm z-movement asynchronously", arm_name.c_str());
+            
+            // Use Pilz LIN planner for straight line motion
+            move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
+            move_group_interface->setPlannerId("LIN");
+            move_group_interface->setPoseTarget(target_pose);
 
-        moveit::planning_interface::MoveGroupInterface::Plan my_plan;
-        bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+            moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+            bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
 
-        if (success) {
-            RCLCPP_INFO(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing it.", arm_name.c_str());
-            move_group_interface->execute(my_plan);
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
-        }
+            if (success) {
+                RCLCPP_INFO(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+                execute_trajectory_directly(move_group_interface, my_plan, arm_name);  // 直接軌道送信
+            } else {
+                RCLCPP_ERROR(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+            }
+        }).detach();
     }
 
     void left_arm_open_callback(const std_msgs::msg::String::SharedPtr msg)
@@ -503,6 +561,11 @@ private:
     // Configurable z-coordinate values for arm up/down
     double arm_up_z_value_ = 0.2;   // Absolute z coordinate for arm up position
     double arm_down_z_value_ = 0.086; // Absolute z coordinate for arm down position
+    
+    // Action clients for direct trajectory execution
+    using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
+    rclcpp_action::Client<FollowJointTrajectory>::SharedPtr left_arm_action_client_;
+    rclcpp_action::Client<FollowJointTrajectory>::SharedPtr right_arm_action_client_;
 };
 
 int main(int argc, char *argv[])
