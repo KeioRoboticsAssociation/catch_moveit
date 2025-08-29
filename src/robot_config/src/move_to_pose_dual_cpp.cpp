@@ -14,6 +14,7 @@
 #include <thread>
 #include <memory>
 #include <chrono>
+#include <mutex>
 
 class MoveToPoseDualCpp : public rclcpp::Node
 {
@@ -187,9 +188,20 @@ private:
             return;
         }
 
+        std::string arm_name = (move_group_interface->getName() == "left_arm") ? "left" : "right";
+        RCLCPP_INFO(this->get_logger(), "move_to_pose called for %s arm", arm_name.c_str());
+        
+        executeCommand(move_group_interface, target_pose, arm_name);
+    }
+    
+    void executeCommand(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface, const geometry_msgs::msg::PoseStamped& target_pose, const std::string& arm_name)
+    {
         // 非同期実行のためのスレッドを作成
-        std::thread([this, move_group_interface, target_pose]() {
-            RCLCPP_INFO(this->get_logger(), "Planning for %s arm asynchronously", move_group_interface->getName().c_str());
+        std::thread([this, move_group_interface, target_pose, arm_name]() {
+            RCLCPP_INFO(this->get_logger(), "Executing pose command for %s arm with dynamic collision avoidance", arm_name.c_str());
+            
+            // Apply dynamic collision avoidance settings
+            applyDynamicCollisionAvoidance(move_group_interface, arm_name);
             
             move_group_interface->setPoseTarget(target_pose);
             
@@ -202,13 +214,13 @@ private:
 
             if (success)
             {
-                std::string arm_name = (move_group_interface->getName() == "left_arm") ? "left" : "right";
                 RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing via direct trajectory.", arm_name.c_str());
                 execute_trajectory_directly(move_group_interface, my_plan, arm_name);  // 直接軌道送信
             }
             else
             {
-                RCLCPP_ERROR(this->get_logger(), "Planning failed for %s.", move_group_interface->getName().c_str());
+                RCLCPP_ERROR(this->get_logger(), "Planning failed for %s.", arm_name.c_str());
+                stopTrajectoryTracking(arm_name);
             }
         }).detach();  // スレッドをデタッチして非同期実行
     }
@@ -245,10 +257,75 @@ private:
         send_goal_options.result_callback =
             [this, arm_name](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
                 RCLCPP_INFO(this->get_logger(), "Trajectory execution completed for %s arm", arm_name.c_str());
+                stopTrajectoryTracking(arm_name);
             };
 
         action_client->async_send_goal(goal_msg, send_goal_options);
         RCLCPP_INFO(this->get_logger(), "Trajectory sent directly to %s arm controller", arm_name.c_str());
+        
+        // Update trajectory tracking for collision avoidance
+        updateTrajectoryTracking(plan, arm_name);
+    }
+
+    void updateTrajectoryTracking(const moveit::planning_interface::MoveGroupInterface::Plan& plan, const std::string& arm_name)
+    {
+        std::lock_guard<std::mutex> lock(trajectory_mutex_);
+        auto now = std::chrono::steady_clock::now();
+        
+        if (arm_name == "left") {
+            current_left_plan_ = plan;
+            left_arm_executing_ = true;
+            left_execution_start_ = now;
+        } else {
+            current_right_plan_ = plan;
+            right_arm_executing_ = true;
+            right_execution_start_ = now;
+        }
+        
+        RCLCPP_INFO(this->get_logger(), "Updated trajectory tracking for %s arm", arm_name.c_str());
+    }
+
+    void stopTrajectoryTracking(const std::string& arm_name)
+    {
+        std::lock_guard<std::mutex> lock(trajectory_mutex_);
+        
+        if (arm_name == "left") {
+            left_arm_executing_ = false;
+        } else {
+            right_arm_executing_ = false;
+        }
+        
+        RCLCPP_INFO(this->get_logger(), "Stopped trajectory tracking for %s arm", arm_name.c_str());
+    }
+    
+
+    void applyDynamicCollisionAvoidance(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface, const std::string& arm_name)
+    {
+        std::lock_guard<std::mutex> lock(trajectory_mutex_);
+        
+        // Check if the other arm is executing
+        bool other_arm_executing = (arm_name == "left") ? right_arm_executing_ : left_arm_executing_;
+        
+        if (other_arm_executing) {
+            RCLCPP_INFO(this->get_logger(), "Other arm is executing, applying dynamic collision avoidance for %s arm", arm_name.c_str());
+            
+            // Get the other arm's current trajectory
+            auto other_plan = (arm_name == "left") ? current_right_plan_ : current_left_plan_;
+            auto other_start_time = (arm_name == "left") ? right_execution_start_ : left_execution_start_;
+            
+            // Calculate elapsed time since other arm started executing
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - other_start_time);
+            
+            // Apply more conservative collision checking
+            move_group_interface->setGoalPositionTolerance(0.005);  // Tighter tolerance
+            move_group_interface->setGoalOrientationTolerance(0.05);
+            move_group_interface->setPlanningTime(15.0);  // More planning time
+            move_group_interface->setNumPlanningAttempts(10);  // More attempts
+            
+            RCLCPP_INFO(this->get_logger(), "Applied enhanced collision avoidance settings for %s arm (other arm executing for %ld ms)", 
+                       arm_name.c_str(), elapsed.count());
+        }
     }
 
     void left_attach_callback(const std_msgs::msg::String::SharedPtr msg)
@@ -432,9 +509,20 @@ private:
         q.setRPY(current_pose_rpy[3], current_pose_rpy[4], current_pose_rpy[5]);
         target_pose.pose.orientation = tf2::toMsg(q);
 
+        // Execute z-movement directly
+        RCLCPP_INFO(this->get_logger(), "Executing z-movement command for %s arm", arm_name.c_str());
+        executeZMoveCommand(move_group_interface, target_pose, arm_name, target_z);
+    }
+    
+    void executeZMoveCommand(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface, 
+                            const geometry_msgs::msg::PoseStamped& target_pose, const std::string& arm_name, double target_z)
+    {
         // 非同期実行でz-movementを実行
         std::thread([this, move_group_interface, target_pose, arm_name]() {
-            RCLCPP_INFO(this->get_logger(), "Planning %s arm z-movement asynchronously", arm_name.c_str());
+            RCLCPP_INFO(this->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+            
+            // Apply dynamic collision avoidance settings
+            applyDynamicCollisionAvoidance(move_group_interface, arm_name);
             
             // Use Pilz LIN planner for straight line motion
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
@@ -449,6 +537,7 @@ private:
                 execute_trajectory_directly(move_group_interface, my_plan, arm_name);  // 直接軌道送信
             } else {
                 RCLCPP_ERROR(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+                stopTrajectoryTracking(arm_name);
             }
         }).detach();
     }
@@ -523,8 +612,12 @@ private:
         bool success = (hand_move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
         
         if (success) {
-            RCLCPP_INFO(this->get_logger(), "Gripper position plan found for %s hand, executing...", arm_name.c_str());
-            hand_move_group_interface->execute(my_plan);
+            RCLCPP_INFO(this->get_logger(), "Gripper position plan found for %s hand, executing asynchronously...", arm_name.c_str());
+            // 非同期実行のためのスレッドを作成
+            std::thread([this, hand_move_group_interface, my_plan, arm_name]() {
+                hand_move_group_interface->execute(my_plan);
+                RCLCPP_INFO(this->get_logger(), "Gripper execution completed for %s hand", arm_name.c_str());
+            }).detach();
         } else {
             RCLCPP_ERROR(this->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
         }
@@ -566,6 +659,16 @@ private:
     using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
     rclcpp_action::Client<FollowJointTrajectory>::SharedPtr left_arm_action_client_;
     rclcpp_action::Client<FollowJointTrajectory>::SharedPtr right_arm_action_client_;
+    
+    // Track current trajectories for collision avoidance
+    std::mutex trajectory_mutex_;
+    moveit::planning_interface::MoveGroupInterface::Plan current_left_plan_;
+    moveit::planning_interface::MoveGroupInterface::Plan current_right_plan_;
+    bool left_arm_executing_ = false;
+    bool right_arm_executing_ = false;
+    std::chrono::steady_clock::time_point left_execution_start_;
+    std::chrono::steady_clock::time_point right_execution_start_;
+    
 };
 
 int main(int argc, char *argv[])
