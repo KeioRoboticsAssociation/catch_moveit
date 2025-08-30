@@ -1,1 +1,50 @@
-/home/a/ws_moveit2/src/robot_config/config/dual_arm_moveit_controllers.yaml
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - left_arm_controller
+    - right_arm_controller
+    - left_hand_controller
+    - right_hand_controller
+
+  left_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - left_Revolute_1
+      - left_Revolute_2
+      - left_Revolute_3
+      - left_Revolute_4
+      - left_Revolute_5
+      - left_Revolute_6
+
+  right_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - right_Revolute_1
+      - right_Revolute_2
+      - right_Revolute_3
+      - right_Revolute_4
+      - right_Revolute_5
+      - right_Revolute_6
+
+  left_hand_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - left_Slider_1
+      - left_Slider_2
+
+  right_hand_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - right_Slider_1
+      - right_Slider_2

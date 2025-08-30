@@ -1,0 +1,42 @@
+[0.011s] Invoking command in '/home/a/ws_moveit2/build/realsense2_camera': AMENT_PREFIX_PATH=/home/a/ws_moveit2/install/realsense2_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/a/ws_moveit2/install/realsense2_camera_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/a/ws_moveit2/install/realsense2_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/a/ws_moveit2/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/a/ws_moveit2/build/realsense2_camera -- -j22 -l22
+[0.056s] [  7%] Built target gtest
+[0.056s] [ 15%] Built target gtest_main
+[0.057s] [ 23%] Built target realsense2_camera_node
+[0.074s] [ 30%] Built target gtest_template
+[0.083s] Consolidate compiler generated dependencies of target realsense2_camera
+[0.103s] [ 38%] Building CXX object CMakeFiles/realsense2_camera.dir/src/base_realsense_node.cpp.o
+[0.103s] [ 38%] Building CXX object CMakeFiles/realsense2_camera.dir/src/safety.cpp.o
+[0.103s] [ 42%] Building CXX object CMakeFiles/realsense2_camera.dir/src/rs_node_setup.cpp.o
+[3.055s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:719:5: error: expected unqualified-id before ‘if’
+[3.055s]   719 |     if (_synced_imu_publisher)
+[3.055s]       |     ^~
+[3.055s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:721:1: error: expected declaration before ‘}’ token
+[3.055s]   721 | } // frame_callback
+[3.055s]       | ^
+[3.080s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp: In member function ‘bool realsense2_camera::BaseRealSenseNode::shouldPublishCameraInfo(const stream_index_pair&)’:
+[3.080s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:936:22: warning: unused variable ‘stream’ [-Wunused-variable]
+[3.080s]   936 |     const rs2_stream stream = sip.first;
+[3.080s]       |                      ^~~~~~
+[3.080s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp: At global scope:
+[3.080s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:941:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::publishOccupancyFrame(rs2::frame, const rclcpp::Time&)’
+[3.080s]   941 | void BaseRealSenseNode::publishOccupancyFrame(rs2::frame f, const rclcpp::Time& t)
+[3.080s]       |      ^~~~~~~~~~~~~~~~~
+[3.080s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:941:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::publishOccupancyFrame(rs2::frame, const rclcpp::Time&)’
+[3.080s] In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:15:
+[3.080s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+[3.080s]   133 |     class BaseRealSenseNode
+[3.080s]       |           ^~~~~~~~~~~~~~~~~
+[3.080s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:6: error: variable or field ‘publishLabeledPointCloud’ declared void
+[3.081s]   947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+[3.081s]       |      ^~~~~~~~~~~~~~~~~
+[3.081s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:55: error: ‘labeled_points’ is not a member of ‘rs2’
+[3.081s]   947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+[3.081s]       |                                                       ^~~~~~~~~~~~~~
+[3.081s] /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:75: error: expected primary-expression before ‘const’
+[3.081s]   947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+[3.081s]       |                                                                           ^~~~~
+[6.623s] gmake[2]: *** [CMakeFiles/realsense2_camera.dir/build.make:90: CMakeFiles/realsense2_camera.dir/src/base_realsense_node.cpp.o] Error 1
+[6.623s] gmake[2]: *** Waiting for unfinished jobs....
+[19.041s] gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/realsense2_camera.dir/all] Error 2
+[19.041s] gmake: *** [Makefile:146: all] Error 2
+[19.045s] Invoked command in '/home/a/ws_moveit2/build/realsense2_camera' returned '2': AMENT_PREFIX_PATH=/home/a/ws_moveit2/install/realsense2_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/a/ws_moveit2/install/realsense2_camera_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/a/ws_moveit2/install/realsense2_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/a/ws_moveit2/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/a/ws_moveit2/build/realsense2_camera -- -j22 -l22

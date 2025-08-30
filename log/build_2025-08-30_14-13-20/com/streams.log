@@ -1,0 +1,10 @@
+[0.217s] Invoking command in '/home/a/ws_moveit2/build/com': /usr/bin/cmake --build /home/a/ws_moveit2/build/com -- -j22 -l22
+[0.784s] [ 50%] [32mBuilding CXX object CMakeFiles/COMIntegration.dir/COMIntegration.cpp.o[0m
+[0.784s] [01m[K/home/a/ws_moveit2/src/catch_unity/Library/PackageCache/com.unity.ide.visualstudio@2.0.22/Editor/COMIntegration/COMIntegration~/COMIntegration.cpp:11:10:[m[K [01;31m[Kfatal error: [m[Kwindows.h: No such file or directory
+[0.784s]    11 | #include [01;31m[K<windows.h>[m[K
+[0.784s]       |          [01;31m[K^~~~~~~~~~~[m[K
+[0.784s] compilation terminated.
+[0.784s] gmake[2]: *** [CMakeFiles/COMIntegration.dir/build.make:76: CMakeFiles/COMIntegration.dir/COMIntegration.cpp.o] Error 1
+[0.784s] gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/COMIntegration.dir/all] Error 2
+[0.785s] gmake: *** [Makefile:91: all] Error 2
+[0.806s] Invoked command in '/home/a/ws_moveit2/build/com' returned '2': /usr/bin/cmake --build /home/a/ws_moveit2/build/com -- -j22 -l22

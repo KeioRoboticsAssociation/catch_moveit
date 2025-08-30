@@ -1,1 +1,0 @@
-/home/a/ws_moveit2/src/robot_config/src/set_initial_pose.py

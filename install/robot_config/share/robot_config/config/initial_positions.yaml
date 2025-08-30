@@ -1,1 +1,11 @@
-/home/a/ws_moveit2/src/robot_config/config/initial_positions.yaml
+# Default initial positions for arm's ros2_control fake system
+
+initial_positions:
+  Revolute_1: 0.0
+  Revolute_2: 0.0
+  Revolute_3: 0.0
+  Revolute_4: 0.0
+  Revolute_5: 1.57
+  Revolute_6: 0.0
+  Slider_1: 0.0
+  Slider_2: 0.0

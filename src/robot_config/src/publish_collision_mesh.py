@@ -312,7 +312,7 @@ class CollisionMeshPublisher(Node):
                     self.get_logger().info(f'Publishing object collision mesh {idx} (ID: {collision_object.id}) at position ({px}, {py}, {pz}) with yaw {yaw_deg} degrees')
                     
                     # Small delay between object meshes
-                    time.sleep(0.5)
+                    time.sleep(0.75)
 
         # 3. Publish box primitive objects from 8 corner coordinates
         if box_coordinates:

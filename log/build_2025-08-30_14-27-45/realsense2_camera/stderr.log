@@ -1,0 +1,145 @@
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:32:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::readSafetyPreset(std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetRead_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetRead_Response_<std::allocator<void> > >)’
+   32 | void BaseRealSenseNode::readSafetyPreset(const std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetRead::Request> req,
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:32:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::readSafetyPreset(std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetRead_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetRead_Response_<std::allocator<void> > >)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:39:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::writeSafetyPreset(std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetWrite_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetWrite_Response_<std::allocator<void> > >)’
+   39 | void BaseRealSenseNode::writeSafetyPreset(const std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetWrite::Request> req,
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:39:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::writeSafetyPreset(std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetWrite_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyPresetWrite_Response_<std::allocator<void> > >)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:46:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::readSafetyInterfaceConfig(std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigRead_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigRead_Response_<std::allocator<void> > >)’
+   46 | void BaseRealSenseNode::readSafetyInterfaceConfig(const std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigRead::Request> req,
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:46:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::readSafetyInterfaceConfig(std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigRead_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigRead_Response_<std::allocator<void> > >)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:53:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::writeSafetyInterfaceConfig(std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigWrite_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigWrite_Response_<std::allocator<void> > >)’
+   53 | void BaseRealSenseNode::writeSafetyInterfaceConfig(const std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigWrite::Request> req,
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:53:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::writeSafetyInterfaceConfig(std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigWrite_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::SafetyInterfaceConfigWrite_Response_<std::allocator<void> > >)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:60:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::readApplicationConfig(std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigRead_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigRead_Response_<std::allocator<void> > >)’
+   60 | void BaseRealSenseNode::readApplicationConfig(const std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigRead::Request> req,
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:60:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::readApplicationConfig(std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigRead_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigRead_Response_<std::allocator<void> > >)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:67:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::writeApplicationConfig(std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigWrite_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigWrite_Response_<std::allocator<void> > >)’
+   67 | void BaseRealSenseNode::writeApplicationConfig(const std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigWrite::Request> req,
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:67:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::writeApplicationConfig(std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigWrite_Request_<std::allocator<void> > >, std::shared_ptr<realsense2_camera_msgs::srv::ApplicationConfigWrite_Response_<std::allocator<void> > >)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/safety.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:719:5: error: expected unqualified-id before ‘if’
+  719 |     if (_synced_imu_publisher)
+      |     ^~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:721:1: error: expected declaration before ‘}’ token
+  721 | } // frame_callback
+      | ^
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp: In member function ‘bool realsense2_camera::BaseRealSenseNode::shouldPublishCameraInfo(const stream_index_pair&)’:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:936:22: warning: unused variable ‘stream’ [-Wunused-variable]
+  936 |     const rs2_stream stream = sip.first;
+      |                      ^~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp: At global scope:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:941:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::publishOccupancyFrame(rs2::frame, const rclcpp::Time&)’
+  941 | void BaseRealSenseNode::publishOccupancyFrame(rs2::frame f, const rclcpp::Time& t)
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:941:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::publishOccupancyFrame(rs2::frame, const rclcpp::Time&)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:6: error: variable or field ‘publishLabeledPointCloud’ declared void
+  947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:55: error: ‘labeled_points’ is not a member of ‘rs2’
+  947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+      |                                                       ^~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:75: error: expected primary-expression before ‘const’
+  947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+      |                                                                           ^~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp: In member function ‘void realsense2_camera::BaseRealSenseNode::publishFrame(rs2::frame, const rclcpp::Time&, const stream_index_pair&, std::map<std::pair<rs2_stream, int>, cv::Mat>&, const std::map<std::pair<rs2_stream, int>, std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::CameraInfo_<std::allocator<void> > > > >&, const std::map<std::pair<rs2_stream, int>, std::shared_ptr<realsense2_camera::image_publisher> >&, bool)’:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:1080:28: error: ‘RS2_STREAM_OCCUPANCY’ was not declared in this scope; did you mean ‘RS2_STREAM_COUNT’?
+ 1080 |         if(stream.first == RS2_STREAM_OCCUPANCY)
+      |                            ^~~~~~~~~~~~~~~~~~~~
+      |                            RS2_STREAM_COUNT
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp: In member function ‘void realsense2_camera::BaseRealSenseNode::setAvailableSensors()’:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:171:28: error: ‘safety_sensor’ is not a member of ‘rs2’; did you mean ‘pose_sensor’?
+  171 |             sensor.is<rs2::safety_sensor>() ||
+      |                            ^~~~~~~~~~~~~
+      |                            pose_sensor
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:171:42: error: no matching function for call to ‘rs2::sensor::is<<expression error> >()’
+  171 |             sensor.is<rs2::safety_sensor>() ||
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+In file included from /opt/ros/humble/include/librealsense2/hpp/rs_device.hpp:8,
+                 from /opt/ros/humble/include/librealsense2/hpp/rs_record_playback.hpp:8,
+                 from /opt/ros/humble/include/librealsense2/hpp/rs_context.hpp:8,
+                 from /opt/ros/humble/include/librealsense2/rs.hpp:9,
+                 from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:17,
+                 from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:15:
+/opt/ros/humble/include/librealsense2/hpp/rs_sensor.hpp:326:14: note: candidate: ‘template<class T> bool rs2::sensor::is() const’
+  326 |         bool is() const
+      |              ^~
+/opt/ros/humble/include/librealsense2/hpp/rs_sensor.hpp:326:14: note:   template argument deduction/substitution failed:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:171:42: error: template argument 1 is invalid
+  171 |             sensor.is<rs2::safety_sensor>() ||
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:172:28: error: ‘depth_mapping_sensor’ is not a member of ‘rs2’
+  172 |             sensor.is<rs2::depth_mapping_sensor>())
+      |                            ^~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:172:49: error: no matching function for call to ‘rs2::sensor::is<<expression error> >()’
+  172 |             sensor.is<rs2::depth_mapping_sensor>())
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+In file included from /opt/ros/humble/include/librealsense2/hpp/rs_device.hpp:8,
+                 from /opt/ros/humble/include/librealsense2/hpp/rs_record_playback.hpp:8,
+                 from /opt/ros/humble/include/librealsense2/hpp/rs_context.hpp:8,
+                 from /opt/ros/humble/include/librealsense2/rs.hpp:9,
+                 from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:17,
+                 from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:15:
+/opt/ros/humble/include/librealsense2/hpp/rs_sensor.hpp:326:14: note: candidate: ‘template<class T> bool rs2::sensor::is() const’
+  326 |         bool is() const
+      |              ^~
+/opt/ros/humble/include/librealsense2/hpp/rs_sensor.hpp:326:14: note:   template argument deduction/substitution failed:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:172:49: error: template argument 1 is invalid
+  172 |             sensor.is<rs2::depth_mapping_sensor>())
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:1082:44: error: ‘RS2_FRAME_METADATA_OCCUPANCY_GRID_ROWS’ was not declared in this scope; did you mean ‘RS2_FRAME_METADATA_SEQUENCE_ID’?
+ 1082 |             if (!f.supports_frame_metadata(RS2_FRAME_METADATA_OCCUPANCY_GRID_ROWS) ||
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                            RS2_FRAME_METADATA_SEQUENCE_ID
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp: In member function ‘void realsense2_camera::BaseRealSenseNode::stopPublishers(const std::vector<rs2::stream_profile>&)’:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:211:41: error: ‘RS2_STREAM_LABELED_POINT_CLOUD’ was not declared in this scope
+  211 |             if(profile.stream_type() == RS2_STREAM_LABELED_POINT_CLOUD && _labeled_pointcloud_publisher)
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:1083:44: error: ‘RS2_FRAME_METADATA_OCCUPANCY_GRID_COLUMNS’ was not declared in this scope
+ 1083 |                 !f.supports_frame_metadata(RS2_FRAME_METADATA_OCCUPANCY_GRID_COLUMNS))
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:1086:59: error: ‘RS2_FRAME_METADATA_OCCUPANCY_GRID_COLUMNS’ was not declared in this scope
+ 1086 |             width = static_cast<int>(f.get_frame_metadata(RS2_FRAME_METADATA_OCCUPANCY_GRID_COLUMNS));
+      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/realsense2_camera.dir/build.make:286: CMakeFiles/realsense2_camera.dir/src/safety.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:1087:60: error: ‘RS2_FRAME_METADATA_OCCUPANCY_GRID_ROWS’ was not declared in this scope; did you mean ‘RS2_FRAME_METADATA_SEQUENCE_ID’?
+ 1087 |             height = static_cast<int>(f.get_frame_metadata(RS2_FRAME_METADATA_OCCUPANCY_GRID_ROWS));
+      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                            RS2_FRAME_METADATA_SEQUENCE_ID
+gmake[2]: *** [CMakeFiles/realsense2_camera.dir/build.make:90: CMakeFiles/realsense2_camera.dir/src/base_realsense_node.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/realsense2_camera.dir/build.make:118: CMakeFiles/realsense2_camera.dir/src/rs_node_setup.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/realsense2_camera.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

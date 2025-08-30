@@ -1,7 +1,7 @@
 import os
 import yaml
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription, ExecuteProcess
+from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription, ExecuteProcess, TimerAction
 from launch.event_handlers import OnProcessStart
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -834,6 +834,15 @@ def generate_launch_description():
         output="log",
         arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "left_base_link"],
     )
+    
+    # Static TF for camera
+    camera_static_tf = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="camera_static_transform_publisher",
+        output="log",
+        arguments=["0.0", "0.0", "1.5", "0.0", "0.0", "0.0", "world", "camera_link"],
+    )
 
     # Servo node for realtime control (configured for left arm)
     servo_node = Node(
@@ -926,28 +935,30 @@ def generate_launch_description():
             moveit_config.robot_description_kinematics,
         ],
     )
-    
-    # Node to set initial pose
-    set_initial_pose_node = Node(
-        package="robot_config",
-        executable="set_initial_pose_fixed.py",
-        name="set_initial_pose",
-        output="screen",
-    )
 
-    # Node to publish collision mesh
-    publish_collision_mesh_node = Node(
-        package="robot_config",
-        executable="publish_collision_mesh.py",
-        name="publish_collision_mesh",
-        output="screen",
-        parameters=[
-            {"field": field},
-            {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
-            {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
-            {"object_mesh_positions": object_mesh_positions},
-            {"box_coordinates": box_coordinates_list},  # Now uses parsed list of coordinates
-        ],
+    # Node to publish collision mesh (optimized for reliable mesh display)
+    publish_collision_mesh_node = TimerAction(
+        period=5.0,  # 5 second delay to ensure stable initialization
+        actions=[
+            Node(
+                package="robot_config",
+                executable="publish_collision_mesh.py",
+                name="publish_collision_mesh",
+                output="screen",
+                parameters=[
+                    {"field": field},
+                    {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
+                    {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
+                    {"object_mesh_positions": object_mesh_positions},
+                    {"box_coordinates": box_coordinates_list},  # Now uses parsed list of coordinates
+                    {"continuous_publishing": True},  # Enable continuous republishing
+                    {"republish_interval": 3.0},  # Republish every 3 seconds
+                    {"initial_republishes": 5},  # Publish 5 times initially to ensure visibility
+                    {"initial_republish_interval": 1.0},  # 1 second between initial publishes
+                    {"retry_on_failure": True},  # Retry if publishing fails
+                ],
+            )
+        ]
     )
 
     # Get box_coordinates value from command line
@@ -1000,6 +1011,23 @@ def generate_launch_description():
         output="screen",
     )
 
+    # RealSense camera launch
+    realsense_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare("realsense2_camera"),
+                "launch",
+                "rs_launch.py"
+            ])
+        ]),
+        launch_arguments={
+            "camera_namespace": "camera",
+            "align_depth.enable": "true",
+            "enable_sync": "true",
+            "pointcloud.enable": "true",
+        }.items()
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -1015,14 +1043,15 @@ def generate_launch_description():
             teleop_node,
             # move_to_pose_cpp_node,
             move_to_pose_dual_cpp_node, # Add the new dual arm node
-            publish_collision_mesh_node,
             joint_states_sorter_node,  # Add the joint states sorter node
-            set_initial_pose_node,  # Add the initial pose setter node
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,
             ros_tcp_endpoint,  # Add the ROS TCP Endpoint for Unity
             npm_run_dev,
             pose_command_publisher_node,  # Add pose command publisher node
+            realsense_launch,  # Add RealSense camera launch
+            camera_static_tf,  # Add camera static transform
+            publish_collision_mesh_node,
         ]
     )

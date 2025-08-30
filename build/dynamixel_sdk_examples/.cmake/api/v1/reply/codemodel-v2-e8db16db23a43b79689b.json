@@ -1,0 +1,160 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-1bcb5efa3b5b370d8135.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "dynamixel_sdk_examples",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_sdk_examples_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_sdk_examples_uninstall-0662be15ebda19848b58.json",
+					"name" : "dynamixel_sdk_examples_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pub_current_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pub_current_node-2f6b20919c1d6f65f9f3.json",
+					"name" : "pub_current_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pub_current_pos_v1_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pub_current_pos_v1_node-c6fb58e95cb5d796b7e2.json",
+					"name" : "pub_current_pos_v1_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pub_current_pos_v2_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pub_current_pos_v2_node-9b238cb46d5ab2c4cf90.json",
+					"name" : "pub_current_pos_v2_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pub_position_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pub_position_node-ac97209805683a3058a4.json",
+					"name" : "pub_position_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pub_velocity_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pub_velocity_node-0c39515add6a2fca78e9.json",
+					"name" : "pub_velocity_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "read_write_current_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-read_write_current_node-438828235463a6b7be7f.json",
+					"name" : "read_write_current_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "read_write_current_pos_v1_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-read_write_current_pos_v1_node-745252af61974978d8f5.json",
+					"name" : "read_write_current_pos_v1_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "read_write_current_pos_v2_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-read_write_current_pos_v2_node-168d57951522bf677ff7.json",
+					"name" : "read_write_current_pos_v2_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "read_write_position_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-read_write_position_node-359a07d8a620acd658a6.json",
+					"name" : "read_write_position_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "read_write_velocity_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-read_write_velocity_node-71f4144d31053a4470c2.json",
+					"name" : "read_write_velocity_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-38f036d2ee82dec80395.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/a/ws_moveit2/build/dynamixel_sdk_examples",
+		"source" : "/home/a/ws_moveit2/src/dynamixel_ros2/DynamixelSDK/dynamixel_sdk_examples"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

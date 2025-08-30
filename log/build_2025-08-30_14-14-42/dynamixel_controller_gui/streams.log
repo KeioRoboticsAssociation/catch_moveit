@@ -1,0 +1,21 @@
+[14.110s] Invoking command in '/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller_gui': AMENT_PREFIX_PATH=/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk LD_LIBRARY_PATH=/home/a/ws_moveit2/install/dynamixel_controller/lib:/home/a/ws_moveit2/install/dynamixel_sdk/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/a/ws_moveit2/build/dynamixel_controller_gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages:/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dynamixel_controller_gui build --build-base /home/a/ws_moveit2/build/dynamixel_controller_gui/build install --record /home/a/ws_moveit2/build/dynamixel_controller_gui/install.log --single-version-externally-managed install_data
+[17.238s] running egg_info
+[17.275s] writing ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/PKG-INFO
+[17.277s] writing dependency_links to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/dependency_links.txt
+[17.287s] writing entry points to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/entry_points.txt
+[17.290s] writing requirements to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/requires.txt
+[17.290s] writing top-level names to ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/top_level.txt
+[17.344s] reading manifest file '../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/SOURCES.txt'
+[17.383s] writing manifest file '../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info/SOURCES.txt'
+[17.383s] running build
+[17.384s] running build_py
+[17.384s] running install
+[17.399s] running install_lib
+[17.421s] running install_data
+[17.427s] running install_egg_info
+[17.465s] removing '/home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui-0.0.0-py3.10.egg-info' (and everything under it)
+[17.470s] Copying ../../../build/dynamixel_controller_gui/dynamixel_controller_gui.egg-info to /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages/dynamixel_controller_gui-0.0.0-py3.10.egg-info
+[17.509s] running install_scripts
+[17.965s] Installing dynamixel_gui script to /home/a/ws_moveit2/install/dynamixel_controller_gui/lib/dynamixel_controller_gui
+[17.977s] writing list of installed files to '/home/a/ws_moveit2/build/dynamixel_controller_gui/install.log'
+[18.601s] Invoked command in '/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller_gui' returned '0': AMENT_PREFIX_PATH=/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk LD_LIBRARY_PATH=/home/a/ws_moveit2/install/dynamixel_controller/lib:/home/a/ws_moveit2/install/dynamixel_sdk/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/a/ws_moveit2/build/dynamixel_controller_gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages:/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dynamixel_controller_gui build --build-base /home/a/ws_moveit2/build/dynamixel_controller_gui/build install --record /home/a/ws_moveit2/build/dynamixel_controller_gui/install.log --single-version-externally-managed install_data

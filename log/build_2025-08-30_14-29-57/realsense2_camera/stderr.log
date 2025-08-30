@@ -1,0 +1,32 @@
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:719:5: error: expected unqualified-id before ‘if’
+  719 |     if (_synced_imu_publisher)
+      |     ^~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:721:1: error: expected declaration before ‘}’ token
+  721 | } // frame_callback
+      | ^
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp: In member function ‘bool realsense2_camera::BaseRealSenseNode::shouldPublishCameraInfo(const stream_index_pair&)’:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:936:22: warning: unused variable ‘stream’ [-Wunused-variable]
+  936 |     const rs2_stream stream = sip.first;
+      |                      ^~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp: At global scope:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:941:6: error: no declaration matches ‘void realsense2_camera::BaseRealSenseNode::publishOccupancyFrame(rs2::frame, const rclcpp::Time&)’
+  941 | void BaseRealSenseNode::publishOccupancyFrame(rs2::frame f, const rclcpp::Time& t)
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:941:6: note: no functions named ‘void realsense2_camera::BaseRealSenseNode::publishOccupancyFrame(rs2::frame, const rclcpp::Time&)’
+In file included from /home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:15:
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/../include/base_realsense_node.h:133:11: note: ‘class realsense2_camera::BaseRealSenseNode’ defined here
+  133 |     class BaseRealSenseNode
+      |           ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:6: error: variable or field ‘publishLabeledPointCloud’ declared void
+  947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+      |      ^~~~~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:55: error: ‘labeled_points’ is not a member of ‘rs2’
+  947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+      |                                                       ^~~~~~~~~~~~~~
+/home/a/ws_moveit2/src/realsense-ros/realsense2_camera/src/base_realsense_node.cpp:947:75: error: expected primary-expression before ‘const’
+  947 | void BaseRealSenseNode::publishLabeledPointCloud(rs2::labeled_points lpc, const rclcpp::Time& t)
+      |                                                                           ^~~~~
+gmake[2]: *** [CMakeFiles/realsense2_camera.dir/build.make:90: CMakeFiles/realsense2_camera.dir/src/base_realsense_node.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:159: CMakeFiles/realsense2_camera.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
