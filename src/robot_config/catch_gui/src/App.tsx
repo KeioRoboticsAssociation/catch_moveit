@@ -34,6 +34,7 @@ export default function App() {
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
+  const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
 
   const ros = useRef(null);
   const publisher = useRef(null);
@@ -436,6 +437,18 @@ export default function App() {
     setBackgroundColor(prevColor => prevColor === "red" ? "blue" : "red");
   };
 
+  const toggleArm = () => {
+    setSelectedArm(prevArm => prevArm === "left" ? "right" : "left");
+  };
+
+  const getVisiblePoses = () => {
+    if (selectedArm === "left") {
+      return [1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 21, 22, 23, 24, 25];
+    } else {
+      return [6, 7, 8, 9, 10, 16, 17, 18, 19, 20, 26, 27, 28, 29, 30];
+    }
+  };
+
   const GridButton = ({ buttonNumber }) => (
     <button 
       className="grid-button"
@@ -642,6 +655,12 @@ export default function App() {
             </span>
           </p>
           <button 
+            className="toggle-button arm-toggle"
+            onClick={toggleArm}
+          >
+            🦾 Arm: {selectedArm === "left" ? "左" : "右"}
+          </button>
+          <button 
             className="toggle-button"
             onClick={toggleBackgroundColor}
           >
@@ -651,128 +670,129 @@ export default function App() {
       </header>
       
       <div className="pose-grid-container">
-        <div className="pose-grid">
-          {Array.from({ length: 30 }).map((_, index) => (
-            <GridButton 
-              key={index + 1} 
-              buttonNumber={index + 1}
-            />
-          ))}
-        </div>
-      </div>
-
-      
-
-      <div className="middle-control-area">
-        <div className="arm-control-group">
-          <h3 className="arm-control-title">🦾 左アーム</h3>
-          <div className="up-down-buttons">
-            <button 
-              className="up-down-button up-button"
-              onClick={handleArm1UpButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬆️ UP
-            </button>
-            <button 
-              className="up-down-button down-button"
-              onClick={handleArm1DownButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬇️ DOWN
-            </button>
+        <div className="pose-grid-with-controls">
+          <div className="pose-grid">
+            {getVisiblePoses().map((buttonNumber) => (
+              <GridButton 
+                key={buttonNumber} 
+                buttonNumber={buttonNumber}
+              />
+            ))}
           </div>
-        </div>
-        
-        <div className="arm-control-group">
-          <h3 className="arm-control-title">🦾 右アーム</h3>
-          <div className="up-down-buttons">
-            <button 
-              className="up-down-button up-button"
-              onClick={handleArm2UpButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬆️ UP
-            </button>
-            <button 
-              className="up-down-button down-button"
-              onClick={handleArm2DownButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬇️ DOWN
-            </button>
+          <div className="side-controls">
+            {selectedArm === "left" && (
+              <div className="up-down-buttons vertical">
+                <button 
+                  className="up-down-button up-button"
+                  onClick={handleArm1UpButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬆️ UP
+                </button>
+                <button 
+                  className="up-down-button down-button"
+                  onClick={handleArm1DownButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬇️ DOWN
+                </button>
+              </div>
+            )}
+            
+            {selectedArm === "right" && (
+              <div className="up-down-buttons vertical">
+                <button 
+                  className="up-down-button up-button"
+                  onClick={handleArm2UpButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬆️ UP
+                </button>
+                <button 
+                  className="up-down-button down-button"
+                  onClick={handleArm2DownButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬇️ DOWN
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       <div className="bottom-control-area">
-        <div className="arm-controls">
-          <button 
-            className="arm-button initial-button"
-            onClick={handleArm1Initial}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            🏁 左アーム<br/>初期位置
-          </button>
-          
-          <button 
-            className="arm-button goal-button"
-            onClick={handleArm1Goal}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            🎯 左アーム<br/>ゴール
-          </button>
-          
-          <button 
-            className="arm-button grab-button"
-            onClick={handleArm1Grab}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            ✊ 左アーム<br/>掴む
-          </button>
-          
-          <button 
-            className="arm-button release-button"
-            onClick={handleArm1Release}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            🖐️ 左アーム<br/>離す
-          </button>
-        </div>
+        {selectedArm === "left" && (
+          <div className="arm-controls single-arm">
+            <button 
+              className="arm-button initial-button"
+              onClick={handleArm1Initial}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              🏁 初期位置
+            </button>
+            
+            <button 
+              className="arm-button goal-button"
+              onClick={handleArm1Goal}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              🎯 ゴール
+            </button>
+            
+            <button 
+              className="arm-button grab-button"
+              onClick={handleArm1Grab}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              ✊ 掴む
+            </button>
+            
+            <button 
+              className="arm-button release-button"
+              onClick={handleArm1Release}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              🖐️ 離す
+            </button>
+          </div>
+        )}
         
-        <div className="arm-controls">
-          <button 
-            className="arm-button initial-button"
-            onClick={handleArm2Initial}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            🏁 右アーム<br/>初期位置
-          </button>
-          
-          <button 
-            className="arm-button goal-button"
-            onClick={handleArm2Goal}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            🎯 右アーム<br/>ゴール
-          </button>
-          
-          <button 
-            className="arm-button grab-button"
-            onClick={handleArm2Grab}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            ✊ 右アーム<br/>掴む
-          </button>
-          
-          <button 
-            className="arm-button release-button"
-            onClick={handleArm2Release}
-            disabled={connectionStatus !== 'Connected'}
-          >
-            🖐️ 右アーム<br/>離す
-          </button>
-        </div>
+        {selectedArm === "right" && (
+          <div className="arm-controls single-arm">
+            <button 
+              className="arm-button initial-button"
+              onClick={handleArm2Initial}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              🏁 初期位置
+            </button>
+            
+            <button 
+              className="arm-button goal-button"
+              onClick={handleArm2Goal}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              🎯 ゴール
+            </button>
+            
+            <button 
+              className="arm-button grab-button"
+              onClick={handleArm2Grab}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              ✊ 掴む
+            </button>
+            
+            <button 
+              className="arm-button release-button"
+              onClick={handleArm2Release}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              🖐️ 離す
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

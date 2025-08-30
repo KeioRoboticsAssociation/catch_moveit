@@ -1011,7 +1011,7 @@ def generate_launch_description():
         output="screen",
     )
 
-    # Web video server for camera streaming
+    # Web video server for camera streaming (optimized)
     web_video_server_node = Node(
         package="web_video_server",
         executable="web_video_server",
@@ -1020,6 +1020,12 @@ def generate_launch_description():
         parameters=[
             {"port": 8080},
             {"address": "0.0.0.0"},
+            {"default_stream_type": "mjpeg"},  # MJPEG for better performance
+            {"refresh_rate": 30.0},  # Refresh rate in Hz
+            {"quality": 80},  # JPEG compression quality
+            {"width": 640},   # Reduce resolution for better performance
+            {"height": 480},  # Reduce resolution for better performance
+            {"frame_rate": 15.0}  # Reduce frame rate for better performance
         ],
     )
 

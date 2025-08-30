@@ -101,7 +101,7 @@
   color: white;
 }
 
-/* 3行10列のPoseグリッド */
+/* 3行5列のPoseグリッド (アーム別表示) + サイドコントロール */
 .pose-grid-container {
   flex: 1;
   min-height: 0;
@@ -114,31 +114,50 @@
   overflow: hidden;
 }
 
+.pose-grid-with-controls {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  gap: min(max(0.5rem, 1vw), 1rem);
+  align-items: center;
+}
+
 .pose-grid {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(10, 1fr);
-  gap: min(max(0.3rem, 1vw), 1rem);
+  grid-template-columns: repeat(5, 1fr);
+  gap: min(max(0.1rem, 0.2vw), 0.25rem);
+  flex: 1;
   height: 100%;
-  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.side-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: min(max(80px, 8vw), 120px);
 }
 
 .grid-button {
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  border: min(max(1px, 0.1vh), 2px) solid #3498db;
-  border-radius: min(max(3px, 0.8vw), 8px);
-  font-size: min(max(0.5rem, 1.2vw), 0.8rem);
+  border: min(max(1.5px, 0.2vh), 3px) solid #3498db;
+  border-radius: min(max(8px, 1.2vw), 15px);
+  font-size: min(max(0.9rem, 2vw), 1.3rem);
   font-weight: 700;
   color: #2980b9;
-  box-shadow: 0 min(max(2px, 0.3vh), 5px) min(max(5px, 1.5vw), 15px) rgba(52, 152, 219, 0.3);
+  box-shadow: 0 min(max(4px, 0.6vh), 8px) min(max(12px, 2vw), 20px) rgba(52, 152, 219, 0.3);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: min(max(0.15rem, 0.3vh), 0.4rem) min(max(0.2rem, 0.8vw), 0.5rem);
-  aspect-ratio: 0.9;
+  padding: min(max(0.8rem, 1.2vh), 1.2rem) min(max(0.4rem, 1vw), 0.8rem);
+  width: min(max(70px, 12vw), 110px);
+  height: min(max(90px, 14vh), 140px);
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -194,18 +213,19 @@
   text-shadow: min(max(0.3px, 0.05vw), 1px) min(max(0.3px, 0.05vw), 1px) min(max(0.5px, 0.1vw), 2px) rgba(0, 0, 0, 0.1);
 }
 
-/* 中央コントロールエリア */
+/* 中央コントロールエリア (単一アーム表示) */
 .middle-control-area {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: min(max(0.8rem, 2.5vw), 3rem);
-  padding: min(max(0.6rem, 1.2vh), 1.5rem) min(max(0.8rem, 1.5vw), 1.5rem);
+  padding: min(max(0.8rem, 1.5vh), 2rem) min(max(1rem, 2vw), 2rem);
   background: rgba(255, 255, 255, 0.8);
-  border-radius: min(max(8px, 1.2vw), 20px);
-  box-shadow: 0 min(max(4px, 0.8vh), 12px) min(max(15px, 2.5vw), 40px) rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(min(max(4px, 0.8vw), 10px));
+  border-radius: min(max(12px, 1.5vw), 25px);
+  box-shadow: 0 min(max(6px, 1vh), 15px) min(max(20px, 3vw), 50px) rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(min(max(6px, 1vw), 12px));
   border: 1px solid rgba(255, 255, 255, 0.3);
-  min-height: min(max(70px, 8vh), 120px);
+  min-height: min(max(90px, 10vh), 150px);
 }
 
 .arm-control-group {
@@ -229,15 +249,19 @@
   gap: min(max(0.4rem, 0.8vh), 1rem);
 }
 
+.up-down-buttons.vertical {
+  gap: min(max(0.8rem, 1.5vh), 1.5rem);
+}
+
 .up-down-button {
-  width: min(max(50px, 6vw), 120px);
-  height: min(max(25px, 3vh), 50px);
+  width: min(max(60px, 8vw), 100px);
+  height: min(max(80px, 12vh), 120px);
   background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  border: min(max(1.5px, 0.2vh), 3px) solid #95a5a6;
-  border-radius: min(max(6px, 1vw), 12px);
-  font-size: min(max(0.6rem, 1vw), 0.9rem);
+  border: min(max(2px, 0.3vh), 3px) solid #95a5a6;
+  border-radius: min(max(8px, 1.2vw), 15px);
+  font-size: min(max(0.7rem, 1.2vw), 0.9rem);
   font-weight: 700;
-  box-shadow: 0 min(max(2px, 0.3vh), 6px) min(max(8px, 1.2vw), 20px) rgba(149, 165, 166, 0.3);
+  box-shadow: 0 min(max(3px, 0.5vh), 8px) min(max(12px, 1.5vw), 25px) rgba(149, 165, 166, 0.3);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -246,7 +270,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: min(max(0.2rem, 0.3vh), 0.5rem) min(max(0.3rem, 0.5vw), 0.8rem);
+  padding: min(max(1rem, 1.5vh), 1.5rem) min(max(0.5rem, 1vw), 1rem);
 }
 
 .up-down-button:hover {
@@ -266,36 +290,42 @@
   box-shadow: 0 min(max(1px, 0.1vh), 2px) min(max(3px, 0.5vw), 10px) rgba(0, 0, 0, 0.1);
 }
 
-/* 下部コントロールエリア */
+/* 下部コントロールエリア (単一アーム表示) */
 .bottom-control-area {
   display: flex;
-  justify-content: space-around;
-  gap: min(max(0.8rem, 1.5vw), 2rem);
-  padding: min(max(0.6rem, 1.2vh), 1.5rem) min(max(0.8rem, 1.5vw), 1.5rem);
+  justify-content: center;
+  align-items: center;
+  gap: min(max(1rem, 2vw), 2.5rem);
+  padding: min(max(1rem, 1.8vh), 2rem) min(max(1.2rem, 2.5vw), 2rem);
   background: rgba(255, 255, 255, 0.85);
-  border-radius: min(max(8px, 1.2vw), 20px);
-  box-shadow: 0 min(max(4px, 0.8vh), 12px) min(max(15px, 2.5vw), 40px) rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(min(max(4px, 0.8vw), 10px));
+  border-radius: min(max(12px, 1.5vw), 25px);
+  box-shadow: 0 min(max(6px, 1vh), 15px) min(max(20px, 3vw), 50px) rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(min(max(6px, 1vw), 12px));
   border: 1px solid rgba(255, 255, 255, 0.3);
-  min-height: min(max(70px, 8vh), 100px);
+  min-height: min(max(90px, 10vh), 130px);
 }
 
 .arm-controls {
   display: flex;
   align-items: center;
-  gap: min(max(0.6rem, 1.5vw), 1.5rem);
+  gap: min(max(1rem, 2.5vw), 2.5rem);
+}
+
+.arm-controls.single-arm {
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .arm-button {
   background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  border: min(max(1.5px, 0.2vh), 3px) solid #34495e;
-  border-radius: min(max(12px, 1.5vw), 25px);
-  font-size: min(max(0.7rem, 1.2vw), 1.1rem);
+  border: min(max(2px, 0.3vh), 4px) solid #34495e;
+  border-radius: min(max(15px, 2vw), 30px);
+  font-size: min(max(0.9rem, 1.8vw), 1.4rem);
   font-weight: 700;
-  box-shadow: 0 min(max(3px, 0.5vh), 8px) min(max(12px, 1.8vw), 25px) rgba(52, 73, 94, 0.3);
-  padding: min(max(0.5rem, 0.8vh), 1rem) min(max(0.8rem, 1.5vw), 1.5rem);
-  height: min(max(45px, 6vh), 80px);
-  min-width: min(max(70px, 8vw), 150px);
+  box-shadow: 0 min(max(5px, 0.8vh), 12px) min(max(18px, 2.5vw), 35px) rgba(52, 73, 94, 0.3);
+  padding: min(max(1rem, 1.5vh), 1.5rem) min(max(1.5rem, 2.5vw), 2rem);
+  height: min(max(60px, 8vh), 100px);
+  min-width: min(max(120px, 15vw), 200px);
   cursor: pointer;
   text-align: center;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -333,27 +363,41 @@
 .header-controls {
   display: flex;
   align-items: center;
-  gap: min(max(0.6rem, 1.2vw), 1.5rem);
+  gap: min(max(0.8rem, 1.5vw), 2rem);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .toggle-button {
   background: linear-gradient(145deg, #9b59b6, #8e44ad);
   border: min(max(1px, 0.1vh), 2px) solid #8e44ad;
-  border-radius: min(max(5px, 0.8vw), 10px);
-  font-size: min(max(0.7rem, 1.2vw), 1rem);
+  border-radius: min(max(8px, 1.2vw), 15px);
+  font-size: min(max(0.8rem, 1.5vw), 1.2rem);
   font-weight: 700;
-  padding: min(max(0.3rem, 0.6vh), 0.75rem) min(max(0.6rem, 1.2vw), 1.5rem);
+  padding: min(max(0.5rem, 0.8vh), 1rem) min(max(1rem, 1.8vw), 2rem);
   color: white;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 min(max(2px, 0.3vh), 6px) min(max(8px, 1.2vw), 20px) rgba(155, 89, 182, 0.3);
+  box-shadow: 0 min(max(3px, 0.5vh), 8px) min(max(12px, 1.8vw), 25px) rgba(155, 89, 182, 0.3);
   white-space: nowrap;
+  min-width: min(max(100px, 12vw), 160px);
+}
+
+.toggle-button.arm-toggle {
+  background: linear-gradient(145deg, #e67e22, #d35400);
+  border-color: #d35400;
+  box-shadow: 0 min(max(3px, 0.5vh), 8px) min(max(12px, 1.8vw), 25px) rgba(230, 126, 34, 0.3);
 }
 
 .toggle-button:hover {
   background: linear-gradient(145deg, #8e44ad, #703688);
   transform: translateY(min(max(-1px, -0.1vh), -2px));
   box-shadow: 0 min(max(4px, 0.6vh), 10px) min(max(12px, 1.8vw), 25px) rgba(155, 89, 182, 0.4);
+}
+
+.toggle-button.arm-toggle:hover {
+  background: linear-gradient(145deg, #d35400, #bf4f00);
+  box-shadow: 0 min(max(4px, 0.6vh), 10px) min(max(12px, 1.8vw), 25px) rgba(230, 126, 34, 0.4);
 }
 
 .toggle-button:active {
