@@ -441,6 +441,13 @@ export default function App() {
     setSelectedArm(prevArm => prevArm === "left" ? "right" : "left");
   };
 
+  const toggleCamera = () => {
+    setIsCameraOpen(prev => !prev);
+    if (!isCameraOpen) {
+      setClickedCoordinates(null); // カメラを開く時に座標をリセット
+    }
+  };
+
   const getVisiblePoses = () => {
     if (selectedArm === "left") {
       return [1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 21, 22, 23, 24, 25];
@@ -459,37 +466,68 @@ export default function App() {
     </button>
   );
 
-  const CameraOpenButton = () => (
-    <button 
-      style={{ 
-        position: 'fixed', 
-        top: '10px', 
-        right: '10px', 
-        zIndex: 1000,
-        background: 'rgba(52, 152, 219, 0.9)',
-        color: 'white',
-        border: 'none',
-        padding: '12px 20px',
-        borderRadius: '25px',
-        fontSize: '1rem',
-        fontWeight: '700',
-        cursor: 'pointer',
-        boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-        backdropFilter: 'blur(10px)',
-        transition: 'all 0.3s ease'
-      }}
-      onClick={() => setIsCameraOpen(true)}
-      onMouseOver={(e) => {
-        e.target.style.background = 'rgba(41, 128, 185, 0.9)';
-        e.target.style.transform = 'scale(1.05)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.background = 'rgba(52, 152, 219, 0.9)';
-        e.target.style.transform = 'scale(1)';
-      }}
-    >
-      📷 Open Camera
-    </button>
+  const CameraView = () => (
+    <div className="camera-view-container">
+      <div className="camera-image-wrapper">
+        <img 
+          src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
+          alt="Camera Feed" 
+          className="camera-image"
+          onClick={handleImageClick}
+          onError={(e) => {
+            console.log('カメラ映像読み込みエラー');
+            const img = e.target as HTMLImageElement;
+            setTimeout(() => {
+              img.src = `http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw&t=${Date.now()}`;
+            }, 3000);
+          }}
+        />
+        {clickedCoordinates && (
+          <div className="coordinate-display-inline">
+            📍 ({clickedCoordinates.x}, {clickedCoordinates.y})
+          </div>
+        )}
+      </div>
+      <div className="side-controls">
+        {selectedArm === "left" && (
+          <div className="up-down-buttons vertical">
+            <button 
+              className="up-down-button up-button"
+              onClick={handleArm1UpButtonClick}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              ⬆️ UP
+            </button>
+            <button 
+              className="up-down-button down-button"
+              onClick={handleArm1DownButtonClick}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              ⬇️ DOWN
+            </button>
+          </div>
+        )}
+        
+        {selectedArm === "right" && (
+          <div className="up-down-buttons vertical">
+            <button 
+              className="up-down-button up-button"
+              onClick={handleArm2UpButtonClick}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              ⬆️ UP
+            </button>
+            <button 
+              className="up-down-button down-button"
+              onClick={handleArm2DownButtonClick}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              ⬇️ DOWN
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
   );
 
   const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
@@ -639,10 +677,7 @@ export default function App() {
       className="app-container"
       data-background={backgroundColor}
     >
-      {!isCameraOpen && <CameraOpenButton />}
-      {isCameraOpen && <CameraLargeView />}
       <header className="app-header">
-        <h1 className="app-title">🤖 Custom Robot Controller</h1>
         <div className="header-controls">
           <p className="status-text">
             Status: 
@@ -661,6 +696,12 @@ export default function App() {
             🦾 Arm: {selectedArm === "left" ? "左" : "右"}
           </button>
           <button 
+            className="toggle-button camera-toggle"
+            onClick={toggleCamera}
+          >
+            📷 Camera: {isCameraOpen ? "ON" : "OFF"}
+          </button>
+          <button 
             className="toggle-button"
             onClick={toggleBackgroundColor}
           >
@@ -670,55 +711,59 @@ export default function App() {
       </header>
       
       <div className="pose-grid-container">
-        <div className="pose-grid-with-controls">
-          <div className="pose-grid">
-            {getVisiblePoses().map((buttonNumber) => (
-              <GridButton 
-                key={buttonNumber} 
-                buttonNumber={buttonNumber}
-              />
-            ))}
+        {isCameraOpen ? (
+          <CameraView />
+        ) : (
+          <div className="pose-grid-with-controls">
+            <div className="pose-grid">
+              {getVisiblePoses().map((buttonNumber) => (
+                <GridButton 
+                  key={buttonNumber} 
+                  buttonNumber={buttonNumber}
+                />
+              ))}
+            </div>
+            <div className="side-controls">
+              {selectedArm === "left" && (
+                <div className="up-down-buttons vertical">
+                  <button 
+                    className="up-down-button up-button"
+                    onClick={handleArm1UpButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬆️ UP
+                  </button>
+                  <button 
+                    className="up-down-button down-button"
+                    onClick={handleArm1DownButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬇️ DOWN
+                  </button>
+                </div>
+              )}
+              
+              {selectedArm === "right" && (
+                <div className="up-down-buttons vertical">
+                  <button 
+                    className="up-down-button up-button"
+                    onClick={handleArm2UpButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬆️ UP
+                  </button>
+                  <button 
+                    className="up-down-button down-button"
+                    onClick={handleArm2DownButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬇️ DOWN
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="side-controls">
-            {selectedArm === "left" && (
-              <div className="up-down-buttons vertical">
-                <button 
-                  className="up-down-button up-button"
-                  onClick={handleArm1UpButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬆️ UP
-                </button>
-                <button 
-                  className="up-down-button down-button"
-                  onClick={handleArm1DownButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬇️ DOWN
-                </button>
-              </div>
-            )}
-            
-            {selectedArm === "right" && (
-              <div className="up-down-buttons vertical">
-                <button 
-                  className="up-down-button up-button"
-                  onClick={handleArm2UpButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬆️ UP
-                </button>
-                <button 
-                  className="up-down-button down-button"
-                  onClick={handleArm2DownButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬇️ DOWN
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+        )}
       </div>
 
       <div className="bottom-control-area">

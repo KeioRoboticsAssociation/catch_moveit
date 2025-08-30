@@ -145,7 +145,7 @@
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
   border: min(max(1.5px, 0.2vh), 3px) solid #3498db;
   border-radius: min(max(8px, 1.2vw), 15px);
-  font-size: min(max(0.9rem, 2vw), 1.3rem);
+  font-size: min(max(0.7rem, 1.5vw), 1rem);
   font-weight: 700;
   color: #2980b9;
   box-shadow: 0 min(max(4px, 0.6vh), 8px) min(max(12px, 2vw), 20px) rgba(52, 152, 219, 0.3);
@@ -155,9 +155,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: min(max(0.8rem, 1.2vh), 1.2rem) min(max(0.4rem, 1vw), 0.8rem);
-  width: min(max(70px, 12vw), 110px);
-  height: min(max(90px, 14vh), 140px);
+  padding: min(max(0.5rem, 0.8vh), 0.8rem) min(max(0.3rem, 0.8vw), 0.6rem);
+  width: min(max(55px, 8vw), 85px);
+  height: min(max(70px, 10vh), 110px);
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -389,6 +389,12 @@
   box-shadow: 0 min(max(3px, 0.5vh), 8px) min(max(12px, 1.8vw), 25px) rgba(230, 126, 34, 0.3);
 }
 
+.toggle-button.camera-toggle {
+  background: linear-gradient(145deg, #27ae60, #2ecc71);
+  border-color: #2ecc71;
+  box-shadow: 0 min(max(3px, 0.5vh), 8px) min(max(12px, 1.8vw), 25px) rgba(46, 204, 113, 0.3);
+}
+
 .toggle-button:hover {
   background: linear-gradient(145deg, #8e44ad, #703688);
   transform: translateY(min(max(-1px, -0.1vh), -2px));
@@ -398,6 +404,11 @@
 .toggle-button.arm-toggle:hover {
   background: linear-gradient(145deg, #d35400, #bf4f00);
   box-shadow: 0 min(max(4px, 0.6vh), 10px) min(max(12px, 1.8vw), 25px) rgba(230, 126, 34, 0.4);
+}
+
+.toggle-button.camera-toggle:hover {
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  box-shadow: 0 min(max(4px, 0.6vh), 10px) min(max(12px, 1.8vw), 25px) rgba(46, 204, 113, 0.4);
 }
 
 .toggle-button:active {
@@ -699,4 +710,69 @@
     font-size: 0.9rem;
     border-radius: 10px;
   }
+}
+
+/* カメラビューのスタイル */
+.camera-view-container {
+  flex: 1;
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.85);
+  padding: min(max(0.3rem, 1vw), 0.6rem);
+  border-radius: min(max(5px, 1vw), 10px);
+  box-shadow: 0 min(max(2px, 0.5vh), 6px) min(max(10px, 1.8vw), 20px) rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(min(max(2px, 0.5vw), 5px));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: min(max(0.5rem, 1vw), 1rem);
+  align-items: center;
+}
+
+.camera-header {
+  text-align: center;
+  margin-bottom: min(max(0.5rem, 1vh), 1rem);
+}
+
+.camera-header h3 {
+  margin: 0;
+  color: #2980b9;
+  font-size: min(max(1rem, 2vw), 1.5rem);
+  font-weight: 700;
+}
+
+.camera-image-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.camera-image {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: min(max(8px, 1vw), 15px);
+  border: 2px solid #3498db;
+  box-shadow: 0 min(max(4px, 0.6vh), 8px) min(max(15px, 2vw), 25px) rgba(0, 0, 0, 0.1);
+  cursor: crosshair;
+}
+
+.coordinate-display-inline {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(46, 204, 113, 0.95);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 10;
 }
