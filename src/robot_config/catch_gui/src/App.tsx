@@ -32,6 +32,8 @@ export default function App() {
   const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);
   const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null);
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
+  const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
+  const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
 
   const ros = useRef(null);
   const publisher = useRef(null);
@@ -444,67 +446,188 @@ export default function App() {
     </button>
   );
 
-  // App.tsxのreturnの直前に追加
-
-  const CameraDisplay = () => (
-  <div style={{ 
-    position: 'fixed', 
-    top: '10px', 
-    right: '10px', 
-    zIndex: 1000,
-    background: 'rgba(255, 255, 255, 0.95)',
-    padding: '15px',
-    border: '2px solid #3498db',
-    borderRadius: '15px',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-    backdropFilter: 'blur(10px)'
-    }}>
-    <h4 style={{ 
-      margin: '0 0 10px 0', 
-      color: '#2980b9',
-      fontSize: '1.1rem',
-      fontWeight: '700'
-    }}>
-      📷 カメラ映像
-    </h4>
-    <img 
-      src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
-      alt="Camera Feed" 
+  const CameraOpenButton = () => (
+    <button 
       style={{ 
-        width: '320px', 
-        height: '240px', 
-        objectFit: 'cover',
-        borderRadius: '8px',
-        border: '1px solid #ddd',
-        boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+        position: 'fixed', 
+        top: '10px', 
+        right: '10px', 
+        zIndex: 1000,
+        background: 'rgba(52, 152, 219, 0.9)',
+        color: 'white',
+        border: 'none',
+        padding: '12px 20px',
+        borderRadius: '25px',
+        fontSize: '1rem',
+        fontWeight: '700',
+        cursor: 'pointer',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+        backdropFilter: 'blur(10px)',
+        transition: 'all 0.3s ease'
       }}
-      onError={(e) => {
-        console.log('カメライン映像読み込みエラー');
-        const img = e.target as HTMLImageElement;
-        // 再試行用のタイムスタンプを追加
-        setTimeout(() => {
-          img.src = `http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw&t=${Date.now()}`;
-        }, 3000);
+      onClick={() => setIsCameraOpen(true)}
+      onMouseOver={(e) => {
+        e.target.style.background = 'rgba(41, 128, 185, 0.9)';
+        e.target.style.transform = 'scale(1.05)';
       }}
-    />
-    <p style={{ 
-      fontSize: '0.8rem', 
-      color: '#6c757d', 
-      margin: '8px 0 0 0',
-      textAlign: 'center'
+      onMouseOut={(e) => {
+        e.target.style.background = 'rgba(52, 152, 219, 0.9)';
+        e.target.style.transform = 'scale(1)';
+      }}
+    >
+      📷 Open Camera
+    </button>
+  );
+
+  const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
+    const img = event.currentTarget;
+    const rect = img.getBoundingClientRect();
+    
+    // 画像の実際の表示サイズを取得（余白を除く）
+    const imageAspectRatio = img.naturalWidth / img.naturalHeight;
+    const containerAspectRatio = rect.width / rect.height;
+    
+    let actualImageWidth, actualImageHeight, offsetX, offsetY;
+    
+    if (containerAspectRatio > imageAspectRatio) {
+      // コンテナが画像より横長の場合（左右に余白）
+      actualImageHeight = rect.height;
+      actualImageWidth = rect.height * imageAspectRatio;
+      offsetX = (rect.width - actualImageWidth) / 2;
+      offsetY = 0;
+    } else {
+      // コンテナが画像より縦長の場合（上下に余白）
+      actualImageWidth = rect.width;
+      actualImageHeight = rect.width / imageAspectRatio;
+      offsetX = 0;
+      offsetY = (rect.height - actualImageHeight) / 2;
+    }
+    
+    // クリック位置から余白を除いた座標を計算
+    const relativeX = event.clientX - rect.left - offsetX;
+    const relativeY = event.clientY - rect.top - offsetY;
+    
+    // 余白内をクリックした場合は無視
+    if (relativeX < 0 || relativeY < 0 || relativeX > actualImageWidth || relativeY > actualImageHeight) {
+      return;
+    }
+    
+    // 実際の画像ピクセル座標に変換
+    const x = Math.floor(relativeX * (img.naturalWidth / actualImageWidth));
+    const y = Math.floor(relativeY * (img.naturalHeight / actualImageHeight));
+    
+    setClickedCoordinates({ x, y });
+    console.log(`カメラ画像クリック座標: (${x}, ${y})`);
+  };
+
+  const CameraLargeView = () => (
+    <div style={{ 
+      position: 'fixed', 
+      top: '0', 
+      left: '0', 
+      width: '100vw',
+      height: '100vh',
+      zIndex: 2000,
+      background: 'rgba(0, 0, 0, 0.9)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     }}>
-      Realsense Camera Feed
-    </p>
-  </div>
+      <button 
+        style={{ 
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          background: 'rgba(231, 76, 60, 0.9)',
+          color: 'white',
+          border: 'none',
+          padding: '12px 20px',
+          borderRadius: '25px',
+          fontSize: '1rem',
+          fontWeight: '700',
+          cursor: 'pointer',
+          boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+          transition: 'all 0.3s ease',
+          zIndex: 2001
+        }}
+        onClick={() => setIsCameraOpen(false)}
+        onMouseOver={(e) => {
+          e.target.style.background = 'rgba(192, 57, 43, 0.9)';
+          e.target.style.transform = 'scale(1.05)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.background = 'rgba(231, 76, 60, 0.9)';
+          e.target.style.transform = 'scale(1)';
+        }}
+      >
+        ✕ Close Camera
+      </button>
+      
+      {/* 座標表示エリア */}
+      {clickedCoordinates && (
+        <div className="coordinate-display">
+          <p>📍 Clicked Coordinates: ({clickedCoordinates.x}, {clickedCoordinates.y})</p>
+        </div>
+      )}
+      
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.95)',
+        padding: '30px',
+        borderRadius: '20px',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+        backdropFilter: 'blur(10px)'
+      }}>
+        <h2 style={{ 
+          margin: '0 0 20px 0', 
+          color: '#2980b9',
+          fontSize: '1.8rem',
+          fontWeight: '700',
+          textAlign: 'center'
+        }}>
+          📷 カメラ映像 (大画面) - クリックで座標表示
+        </h2>
+        <img 
+          src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
+          alt="Camera Feed Large View" 
+          style={{ 
+            width: '80vw', 
+            height: '60vh', 
+            maxWidth: '1200px',
+            maxHeight: '800px',
+            objectFit: 'contain',
+            borderRadius: '15px',
+            border: '2px solid #3498db',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+            cursor: 'crosshair'
+          }}
+          onClick={handleImageClick}
+          onError={(e) => {
+            console.log('カメライン映像読み込みエラー (大画面)');
+            const img = e.target as HTMLImageElement;
+            setTimeout(() => {
+              img.src = `http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw&t=${Date.now()}`;
+            }, 3000);
+          }}
+        />
+        <p style={{ 
+          fontSize: '1rem', 
+          color: '#6c757d', 
+          margin: '15px 0 0 0',
+          textAlign: 'center',
+          fontWeight: '500'
+        }}>
+          Realsense Camera Feed - Large View (画像をクリックしてピクセル座標を取得)
+        </p>
+      </div>
+    </div>
   );
   return (
-
-
     <div 
       className="app-container"
       data-background={backgroundColor}
     >
-      <CameraDisplay />
+      {!isCameraOpen && <CameraOpenButton />}
+      {isCameraOpen && <CameraLargeView />}
       <header className="app-header">
         <h1 className="app-title">🤖 Custom Robot Controller</h1>
         <div className="header-controls">

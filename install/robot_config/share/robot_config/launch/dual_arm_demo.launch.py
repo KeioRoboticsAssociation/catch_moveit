@@ -595,10 +595,10 @@ def generate_launch_description():
     def get_box_coordinates(field_value):
         """Get box coordinates based on field parameter"""
         # Current box_coordinates split into blue (first 24) and red (last 24)
-        full_coordinates = [0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.134,-0.05528,-0.001,0.134,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0,0.564494,-0.05528,-0.001,0.564494,-0.05528,1.0,1.481994,-0.30428,-0.001,1.481994,-0.30428,-0.001,1.481994,-0.30428,1.0,1.481994,-0.30428,1.0,1.066994,-0.30428,-0.001,1.066994,-0.30428,-0.001,1.066994,-0.30428,1.0,1.066994,-0.30428,1.0]
-        
-        blue_coordinates = full_coordinates[:24]  # First 24 values for blue
-        red_coordinates = full_coordinates[24:]   # Last 24 values for red
+        full_coordinates = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+
+        blue_coordinates = full_coordinates  # First 24 values for blue
+        red_coordinates = full_coordinates  # Last 24 values for red
         
         if field_value == "blue":
             return blue_coordinates

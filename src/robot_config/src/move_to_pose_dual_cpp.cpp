@@ -208,6 +208,12 @@ private:
             // プランナーをOMPLのRRTConnectに指定
             move_group_interface->setPlanningPipelineId("ompl");
             move_group_interface->setPlannerId("RRTConnect");
+            
+            // デフォルトの高速設定（他のアーム動作中でない場合）
+            if (!((arm_name == "left" && right_arm_executing_) || (arm_name == "right" && left_arm_executing_))) {
+                move_group_interface->setPlanningTime(1.0);     // 高速プランニング
+                move_group_interface->setNumPlanningAttempts(1); // 1回のみ
+            }
 
             moveit::planning_interface::MoveGroupInterface::Plan my_plan;
             bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
@@ -318,10 +324,10 @@ private:
             auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - other_start_time);
             
             // Apply more conservative collision checking
-            move_group_interface->setGoalPositionTolerance(0.005);  // Tighter tolerance
-            move_group_interface->setGoalOrientationTolerance(0.05);
-            move_group_interface->setPlanningTime(15.0);  // More planning time
-            move_group_interface->setNumPlanningAttempts(10);  // More attempts
+            move_group_interface->setGoalPositionTolerance(0.001);   // Balanced tolerance
+            move_group_interface->setGoalOrientationTolerance(0.001); // Relaxed orientation
+            move_group_interface->setPlanningTime(2.0);             // Sufficient planning time
+            move_group_interface->setNumPlanningAttempts(3);        // Fewer attempts for speed
             
             RCLCPP_INFO(this->get_logger(), "Applied enhanced collision avoidance settings for %s arm (other arm executing for %ld ms)", 
                        arm_name.c_str(), elapsed.count());
