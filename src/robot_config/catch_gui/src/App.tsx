@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://10.10.10.236:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";
@@ -31,6 +31,7 @@ export default function App() {
   const [arm1ReleasePublisher, setArm1ReleasePublisher] = useState(null);
   const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);
   const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null);
+  const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
 
   const ros = useRef(null);
   const publisher = useRef(null);
@@ -443,12 +444,67 @@ export default function App() {
     </button>
   );
 
+  // App.tsxのreturnの直前に追加
+
+  const CameraDisplay = () => (
+  <div style={{ 
+    position: 'fixed', 
+    top: '10px', 
+    right: '10px', 
+    zIndex: 1000,
+    background: 'rgba(255, 255, 255, 0.95)',
+    padding: '15px',
+    border: '2px solid #3498db',
+    borderRadius: '15px',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+    backdropFilter: 'blur(10px)'
+    }}>
+    <h4 style={{ 
+      margin: '0 0 10px 0', 
+      color: '#2980b9',
+      fontSize: '1.1rem',
+      fontWeight: '700'
+    }}>
+      📷 カメラ映像
+    </h4>
+    <img 
+      src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
+      alt="Camera Feed" 
+      style={{ 
+        width: '320px', 
+        height: '240px', 
+        objectFit: 'cover',
+        borderRadius: '8px',
+        border: '1px solid #ddd',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+      }}
+      onError={(e) => {
+        console.log('カメライン映像読み込みエラー');
+        const img = e.target as HTMLImageElement;
+        // 再試行用のタイムスタンプを追加
+        setTimeout(() => {
+          img.src = `http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw&t=${Date.now()}`;
+        }, 3000);
+      }}
+    />
+    <p style={{ 
+      fontSize: '0.8rem', 
+      color: '#6c757d', 
+      margin: '8px 0 0 0',
+      textAlign: 'center'
+    }}>
+      Realsense Camera Feed
+    </p>
+  </div>
+  );
   return (
+
+
     <div 
       className="app-container"
       data-background={backgroundColor}
     >
-      
+      <CameraDisplay />
       <header className="app-header">
         <h1 className="app-title">🤖 Custom Robot Controller</h1>
         <div className="header-controls">
