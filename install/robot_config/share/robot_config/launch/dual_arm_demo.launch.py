@@ -1011,6 +1011,18 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Web video server for camera streaming
+    web_video_server_node = Node(
+        package="web_video_server",
+        executable="web_video_server",
+        name="web_video_server",
+        output="screen",
+        parameters=[
+            {"port": 8080},
+            {"address": "0.0.0.0"},
+        ],
+    )
+
     # RealSense camera launch
     realsense_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -1050,6 +1062,7 @@ def generate_launch_description():
             ros_tcp_endpoint,  # Add the ROS TCP Endpoint for Unity
             npm_run_dev,
             pose_command_publisher_node,  # Add pose command publisher node
+            web_video_server_node,  # Add web video server for camera streaming
             realsense_launch,  # Add RealSense camera launch
             camera_static_tf,  # Add camera static transform
             publish_collision_mesh_node,
