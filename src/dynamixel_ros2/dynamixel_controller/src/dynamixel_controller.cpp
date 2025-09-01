@@ -80,7 +80,7 @@ DynamixelController::DynamixelController() : Node("dynamixel_controller_node") {
         std::bind(&DynamixelController::instruction_callback, this, std::placeholders::_1));
 
     // ROS2 パブリッシャーの作成 (受信応答を publish する)
-    response_publisher_ = this->create_publisher<dynamixel_controller::msg::DynamixelResponse>("dynamixel_rx", 10);
+    response_publisher_ = this->create_publisher<dynamixel_controller::msg::DynamixelResponse>("dynamixel_rx", 100);
 }
 
 DynamixelController::~DynamixelController() {

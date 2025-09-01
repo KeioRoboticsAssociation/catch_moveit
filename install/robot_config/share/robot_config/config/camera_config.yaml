@@ -1,0 +1,35 @@
+# Multiple RealSense Camera Configuration
+# Simple configuration with only serial numbers and positions
+cameras:
+  camera_1:
+    device_type: "d415"
+    serial_no: "023322062739"  # Replace with actual D415 serial number
+    position:
+      x: 0.0
+      y: 0.0
+      z: 1.5
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0
+
+  camera_2:
+    device_type: "d455"
+    serial_no: "035622250951"  # Replace with actual D455 serial number
+    position:
+      x: 0.3
+      y: 0.2
+      z: 1.5
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.3
+
+  camera_3:
+    device_type: "d455"
+    serial_no: "035622250906"  # Replace with actual D455 serial number
+    position:
+      x: 0.6
+      y: 0.4
+      z: 1.5
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.6

@@ -224,8 +224,14 @@ class CollisionMeshPublisher(Node):
         # Get parameters
         field = self.get_parameter('field').get_parameter_value().string_value
         field_mesh_path = self.get_parameter('field_mesh_path').get_parameter_value().string_value
-        object_mesh_path = self.get_parameter('object_mesh_path').get_parameter_value().string_value
-        object_mesh_positions = self.get_parameter('object_mesh_positions').get_parameter_value().double_array_value
+        try:
+            object_mesh_path = self.get_parameter('object_mesh_path').get_parameter_value().string_value
+        except:
+            object_mesh_path = ""
+        try:
+            object_mesh_positions = self.get_parameter('object_mesh_positions').get_parameter_value().double_array_value
+        except:
+            object_mesh_positions = []
         try:
             box_coordinates = self.get_parameter('box_coordinates').get_parameter_value().double_array_value
         except:
@@ -266,53 +272,53 @@ class CollisionMeshPublisher(Node):
                 # Small delay to ensure message is sent
                 time.sleep(0.1)
 
-        # 2. Publish object meshes (multiple instances with positions)
-        if object_mesh_path and object_mesh_positions:
-            # Reshape object_mesh_positions into list of [x, y, z, yaw_degrees]
-            if len(object_mesh_positions) % 4 != 0:
-                self.get_logger().error('object_mesh_positions parameter must contain groups of 4 values [x, y, z, yaw_degrees]')
-                return
-            
-            # Limit to 100 objects
-            max_objects = 120
-            num_objects = len(object_mesh_positions) // 4
-            if num_objects > max_objects:
-                self.get_logger().warn(f'Too many object positions specified ({num_objects}). Limiting to {max_objects}.')
-                num_objects = max_objects
-            
-            positions = []
-            for i in range(0, num_objects * 4, 4):
-                positions.append(object_mesh_positions[i:i+4])
-            
-            your_mesh, center = self.load_mesh_and_calculate_center(object_mesh_path, scale)
-            if your_mesh is not None and center is not None:
-                self.get_logger().info(f'Publishing {len(positions)} object meshes')
-                for idx, (px, py, pz, yaw_deg) in enumerate(positions):
-                    collision_object = CollisionObject()
-                    collision_object.header.frame_id = "world"
-                    collision_object.id = f"object_mesh_{mesh_index}"
-                    mesh_index += 1
+        # 2. Publish object meshes (multiple instances with positions) - COMMENTED OUT
+        # if object_mesh_path and object_mesh_positions:
+        #     # Reshape object_mesh_positions into list of [x, y, z, yaw_degrees]
+        #     if len(object_mesh_positions) % 4 != 0:
+        #         self.get_logger().error('object_mesh_positions parameter must contain groups of 4 values [x, y, z, yaw_degrees]')
+        #         return
+        #     
+        #     # Limit to 100 objects
+        #     max_objects = 120
+        #     num_objects = len(object_mesh_positions) // 4
+        #     if num_objects > max_objects:
+        #         self.get_logger().warn(f'Too many object positions specified ({num_objects}). Limiting to {max_objects}.')
+        #         num_objects = max_objects
+        #     
+        #     positions = []
+        #     for i in range(0, num_objects * 4, 4):
+        #         positions.append(object_mesh_positions[i:i+4])
+        #     
+        #     your_mesh, center = self.load_mesh_and_calculate_center(object_mesh_path, scale)
+        #     if your_mesh is not None and center is not None:
+        #         self.get_logger().info(f'Publishing {len(positions)} object meshes')
+        #         for idx, (px, py, pz, yaw_deg) in enumerate(positions):
+        #             collision_object = CollisionObject()
+        #             collision_object.header.frame_id = "world"
+        #             collision_object.id = f"object_mesh_{mesh_index}"
+        #             mesh_index += 1
 
-                    # Convert yaw from degrees to radians (no base rotation for objects)
-                    yaw_rad = math.radians(yaw_deg)
-                    
-                    shape_mesh = self.create_mesh_with_pose(your_mesh, center, scale, yaw_rad, (px, py, pz))
-                    
-                    pose = Pose()
-                    pose.position.x = 0.0
-                    pose.position.y = 0.0
-                    pose.position.z = 0.0
-                    pose.orientation.w = 1.0
+        #             # Convert yaw from degrees to radians (no base rotation for objects)
+        #             yaw_rad = math.radians(yaw_deg)
+        #             
+        #             shape_mesh = self.create_mesh_with_pose(your_mesh, center, scale, yaw_rad, (px, py, pz))
+        #             
+        #             pose = Pose()
+        #             pose.position.x = 0.0
+        #             pose.position.y = 0.0
+        #             pose.position.z = 0.0
+        #             pose.orientation.w = 1.0
 
-                    collision_object.meshes.append(shape_mesh)
-                    collision_object.mesh_poses.append(pose)
-                    collision_object.operation = CollisionObject.ADD
+        #             collision_object.meshes.append(shape_mesh)
+        #             collision_object.mesh_poses.append(pose)
+        #             collision_object.operation = CollisionObject.ADD
 
-                    self.publisher_.publish(collision_object)
-                    self.get_logger().info(f'Publishing object collision mesh {idx} (ID: {collision_object.id}) at position ({px}, {py}, {pz}) with yaw {yaw_deg} degrees')
-                    
-                    # Small delay between object meshes
-                    time.sleep(0.75)
+        #             self.publisher_.publish(collision_object)
+        #             self.get_logger().info(f'Publishing object collision mesh {idx} (ID: {collision_object.id}) at position ({px}, {py}, {pz}) with yaw {yaw_deg} degrees')
+        #             
+        #             # Small delay between object meshes
+        #             time.sleep(0.75)
 
         # 3. Publish box primitive objects from 8 corner coordinates
         if box_coordinates:

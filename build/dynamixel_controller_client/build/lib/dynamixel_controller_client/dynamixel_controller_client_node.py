@@ -1,11 +1,12 @@
 import rclpy
 from rclpy.node import Node
+import time
 from std_msgs.msg import UInt8MultiArray
 from sensor_msgs.msg import JointState
 from dynamixel_controller.msg import DynamixelController, DynamixelResponse, DynamixelCommand  # C++ノードで定義したメッセージをインポート
 
 class DynamixelControllerClient(Node):
-    ids = [2]
+    ids = [1,2,3,4,5,6]
     def __init__(self):
         super().__init__('dynamixel_controller_client')
         
@@ -15,27 +16,18 @@ class DynamixelControllerClient(Node):
         self.joint_efforts = {}
         self.joint_names = []
         
+        
         # 命令送信用トピック
-        self.tx_publisher = self.create_publisher(DynamixelCommand, 'dynamixel_tx', 10)
-
-        # msg = UInt8MultiArray()
-        
-        # msg.data = [DynamixelController.SYNC_WRITE, DynamixelController.OPERATING_MODE, 1]
-        # for dxl_id in self.ids:
-        #     msg.data.extend([dxl_id, 3])  # Position Controlモード3
-        # self.tx_publisher.publish(msg)
-        
-        # msg.data = [DynamixelController.SYNC_WRITE, DynamixelController.TORQUE_ENABLE, 1]
-        # for dxl_id in self.ids:
-        #     msg.data.extend([dxl_id, 1])  # トルクを有効にする
-        # self.tx_publisher.publish(msg)
+        self.tx_publisher = self.create_publisher(DynamixelCommand, 'dynamixel_tx', 100)
+        # 初期化時にトルクオン
+        self.enable_torque()
         
         # C++ノードからの応答受信用トピック
         self.rx_subscription = self.create_subscription(
             DynamixelResponse,
             'dynamixel_rx',
             self.rx_callback,
-            10
+            100
         )
         
         # joint_states サブスクライバー
@@ -43,27 +35,87 @@ class DynamixelControllerClient(Node):
             JointState,
             'joint_states',
             self.joint_states_callback,
-            10
+            100
         )
-
-        # 初期化時にトルクオン
-        self.enable_torque()
         
         # 5秒ごとに SYNC_WRITE 命令, 1秒ごとに SYNC_READ 命令を送信するタイマー
-        self.write_timer = self.create_timer(0.001, self.write_callback)
+        self.write_timer = self.create_timer(0.01, self.write_callback)
         self.read_timer = self.create_timer(1.0, self.read_callback)
     
     def enable_torque(self):
-        # 複数モーターのトルクを有効にする
-        msg = DynamixelCommand()
-        msg.command = DynamixelController.SYNC_WRITE
-        msg.address = 64   # TORQUE_ENABLE アドレス
-        msg.length = 1     # 1バイト
-        msg.ids = self.ids # 全てのモーター
-        msg.data = [1] * len(self.ids)  # 各モーターに対して1=トルクON
+        # 複数モーターのトルクを有効にする（100Hz SYNC_READで確認しながら）
         
-        self.tx_publisher.publish(msg)
-        self.get_logger().info(f'Torque enabled for IDs={msg.ids}')
+        torque_enabled_ids = set()
+        max_attempts = 1000  # 100Hz * 10秒
+        attempt = 0
+        
+        # 一時的にコールバックを設定
+        self.torque_check_response = None
+        self.torque_check_subscription = self.create_subscription(
+            DynamixelResponse,
+            'dynamixel_rx',
+            self.torque_check_callback,
+            100
+        )
+        
+        while len(torque_enabled_ids) < len(self.ids) and attempt < max_attempts:
+            # SYNC_WRITEでトルク有効化
+            msg = DynamixelCommand()
+            msg.command = DynamixelController.SYNC_WRITE
+            msg.address = 64   # TORQUE_ENABLE アドレス
+            msg.length = 1     # 1バイト
+            msg.ids = self.ids # 全てのモーター
+            msg.data = [1] * len(self.ids)  # 各モーターに対して1=トルクON
+            
+            self.tx_publisher.publish(msg)
+            
+            # 100Hz待機 (10ms)
+            time.sleep(0.01)
+            
+            # SYNC_READでトルク状態を確認
+            read_msg = DynamixelCommand()
+            read_msg.command = DynamixelController.SYNC_READ
+            read_msg.address = 64   # TORQUE_ENABLE アドレス
+            read_msg.length = 1     # 1バイト
+            read_msg.ids = self.ids
+            read_msg.data = []
+            
+            self.torque_check_response = None
+            self.tx_publisher.publish(read_msg)
+            
+            # レスポンスを待つ (5ms以内)
+            timeout = 0.005
+            start_time = time.time()
+            while self.torque_check_response is None and (time.time() - start_time) < timeout:
+                rclpy.spin_once(self, timeout_sec=0.001)
+            
+            # レスポンスを処理
+            if self.torque_check_response is not None:
+                for i, motor_id in enumerate(self.torque_check_response.ids):
+                    if i < len(self.torque_check_response.data) and self.torque_check_response.data[i] == 1:
+                        torque_enabled_ids.add(motor_id)
+                
+                if attempt % 100 == 0:  # 1秒ごとにログ出力
+                    self.get_logger().info(f'Attempt {attempt + 1}: Torque enabled for IDs: {sorted(torque_enabled_ids)} / {self.ids}')
+            
+            attempt += 1
+            
+            # 残り5ms待機して100Hz維持
+            time.sleep(0.005)
+        
+        # 一時的なサブスクリプションを削除
+        self.destroy_subscription(self.torque_check_subscription)
+        
+        if len(torque_enabled_ids) == len(self.ids):
+            self.get_logger().info(f'Successfully enabled torque for all motors in {attempt} attempts ({attempt*0.01:.2f}s): {sorted(torque_enabled_ids)}')
+        else:
+            self.get_logger().warn(f'Failed to enable torque for some motors after {max_attempts} attempts ({max_attempts*0.01:.2f}s). '
+                                 f'Enabled: {sorted(torque_enabled_ids)}, Target: {self.ids}')
+    
+    def torque_check_callback(self, msg):
+        # トルク確認用の一時的なコールバック
+        if msg.command == DynamixelController.SYNC_READ:
+            self.torque_check_response = msg
         
     def write_callback(self):
         # SYNC_WRITE テスト: 複数モーターに目標位置を送信
@@ -75,12 +127,12 @@ class DynamixelControllerClient(Node):
 
         # 各モーターの目標位置
         target_positions = {
-            # 1: 2048 + self.joint_positions["left_Revolute_2"],   # joint1 (TTL,XM540)
-            2: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),  # joint2 (TTL, XM540)
-            # 3: 3072 + self.joint_positions["left_Revolute_4"],  # joint3 (RS485, XL430)
-            # 4: 4096 + self.joint_positions["left_Revolute_5"],  # joint4 (RS485, XL430)
-            # 5: 3072 + self.joint_positions["left_Revolute_6"],   # joint5 (RS485, XL430)
-            # 6: 114 + int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 853),   # joint6 (RS485, XL430)
+            1: 2048 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
+            2: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
+            3: 3072 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+            4: 4096 + int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+            5: 3072 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
+            6: 114 + int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 853),   # joint6 (RS485, XL430)
         }
         
         # 各モーターの位置データを4バイトずつ結合

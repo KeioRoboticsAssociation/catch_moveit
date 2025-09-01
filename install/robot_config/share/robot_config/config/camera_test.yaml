@@ -1,0 +1,21 @@
+# Test configuration - one camera at a time
+cameras:
+  camera_1:
+    device_type: "d415"
+    serial_no: "023322062739"
+    position:
+      x: 0.0
+      y: 0.0
+      z: 1.5
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0
+
+  # Comment out other cameras for testing
+  # camera_2:
+  #   device_type: "d455"
+  #   serial_no: "035622250951"
+  
+  # camera_3:
+  #   device_type: "d455"  
+  #   serial_no: "035622250906"

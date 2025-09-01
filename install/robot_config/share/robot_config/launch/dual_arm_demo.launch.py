@@ -948,8 +948,8 @@ def generate_launch_description():
                 parameters=[
                     {"field": field},
                     {"field_mesh_path": "/home/a/ws_moveit2/src/field_description-20250822T021318Z-1-001/field_description/meshes/base_link.stl"},
-                    {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},
-                    {"object_mesh_positions": object_mesh_positions},
+                    # {"object_mesh_path": "/home/a/ws_moveit2/src/object_description-20250821T110253Z-1-001/object_description/meshes/base_link.stl"},  # COMMENTED OUT
+                    # {"object_mesh_positions": object_mesh_positions},  # COMMENTED OUT
                     {"box_coordinates": box_coordinates_list},  # Now uses parsed list of coordinates
                     {"continuous_publishing": True},  # Enable continuous republishing
                     {"republish_interval": 3.0},  # Republish every 3 seconds

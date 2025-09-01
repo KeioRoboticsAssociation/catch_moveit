@@ -478,7 +478,7 @@ export default function App() {
             console.log('カメラ映像読み込みエラー');
             const img = e.target as HTMLImageElement;
             setTimeout(() => {
-              img.src = `http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw&t=${Date.now()}`;
+              img.src = "http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw";
             }, 3000);
           }}
         />
@@ -656,7 +656,7 @@ export default function App() {
             console.log('カメライン映像読み込みエラー (大画面)');
             const img = e.target as HTMLImageElement;
             setTimeout(() => {
-              img.src = `http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw&t=${Date.now()}`;
+              img.src = "http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw";
             }, 3000);
           }}
         />
