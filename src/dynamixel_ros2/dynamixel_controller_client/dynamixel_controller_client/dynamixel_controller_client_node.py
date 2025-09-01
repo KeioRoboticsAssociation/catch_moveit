@@ -44,27 +44,78 @@ class DynamixelControllerClient(Node):
         self.read_timer = self.create_timer(1.0, self.read_callback)
     
     def reboot_all_motors(self):
-        # 全モーターをリブートする
-        self.get_logger().info('Rebooting all motors...')
+        # 全モーターをリブートする（フィードバック制御付き）
+        self.get_logger().info('Rebooting all motors with feedback control...')
         
-        for motor_id in self.ids:
-            msg = DynamixelCommand()
-            msg.command = DynamixelController.REBOOT
-            msg.ids = [motor_id]
-            msg.address = 0
-            msg.length = 0
-            msg.data = []
-            
-            self.tx_publisher.publish(msg)
-            self.get_logger().info(f'REBOOT command sent to motor {motor_id}')
-            
-            # 各モーターのリブート間に少し待機
-            time.sleep(0.1)
+        rebooted_ids = set()
+        online_ids = set()
+        max_attempts = 3000  # 100Hz * 30秒（十分な時間）
+        attempt = 0
         
-        # リブート完了を待つ（モーターの起動時間を考慮）
-        self.get_logger().info('Waiting for motors to complete reboot...')
-        time.sleep(3.0)  # 3秒待機
-        self.get_logger().info('Motor reboot sequence completed')
+        # 一時的にコールバックを設定
+        self.reboot_check_response = None
+        self.reboot_check_subscription = self.create_subscription(
+            DynamixelResponse,
+            'dynamixel_rx',
+            self.reboot_check_callback,
+            100
+        )
+        
+        while len(online_ids) < len(self.ids) and attempt < max_attempts:
+            # まだリブートしていないモーターにREBOOTコマンド送信
+            for motor_id in self.ids:
+                if motor_id not in rebooted_ids:
+                    msg = DynamixelCommand()
+                    msg.command = DynamixelController.REBOOT
+                    msg.ids = [motor_id]
+                    msg.address = 0
+                    msg.length = 0
+                    msg.data = []
+                    self.tx_publisher.publish(msg)
+                    rebooted_ids.add(motor_id)
+                    
+            # 100Hz待機 (10ms)
+            time.sleep(0.01)
+            
+            # PINGで全モーターの生存確認
+            ping_msg = DynamixelCommand()
+            ping_msg.command = DynamixelController.PING
+            ping_msg.ids = self.ids
+            ping_msg.address = 0
+            ping_msg.length = 0
+            ping_msg.data = []
+            
+            self.reboot_check_response = None
+            self.tx_publisher.publish(ping_msg)
+            
+            # レスポンスを待つ (5ms以内)
+            timeout = 0.005
+            start_time = time.time()
+            while self.reboot_check_response is None and (time.time() - start_time) < timeout:
+                rclpy.spin_once(self, timeout_sec=0.001)
+            
+            # レスポンスを処理
+            if self.reboot_check_response is not None:
+                for i, motor_id in enumerate(self.reboot_check_response.ids):
+                    if i < len(self.reboot_check_response.error) and self.reboot_check_response.error[i] == 0:
+                        online_ids.add(motor_id)
+                
+                if attempt % 100 == 0:  # 1秒ごとにログ出力
+                    self.get_logger().info(f'Attempt {attempt + 1}: Motors online: {sorted(online_ids)} / {self.ids}')
+            
+            attempt += 1
+            
+            # 残り5ms待機して100Hz維持
+            time.sleep(0.005)
+        
+        # 一時的なサブスクリプションを削除
+        self.destroy_subscription(self.reboot_check_subscription)
+        
+        if len(online_ids) == len(self.ids):
+            self.get_logger().info(f'Successfully rebooted and verified all motors in {attempt} attempts ({attempt*0.01:.2f}s): {sorted(online_ids)}')
+        else:
+            self.get_logger().warn(f'Failed to verify all motors after {max_attempts} attempts ({max_attempts*0.01:.2f}s). '
+                                 f'Online: {sorted(online_ids)}, Target: {self.ids}')
     
     def enable_torque(self):
         # 複数モーターのトルクを有効にする（100Hz SYNC_READで確認しながら）
@@ -136,6 +187,11 @@ class DynamixelControllerClient(Node):
             self.get_logger().warn(f'Failed to enable torque for some motors after {max_attempts} attempts ({max_attempts*0.01:.2f}s). '
                                  f'Enabled: {sorted(torque_enabled_ids)}, Target: {self.ids}')
     
+    def reboot_check_callback(self, msg):
+        # リブート確認用の一時的なコールバック（PING応答を処理）
+        if msg.command == DynamixelController.PING:
+            self.reboot_check_response = msg
+            
     def torque_check_callback(self, msg):
         # トルク確認用の一時的なコールバック
         if msg.command == DynamixelController.SYNC_READ:
