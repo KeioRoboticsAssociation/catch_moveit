@@ -376,22 +376,29 @@ class DynamixelGUI(Node):
                 if error == 0 and msg.data:  # Success with data
                     # Convert bytes to integer (little-endian)
                     value = 0
-                    for j, byte in enumerate(msg.data):
+                    data_start_index = i * len(msg.data) // len(msg.ids) if len(msg.ids) > 1 else 0
+                    data_end_index = data_start_index + len(msg.data) // len(msg.ids) if len(msg.ids) > 1 else len(msg.data)
+                    
+                    # Get the data for this specific motor
+                    motor_data = msg.data[data_start_index:data_end_index] if len(msg.ids) > 1 else msg.data
+                    
+                    for j, byte in enumerate(motor_data):
                         value |= byte << (8 * j)
                     
                     # Check if this is a position register that might be signed (Extended Position Control)
-                    length = len(msg.data)
-                    address = self.address_var.get()  # Current address being read
+                    length = len(motor_data)
                     
-                    # For 4-byte position registers, check if signed interpretation makes sense
-                    if length == 4 and address in [DynamixelController.PRESENT_POSITION, DynamixelController.GOAL_POSITION]:
+                    # For 4-byte registers, always show both signed and unsigned interpretation for position-related values
+                    if length == 4:
                         # Convert to signed 32-bit if the value is in the upper half of uint32 range
                         if value > 2147483647:  # 2^31 - 1
                             signed_value = value - 4294967296  # 2^32
                             self.log_message(f"READ response from motor {motor_id}: {signed_value} (signed) / {value} (unsigned) (0x{value:X})")
                         else:
-                            self.log_message(f"READ response from motor {motor_id}: {value} (0x{value:X})")
+                            # For positive values, still show both interpretations if it could be a position
+                            self.log_message(f"READ response from motor {motor_id}: {value} (signed/unsigned) (0x{value:X})")
                     else:
+                        # For other data lengths, show as unsigned
                         self.log_message(f"READ response from motor {motor_id}: {value} (0x{value:X})")
                 else:
                     self.log_message(f"READ response from motor {motor_id}: Error {error}")
