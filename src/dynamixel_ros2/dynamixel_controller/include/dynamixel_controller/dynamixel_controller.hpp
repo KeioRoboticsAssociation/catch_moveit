@@ -29,6 +29,7 @@ private:
     void handle_write_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
     void handle_sync_read_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
     void handle_sync_write_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
+    void handle_reboot_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
 
     // ROS インターフェース
     rclcpp::Subscription<dynamixel_controller::msg::DynamixelCommand>::SharedPtr instruction_subscriber_;

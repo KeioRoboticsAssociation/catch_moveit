@@ -130,16 +130,17 @@ class DynamixelControllerClient(Node):
             1: 2048 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
             2: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
             3: 3072 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
-            4: 4096 + int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+            4: int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
             5: 3072 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
-            6: 114 + int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 853),   # joint6 (RS485, XL430)
+            6: 3072,   # joint6 (RS485, XL430)
         }
         
-        # 各モーターの位置データを4バイトずつ結合
+        # 各モーターの位置データを4バイトずつ結合（Extended Position Control用）
         msg.data = []
         for motor_id in msg.ids:
             position = target_positions[motor_id]
-            position_bytes = position.to_bytes(4, 'little')
+            # Extended Position Control Modeでは符号付き32ビット整数
+            position_bytes = position.to_bytes(4, 'little', signed=True)
             msg.data.extend(position_bytes)
         
         self.tx_publisher.publish(msg)

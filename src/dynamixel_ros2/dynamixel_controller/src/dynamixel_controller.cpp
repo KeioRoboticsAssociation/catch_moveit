@@ -123,6 +123,10 @@ void DynamixelController::instruction_callback(const dynamixel_controller::msg::
             handle_ping_command(msg);
             break;
         }
+        case MSG::REBOOT: {
+            handle_reboot_command(msg);
+            break;
+        }
         default:
             RCLCPP_WARN(this->get_logger(), "Received unsupported command: %d", msg->command);
             break;
@@ -419,6 +423,28 @@ void DynamixelController::handle_ping_command(const dynamixel_controller::msg::D
     }
     
     publish_response(MSG::PING, response_ids, response_errors, response_data);
+}
+
+void DynamixelController::handle_reboot_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg) {
+    std::vector<uint8_t> response_ids;
+    std::vector<uint8_t> response_errors;
+    std::vector<uint8_t> response_data;
+    
+    for (auto id : msg->ids) {
+        uint8_t dxl_error = 0;
+        int comm_result = packet_handler_->reboot(port_handler_, id, &dxl_error);
+        
+        response_ids.push_back(id);
+        if (comm_result == COMM_SUCCESS) {
+            response_errors.push_back(dxl_error);
+            RCLCPP_INFO(this->get_logger(), "REBOOT success - ID: %d, Error: %d", id, dxl_error);
+        } else {
+            response_errors.push_back(255); // Communication error
+            RCLCPP_WARN(this->get_logger(), "Reboot failed for ID %d: %s", id, packet_handler_->getTxRxResult(comm_result));
+        }
+    }
+    
+    publish_response(MSG::REBOOT, response_ids, response_errors, response_data);
 }
 
 int main(int argc, char ** argv)

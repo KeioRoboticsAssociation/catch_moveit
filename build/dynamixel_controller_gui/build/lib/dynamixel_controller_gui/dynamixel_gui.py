@@ -70,7 +70,9 @@ class DynamixelGUI(Node):
         ttk.Button(control_frame, text="LED ON", command=self.led_on).grid(row=0, column=3, padx=(0, 5))
         ttk.Button(control_frame, text="LED OFF", command=self.led_off).grid(row=0, column=4, padx=(0, 5))
         ttk.Button(control_frame, text="Torque ON", command=self.torque_on).grid(row=0, column=5, padx=(0, 5))
-        ttk.Button(control_frame, text="Torque OFF", command=self.torque_off).grid(row=0, column=6)
+        ttk.Button(control_frame, text="Torque OFF", command=self.torque_off).grid(row=0, column=6, padx=(0, 5))
+        ttk.Button(control_frame, text="REBOOT", command=self.reboot_motor, 
+                  style="Accent.TButton").grid(row=0, column=7, padx=(0, 5))
         
         # Register access frame
         register_frame = ttk.LabelFrame(main_frame, text="Register Access", padding="5")
@@ -266,6 +268,30 @@ class DynamixelGUI(Node):
         self.tx_publisher.publish(msg)
         self.log_message(f"Torque OFF sent to motor {motor_id}")
         
+    def reboot_motor(self):
+        """Reboot selected motor"""
+        motor_id = self.selected_motor_id.get()
+        
+        # Confirm reboot action with user
+        result = messagebox.askyesno(
+            "Confirm Reboot", 
+            f"Are you sure you want to reboot motor ID {motor_id}?\n\n"
+            "The motor will restart and may lose its current position.\n"
+            "This action cannot be undone."
+        )
+        
+        if result:
+            msg = DynamixelCommand()
+            msg.command = DynamixelController.REBOOT
+            msg.ids = [motor_id]
+            msg.address = 0  # Not used for REBOOT command
+            msg.length = 0   # Not used for REBOOT command
+            msg.data = []    # Not used for REBOOT command
+            self.tx_publisher.publish(msg)
+            self.log_message(f"REBOOT command sent to motor {motor_id}")
+        else:
+            self.log_message(f"REBOOT cancelled for motor {motor_id}")
+        
     def read_register(self):
         """Read register value"""
         motor_id = self.selected_motor_id.get()
@@ -289,10 +315,36 @@ class DynamixelGUI(Node):
             length = self.length_var.get()
             value = int(self.value_var.get())
             
-            # Convert value to bytes
-            value_bytes = []
-            for i in range(length):
-                value_bytes.append((value >> (8 * i)) & 0xFF)
+            # Convert value to bytes with signed support for position registers
+            if length == 4 and address in [DynamixelController.PRESENT_POSITION, DynamixelController.GOAL_POSITION]:
+                # For position registers, support signed 32-bit integers (Extended Position Control)
+                if value < 0:
+                    # Convert negative value to unsigned representation
+                    value = value + 4294967296  # 2^32
+                elif value > 4294967295:  # 2^32 - 1
+                    raise ValueError("Value too large for 32-bit register")
+                
+                # Convert to bytes (little-endian)
+                value_bytes = value.to_bytes(4, 'little', signed=False)
+                value_bytes = list(value_bytes)
+                
+                # Log both signed and unsigned interpretation
+                original_value = int(self.value_var.get())
+                if original_value < 0:
+                    self.log_message(f"WRITE sent to motor {motor_id}, address {address}, value {original_value} (signed) / {value} (unsigned)")
+                else:
+                    self.log_message(f"WRITE sent to motor {motor_id}, address {address}, value {value}")
+            else:
+                # Standard unsigned conversion for other registers
+                if value < 0:
+                    raise ValueError("Negative values not supported for this register")
+                
+                # Convert value to bytes (little-endian)
+                value_bytes = []
+                for i in range(length):
+                    value_bytes.append((value >> (8 * i)) & 0xFF)
+                    
+                self.log_message(f"WRITE sent to motor {motor_id}, address {address}, value {value}")
             
             msg = DynamixelCommand()
             msg.command = DynamixelController.WRITE_DATA
@@ -301,10 +353,9 @@ class DynamixelGUI(Node):
             msg.length = length
             msg.data = value_bytes
             self.tx_publisher.publish(msg)
-            self.log_message(f"WRITE sent to motor {motor_id}, address {address}, value {value}")
             
-        except ValueError:
-            messagebox.showerror("Error", "Invalid value. Please enter a valid integer.")
+        except ValueError as e:
+            messagebox.showerror("Error", f"Invalid value: {str(e)}")
             
     def rx_callback(self, msg):
         """Handle received messages from dynamixel_controller"""
@@ -327,7 +378,21 @@ class DynamixelGUI(Node):
                     value = 0
                     for j, byte in enumerate(msg.data):
                         value |= byte << (8 * j)
-                    self.log_message(f"READ response from motor {motor_id}: {value} (0x{value:X})")
+                    
+                    # Check if this is a position register that might be signed (Extended Position Control)
+                    length = len(msg.data)
+                    address = self.address_var.get()  # Current address being read
+                    
+                    # For 4-byte position registers, check if signed interpretation makes sense
+                    if length == 4 and address in [DynamixelController.PRESENT_POSITION, DynamixelController.GOAL_POSITION]:
+                        # Convert to signed 32-bit if the value is in the upper half of uint32 range
+                        if value > 2147483647:  # 2^31 - 1
+                            signed_value = value - 4294967296  # 2^32
+                            self.log_message(f"READ response from motor {motor_id}: {signed_value} (signed) / {value} (unsigned) (0x{value:X})")
+                        else:
+                            self.log_message(f"READ response from motor {motor_id}: {value} (0x{value:X})")
+                    else:
+                        self.log_message(f"READ response from motor {motor_id}: {value} (0x{value:X})")
                 else:
                     self.log_message(f"READ response from motor {motor_id}: Error {error}")
                     
@@ -336,6 +401,12 @@ class DynamixelGUI(Node):
                     self.log_message(f"WRITE response from motor {motor_id}: Success")
                 else:
                     self.log_message(f"WRITE response from motor {motor_id}: Error {error}")
+                    
+            elif instruction == DynamixelController.REBOOT:
+                if error == 0:
+                    self.log_message(f"REBOOT response from motor {motor_id}: Success - Motor rebooted")
+                else:
+                    self.log_message(f"REBOOT response from motor {motor_id}: Error {error}")
                     
             else:
                 self.log_message(f"Unknown response from motor {motor_id}: command={instruction}, error={error}")
