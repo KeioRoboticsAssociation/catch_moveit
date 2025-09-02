@@ -1,0 +1,19 @@
+[35m[1mConsolidate compiler generated dependencies of target dual_arm_servo_controller[0m
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 28%] Built target pose_command_publisher
+[ 28%] Built target joystick_servo
+[ 42%] Built target dual_arm_cartesian_control
+[ 57%] Built target dual_arm_realtime_control
+[ 71%] Built target simple_dual_arm_control
+[ 78%] [32mBuilding CXX object CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.o[0m
+[ 85%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/dual_arm_servo_controller.cpp:[m[K In constructor ‘[01m[KDualArmServoController::DualArmServoController()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/dual_arm_servo_controller.cpp:28:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kpose_command_active_[m[K’ was not declared in this scope
+   28 |         [01;31m[Kpose_command_active_[m[K = false;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/dual_arm_servo_controller.dir/build.make:76: CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:305: CMakeFiles/dual_arm_servo_controller.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 92%] [32m[1mLinking CXX executable move_to_pose_dual_cpp[0m
+[ 92%] Built target move_to_pose_dual_cpp
+gmake: *** [Makefile:146: all] Error 2

@@ -18,8 +18,7 @@ const ARM2_GRAB_TOPIC = "/right_arm_close";
 const ARM2_RELEASE_TOPIC = "/right_arm_open";
 const UP_DOWN_MESSAGE_TYPE = "std_msgs/msg/String";
 
-// リアルタイム制御用のトピック
-const REALTIME_CONTROL_TOPIC = "/realtime_endeffector_control";
+// リアルタイム制御用のトピック (アーム選択対応)
 const REALTIME_CONTROL_MESSAGE_TYPE = "geometry_msgs/msg/Twist";
 
 export default function App() {
@@ -47,6 +46,8 @@ export default function App() {
   const publisher = useRef(null);
   const listener = useRef(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const realtimeControlInterval = useRef<NodeJS.Timeout | null>(null);
+  const currentRealtimeCommand = useRef<{x: number, y: number, z: number}>({x: 0, y: 0, z: 0});
 
   useEffect(() => {
     ros.current = new ROSLIB.Ros({
@@ -84,6 +85,10 @@ export default function App() {
       // タイマーをクリア
       if (timerRef.current) {
         clearInterval(timerRef.current);
+      }
+      // リアルタイム制御のintervalもクリア
+      if (realtimeControlInterval.current) {
+        clearInterval(realtimeControlInterval.current);
       }
     };
   }, []);
@@ -183,12 +188,9 @@ export default function App() {
   };
 
   const initializeRealtimeControlPublisher = () => {
-    const realtimeControlPub = new ROSLIB.Topic({
-      ros: ros.current,
-      name: REALTIME_CONTROL_TOPIC,
-      messageType: REALTIME_CONTROL_MESSAGE_TYPE
-    });
-    setRealtimeControlPublisher(realtimeControlPub);
+    // 左右アーム用のpublisherを初期化 (実際にはpublish時に動的に作成)
+    // ここではstateの初期化のみ行う
+    setRealtimeControlPublisher(null);
   };
 
   const initializeSubscriber = () => {
@@ -532,6 +534,80 @@ export default function App() {
     </button>
   );
 
+  // 新しいリアルタイム制御開始関数
+  const startRealtimeControl = (linear_x: number, linear_y: number, angular_z: number) => {
+    if (ros.current && connectionStatus === 'Connected') {
+      // 現在のコマンドを更新
+      currentRealtimeCommand.current = { x: linear_x, y: linear_y, z: angular_z };
+      
+      // 既存のインターバルがあればクリア
+      if (realtimeControlInterval.current) {
+        clearInterval(realtimeControlInterval.current);
+      }
+      
+      // 即座に最初のメッセージを送信
+      publishRealtimeControlMessage(linear_x, linear_y, angular_z);
+      
+      // 継続的にメッセージを送信（100ms間隔）
+      realtimeControlInterval.current = setInterval(() => {
+        publishRealtimeControlMessage(
+          currentRealtimeCommand.current.x,
+          currentRealtimeCommand.current.y,
+          currentRealtimeCommand.current.z
+        );
+      }, 100);
+    }
+  };
+
+  // リアルタイム制御停止関数
+  const stopRealtimeControl = () => {
+    // インターバルをクリア
+    if (realtimeControlInterval.current) {
+      clearInterval(realtimeControlInterval.current);
+      realtimeControlInterval.current = null;
+    }
+    
+    // 停止メッセージを送信
+    publishRealtimeControlMessage(0, 0, 0);
+    
+    // 現在のコマンドをリセット
+    currentRealtimeCommand.current = { x: 0, y: 0, z: 0 };
+  };
+
+  // 実際のメッセージ送信関数
+  const publishRealtimeControlMessage = (linear_x: number, linear_y: number, angular_z: number) => {
+    if (ros.current && connectionStatus === 'Connected') {
+      // アーム選択に応じてトピックを変更
+      const topicName = selectedArm === "left" ? "/left_arm_realtime_control" : "/right_arm_realtime_control";
+      
+      // 新しいpublisherを作成してパブリッシュ
+      const publisher = new ROSLIB.Topic({
+        ros: ros.current,
+        name: topicName,
+        messageType: "geometry_msgs/msg/Twist"
+      });
+      
+      const message = new ROSLIB.Message({
+        linear: {
+          x: linear_x,
+          y: linear_y,
+          z: 0.0
+        },
+        angular: {
+          x: 0.0,
+          y: 0.0,
+          z: angular_z
+        }
+      });
+      publisher.publish(message);
+      
+      // ログは最初の送信時のみ出力
+      if (linear_x !== 0 || linear_y !== 0 || angular_z !== 0) {
+        console.log(`🎮 Real-time control (${selectedArm} arm): linear(${linear_x}, ${linear_y}), angular(${angular_z})`);
+      }
+    }
+  };
+
   // D-padコントローラーコンポーネント
   const DPadController = () => (
     <div className="dpad-container">
@@ -539,10 +615,17 @@ export default function App() {
         {/* 上 */}
         <button 
           className="dpad-button dpad-up"
-          onMouseDown={() => publishRealtimeControl(0.1, 0, 0)}
-          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
-          onTouchStart={() => publishRealtimeControl(0.1, 0, 0)}
-          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          onMouseDown={() => startRealtimeControl(selectedArm === "left" ? 1.0 : -1.0, 0, 0)}
+          onMouseUp={() => stopRealtimeControl()}
+          onMouseLeave={() => stopRealtimeControl()}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            startRealtimeControl(selectedArm === "left" ? 1.0 : -1.0, 0, 0);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            stopRealtimeControl();
+          }}
           disabled={connectionStatus !== 'Connected'}
         >
           ⬆
@@ -550,10 +633,17 @@ export default function App() {
         {/* 左 */}
         <button 
           className="dpad-button dpad-left"
-          onMouseDown={() => publishRealtimeControl(0, 0.1, 0)}
-          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
-          onTouchStart={() => publishRealtimeControl(0, 0.1, 0)}
-          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          onMouseDown={() => startRealtimeControl(0, selectedArm === "left" ? 1.0 : -1.0, 0)}
+          onMouseUp={() => stopRealtimeControl()}
+          onMouseLeave={() => stopRealtimeControl()}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            startRealtimeControl(0, selectedArm === "left" ? 1.0 : -1.0, 0);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            stopRealtimeControl();
+          }}
           disabled={connectionStatus !== 'Connected'}
         >
           ⬅
@@ -563,10 +653,17 @@ export default function App() {
         {/* 右 */}
         <button 
           className="dpad-button dpad-right"
-          onMouseDown={() => publishRealtimeControl(0, -0.1, 0)}
-          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
-          onTouchStart={() => publishRealtimeControl(0, -0.1, 0)}
-          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          onMouseDown={() => startRealtimeControl(0, selectedArm === "left" ? -1.0 : 1.0, 0)}
+          onMouseUp={() => stopRealtimeControl()}
+          onMouseLeave={() => stopRealtimeControl()}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            startRealtimeControl(0, selectedArm === "left" ? -1.0 : 1.0, 0);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            stopRealtimeControl();
+          }}
           disabled={connectionStatus !== 'Connected'}
         >
           ➡
@@ -575,10 +672,17 @@ export default function App() {
         <div className="dpad-down-container">
           <button 
             className="dpad-button dpad-down"
-            onMouseDown={() => publishRealtimeControl(-0.1, 0, 0)}
-            onMouseUp={() => publishRealtimeControl(0, 0, 0)}
-            onTouchStart={() => publishRealtimeControl(-0.1, 0, 0)}
-            onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+            onMouseDown={() => startRealtimeControl(selectedArm === "left" ? -1.0 : 1.0, 0, 0)}
+            onMouseUp={() => stopRealtimeControl()}
+            onMouseLeave={() => stopRealtimeControl()}
+            onTouchStart={(e) => {
+              e.preventDefault();
+              startRealtimeControl(selectedArm === "left" ? -1.0 : 1.0, 0, 0);
+            }}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              stopRealtimeControl();
+            }}
             disabled={connectionStatus !== 'Connected'}
           >
             ⬇
@@ -595,10 +699,17 @@ export default function App() {
       <div className="yaw-buttons-container">
         <button 
           className="yaw-button yaw-left"
-          onMouseDown={() => publishRealtimeControl(0, 0, 0.5)}
-          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
-          onTouchStart={() => publishRealtimeControl(0, 0, 0.5)}
-          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          onMouseDown={() => startRealtimeControl(0, 0, selectedArm === "left" ? 0.5 : -0.5)}
+          onMouseUp={() => stopRealtimeControl()}
+          onMouseLeave={() => stopRealtimeControl()}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            startRealtimeControl(0, 0, selectedArm === "left" ? 0.5 : -0.5);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            stopRealtimeControl();
+          }}
           disabled={connectionStatus !== 'Connected'}
         >
           <svg width="40" height="40" viewBox="0 0 40 40">
@@ -619,10 +730,17 @@ export default function App() {
         </button>
         <button 
           className="yaw-button yaw-right"
-          onMouseDown={() => publishRealtimeControl(0, 0, -0.5)}
-          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
-          onTouchStart={() => publishRealtimeControl(0, 0, -0.5)}
-          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          onMouseDown={() => startRealtimeControl(0, 0, selectedArm === "left" ? -0.5 : 0.5)}
+          onMouseUp={() => stopRealtimeControl()}
+          onMouseLeave={() => stopRealtimeControl()}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            startRealtimeControl(0, 0, selectedArm === "left" ? -0.5 : 0.5);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            stopRealtimeControl();
+          }}
           disabled={connectionStatus !== 'Connected'}
         >
           <svg width="40" height="40" viewBox="0 0 40 40">
@@ -717,28 +835,6 @@ export default function App() {
       </div>
     </div>
   );
-
-  // リアルタイム制御関数
-  const publishRealtimeControl = (linear_x: number, linear_y: number, angular_z: number) => {
-    if (realtimeControlPublisher && connectionStatus === 'Connected') {
-      const message = new ROSLIB.Message({
-        linear: {
-          x: linear_x,
-          y: linear_y,
-          z: 0.0
-        },
-        angular: {
-          x: 0.0,
-          y: 0.0,
-          z: angular_z
-        }
-      });
-      realtimeControlPublisher.publish(message);
-      console.log(`🎮 Real-time control: linear(${linear_x}, ${linear_y}), angular(${angular_z})`);
-    } else {
-      console.warn(`Cannot send real-time control. ROS Status: ${connectionStatus}`);
-    }
-  };
 
   const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
     const img = event.currentTarget;

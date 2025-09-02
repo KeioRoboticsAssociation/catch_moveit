@@ -1,0 +1,1480 @@
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 28%] Built target joystick_servo
+[ 28%] Built target dual_arm_servo_controller
+[ 42%] Built target dual_arm_cartesian_control
+[ 57%] Built target simple_dual_arm_control
+[ 71%] Built target pose_command_publisher
+[ 85%] Built target dual_arm_realtime_control
+[ 92%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:663:6:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ after class definition
+  663 |     }
+      |      [01;31m[K^[m[K
+      |      [32m[K;[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:27:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_init_thread_[m[K’ was not declared in this scope
+   27 |         [01;31m[Kleft_init_thread_[m[K = std::thread([this]() {
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:29:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+   29 |             [01;31m[Kleft_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:37:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_hand_move_group_interface_[m[K’ was not declared in this scope
+   37 |             [01;31m[Kleft_hand_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:43:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_rpy_sub_[m[K’ was not declared in this scope
+   43 |             [01;31m[Kleft_rpy_sub_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      |             [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:50:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_init_thread_[m[K’ was not declared in this scope
+   50 |         [01;31m[Kright_init_thread_[m[K = std::thread([this]() {
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:52:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+   52 |             [01;31m[Kright_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:60:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_hand_move_group_interface_[m[K’ was not declared in this scope
+   60 |             [01;31m[Kright_hand_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:66:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_rpy_sub_[m[K’ was not declared in this scope
+   66 |             [01;31m[Kright_rpy_sub_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      |             [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:73:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_attach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_attach_callback[m[K’?
+   73 |         [01;31m[Kleft_attach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_attach_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:75:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_detach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_detach_callback[m[K’?
+   75 |         [01;31m[Kleft_detach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_detach_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:77:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_attach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_attach_callback[m[K’?
+   77 |         [01;31m[Kright_attach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_attach_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:79:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_detach_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_detach_callback[m[K’?
+   79 |         [01;31m[Kright_detach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_detach_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:83:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_up_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_arm_up_callback[m[K’?
+   83 |         [01;31m[Kleft_arm_up_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_arm_up_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:85:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_down_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_arm_down_callback[m[K’?
+   85 |         [01;31m[Kleft_arm_down_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kleft_arm_down_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:87:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_up_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_arm_up_callback[m[K’?
+   87 |         [01;31m[Kright_arm_up_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_arm_up_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:89:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_down_sub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_arm_down_callback[m[K’?
+   89 |         [01;31m[Kright_arm_down_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kright_arm_down_callback[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:93:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_open_sub_[m[K’ was not declared in this scope
+   93 |         [01;31m[Kleft_arm_open_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:94:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_open_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+   94 |             "/left_arm_open", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_arm_open_callback[m[K, this, std::placeholders::_1));
+      |                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:95:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_close_sub_[m[K’ was not declared in this scope
+   95 |         [01;31m[Kleft_arm_close_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:96:66:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_close_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+   96 |             "/left_arm_close", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_arm_close_callback[m[K, this, std::placeholders::_1));
+      |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:97:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_open_sub_[m[K’ was not declared in this scope
+   97 |         [01;31m[Kright_arm_open_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:98:66:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_open_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+   98 |             "/right_arm_open", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_arm_open_callback[m[K, this, std::placeholders::_1));
+      |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:99:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_close_sub_[m[K’ was not declared in this scope
+   99 |         [01;31m[Kright_arm_close_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:100:67:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_close_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+  100 |             "/right_arm_close", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_arm_close_callback[m[K, this, std::placeholders::_1));
+      |                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:105:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope
+  105 |         [01;31m[Kplanning_scene_interface_[m[K = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_action_client_[m[K’ was not declared in this scope
+  108 |         [01;31m[Kleft_arm_action_client_[m[K = rclcpp_action::create_client<FollowJointTrajectory>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:64:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ was not declared in this scope; did you mean ‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’?
+  108 |         left_arm_action_client_ = rclcpp_action::create_client<[01;31m[KFollowJointTrajectory[m[K>(
+      |                                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                [32m[Kcontrol_msgs::action::FollowJointTrajectory[m[K
+In file included from [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:13[m[K:
+[01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:[m[K [01;36m[Knote: [m[K‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’ declared here
+ 1309 | typedef struct FollowJointTrajectory [01;36m[KFollowJointTrajectory[m[K;
+      |                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:86:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcreate_client<<expression error> >(MoveToPoseDualCpp*, const char [45])[m[K’
+  108 |         left_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+      |                                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+  109 | [01;31m[K            this, "/left_arm_controller/follow_joint_trajectory")[m[K;
+      |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38[m[K,
+                 from [01m[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6[m[K:
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+   44 | [01;36m[Kcreate_client[m[K(
+      | [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:86:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  108 |         left_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+      |                                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+  109 | [01;31m[K            this, "/left_arm_controller/follow_joint_trajectory")[m[K;
+      |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38[m[K,
+                 from [01m[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6[m[K:
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(NodeT, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+  105 | [01;36m[Kcreate_client[m[K(
+      | [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:86:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  108 |         left_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+      |                                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+  109 | [01;31m[K            this, "/left_arm_controller/follow_joint_trajectory")[m[K;
+      |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:110:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_action_client_[m[K’ was not declared in this scope
+  110 |         [01;31m[Kright_arm_action_client_[m[K = rclcpp_action::create_client<FollowJointTrajectory>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:110:87:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcreate_client<FollowJointTrajectory>(MoveToPoseDualCpp*, const char [46])[m[K’
+  110 |         right_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+      |                                    [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+  111 | [01;31m[K            this, "/right_arm_controller/follow_joint_trajectory")[m[K;
+      |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38[m[K,
+                 from [01m[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6[m[K:
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+   44 | [01;36m[Kcreate_client[m[K(
+      | [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(NodeT, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+  105 | [01;36m[Kcreate_client[m[K(
+      | [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:114:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kservo_resume_pub_[m[K’ was not declared in this scope
+  114 |         [01;31m[Kservo_resume_pub_[m[K = this->create_publisher<std_msgs::msg::String>("/servo_resume_command", 10);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In destructor ‘[01m[Kvirtual MoveToPoseDualCpp::~MoveToPoseDualCpp()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:121:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_init_thread_[m[K’ was not declared in this scope
+  121 |         if ([01;31m[Kleft_init_thread_[m[K.joinable())
+      |             [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:125:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_init_thread_[m[K’ was not declared in this scope
+  125 |         if ([01;31m[Kright_init_thread_[m[K.joinable())
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:155:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_left_pose_rpy_[m[K’ was not declared in this scope
+  155 |         [01;31m[Klast_left_pose_rpy_[m[K = msg->data;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:156:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose_received_[m[K’ was not declared in this scope
+  156 |         [01;31m[Kleft_pose_received_[m[K = true;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:158:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  158 |         move_to_pose([01;31m[Kleft_move_group_interface_[m[K, target_pose);
+      |                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                      [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:184:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_right_pose_rpy_[m[K’ was not declared in this scope
+  184 |         [01;31m[Klast_right_pose_rpy_[m[K = msg->data;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:185:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose_received_[m[K’ was not declared in this scope
+  185 |         [01;31m[Kright_pose_received_[m[K = true;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:187:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  187 |         move_to_pose([01;31m[Kright_move_group_interface_[m[K, target_pose);
+      |                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                      [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::move_to_pose(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:201:9:[m[K [01;31m[Kerror: [m[K‘[01m[KstopServo[m[K’ was not declared in this scope
+  201 |         [01;31m[KstopServo[m[K(arm_name);
+      |         [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:227:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_executing_[m[K’ was not declared in this scope
+  227 |             if (!((arm_name == "left" && [01;31m[Kright_arm_executing_[m[K) || (arm_name == "right" && left_arm_executing_))) {
+      |                                          [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:227:91:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_executing_[m[K’ was not declared in this scope
+  227 | if (!((arm_name == "left" && right_arm_executing_) || (arm_name == "right" && [01;31m[Kleft_arm_executing_[m[K))) {
+      |                                                                               [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::execute_trajectory_directly(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const moveit::planning_interface::MoveGroupInterface::Plan&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:273:53:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_action_client_[m[K’ was not declared in this scope
+  273 |         auto action_client = (arm_name == "left") ? [01;31m[Kleft_arm_action_client_[m[K : right_arm_action_client_;
+      |                                                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:273:79:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_action_client_[m[K’ was not declared in this scope
+  273 |         auto action_client = (arm_name == "left") ? left_arm_action_client_ : [01;31m[Kright_arm_action_client_[m[K;
+      |                                                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:287:25:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ has not been declared
+  287 |         auto goal_msg = [01;31m[KFollowJointTrajectory[m[K::Goal();
+      |                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:320:56:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ was not declared in this scope; did you mean ‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’?
+  320 |         auto send_goal_options = rclcpp_action::Client<[01;31m[KFollowJointTrajectory[m[K>::SendGoalOptions();
+      |                                                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                        [32m[Kcontrol_msgs::action::FollowJointTrajectory[m[K
+In file included from [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:13[m[K:
+[01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:[m[K [01;36m[Knote: [m[K‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’ declared here
+ 1309 | typedef struct FollowJointTrajectory [01;36m[KFollowJointTrajectory[m[K;
+      |                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:320:77:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  320 |         auto send_goal_options = rclcpp_action::Client<FollowJointTrajectory[01;31m[K>[m[K::SendGoalOptions();
+      |                                                                             [01;31m[K^[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:326:127:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[K&[m[K’ token
+  326 | ](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult [01;31m[K&[m[K result) {
+      |                                                                               [01;31m[K^[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:331:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kresult[m[K’ was not declared in this scope
+  331 |                 switch ([01;31m[Kresult[m[K.code) {
+      |                         [01;31m[K^~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:336:25:[m[K [01;31m[Kerror: [m[K‘[01m[KstartServo[m[K’ was not declared in this scope
+  336 |                         [01;31m[KstartServo[m[K(arm_name);
+      |                         [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::execute_trajectory_directly(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const moveit::planning_interface::MoveGroupInterface::Plan&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:361:106:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Ktype name[m[K’ with no type [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+  361 | , trajectory_duration](auto, const std::shared_ptr<const FollowJointTrajectory[01;31m[K::[m[KFeedback> feedback) {
+      |                                                                               [01;31m[K^~[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:361:116:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  361 | ry_duration](auto, const std::shared_ptr<const FollowJointTrajectory::Feedback[01;31m[K>[m[K feedback) {
+      |                                                                               [01;31m[K^[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:364:49:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ is not captured
+  364 |                 rclcpp_action::ClientGoalHandle<[01;31m[KFollowJointTrajectory[m[K>::SharedPtr goal_handle,
+      |                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:361:49:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+  361 |             [this, arm_name, trajectory_duration[01;36m[K][m[K(auto, const std::shared_ptr<const FollowJointTrajectory::Feedback> feedback) {
+      |                                                 [01;36m[K^[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:320:56:[m[K [01;36m[Knote: [m[K‘[01m[K<typeprefixerror>FollowJointTrajectory[m[K’ declared here
+  320 |         auto send_goal_options = rclcpp_action::Client<[01;36m[KFollowJointTrajectory[m[K>::SendGoalOptions();
+      |                                                        [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:364:70:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  364 |                 rclcpp_action::ClientGoalHandle<FollowJointTrajectory[01;31m[K>[m[K::SharedPtr goal_handle,
+      |                                                                      [01;31m[K^[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:364:83:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[Kgoal_handle[m[K’
+  364 |             rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::SharedPtr [01;31m[Kgoal_handle[m[K,
+      |                                                                               [01;31m[K^~~~~~~~~~~[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:369:100:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_start_time_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktrajectory_duration[m[K’?
+  369 | elapsed_seconds = std::chrono::duration_cast<std::chrono::milliseconds>(now - [01;31m[Ktrajectory_start_time_[m[K).count() / 1000.0;
+      |                                                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                               [32m[Ktrajectory_duration[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:371:76:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_feedback_log_[m[K’ was not declared in this scope
+  371 |                 if (std::chrono::duration_cast<std::chrono::seconds>(now - [01;31m[Klast_feedback_log_[m[K).count() >= 2) {
+      |                                                                            [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::execute_trajectory_directly(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const moveit::planning_interface::MoveGroupInterface::Plan&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:388:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_start_time_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktrajectory_duration[m[K’?
+  388 |         [01;31m[Ktrajectory_start_time_[m[K = std::chrono::steady_clock::now();
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Ktrajectory_duration[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:389:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_feedback_log_[m[K’ was not declared in this scope
+  389 |         [01;31m[Klast_feedback_log_[m[K = trajectory_start_time_;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::updateTrajectoryTracking(const moveit::planning_interface::MoveGroupInterface::Plan&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:400:42:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_mutex_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktrajectory_msgs[m[K’?
+  400 |         std::lock_guard<std::mutex> lock([01;31m[Ktrajectory_mutex_[m[K);
+      |                                          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |                                          [32m[Ktrajectory_msgs[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:404:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_left_plan_[m[K’ was not declared in this scope
+  404 |             [01;31m[Kcurrent_left_plan_[m[K = plan;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:405:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_executing_[m[K’ was not declared in this scope
+  405 |             [01;31m[Kleft_arm_executing_[m[K = true;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:406:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_execution_start_[m[K’ was not declared in this scope
+  406 |             [01;31m[Kleft_execution_start_[m[K = now;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:408:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_right_plan_[m[K’ was not declared in this scope
+  408 |             [01;31m[Kcurrent_right_plan_[m[K = plan;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:409:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_executing_[m[K’ was not declared in this scope
+  409 |             [01;31m[Kright_arm_executing_[m[K = true;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:410:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_execution_start_[m[K’ was not declared in this scope
+  410 |             [01;31m[Kright_execution_start_[m[K = now;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::stopTrajectoryTracking(const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:418:42:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_mutex_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktrajectory_msgs[m[K’?
+  418 |         std::lock_guard<std::mutex> lock([01;31m[Ktrajectory_mutex_[m[K);
+      |                                          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |                                          [32m[Ktrajectory_msgs[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:421:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_executing_[m[K’ was not declared in this scope
+  421 |             [01;31m[Kleft_arm_executing_[m[K = false;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:423:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_executing_[m[K’ was not declared in this scope
+  423 |             [01;31m[Kright_arm_executing_[m[K = false;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::applyDynamicCollisionAvoidance(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:432:42:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_mutex_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktrajectory_msgs[m[K’?
+  432 |         std::lock_guard<std::mutex> lock([01;31m[Ktrajectory_mutex_[m[K);
+      |                                          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |                                          [32m[Ktrajectory_msgs[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:435:59:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_executing_[m[K’ was not declared in this scope; did you mean ‘[01m[Kother_arm_executing[m[K’?
+  435 |         bool other_arm_executing = (arm_name == "left") ? [01;31m[Kright_arm_executing_[m[K : left_arm_executing_;
+      |                                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                           [32m[Kother_arm_executing[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:435:82:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_executing_[m[K’ was not declared in this scope; did you mean ‘[01m[Kother_arm_executing[m[K’?
+  435 |      bool other_arm_executing = (arm_name == "left") ? right_arm_executing_ : [01;31m[Kleft_arm_executing_[m[K;
+      |                                                                               [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                               [32m[Kother_arm_executing[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:441:54:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_right_plan_[m[K’ was not declared in this scope
+  441 |             auto other_plan = (arm_name == "left") ? [01;31m[Kcurrent_right_plan_[m[K : current_left_plan_;
+      |                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:441:76:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_left_plan_[m[K’ was not declared in this scope
+  441 |             auto other_plan = (arm_name == "left") ? current_right_plan_ : [01;31m[Kcurrent_left_plan_[m[K;
+      |                                                                            [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:442:60:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_execution_start_[m[K’ was not declared in this scope
+  442 |             auto other_start_time = (arm_name == "left") ? [01;31m[Kright_execution_start_[m[K : left_execution_start_;
+      |                                                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:442:85:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_execution_start_[m[K’ was not declared in this scope
+  442 |       auto other_start_time = (arm_name == "left") ? right_execution_start_ : [01;31m[Kleft_execution_start_[m[K;
+      |                                                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::attachMeshObject(const string&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:485:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  485 |         if (arm_name == "left" && [01;31m[Kleft_move_group_interface_[m[K) {
+      |                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                   [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:496:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  496 |         } else if (arm_name == "right" && [01;31m[Kright_move_group_interface_[m[K) {
+      |                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                           [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::detachMeshObject(const string&, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:513:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  513 |         if (arm_name == "left" && [01;31m[Kleft_move_group_interface_[m[K) {
+      |                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                   [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:518:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope
+  518 |             if ([01;31m[Kplanning_scene_interface_[m[K) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:537:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+  537 |         } else if (arm_name == "right" && [01;31m[Kright_move_group_interface_[m[K) {
+      |                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                           [32m[Kget_node_graph_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:542:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope
+  542 |             if ([01;31m[Kplanning_scene_interface_[m[K) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_arm_up_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:569:28:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_up_z_value_[m[K’ was not declared in this scope
+  569 |         move_arm_z("left", [01;31m[Karm_up_z_value_[m[K);
+      |                            [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_arm_down_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:575:28:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_down_z_value_[m[K’ was not declared in this scope
+  575 |         move_arm_z("left", [01;31m[Karm_down_z_value_[m[K);
+      |                            [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_arm_up_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:581:29:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_up_z_value_[m[K’ was not declared in this scope
+  581 |         move_arm_z("right", [01;31m[Karm_up_z_value_[m[K);
+      |                             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_arm_down_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:29:[m[K [01;31m[Kerror: [m[K‘[01m[Karm_down_z_value_[m[K’ was not declared in this scope
+  587 |         move_arm_z("right", [01;31m[Karm_down_z_value_[m[K);
+      |                             [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::move_arm_z(const string&, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:596:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmove_group_interface[m[K’?
+  596 |             move_group_interface = [01;31m[Kleft_move_group_interface_[m[K;
+      |                                    [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                    [32m[Kmove_group_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:598:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose_received_[m[K’ was not declared in this scope
+  598 |             if ([01;31m[Kleft_pose_received_[m[K) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:599:36:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_left_pose_rpy_[m[K’ was not declared in this scope
+  599 |                 current_pose_rpy = [01;31m[Klast_left_pose_rpy_[m[K;
+      |                                    [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:616:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmove_group_interface[m[K’?
+  616 |             move_group_interface = [01;31m[Kright_move_group_interface_[m[K;
+      |                                    [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                    [32m[Kmove_group_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:618:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose_received_[m[K’ was not declared in this scope
+  618 |             if ([01;31m[Kright_pose_received_[m[K) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:619:36:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_right_pose_rpy_[m[K’ was not declared in this scope
+  619 |                 current_pose_rpy = [01;31m[Klast_right_pose_rpy_[m[K;
+      |                                    [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:661:9:[m[K [01;31m[Kerror: [m[K‘[01m[KexecuteZMoveCommand[m[K’ was not declared in this scope; did you mean ‘[01m[KexecuteCommand[m[K’?
+  661 |         [01;31m[KexecuteZMoveCommand[m[K(move_group_interface, target_pose, arm_name, target_z);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[KexecuteCommand[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid executeZMoveCommand(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&, const string&, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:669:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  669 |         std::thread([[01;31m[Kthis[m[K, move_group_interface, target_pose, arm_name]() {
+      |                      [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:670:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  670 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:670:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:670:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  670 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:670:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  670 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:670:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  670 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:670:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  670 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:670:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  670 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:673:13:[m[K [01;31m[Kerror: [m[K‘[01m[KapplyDynamicCollisionAvoidance[m[K’ was not declared in this scope
+  673 |             [01;31m[KapplyDynamicCollisionAvoidance[m[K(move_group_interface, arm_name);
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:684:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  684 |                 RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:684:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:684:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  684 |                 [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:684:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  684 |                 [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:684:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  684 |                 [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:684:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  684 |                 RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:684:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  684 |                 RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:685:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kexecute_trajectory_directly[m[K’ was not declared in this scope
+  685 |                 [01;31m[Kexecute_trajectory_directly[m[K(move_group_interface, my_plan, arm_name);  // 直接軌道送信
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:687:30:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  687 |                 RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+      |                              [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:687:30:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:687:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  687 |                 [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:687:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  687 |                 [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:687:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  687 |                 [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:687:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  687 |                 RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+      |                              [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:687:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  687 |                 RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
+      |                              [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:688:17:[m[K [01;31m[Kerror: [m[K‘[01m[KstopTrajectoryTracking[m[K’ was not declared in this scope
+  688 |                 [01;31m[KstopTrajectoryTracking[m[K(arm_name);
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid left_arm_open_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:695:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  695 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Left arm open command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:695:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:695:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  695 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Left arm open command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:695:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  695 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Left arm open command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:695:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  695 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Left arm open command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:695:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  695 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Left arm open command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:695:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  695 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Left arm open command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:696:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kset_gripper_position[m[K’ was not declared in this scope
+  696 |         [01;31m[Kset_gripper_position[m[K("left", 0.0, 0.0);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid left_arm_close_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:701:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  701 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Left arm close command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:701:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:701:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  701 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Left arm close command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:701:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  701 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Left arm close command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:701:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  701 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Left arm close command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:701:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  701 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Left arm close command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:701:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  701 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Left arm close command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:702:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kset_gripper_position[m[K’ was not declared in this scope
+  702 |         [01;31m[Kset_gripper_position[m[K("left", 0.024, -0.024);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid right_arm_open_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:707:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  707 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Right arm open command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:707:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:707:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  707 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Right arm open command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:707:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  707 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Right arm open command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:707:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  707 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Right arm open command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:707:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  707 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Right arm open command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:707:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  707 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Right arm open command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:708:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kset_gripper_position[m[K’ was not declared in this scope
+  708 |         [01;31m[Kset_gripper_position[m[K("right", 0.0, 0.0);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid right_arm_close_callback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:713:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  713 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Right arm close command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:713:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:713:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  713 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Right arm close command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:713:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  713 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Right arm close command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:713:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  713 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Right arm close command received");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:713:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  713 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Right arm close command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:713:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  713 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Right arm close command received");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:714:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kset_gripper_position[m[K’ was not declared in this scope
+  714 |         [01;31m[Kset_gripper_position[m[K("right", 0.024, -0.024);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid set_gripper_position(const string&, double, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:722:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_hand_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Khand_move_group_interface[m[K’?
+  722 |             hand_move_group_interface = [01;31m[Kleft_hand_move_group_interface_[m[K;
+      |                                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                         [32m[Khand_move_group_interface[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:724:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_hand_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Khand_move_group_interface[m[K’?
+  724 |             hand_move_group_interface = [01;31m[Kright_hand_move_group_interface_[m[K;
+      |                                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                         [32m[Khand_move_group_interface[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  726 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  726 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  726 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  726 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  726 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  726 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:731:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  731 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "MoveGroupInterface not initialized for %s hand", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:731:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:731:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  731 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "MoveGroupInterface not initialized for %s hand", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:731:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  731 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "MoveGroupInterface not initialized for %s hand", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:731:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  731 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "MoveGroupInterface not initialized for %s hand", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:731:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  731 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "MoveGroupInterface not initialized for %s hand", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:731:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  731 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "MoveGroupInterface not initialized for %s hand", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:737:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  737 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Joint names for %s hand:", arm_name.c_str());
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:737:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:737:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  737 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Joint names for %s hand:", arm_name.c_str());
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:737:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  737 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Joint names for %s hand:", arm_name.c_str());
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:737:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  737 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Joint names for %s hand:", arm_name.c_str());
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:737:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  737 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Joint names for %s hand:", arm_name.c_str());
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:737:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  737 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Joint names for %s hand:", arm_name.c_str());
+      |                     [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:739:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  739 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "  [%zu]: %s", i, joint_names[i].c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:739:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:739:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  739 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "  [%zu]: %s", i, joint_names[i].c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:739:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  739 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "  [%zu]: %s", i, joint_names[i].c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:739:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  739 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "  [%zu]: %s", i, joint_names[i].c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:739:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  739 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "  [%zu]: %s", i, joint_names[i].c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:739:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  739 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "  [%zu]: %s", i, joint_names[i].c_str());
+      |                         [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  752 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Setting %s hand gripper: %s=%f, %s=%f",
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  752 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Setting %s hand gripper: %s=%f, %s=%f",
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  752 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Setting %s hand gripper: %s=%f, %s=%f",
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  752 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Setting %s hand gripper: %s=%f, %s=%f",
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  752 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Setting %s hand gripper: %s=%f, %s=%f",
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:752:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  752 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Setting %s hand gripper: %s=%f, %s=%f",
+      |                     [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:763:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  763 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Gripper position plan found for %s hand, executing asynchronously...", arm_name.c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:763:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:763:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  763 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Gripper position plan found for %s hand, executing asynchronously...", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:763:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  763 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Gripper position plan found for %s hand, executing asynchronously...", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:763:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  763 |             [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Gripper position plan found for %s hand, executing asynchronously...", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:763:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  763 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Gripper position plan found for %s hand, executing asynchronously...", arm_name.c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:763:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  763 |             RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Gripper position plan found for %s hand, executing asynchronously...", arm_name.c_str());
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:765:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  765 |             std::thread([[01;31m[Kthis[m[K, hand_move_group_interface, my_plan, arm_name]() {
+      |                          [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:767:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  767 |                 RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Gripper execution completed for %s hand", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:767:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:767:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  767 |                 [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Gripper execution completed for %s hand", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:767:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  767 |                 [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Gripper execution completed for %s hand", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:767:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  767 |                 [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Gripper execution completed for %s hand", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:767:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  767 |                 RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Gripper execution completed for %s hand", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:767:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kthis[m[K’ was not captured for this lambda function
+  767 |                 RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Gripper execution completed for %s hand", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid set_gripper_position(const string&, double, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:770:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  770 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:770:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:770:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  770 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:770:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  770 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:770:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  770 |             [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:770:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  770 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:770:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  770 |             RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Gripper position planning failed for %s hand", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid resumeServoControl()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:835:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  835 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Sent servo control resume command");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:835:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:835:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  835 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Sent servo control resume command");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:835:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  835 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Sent servo control resume command");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:835:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  835 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Sent servo control resume command");
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:835:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  835 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Sent servo control resume command");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:835:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  835 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Sent servo control resume command");
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid stopServo(const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:841:23:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  841 |         auto client = [01;31m[Kthis[m[K->create_client<std_srvs::srv::Trigger>(service_name);
+      |                       [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:841:65:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K>[m[K’ token
+  841 |         auto client = this->create_client<std_srvs::srv::Trigger[01;31m[K>[m[K(service_name);
+      |                                                                 [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:850:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  850 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Successfully stopped servo for %s arm", arm_name.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:850:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:850:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  850 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Successfully stopped servo for %s arm", arm_name.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:850:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  850 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Successfully stopped servo for %s arm", arm_name.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:850:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  850 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Successfully stopped servo for %s arm", arm_name.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:850:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  850 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Successfully stopped servo for %s arm", arm_name.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:850:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  850 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Successfully stopped servo for %s arm", arm_name.c_str());
+      |                                 [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:852:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  852 |                     RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Failed to stop servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:852:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:852:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  852 |                     [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Failed to stop servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:852:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  852 |                     [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Failed to stop servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:852:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  852 |                     [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Failed to stop servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:852:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  852 |                     RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Failed to stop servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:852:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  852 |                     RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Failed to stop servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                                 [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:855:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  855 |                 RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Servo stop service call timed out for %s arm", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:855:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:855:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  855 |                 [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Servo stop service call timed out for %s arm", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:855:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  855 |                 [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Servo stop service call timed out for %s arm", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:855:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  855 |                 [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Servo stop service call timed out for %s arm", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:855:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  855 |                 RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Servo stop service call timed out for %s arm", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:855:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  855 |                 RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Servo stop service call timed out for %s arm", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:858:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  858 |             RCLCPP_DEBUG([01;31m[Kthis[m[K->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:858:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:858:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  858 |             [01;31m[KRCLCPP_DEBUG[m[K(this->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:858:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  858 |             [01;31m[KRCLCPP_DEBUG[m[K(this->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:858:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  858 |             [01;31m[KRCLCPP_DEBUG[m[K(this->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:858:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  858 |             RCLCPP_DEBUG([01;31m[Kthis[m[K->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:858:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  858 |             RCLCPP_DEBUG([01;31m[Kthis[m[K->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In function ‘[01m[Kvoid startServo(const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:865:23:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  865 |         auto client = [01;31m[Kthis[m[K->create_client<std_srvs::srv::Trigger>(service_name);
+      |                       [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:865:65:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K>[m[K’ token
+  865 |         auto client = this->create_client<std_srvs::srv::Trigger[01;31m[K>[m[K(service_name);
+      |                                                                 [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:874:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  874 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Successfully started servo for %s arm", arm_name.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:874:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:874:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  874 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Successfully started servo for %s arm", arm_name.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:874:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  874 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Successfully started servo for %s arm", arm_name.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:874:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  874 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Successfully started servo for %s arm", arm_name.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:874:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  874 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Successfully started servo for %s arm", arm_name.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:874:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  874 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Successfully started servo for %s arm", arm_name.c_str());
+      |                                 [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  876 |                     RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Failed to start servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  876 |                     [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Failed to start servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  876 |                     [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Failed to start servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  876 |                     [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Failed to start servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  876 |                     RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Failed to start servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                                 [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  876 |                     RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Failed to start servo for %s arm: %s", arm_name.c_str(), response->message.c_str());
+      |                                 [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:879:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  879 |                 RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Servo start service call timed out for %s arm", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:879:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:879:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  879 |                 [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Servo start service call timed out for %s arm", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:879:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  879 |                 [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Servo start service call timed out for %s arm", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:879:17:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  879 |                 [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Servo start service call timed out for %s arm", arm_name.c_str());
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:879:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  879 |                 RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Servo start service call timed out for %s arm", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:879:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  879 |                 RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Servo start service call timed out for %s arm", arm_name.c_str());
+      |                             [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  882 |             RCLCPP_DEBUG([01;31m[Kthis[m[K->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  882 |             [01;31m[KRCLCPP_DEBUG[m[K(this->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  882 |             [01;31m[KRCLCPP_DEBUG[m[K(this->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:13:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  882 |             [01;31m[KRCLCPP_DEBUG[m[K(this->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  882 |             RCLCPP_DEBUG([01;31m[Kthis[m[K->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:26:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  882 |             RCLCPP_DEBUG([01;31m[Kthis[m[K->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
+      |                          [01;31m[K^~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K At global scope:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:886:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+  886 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:175: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

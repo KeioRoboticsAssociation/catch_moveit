@@ -236,6 +236,130 @@ pose_command_publisher/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/build
 .PHONY : pose_command_publisher/fast
 
+#=============================================================================
+# Target rules for targets named dual_arm_realtime_control
+
+# Build rule for target.
+dual_arm_realtime_control: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dual_arm_realtime_control
+.PHONY : dual_arm_realtime_control
+
+# fast build rule for target.
+dual_arm_realtime_control/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_realtime_control.dir/build.make CMakeFiles/dual_arm_realtime_control.dir/build
+.PHONY : dual_arm_realtime_control/fast
+
+#=============================================================================
+# Target rules for targets named dual_arm_cartesian_control
+
+# Build rule for target.
+dual_arm_cartesian_control: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dual_arm_cartesian_control
+.PHONY : dual_arm_cartesian_control
+
+# fast build rule for target.
+dual_arm_cartesian_control/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_cartesian_control.dir/build.make CMakeFiles/dual_arm_cartesian_control.dir/build
+.PHONY : dual_arm_cartesian_control/fast
+
+#=============================================================================
+# Target rules for targets named simple_dual_arm_control
+
+# Build rule for target.
+simple_dual_arm_control: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simple_dual_arm_control
+.PHONY : simple_dual_arm_control
+
+# fast build rule for target.
+simple_dual_arm_control/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_dual_arm_control.dir/build.make CMakeFiles/simple_dual_arm_control.dir/build
+.PHONY : simple_dual_arm_control/fast
+
+#=============================================================================
+# Target rules for targets named dual_arm_servo_controller
+
+# Build rule for target.
+dual_arm_servo_controller: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dual_arm_servo_controller
+.PHONY : dual_arm_servo_controller
+
+# fast build rule for target.
+dual_arm_servo_controller/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_servo_controller.dir/build.make CMakeFiles/dual_arm_servo_controller.dir/build
+.PHONY : dual_arm_servo_controller/fast
+
+src/dual_arm_cartesian_control.o: src/dual_arm_cartesian_control.cpp.o
+.PHONY : src/dual_arm_cartesian_control.o
+
+# target to build an object file
+src/dual_arm_cartesian_control.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_cartesian_control.dir/build.make CMakeFiles/dual_arm_cartesian_control.dir/src/dual_arm_cartesian_control.cpp.o
+.PHONY : src/dual_arm_cartesian_control.cpp.o
+
+src/dual_arm_cartesian_control.i: src/dual_arm_cartesian_control.cpp.i
+.PHONY : src/dual_arm_cartesian_control.i
+
+# target to preprocess a source file
+src/dual_arm_cartesian_control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_cartesian_control.dir/build.make CMakeFiles/dual_arm_cartesian_control.dir/src/dual_arm_cartesian_control.cpp.i
+.PHONY : src/dual_arm_cartesian_control.cpp.i
+
+src/dual_arm_cartesian_control.s: src/dual_arm_cartesian_control.cpp.s
+.PHONY : src/dual_arm_cartesian_control.s
+
+# target to generate assembly for a file
+src/dual_arm_cartesian_control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_cartesian_control.dir/build.make CMakeFiles/dual_arm_cartesian_control.dir/src/dual_arm_cartesian_control.cpp.s
+.PHONY : src/dual_arm_cartesian_control.cpp.s
+
+src/dual_arm_realtime_control.o: src/dual_arm_realtime_control.cpp.o
+.PHONY : src/dual_arm_realtime_control.o
+
+# target to build an object file
+src/dual_arm_realtime_control.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_realtime_control.dir/build.make CMakeFiles/dual_arm_realtime_control.dir/src/dual_arm_realtime_control.cpp.o
+.PHONY : src/dual_arm_realtime_control.cpp.o
+
+src/dual_arm_realtime_control.i: src/dual_arm_realtime_control.cpp.i
+.PHONY : src/dual_arm_realtime_control.i
+
+# target to preprocess a source file
+src/dual_arm_realtime_control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_realtime_control.dir/build.make CMakeFiles/dual_arm_realtime_control.dir/src/dual_arm_realtime_control.cpp.i
+.PHONY : src/dual_arm_realtime_control.cpp.i
+
+src/dual_arm_realtime_control.s: src/dual_arm_realtime_control.cpp.s
+.PHONY : src/dual_arm_realtime_control.s
+
+# target to generate assembly for a file
+src/dual_arm_realtime_control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_realtime_control.dir/build.make CMakeFiles/dual_arm_realtime_control.dir/src/dual_arm_realtime_control.cpp.s
+.PHONY : src/dual_arm_realtime_control.cpp.s
+
+src/dual_arm_servo_controller.o: src/dual_arm_servo_controller.cpp.o
+.PHONY : src/dual_arm_servo_controller.o
+
+# target to build an object file
+src/dual_arm_servo_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_servo_controller.dir/build.make CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.o
+.PHONY : src/dual_arm_servo_controller.cpp.o
+
+src/dual_arm_servo_controller.i: src/dual_arm_servo_controller.cpp.i
+.PHONY : src/dual_arm_servo_controller.i
+
+# target to preprocess a source file
+src/dual_arm_servo_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_servo_controller.dir/build.make CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.i
+.PHONY : src/dual_arm_servo_controller.cpp.i
+
+src/dual_arm_servo_controller.s: src/dual_arm_servo_controller.cpp.s
+.PHONY : src/dual_arm_servo_controller.s
+
+# target to generate assembly for a file
+src/dual_arm_servo_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_servo_controller.dir/build.make CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.s
+.PHONY : src/dual_arm_servo_controller.cpp.s
+
 src/joystick_servo.o: src/joystick_servo.cpp.o
 .PHONY : src/joystick_servo.o
 
@@ -308,6 +432,30 @@ src/pose_command_publisher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/src/pose_command_publisher.cpp.s
 .PHONY : src/pose_command_publisher.cpp.s
 
+src/simple_dual_arm_control.o: src/simple_dual_arm_control.cpp.o
+.PHONY : src/simple_dual_arm_control.o
+
+# target to build an object file
+src/simple_dual_arm_control.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_dual_arm_control.dir/build.make CMakeFiles/simple_dual_arm_control.dir/src/simple_dual_arm_control.cpp.o
+.PHONY : src/simple_dual_arm_control.cpp.o
+
+src/simple_dual_arm_control.i: src/simple_dual_arm_control.cpp.i
+.PHONY : src/simple_dual_arm_control.i
+
+# target to preprocess a source file
+src/simple_dual_arm_control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_dual_arm_control.dir/build.make CMakeFiles/simple_dual_arm_control.dir/src/simple_dual_arm_control.cpp.i
+.PHONY : src/simple_dual_arm_control.cpp.i
+
+src/simple_dual_arm_control.s: src/simple_dual_arm_control.cpp.s
+.PHONY : src/simple_dual_arm_control.s
+
+# target to generate assembly for a file
+src/simple_dual_arm_control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_dual_arm_control.dir/build.make CMakeFiles/simple_dual_arm_control.dir/src/simple_dual_arm_control.cpp.s
+.PHONY : src/simple_dual_arm_control.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -323,9 +471,22 @@ help:
 	@echo "... test"
 	@echo "... robot_config_uninstall"
 	@echo "... uninstall"
+	@echo "... dual_arm_cartesian_control"
+	@echo "... dual_arm_realtime_control"
+	@echo "... dual_arm_servo_controller"
 	@echo "... joystick_servo"
 	@echo "... move_to_pose_dual_cpp"
 	@echo "... pose_command_publisher"
+	@echo "... simple_dual_arm_control"
+	@echo "... src/dual_arm_cartesian_control.o"
+	@echo "... src/dual_arm_cartesian_control.i"
+	@echo "... src/dual_arm_cartesian_control.s"
+	@echo "... src/dual_arm_realtime_control.o"
+	@echo "... src/dual_arm_realtime_control.i"
+	@echo "... src/dual_arm_realtime_control.s"
+	@echo "... src/dual_arm_servo_controller.o"
+	@echo "... src/dual_arm_servo_controller.i"
+	@echo "... src/dual_arm_servo_controller.s"
 	@echo "... src/joystick_servo.o"
 	@echo "... src/joystick_servo.i"
 	@echo "... src/joystick_servo.s"
@@ -335,6 +496,9 @@ help:
 	@echo "... src/pose_command_publisher.o"
 	@echo "... src/pose_command_publisher.i"
 	@echo "... src/pose_command_publisher.s"
+	@echo "... src/simple_dual_arm_control.o"
+	@echo "... src/simple_dual_arm_control.i"
+	@echo "... src/simple_dual_arm_control.s"
 .PHONY : help
 
 

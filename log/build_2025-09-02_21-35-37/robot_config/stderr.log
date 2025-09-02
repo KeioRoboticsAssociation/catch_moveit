@@ -1,0 +1,8 @@
+[01m[K/home/a/ws_moveit2/src/robot_config/src/dual_arm_servo_controller.cpp:[m[K In constructor ‘[01m[KDualArmServoController::DualArmServoController()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/dual_arm_servo_controller.cpp:28:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kpose_command_active_[m[K’ was not declared in this scope
+   28 |         [01;31m[Kpose_command_active_[m[K = false;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/dual_arm_servo_controller.dir/build.make:76: CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:305: CMakeFiles/dual_arm_servo_controller.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

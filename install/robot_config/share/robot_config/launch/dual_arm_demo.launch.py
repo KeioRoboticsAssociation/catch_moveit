@@ -844,10 +844,11 @@ def generate_launch_description():
         arguments=["0.0", "0.0", "1.5", "0.0", "0.0", "0.0", "world", "camera_link"],
     )
 
-    # Servo node for realtime control (configured for left arm)
-    servo_node = Node(
+    # Servo nodes for realtime control (configured for both arms)
+    left_servo_node = Node(
         package="moveit_servo",
         executable="servo_node_main",
+        name="left_servo_node",
         parameters=[
             moveit_config.robot_description,
             moveit_config.robot_description_semantic,
@@ -858,12 +859,12 @@ def generate_launch_description():
                     "use_gazebo": False,
                     "command_in_type": "speed_units",
                     "scale": {
-                        "linear": 0.003,
-                        "rotational": 0.006,
-                        "joint": 0.01,
+                        "linear": 0.4,
+                        "rotational": 0.8,
+                        "joint": 0.5,
                     },
                     "low_latency_mode": False,
-                    "publish_period": 0.01,
+                    "publish_period": 0.034,
                     "command_out_type": "trajectory_msgs/JointTrajectory",
                     "publish_joint_positions": True,
                     "publish_joint_velocities": False,
@@ -874,19 +875,68 @@ def generate_launch_description():
                     "ee_frame_name": "left_EndEffector_1",
                     "robot_link_command_frame": "world",
                     "incoming_command_timeout": 1.0,
-                    "num_outgoing_halt_msgs_to_publish": 1,
+                    "num_outgoing_halt_msgs_to_publish": 4,
                     "lower_singularity_threshold": 30.0,
                     "hard_stop_singularity_threshold": 90.0,
                     "joint_limit_margin": 0.1,
-                    "cartesian_command_in_topic": "servo_node/delta_twist_cmds",
-                    "joint_command_in_topic": "servo_node/delta_joint_cmds",
+                    "cartesian_command_in_topic": "/left_servo_node/delta_twist_cmds",
+                    "joint_command_in_topic": "/left_servo_node/delta_joint_cmds",
                     "joint_topic": "joint_states",
-                    "status_topic": "servo_node/status",
+                    "status_topic": "/left_servo_node/status",
                     "command_out_topic": "/left_arm_controller/joint_trajectory",
                     "check_collisions": True,
-                    "collision_check_rate": 50.0,
+                    "collision_check_rate": 10.0,
                     "self_collision_proximity_threshold": 0.01,
-                    "scene_collision_proximity_threshold": 0.03,
+                    "scene_collision_proximity_threshold": 0.02,
+                }
+            },
+        ],
+        output="screen",
+    )
+
+    right_servo_node = Node(
+        package="moveit_servo",
+        executable="servo_node_main",
+        name="right_servo_node",
+        parameters=[
+            moveit_config.robot_description,
+            moveit_config.robot_description_semantic,
+            moveit_config.robot_description_kinematics,
+            {"use_sim_time": use_sim_time},
+            {
+                "moveit_servo": {
+                    "use_gazebo": False,
+                    "command_in_type": "speed_units",
+                    "scale": {
+                        "linear": 0.4,
+                        "rotational": 0.8,
+                        "joint": 0.5,
+                    },
+                    "low_latency_mode": False,
+                    "publish_period": 0.034,
+                    "command_out_type": "trajectory_msgs/JointTrajectory",
+                    "publish_joint_positions": True,
+                    "publish_joint_velocities": False,
+                    "publish_joint_accelerations": False,
+                    "smoothing_filter_plugin_name": "online_signal_smoothing::ButterworthFilterPlugin",
+                    "move_group_name": "right_arm",
+                    "planning_frame": "world",
+                    "ee_frame_name": "right_EndEffector_1",
+                    "robot_link_command_frame": "world",
+                    "incoming_command_timeout": 1.0,
+                    "num_outgoing_halt_msgs_to_publish": 4,
+                    "lower_singularity_threshold": 30.0,
+                    "hard_stop_singularity_threshold": 90.0,
+                    "joint_limit_margin": 0.1,
+                    "cartesian_command_in_topic": "/right_servo_node/delta_twist_cmds",
+                    "joint_command_in_topic": "/right_servo_node/delta_joint_cmds",
+                    "joint_topic": "joint_states",
+                    "status_topic": "/right_servo_node/status",
+                    "command_out_topic": "/right_arm_controller/joint_trajectory",
+                    "check_collisions": True,
+                    "collision_check_rate": 10.0,
+                    "self_collision_proximity_threshold": 0.01,
+                    "scene_collision_proximity_threshold": 0.02,
                 }
             },
         ],
@@ -992,6 +1042,20 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Dual Arm Servo Control node (for web app control)
+    dual_arm_servo_control_node = Node(
+        package="robot_config",
+        executable="dual_arm_servo_controller",
+        name="dual_arm_servo_controller",
+        output="screen",
+        parameters=[
+            {"velocity_scale": 0.5},
+            {"timeout_duration": 1.0},
+            {"left_servo_topic": "/left_servo_node/delta_twist_cmds"},
+            {"right_servo_topic": "/right_servo_node/delta_twist_cmds"},
+        ],
+    )
+
     # Web video server for camera streaming (optimized)
     web_video_server_node = Node(
         package="web_video_server",
@@ -1037,7 +1101,8 @@ def generate_launch_description():
             # ros2_control_node と イベントハンドラを起動リストに追加
             ros2_control_node,
             delay_spawn_controllers,
-            servo_node,
+            left_servo_node,
+            right_servo_node,
             joy_node,
             teleop_node,
             move_to_pose_dual_cpp_node, # Add the new dual arm node
@@ -1047,6 +1112,7 @@ def generate_launch_description():
             ros_tcp_endpoint,  # Add the ROS TCP Endpoint for Unity
             npm_run_dev,
             pose_command_publisher_node,  # Add pose command publisher node
+            dual_arm_servo_control_node,  # Add dual arm servo control node
             web_video_server_node,  # Add web video server for camera streaming
             realsense_launch,  # Add RealSense camera launch
             camera_static_tf,  # Add camera static transform

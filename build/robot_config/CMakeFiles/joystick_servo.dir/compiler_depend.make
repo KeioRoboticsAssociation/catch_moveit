@@ -702,6 +702,9 @@ CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.o: /home/a/ws_moveit2/src/r
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__type_support.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp \
   /opt/ros/humble/include/control_msgs/control_msgs/msg/joint_jog.hpp \
   /opt/ros/humble/include/control_msgs/control_msgs/msg/detail/joint_jog__struct.hpp \
   /opt/ros/humble/include/control_msgs/control_msgs/msg/detail/joint_jog__builder.hpp \
@@ -752,6 +755,8 @@ CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.o: /home/a/ws_moveit2/src/r
 /opt/ros/humble/include/control_msgs/control_msgs/msg/detail/joint_jog__builder.hpp:
 
 /opt/ros/humble/include/control_msgs/control_msgs/msg/joint_jog.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
@@ -1889,6 +1894,8 @@ CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.o: /home/a/ws_moveit2/src/r
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp:
+
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/sequence_bound.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp:
@@ -2168,5 +2175,7 @@ CMakeFiles/joystick_servo.dir/src/joystick_servo.cpp.o: /home/a/ws_moveit2/src/r
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/time.hpp:
 
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__builder.hpp:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/constants.hpp:

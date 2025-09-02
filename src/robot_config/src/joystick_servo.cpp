@@ -41,6 +41,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include <sensor_msgs/msg/joy.hpp>
 #include <geometry_msgs/msg/twist_stamped.hpp>
+#include <geometry_msgs/msg/twist.hpp>
 #include <control_msgs/msg/joint_jog.hpp>
 #include <std_srvs/srv/trigger.hpp>
 #include <rclcpp/client.hpp>
@@ -57,6 +58,8 @@
 #include <trajectory_msgs/msg/joint_trajectory_point.hpp>
 // We'll just set up parameters here
 const std::string JOY_TOPIC = "/joy";
+const std::string GUI_LEFT_TOPIC = "/left_arm_realtime_control";
+const std::string GUI_RIGHT_TOPIC = "/right_arm_realtime_control";
 const std::string TWIST_TOPIC = "/servo_node/delta_twist_cmds";
 const std::string JOINT_TOPIC = "/servo_node/delta_joint_cmds";
 const std::string HAND_TRAJECTORY_TOPIC = "/hand_controller/joint_trajectory";
@@ -152,6 +155,7 @@ void updateCmdFrame(std::string& frame_name, const std::vector<int>& buttons)
 
 namespace moveit_servo
 {
+
 class JoyToServoPub : public rclcpp::Node
 {
 public:
@@ -162,6 +166,15 @@ public:
     joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy>(
         JOY_TOPIC, rclcpp::SystemDefaultsQoS(),
         [this](const sensor_msgs::msg::Joy::ConstSharedPtr& msg) { return joyCB(msg); });
+
+    // GUIからのTwistメッセージを受信するサブスクライバーを追加
+    gui_left_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
+        GUI_LEFT_TOPIC, rclcpp::SystemDefaultsQoS(),
+        [this](const geometry_msgs::msg::Twist::ConstSharedPtr& msg) { return guiLeftCB(msg); });
+
+    gui_right_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
+        GUI_RIGHT_TOPIC, rclcpp::SystemDefaultsQoS(),
+        [this](const geometry_msgs::msg::Twist::ConstSharedPtr& msg) { return guiRightCB(msg); });
 
     twist_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>(TWIST_TOPIC, rclcpp::SystemDefaultsQoS());
     joint_pub_ = this->create_publisher<control_msgs::msg::JointJog>(JOINT_TOPIC, rclcpp::SystemDefaultsQoS());
@@ -217,6 +230,30 @@ public:
     }
   }
 
+  // GUIからの左アーム制御コールバック
+  void guiLeftCB(const geometry_msgs::msg::Twist::ConstSharedPtr& msg)
+  {
+    auto twist_msg = std::make_unique<geometry_msgs::msg::TwistStamped>();
+    twist_msg->header.frame_id = "world"; // 左アームの基準フレーム
+    twist_msg->header.stamp = this->now();
+    twist_msg->twist = *msg;
+    
+    RCLCPP_DEBUG(get_logger(), "Publishing GUI left arm Twist command.");
+    twist_pub_->publish(std::move(twist_msg));
+  }
+
+  // GUIからの右アーム制御コールバック
+  void guiRightCB(const geometry_msgs::msg::Twist::ConstSharedPtr& msg)
+  {
+    auto twist_msg = std::make_unique<geometry_msgs::msg::TwistStamped>();
+    twist_msg->header.frame_id = "world"; // 右アームの基準フレーム
+    twist_msg->header.stamp = this->now();
+    twist_msg->twist = *msg;
+    
+    RCLCPP_DEBUG(get_logger(), "Publishing GUI right arm Twist command.");
+    twist_pub_->publish(std::move(twist_msg));
+  }
+
 private:
   void publishHandCommand(bool open)
   {
@@ -244,6 +281,8 @@ private:
     hand_cmd_pub_->publish(std::move(traj_msg));
   }
   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
+  rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr gui_left_sub_;
+  rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr gui_right_sub_;
   rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr twist_pub_;
   rclcpp::Publisher<control_msgs::msg::JointJog>::SharedPtr joint_pub_;
   rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr hand_cmd_pub_;

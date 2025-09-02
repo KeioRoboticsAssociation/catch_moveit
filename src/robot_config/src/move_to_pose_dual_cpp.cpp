@@ -2,6 +2,7 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <std_msgs/msg/float64_multi_array.hpp>
 #include <std_msgs/msg/string.hpp>
+#include <std_srvs/srv/trigger.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
 #include <moveit/robot_state/robot_state.h>
@@ -108,6 +109,18 @@ public:
             this, "/left_arm_controller/follow_joint_trajectory");
         right_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
             this, "/right_arm_controller/follow_joint_trajectory");
+            
+        // Initialize servo control service clients for simple switching
+        left_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/left_servo_node/start_servo");
+        left_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/left_servo_node/stop_servo");
+        right_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/right_servo_node/start_servo");
+        right_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/right_servo_node/stop_servo");
+            
+        RCLCPP_INFO(this->get_logger(), "Simple servo switching system initialized");
     }
 
     ~MoveToPoseDualCpp()
@@ -123,6 +136,43 @@ public:
     }
 
 private:
+    // Simple servo control helper functions
+    void stopServo(const std::string& arm_name)
+    {
+        auto client = (arm_name == "left") ? left_servo_stop_client_ : right_servo_stop_client_;
+        if (!client->wait_for_service(std::chrono::seconds(1))) {
+            RCLCPP_WARN(this->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
+            return;
+        }
+        
+        auto request = std::make_shared<std_srvs::srv::Trigger::Request>();
+        auto future = client->async_send_request(request);
+        
+        if (future.wait_for(std::chrono::seconds(2)) == std::future_status::ready) {
+            auto response = future.get();
+            RCLCPP_INFO(this->get_logger(), "Stopped %s servo: %s", arm_name.c_str(), 
+                       response->success ? "Success" : response->message.c_str());
+        }
+    }
+    
+    void startServo(const std::string& arm_name)
+    {
+        auto client = (arm_name == "left") ? left_servo_start_client_ : right_servo_start_client_;
+        if (!client->wait_for_service(std::chrono::seconds(1))) {
+            RCLCPP_WARN(this->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
+            return;
+        }
+        
+        auto request = std::make_shared<std_srvs::srv::Trigger::Request>();
+        auto future = client->async_send_request(request);
+        
+        if (future.wait_for(std::chrono::seconds(2)) == std::future_status::ready) {
+            auto response = future.get();
+            RCLCPP_INFO(this->get_logger(), "Started %s servo: %s", arm_name.c_str(), 
+                       response->success ? "Success" : response->message.c_str());
+        }
+    }
+
     void left_rpy_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
     {
         RCLCPP_INFO(this->get_logger(), "Received target on /left_target_pose_rpy");
@@ -198,7 +248,11 @@ private:
     {
         // 非同期実行のためのスレッドを作成
         std::thread([this, move_group_interface, target_pose, arm_name]() {
-            RCLCPP_INFO(this->get_logger(), "Executing pose command for %s arm with dynamic collision avoidance", arm_name.c_str());
+            RCLCPP_INFO(this->get_logger(), "Executing pose command for %s arm with servo coordination", arm_name.c_str());
+            
+            // Stop servo for clean pose execution
+            stopServo(arm_name);
+            std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause
             
             // Apply dynamic collision avoidance settings
             applyDynamicCollisionAvoidance(move_group_interface, arm_name);
@@ -227,6 +281,11 @@ private:
             {
                 RCLCPP_ERROR(this->get_logger(), "Planning failed for %s.", arm_name.c_str());
                 stopTrajectoryTracking(arm_name);
+                
+                // Restart servo even after planning failure for continuous control
+                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                startServo(arm_name);
+                RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm after planning failure", arm_name.c_str());
             }
         }).detach();  // スレッドをデタッチして非同期実行
     }
@@ -264,6 +323,11 @@ private:
             [this, arm_name](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
                 RCLCPP_INFO(this->get_logger(), "Trajectory execution completed for %s arm", arm_name.c_str());
                 stopTrajectoryTracking(arm_name);
+                
+                // Restart servo after trajectory completion for seamless switching
+                std::this_thread::sleep_for(std::chrono::milliseconds(200)); // Brief pause
+                startServo(arm_name);
+                RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm - ready for realtime control", arm_name.c_str());
             };
 
         action_client->async_send_goal(goal_msg, send_goal_options);
@@ -444,40 +508,24 @@ private:
     void left_arm_up_callback(const std_msgs::msg::String::SharedPtr msg)
     {
         RCLCPP_INFO(this->get_logger(), "Left arm up command received");
-        if (!left_pose_received_) {
-            RCLCPP_ERROR(this->get_logger(), "No left pose received yet. Cannot execute arm_up.");
-            return;
-        }
         move_arm_z("left", arm_up_z_value_);
     }
 
     void left_arm_down_callback(const std_msgs::msg::String::SharedPtr msg)
     {
         RCLCPP_INFO(this->get_logger(), "Left arm down command received");
-        if (!left_pose_received_) {
-            RCLCPP_ERROR(this->get_logger(), "No left pose received yet. Cannot execute arm_down.");
-            return;
-        }
         move_arm_z("left", arm_down_z_value_);
     }
 
     void right_arm_up_callback(const std_msgs::msg::String::SharedPtr msg)
     {
         RCLCPP_INFO(this->get_logger(), "Right arm up command received");
-        if (!right_pose_received_) {
-            RCLCPP_ERROR(this->get_logger(), "No right pose received yet. Cannot execute arm_up.");
-            return;
-        }
         move_arm_z("right", arm_up_z_value_);
     }
 
     void right_arm_down_callback(const std_msgs::msg::String::SharedPtr msg)
     {
         RCLCPP_INFO(this->get_logger(), "Right arm down command received");
-        if (!right_pose_received_) {
-            RCLCPP_ERROR(this->get_logger(), "No right pose received yet. Cannot execute arm_down.");
-            return;
-        }
         move_arm_z("right", arm_down_z_value_);
     }
 
@@ -525,7 +573,11 @@ private:
     {
         // 非同期実行でz-movementを実行
         std::thread([this, move_group_interface, target_pose, arm_name]() {
-            RCLCPP_INFO(this->get_logger(), "Executing %s arm z-movement with dynamic collision avoidance", arm_name.c_str());
+            RCLCPP_INFO(this->get_logger(), "Executing %s arm z-movement with servo coordination", arm_name.c_str());
+            
+            // Stop servo for clean z-movement execution
+            stopServo(arm_name);
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
             
             // Apply dynamic collision avoidance settings
             applyDynamicCollisionAvoidance(move_group_interface, arm_name);
@@ -544,6 +596,11 @@ private:
             } else {
                 RCLCPP_ERROR(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
                 stopTrajectoryTracking(arm_name);
+                
+                // Restart servo after planning failure
+                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                startServo(arm_name);
+                RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm after z-movement planning failure", arm_name.c_str());
             }
         }).detach();
     }
@@ -674,6 +731,12 @@ private:
     bool right_arm_executing_ = false;
     std::chrono::steady_clock::time_point left_execution_start_;
     std::chrono::steady_clock::time_point right_execution_start_;
+    
+    // Servo control service clients for simple switching
+    rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr left_servo_start_client_;
+    rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr left_servo_stop_client_;
+    rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr right_servo_start_client_;
+    rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr right_servo_stop_client_;
     
 };
 

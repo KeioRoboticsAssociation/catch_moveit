@@ -1,0 +1,11 @@
+[01m[K/home/a/ws_moveit2/src/robot_config/src/dual_arm_servo_controller.cpp:[m[K In member function ‘[01m[Kvoid DualArmServoController::startServoServices()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/dual_arm_servo_controller.cpp:69:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_servo_start_client_[m[K’ was not declared in this scope
+   69 |         if ([01;31m[Kleft_servo_start_client_[m[K->wait_for_service(std::chrono::seconds(1)))
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/dual_arm_servo_controller.cpp:92:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_servo_start_client_[m[K’ was not declared in this scope
+   92 |         if ([01;31m[Kright_servo_start_client_[m[K->wait_for_service(std::chrono::seconds(1)))
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/dual_arm_servo_controller.dir/build.make:76: CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:305: CMakeFiles/dual_arm_servo_controller.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

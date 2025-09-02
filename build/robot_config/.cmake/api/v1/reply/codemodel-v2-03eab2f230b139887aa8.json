@@ -1,0 +1,133 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-192e84cb705e27f3e831.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "robot_config",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "dual_arm_cartesian_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dual_arm_cartesian_control-77daaaab3c92a50d2393.json",
+					"name" : "dual_arm_cartesian_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dual_arm_realtime_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dual_arm_realtime_control-3fae79892a137483a0c8.json",
+					"name" : "dual_arm_realtime_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dual_arm_servo_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dual_arm_servo_controller-205c80925d270cba4f2e.json",
+					"name" : "dual_arm_servo_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joystick_servo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joystick_servo-f024ef538e41daef1142.json",
+					"name" : "joystick_servo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "move_to_pose_dual_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-move_to_pose_dual_cpp-d929be61639156267656.json",
+					"name" : "move_to_pose_dual_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pose_command_publisher::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pose_command_publisher-cf58238d81167c591b0f.json",
+					"name" : "pose_command_publisher",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robot_config_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robot_config_uninstall-51f46f5143e8b2c12701.json",
+					"name" : "robot_config_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "simple_dual_arm_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_dual_arm_control-8d287bc9b8f72bbae624.json",
+					"name" : "simple_dual_arm_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-91e7ccd0a8dc74c655b7.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/a/ws_moveit2/build/robot_config",
+		"source" : "/home/a/ws_moveit2/src/robot_config"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
