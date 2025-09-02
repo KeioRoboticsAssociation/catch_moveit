@@ -9,6 +9,8 @@
 #include <moveit/robot_model_loader/robot_model_loader.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/buffer.h>
 #include <trajectory_msgs/msg/joint_trajectory.hpp>
 #include <control_msgs/action/follow_joint_trajectory.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
@@ -119,6 +121,10 @@ public:
             "/right_servo_node/start_servo");
         right_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
             "/right_servo_node/stop_servo");
+            
+        // Initialize TF2 for direct pose retrieval
+        tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
+        tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
             
         RCLCPP_INFO(this->get_logger(), "Simple servo switching system initialized");
     }
@@ -507,8 +513,9 @@ private:
 
     void left_arm_up_callback(const std_msgs::msg::String::SharedPtr msg)
     {
-        RCLCPP_INFO(this->get_logger(), "Left arm up command received");
+        RCLCPP_INFO(this->get_logger(), "Left arm up command received, calling move_arm_z with z=%.3f", arm_up_z_value_);
         move_arm_z("left", arm_up_z_value_);
+        RCLCPP_INFO(this->get_logger(), "move_arm_z call completed");
     }
 
     void left_arm_down_callback(const std_msgs::msg::String::SharedPtr msg)
@@ -529,17 +536,16 @@ private:
         move_arm_z("right", arm_down_z_value_);
     }
 
+    
     void move_arm_z(const std::string& arm_name, double target_z)
     {
+        RCLCPP_INFO(this->get_logger(), "move_arm_z called for %s arm with target_z=%.3f", arm_name.c_str(), target_z);
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface;
-        std::vector<double> current_pose_rpy;
 
         if (arm_name == "left") {
             move_group_interface = left_move_group_interface_;
-            current_pose_rpy = last_left_pose_rpy_;
         } else if (arm_name == "right") {
             move_group_interface = right_move_group_interface_;
-            current_pose_rpy = last_right_pose_rpy_;
         } else {
             RCLCPP_ERROR(this->get_logger(), "Invalid arm name: %s", arm_name.c_str());
             return;
@@ -550,21 +556,44 @@ private:
             return;
         }
 
-        // Create target pose with modified z-coordinate
-        geometry_msgs::msg::PoseStamped target_pose;
-        target_pose.header.frame_id = "world";
+        // Get current pose using TF2 directly from EndEffector frame
+        geometry_msgs::msg::PoseStamped current_pose;
+        std::string target_frame = arm_name + "_EndEffector_1";
+        
+        try {
+            // Get transform from world to EndEffector
+            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform(
+                "world", target_frame, tf2::TimePointZero, tf2::durationFromSec(1.0));
+                
+            // Convert transform to PoseStamped
+            current_pose.header.frame_id = "world";
+            current_pose.header.stamp = this->get_clock()->now();
+            current_pose.pose.position.x = transform.transform.translation.x;
+            current_pose.pose.position.y = transform.transform.translation.y;
+            current_pose.pose.position.z = transform.transform.translation.z;
+            current_pose.pose.orientation = transform.transform.rotation;
+            
+            RCLCPP_INFO(this->get_logger(), "Got current pose via TF2 for %s arm: x=%.3f, y=%.3f, z=%.3f", 
+                       arm_name.c_str(), current_pose.pose.position.x, 
+                       current_pose.pose.position.y, current_pose.pose.position.z);
+                       
+        } catch (const tf2::TransformException & ex) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to get current pose via TF2 for %s arm: %s", arm_name.c_str(), ex.what());
+            return;
+        }
+
+        // Create target pose with modified z-coordinate, keeping current x, y, and orientation
+        geometry_msgs::msg::PoseStamped target_pose = current_pose;
         target_pose.header.stamp = this->get_clock()->now();
-        target_pose.pose.position.x = current_pose_rpy[0];
-        target_pose.pose.position.y = current_pose_rpy[1];
         target_pose.pose.position.z = target_z;  // Set absolute z value
 
-        // Convert RPY to quaternion
-        tf2::Quaternion q;
-        q.setRPY(current_pose_rpy[3], current_pose_rpy[4], current_pose_rpy[5]);
-        target_pose.pose.orientation = tf2::toMsg(q);
-
         // Execute z-movement directly
-        RCLCPP_INFO(this->get_logger(), "Executing z-movement command for %s arm", arm_name.c_str());
+        RCLCPP_INFO(this->get_logger(), "Executing z-movement for %s arm from z=%.3f to z=%.3f", 
+                   arm_name.c_str(), current_pose.pose.position.z, target_z);
+        RCLCPP_INFO(this->get_logger(), "Target pose: x=%.3f, y=%.3f, z=%.3f, qx=%.3f, qy=%.3f, qz=%.3f, qw=%.3f",
+                   target_pose.pose.position.x, target_pose.pose.position.y, target_pose.pose.position.z,
+                   target_pose.pose.orientation.x, target_pose.pose.orientation.y, 
+                   target_pose.pose.orientation.z, target_pose.pose.orientation.w);
         executeZMoveCommand(move_group_interface, target_pose, arm_name, target_z);
     }
     
@@ -575,32 +604,55 @@ private:
         std::thread([this, move_group_interface, target_pose, arm_name]() {
             RCLCPP_INFO(this->get_logger(), "Executing %s arm z-movement with servo coordination", arm_name.c_str());
             
-            // Stop servo for clean z-movement execution
+            // Stop servo for clean pose execution
             stopServo(arm_name);
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause
             
-            // Apply dynamic collision avoidance settings
-            applyDynamicCollisionAvoidance(move_group_interface, arm_name);
-            
-            // Use Pilz LIN planner for straight line motion
+            // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
             move_group_interface->setPlannerId("LIN");
+            move_group_interface->setPlanningTime(5.0);
+            move_group_interface->setNumPlanningAttempts(1);
+            
+            // Check current state before planning
+            geometry_msgs::msg::PoseStamped current_pose_check = move_group_interface->getCurrentPose();
+            RCLCPP_INFO(this->get_logger(), "Pre-planning check - Current: x=%.3f, y=%.3f, z=%.3f", 
+                       current_pose_check.pose.position.x, current_pose_check.pose.position.y, current_pose_check.pose.position.z);
+            
             move_group_interface->setPoseTarget(target_pose);
+            
+            RCLCPP_INFO(this->get_logger(), "About to plan Pilz LIN motion for %s arm", arm_name.c_str());
 
             moveit::planning_interface::MoveGroupInterface::Plan my_plan;
             bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
 
             if (success) {
                 RCLCPP_INFO(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
-                execute_trajectory_directly(move_group_interface, my_plan, arm_name);  // 直接軌道送信
+                execute_trajectory_directly(move_group_interface, my_plan, arm_name);
             } else {
-                RCLCPP_ERROR(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement.", arm_name.c_str());
-                stopTrajectoryTracking(arm_name);
+                RCLCPP_WARN(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement, trying OMPL RRTConnect.", arm_name.c_str());
                 
-                // Restart servo after planning failure
-                std::this_thread::sleep_for(std::chrono::milliseconds(200));
-                startServo(arm_name);
-                RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm after z-movement planning failure", arm_name.c_str());
+                // Fallback to OMPL RRTConnect planner
+                move_group_interface->setPlanningPipelineId("ompl");
+                move_group_interface->setPlannerId("RRTConnect");
+                move_group_interface->setPlanningTime(5.0);
+                move_group_interface->setNumPlanningAttempts(3);
+                move_group_interface->setPoseTarget(target_pose);
+                
+                bool ompl_success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+                
+                if (ompl_success) {
+                    RCLCPP_INFO(this->get_logger(), "OMPL RRTConnect found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
+                    execute_trajectory_directly(move_group_interface, my_plan, arm_name);
+                } else {
+                    RCLCPP_ERROR(this->get_logger(), "Both Pilz LIN and OMPL RRTConnect planning failed for %s arm z-movement.", arm_name.c_str());
+                    stopTrajectoryTracking(arm_name);
+                    
+                    // Restart servo even after planning failure for continuous control
+                    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                    startServo(arm_name);
+                    RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm after z-movement planning failure", arm_name.c_str());
+                }
             }
         }).detach();
     }
@@ -716,7 +768,7 @@ private:
     
     // Configurable z-coordinate values for arm up/down
     double arm_up_z_value_ = 0.2;   // Absolute z coordinate for arm up position
-    double arm_down_z_value_ = 0.086; // Absolute z coordinate for arm down position
+    double arm_down_z_value_ = 0.1; // Absolute z coordinate for arm down position
     
     // Action clients for direct trajectory execution
     using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
@@ -737,6 +789,10 @@ private:
     rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr left_servo_stop_client_;
     rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr right_servo_start_client_;
     rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr right_servo_stop_client_;
+    
+    // TF2 for direct pose retrieval
+    std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
+    std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     
 };
 

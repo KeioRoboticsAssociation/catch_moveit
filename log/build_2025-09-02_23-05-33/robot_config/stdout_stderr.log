@@ -1,0 +1,24 @@
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 35%] Built target simple_dual_arm_control
+[ 35%] Built target dual_arm_servo_controller
+[ 42%] Built target pose_command_publisher
+[ 71%] Built target joystick_servo
+[ 71%] Built target dual_arm_realtime_control
+[ 85%] Built target dual_arm_cartesian_control
+[ 92%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::move_arm_z(const string&, double)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:540:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_pose[m[K’ was not declared in this scope; did you mean ‘[01m[Kcurrent_pose_rpy[m[K’?
+  540 |             [01;31m[Kcurrent_pose[m[K = move_group_interface->getCurrentPose();
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+      |             [32m[Kcurrent_pose_rpy[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:543:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_pose[m[K’ was not declared in this scope; did you mean ‘[01m[Kcurrent_pose_rpy[m[K’?
+  543 |             [01;31m[Kcurrent_pose[m[K = move_group_interface->getCurrentPose();
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+      |             [32m[Kcurrent_pose_rpy[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:558:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_pose[m[K’ was not declared in this scope; did you mean ‘[01m[Ktarget_pose[m[K’?
+  558 |         target_pose.pose.position.x = [01;31m[Kcurrent_pose[m[K.pose.position.x;
+      |                                       [01;31m[K^~~~~~~~~~~~[m[K
+      |                                       [32m[Ktarget_pose[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:175: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
