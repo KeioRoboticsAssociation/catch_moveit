@@ -908,19 +908,6 @@ def generate_launch_description():
         name="joystick_servo",
         output="screen",
     )
-    # C++ node for moving to a pose (single arm)
-    # move_to_pose_cpp_node = Node(
-    #     package="robot_config",
-    #     executable="move_to_pose_cpp",
-    #     name="move_to_pose_cpp",
-    #     output="screen",
-    #     # Pass the MoveIt-generated parameters to this node
-    #     parameters=[
-    #         moveit_config.robot_description,
-    #         moveit_config.robot_description_semantic,
-    #         moveit_config.robot_description_kinematics,
-    #     ],
-    # )
 
     # C++ node for moving to a pose (dual arm)
     move_to_pose_dual_cpp_node = Node(
@@ -967,12 +954,6 @@ def generate_launch_description():
     # Check command line arguments for both field and box_coordinates parameters
     import sys
     # Node to sort joint states
-    joint_states_sorter_node = Node(
-        package="robot_config",
-        executable="joint_states_sorter.py",
-        name="joint_states_sorter",
-        output="screen",
-    )
 
     # Rosbridge server
     rosbridge_websocket = Node(
@@ -1059,9 +1040,7 @@ def generate_launch_description():
             servo_node,
             joy_node,
             teleop_node,
-            # move_to_pose_cpp_node,
             move_to_pose_dual_cpp_node, # Add the new dual arm node
-            joint_states_sorter_node,  # Add the joint states sorter node
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,

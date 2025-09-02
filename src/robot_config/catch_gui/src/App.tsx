@@ -18,6 +18,10 @@ const ARM2_GRAB_TOPIC = "/right_arm_close";
 const ARM2_RELEASE_TOPIC = "/right_arm_open";
 const UP_DOWN_MESSAGE_TYPE = "std_msgs/msg/String";
 
+// リアルタイム制御用のトピック
+const REALTIME_CONTROL_TOPIC = "/realtime_endeffector_control";
+const REALTIME_CONTROL_MESSAGE_TYPE = "geometry_msgs/msg/Twist";
+
 export default function App() {
   const [connectionStatus, setConnectionStatus] = useState("Disconnected");
   const [lastReceivedMessage, setLastReceivedMessage] = useState("");
@@ -31,14 +35,18 @@ export default function App() {
   const [arm1ReleasePublisher, setArm1ReleasePublisher] = useState(null);
   const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);
   const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null);
+  const [realtimeControlPublisher, setRealtimeControlPublisher] = useState(null);
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
   const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(180); // 3分 = 180秒
 
   const ros = useRef(null);
   const publisher = useRef(null);
   const listener = useRef(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     ros.current = new ROSLIB.Ros({
@@ -53,6 +61,7 @@ export default function App() {
       initializePosePublisher();
       initializeUpDownPublishers();
       initializeGrabReleasePublishers();
+      initializeRealtimeControlPublisher();
     });
 
     ros.current.on('error', (error) => {
@@ -72,8 +81,29 @@ export default function App() {
         }
         ros.current.close();
       }
+      // タイマーをクリア
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
     };
   }, []);
+
+  // タイマーの useEffect
+  useEffect(() => {
+    if (isTimerRunning && timeLeft > 0) {
+      timerRef.current = setInterval(() => {
+        setTimeLeft(prevTime => prevTime - 1);
+      }, 1000);
+    } else if (timeLeft === 0) {
+      setIsTimerRunning(false);
+    }
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [isTimerRunning, timeLeft]);
 
   const initializePublisher = () => {
     publisher.current = new ROSLIB.Topic({
@@ -150,6 +180,15 @@ export default function App() {
       messageType: UP_DOWN_MESSAGE_TYPE
     });
     setArm2ReleasePublisher(arm2ReleasePub);
+  };
+
+  const initializeRealtimeControlPublisher = () => {
+    const realtimeControlPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: REALTIME_CONTROL_TOPIC,
+      messageType: REALTIME_CONTROL_MESSAGE_TYPE
+    });
+    setRealtimeControlPublisher(realtimeControlPub);
   };
 
   const initializeSubscriber = () => {
@@ -448,6 +487,33 @@ export default function App() {
     }
   };
 
+  const toggleTimer = () => {
+    if (isTimerRunning) {
+      // Stopボタンを押したときに3分に戻す
+      setIsTimerRunning(false);
+      setTimeLeft(180); // 3分 = 180秒
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    } else {
+      setIsTimerRunning(true);
+    }
+  };
+
+  const resetTimer = () => {
+    setIsTimerRunning(false);
+    setTimeLeft(180); // 3分 = 180秒
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+
   const getVisiblePoses = () => {
     if (selectedArm === "left") {
       return [1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 21, 22, 23, 24, 25];
@@ -466,8 +532,122 @@ export default function App() {
     </button>
   );
 
+  // D-padコントローラーコンポーネント
+  const DPadController = () => (
+    <div className="dpad-container">
+      <div className="dpad">
+        {/* 上 */}
+        <button 
+          className="dpad-button dpad-up"
+          onMouseDown={() => publishRealtimeControl(0.1, 0, 0)}
+          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
+          onTouchStart={() => publishRealtimeControl(0.1, 0, 0)}
+          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          disabled={connectionStatus !== 'Connected'}
+        >
+          ⬆
+        </button>
+        {/* 左 */}
+        <button 
+          className="dpad-button dpad-left"
+          onMouseDown={() => publishRealtimeControl(0, 0.1, 0)}
+          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
+          onTouchStart={() => publishRealtimeControl(0, 0.1, 0)}
+          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          disabled={connectionStatus !== 'Connected'}
+        >
+          ⬅
+        </button>
+        {/* 中央 */}
+        <div className="dpad-center"></div>
+        {/* 右 */}
+        <button 
+          className="dpad-button dpad-right"
+          onMouseDown={() => publishRealtimeControl(0, -0.1, 0)}
+          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
+          onTouchStart={() => publishRealtimeControl(0, -0.1, 0)}
+          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          disabled={connectionStatus !== 'Connected'}
+        >
+          ➡
+        </button>
+        {/* 下 */}
+        <div className="dpad-down-container">
+          <button 
+            className="dpad-button dpad-down"
+            onMouseDown={() => publishRealtimeControl(-0.1, 0, 0)}
+            onMouseUp={() => publishRealtimeControl(0, 0, 0)}
+            onTouchStart={() => publishRealtimeControl(-0.1, 0, 0)}
+            onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+            disabled={connectionStatus !== 'Connected'}
+          >
+            ⬇
+          </button>
+          <div className="dpad-label">XY Movement</div>
+        </div>
+      </div>
+    </div>
+  );
+
+  // ヨー角制御用曲線矢印コンポーネント
+  const YawController = () => (
+    <div className="yaw-controller">
+      <div className="yaw-buttons-container">
+        <button 
+          className="yaw-button yaw-left"
+          onMouseDown={() => publishRealtimeControl(0, 0, 0.5)}
+          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
+          onTouchStart={() => publishRealtimeControl(0, 0, 0.5)}
+          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          disabled={connectionStatus !== 'Connected'}
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40">
+            <path 
+              d="M 30 15 A 8 8 0 1 0 30 25" 
+              stroke="currentColor" 
+              strokeWidth="3" 
+              fill="none"
+              markerEnd="url(#arrowhead-ccw)"
+            />
+            <defs>
+              <marker id="arrowhead-ccw" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto ">
+                <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
+              </marker>
+            </defs>
+          </svg>
+        </button>
+        <button 
+          className="yaw-button yaw-right"
+          onMouseDown={() => publishRealtimeControl(0, 0, -0.5)}
+          onMouseUp={() => publishRealtimeControl(0, 0, 0)}
+          onTouchStart={() => publishRealtimeControl(0, 0, -0.5)}
+          onTouchEnd={() => publishRealtimeControl(0, 0, 0)}
+          disabled={connectionStatus !== 'Connected'}
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40">
+            <path 
+              d="M 10 15 A 8 8 0 1 1 10 25" 
+              stroke="currentColor" 
+              strokeWidth="3" 
+              fill="none"
+              markerEnd="url(#arrowhead-cw)"
+            />
+            <defs>
+              <marker id="arrowhead-cw" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
+              </marker>
+            </defs>
+          </svg>
+        </button>
+      </div>
+      <div className="yaw-label">Yaw Rotation</div>
+    </div>
+  );
+
   const CameraView = () => (
-    <div className="camera-view-container">
+    <div className="camera-view-container-fullscreen">
       <div className="camera-image-wrapper">
         <img 
           src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
@@ -488,47 +668,77 @@ export default function App() {
           </div>
         )}
       </div>
-      <div className="side-controls">
-        {selectedArm === "left" && (
-          <div className="up-down-buttons vertical">
-            <button 
-              className="up-down-button up-button"
-              onClick={handleArm1UpButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬆️ UP
-            </button>
-            <button 
-              className="up-down-button down-button"
-              onClick={handleArm1DownButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬇️ DOWN
-            </button>
+      <div className="side-controls-expanded">
+        <div className="controller-section-horizontal">
+          <div className="left-controller-section">
+            <YawController />
+            <DPadController />
           </div>
-        )}
-        
-        {selectedArm === "right" && (
-          <div className="up-down-buttons vertical">
-            <button 
-              className="up-down-button up-button"
-              onClick={handleArm2UpButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬆️ UP
-            </button>
-            <button 
-              className="up-down-button down-button"
-              onClick={handleArm2DownButtonClick}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              ⬇️ DOWN
-            </button>
+          <div className="right-controller-section">
+            {selectedArm === "left" && (
+              <div className="up-down-buttons vertical">
+                <button 
+                  className="up-down-button up-button"
+                  onClick={handleArm1UpButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬆️ UP
+                </button>
+                <button 
+                  className="up-down-button down-button"
+                  onClick={handleArm1DownButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬇️ DOWN
+                </button>
+              </div>
+            )}
+            
+            {selectedArm === "right" && (
+              <div className="up-down-buttons vertical">
+                <button 
+                  className="up-down-button up-button"
+                  onClick={handleArm2UpButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬆️ UP
+                </button>
+                <button 
+                  className="up-down-button down-button"
+                  onClick={handleArm2DownButtonClick}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ⬇️ DOWN
+                </button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
+
+  // リアルタイム制御関数
+  const publishRealtimeControl = (linear_x: number, linear_y: number, angular_z: number) => {
+    if (realtimeControlPublisher && connectionStatus === 'Connected') {
+      const message = new ROSLIB.Message({
+        linear: {
+          x: linear_x,
+          y: linear_y,
+          z: 0.0
+        },
+        angular: {
+          x: 0.0,
+          y: 0.0,
+          z: angular_z
+        }
+      });
+      realtimeControlPublisher.publish(message);
+      console.log(`🎮 Real-time control: linear(${linear_x}, ${linear_y}), angular(${angular_z})`);
+    } else {
+      console.warn(`Cannot send real-time control. ROS Status: ${connectionStatus}`);
+    }
+  };
 
   const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
     const img = event.currentTarget;
@@ -707,6 +917,15 @@ export default function App() {
           >
             🎨 Field: {backgroundColor === "red" ? "赤" : "青"}
           </button>
+          <button 
+            className={`toggle-button timer-toggle ${isTimerRunning ? 'timer-running' : ''}`}
+            onClick={toggleTimer}
+          >
+            ⏱️ {isTimerRunning ? "Stop" : "Start"}
+          </button>
+          <div className="timer-display">
+            {formatTime(timeLeft)}
+          </div>
         </div>
       </header>
       
@@ -714,53 +933,63 @@ export default function App() {
         {isCameraOpen ? (
           <CameraView />
         ) : (
-          <div className="pose-grid-with-controls">
-            <div className="pose-grid">
-              {getVisiblePoses().map((buttonNumber) => (
-                <GridButton 
-                  key={buttonNumber} 
-                  buttonNumber={buttonNumber}
-                />
-              ))}
+          <div className="camera-view-container">
+            <div className="camera-image-wrapper">
+              <div className="pose-grid">
+                {getVisiblePoses().map((buttonNumber) => (
+                  <GridButton 
+                    key={buttonNumber} 
+                    buttonNumber={buttonNumber}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="side-controls">
-              {selectedArm === "left" && (
-                <div className="up-down-buttons vertical">
-                  <button 
-                    className="up-down-button up-button"
-                    onClick={handleArm1UpButtonClick}
-                    disabled={connectionStatus !== 'Connected'}
-                  >
-                    ⬆️ UP
-                  </button>
-                  <button 
-                    className="up-down-button down-button"
-                    onClick={handleArm1DownButtonClick}
-                    disabled={connectionStatus !== 'Connected'}
-                  >
-                    ⬇️ DOWN
-                  </button>
+            <div className="side-controls-expanded">
+              <div className="controller-section-horizontal">
+                <div className="left-controller-section">
+                  <YawController />
+                  <DPadController />
                 </div>
-              )}
-              
-              {selectedArm === "right" && (
-                <div className="up-down-buttons vertical">
-                  <button 
-                    className="up-down-button up-button"
-                    onClick={handleArm2UpButtonClick}
-                    disabled={connectionStatus !== 'Connected'}
-                  >
-                    ⬆️ UP
-                  </button>
-                  <button 
-                    className="up-down-button down-button"
-                    onClick={handleArm2DownButtonClick}
-                    disabled={connectionStatus !== 'Connected'}
-                  >
-                    ⬇️ DOWN
-                  </button>
+                <div className="right-controller-section">
+                  {selectedArm === "left" && (
+                    <div className="up-down-buttons vertical">
+                      <button 
+                        className="up-down-button up-button"
+                        onClick={handleArm1UpButtonClick}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬆️ UP
+                      </button>
+                      <button 
+                        className="up-down-button down-button"
+                        onClick={handleArm1DownButtonClick}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬇️ DOWN
+                      </button>
+                    </div>
+                  )}
+                  
+                  {selectedArm === "right" && (
+                    <div className="up-down-buttons vertical">
+                      <button 
+                        className="up-down-button up-button"
+                        onClick={handleArm2UpButtonClick}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬆️ UP
+                      </button>
+                      <button 
+                        className="up-down-button down-button"
+                        onClick={handleArm2DownButtonClick}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬇️ DOWN
+                      </button>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           </div>
         )}

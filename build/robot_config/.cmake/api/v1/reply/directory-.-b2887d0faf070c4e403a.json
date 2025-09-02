@@ -246,19 +246,13 @@
 			{
 				"command" : 0,
 				"file" : 4,
-				"line" : 77,
+				"line" : 78,
 				"parent" : 0
 			},
 			{
 				"command" : 0,
 				"file" : 4,
-				"line" : 98,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 4,
-				"line" : 117,
+				"line" : 97,
 				"parent" : 0
 			}
 		]
@@ -454,9 +448,7 @@
 			"destination" : "lib/robot_config",
 			"paths" : 
 			[
-				"src/gui.py",
-				"src/publish_collision_mesh.py",
-				"src/joint_states_sorter.py"
+				"src/publish_collision_mesh.py"
 			],
 			"type" : "file"
 		},
@@ -466,9 +458,9 @@
 			"destination" : "lib/robot_config",
 			"paths" : 
 			[
-				"move_to_pose_cpp"
+				"move_to_pose_dual_cpp"
 			],
-			"targetId" : "move_to_pose_cpp::@6890427a1f51a3e7e1df",
+			"targetId" : "move_to_pose_dual_cpp::@6890427a1f51a3e7e1df",
 			"targetIndex" : 1,
 			"type" : "target"
 		},
@@ -478,22 +470,10 @@
 			"destination" : "lib/robot_config",
 			"paths" : 
 			[
-				"move_to_pose_dual_cpp"
-			],
-			"targetId" : "move_to_pose_dual_cpp::@6890427a1f51a3e7e1df",
-			"targetIndex" : 2,
-			"type" : "target"
-		},
-		{
-			"backtrace" : 39,
-			"component" : "Unspecified",
-			"destination" : "lib/robot_config",
-			"paths" : 
-			[
 				"pose_command_publisher"
 			],
 			"targetId" : "pose_command_publisher::@6890427a1f51a3e7e1df",
-			"targetIndex" : 3,
+			"targetIndex" : 2,
 			"type" : "target"
 		}
 	],
