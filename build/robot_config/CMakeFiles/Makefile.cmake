@@ -1344,11 +1344,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "CMakeFiles/robot_config_uninstall.dir/DependInfo.cmake"
-  "CMakeFiles/joystick_servo.dir/DependInfo.cmake"
   "CMakeFiles/move_to_pose_dual_cpp.dir/DependInfo.cmake"
   "CMakeFiles/pose_command_publisher.dir/DependInfo.cmake"
-  "CMakeFiles/dual_arm_realtime_control.dir/DependInfo.cmake"
-  "CMakeFiles/dual_arm_cartesian_control.dir/DependInfo.cmake"
-  "CMakeFiles/simple_dual_arm_control.dir/DependInfo.cmake"
   "CMakeFiles/dual_arm_servo_controller.dir/DependInfo.cmake"
   )

@@ -951,13 +951,6 @@ def generate_launch_description():
         output="screen",
     )
 
-    # Your teleop node
-    teleop_node = Node(
-        package="robot_config",
-        executable="joystick_servo",
-        name="joystick_servo",
-        output="screen",
-    )
 
     # C++ node for moving to a pose (dual arm)
     move_to_pose_dual_cpp_node = Node(
@@ -1104,7 +1097,6 @@ def generate_launch_description():
             left_servo_node,
             right_servo_node,
             joy_node,
-            teleop_node,
             move_to_pose_dual_cpp_node, # Add the new dual arm node
             # Additional nodes
             rosbridge_websocket,

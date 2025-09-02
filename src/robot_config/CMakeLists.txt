@@ -31,27 +31,6 @@ endif()
 install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
 install(FILES .setup_assistant DESTINATION share/${PROJECT_NAME})
 
-# Add the executable for the teleop node
-add_executable(joystick_servo src/joystick_servo.cpp)
-
-# Add dependencies for the teleop node
-ament_target_dependencies(
-  joystick_servo
-  rclcpp
-  sensor_msgs
-  geometry_msgs
-  control_msgs
-  std_srvs
-  moveit_msgs
-  moveit_servo
-  tf2_ros
-)
-
-# Install the teleop node
-install(TARGETS
-  joystick_servo
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 # Install python script
 install(PROGRAMS
@@ -101,69 +80,8 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# Add the executable for the dual_arm_realtime_control node
-add_executable(dual_arm_realtime_control src/dual_arm_realtime_control.cpp)
 
-# Add dependencies for the dual_arm_realtime_control node
-ament_target_dependencies(
-  dual_arm_realtime_control
-  rclcpp
-  moveit_core
-  moveit_ros_planning
-  moveit_ros_planning_interface
-  moveit_ros_move_group
-  geometry_msgs
-  tf2_geometry_msgs
-)
 
-# Install the dual_arm_realtime_control node
-install(TARGETS
-  dual_arm_realtime_control
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-# Add the executable for the dual_arm_cartesian_control node
-add_executable(dual_arm_cartesian_control src/dual_arm_cartesian_control.cpp)
-
-# Add dependencies for the dual_arm_cartesian_control node
-ament_target_dependencies(
-  dual_arm_cartesian_control
-  rclcpp
-  moveit_core
-  moveit_ros_planning
-  moveit_ros_planning_interface
-  moveit_ros_move_group
-  geometry_msgs
-  tf2_geometry_msgs
-  moveit_msgs
-)
-
-# Install the dual_arm_cartesian_control node
-install(TARGETS
-  dual_arm_cartesian_control
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-# Add the executable for the simple_dual_arm_control node
-add_executable(simple_dual_arm_control src/simple_dual_arm_control.cpp)
-
-# Add dependencies for the simple_dual_arm_control node
-ament_target_dependencies(
-  simple_dual_arm_control
-  rclcpp
-  moveit_core
-  moveit_ros_planning
-  moveit_ros_planning_interface
-  moveit_ros_move_group
-  geometry_msgs
-  tf2_geometry_msgs
-)
-
-# Install the simple_dual_arm_control node
-install(TARGETS
-  simple_dual_arm_control
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 # Add the executable for the dual_arm_servo_controller node
 add_executable(dual_arm_servo_controller src/dual_arm_servo_controller.cpp)
