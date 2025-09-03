@@ -146,7 +146,7 @@ private:
     void stopServo(const std::string& arm_name)
     {
         auto client = (arm_name == "left") ? left_servo_stop_client_ : right_servo_stop_client_;
-        if (!client->wait_for_service(std::chrono::seconds(1))) {
+        if (!client->wait_for_service(std::chrono::milliseconds(100))) {
             RCLCPP_WARN(this->get_logger(), "Servo stop service not available for %s arm", arm_name.c_str());
             return;
         }
@@ -154,7 +154,7 @@ private:
         auto request = std::make_shared<std_srvs::srv::Trigger::Request>();
         auto future = client->async_send_request(request);
         
-        if (future.wait_for(std::chrono::seconds(2)) == std::future_status::ready) {
+        if (future.wait_for(std::chrono::milliseconds(500)) == std::future_status::ready) {
             auto response = future.get();
             RCLCPP_INFO(this->get_logger(), "Stopped %s servo: %s", arm_name.c_str(), 
                        response->success ? "Success" : response->message.c_str());
@@ -164,7 +164,7 @@ private:
     void startServo(const std::string& arm_name)
     {
         auto client = (arm_name == "left") ? left_servo_start_client_ : right_servo_start_client_;
-        if (!client->wait_for_service(std::chrono::seconds(1))) {
+        if (!client->wait_for_service(std::chrono::milliseconds(100))) {
             RCLCPP_WARN(this->get_logger(), "Servo start service not available for %s arm", arm_name.c_str());
             return;
         }
@@ -172,7 +172,7 @@ private:
         auto request = std::make_shared<std_srvs::srv::Trigger::Request>();
         auto future = client->async_send_request(request);
         
-        if (future.wait_for(std::chrono::seconds(2)) == std::future_status::ready) {
+        if (future.wait_for(std::chrono::milliseconds(500)) == std::future_status::ready) {
             auto response = future.get();
             RCLCPP_INFO(this->get_logger(), "Started %s servo: %s", arm_name.c_str(), 
                        response->success ? "Success" : response->message.c_str());
@@ -258,7 +258,7 @@ private:
             
             // Stop servo for clean pose execution
             stopServo(arm_name);
-            std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause
+            // std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause - removed for faster response
             
             // Apply dynamic collision avoidance settings
             applyDynamicCollisionAvoidance(move_group_interface, arm_name);
@@ -271,7 +271,7 @@ private:
             
             // デフォルトの高速設定（他のアーム動作中でない場合）
             if (!((arm_name == "left" && right_arm_executing_) || (arm_name == "right" && left_arm_executing_))) {
-                move_group_interface->setPlanningTime(1.0);     // 高速プランニング
+                move_group_interface->setPlanningTime(0.05);     // さらに高速プランニング
                 move_group_interface->setNumPlanningAttempts(1); // 1回のみ
             }
 
@@ -310,7 +310,7 @@ private:
         }
 
         // アクションサーバーを待機
-        if (!action_client->wait_for_action_server(std::chrono::seconds(1))) {
+        if (!action_client->wait_for_action_server(std::chrono::milliseconds(100))) {
             RCLCPP_ERROR(this->get_logger(), "Action server not available for %s arm", arm_name.c_str());
             return;
         }
@@ -331,7 +331,7 @@ private:
                 stopTrajectoryTracking(arm_name);
                 
                 // Restart servo after trajectory completion for seamless switching
-                std::this_thread::sleep_for(std::chrono::milliseconds(200)); // Brief pause
+                std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause
                 startServo(arm_name);
                 RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm - ready for realtime control", arm_name.c_str());
             };
@@ -396,8 +396,8 @@ private:
             // Apply more conservative collision checking
             move_group_interface->setGoalPositionTolerance(0.001);   // Balanced tolerance
             move_group_interface->setGoalOrientationTolerance(0.001); // Relaxed orientation
-            move_group_interface->setPlanningTime(2.0);             // Sufficient planning time
-            move_group_interface->setNumPlanningAttempts(3);        // Fewer attempts for speed
+            move_group_interface->setPlanningTime(0.1);             // Sufficient planning time
+            move_group_interface->setNumPlanningAttempts(1);        // Fewer attempts for speed
             
             RCLCPP_INFO(this->get_logger(), "Applied enhanced collision avoidance settings for %s arm (other arm executing for %ld ms)", 
                        arm_name.c_str(), elapsed.count());
@@ -606,7 +606,7 @@ private:
             
             // Stop servo for clean pose execution
             stopServo(arm_name);
-            std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause
+            // std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause - removed for faster response
             
             // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
