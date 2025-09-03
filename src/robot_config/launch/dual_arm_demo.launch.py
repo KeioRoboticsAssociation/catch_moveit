@@ -1084,6 +1084,17 @@ def generate_launch_description():
         }.items()
     )
 
+    # D415 RGB depth 3D launch
+    d415_rgb_depth_3d_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare("d415_rgb_depth_3d"),
+                "launch",
+                "d415_rgb_depth_3d.launch.py"
+            ])
+        ])
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -1107,6 +1118,7 @@ def generate_launch_description():
             dual_arm_servo_control_node,  # Add dual arm servo control node
             web_video_server_node,  # Add web video server for camera streaming
             realsense_launch,  # Add RealSense camera launch
+            d415_rgb_depth_3d_launch,  # Add D415 RGB depth 3D launch
             camera_static_tf,  # Add camera static transform
             publish_collision_mesh_node,
         ]

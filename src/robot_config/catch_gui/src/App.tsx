@@ -8,6 +8,8 @@ const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";
 const POSE_MESSAGE_TYPE = "std_msgs/msg/String";
+const TAP_PIXEL_TOPIC = "/tap/d415_pixel";
+const TAP_PIXEL_MESSAGE_TYPE = "geometry_msgs/msg/Point";
 const ARM1_UP_TOPIC = "/left_arm_up";
 const ARM1_DOWN_TOPIC = "/left_arm_down";
 const ARM2_UP_TOPIC = "/right_arm_up";
@@ -35,6 +37,7 @@ export default function App() {
   const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);
   const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null);
   const [realtimeControlPublisher, setRealtimeControlPublisher] = useState(null);
+  const [tapPixelPublisher, setTapPixelPublisher] = useState(null);
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
@@ -63,6 +66,7 @@ export default function App() {
       initializeUpDownPublishers();
       initializeGrabReleasePublishers();
       initializeRealtimeControlPublisher();
+      initializeTapPixelPublisher();
     });
 
     ros.current.on('error', (error) => {
@@ -191,6 +195,15 @@ export default function App() {
     // 左右アーム用のpublisherを初期化 (実際にはpublish時に動的に作成)
     // ここではstateの初期化のみ行う
     setRealtimeControlPublisher(null);
+  };
+
+  const initializeTapPixelPublisher = () => {
+    const tapPixelPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: TAP_PIXEL_TOPIC,
+      messageType: TAP_PIXEL_MESSAGE_TYPE
+    });
+    setTapPixelPublisher(tapPixelPub);
   };
 
   const initializeSubscriber = () => {
@@ -902,6 +915,17 @@ export default function App() {
     
     setClickedCoordinates({ x, y });
     console.log(`カメラ画像クリック座標: (${x}, ${y})`);
+    
+    // ROSトピックにピクセル座標を送信
+    if (tapPixelPublisher && connectionStatus === 'Connected') {
+      const message = new ROSLIB.Message({
+        x: x,
+        y: y,
+        z: 0
+      });
+      tapPixelPublisher.publish(message);
+      console.log(`📍 Published pixel coordinates to ${TAP_PIXEL_TOPIC}: (${x}, ${y})`);
+    }
   };
 
   const CameraLargeView = () => (
