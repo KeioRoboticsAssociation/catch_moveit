@@ -1131,6 +1131,23 @@ def generate_launch_description():
         ])
     )
 
+    # Dynamixel controller node
+    dynamixel_controller_node = Node(
+        package="dynamixel_controller",
+        executable="dynamixel_controller_node",
+        name="dynamixel_controller_node",
+        output="screen",
+        parameters=["/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/config/bus_config.yaml"],
+    )
+
+    # Dynamixel GUI node
+    dynamixel_gui_node = Node(
+        package="dynamixel_controller_gui",
+        executable="dynamixel_gui",
+        name="dynamixel_gui",
+        output="screen",
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
@@ -1157,5 +1174,7 @@ def generate_launch_description():
             d415_rgb_depth_3d_launch,  # Add D415 RGB depth 3D launch
             camera_static_tf,  # Add camera static transform
             publish_collision_mesh_node,
+            dynamixel_controller_node,  # Add Dynamixel controller
+            dynamixel_gui_node,  # Add Dynamixel GUI
         ]
     )
