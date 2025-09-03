@@ -34,11 +34,11 @@ public:
         
         // WebアプリからのTwist入力を受信するSubscriber
         left_arm_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
-            "/left_arm_realtime_control", 10,
+            "/left_arm_realtime_control", 100,
             std::bind(&DualArmServoController::leftArmCallback, this, std::placeholders::_1));
         
         right_arm_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
-            "/right_arm_realtime_control", 10,
+            "/right_arm_realtime_control", 100,
             std::bind(&DualArmServoController::rightArmCallback, this, std::placeholders::_1));
         
         // シンプルな制御ループタイマー

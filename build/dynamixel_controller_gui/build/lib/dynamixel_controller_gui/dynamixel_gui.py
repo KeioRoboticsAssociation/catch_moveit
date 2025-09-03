@@ -49,11 +49,17 @@ class DynamixelGUI(Node):
         discovery_frame.grid(row=0, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 10))
         
         # Scan buttons
+        ttk.Button(discovery_frame, text="Scan Motors", command=self.scan_motors).grid(row=0, column=0, padx=(0, 5))
+        ttk.Button(discovery_frame, text="Ping All", command=self.ping_all_motors).grid(row=0, column=1, padx=(0, 5))
+        ttk.Button(discovery_frame, text="REBOOTALL", command=self.reboot_all_motors, 
+                  style="Accent.TButton").grid(row=0, column=2, padx=(0, 5))
+        ttk.Button(discovery_frame, text="TORQUE ALL ON", command=self.torque_all_on).grid(row=0, column=5, padx=(0, 5))
+        ttk.Button(discovery_frame, text="TORQUE ALL OFF", command=self.torque_all_off).grid(row=0, column=6, padx=(0, 5))
         
         # Motors found display
-        ttk.Label(discovery_frame, text="Found Motors:").grid(row=0, column=2, padx=(20, 5))
+        ttk.Label(discovery_frame, text="Found Motors:").grid(row=0, column=7, padx=(20, 5))
         self.motors_found_var = tk.StringVar(value="None")
-        ttk.Label(discovery_frame, textvariable=self.motors_found_var).grid(row=0, column=3)
+        ttk.Label(discovery_frame, textvariable=self.motors_found_var).grid(row=0, column=8)
         
         # Motor Control Frame
         control_frame = ttk.LabelFrame(main_frame, text="Motor Control", padding="5")
@@ -62,7 +68,7 @@ class DynamixelGUI(Node):
         
         # Motor ID selection
         ttk.Label(control_frame, text="Motor ID:").grid(row=0, column=0, sticky=tk.W, padx=(0, 5))
-        motor_id_spinbox = ttk.Spinbox(control_frame, from_=1, to=253, textvariable=self.selected_motor_id, width=10)
+        motor_id_spinbox = ttk.Spinbox(control_frame, from_=0, to=13, textvariable=self.selected_motor_id, width=10)
         motor_id_spinbox.grid(row=0, column=1, sticky=tk.W, padx=(0, 20))
         
         # Quick actions
@@ -166,7 +172,7 @@ class DynamixelGUI(Node):
         """Background thread for scanning motors"""
         found_motors = []
         
-        for motor_id in range(1, 254):  # Scan all possible IDs
+        for motor_id in range(0, 14):  # Scan IDs 0-13
             msg = DynamixelCommand()
             msg.command = DynamixelController.PING
             msg.ids = [motor_id]
@@ -291,6 +297,72 @@ class DynamixelGUI(Node):
             self.log_message(f"REBOOT command sent to motor {motor_id}")
         else:
             self.log_message(f"REBOOT cancelled for motor {motor_id}")
+    
+    def reboot_all_motors(self):
+        """Reboot all discovered motors"""
+        if not self.motor_ids:
+            messagebox.showwarning("Warning", "No motors found. Please scan first.")
+            return
+            
+        motor_list = ", ".join(map(str, sorted(self.motor_ids)))
+        self.log_message(f"REBOOT ALL started for motors: {motor_list}")
+        
+        for motor_id in self.motor_ids:
+            msg = DynamixelCommand()
+            msg.command = DynamixelController.REBOOT
+            msg.ids = [motor_id]
+            msg.address = 0  # Not used for REBOOT command
+            msg.length = 0   # Not used for REBOOT command
+            msg.data = []    # Not used for REBOOT command
+            self.tx_publisher.publish(msg)
+            self.log_message(f"REBOOT command sent to motor {motor_id}")
+            
+            # Small delay between reboots to avoid overwhelming the bus
+            time.sleep(0.05)
+    
+    def torque_all_on(self):
+        """Enable torque for all discovered motors"""
+        if not self.motor_ids:
+            messagebox.showwarning("Warning", "No motors found. Please scan first.")
+            return
+            
+        motor_list = ", ".join(map(str, sorted(self.motor_ids)))
+        self.log_message(f"TORQUE ALL ON started for motors: {motor_list}")
+        
+        for motor_id in self.motor_ids:
+            msg = DynamixelCommand()
+            msg.command = DynamixelController.WRITE_DATA
+            msg.ids = [motor_id]
+            msg.address = DynamixelController.TORQUE_ENABLE
+            msg.length = 1
+            msg.data = [1]
+            self.tx_publisher.publish(msg)
+            self.log_message(f"Torque ON sent to motor {motor_id}")
+            
+            # Small delay between commands to avoid overwhelming the bus
+            time.sleep(0.02)
+    
+    def torque_all_off(self):
+        """Disable torque for all discovered motors"""
+        if not self.motor_ids:
+            messagebox.showwarning("Warning", "No motors found. Please scan first.")
+            return
+            
+        motor_list = ", ".join(map(str, sorted(self.motor_ids)))
+        self.log_message(f"TORQUE ALL OFF started for motors: {motor_list}")
+        
+        for motor_id in self.motor_ids:
+            msg = DynamixelCommand()
+            msg.command = DynamixelController.WRITE_DATA
+            msg.ids = [motor_id]
+            msg.address = DynamixelController.TORQUE_ENABLE
+            msg.length = 1
+            msg.data = [0]
+            self.tx_publisher.publish(msg)
+            self.log_message(f"Torque OFF sent to motor {motor_id}")
+            
+            # Small delay between commands to avoid overwhelming the bus
+            time.sleep(0.02)
         
     def read_register(self):
         """Read register value"""

@@ -27,6 +27,8 @@
     <xacro:arg name="left_Revolute_2_upper_limit" default="1.570796"/>
     <xacro:arg name="left_Revolute_3_lower_limit" default="-1.570796"/>
     <xacro:arg name="left_Revolute_3_upper_limit" default="3.14159265359"/>
+    <xacro:arg name="left_Revolute_6_lower_limit" default="-1.570796"/>
+    <xacro:arg name="left_Revolute_6_upper_limit" default="1.570796"/>
     <xacro:arg name="left_Slider_1_lower_limit" default="0.0"/>
     <xacro:arg name="left_Slider_1_upper_limit" default="0.024"/>
     <xacro:arg name="left_Slider_2_lower_limit" default="-0.024"/>
@@ -39,6 +41,8 @@
     <xacro:arg name="right_Revolute_2_upper_limit" default="1.570796"/>
     <xacro:arg name="right_Revolute_3_lower_limit" default="-1.570796"/>
     <xacro:arg name="right_Revolute_3_upper_limit" default="3.14159265359"/>
+    <xacro:arg name="right_Revolute_6_lower_limit" default="-1.570796"/>
+    <xacro:arg name="right_Revolute_6_upper_limit" default="1.570796"/>
     <xacro:arg name="right_Slider_1_lower_limit" default="0.0"/>
     <xacro:arg name="right_Slider_1_upper_limit" default="0.024"/>
     <xacro:arg name="right_Slider_2_lower_limit" default="-0.024"/>
@@ -319,11 +323,12 @@
             <child link="${prefix}link5_1"/>
             <axis xyz="-0.000898 1.0 0.0"/>
         </joint>
-        <joint name="${prefix}Revolute_6" type="continuous">
+        <joint name="${prefix}Revolute_6" type="revolute">
             <origin rpy="${Revolute_6_rpy}" xyz="${Revolute_6_xyz}"/>
             <parent link="${prefix}link5_1"/>
             <child link="${prefix}link6_1"/>
             <axis xyz="0.0 0.0 -1.0"/>
+            <limit lower="$(arg ${prefix}Revolute_6_lower_limit)" upper="$(arg ${prefix}Revolute_6_upper_limit)" effort="300" velocity="10"/>
         </joint>
         <joint name="${prefix}Rigid_7" type="fixed">
             <origin rpy="${Rigid_7_rpy}" xyz="${Rigid_7_xyz}"/>

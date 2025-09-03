@@ -568,7 +568,7 @@ export default function App() {
           currentRealtimeCommand.current.y,
           currentRealtimeCommand.current.z
         );
-      }, 100);
+      }, 10);
     }
   };
 

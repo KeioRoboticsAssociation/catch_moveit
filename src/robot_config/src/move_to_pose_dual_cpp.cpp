@@ -768,7 +768,7 @@ private:
     
     // Configurable z-coordinate values for arm up/down
     double arm_up_z_value_ = 0.2;   // Absolute z coordinate for arm up position
-    double arm_down_z_value_ = 0.1; // Absolute z coordinate for arm down position
+    double arm_down_z_value_ = 0.086; // Absolute z coordinate for arm down position
     
     // Action clients for direct trajectory execution
     using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
