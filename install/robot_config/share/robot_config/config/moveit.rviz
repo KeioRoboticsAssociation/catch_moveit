@@ -4,6 +4,9 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /MotionPlanning1
+        - /Camera Ray Markers1
+        - /Test Ray Markers1
+        - /Target Pose1
   - Class: rviz_common/Help
     Name: Help
   - Class: rviz_common/Views
@@ -23,6 +26,64 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /camera/camera/color/image_raw
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Camera Ray Markers
+      Namespaces:
+        camera_position: true
+        camera_ray: true
+        target_position: true
+        z_plane: true
+      Queue Size: 100
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d415/ray_markers
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Test Ray Markers
+      Namespaces:
+        test_axis_x: true
+        test_axis_y: true
+        test_axis_z: true
+        test_camera: true
+        test_plane: true
+        test_ray: true
+        test_target: true
+      Queue Size: 100
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d415/test_ray_markers
+      Value: true
+    - Class: rviz_default_plugins/Pose
+      Alpha: 1
+      Axes Length: 0.1
+      Axes Radius: 0.01
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.1
+      Head Radius: 0.03
+      Name: Target Pose
+      Queue Size: 10
+      Shaft Length: 0.2
+      Shaft Radius: 0.01
+      Shape: Axis
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d415/target_pose
       Value: true
     - Class: moveit_rviz_plugin/MotionPlanning
       Name: MotionPlanning

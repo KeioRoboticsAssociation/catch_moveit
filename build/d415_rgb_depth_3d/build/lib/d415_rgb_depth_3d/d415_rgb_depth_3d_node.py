@@ -7,7 +7,8 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image, CameraInfo
 from geometry_msgs.msg import PoseStamped, Pose, Quaternion
 from geometry_msgs.msg import Point as PixelPoint
-from std_msgs.msg import Header
+from std_msgs.msg import Header, ColorRGBA
+from visualization_msgs.msg import Marker, MarkerArray
 from typing import Optional
 
 # Coordinate conventions:
@@ -158,6 +159,7 @@ class D415TapToPose(Node):
 
         # publisher
         self.pub_target = self.create_publisher(PoseStamped, '/d415/target_pose', 10)
+        self.pub_markers = self.create_publisher(MarkerArray, '/d415/ray_markers', 10)
 
         # buffers
         self.depth_img: Optional[np.ndarray] = None  # used only in depth mode
@@ -203,28 +205,191 @@ class D415TapToPose(Node):
         return np.array([x, y, z], dtype=np.float64)
 
     def ray_intersect_world_z(self, u: int, v: int, fixed_world_z: float) -> Optional[np.ndarray]:
+        """
+        カメラのピクセル座標(u,v)からワールド座標系での3Dレイを生成し、
+        指定されたZ平面との交点を求める。
+        
+        レイの計算:
+        1. ピクセル(u,v)をカメラ座標系の方向ベクトルd_c = [(u-cx)/fx, (v-cy)/fy, 1]に変換
+        2. カメラ姿勢行列R_wcでワールド座標系の方向ベクトルd_wに変換
+        3. カメラ位置o_w（ワールド座標）を始点として、d_w方向のレイを生成
+        4. レイとZ=fixed_world_z平面の交点を計算: P = o_w + t * d_w
+        """
         if self.K is None or self.R_wc is None or self.t_wc is None:
             return None
+        
+        # カメラ内部パラメータ
         fx, fy, cx, cy = self.K
+        
+        # ピクセル座標をカメラ座標系の正規化方向ベクトルに変換
         d_c = np.array([(u - cx) / fx, (v - cy) / fy, 1.0], dtype=np.float64)
         n = np.linalg.norm(d_c)
         if n < 1e-9:
             return None
-        d_c /= n
+        d_c /= n  # 正規化
+        
+        # カメラ座標系からワールド座標系に方向ベクトルを変換
         d_w = self.R_wc @ d_c
+        
+        # カメラ位置（ワールド座標系）
         o_w = self.t_wc
-        self.get_logger().warn(
-            f"[dbg] o_w={o_w}, d_w={d_w}, "
-            f"fixed_z={fixed_world_z:.3f}, "
-            f"dz={d_w[2]:.6f}, oz={o_w[2]:.6f}, "
-            f"lam={(fixed_world_z - o_w[2]) / (d_w[2] if abs(d_w[2])>1e-12 else np.nan):.6f}"
+        
+        # デバッグログ：レイの詳細情報
+        self.get_logger().info(
+            f"[Ray] pixel=({u},{v}) -> camera_dir={d_c} -> world_dir={d_w}"
         )
+        self.get_logger().info(
+            f"[Ray] camera_pos={o_w}, target_z={fixed_world_z:.3f}"
+        )
+        
+        # Z方向成分がほぼゼロの場合、レイがZ平面と平行なので交点なし
         if abs(d_w[2]) < 1e-8:
-            return None  # レイが水平すぎて交点が求められない
-        lam = (fixed_world_z - o_w[2]) / d_w[2]
-        if lam <= 0:
-            return None  # カメラより手前になる場合は無効
-        return o_w + lam * d_w
+            self.get_logger().warn("Ray is nearly parallel to Z-plane, no intersection")
+            return None
+        
+        # レイとZ平面の交点を計算: o_w + t * d_w where (o_w + t * d_w)[2] = fixed_world_z
+        t = (fixed_world_z - o_w[2]) / d_w[2]
+        
+        # カメラより手前の交点は無効
+        if t <= 0:
+            self.get_logger().warn(f"Intersection behind camera: t={t:.6f}")
+            return None
+        
+        # 交点の計算
+        intersection = o_w + t * d_w
+        
+        self.get_logger().info(
+            f"[Ray] intersection at t={t:.3f} -> world_pos={intersection}"
+        )
+        
+        return intersection
+
+    def publish_ray_markers(self, camera_pos: np.ndarray, target_pos: np.ndarray, frame_id: str = "world"):
+        """
+        カメラ位置から目標位置までのレイをRVizで可視化するマーカーを発行
+        """
+        marker_array = MarkerArray()
+        
+        # レイのライン（カメラから目標まで）
+        ray_marker = Marker()
+        ray_marker.header.frame_id = frame_id
+        ray_marker.header.stamp = self.get_clock().now().to_msg()
+        ray_marker.ns = "camera_ray"
+        ray_marker.id = 0
+        ray_marker.type = Marker.ARROW
+        ray_marker.action = Marker.ADD
+        
+        # 始点（カメラ位置）
+        ray_marker.points = []
+        start_point = PixelPoint()
+        start_point.x, start_point.y, start_point.z = float(camera_pos[0]), float(camera_pos[1]), float(camera_pos[2])
+        ray_marker.points.append(start_point)
+        
+        # 終点（目標位置）
+        end_point = PixelPoint()
+        end_point.x, end_point.y, end_point.z = float(target_pos[0]), float(target_pos[1]), float(target_pos[2])
+        ray_marker.points.append(end_point)
+        
+        # スタイル設定
+        ray_marker.scale.x = 0.01  # 矢印の軸の太さ
+        ray_marker.scale.y = 0.02  # 矢印の頭の太さ
+        ray_marker.scale.z = 0.03  # 矢印の頭の長さ
+        
+        # 色（赤）
+        ray_marker.color.r = 1.0
+        ray_marker.color.g = 0.0
+        ray_marker.color.b = 0.0
+        ray_marker.color.a = 0.8
+        
+        ray_marker.lifetime.sec = 5  # 5秒間表示
+        
+        marker_array.markers.append(ray_marker)
+        
+        # カメラ位置のマーカー（球体）
+        camera_marker = Marker()
+        camera_marker.header.frame_id = frame_id
+        camera_marker.header.stamp = self.get_clock().now().to_msg()
+        camera_marker.ns = "camera_position"
+        camera_marker.id = 1
+        camera_marker.type = Marker.SPHERE
+        camera_marker.action = Marker.ADD
+        
+        camera_marker.pose.position.x = float(camera_pos[0])
+        camera_marker.pose.position.y = float(camera_pos[1])
+        camera_marker.pose.position.z = float(camera_pos[2])
+        camera_marker.pose.orientation.w = 1.0
+        
+        camera_marker.scale.x = 0.05
+        camera_marker.scale.y = 0.05
+        camera_marker.scale.z = 0.05
+        
+        # 色（青）
+        camera_marker.color.r = 0.0
+        camera_marker.color.g = 0.0
+        camera_marker.color.b = 1.0
+        camera_marker.color.a = 1.0
+        
+        camera_marker.lifetime.sec = 5
+        
+        marker_array.markers.append(camera_marker)
+        
+        # 目標位置のマーカー（立方体）
+        target_marker = Marker()
+        target_marker.header.frame_id = frame_id
+        target_marker.header.stamp = self.get_clock().now().to_msg()
+        target_marker.ns = "target_position"
+        target_marker.id = 2
+        target_marker.type = Marker.CUBE
+        target_marker.action = Marker.ADD
+        
+        target_marker.pose.position.x = float(target_pos[0])
+        target_marker.pose.position.y = float(target_pos[1])
+        target_marker.pose.position.z = float(target_pos[2])
+        target_marker.pose.orientation.w = 1.0
+        
+        target_marker.scale.x = 0.03
+        target_marker.scale.y = 0.03
+        target_marker.scale.z = 0.03
+        
+        # 色（緑）
+        target_marker.color.r = 0.0
+        target_marker.color.g = 1.0
+        target_marker.color.b = 0.0
+        target_marker.color.a = 1.0
+        
+        target_marker.lifetime.sec = 5
+        
+        marker_array.markers.append(target_marker)
+        
+        # Z平面のマーカー（平面を表現）
+        plane_marker = Marker()
+        plane_marker.header.frame_id = frame_id
+        plane_marker.header.stamp = self.get_clock().now().to_msg()
+        plane_marker.ns = "z_plane"
+        plane_marker.id = 3
+        plane_marker.type = Marker.CUBE
+        plane_marker.action = Marker.ADD
+        
+        plane_marker.pose.position.x = float(target_pos[0])
+        plane_marker.pose.position.y = float(target_pos[1])
+        plane_marker.pose.position.z = self.fixed_world_z
+        plane_marker.pose.orientation.w = 1.0
+        
+        plane_marker.scale.x = 2.0  # 平面の大きさ
+        plane_marker.scale.y = 2.0
+        plane_marker.scale.z = 0.001  # 薄い平面
+        
+        # 色（半透明の黄色）
+        plane_marker.color.r = 1.0
+        plane_marker.color.g = 1.0
+        plane_marker.color.b = 0.0
+        plane_marker.color.a = 0.3
+        
+        plane_marker.lifetime.sec = 5
+        
+        marker_array.markers.append(plane_marker)
+        
+        self.pub_markers.publish(marker_array)
 
     # ---------- publish ----------
     def publish_target(self, p_w: np.ndarray, q_w: Quaternion, frame_id: str):
@@ -254,6 +419,10 @@ class D415TapToPose(Node):
             p_w[2] += self.hover_offset  # safety hover (depth mode only)
             q_w = R_to_quat(self.R_wc)
             frame = self.target_frame or 'world'
+            
+            # レイ可視化（深度モード）
+            self.publish_ray_markers(self.t_wc, p_w, frame)
+            
         else:  # 'fixed_world_z'
             p_w = self.ray_intersect_world_z(u, v, self.fixed_world_z)
             if p_w is None:
@@ -261,6 +430,9 @@ class D415TapToPose(Node):
                 return
             q_w = R_to_quat(self.R_wc)
             frame = self.target_frame or 'world'
+            
+            # レイ可視化（固定Z平面モード）
+            self.publish_ray_markers(self.t_wc, p_w, frame)
 
         self.publish_target(p_w, q_w, frame)
         self.get_logger().info(

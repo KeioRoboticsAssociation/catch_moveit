@@ -1,0 +1,22 @@
+[0.453s] Invoking command in '/home/a/ws_moveit2/src/d415_rgb_depth_3d': PYTHONPATH=/home/a/ws_moveit2/build/d415_rgb_depth_3d/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/d415_rgb_depth_3d build --build-base /home/a/ws_moveit2/build/d415_rgb_depth_3d/build install --record /home/a/ws_moveit2/build/d415_rgb_depth_3d/install.log --single-version-externally-managed install_data
+[0.622s] running egg_info
+[0.622s] writing ../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info/PKG-INFO
+[0.622s] writing dependency_links to ../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info/dependency_links.txt
+[0.622s] writing entry points to ../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info/entry_points.txt
+[0.623s] writing requirements to ../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info/requires.txt
+[0.623s] writing top-level names to ../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info/top_level.txt
+[0.623s] reading manifest file '../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info/SOURCES.txt'
+[0.624s] writing manifest file '../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info/SOURCES.txt'
+[0.624s] running build
+[0.624s] running build_py
+[0.624s] running install
+[0.624s] running install_lib
+[0.625s] running install_data
+[0.625s] copying launch/d415_rgb_depth_3d.launch.py -> /home/a/ws_moveit2/install/d415_rgb_depth_3d/share/d415_rgb_depth_3d/launch
+[0.625s] running install_egg_info
+[0.626s] removing '/home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/python3.10/site-packages/d415_rgb_depth_3d-0.0.0-py3.10.egg-info' (and everything under it)
+[0.626s] Copying ../../build/d415_rgb_depth_3d/d415_rgb_depth_3d.egg-info to /home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/python3.10/site-packages/d415_rgb_depth_3d-0.0.0-py3.10.egg-info
+[0.627s] running install_scripts
+[0.640s] Installing d415_rgb_depth_3d_node script to /home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/d415_rgb_depth_3d
+[0.641s] writing list of installed files to '/home/a/ws_moveit2/build/d415_rgb_depth_3d/install.log'
+[0.656s] Invoked command in '/home/a/ws_moveit2/src/d415_rgb_depth_3d' returned '0': PYTHONPATH=/home/a/ws_moveit2/build/d415_rgb_depth_3d/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/d415_rgb_depth_3d build --build-base /home/a/ws_moveit2/build/d415_rgb_depth_3d/build install --record /home/a/ws_moveit2/build/d415_rgb_depth_3d/install.log --single-version-externally-managed install_data
