@@ -1120,7 +1120,24 @@ def generate_launch_description():
         }.items()
     )
 
-    # D415 RGB depth 3D launch
+    # D415 RGB depth 3D launch with dynamic camera position based on field
+    camera_position_x = PythonExpression([
+        '"1.69" if "', field, '" == "red" else ',
+        '"0.0" if "', field, '" == "blue" else "0.00"'
+    ])
+    
+    camera_position_y = PythonExpression([
+        '"-0.1795" if "', field, '" == "red" else ',
+        '"-0.1795" if "', field, '" == "blue" else "-0.1795"'
+    ])
+    
+    camera_position_z = "1.0"  # Z position remains the same
+    
+    camera_yaw_deg = PythonExpression([
+        '"180.0" if "', field, '" == "red" else ',
+        '"0.0" if "', field, '" == "blue" else "0.0"'
+    ])
+    
     d415_rgb_depth_3d_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -1128,7 +1145,13 @@ def generate_launch_description():
                 "launch",
                 "d415_rgb_depth_3d.launch.py"
             ])
-        ])
+        ]),
+        launch_arguments={
+            "camera_position_x": camera_position_x,
+            "camera_position_y": camera_position_y,
+            "camera_position_z": camera_position_z,
+            "camera_yaw_deg": camera_yaw_deg,
+        }.items()
     )
 
     # Dynamixel controller node
