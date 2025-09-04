@@ -1023,6 +1023,25 @@ html, body {
   display: block;
 }
 
+/* 画像の左半分を表示（x座標0~639） */
+.camera-image-left {
+  clip-path: inset(0 50% 0 0);
+}
+
+/* 画像の右半分を表示（x座標640以上） */
+.camera-image-right {
+  clip-path: inset(0 0 0 50%);
+}
+
+/* 大画面表示用のクリップパス */
+.camera-image-left-large {
+  clip-path: inset(0 50% 0 0);
+}
+
+.camera-image-right-large {
+  clip-path: inset(0 0 0 50%);
+}
+
 .coordinate-display-inline {
   position: absolute;
   top: 10px;

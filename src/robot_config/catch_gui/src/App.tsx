@@ -810,7 +810,7 @@ export default function App() {
         <img 
           src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
           alt="Camera Feed" 
-          className="camera-image"
+          className={`camera-image ${selectedArm === "left" ? "camera-image-left" : "camera-image-right"}`}
           onClick={handleImageClick}
           onError={(e) => {
             console.log('カメラ映像読み込みエラー');
@@ -997,6 +997,7 @@ export default function App() {
         <img 
           src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
           alt="Camera Feed Large View" 
+          className={selectedArm === "left" ? "camera-image-left-large" : "camera-image-right-large"}
           style={{ 
             width: '80vw', 
             height: '60vh', 
