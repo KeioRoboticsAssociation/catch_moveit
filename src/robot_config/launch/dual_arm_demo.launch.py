@@ -1097,8 +1097,8 @@ def generate_launch_description():
             {"default_stream_type": "mjpeg"},  # MJPEG for better performance
             {"refresh_rate": 30.0},  # Refresh rate in Hz
             {"quality": 80},  # JPEG compression quality
-            {"width": 640},   # Reduce resolution for better performance
-            {"height": 480},  # Reduce resolution for better performance
+            {"width": 1280},   # Reduce resolution for better performance
+            {"height": 720},  # Reduce resolution for better performance
             {"frame_rate": 15.0}  # Reduce frame rate for better performance
         ],
     )
@@ -1147,7 +1147,15 @@ def generate_launch_description():
         name="dynamixel_gui",
         output="screen",
     )
+    
 
+    target_pose_router = Node(
+        package='robot_config',
+        executable='target_pose_router.py',
+        name='target_pose_router',
+        output='screen'
+    )
+    
     return LaunchDescription(
         declared_arguments
         + [
@@ -1176,5 +1184,6 @@ def generate_launch_description():
             publish_collision_mesh_node,
             dynamixel_controller_node,  # Add Dynamixel controller
             dynamixel_gui_node,  # Add Dynamixel GUI
+            target_pose_router,  # Add target pose router
         ]
     )

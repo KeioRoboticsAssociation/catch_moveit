@@ -55,7 +55,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/robot_config" TYPE PROGRAM FILES "/home/a/ws_moveit2/src/robot_config/src/publish_collision_mesh.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/robot_config" TYPE PROGRAM FILES
+    "/home/a/ws_moveit2/src/robot_config/src/publish_collision_mesh.py"
+    "/home/a/ws_moveit2/src/robot_config/src/target_pose_router.py"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

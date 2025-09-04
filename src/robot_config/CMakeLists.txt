@@ -32,9 +32,10 @@ install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
 install(FILES .setup_assistant DESTINATION share/${PROJECT_NAME})
 
 
-# Install python script
+# Install python scripts
 install(PROGRAMS
   src/publish_collision_mesh.py
+  src/target_pose_router.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
