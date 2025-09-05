@@ -294,7 +294,7 @@
         </link>
 
         <!-- Joints for this arm instance -->
-        <joint name="${prefix}Revolute_1" type="revolute">
+        <joint name="${prefix}Revolute_1" type="continuous">
             <origin rpy="${Revolute_1_rpy}" xyz="${Revolute_1_xyz}"/>
             <parent link="${prefix}base_link"/>
             <child link="${prefix}link1_1"/>

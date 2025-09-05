@@ -31,7 +31,7 @@ public:
             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
             left_move_group_interface_->setEndEffectorLink("left_EndEffector_1");
             left_move_group_interface_->setPlanningPipelineId("ompl");
-            left_move_group_interface_->setPlannerId("RRTConfig");
+            left_move_group_interface_->setPlannerId("RRTConnectkConfigDefault");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for left_arm initialized.");
 
             // 左ハンド（グリッパー）の初期化
@@ -54,7 +54,7 @@ public:
             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
             right_move_group_interface_->setEndEffectorLink("right_EndEffector_1");
             right_move_group_interface_->setPlanningPipelineId("ompl");
-            right_move_group_interface_->setPlannerId("RRTConfig");
+            right_move_group_interface_->setPlannerId("RRTConnectkConfigDefault");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for right_arm initialized.");
 
             // 右ハンド（グリッパー）の初期化
@@ -267,27 +267,50 @@ private:
             
             // プランナーをOMPLのRRTConnectに指定
             move_group_interface->setPlanningPipelineId("ompl");
-            move_group_interface->setPlannerId("RRTConfig");
+            move_group_interface->setPlannerId("RRTConnectkConfigDefault");
             // move_group_interface->setGoalPositionTolerance(0.001);   // 高精度位置許容
             // move_group_interface->setGoalOrientationTolerance(0.001); // 高精度姿勢許容
             
-            // デフォルトの高速設定（他のアーム動作中でない場合）
+            // RRTConnect成功率向上設定（時間は最小限）
+            move_group_interface->setPlanningTime(0.1);          // 少し余裕を持たせた時間
+            move_group_interface->setNumPlanningAttempts(5);     // 複数回試行で成功率向上
+            move_group_interface->setGoalPositionTolerance(0.001);   // 緩めの位置許容で成功しやすく
+            move_group_interface->setGoalOrientationTolerance(0.001); // 緩めの姿勢許容で成功しやすく
+            
             if (!((arm_name == "left" && right_arm_executing_) || (arm_name == "right" && left_arm_executing_))) {
-                move_group_interface->setPlanningTime(0.05);     // さらに高速プランニング
-                move_group_interface->setNumPlanningAttempts(1); // 1回のみ
+                move_group_interface->setPlanningTime(0.1);      // 単独動作時はより短時間
+                move_group_interface->setNumPlanningAttempts(3); // 少ない試行回数
             }
 
+            // 探索方法が異なるプランナーの組み合わせ
+            std::vector<std::string> planners = {"RRTConnectkConfigDefault", "PRMkConfigDefault", "ESTkConfigDefault", "BKPIECEkConfigDefault"};
+            
             moveit::planning_interface::MoveGroupInterface::Plan my_plan;
-            bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+            bool success = false;
+            
+            for (const auto& planner : planners) {
+                move_group_interface->setPlannerId(planner);
+                // 全プランナーで統一された高精度設定
+                move_group_interface->setGoalPositionTolerance(0.0001);   // 0.1mm精度
+                move_group_interface->setGoalOrientationTolerance(0.0001); // 0.1mm精度
+
+                success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+                if (success) {
+                    RCLCPP_INFO(this->get_logger(), "%s planner succeeded for %s with 0.001 tolerance", planner.c_str(), arm_name.c_str());
+                    break;
+                } else {
+                    RCLCPP_WARN(this->get_logger(), "%s planner failed for %s, trying next...", planner.c_str(), arm_name.c_str());
+                }
+            }
 
             if (success)
             {
                 RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing via direct trajectory.", arm_name.c_str());
-                execute_trajectory_directly(move_group_interface, my_plan, arm_name);  // 直接軌道送信
+                execute_trajectory_directly(move_group_interface, my_plan, arm_name);
             }
             else
             {
-                RCLCPP_ERROR(this->get_logger(), "Planning failed for %s.", arm_name.c_str());
+                RCLCPP_ERROR(this->get_logger(), "All planners failed for %s.", arm_name.c_str());
                 stopTrajectoryTracking(arm_name);
                 
                 // Restart servo even after planning failure for continuous control
