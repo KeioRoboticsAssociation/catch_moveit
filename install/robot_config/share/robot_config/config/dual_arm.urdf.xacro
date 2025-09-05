@@ -27,6 +27,8 @@
     <xacro:arg name="left_Revolute_2_upper_limit" default="1.570796"/>
     <xacro:arg name="left_Revolute_3_lower_limit" default="-1.570796"/>
     <xacro:arg name="left_Revolute_3_upper_limit" default="3.14159265359"/>
+    <xacro:arg name="left_Revolute_4_lower_limit" default="-1.570796"/>
+    <xacro:arg name="left_Revolute_4_upper_limit" default="1.570796"/>
     <xacro:arg name="left_Revolute_6_lower_limit" default="-1.570796"/>
     <xacro:arg name="left_Revolute_6_upper_limit" default="1.570796"/>
     <xacro:arg name="left_Slider_1_lower_limit" default="0.0"/>
@@ -41,6 +43,8 @@
     <xacro:arg name="right_Revolute_2_upper_limit" default="1.570796"/>
     <xacro:arg name="right_Revolute_3_lower_limit" default="-1.570796"/>
     <xacro:arg name="right_Revolute_3_upper_limit" default="3.14159265359"/>
+    <xacro:arg name="right_Revolute_4_lower_limit" default="-1.570796"/>
+    <xacro:arg name="right_Revolute_4_upper_limit" default="1.570796"/>
     <xacro:arg name="right_Revolute_6_lower_limit" default="-1.570796"/>
     <xacro:arg name="right_Revolute_6_upper_limit" default="1.570796"/>
     <xacro:arg name="right_Slider_1_lower_limit" default="0.0"/>
@@ -311,11 +315,12 @@
             <axis xyz="-0.000898 1.0 0.0"/>
             <limit effort="100" lower="$(arg ${prefix}Revolute_3_lower_limit)" upper="$(arg ${prefix}Revolute_3_upper_limit)" velocity="100"/>
         </joint>
-        <joint name="${prefix}Revolute_4" type="continuous">
+        <joint name="${prefix}Revolute_4" type="revolute">
             <origin rpy="${Revolute_4_rpy}" xyz="${Revolute_4_xyz}"/>
             <parent link="${prefix}link3_1"/>
             <child link="${prefix}link4_1"/>
             <axis xyz="1.0 0.000898 0.0"/>
+            <limit effort="100" lower="$(arg ${prefix}Revolute_4_lower_limit)" upper="$(arg ${prefix}Revolute_4_upper_limit)" velocity="100"/>
         </joint>
         <joint name="${prefix}Revolute_5" type="continuous">
             <origin rpy="${Revolute_5_rpy}" xyz="${Revolute_5_xyz}"/>

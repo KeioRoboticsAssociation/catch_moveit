@@ -31,7 +31,7 @@ public:
             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
             left_move_group_interface_->setEndEffectorLink("left_EndEffector_1");
             left_move_group_interface_->setPlanningPipelineId("ompl");
-            left_move_group_interface_->setPlannerId("RRTConnect");
+            left_move_group_interface_->setPlannerId("RRTConfig");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for left_arm initialized.");
 
             // 左ハンド（グリッパー）の初期化
@@ -54,7 +54,7 @@ public:
             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
             right_move_group_interface_->setEndEffectorLink("right_EndEffector_1");
             right_move_group_interface_->setPlanningPipelineId("ompl");
-            right_move_group_interface_->setPlannerId("RRTConnect");
+            right_move_group_interface_->setPlannerId("RRTConfig");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for right_arm initialized.");
 
             // 右ハンド（グリッパー）の初期化
@@ -267,7 +267,9 @@ private:
             
             // プランナーをOMPLのRRTConnectに指定
             move_group_interface->setPlanningPipelineId("ompl");
-            move_group_interface->setPlannerId("RRTConnect");
+            move_group_interface->setPlannerId("RRTConfig");
+            // move_group_interface->setGoalPositionTolerance(0.001);   // 高精度位置許容
+            // move_group_interface->setGoalOrientationTolerance(0.001); // 高精度姿勢許容
             
             // デフォルトの高速設定（他のアーム動作中でない場合）
             if (!((arm_name == "left" && right_arm_executing_) || (arm_name == "right" && left_arm_executing_))) {
@@ -394,8 +396,8 @@ private:
             auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - other_start_time);
             
             // Apply more conservative collision checking
-            move_group_interface->setGoalPositionTolerance(0.001);   // Balanced tolerance
-            move_group_interface->setGoalOrientationTolerance(0.001); // Relaxed orientation
+            move_group_interface->setGoalPositionTolerance(0.0001);   // Balanced tolerance
+            move_group_interface->setGoalOrientationTolerance(0.0001); // Relaxed orientation
             move_group_interface->setPlanningTime(0.1);             // Sufficient planning time
             move_group_interface->setNumPlanningAttempts(1);        // Fewer attempts for speed
             
@@ -611,7 +613,7 @@ private:
             // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
             move_group_interface->setPlannerId("LIN");
-            move_group_interface->setPlanningTime(5.0);
+            move_group_interface->setPlanningTime(0.1);
             move_group_interface->setNumPlanningAttempts(1);
             
             // Check current state before planning

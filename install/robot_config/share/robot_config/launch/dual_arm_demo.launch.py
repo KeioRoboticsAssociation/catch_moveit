@@ -113,15 +113,29 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
+            "left_Revolute_4_lower_limit",
+            default_value="-3.14",
+            description="Lower limit for left arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "left_Revolute_4_upper_limit",
+            default_value="3.14",
+            description="Upper limit for left arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "left_Revolute_6_lower_limit",
-            default_value="-1.57",
+            default_value="-3.14",
             description="Lower limit for left arm Revolute_6 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_6_upper_limit",
-            default_value="1.57",
+            default_value="3.14",
             description="Upper limit for left arm Revolute_6 joint",
         )
     )
@@ -487,15 +501,29 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
+            "right_Revolute_4_lower_limit",
+            default_value="-3.14",
+            description="Lower limit for right arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "right_Revolute_4_upper_limit",
+            default_value="3.14",
+            description="Upper limit for right arm Revolute_4 joint",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "right_Revolute_6_lower_limit",
-            default_value="-1.57",
+            default_value="-3.14",
             description="Lower limit for right arm Revolute_6 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_6_upper_limit",
-            default_value="1.57",
+            default_value="3.14",
             description="Upper limit for right arm Revolute_6 joint",
         )
     )
@@ -526,6 +554,8 @@ def generate_launch_description():
     left_Slider_1_upper_limit = LaunchConfiguration("left_Slider_1_upper_limit")
     left_Slider_2_lower_limit = LaunchConfiguration("left_Slider_2_lower_limit")
     left_Slider_2_upper_limit = LaunchConfiguration("left_Slider_2_upper_limit")
+    left_Revolute_4_lower_limit = LaunchConfiguration("left_Revolute_4_lower_limit")
+    left_Revolute_4_upper_limit = LaunchConfiguration("left_Revolute_4_upper_limit")
     left_Revolute_6_lower_limit = LaunchConfiguration("left_Revolute_6_lower_limit")
     left_Revolute_6_upper_limit = LaunchConfiguration("left_Revolute_6_upper_limit")
     
@@ -540,13 +570,15 @@ def generate_launch_description():
     right_Slider_1_upper_limit = LaunchConfiguration("right_Slider_1_upper_limit")
     right_Slider_2_lower_limit = LaunchConfiguration("right_Slider_2_lower_limit")
     right_Slider_2_upper_limit = LaunchConfiguration("right_Slider_2_upper_limit")
+    right_Revolute_4_lower_limit = LaunchConfiguration("right_Revolute_4_lower_limit")
+    right_Revolute_4_upper_limit = LaunchConfiguration("right_Revolute_4_upper_limit")
     right_Revolute_6_lower_limit = LaunchConfiguration("right_Revolute_6_lower_limit")
     right_Revolute_6_upper_limit = LaunchConfiguration("right_Revolute_6_upper_limit")
     
     # Initialize arguments for left arm joint origins
     left_Revolute_1_xyz = LaunchConfiguration("left_Revolute_1_xyz")
     left_Revolute_1_rpy = PythonExpression([
-        '"0 0 -1.57" if "', field, '" == "red" else ',
+        '"0 0 1.57" if "', field, '" == "red" else ',
         '"0 0 1.57" if "', field, '" == "blue" else "',
         LaunchConfiguration("left_Revolute_1_rpy"), '"'
     ])
@@ -570,8 +602,8 @@ def generate_launch_description():
     # Initialize arguments for right arm joint origins
     right_Revolute_1_xyz = LaunchConfiguration("right_Revolute_1_xyz")
     right_Revolute_1_rpy = PythonExpression([
-        '"0 0 1.57" if "', field, '" == "red" else ',
-        '"0 0 -1.57" if "', field, '" == "blue" else "',
+        '"0 0 -1.57" if "', field, '" == "red" else ',
+        '"0 0 1.57" if "', field, '" == "blue" else "',
         LaunchConfiguration("right_Revolute_1_rpy"), '"'
     ])
     right_Revolute_2_xyz = LaunchConfiguration("right_Revolute_2_xyz")
@@ -593,19 +625,28 @@ def generate_launch_description():
     
     # Set arm positions dynamically based on field parameter
     left_origin_xyz = PythonExpression([
-        '"1.69 -0.359 0" if "', field, '" == "red" else ',
+        '"1.62 -0.359 0" if "', field, '" == "red" else ',
         '"0 0 0" if "', field, '" == "blue" else "', 
         LaunchConfiguration("left_origin_xyz"), '"'
     ])
     
     right_origin_xyz = PythonExpression([
-        '"1.69 0 0" if "', field, '" == "red" else ',
+        '"1.62 0 0" if "', field, '" == "red" else ',
         '"0 -0.359 0" if "', field, '" == "blue" else "',
         LaunchConfiguration("right_origin_xyz"), '"'
     ])
     
-    left_origin_rpy = LaunchConfiguration("left_origin_rpy")
-    right_origin_rpy = LaunchConfiguration("right_origin_rpy")
+    left_origin_rpy = PythonExpression([
+        '"0 0 3.141592" if "', field, '" == "red" else ',
+        '"0 0 0" if "', field, '" == "blue" else "',
+        LaunchConfiguration("left_origin_rpy"), '"'
+    ])
+    
+    right_origin_rpy = PythonExpression([
+        '"0 0 -3.141592" if "', field, '" == "red" else ',
+        '"0 0 0" if "', field, '" == "blue" else "',
+        LaunchConfiguration("right_origin_rpy"), '"'
+    ])
     
     # Define object positions for different field types
     def get_object_positions(field_value):
@@ -681,6 +722,8 @@ def generate_launch_description():
                 "left_Slider_1_upper_limit": left_Slider_1_upper_limit,
                 "left_Slider_2_lower_limit": left_Slider_2_lower_limit,
                 "left_Slider_2_upper_limit": left_Slider_2_upper_limit,
+                "left_Revolute_4_lower_limit": left_Revolute_4_lower_limit,
+                "left_Revolute_4_upper_limit": left_Revolute_4_upper_limit,
                 "left_Revolute_6_lower_limit": left_Revolute_6_lower_limit,
                 "left_Revolute_6_upper_limit": left_Revolute_6_upper_limit,
                 # Joint limits for right arm
@@ -694,6 +737,8 @@ def generate_launch_description():
                 "right_Slider_1_upper_limit": right_Slider_1_upper_limit,
                 "right_Slider_2_lower_limit": right_Slider_2_lower_limit,
                 "right_Slider_2_upper_limit": right_Slider_2_upper_limit,
+                "right_Revolute_4_lower_limit": right_Revolute_4_lower_limit,
+                "right_Revolute_4_upper_limit": right_Revolute_4_upper_limit,
                 "right_Revolute_6_lower_limit": right_Revolute_6_lower_limit,
                 "right_Revolute_6_upper_limit": right_Revolute_6_upper_limit,
                 # Joint origins for left arm
