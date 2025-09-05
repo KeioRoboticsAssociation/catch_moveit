@@ -5,6 +5,7 @@
 #include <std_srvs/srv/trigger.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
+#include <moveit/planning_scene_monitor/planning_scene_monitor.h>
 #include <moveit/robot_state/robot_state.h>
 #include <moveit/robot_model_loader/robot_model_loader.h>
 #include <tf2/LinearMath/Quaternion.h>
@@ -105,6 +106,19 @@ public:
         
         // Initialize PlanningSceneInterface after node initialization
         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+        
+        // Initialize Planning Scene Monitor for real-time robot state updates
+        planning_scene_monitor_ = std::make_shared<planning_scene_monitor::PlanningSceneMonitor>(
+            shared_from_this(), "robot_description");
+        
+        if (planning_scene_monitor_) {
+            planning_scene_monitor_->startSceneMonitor();
+            planning_scene_monitor_->startWorldGeometryMonitor();
+            planning_scene_monitor_->startStateMonitor();
+            RCLCPP_INFO(this->get_logger(), "Planning Scene Monitor initialized and started");
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Failed to initialize Planning Scene Monitor");
+        }
         
         // Initialize action clients for direct trajectory execution
         left_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
@@ -267,32 +281,17 @@ private:
             
             // プランナーをOMPLのRRTConnectに指定
             move_group_interface->setPlanningPipelineId("ompl");
-            move_group_interface->setPlannerId("RRTConnectkConfigDefault");
-            // move_group_interface->setGoalPositionTolerance(0.001);   // 高精度位置許容
-            // move_group_interface->setGoalOrientationTolerance(0.001); // 高精度姿勢許容
-            
-            // RRTConnect成功率向上設定（時間は最小限）
-            move_group_interface->setPlanningTime(0.1);          // 少し余裕を持たせた時間
-            move_group_interface->setNumPlanningAttempts(5);     // 複数回試行で成功率向上
-            move_group_interface->setGoalPositionTolerance(0.001);   // 緩めの位置許容で成功しやすく
-            move_group_interface->setGoalOrientationTolerance(0.001); // 緩めの姿勢許容で成功しやすく
-            
-            if (!((arm_name == "left" && right_arm_executing_) || (arm_name == "right" && left_arm_executing_))) {
-                move_group_interface->setPlanningTime(0.1);      // 単独動作時はより短時間
-                move_group_interface->setNumPlanningAttempts(3); // 少ない試行回数
-            }
-
             // 探索方法が異なるプランナーの組み合わせ
             std::vector<std::string> planners = {"RRTConnectkConfigDefault", "PRMkConfigDefault", "ESTkConfigDefault", "BKPIECEkConfigDefault"};
-            
+            // std::vector<std::string> planners = {"RRTConnectkConfigDefault"};
             moveit::planning_interface::MoveGroupInterface::Plan my_plan;
             bool success = false;
             
             for (const auto& planner : planners) {
                 move_group_interface->setPlannerId(planner);
                 // 全プランナーで統一された高精度設定
-                move_group_interface->setGoalPositionTolerance(0.0001);   // 0.1mm精度
-                move_group_interface->setGoalOrientationTolerance(0.0001); // 0.1mm精度
+                move_group_interface->setGoalPositionTolerance(0.00001);   // 0.1mm精度
+                move_group_interface->setGoalOrientationTolerance(0.00001); // 0.1mm精度
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
@@ -311,6 +310,7 @@ private:
             else
             {
                 RCLCPP_ERROR(this->get_logger(), "All planners failed for %s.", arm_name.c_str());
+                
                 stopTrajectoryTracking(arm_name);
                 
                 // Restart servo even after planning failure for continuous control
@@ -408,24 +408,25 @@ private:
         bool other_arm_executing = (arm_name == "left") ? right_arm_executing_ : left_arm_executing_;
         
         if (other_arm_executing) {
-            RCLCPP_INFO(this->get_logger(), "Other arm is executing, applying dynamic collision avoidance for %s arm", arm_name.c_str());
+            RCLCPP_INFO(this->get_logger(), "Other arm is executing, using Planning Scene Monitor for real-time collision avoidance");
             
-            // Get the other arm's current trajectory
-            auto other_plan = (arm_name == "left") ? current_right_plan_ : current_left_plan_;
-            auto other_start_time = (arm_name == "left") ? right_execution_start_ : left_execution_start_;
+            // Planning Scene Monitorから最新のロボット状態を取得
+            if (planning_scene_monitor_) {
+                planning_scene_monitor::LockedPlanningSceneRO locked_scene(planning_scene_monitor_);
+                if (locked_scene) {
+                    // 最新のロボット状態を開始状態に設定
+                    moveit::core::RobotState current_state = locked_scene->getCurrentState();
+                    move_group_interface->setStartState(current_state);
+                    
+                    RCLCPP_INFO(this->get_logger(), "Updated robot state from Planning Scene Monitor for %s arm", arm_name.c_str());
+                }
+            }
             
-            // Calculate elapsed time since other arm started executing
-            auto now = std::chrono::steady_clock::now();
-            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - other_start_time);
-            
-            // Apply more conservative collision checking
-            move_group_interface->setGoalPositionTolerance(0.0001);   // Balanced tolerance
-            move_group_interface->setGoalOrientationTolerance(0.0001); // Relaxed orientation
-            move_group_interface->setPlanningTime(0.1);             // Sufficient planning time
-            move_group_interface->setNumPlanningAttempts(1);        // Fewer attempts for speed
-            
-            RCLCPP_INFO(this->get_logger(), "Applied enhanced collision avoidance settings for %s arm (other arm executing for %ld ms)", 
-                       arm_name.c_str(), elapsed.count());
+            // より慎重なプランニング設定
+            move_group_interface->setGoalPositionTolerance(0.0001);
+            move_group_interface->setGoalOrientationTolerance(0.0001);
+            move_group_interface->setPlanningTime(0.3);
+            move_group_interface->setNumPlanningAttempts(2);
         }
     }
 
@@ -637,7 +638,7 @@ private:
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
             move_group_interface->setPlannerId("LIN");
             move_group_interface->setPlanningTime(0.1);
-            move_group_interface->setNumPlanningAttempts(1);
+            move_group_interface->setNumPlanningAttempts(3);
             
             // Check current state before planning
             geometry_msgs::msg::PoseStamped current_pose_check = move_group_interface->getCurrentPose();
@@ -782,6 +783,7 @@ private:
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> left_hand_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> right_hand_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
+    planning_scene_monitor::PlanningSceneMonitorPtr planning_scene_monitor_;
     std::thread left_init_thread_;
     std::thread right_init_thread_;
     

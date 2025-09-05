@@ -603,7 +603,7 @@ def generate_launch_description():
     right_Revolute_1_xyz = LaunchConfiguration("right_Revolute_1_xyz")
     right_Revolute_1_rpy = PythonExpression([
         '"0 0 -1.57" if "', field, '" == "red" else ',
-        '"0 0 1.57" if "', field, '" == "blue" else "',
+        '"0 0 -1.57" if "', field, '" == "blue" else "',
         LaunchConfiguration("right_Revolute_1_rpy"), '"'
     ])
     right_Revolute_2_xyz = LaunchConfiguration("right_Revolute_2_xyz")

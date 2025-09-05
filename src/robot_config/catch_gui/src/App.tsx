@@ -44,6 +44,10 @@ export default function App() {
   const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [timeLeft, setTimeLeft] = useState(180); // 3分 = 180秒
+  
+  // トピック監視用の状態
+  const [publishedCommands, setPublishedCommands] = useState<Array<{topic: string, message: any, timestamp: string}>>([]);
+  const [realtimeControlData, setRealtimeControlData] = useState<{linear: any, angular: any, timestamp: string} | null>(null);
 
   const ros = useRef(null);
   const publisher = useRef(null);
@@ -330,6 +334,16 @@ export default function App() {
       });
       posePublisher.publish(message);
       console.log(`🎯 Published pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
+      
+      // パブリッシュログに追加
+      setPublishedCommands(prev => [
+        {
+          topic: POSE_TOPIC_NAME,
+          message: poseValue,
+          timestamp: new Date().toLocaleTimeString()
+        },
+        ...prev.slice(0, 4) // 最新5件のみ保持
+      ]);
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -617,6 +631,13 @@ export default function App() {
       // ログは最初の送信時のみ出力
       if (linear_x !== 0 || linear_y !== 0 || angular_z !== 0) {
         console.log(`🎮 Real-time control (${selectedArm} arm): linear(${linear_x}, ${linear_y}), angular(${angular_z})`);
+        
+        // リアルタイム制御データを更新
+        setRealtimeControlData({
+          linear: {x: linear_x, y: linear_y, z: 0.0},
+          angular: {x: 0.0, y: 0.0, z: angular_z},
+          timestamp: new Date().toLocaleTimeString()
+        });
       }
     }
   };
@@ -1082,16 +1103,116 @@ export default function App() {
           <CameraView />
         ) : (
           <div className="camera-view-container">
-            <div className="camera-image-wrapper">
-              <div className="pose-grid">
-                {getVisiblePoses().map((buttonNumber) => (
-                  <GridButton 
-                    key={buttonNumber} 
-                    buttonNumber={buttonNumber}
-                  />
-                ))}
+            <div className="camera-image-wrapper" style={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column', padding: '0' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', height: '100%', width: '100%' }}>
+                <div className="pose-grid" style={{ 
+                  gap: 'clamp(0.3rem, 0.5vw, 0.6rem)',
+                  flex: '1',
+                  width: '100%'
+                }}>
+                  {getVisiblePoses().map((buttonNumber) => (
+                    <GridButton 
+                      key={buttonNumber} 
+                      buttonNumber={buttonNumber}
+                    />
+                  ))}
+                </div>
+                
+                {/* トピック監視GUI */}
+                <div className="topic-monitor-section" style={{
+                  background: 'rgba(255, 255, 255, 0.95)',
+                  borderRadius: '15px',
+                  padding: '0.8rem',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  height: '120px',
+                  overflowY: 'auto',
+                  flex: '0 0 120px',
+                  width: '100%'
+                }}>
+                  <h3 style={{
+                    color: '#2c3e50', 
+                    fontSize: '1rem', 
+                    margin: '0 0 0.6rem 0',
+                    textAlign: 'center',
+                    fontWeight: '700'
+                  }}>
+                    📡 Topic Monitor
+                  </h3>
+                  
+                  <div style={{ display: 'flex', gap: '0.8rem', height: 'calc(100% - 1.6rem)' }}>
+                    {/* リアルタイム制御表示 */}
+                    <div style={{ flex: '1' }}>
+                      <h4 style={{ color: '#3498db', fontSize: '0.85rem', marginBottom: '0.3rem' }}>🎮 Realtime Control</h4>
+                      {realtimeControlData ? (
+                        <div style={{
+                          background: 'rgba(52, 152, 219, 0.1)',
+                          padding: '0.5rem',
+                          borderRadius: '6px',
+                          border: '1px solid rgba(52, 152, 219, 0.3)',
+                          fontSize: '0.7rem'
+                        }}>
+                          <div><strong>Linear:</strong> x:{realtimeControlData.linear.x.toFixed(1)} y:{realtimeControlData.linear.y.toFixed(1)}</div>
+                          <div><strong>Angular:</strong> z:{realtimeControlData.angular.z.toFixed(1)}</div>
+                          <div style={{ color: '#7f8c8d', fontSize: '0.65rem', marginTop: '0.3rem' }}>
+                            {realtimeControlData.timestamp}
+                          </div>
+                        </div>
+                      ) : (
+                        <div style={{
+                          background: 'rgba(149, 165, 166, 0.1)',
+                          padding: '0.5rem',
+                          borderRadius: '6px',
+                          textAlign: 'center',
+                          color: '#95a5a6',
+                          fontStyle: 'italic',
+                          fontSize: '0.7rem'
+                        }}>
+                          No realtime data
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* パブリッシュされたコマンド表示 */}
+                    <div style={{ flex: '1' }}>
+                      <h4 style={{ color: '#27ae60', fontSize: '0.85rem', marginBottom: '0.3rem' }}>📤 Published Commands</h4>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', height: 'calc(100% - 1.2rem)', overflowY: 'auto' }}>
+                        {publishedCommands.length > 0 ? publishedCommands.slice(0, 2).map((cmd, index) => (
+                          <div key={index} style={{
+                            background: 'rgba(46, 204, 113, 0.1)',
+                            padding: '0.4rem',
+                            borderRadius: '4px',
+                            border: '1px solid rgba(46, 204, 113, 0.3)',
+                            fontSize: '0.65rem'
+                          }}>
+                            <div style={{ fontWeight: 'bold', color: '#27ae60', marginBottom: '0.2rem' }}>
+                              {cmd.topic.split('/').pop()}: {cmd.message}
+                            </div>
+                            <div style={{ color: '#7f8c8d', fontSize: '0.6rem' }}>
+                              {cmd.timestamp}
+                            </div>
+                          </div>
+                        )) : (
+                          <div style={{
+                            background: 'rgba(149, 165, 166, 0.1)',
+                            padding: '0.5rem',
+                            borderRadius: '6px',
+                            textAlign: 'center',
+                            color: '#95a5a6',
+                            fontStyle: 'italic',
+                            fontSize: '0.7rem'
+                          }}>
+                            No commands published
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
             <div className="side-controls-expanded">
               <div className="controller-section-horizontal">
                 <div className="left-controller-section">

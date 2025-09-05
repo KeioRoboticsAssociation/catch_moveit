@@ -40,3 +40,5 @@ ros2 launch robot_config dual_arm_demo.launch.py field:=blue
 
 フィールドメッシュの回転角度は、`publish_collision_mesh.py`ファイルで定義されています。
 必要に応じて変更可能です。
+
+

@@ -1,0 +1,21 @@
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 66%] Built target pose_command_publisher
+[ 66%] Built target dual_arm_servo_controller
+[ 83%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::applyDynamicCollisionAvoidance(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const string&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:399:93:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = const class moveit::core::RobotModel[m[K’ {aka ‘[01m[Kconst class moveit::core::RobotModel[m[K’} has no member named ‘[01m[KgetDefaultState[m[K’
+  399 |     moveit::core::RobotState current_state = move_group_interface->getRobotModel()->[01;31m[KgetDefaultState[m[K();
+      |                                                                                     [01;31m[K^~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:400:51:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kmoveit::core::RobotState[m[K’ to ‘[01m[Kdouble[m[K’
+  400 |             move_group_interface->getCurrentState([01;31m[Kcurrent_state[m[K);
+      |                                                   [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                   [01;31m[K|[m[K
+      |                                                   [01;31m[Kmoveit::core::RobotState[m[K
+In file included from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6[m[K:
+[01m[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:923:54:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kmoveit::core::RobotStatePtr moveit::planning_interface::MoveGroupInterface::getCurrentState(double) const[m[K’
+  923 |   moveit::core::RobotStatePtr getCurrentState([01;36m[Kdouble wait = 1[m[K) const;
+      |                                               [01;36m[K~~~~~~~^~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
