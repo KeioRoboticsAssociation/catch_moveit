@@ -19,6 +19,13 @@
 #include <memory>
 #include <chrono>
 #include <mutex>
+#include <cmath>
+#include <iomanip>
+#include <yaml-cpp/yaml.h>
+#include <fstream>
+#include <ament_index_cpp/get_package_share_directory.hpp>
+#include <numeric>
+#include <algorithm>
 
 class MoveToPoseDualCpp : public rclcpp::Node
 {
@@ -139,8 +146,22 @@ public:
         // Initialize TF2 for direct pose retrieval
         tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+        
+        // Direct joint states control subscribers
+        left_direct_joints_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+            "/left_direct_joints", 10, std::bind(&MoveToPoseDualCpp::left_direct_joints_callback, this, std::placeholders::_1));
+        right_direct_joints_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+            "/right_direct_joints", 10, std::bind(&MoveToPoseDualCpp::right_direct_joints_callback, this, std::placeholders::_1));
+            
+        // YAML trajectory loading subscribers
+        left_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/left_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::left_load_yaml_callback, this, std::placeholders::_1));
+        right_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/right_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::right_load_yaml_callback, this, std::placeholders::_1));
             
         RCLCPP_INFO(this->get_logger(), "Simple servo switching system initialized");
+        RCLCPP_INFO(this->get_logger(), "Direct joint states control ready on /left_direct_joints and /right_direct_joints");
+        RCLCPP_INFO(this->get_logger(), "YAML trajectory loading ready on /left_load_trajectory and /right_load_trajectory");
     }
 
     ~MoveToPoseDualCpp()
@@ -292,6 +313,7 @@ private:
                 // 全プランナーで統一された高精度設定
                 move_group_interface->setGoalPositionTolerance(0.00001);   // 0.1mm精度
                 move_group_interface->setGoalOrientationTolerance(0.00001); // 0.1mm精度
+                move_group_interface->setNumPlanningAttempts(1);             
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
@@ -304,7 +326,12 @@ private:
 
             if (success)
             {
-                RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing via direct trajectory.", arm_name.c_str());
+                // CHOMP最適化を無効化（10秒の遅延を防ぐため）
+                RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing directly (optimization disabled for speed)", arm_name.c_str());
+                
+                // 軌道を自動保存
+                saveTrajectoryToYaml(my_plan, arm_name);
+                
                 execute_trajectory_directly(move_group_interface, my_plan, arm_name);
             }
             else
@@ -397,6 +424,82 @@ private:
         }
         
         RCLCPP_INFO(this->get_logger(), "Stopped trajectory tracking for %s arm", arm_name.c_str());
+    }
+    
+    // 軌道最適化関数
+    bool optimizeTrajectory(
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
+        const moveit::planning_interface::MoveGroupInterface::Plan& original_plan,
+        moveit::planning_interface::MoveGroupInterface::Plan& optimized_plan,
+        const std::string& arm_name)
+    {
+        // 超高速最適化開始（ログ最小限）
+        
+        // 最適化手法のリスト（優先順位順・高速化のためCHOMPのみ）
+        std::vector<std::string> optimization_methods = {"chomp"};  // STOMPはより時間がかかるため除外
+        
+        for (const auto& method : optimization_methods) {
+            // ログは最小限に（高速化のため）
+            
+            try {
+                // プランニングパイプラインを最適化手法に切り替え
+                move_group_interface->setPlanningPipelineId(method);
+                
+                // 最適化のためのパラメータ設定（超高速・軽量化）
+                if (method == "chomp") {
+                    move_group_interface->setPlanningTime(0.05);  // CHOMP超高速最適化
+                    move_group_interface->setNumPlanningAttempts(1);  // 1回のみの試行
+                    move_group_interface->setMaxVelocityScalingFactor(1.0);
+                    move_group_interface->setMaxAccelerationScalingFactor(1.0);
+                } else if (method == "stomp") {
+                    move_group_interface->setPlanningTime(0.05); // STOMP超高速最適化
+                    move_group_interface->setNumPlanningAttempts(1);  // 1回のみの試行
+                    move_group_interface->setMaxVelocityScalingFactor(1.0);
+                    move_group_interface->setMaxAccelerationScalingFactor(1.0);
+                }
+                
+                // 元の軌道の終点を目標として設定
+                const auto& last_point = original_plan.trajectory_.joint_trajectory.points.back();
+                move_group_interface->setJointValueTarget(last_point.positions);
+                
+                // 軌道計画実行
+                bool success = (move_group_interface->plan(optimized_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+                
+                if (success) {
+                    // 最適化成功（計算は省略して高速化）
+                    RCLCPP_INFO(this->get_logger(), "%s optimization ✓ for %s arm", method.c_str(), arm_name.c_str());
+                    return true;
+                } else {
+                    // 失敗時は静かに次へ（高速化のため）
+                    continue;
+                }
+                
+            } catch (const std::exception& e) {
+                RCLCPP_ERROR(this->get_logger(), "Exception during %s optimization for %s arm: %s", 
+                            method.c_str(), arm_name.c_str(), e.what());
+            }
+        }
+        
+        // 最適化失敗（静かに元の軌道を使用）
+        return false;
+    }
+    
+    // 軌道の長さを計算する補助関数
+    double calculateTrajectoryLength(const moveit::planning_interface::MoveGroupInterface::Plan& plan)
+    {
+        double total_length = 0.0;
+        const auto& points = plan.trajectory_.joint_trajectory.points;
+        
+        for (size_t i = 1; i < points.size(); ++i) {
+            double segment_length = 0.0;
+            for (size_t j = 0; j < points[i].positions.size(); ++j) {
+                double diff = points[i].positions[j] - points[i-1].positions[j];
+                segment_length += diff * diff;
+            }
+            total_length += std::sqrt(segment_length);
+        }
+        
+        return total_length;
     }
     
 
@@ -820,6 +923,256 @@ private:
     // TF2 for direct pose retrieval
     std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+    
+    // Direct joint states control subscribers
+    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr left_direct_joints_sub_;
+    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr right_direct_joints_sub_;
+    
+    // YAML trajectory loading subscribers
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_load_yaml_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_load_yaml_sub_;
+    
+    // Direct joint states control callbacks
+    void left_direct_joints_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
+    {
+        if (msg->data.size() != 7) {
+            RCLCPP_ERROR(this->get_logger(), "Left arm requires exactly 7 joint values, received %zu", msg->data.size());
+            return;
+        }
+        
+        executeDirectJoints("left", msg->data);
+    }
+    
+    void right_direct_joints_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
+    {
+        if (msg->data.size() != 7) {
+            RCLCPP_ERROR(this->get_logger(), "Right arm requires exactly 7 joint values, received %zu", msg->data.size());
+            return;
+        }
+        
+        executeDirectJoints("right", msg->data);
+    }
+    
+    // Direct joint states execution function
+    void executeDirectJoints(const std::string& arm_name, const std::vector<double>& joint_values)
+    {
+        RCLCPP_INFO(this->get_logger(), "Executing direct joint states for %s arm", arm_name.c_str());
+        
+        // Create a simple trajectory with just the target joint positions
+        trajectory_msgs::msg::JointTrajectory trajectory;
+        
+        // Set joint names based on arm
+        if (arm_name == "left") {
+            trajectory.joint_names = {"left_Revolute_1", "left_Revolute_2", "left_Revolute_3", 
+                                     "left_Revolute_4", "left_Revolute_5", "left_Revolute_6", "left_Revolute_7"};
+        } else {
+            trajectory.joint_names = {"right_Revolute_1", "right_Revolute_2", "right_Revolute_3", 
+                                     "right_Revolute_4", "right_Revolute_5", "right_Revolute_6", "right_Revolute_7"};
+        }
+        
+        // Create trajectory point
+        trajectory_msgs::msg::JointTrajectoryPoint point;
+        point.positions = joint_values;
+        point.time_from_start = rclcpp::Duration::from_seconds(2.0);  // 2秒で移動
+        trajectory.points.push_back(point);
+        
+        // Create action goal
+        auto goal = FollowJointTrajectory::Goal();
+        goal.trajectory = trajectory;
+        
+        // Select appropriate action client
+        auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
+        
+        if (!action_client->wait_for_action_server(std::chrono::seconds(1))) {
+            RCLCPP_ERROR(this->get_logger(), "Action server for %s arm not available", arm_name.c_str());
+            return;
+        }
+        
+        // Send goal
+        auto future = action_client->async_send_goal(goal);
+        RCLCPP_INFO(this->get_logger(), "Direct joint trajectory sent to %s arm controller", arm_name.c_str());
+        
+        // Save the direct joint trajectory to YAML for future use
+        moveit::planning_interface::MoveGroupInterface::Plan direct_plan;
+        direct_plan.trajectory_.joint_trajectory = trajectory;
+        saveTrajectoryToYaml(direct_plan, arm_name + "_direct");
+    }
+    
+    // YAML trajectory loading callbacks
+    void left_load_yaml_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        loadAndExecuteTrajectory(msg->data, "left");
+    }
+    
+    void right_load_yaml_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        loadAndExecuteTrajectory(msg->data, "right");
+    }
+    
+    // Load and execute trajectory from YAML file
+    void loadAndExecuteTrajectory(const std::string& filename, const std::string& arm_name)
+    {
+        RCLCPP_INFO(this->get_logger(), "Loading trajectory from %s for %s arm", filename.c_str(), arm_name.c_str());
+        
+        moveit::planning_interface::MoveGroupInterface::Plan loaded_plan;
+        if (loadTrajectoryFromYaml(filename, loaded_plan)) {
+            RCLCPP_INFO(this->get_logger(), "Successfully loaded trajectory with %zu points for %s arm", 
+                       loaded_plan.trajectory_.joint_trajectory.points.size(), arm_name.c_str());
+            
+            // 直接アクションサーバーを使用して実行
+            executeTrajectoryDirectly(loaded_plan.trajectory_.joint_trajectory, arm_name);
+            
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Failed to load trajectory from %s for %s arm", filename.c_str(), arm_name.c_str());
+        }
+    }
+    
+    // Direct trajectory execution using action server
+    void executeTrajectoryDirectly(const trajectory_msgs::msg::JointTrajectory& trajectory, const std::string& arm_name)
+    {
+        RCLCPP_INFO(this->get_logger(), "Executing trajectory directly for %s arm with %zu points", 
+                   arm_name.c_str(), trajectory.points.size());
+        
+        // Create action goal
+        auto goal = FollowJointTrajectory::Goal();
+        goal.trajectory = trajectory;
+        
+        // Select appropriate action client
+        auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
+        
+        if (!action_client->wait_for_action_server(std::chrono::seconds(2))) {
+            RCLCPP_ERROR(this->get_logger(), "Action server for %s arm not available", arm_name.c_str());
+            return;
+        }
+        
+        // Print trajectory details for debugging
+        RCLCPP_INFO(this->get_logger(), "Joint names: [%s]", 
+                   std::accumulate(trajectory.joint_names.begin(), trajectory.joint_names.end(), std::string{},
+                   [](const std::string& a, const std::string& b) { return a.empty() ? b : a + ", " + b; }).c_str());
+        
+        if (!trajectory.points.empty()) {
+            const auto& first_point = trajectory.points[0];
+            RCLCPP_INFO(this->get_logger(), "First point positions: [%.3f, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f]",
+                       first_point.positions[0], first_point.positions[1], first_point.positions[2],
+                       first_point.positions[3], first_point.positions[4], first_point.positions[5], first_point.positions[6]);
+        }
+        
+        // Send goal
+        auto future = action_client->async_send_goal(goal);
+        RCLCPP_INFO(this->get_logger(), "Trajectory goal sent to %s arm controller", arm_name.c_str());
+    }
+
+    // 軌道を自動的にYAMLファイルに保存
+    void saveTrajectoryToYaml(const moveit::planning_interface::MoveGroupInterface::Plan& plan, const std::string& arm_name) {
+        try {
+            auto now = this->get_clock()->now();
+            std::time_t time_t = now.seconds();
+            std::tm* tm = std::localtime(&time_t);
+            
+            // タイムスタンプ付きファイル名を生成
+            std::stringstream ss;
+            ss << "/tmp/trajectory_" << arm_name << "_" 
+               << std::put_time(tm, "%Y%m%d_%H%M%S") << "_" 
+               << now.nanoseconds() / 1000000 % 1000 << ".yaml";
+            std::string filename = ss.str();
+            
+            YAML::Node yaml_node;
+            yaml_node["trajectory_info"]["arm_name"] = arm_name;
+            yaml_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
+            yaml_node["trajectory_info"]["planner_id"] = plan.planning_time_;
+            
+            // ジョイント名を保存
+            YAML::Node joint_names;
+            for (const auto& name : plan.trajectory_.joint_trajectory.joint_names) {
+                joint_names.push_back(name);
+            }
+            yaml_node["trajectory"]["joint_names"] = joint_names;
+            
+            // 軌道ポイントを保存
+            YAML::Node points;
+            for (size_t i = 0; i < plan.trajectory_.joint_trajectory.points.size(); ++i) {
+                const auto& point = plan.trajectory_.joint_trajectory.points[i];
+                YAML::Node point_node;
+                
+                // 位置データ
+                YAML::Node positions;
+                for (const auto& pos : point.positions) {
+                    positions.push_back(pos);
+                }
+                point_node["positions"] = positions;
+                
+                // 速度データ（存在する場合）
+                if (!point.velocities.empty()) {
+                    YAML::Node velocities;
+                    for (const auto& vel : point.velocities) {
+                        velocities.push_back(vel);
+                    }
+                    point_node["velocities"] = velocities;
+                }
+                
+                // 時間データ
+                point_node["time_from_start"]["sec"] = point.time_from_start.sec;
+                point_node["time_from_start"]["nanosec"] = point.time_from_start.nanosec;
+                
+                points.push_back(point_node);
+            }
+            yaml_node["trajectory"]["points"] = points;
+            
+            // ファイルに書き込み
+            std::ofstream file(filename);
+            file << yaml_node;
+            file.close();
+            
+            RCLCPP_INFO(this->get_logger(), "Trajectory saved to: %s", filename.c_str());
+            
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to save trajectory: %s", e.what());
+        }
+    }
+    
+    // YAMLファイルから軌道を読み込み
+    bool loadTrajectoryFromYaml(const std::string& filename, moveit::planning_interface::MoveGroupInterface::Plan& plan) {
+        try {
+            YAML::Node yaml_node = YAML::LoadFile(filename);
+            
+            // ジョイント名を復元
+            plan.trajectory_.joint_trajectory.joint_names.clear();
+            for (const auto& name : yaml_node["trajectory"]["joint_names"]) {
+                plan.trajectory_.joint_trajectory.joint_names.push_back(name.as<std::string>());
+            }
+            
+            // 軌道ポイントを復元
+            plan.trajectory_.joint_trajectory.points.clear();
+            for (const auto& point_yaml : yaml_node["trajectory"]["points"]) {
+                trajectory_msgs::msg::JointTrajectoryPoint point;
+                
+                // 位置データ復元
+                for (const auto& pos : point_yaml["positions"]) {
+                    point.positions.push_back(pos.as<double>());
+                }
+                
+                // 速度データ復元（存在する場合）
+                if (point_yaml["velocities"]) {
+                    for (const auto& vel : point_yaml["velocities"]) {
+                        point.velocities.push_back(vel.as<double>());
+                    }
+                }
+                
+                // 時間データ復元
+                point.time_from_start.sec = point_yaml["time_from_start"]["sec"].as<int32_t>();
+                point.time_from_start.nanosec = point_yaml["time_from_start"]["nanosec"].as<uint32_t>();
+                
+                plan.trajectory_.joint_trajectory.points.push_back(point);
+            }
+            
+            RCLCPP_INFO(this->get_logger(), "Trajectory loaded from: %s", filename.c_str());
+            return true;
+            
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to load trajectory from %s: %s", filename.c_str(), e.what());
+            return false;
+        }
+    }
     
 };
 

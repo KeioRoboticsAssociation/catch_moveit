@@ -720,11 +720,11 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/std_srvs/std_srvs/srv/detail/trigger__type_support.hpp \
   /opt/ros/humble/include/std_srvs/std_srvs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h \
+  /opt/ros/humble/include/moveit/macros/class_forward.h \
+  /opt/ros/humble/include/moveit/macros/declare_ptr.h \
+  /opt/ros/humble/include/moveit/robot_state/robot_state.h \
+  /opt/ros/humble/include/moveit/robot_model/robot_model.h \
+  /opt/ros/humble/include/moveit/exceptions/exceptions.h \
   /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/model.h \
   /usr/include/tinyxml2.h \
   /usr/include/c++/11/climits \
@@ -752,8 +752,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
   /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
   /home/a/ws_moveit2/install/srdfdom/include/srdfdom/srdfdom/visibility_control.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h \
+  /opt/ros/humble/include/moveit/robot_model/joint_model_group.h \
+  /opt/ros/humble/include/moveit/robot_model/joint_model.h \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/joint_limits__struct.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/joint_limits__builder.hpp \
@@ -1096,14 +1096,14 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /usr/include/eigen3/Eigen/src/Geometry/AlignedBox.h \
   /usr/include/eigen3/Eigen/src/Geometry/Umeyama.h \
   /usr/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/link_model.h \
+  /opt/ros/humble/include/moveit/robot_model/link_model.h \
   /opt/ros/humble/include/eigen_stl_containers/eigen_stl_containers/eigen_stl_vector_container.h \
   /usr/include/eigen3/Eigen/Core \
   /usr/include/eigen3/Eigen/StdVector \
   /usr/include/eigen3/Eigen/src/StlSupport/StdVector.h \
   /usr/include/eigen3/Eigen/src/StlSupport/details.h \
   /opt/ros/humble/include/geometric_shapes/geometric_shapes/check_isometry.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/kinematics_base/kinematics_base.h \
+  /opt/ros/humble/include/moveit/kinematics_base/kinematics_base.h \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__builder.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__type_support.hpp \
@@ -1112,14 +1112,14 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__traits.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__type_support.hpp \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit_kinematics_base_export.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/fixed_joint_model.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/floating_joint_model.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/planar_joint_model.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/revolute_joint_model.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/prismatic_joint_model.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_state/attached_body.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/transforms/transforms.h \
+  /opt/ros/humble/include/moveit_kinematics_base_export.h \
+  /opt/ros/humble/include/moveit/robot_model/fixed_joint_model.h \
+  /opt/ros/humble/include/moveit/robot_model/floating_joint_model.h \
+  /opt/ros/humble/include/moveit/robot_model/planar_joint_model.h \
+  /opt/ros/humble/include/moveit/robot_model/revolute_joint_model.h \
+  /opt/ros/humble/include/moveit/robot_model/prismatic_joint_model.h \
+  /opt/ros/humble/include/moveit/robot_state/attached_body.h \
+  /opt/ros/humble/include/moveit/transforms/transforms.h \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform_stamped.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp \
@@ -1169,7 +1169,7 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__builder.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/utils/moveit_error_code.h \
+  /opt/ros/humble/include/moveit/utils/moveit_error_code.h \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/robot_trajectory.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__struct.hpp \
   /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory__struct.hpp \
@@ -1396,7 +1396,7 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/planning_scene.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/planning_scene_monitor.h \
+  /opt/ros/humble/include/moveit/planning_scene_monitor/planning_scene_monitor.h \
   /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h \
   /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.hpp \
   /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp \
@@ -1405,11 +1405,11 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp \
   /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp \
   /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/planning_scene/planning_scene.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_detector_allocator.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_env.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_matrix.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_common.h \
+  /opt/ros/humble/include/moveit/planning_scene/planning_scene.h \
+  /opt/ros/humble/include/moveit/collision_detection/collision_detector_allocator.h \
+  /opt/ros/humble/include/moveit/collision_detection/collision_env.h \
+  /opt/ros/humble/include/moveit/collision_detection/collision_matrix.h \
+  /opt/ros/humble/include/moveit/collision_detection/collision_common.h \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/allowed_collision_matrix.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/allowed_collision_matrix__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/allowed_collision_matrix__type_support.hpp \
@@ -1419,14 +1419,14 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/link_scale.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/link_scale__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/link_scale__type_support.hpp \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/world.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/world_diff.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/kinematic_constraints/kinematic_constraint.h \
+  /opt/ros/humble/include/moveit/collision_detection/world.h \
+  /opt/ros/humble/include/moveit/collision_detection/world_diff.h \
+  /opt/ros/humble/include/moveit/kinematic_constraints/kinematic_constraint.h \
   /opt/ros/humble/include/geometric_shapes/geometric_shapes/bodies.h \
   /opt/ros/humble/include/geometric_shapes/geometric_shapes/aabb.h \
   /opt/ros/humble/include/geometric_shapes/geometric_shapes/obb.h \
   /opt/ros/humble/include/geometric_shapes/geometric_shapes/shapes.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/robot_trajectory/robot_trajectory.h \
+  /opt/ros/humble/include/moveit/robot_trajectory/robot_trajectory.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
@@ -1439,13 +1439,13 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__builder.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__type_support.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit_planning_scene_export.h \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/robot_model_loader/robot_model_loader.h \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/rdf_loader/rdf_loader.h \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/rdf_loader/synchronized_string_parameter.h \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/kinematics_plugin_loader/kinematics_plugin_loader.h \
+  /opt/ros/humble/include/moveit_planning_scene_export.h \
+  /opt/ros/humble/include/moveit/robot_model_loader/robot_model_loader.h \
+  /opt/ros/humble/include/moveit/rdf_loader/rdf_loader.h \
+  /opt/ros/humble/include/moveit/rdf_loader/synchronized_string_parameter.h \
+  /opt/ros/humble/include/moveit/kinematics_plugin_loader/kinematics_plugin_loader.h \
   /opt/ros/humble/include/moveit/occupancy_map_monitor/occupancy_map_monitor.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/occupancy_map.h \
+  /opt/ros/humble/include/moveit/collision_detection/occupancy_map.h \
   /opt/ros/humble/include/octomap/octomap.h \
   /opt/ros/humble/include/octomap/octomap_types.h \
   /usr/include/inttypes.h \
@@ -1498,7 +1498,7 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/save_map__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/save_map__traits.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/save_map__type_support.hpp \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/current_state_monitor.h \
+  /opt/ros/humble/include/moveit/planning_scene_monitor/current_state_monitor.h \
   /usr/include/boost/signals2.hpp \
   /usr/include/boost/signals2/deconstruct.hpp \
   /usr/include/boost/shared_ptr.hpp \
@@ -2026,15 +2026,15 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /usr/include/boost/parameter/aux_/tagged_argument.hpp \
   /usr/include/boost/parameter/aux_/pack/tag_template_keyword_arg.hpp \
   /usr/include/boost/signals2/shared_connection_block.hpp \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/collision_plugin_loader/collision_plugin_loader.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_plugin_cache.h \
-  /home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_plugin.h \
+  /opt/ros/humble/include/moveit/collision_plugin_loader/collision_plugin_loader.h \
+  /opt/ros/humble/include/moveit/collision_detection/collision_plugin_cache.h \
+  /opt/ros/humble/include/moveit/collision_detection/collision_plugin.h \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/get_planning_scene.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_planning_scene__struct.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_planning_scene__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_planning_scene__traits.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_planning_scene__type_support.hpp \
-  /home/a/ws_moveit2/install/moveit_ros_planning/include/moveit_planning_scene_monitor_export.h \
+  /opt/ros/humble/include/moveit_planning_scene_monitor_export.h \
   /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h \
   /opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp \
@@ -2100,8 +2100,71 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
   /opt/ros/humble/include/control_msgs/control_msgs/msg/detail/joint_tolerance__traits.hpp \
   /opt/ros/humble/include/control_msgs/control_msgs/msg/detail/joint_component_tolerance__traits.hpp \
   /opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__type_support.hpp \
-  /opt/ros/humble/include/control_msgs/control_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+  /opt/ros/humble/include/control_msgs/control_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /usr/include/yaml-cpp/yaml.h \
+  /usr/include/yaml-cpp/parser.h \
+  /usr/include/yaml-cpp/dll.h \
+  /usr/include/yaml-cpp/emitter.h \
+  /usr/include/yaml-cpp/binary.h \
+  /usr/include/yaml-cpp/emitterdef.h \
+  /usr/include/yaml-cpp/emittermanip.h \
+  /usr/include/yaml-cpp/null.h \
+  /usr/include/yaml-cpp/ostream_wrapper.h \
+  /usr/include/yaml-cpp/emitterstyle.h \
+  /usr/include/yaml-cpp/stlemitter.h \
+  /usr/include/yaml-cpp/exceptions.h \
+  /usr/include/yaml-cpp/mark.h \
+  /usr/include/yaml-cpp/noexcept.h \
+  /usr/include/yaml-cpp/traits.h \
+  /usr/include/yaml-cpp/node/node.h \
+  /usr/include/yaml-cpp/node/detail/iterator_fwd.h \
+  /usr/include/yaml-cpp/node/ptr.h \
+  /usr/include/yaml-cpp/node/type.h \
+  /usr/include/yaml-cpp/node/impl.h \
+  /usr/include/yaml-cpp/node/detail/memory.h \
+  /usr/include/yaml-cpp/node/detail/node.h \
+  /usr/include/yaml-cpp/node/detail/node_ref.h \
+  /usr/include/yaml-cpp/node/detail/node_data.h \
+  /usr/include/yaml-cpp/node/detail/node_iterator.h \
+  /usr/include/yaml-cpp/node/iterator.h \
+  /usr/include/yaml-cpp/node/detail/iterator.h \
+  /usr/include/yaml-cpp/node/convert.h \
+  /usr/include/yaml-cpp/node/detail/impl.h \
+  /usr/include/yaml-cpp/node/parse.h \
+  /usr/include/yaml-cpp/node/emit.h \
+  /opt/ros/humble/include/ament_index_cpp/ament_index_cpp/get_package_share_directory.hpp \
+  /opt/ros/humble/include/ament_index_cpp/ament_index_cpp/visibility_control.h
 
+
+/usr/include/yaml-cpp/node/emit.h:
+
+/usr/include/yaml-cpp/node/convert.h:
+
+/usr/include/yaml-cpp/node/iterator.h:
+
+/usr/include/yaml-cpp/node/detail/memory.h:
+
+/usr/include/yaml-cpp/node/type.h:
+
+/usr/include/yaml-cpp/node/detail/iterator_fwd.h:
+
+/usr/include/yaml-cpp/stlemitter.h:
+
+/usr/include/yaml-cpp/null.h:
+
+/usr/include/yaml-cpp/emittermanip.h:
+
+/usr/include/yaml-cpp/binary.h:
+
+/usr/include/yaml-cpp/emitter.h:
+
+/usr/include/yaml-cpp/dll.h:
+
+/usr/include/yaml-cpp/node/detail/node.h:
+
+/usr/include/yaml-cpp/parser.h:
+
+/usr/include/yaml-cpp/yaml.h:
 
 /opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__type_support.hpp:
 
@@ -2141,11 +2204,11 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__type_support.hpp:
 
+/opt/ros/humble/include/ament_index_cpp/ament_index_cpp/visibility_control.h:
+
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__builder.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__type_support.hpp:
-
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit_planning_scene_monitor_export.h:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/get_planning_scene__builder.hpp:
 
@@ -2201,6 +2264,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/mp11/detail/mp_min_element.hpp:
 
+/usr/include/yaml-cpp/noexcept.h:
+
 /usr/include/boost/mp11/algorithm.hpp:
 
 /usr/include/boost/mp11/bind.hpp:
@@ -2208,6 +2273,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/parameter/keyword_fwd.hpp:
 
 /usr/include/boost/parameter/aux_/augment_predicate.hpp:
+
+/usr/include/yaml-cpp/node/ptr.h:
 
 /usr/include/boost/parameter/aux_/tagged_argument_fwd.hpp:
 
@@ -2232,6 +2299,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mp11/detail/config.hpp:
 
 /usr/include/boost/mp11/detail/mp_fold.hpp:
+
+/usr/include/yaml-cpp/node/detail/impl.h:
 
 /usr/include/boost/mp11/utility.hpp:
 
@@ -2260,6 +2329,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mpl/aux_/inserter_algorithm.hpp:
 
 /usr/include/boost/mpl/pair_view.hpp:
+
+/usr/include/boost/mpl/transform.hpp:
 
 /usr/include/boost/mpl/sizeof.hpp:
 
@@ -2309,6 +2380,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/mpl/list/aux_/push_back.hpp:
 
+/usr/include/boost/mpl/pop_front_fwd.hpp:
+
 /usr/include/boost/mpl/list/aux_/tag.hpp:
 
 /usr/include/boost/mpl/list/aux_/push_front.hpp:
@@ -2318,8 +2391,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/variant/detail/make_variant_list.hpp:
 
 /usr/include/boost/variant/detail/move.hpp:
-
-/usr/include/boost/variant/recursive_wrapper_fwd.hpp:
 
 /usr/include/boost/detail/reference_content.hpp:
 
@@ -2338,6 +2409,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mpl/size.hpp:
 
 /usr/include/boost/mpl/aux_/msvc_type.hpp:
+
+/usr/include/boost/mpl/deref.hpp:
 
 /usr/include/boost/mpl/aux_/front_impl.hpp:
 
@@ -2401,6 +2474,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/visit_each.hpp:
 
+/usr/include/boost/bind/bind.hpp:
+
 /usr/include/boost/signals2/slot.hpp:
 
 /usr/include/boost/signals2/detail/unique_lock.hpp:
@@ -2426,8 +2501,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mpl/aux_/config/bcc.hpp:
 
 /usr/include/boost/mpl/aux_/has_type.hpp:
-
-/usr/include/boost/mpl/void.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__traits.hpp:
 
@@ -2465,6 +2538,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/iterator/detail/enable_if.hpp:
 
+/usr/include/boost/type_traits/remove_pointer.hpp:
+
 /usr/include/boost/type_traits/copy_reference.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/and.hpp:
@@ -2472,6 +2547,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mpl/and.hpp:
 
 /usr/include/boost/iterator/detail/facade_iterator_category.hpp:
+
+/usr/include/yaml-cpp/node/parse.h:
 
 /usr/include/boost/iterator/iterator_traits.hpp:
 
@@ -2607,10 +2684,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/move/traits.hpp:
 
-/usr/include/boost/mpl/list/list10.hpp:
-
-/usr/include/boost/move/detail/meta_utils_core.hpp:
-
 /usr/include/boost/move/detail/meta_utils.hpp:
 
 /usr/include/boost/move/core.hpp:
@@ -2666,8 +2739,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mpl/eval_if.hpp:
 
 /usr/include/boost/type.hpp:
-
-/usr/include/boost/optional/optional.hpp:
 
 /usr/include/boost/optional.hpp:
 
@@ -2737,8 +2808,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/signals2.hpp:
 
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/current_state_monitor.h:
-
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/save_map__type_support.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/srv/detail/save_map__traits.hpp:
@@ -2781,8 +2850,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/tr1/hashtable_policy.h:
 
-/usr/include/c++/11/tr1/hashtable.h:
-
 /usr/include/c++/11/tr1/type_traits:
 
 /usr/include/c++/11/tr1/unordered_set:
@@ -2819,13 +2886,9 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/octomap/octomap.h:
 
-/usr/include/boost/type_traits/remove_pointer.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/occupancy_map.h:
-
 /opt/ros/humble/include/moveit/occupancy_map_monitor/occupancy_map_monitor.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit_planning_scene_export.h:
+/opt/ros/humble/include/moveit/rdf_loader/synchronized_string_parameter.h:
 
 /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
@@ -2843,15 +2906,13 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/deque:
 
+/usr/include/c++/11/tr1/hashtable.h:
+
+/opt/ros/humble/include/moveit/robot_trajectory/robot_trajectory.h:
+
 /opt/ros/humble/include/geometric_shapes/geometric_shapes/bodies.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/kinematic_constraints/kinematic_constraint.h:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/world_diff.h:
-
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/link_scale__type_support.hpp:
-
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/robot_model_loader/robot_model_loader.h:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/link_padding__type_support.hpp:
 
@@ -2861,9 +2922,11 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/allowed_collision_matrix__builder.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_matrix.h:
+/opt/ros/humble/include/moveit/collision_detection/collision_common.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/planning_scene/planning_scene.h:
+/opt/ros/humble/include/moveit/collision_detection/collision_env.h:
+
+/opt/ros/humble/include/moveit/planning_scene/planning_scene.h:
 
 /usr/include/boost/mpl/max_element.hpp:
 
@@ -2886,6 +2949,10 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.hpp:
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h:
+
+/usr/include/boost/optional/optional.hpp:
+
+/opt/ros/humble/include/moveit/planning_scene_monitor/planning_scene_monitor.h:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp:
 
@@ -2914,6 +2981,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp:
+
+/opt/ros/humble/include/moveit/collision_detection/world_diff.h:
 
 /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp:
 
@@ -2985,6 +3054,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rclcpp_action/rclcpp_action/server_goal_handle.hpp:
 
+/usr/include/yaml-cpp/emitterstyle.h:
+
 /opt/ros/humble/include/rclcpp_action/rclcpp_action/server.hpp:
 
 /opt/ros/humble/include/rcl_action/rcl_action/goal_state_machine.h:
@@ -3031,6 +3102,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__struct.h:
 
+/opt/ros/humble/include/moveit/collision_detection/collision_detector_allocator.h:
+
 /opt/ros/humble/include/action_msgs/action_msgs/msg/goal_info.h:
 
 /opt/ros/humble/include/rclcpp_action/rclcpp_action/client_goal_handle.hpp:
@@ -3040,8 +3113,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/execute_trajectory__builder.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/execute_trajectory__struct.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_env.h:
 
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/action_type_support_struct.h:
 
@@ -3155,6 +3226,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/visibility_constraint__traits.hpp:
 
+/usr/include/yaml-cpp/ostream_wrapper.h:
+
 /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/orientation_constraint__traits.hpp:
@@ -3194,8 +3267,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/shape_msgs/shape_msgs/msg/detail/plane__traits.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point32__traits.hpp:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon__traits.hpp:
 
 /opt/ros/humble/include/shape_msgs/shape_msgs/msg/detail/solid_primitive__traits.hpp:
 
@@ -3251,10 +3322,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__struct.hpp:
 
-/usr/include/boost/mpl/transform.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/utils/moveit_error_code.h:
-
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__builder.hpp:
@@ -3274,8 +3341,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/type_traits/enable_if.hpp:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp:
-
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/planning_scene_monitor.h:
 
 /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__struct.hpp:
 
@@ -3325,13 +3390,15 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/transforms/transforms.h:
+/opt/ros/humble/include/moveit/transforms/transforms.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_state/attached_body.h:
+/opt/ros/humble/include/moveit/collision_detection/collision_matrix.h:
 
-/usr/include/boost/mpl/deref.hpp:
+/opt/ros/humble/include/moveit/robot_state/attached_body.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/prismatic_joint_model.h:
+/usr/include/boost/mpl/void.hpp:
+
+/opt/ros/humble/include/moveit/robot_model/revolute_joint_model.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/constants.hpp:
 
@@ -3350,10 +3417,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/boost/mpl/pop_front_fwd.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/floating_joint_model.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
@@ -3400,8 +3463,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/rclcpp/rclcpp/clock.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/rate.hpp:
-
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/collision_plugin_loader/collision_plugin_loader.h:
 
 /usr/include/boost/mpl/aux_/clear_impl.hpp:
 
@@ -3465,6 +3526,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
+/usr/include/yaml-cpp/node/detail/node_iterator.h:
+
 /opt/ros/humble/include/action_msgs/action_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /usr/include/boost/type_traits/conditional.hpp:
@@ -3499,6 +3562,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/eigen3/Eigen/src/Core/CommaInitializer.h:
 
+/usr/include/yaml-cpp/node/node.h:
+
 /usr/include/c++/11/bits/locale_conv.h:
 
 /usr/include/eigen3/Eigen/src/Core/Random.h:
@@ -3508,6 +3573,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/c++/11/cxxabi.h:
+
+/usr/include/yaml-cpp/node/impl.h:
 
 /usr/include/boost/mpl/iterator_range.hpp:
 
@@ -3691,6 +3758,10 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rmw/rmw/event_callback_type.h:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/object_color.hpp:
+
+/opt/ros/humble/include/rcl/rcl/context.h:
+
 /opt/ros/humble/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h:
 
 /opt/ros/humble/include/rclcpp_action/rclcpp_action/visibility_control.hpp:
@@ -3728,8 +3799,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:
 
 /opt/ros/humble/include/rmw/rmw/events_statuses/offered_deadline_missed.h:
-
-/opt/ros/humble/include/rmw/rmw/events_statuses/message_lost.h:
 
 /usr/include/boost/mpl/aux_/reverse_fold_impl.hpp:
 
@@ -3831,6 +3900,10 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h:
 
+/opt/ros/humble/include/rclcpp/rclcpp/expand_topic_or_service_name.hpp:
+
+/opt/ros/humble/include/rcl/rcl/macros.h:
+
 /opt/ros/humble/include/rmw/rmw/ret_types.h:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp:
@@ -3919,10 +3992,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/bits/istream.tcc:
 
-/usr/include/boost/type_traits/type_with_alignment.hpp:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp:
-
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__traits.hpp:
 
 /usr/include/c++/11/istream:
@@ -3951,6 +4020,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/cwctype:
 
+/opt/ros/humble/include/moveit/utils/moveit_error_code.h:
+
 /usr/include/string.h:
 
 /usr/include/boost/mpl/O1_size.hpp:
@@ -3972,6 +4043,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/link_padding__traits.hpp:
 
 /usr/include/c++/11/ostream:
+
+/usr/include/yaml-cpp/emitterdef.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/moving_average_statistics/moving_average.hpp:
 
@@ -4159,6 +4232,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 
+/opt/ros/humble/include/moveit/rdf_loader/rdf_loader.h:
+
 /usr/include/eigen3/Eigen/src/Geometry/RotationBase.h:
 
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
@@ -4190,6 +4265,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/c++/11/debug/assertions.h:
 
 /opt/ros/humble/include/tracetools/tracetools/config.h:
+
+/opt/ros/humble/include/moveit_planning_scene_monitor_export.h:
 
 /usr/include/c++/11/bits/codecvt.h:
 
@@ -4227,6 +4304,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/bits/unique_ptr.h:
 
+/opt/ros/humble/include/moveit_planning_scene_export.h:
+
 /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/joint_trajectory__builder.hpp:
 
 /opt/ros/humble/include/rcutils/rcutils/types/uint8_array.h:
@@ -4240,6 +4319,10 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/preprocessor/array/elem.hpp:
 
 /usr/include/c++/11/bits/stl_pair.h:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/link_scale.hpp:
+
+/opt/ros/humble/include/rcl/rcl/types.h:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/grasp.hpp:
 
@@ -4283,6 +4366,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
+/opt/ros/humble/include/moveit/collision_detection/world.h:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__builder.hpp:
 
 /usr/include/boost/type_traits/copy_cv_ref.hpp:
@@ -4311,8 +4396,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/mpl/integral_c.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h:
-
 /usr/include/c++/11/pstl/pstl_config.h:
 
 /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__struct.hpp:
@@ -4329,6 +4412,12 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
+/usr/include/boost/mpl/list/list10.hpp:
+
+/usr/include/boost/move/detail/meta_utils_core.hpp:
+
+/opt/ros/humble/include/moveit/robot_model/planar_joint_model.h:
+
 /usr/include/c++/11/bits/std_function.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
@@ -4341,6 +4430,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/errno.h:
 
+/opt/ros/humble/include/ament_index_cpp/ament_index_cpp/get_package_share_directory.hpp:
+
 /usr/include/stdc-predef.h:
 
 /usr/include/c++/11/bits/stl_list.h:
@@ -4351,8 +4442,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h:
-
 /usr/include/boost/preprocessor/cat.hpp:
 
 /usr/include/boost/type_traits/is_union.hpp:
@@ -4360,8 +4449,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
 
@@ -4407,16 +4494,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/tr1/special_function_util.h:
 
-/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/object_color.hpp:
-
-/opt/ros/humble/include/rcl/rcl/context.h:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/planar_joint_model.h:
-
-/opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__type_support.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
-
 /usr/include/boost/mpl/aux_/find_if_pred.hpp:
 
 /usr/include/c++/11/bits/stl_construct.h:
@@ -4446,8 +4523,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/c++/11/debug/debug.h:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_trajectory/robot_trajectory.h:
 
 /opt/ros/humble/include/rcl/rcl/publisher.h:
 
@@ -4567,14 +4642,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:
 
-/usr/include/boost/core/ref.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/util/MKL_support.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
-
-/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
-
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
 
 /usr/include/boost/random/uniform_real_distribution.hpp:
@@ -4584,8 +4651,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mp11/integral.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/execute_trajectory.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/revolute_joint_model.h:
 
 /usr/include/c++/11/bits/hashtable_policy.h:
 
@@ -4606,8 +4671,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/wrench_stamped__builder.hpp:
-
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/rdf_loader/rdf_loader.h:
 
 /usr/include/x86_64-linux-gnu/bits/environments.h:
 
@@ -4685,8 +4748,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rmw/rmw/incompatible_qos_events_statuses.h:
 
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/rdf_loader/synchronized_string_parameter.h:
-
 /home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/planning_scene_interface/planning_scene_interface.h:
 
 /usr/include/boost/random/detail/config.hpp:
@@ -4738,6 +4799,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/mp11/detail/mp_map_find.hpp:
 
 /usr/include/boost/mpl/list/aux_/item.hpp:
+
+/opt/ros/humble/include/moveit/planning_scene_monitor/current_state_monitor.h:
 
 /usr/include/c++/11/ext/concurrence.h:
 
@@ -4821,6 +4884,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rmw/rmw/topic_endpoint_info_array.h:
 
+/opt/ros/humble/include/moveit/robot_model/prismatic_joint_model.h:
+
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/storage_policy_common.hpp:
 
 /opt/ros/humble/include/rmw/rmw/publisher_options.h:
@@ -4878,8 +4943,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/rcl/rcl/arguments.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h:
 
 /usr/include/boost/smart_ptr/detail/operator_bool.hpp:
 
@@ -4973,6 +5036,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
+/opt/ros/humble/include/moveit/robot_model_loader/robot_model_loader.h:
+
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp:
 
 /usr/include/boost/mpl/find.hpp:
@@ -4988,8 +5053,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/eigen3/Eigen/src/LU/PartialPivLU.h:
 
 /usr/include/boost/mpl/list/aux_/begin_end.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_detector_allocator.h:
 
 /usr/include/c++/11/cstdlib:
 
@@ -5014,6 +5077,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/c++/11/future:
+
+/usr/include/yaml-cpp/traits.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -5107,11 +5172,11 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/c++/11/bits/vector.tcc:
 
+/opt/ros/humble/include/moveit/collision_plugin_loader/collision_plugin_loader.h:
+
 /opt/ros/humble/include/urdfdom_headers/urdf_model/types.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/collector.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_plugin_cache.h:
 
 /usr/include/c++/11/bitset:
 
@@ -5152,8 +5217,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/c++/11/algorithm:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__struct.hpp:
-
-/home/a/ws_moveit2/install/moveit_ros_planning/include/moveit/kinematics_plugin_loader/kinematics_plugin_loader.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__builder.hpp:
 
@@ -5221,8 +5284,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rclcpp/rclcpp/publisher_factory.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/kinematics_base/kinematics_base.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_factory.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/motion_plan_request.hpp:
@@ -5251,6 +5312,12 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__type_support.hpp:
 
+/opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap_with_pose__type_support.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
+
+/opt/ros/humble/include/moveit/robot_model/robot_model.h:
+
 /usr/include/boost/parameter/aux_/pack/deduce_tag.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__builder.hpp:
@@ -5268,6 +5335,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_waitables_interface.hpp:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp:
+
+/opt/ros/humble/include/moveit/collision_detection/collision_plugin.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_options.hpp:
 
@@ -5307,6 +5376,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_timer.hpp:
 
+/usr/include/yaml-cpp/node/detail/node_ref.h:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp:
 
 /usr/include/boost/config/helper_macros.hpp:
@@ -5329,11 +5400,13 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/random/detail/polynomial.hpp:
 
+/usr/include/boost/mpl/bind.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/executable_list.hpp:
+
 /usr/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_client.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_plugin.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__builder.hpp:
 
@@ -5373,6 +5446,10 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/eigen3/Eigen/src/SVD/BDCSVD.h:
 
+/opt/ros/humble/include/rmw/rmw/events_statuses/message_lost.h:
+
+/opt/ros/humble/include/moveit/robot_model/link_model.h:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__struct.hpp:
 
 /usr/include/boost/config.hpp:
@@ -5397,6 +5474,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp:
 
+/opt/ros/humble/include/moveit/macros/class_forward.h:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters_atomically.hpp:
 
 /opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/visibility_control.h:
@@ -5408,6 +5487,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_event_handler.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_service.hpp:
+
+/opt/ros/humble/include/moveit/collision_detection/collision_plugin_cache.h:
 
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
 
@@ -5436,6 +5517,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_stamped.hpp:
+
+/opt/ros/humble/include/moveit/collision_detection/occupancy_map.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__struct.hpp:
 
@@ -5472,8 +5555,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__builder.hpp:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp:
 
@@ -5539,13 +5620,23 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/mpl/aux_/config/nttp.hpp:
 
-/usr/include/boost/mpl/bind.hpp:
+/usr/include/boost/type_traits/type_with_alignment.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/executable_list.hpp:
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h:
+/opt/ros/humble/include/moveit/macros/declare_ptr.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h:
+/opt/ros/humble/include/moveit/robot_state/robot_state.h:
+
+/usr/include/yaml-cpp/mark.h:
+
+/usr/include/boost/variant/recursive_wrapper_fwd.hpp:
+
+/opt/ros/humble/include/moveit/exceptions/exceptions.h:
+
+/usr/include/boost/mpl/aux_/config/use_preprocessed.hpp:
+
+/usr/include/boost/preprocessor/list/detail/fold_left.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/Inverse.h:
 
@@ -5623,11 +5714,13 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /opt/ros/humble/include/urdfdom_headers/urdf_model/utils.h:
 
-/opt/ros/humble/include/rclcpp/rclcpp/expand_topic_or_service_name.hpp:
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp:
 
-/opt/ros/humble/include/rcl/rcl/macros.h:
+/opt/ros/humble/include/moveit/kinematics_base/kinematics_base.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h:
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon__traits.hpp:
+
+/opt/ros/humble/include/moveit/robot_model/joint_model.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__struct.hpp:
 
@@ -5700,6 +5793,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/boost/random/detail/seed.hpp:
 
 /usr/include/boost/utility/enable_if.hpp:
+
+/opt/ros/humble/include/moveit/kinematic_constraints/kinematic_constraint.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_timers_interface.hpp:
 
@@ -5885,10 +5980,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/boost/preprocessor/control/while.hpp:
 
-/usr/include/boost/mpl/aux_/config/use_preprocessed.hpp:
-
-/usr/include/boost/preprocessor/list/detail/fold_left.hpp:
-
 /usr/include/boost/preprocessor/detail/check.hpp:
 
 /usr/include/eigen3/Eigen/src/Geometry/Scaling.h:
@@ -5942,6 +6033,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/boost/random/detail/disable_warnings.hpp:
+
+/usr/include/yaml-cpp/node/detail/node_data.h:
 
 /usr/include/boost/parameter/aux_/always_true_predicate.hpp:
 
@@ -6009,6 +6102,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h:
 
+/usr/include/yaml-cpp/node/detail/iterator.h:
+
 /usr/include/eigen3/Eigen/src/Core/arch/Default/TypeCasting.h:
 
 /usr/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h:
@@ -6022,6 +6117,16 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h:
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h:
+
+/usr/include/boost/core/ref.hpp:
+
+/usr/include/eigen3/Eigen/src/Core/util/MKL_support.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
+
+/opt/ros/humble/include/moveit_kinematics_base_export.h:
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h:
 
@@ -6063,8 +6168,6 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/world.h:
-
 /usr/include/tinyxml2.h:
 
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h:
@@ -6074,6 +6177,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h:
 
 /usr/include/boost/mpl/find_if.hpp:
+
+/opt/ros/humble/include/moveit/robot_model/joint_model_group.h:
 
 /usr/include/eigen3/Eigen/src/Core/Product.h:
 
@@ -6135,6 +6240,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/eigen3/Eigen/src/Core/DiagonalMatrix.h:
 
+/opt/ros/humble/include/moveit/kinematics_plugin_loader/kinematics_plugin_loader.h:
+
 /usr/include/eigen3/Eigen/src/Core/EigenBase.h:
 
 /usr/include/eigen3/Eigen/src/Core/Diagonal.h:
@@ -6160,6 +6267,8 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 /opt/ros/humble/include/rclcpp_action/rclcpp_action/client_goal_handle_impl.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointProduct.h:
+
+/usr/include/yaml-cpp/exceptions.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
 
@@ -6255,26 +6364,16 @@ CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o: /home/a/ws
 
 /usr/include/eigen3/Eigen/src/Geometry/AlignedBox.h:
 
-/usr/include/boost/bind/bind.hpp:
+/usr/include/boost/mpl/min_max.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/link_model.h:
+/usr/include/eigen3/Eigen/src/StlSupport/StdVector.h:
 
 /usr/include/c++/11/bits/charconv.h:
 
 /usr/include/eigen3/Eigen/src/StlSupport/details.h:
 
-/usr/include/boost/mpl/min_max.hpp:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/collision_detection/collision_common.h:
-
-/usr/include/eigen3/Eigen/src/StlSupport/StdVector.h:
-
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/move_it_error_codes.hpp:
 
-/home/a/ws_moveit2/install/moveit_core/include/moveit_kinematics_base_export.h:
+/opt/ros/humble/include/moveit/robot_model/fixed_joint_model.h:
 
-/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/link_scale.hpp:
-
-/opt/ros/humble/include/rcl/rcl/types.h:
-
-/home/a/ws_moveit2/install/moveit_core/include/moveit/robot_model/fixed_joint_model.h:
+/opt/ros/humble/include/moveit/robot_model/floating_joint_model.h:

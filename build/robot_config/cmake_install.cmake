@@ -73,7 +73,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_config/move_to_pose_dual_cpp")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_config/move_to_pose_dual_cpp"
-         OLD_RPATH "/home/a/ws_moveit2/install/moveit_ros_planning_interface/lib:/home/a/ws_moveit2/install/moveit_ros_move_group/lib:/home/a/ws_moveit2/install/moveit_ros_warehouse/lib:/home/a/ws_moveit2/install/moveit_ros_planning/lib:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor/lib:/home/a/ws_moveit2/install/moveit_core/lib:/home/a/ws_moveit2/install/srdfdom/lib:/opt/ros/humble/lib:/opt/ros/humble/lib/x86_64-linux-gnu:"
+         OLD_RPATH "/home/a/ws_moveit2/install/moveit_ros_planning_interface/lib:/home/a/ws_moveit2/install/moveit_planners_chomp/lib:/home/a/ws_moveit2/install/moveit_ros_move_group/lib:/home/a/ws_moveit2/install/moveit_ros_warehouse/lib:/home/a/ws_moveit2/install/moveit_ros_planning/lib:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor/lib:/home/a/ws_moveit2/install/chomp_motion_planner/lib:/home/a/ws_moveit2/install/moveit_core/lib:/home/a/ws_moveit2/install/srdfdom/lib:/opt/ros/humble/lib:/opt/ros/humble/lib/x86_64-linux-gnu:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_config/move_to_pose_dual_cpp")
@@ -167,6 +167,10 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/a/ws_moveit2/build/robot_config/ament_cmake_index/share/ament_index/resource_index/packages/robot_config")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_config/cmake" TYPE FILE FILES "/home/a/ws_moveit2/build/robot_config/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

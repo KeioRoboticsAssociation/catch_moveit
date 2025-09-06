@@ -442,6 +442,9 @@ boost_thread_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_thread-1.74.0
 //The directory containing a CMake configuration file for builtin_interfaces.
 builtin_interfaces_DIR:PATH=/opt/ros/humble/share/builtin_interfaces/cmake
 
+//The directory containing a CMake configuration file for chomp_motion_planner.
+chomp_motion_planner_DIR:PATH=/home/a/ws_moveit2/install/chomp_motion_planner/share/chomp_motion_planner/cmake
+
 //The directory containing a CMake configuration file for class_loader.
 class_loader_DIR:PATH=/opt/ros/humble/share/class_loader/cmake
 
@@ -522,6 +525,9 @@ moveit_core_DIR:PATH=/home/a/ws_moveit2/install/moveit_core/share/moveit_core/cm
 
 //The directory containing a CMake configuration file for moveit_msgs.
 moveit_msgs_DIR:PATH=/opt/ros/humble/share/moveit_msgs/cmake
+
+//The directory containing a CMake configuration file for moveit_planners_chomp.
+moveit_planners_chomp_DIR:PATH=/home/a/ws_moveit2/install/moveit_planners_chomp/share/moveit_planners_chomp/cmake
 
 //The directory containing a CMake configuration file for moveit_ros_move_group.
 moveit_ros_move_group_DIR:PATH=/home/a/ws_moveit2/install/moveit_ros_move_group/share/moveit_ros_move_group/cmake
@@ -729,6 +735,12 @@ std_msgs_DIR:PATH=/opt/ros/humble/share/std_msgs/cmake
 
 //The directory containing a CMake configuration file for std_srvs.
 std_srvs_DIR:PATH=/opt/ros/humble/share/std_srvs/cmake
+
+//The directory containing a CMake configuration file for stomp.
+stomp_DIR:PATH=/opt/ros/humble/lib/cmake/stomp
+
+//The directory containing a CMake configuration file for stomp_moveit.
+stomp_moveit_DIR:PATH=stomp_moveit_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for tcb_span.
 tcb_span_DIR:PATH=/opt/ros/humble/share/tcb_span/cmake

@@ -790,7 +790,7 @@ def generate_launch_description():
         .robot_description_kinematics(file_path="config/dual_arm_kinematics.yaml")
         .joint_limits(file_path="config/dual_arm_joint_limits.yaml")
         .planning_pipelines(
-            pipelines=["ompl", "pilz_industrial_motion_planner"],
+            pipelines=["ompl", "pilz_industrial_motion_planner","chomp","stomp"],
             default_planning_pipeline="ompl"
         )
         .trajectory_execution(

@@ -1,0 +1,48 @@
+# Pre-recorded trajectory library for dual arm robot
+# This file stores successful joint trajectories for reuse
+# Format: start_pose -> target_pose -> trajectory data
+
+trajectory_library:
+  left_arm:
+    # Example trajectory entry
+    # "home_to_pick1":
+    #   start_pose:
+    #     position: [x, y, z]
+    #     orientation: [x, y, z, w]  # quaternion
+    #     joint_values: [j1, j2, j3, j4, j5, j6]  # optional for verification
+    #   target_pose:
+    #     position: [x, y, z]
+    #     orientation: [x, y, z, w]
+    #     joint_values: [j1, j2, j3, j4, j5, j6]
+    #   trajectory:
+    #     joint_names: ["left_Joint_1", "left_Joint_2", "left_Joint_3", "left_Joint_4", "left_Joint_5", "left_Joint_6"]
+    #     points:
+    #       - positions: [j1, j2, j3, j4, j5, j6]
+    #         velocities: [v1, v2, v3, v4, v5, v6]
+    #         accelerations: [a1, a2, a3, a4, a5, a6]
+    #         time_from_start: 0.0
+    #       - positions: [j1, j2, j3, j4, j5, j6]
+    #         velocities: [v1, v2, v3, v4, v5, v6]
+    #         accelerations: [a1, a2, a3, a4, a5, a6]
+    #         time_from_start: 0.5
+    #     metadata:
+    #       planner_used: "RRTConnect"
+    #       planning_time: 0.234
+    #       execution_time: 2.45
+    #       success_rate: 100
+    #       created_date: "2025-09-06"
+    
+  right_arm:
+    # Right arm trajectories will be stored here
+    
+# Configuration for trajectory matching
+matching_config:
+  position_tolerance: 0.01    # 1cm tolerance for position matching
+  orientation_tolerance: 0.1   # ~6 degree tolerance for orientation matching  
+  joint_tolerance: 0.05       # Joint angle tolerance in radians
+  
+# Trajectory recording settings
+recording_config:
+  auto_record: true           # Automatically record successful trajectories
+  min_planning_time: 0.1      # Only record trajectories that took significant planning time
+  overwrite_existing: false   # Don't overwrite existing trajectories by default

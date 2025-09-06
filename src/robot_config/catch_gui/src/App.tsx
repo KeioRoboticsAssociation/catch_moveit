@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
+const ROSBRIDGE_SERVER_URL = "ws://172.16.91.81:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";

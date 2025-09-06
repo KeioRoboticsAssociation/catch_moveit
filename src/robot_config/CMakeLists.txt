@@ -20,6 +20,9 @@ find_package(tf2_ros REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(yaml-cpp REQUIRED)
+find_package(moveit_planners_chomp REQUIRED)
+find_package(stomp REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/launch")
   install(
@@ -54,7 +57,13 @@ ament_target_dependencies(
   std_srvs
   tf2_geometry_msgs
   control_msgs
+  moveit_planners_chomp
+  stomp
+  ament_index_cpp
 )
+
+# Link yaml-cpp library
+target_link_libraries(move_to_pose_dual_cpp yaml-cpp)
 
 # Install the move_to_pose_dual_cpp node
 install(TARGETS
@@ -100,6 +109,12 @@ ament_target_dependencies(
 install(TARGETS
   dual_arm_servo_controller
   DESTINATION lib/${PROJECT_NAME}
+)
+
+# Export plugin dependencies
+ament_export_dependencies(
+  moveit_planners_chomp
+  stomp
 )
 
 ament_package()

@@ -1,0 +1,36 @@
+planning_plugin: chomp_interface/CHOMPPlanner
+planning_plugin_library_name: moveit_chomp_planner_plugin
+request_adapters: >-
+  default_planner_request_adapters/AddTimeOptimalParameterization
+  default_planner_request_adapters/ResolveConstraintFrames
+  default_planner_request_adapters/FixWorkspaceBounds
+  default_planner_request_adapters/FixStartStateBounds
+  default_planner_request_adapters/FixStartStateCollision
+  default_planner_request_adapters/FixStartStatePathConstraints
+start_state_max_bounds_error: 0.1
+
+# CHOMP Configuration
+chomp:
+  planning_time_limit: 0.05
+  max_iterations: 10
+  max_iterations_after_collision_free: 2
+  smoothness_cost_weight: 0.1
+  obstacle_cost_weight: 500.0
+  learning_rate: 0.05
+  animination_dt: 0.05
+  add_randomness: false
+  smoothness_cost_velocity: 0.0
+  smoothness_cost_acceleration: 1.0
+  smoothness_cost_jerk: 0.0
+  hmc_discretization: 0.01
+  hmc_stochasticity: 0.01
+  hmc_annealing_factor: 0.99
+  use_hamiltonian_monte_carlo: false
+  ridge_factor: 0.0
+  use_pseudo_inverse: false
+  pseudo_inverse_ridge_factor: 1e-4
+  joint_update_limit: 0.2
+  collision_clearence: 0.15
+  collision_threshold: 0.1
+  random_jump_amount: 1.0
+  use_stochastic_descent: true
