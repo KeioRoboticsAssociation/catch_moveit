@@ -15,6 +15,7 @@
 #include <trajectory_msgs/msg/joint_trajectory.hpp>
 #include <control_msgs/action/follow_joint_trajectory.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
+#include <sensor_msgs/msg/joint_state.hpp>
 #include <thread>
 #include <memory>
 #include <chrono>
@@ -152,16 +153,32 @@ public:
             "/left_direct_joints", 10, std::bind(&MoveToPoseDualCpp::left_direct_joints_callback, this, std::placeholders::_1));
         right_direct_joints_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
             "/right_direct_joints", 10, std::bind(&MoveToPoseDualCpp::right_direct_joints_callback, this, std::placeholders::_1));
+        
+        // High-frequency joint states recording (100Hz)
+        joint_states_recording_timer_ = this->create_wall_timer(
+            std::chrono::milliseconds(10), // 100Hz = 10ms
+            std::bind(&MoveToPoseDualCpp::recordJointStatesCallback, this));
+        
+        // Joint states subscribers for high-frequency recording
+        joint_states_sub_ = this->create_subscription<sensor_msgs::msg::JointState>(
+            "/joint_states", 10, std::bind(&MoveToPoseDualCpp::jointStatesCallback, this, std::placeholders::_1));
             
         // YAML trajectory loading subscribers
         left_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/left_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::left_load_yaml_callback, this, std::placeholders::_1));
         right_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/right_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::right_load_yaml_callback, this, std::placeholders::_1));
+        
+        // 100Hz recording control subscribers
+        start_recording_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/start_joint_recording", 10, std::bind(&MoveToPoseDualCpp::startRecordingCallback, this, std::placeholders::_1));
+        stop_recording_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/stop_joint_recording", 10, std::bind(&MoveToPoseDualCpp::stopRecordingCallback, this, std::placeholders::_1));
             
         RCLCPP_INFO(this->get_logger(), "Simple servo switching system initialized");
         RCLCPP_INFO(this->get_logger(), "Direct joint states control ready on /left_direct_joints and /right_direct_joints");
         RCLCPP_INFO(this->get_logger(), "YAML trajectory loading ready on /left_load_trajectory and /right_load_trajectory");
+        RCLCPP_INFO(this->get_logger(), "100Hz joint states recording ready on /start_joint_recording and /stop_joint_recording");
     }
 
     ~MoveToPoseDualCpp()
@@ -932,6 +949,18 @@ private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_load_yaml_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_load_yaml_sub_;
     
+    // 100Hz recording control subscribers
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr start_recording_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr stop_recording_sub_;
+    
+    // High-frequency joint states recording
+    rclcpp::TimerBase::SharedPtr joint_states_recording_timer_;
+    rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_states_sub_;
+    sensor_msgs::msg::JointState::SharedPtr latest_joint_states_;
+    std::vector<sensor_msgs::msg::JointState> recorded_joint_states_;
+    std::mutex joint_states_mutex_;
+    bool is_recording_joint_states_ = false;
+    
     // Direct joint states control callbacks
     void left_direct_joints_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
     {
@@ -1061,37 +1090,186 @@ private:
         auto future = action_client->async_send_goal(goal);
         RCLCPP_INFO(this->get_logger(), "Trajectory goal sent to %s arm controller", arm_name.c_str());
     }
+    
+    // Joint states callback for high-frequency recording
+    void jointStatesCallback(const sensor_msgs::msg::JointState::SharedPtr msg)
+    {
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        latest_joint_states_ = msg;
+    }
+    
+    // 100Hz recording callback
+    void recordJointStatesCallback()
+    {
+        if (!is_recording_joint_states_ || !latest_joint_states_) {
+            return;
+        }
+        
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        recorded_joint_states_.push_back(*latest_joint_states_);
+    }
+    
+    // Start high-frequency joint states recording
+    void startJointStatesRecording()
+    {
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        recorded_joint_states_.clear();
+        is_recording_joint_states_ = true;
+        RCLCPP_INFO(this->get_logger(), "Started 100Hz joint states recording");
+    }
+    
+    // Stop recording and save to YAML
+    void stopJointStatesRecording(const std::string& arm_name)
+    {
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        is_recording_joint_states_ = false;
+        
+        if (recorded_joint_states_.empty()) {
+            RCLCPP_WARN(this->get_logger(), "No joint states recorded");
+            return;
+        }
+        
+        RCLCPP_INFO(this->get_logger(), "Stopped recording, saved %zu joint states at 100Hz", recorded_joint_states_.size());
+        
+        // Convert recorded joint states to trajectory
+        trajectory_msgs::msg::JointTrajectory trajectory;
+        trajectory.joint_names = recorded_joint_states_[0].name;
+        
+        for (size_t i = 0; i < recorded_joint_states_.size(); ++i) {
+            trajectory_msgs::msg::JointTrajectoryPoint point;
+            point.positions = recorded_joint_states_[i].position;
+            point.velocities = recorded_joint_states_[i].velocity;
+            point.time_from_start = rclcpp::Duration::from_seconds(i * 0.01); // 100Hz = 10ms間隔
+            trajectory.points.push_back(point);
+        }
+        
+        // Save to YAML
+        moveit::planning_interface::MoveGroupInterface::Plan recorded_plan;
+        recorded_plan.trajectory_.joint_trajectory = trajectory;
+        saveTrajectoryToYaml(recorded_plan, arm_name + "_100hz");
+    }
+    
+    // Recording control callbacks
+    void startRecordingCallback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        startJointStatesRecording();
+    }
+    
+    void stopRecordingCallback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        stopJointStatesRecording(msg->data); // msg->data should contain arm name (e.g., "left" or "right")
+    }
 
-    // 軌道を自動的にYAMLファイルに保存
+    // Convert trajectory to 100Hz precision
+    trajectory_msgs::msg::JointTrajectory resampleTrajectoryTo100Hz(const trajectory_msgs::msg::JointTrajectory& original_trajectory) {
+        trajectory_msgs::msg::JointTrajectory resampled_trajectory;
+        resampled_trajectory.joint_names = original_trajectory.joint_names;
+        
+        if (original_trajectory.points.empty()) {
+            return resampled_trajectory;
+        }
+        
+        // Calculate total trajectory time
+        double total_time = original_trajectory.points.back().time_from_start.sec + 
+                           original_trajectory.points.back().time_from_start.nanosec * 1e-9;
+        
+        // Generate 100Hz samples (every 0.01 seconds)
+        const double dt = 0.01; // 100Hz
+        int num_samples = static_cast<int>(total_time / dt) + 1;
+        
+        RCLCPP_INFO(this->get_logger(), "Resampling trajectory from %zu points to %d points at 100Hz over %.2f seconds", 
+                   original_trajectory.points.size(), num_samples, total_time);
+        
+        for (int i = 0; i < num_samples; ++i) {
+            double target_time = i * dt;
+            trajectory_msgs::msg::JointTrajectoryPoint interpolated_point;
+            
+            // Find surrounding points in original trajectory
+            size_t idx = 0;
+            for (size_t j = 0; j < original_trajectory.points.size() - 1; ++j) {
+                double point_time = original_trajectory.points[j].time_from_start.sec + 
+                                   original_trajectory.points[j].time_from_start.nanosec * 1e-9;
+                if (point_time <= target_time) {
+                    idx = j;
+                } else {
+                    break;
+                }
+            }
+            
+            if (idx >= original_trajectory.points.size() - 1) {
+                // Use last point
+                interpolated_point = original_trajectory.points.back();
+            } else {
+                // Linear interpolation between points
+                const auto& p1 = original_trajectory.points[idx];
+                const auto& p2 = original_trajectory.points[idx + 1];
+                
+                double t1 = p1.time_from_start.sec + p1.time_from_start.nanosec * 1e-9;
+                double t2 = p2.time_from_start.sec + p2.time_from_start.nanosec * 1e-9;
+                
+                double alpha = (target_time - t1) / (t2 - t1);
+                if (alpha < 0) alpha = 0;
+                if (alpha > 1) alpha = 1;
+                
+                // Interpolate positions
+                interpolated_point.positions.resize(p1.positions.size());
+                for (size_t j = 0; j < p1.positions.size(); ++j) {
+                    interpolated_point.positions[j] = p1.positions[j] + alpha * (p2.positions[j] - p1.positions[j]);
+                }
+                
+                // Interpolate velocities if available
+                if (!p1.velocities.empty() && !p2.velocities.empty()) {
+                    interpolated_point.velocities.resize(p1.velocities.size());
+                    for (size_t j = 0; j < p1.velocities.size(); ++j) {
+                        interpolated_point.velocities[j] = p1.velocities[j] + alpha * (p2.velocities[j] - p1.velocities[j]);
+                    }
+                }
+            }
+            
+            // Set time
+            interpolated_point.time_from_start = rclcpp::Duration::from_seconds(target_time);
+            resampled_trajectory.points.push_back(interpolated_point);
+        }
+        
+        return resampled_trajectory;
+    }
+
+    // 軌道を100Hz精度で自動的にYAMLファイルに保存
     void saveTrajectoryToYaml(const moveit::planning_interface::MoveGroupInterface::Plan& plan, const std::string& arm_name) {
         try {
             auto now = this->get_clock()->now();
             std::time_t time_t = now.seconds();
             std::tm* tm = std::localtime(&time_t);
             
-            // タイムスタンプ付きファイル名を生成
+            // ソースディレクトリのpathフォルダに保存するファイル名を生成
             std::stringstream ss;
-            ss << "/tmp/trajectory_" << arm_name << "_" 
+            ss << "/home/a/ws_moveit2/src/robot_config/path/trajectory_" << arm_name << "_" 
                << std::put_time(tm, "%Y%m%d_%H%M%S") << "_" 
                << now.nanoseconds() / 1000000 % 1000 << ".yaml";
             std::string filename = ss.str();
+            
+            // 100Hz精度でリサンプリング
+            trajectory_msgs::msg::JointTrajectory resampled_trajectory = resampleTrajectoryTo100Hz(plan.trajectory_.joint_trajectory);
             
             YAML::Node yaml_node;
             yaml_node["trajectory_info"]["arm_name"] = arm_name;
             yaml_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
             yaml_node["trajectory_info"]["planner_id"] = plan.planning_time_;
+            yaml_node["trajectory_info"]["original_points"] = plan.trajectory_.joint_trajectory.points.size();
+            yaml_node["trajectory_info"]["resampled_points"] = resampled_trajectory.points.size();
+            yaml_node["trajectory_info"]["sampling_rate"] = "100Hz";
             
             // ジョイント名を保存
             YAML::Node joint_names;
-            for (const auto& name : plan.trajectory_.joint_trajectory.joint_names) {
+            for (const auto& name : resampled_trajectory.joint_names) {
                 joint_names.push_back(name);
             }
             yaml_node["trajectory"]["joint_names"] = joint_names;
             
-            // 軌道ポイントを保存
+            // 100Hzリサンプリングされた軌道ポイントを保存
             YAML::Node points;
-            for (size_t i = 0; i < plan.trajectory_.joint_trajectory.points.size(); ++i) {
-                const auto& point = plan.trajectory_.joint_trajectory.points[i];
+            for (size_t i = 0; i < resampled_trajectory.points.size(); ++i) {
+                const auto& point = resampled_trajectory.points[i];
                 YAML::Node point_node;
                 
                 // 位置データ
@@ -1123,7 +1301,8 @@ private:
             file << yaml_node;
             file.close();
             
-            RCLCPP_INFO(this->get_logger(), "Trajectory saved to: %s", filename.c_str());
+            RCLCPP_INFO(this->get_logger(), "100Hz trajectory saved to: %s (%zu→%zu points)", 
+                       filename.c_str(), plan.trajectory_.joint_trajectory.points.size(), resampled_trajectory.points.size());
             
         } catch (const std::exception& e) {
             RCLCPP_ERROR(this->get_logger(), "Failed to save trajectory: %s", e.what());
