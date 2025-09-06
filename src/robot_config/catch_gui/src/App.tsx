@@ -41,7 +41,7 @@ export default function App() {
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
-  const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
+  const [selectedArm, setSelectedArm] = useState<"left" | "right" | "both">("left");
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [timeLeft, setTimeLeft] = useState(180); // 3分 = 180秒
   
@@ -327,23 +327,71 @@ export default function App() {
   // 変更：Poseボタンクリック時の処理
   const handlePoseButtonClick = (buttonNumber) => {
     if (posePublisher && connectionStatus === 'Connected') {
-      // 背景色に応じたPose値を取得
-      const poseValue = buttonPoseValues[backgroundColor][buttonNumber] || `${backgroundColor}_Pose1`;
-      const message = new ROSLIB.Message({
-        data: poseValue
-      });
-      posePublisher.publish(message);
-      console.log(`🎯 Published pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
-      
-      // パブリッシュログに追加
-      setPublishedCommands(prev => [
-        {
-          topic: POSE_TOPIC_NAME,
-          message: poseValue,
-          timestamp: new Date().toLocaleTimeString()
-        },
-        ...prev.slice(0, 4) // 最新5件のみ保持
-      ]);
+      if (selectedArm === 'both') {
+        // bothモード時は左右のペアで同時パブリッシュ
+        let leftPoseNumber, rightPoseNumber;
+        
+        if (buttonNumber <= 5) {
+          // Pose1-5: そのままとPose6-10
+          leftPoseNumber = buttonNumber;
+          rightPoseNumber = buttonNumber + 5;
+        } else if (buttonNumber <= 10) {
+          // Pose6-10: Pose11-15とPose16-20
+          leftPoseNumber = buttonNumber + 5;
+          rightPoseNumber = buttonNumber + 10;
+        } else {
+          // Pose11-15: Pose21-25とPose26-30
+          leftPoseNumber = buttonNumber + 10;
+          rightPoseNumber = buttonNumber + 15;
+        }
+        
+        const leftPoseValue = buttonPoseValues[backgroundColor][leftPoseNumber] || `${backgroundColor}_Pose${leftPoseNumber}`;
+        const rightPoseValue = buttonPoseValues[backgroundColor][rightPoseNumber] || `${backgroundColor}_Pose${rightPoseNumber}`;
+        
+        // 左アーム用にパブリッシュ
+        const leftMessage = new ROSLIB.Message({
+          data: leftPoseValue
+        });
+        posePublisher.publish(leftMessage);
+        console.log(`🎯 Published LEFT pose to ${POSE_TOPIC_NAME}: "${leftPoseValue}"`);
+        
+        // 少し遅延を入れて右アーム用にパブリッシュ
+        setTimeout(() => {
+          const rightMessage = new ROSLIB.Message({
+            data: rightPoseValue
+          });
+          posePublisher.publish(rightMessage);
+          console.log(`🎯 Published RIGHT pose to ${POSE_TOPIC_NAME}: "${rightPoseValue}"`);
+        }, 10);
+        
+        // パブリッシュログに追加（両方記録）
+        setPublishedCommands(prev => [
+          {
+            topic: POSE_TOPIC_NAME,
+            message: `${leftPoseValue} + ${rightPoseValue}`,
+            timestamp: new Date().toLocaleTimeString()
+          },
+          ...prev.slice(0, 4) // 最新5件のみ保持
+        ]);
+      } else {
+        // 単一アームモード時の従来の処理
+        const poseValue = buttonPoseValues[backgroundColor][buttonNumber] || `${backgroundColor}_Pose1`;
+        const message = new ROSLIB.Message({
+          data: poseValue
+        });
+        posePublisher.publish(message);
+        console.log(`🎯 Published pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
+        
+        // パブリッシュログに追加
+        setPublishedCommands(prev => [
+          {
+            topic: POSE_TOPIC_NAME,
+            message: poseValue,
+            timestamp: new Date().toLocaleTimeString()
+          },
+          ...prev.slice(0, 4) // 最新5件のみ保持
+        ]);
+      }
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -506,7 +554,11 @@ export default function App() {
   };
 
   const toggleArm = () => {
-    setSelectedArm(prevArm => prevArm === "left" ? "right" : "left");
+    setSelectedArm(prevArm => {
+      if (prevArm === "left") return "right";
+      if (prevArm === "right") return "both";
+      return "left";
+    });
   };
 
   const toggleCamera = () => {
@@ -544,11 +596,8 @@ export default function App() {
   };
 
   const getVisiblePoses = () => {
-    if (selectedArm === "left") {
-      return [1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 21, 22, 23, 24, 25];
-    } else {
-      return [6, 7, 8, 9, 10, 16, 17, 18, 19, 20, 26, 27, 28, 29, 30];
-    }
+    // both選択時は1-15を表示
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   };
 
   const GridButton = ({ buttonNumber }) => (
@@ -605,7 +654,9 @@ export default function App() {
   const publishRealtimeControlMessage = (linear_x: number, linear_y: number, angular_z: number) => {
     if (ros.current && connectionStatus === 'Connected') {
       // アーム選択に応じてトピックを変更
-      const topicName = selectedArm === "left" ? "/left_arm_realtime_control" : "/right_arm_realtime_control";
+      const topicName = selectedArm === "left" ? "/left_arm_realtime_control" : 
+                       selectedArm === "right" ? "/right_arm_realtime_control" : 
+                       "/both_arms_realtime_control";
       
       // 新しいpublisherを作成してパブリッシュ
       const publisher = new ROSLIB.Topic({
@@ -854,40 +905,40 @@ export default function App() {
             <DPadController />
           </div>
           <div className="right-controller-section">
-            {selectedArm === "left" && (
+            {selectedArm !== "right" && (
               <div className="up-down-buttons vertical">
                 <button 
                   className="up-down-button up-button"
                   onClick={handleArm1UpButtonClick}
                   disabled={connectionStatus !== 'Connected'}
                 >
-                  ⬆️ UP
+                  ⬆️ LEFT UP
                 </button>
                 <button 
                   className="up-down-button down-button"
                   onClick={handleArm1DownButtonClick}
                   disabled={connectionStatus !== 'Connected'}
                 >
-                  ⬇️ DOWN
+                  ⬇️ LEFT DOWN
                 </button>
               </div>
             )}
             
-            {selectedArm === "right" && (
+            {selectedArm !== "left" && (
               <div className="up-down-buttons vertical">
                 <button 
                   className="up-down-button up-button"
                   onClick={handleArm2UpButtonClick}
                   disabled={connectionStatus !== 'Connected'}
                 >
-                  ⬆️ UP
+                  ⬆️ RIGHT UP
                 </button>
                 <button 
                   className="up-down-button down-button"
                   onClick={handleArm2DownButtonClick}
                   disabled={connectionStatus !== 'Connected'}
                 >
-                  ⬇️ DOWN
+                  ⬇️ RIGHT DOWN
                 </button>
               </div>
             )}
@@ -1072,7 +1123,7 @@ export default function App() {
             className="toggle-button arm-toggle"
             onClick={toggleArm}
           >
-            🦾 Arm: {selectedArm === "left" ? "左" : "右"}
+            🦾 Arm: {selectedArm === "left" ? "左" : selectedArm === "right" ? "右" : "両方"}
           </button>
           <button 
             className="toggle-button camera-toggle"
@@ -1220,40 +1271,40 @@ export default function App() {
                   <DPadController />
                 </div>
                 <div className="right-controller-section">
-                  {selectedArm === "left" && (
+                  {selectedArm !== "right" && (
                     <div className="up-down-buttons vertical">
                       <button 
                         className="up-down-button up-button"
                         onClick={handleArm1UpButtonClick}
                         disabled={connectionStatus !== 'Connected'}
                       >
-                        ⬆️ UP
+                        ⬆️ LEFT UP
                       </button>
                       <button 
                         className="up-down-button down-button"
                         onClick={handleArm1DownButtonClick}
                         disabled={connectionStatus !== 'Connected'}
                       >
-                        ⬇️ DOWN
+                        ⬇️ LEFT DOWN
                       </button>
                     </div>
                   )}
                   
-                  {selectedArm === "right" && (
+                  {selectedArm !== "left" && (
                     <div className="up-down-buttons vertical">
                       <button 
                         className="up-down-button up-button"
                         onClick={handleArm2UpButtonClick}
                         disabled={connectionStatus !== 'Connected'}
                       >
-                        ⬆️ UP
+                        ⬆️ RIGHT UP
                       </button>
                       <button 
                         className="up-down-button down-button"
                         onClick={handleArm2DownButtonClick}
                         disabled={connectionStatus !== 'Connected'}
                       >
-                        ⬇️ DOWN
+                        ⬇️ RIGHT DOWN
                       </button>
                     </div>
                   )}
@@ -1265,7 +1316,7 @@ export default function App() {
       </div>
 
       <div className="bottom-control-area">
-        {selectedArm === "left" && (
+        {selectedArm !== "right" && (
           <div className="arm-controls single-arm">
             <button 
               className="arm-button initial-button"
@@ -1301,7 +1352,7 @@ export default function App() {
           </div>
         )}
         
-        {selectedArm === "right" && (
+        {selectedArm !== "left" && (
           <div className="arm-controls single-arm">
             <button 
               className="arm-button initial-button"
