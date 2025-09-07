@@ -1223,6 +1223,130 @@ def generate_launch_description():
         name='target_pose_router',
         output='screen'
     )
+    # Blue seiretu URDF file path
+    blue_seiretu_urdf_file = "/home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description/urdf/blue_seiretu.urdf"
+    
+    # Red seiretu URDF file path  
+    red_seiretu_urdf_file = "/home/a/ws_moveit2/src/red_seiretu_description-20250907T180457Z-1-001/red_seiretu_description/urdf/red_seiretu.urdf"
+    
+    # Read and modify URDF content to avoid frame name conflicts and fix scale
+    with open(blue_seiretu_urdf_file, 'r') as file:
+        blue_seiretu_urdf_content = file.read()
+    #     # Add prefix to frame names to avoid conflicts (including joint references)
+    #     blue_seiretu_urdf_content = blue_seiretu_urdf_content.replace('name="base_link"', 'name="blue_seiretu_base_link"')
+    #     blue_seiretu_urdf_content = blue_seiretu_urdf_content.replace('<parent link="base_link"/>', '<parent link="blue_seiretu_base_link"/>')
+    #     # Fix the tiny scale issue - change from 0.001 to 1.0
+    #     blue_seiretu_urdf_content = blue_seiretu_urdf_content.replace('scale="0.001 0.001 0.001"', 'scale="1.0 1.0 1.0"')
+        
+    with open(red_seiretu_urdf_file, 'r') as file:
+        red_seiretu_urdf_content = file.read()
+    #     # Add prefix to frame names to avoid conflicts (including joint references)
+    #     red_seiretu_urdf_content = red_seiretu_urdf_content.replace('name="base_link"', 'name="red_seiretu_base_link"')
+    #     red_seiretu_urdf_content = red_seiretu_urdf_content.replace('<parent link="base_link"/>', '<parent link="red_seiretu_base_link"/>')
+    #     # Fix the tiny scale issue - change from 0.001 to 1.0  
+    #     red_seiretu_urdf_content = red_seiretu_urdf_content.replace('scale="0.001 0.001 0.001"', 'scale="1.0 1.0 1.0"')
+
+    # Blue seiretu robot state publisher with delay
+    blue_seiretu_robot_state_publisher = TimerAction(
+        period=0.1,  # 2 second delay
+        actions=[
+            Node(
+                package="robot_state_publisher",
+                executable="robot_state_publisher",
+                name="blue_seiretu_robot_state_publisher",
+                namespace="blue_seiretu",
+                output="screen",
+                parameters=[
+                    {"robot_description": blue_seiretu_urdf_content},
+                    {"use_sim_time": use_sim_time},
+                ],
+                remappings=[
+                    ("/tf", "/tf"),
+                    ("/tf_static", "/tf_static"),
+                ],
+            )
+        ]
+    )
+
+    # Red seiretu robot state publisher with delay
+    red_seiretu_robot_state_publisher = TimerAction(
+        period=0.1,  # 2.5 second delay (slightly offset)
+        actions=[
+            Node(
+                package="robot_state_publisher",
+                executable="robot_state_publisher",
+                name="red_seiretu_robot_state_publisher", 
+                namespace="red_seiretu",
+                output="screen",
+                parameters=[
+                    {"robot_description": red_seiretu_urdf_content},
+                    {"use_sim_time": use_sim_time},
+                ],
+                remappings=[
+                    ("/tf", "/tf"),
+                    ("/tf_static", "/tf_static"),
+                ],
+            )
+        ]
+    )
+
+    # Static transform for blue seiretu position (connect to world)
+    blue_seiretu_static_tf = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="blue_seiretu_static_transform_publisher",
+        output="log",
+        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "blue_seiretu_base_link"],
+    )
+    
+    # Static transform for red seiretu position (connect to world)
+    red_seiretu_static_tf = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher", 
+        name="red_seiretu_static_transform_publisher",
+        output="log",
+        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "red_seiretu_base_link"],
+    )
+
+    # Joint state publisher for blue seiretu with delay
+    blue_seiretu_joint_state_publisher = TimerAction(
+        period=0.1,  # 3 second delay (after robot_state_publisher)
+        actions=[
+            Node(
+                package="joint_state_publisher",
+                executable="joint_state_publisher",
+                name="blue_seiretu_joint_state_publisher",
+                namespace="blue_seiretu",
+                parameters=[
+                    {"robot_description": blue_seiretu_urdf_content},
+                    {"use_sim_time": use_sim_time},
+                ],
+                remappings=[
+                    ("joint_states", "/blue_seiretu/joint_states"),
+                ],
+            )
+        ]
+    )
+
+    # Joint state publisher for red seiretu with delay
+    red_seiretu_joint_state_publisher = TimerAction(
+        period=0.1,  # 3.5 second delay (after robot_state_publisher)
+        actions=[
+            Node(
+                package="joint_state_publisher",
+                executable="joint_state_publisher",
+                name="red_seiretu_joint_state_publisher",
+                namespace="red_seiretu",
+                parameters=[
+                    {"robot_description": red_seiretu_urdf_content},
+                    {"use_sim_time": use_sim_time},
+                ],
+                remappings=[
+                    ("joint_states", "/red_seiretu/joint_states"),
+                ],
+            )
+        ]
+    )
     
     return LaunchDescription(
         declared_arguments
@@ -1238,6 +1362,13 @@ def generate_launch_description():
             right_servo_node,
             joy_node,
             move_to_pose_dual_cpp_node, # Add the new dual arm node
+            # Seiretu robot publishers
+            blue_seiretu_robot_state_publisher,
+            red_seiretu_robot_state_publisher,
+            blue_seiretu_static_tf,
+            red_seiretu_static_tf,
+            blue_seiretu_joint_state_publisher,
+            red_seiretu_joint_state_publisher,
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,

@@ -924,6 +924,7 @@ private:
     
     // Track current trajectories for collision avoidance
     std::mutex trajectory_mutex_;
+    std::mutex save_mutex_;
     moveit::planning_interface::MoveGroupInterface::Plan current_left_plan_;
     moveit::planning_interface::MoveGroupInterface::Plan current_right_plan_;
     bool left_arm_executing_ = false;
@@ -1236,35 +1237,42 @@ private:
 
     // 軌道を1000Hz精度で自動的にYAMLファイルに保存
     void saveTrajectoryToYaml(const moveit::planning_interface::MoveGroupInterface::Plan& plan, const std::string& arm_name) {
+        std::lock_guard<std::mutex> lock(save_mutex_);
         try {
             auto now = this->get_clock()->now();
             std::time_t time_t = now.seconds();
             std::tm* tm = std::localtime(&time_t);
             
-            // ソースディレクトリのpathフォルダに保存するファイル名を生成
+            // ファイル名をタイムスタンプ（秒まで）で生成
             std::stringstream ss;
-            ss << "/home/a/ws_moveit2/src/robot_config/path/trajectory_" << arm_name << "_" 
-               << std::put_time(tm, "%Y%m%d_%H%M%S") << "_" 
-               << now.nanoseconds() / 1000000 % 1000 << ".yaml";
+            ss << "/home/a/ws_moveit2/src/robot_config/path/trajectory_"
+               << std::put_time(tm, "%Y%m%d_%H%M%S") << ".yaml";
             std::string filename = ss.str();
             
+            YAML::Node root_node;
+            try {
+                root_node = YAML::LoadFile(filename);
+            } catch (const YAML::BadFile& e) {
+                // ファイルが存在しない場合は新しいノードを作成
+            }
+
             // 1000Hz精度でリサンプリング
             trajectory_msgs::msg::JointTrajectory resampled_trajectory = resampleTrajectoryTo1000Hz(plan.trajectory_.joint_trajectory);
             
-            YAML::Node yaml_node;
-            yaml_node["trajectory_info"]["arm_name"] = arm_name;
-            yaml_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
-            yaml_node["trajectory_info"]["planner_id"] = plan.planning_time_;
-            yaml_node["trajectory_info"]["original_points"] = plan.trajectory_.joint_trajectory.points.size();
-            yaml_node["trajectory_info"]["resampled_points"] = resampled_trajectory.points.size();
-            yaml_node["trajectory_info"]["sampling_rate"] = "1000Hz";
+            YAML::Node arm_trajectory_node;
+            arm_trajectory_node["trajectory_info"]["arm_name"] = arm_name;
+            arm_trajectory_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
+            arm_trajectory_node["trajectory_info"]["planner_id"] = plan.planning_time_;
+            arm_trajectory_node["trajectory_info"]["original_points"] = plan.trajectory_.joint_trajectory.points.size();
+            arm_trajectory_node["trajectory_info"]["resampled_points"] = resampled_trajectory.points.size();
+            arm_trajectory_node["trajectory_info"]["sampling_rate"] = "1000Hz";
             
             // ジョイント名を保存
             YAML::Node joint_names;
             for (const auto& name : resampled_trajectory.joint_names) {
                 joint_names.push_back(name);
             }
-            yaml_node["trajectory"]["joint_names"] = joint_names;
+            arm_trajectory_node["trajectory"]["joint_names"] = joint_names;
             
             // 1000Hzリサンプリングされた軌道ポイントを保存
             YAML::Node points;
@@ -1294,15 +1302,18 @@ private:
                 
                 points.push_back(point_node);
             }
-            yaml_node["trajectory"]["points"] = points;
+            arm_trajectory_node["trajectory"]["points"] = points;
+
+            // arm_nameをキーとしてルートノードに追加
+            root_node[arm_name] = arm_trajectory_node;
             
             // ファイルに書き込み
             std::ofstream file(filename);
-            file << yaml_node;
+            file << root_node;
             file.close();
             
-            RCLCPP_INFO(this->get_logger(), "1000Hz trajectory saved to: %s (%zu→%zu points)", 
-                       filename.c_str(), plan.trajectory_.joint_trajectory.points.size(), resampled_trajectory.points.size());
+            RCLCPP_INFO(this->get_logger(), "1000Hz trajectory for %s saved to: %s (%zu→%zu points)", 
+                       arm_name.c_str(), filename.c_str(), plan.trajectory_.joint_trajectory.points.size(), resampled_trajectory.points.size());
             
         } catch (const std::exception& e) {
             RCLCPP_ERROR(this->get_logger(), "Failed to save trajectory: %s", e.what());
