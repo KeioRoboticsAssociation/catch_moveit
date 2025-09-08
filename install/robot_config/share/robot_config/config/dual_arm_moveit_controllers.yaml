@@ -8,6 +8,8 @@ moveit_simple_controller_manager:
     - right_arm_controller
     - left_hand_controller
     - right_hand_controller
+    - blue_seiretu_controller
+    - red_seiretu_controller
 
   left_arm_controller:
     type: FollowJointTrajectory
@@ -49,10 +51,16 @@ moveit_simple_controller_manager:
       - right_Slider_1
       - right_Slider_2
 
-  seiretu_controller:
+  red_seiretu_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     default: true
     joints:
       - red_slider
+  
+  blue_seiretu_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
       - blue_slider

@@ -18,7 +18,12 @@ const ARM1_GRAB_TOPIC = "/left_arm_close";
 const ARM1_RELEASE_TOPIC = "/left_arm_open";
 const ARM2_GRAB_TOPIC = "/right_arm_close";
 const ARM2_RELEASE_TOPIC = "/right_arm_open";
+const SEIRETU_TOPIC = "/seiretu";
+const RED_SEIRETU_CONTROLLER_TOPIC = "/red_seiretu_controller/joint_trajectory";
+const BLUE_SEIRETU_CONTROLLER_TOPIC = "/blue_seiretu_controller/joint_trajectory";
 const UP_DOWN_MESSAGE_TYPE = "std_msgs/msg/String";
+const SEIRETU_MESSAGE_TYPE = "std_msgs/msg/String";
+const JOINT_TRAJECTORY_MESSAGE_TYPE = "trajectory_msgs/msg/JointTrajectory";
 
 // リアルタイム制御用のトピック (アーム選択対応)
 const REALTIME_CONTROL_MESSAGE_TYPE = "geometry_msgs/msg/Twist";
@@ -36,6 +41,9 @@ export default function App() {
   const [arm1ReleasePublisher, setArm1ReleasePublisher] = useState(null);
   const [arm2GrabPublisher, setArm2GrabPublisher] = useState(null);
   const [arm2ReleasePublisher, setArm2ReleasePublisher] = useState(null);
+  const [seiretuPublisher, setSeiretuPublisher] = useState(null);
+  const [redSeiretuControllerPublisher, setRedSeiretuControllerPublisher] = useState(null);
+  const [blueSeiretuControllerPublisher, setBlueSeiretuControllerPublisher] = useState(null);
   const [realtimeControlPublisher, setRealtimeControlPublisher] = useState(null);
   const [tapPixelPublisher, setTapPixelPublisher] = useState(null);
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
@@ -69,6 +77,8 @@ export default function App() {
       initializePosePublisher();
       initializeUpDownPublishers();
       initializeGrabReleasePublishers();
+      initializeSeiretuPublishers();
+      initializeSeiretuControllerPublishers();
       initializeRealtimeControlPublisher();
       initializeTapPixelPublisher();
     });
@@ -193,6 +203,31 @@ export default function App() {
       messageType: UP_DOWN_MESSAGE_TYPE
     });
     setArm2ReleasePublisher(arm2ReleasePub);
+  };
+
+  const initializeSeiretuPublishers = () => {
+    const seiretuPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: SEIRETU_TOPIC,
+      messageType: SEIRETU_MESSAGE_TYPE
+    });
+    setSeiretuPublisher(seiretuPub);
+  };
+
+  const initializeSeiretuControllerPublishers = () => {
+    const redSeiretuControllerPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: RED_SEIRETU_CONTROLLER_TOPIC,
+      messageType: JOINT_TRAJECTORY_MESSAGE_TYPE
+    });
+    setRedSeiretuControllerPublisher(redSeiretuControllerPub);
+
+    const blueSeiretuControllerPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: BLUE_SEIRETU_CONTROLLER_TOPIC,
+      messageType: JOINT_TRAJECTORY_MESSAGE_TYPE
+    });
+    setBlueSeiretuControllerPublisher(blueSeiretuControllerPub);
   };
 
   const initializeRealtimeControlPublisher = () => {
@@ -512,19 +547,92 @@ export default function App() {
     }
   };
 
-  // 変更：アーム1初期位置
-  const handleArm1Initial = () => {
-    if (posePublisher && connectionStatus === 'Connected') {
-      const poseValue = armPositions[backgroundColor].arm1.initial;
+  const publishJointTrajectory = (position, color) => {
+    let sliderValue;
+    
+    // ポジションに応じてslider値を設定
+    switch(position) {
+      case 'left':
+        sliderValue = -0.071;
+        break;
+      case 'middle':
+        sliderValue = -0.264;
+        break;
+      case 'right':
+        sliderValue = -0.457;
+        break;
+      default:
+        sliderValue = 0.0;
+    }
+    
+    const publisher = color === 'red' ? redSeiretuControllerPublisher : blueSeiretuControllerPublisher;
+    const jointName = color === 'red' ? 'red_slider' : 'blue_slider';
+    const topicName = color === 'red' ? RED_SEIRETU_CONTROLLER_TOPIC : BLUE_SEIRETU_CONTROLLER_TOPIC;
+    
+    if (publisher && connectionStatus === 'Connected') {
       const message = new ROSLIB.Message({
-        data: poseValue
+        joint_names: [jointName],
+        points: [{
+          positions: [sliderValue],
+          time_from_start: {
+            sec: 1,
+            nanosec: 0
+          }
+        }]
       });
-      posePublisher.publish(message);
-      console.log(`🎯 Published Arm1 Initial pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
-    } else {
-      console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
+      publisher.publish(message);
+      console.log(`🎛️ Published JointTrajectory to ${topicName}: ${jointName}=${sliderValue} (${position})`);
     }
   };
+
+  const handleSeiretuLeft = () => {
+    if (seiretuPublisher && connectionStatus === 'Connected') {
+      const commandValue = `${backgroundColor}_seiretu_left`;
+      const message = new ROSLIB.Message({
+        data: commandValue
+      });
+      seiretuPublisher.publish(message);
+      console.log(`📏 Published to ${SEIRETU_TOPIC}: "${commandValue}"`);
+      
+      // JointTrajectoryでslider jointの値も更新
+      publishJointTrajectory('left', backgroundColor);
+    } else {
+      console.warn(`Cannot send seiretu left command. ROS Status: ${connectionStatus}`);
+    }
+  };
+
+  const handleSeiretuMiddle = () => {
+    if (seiretuPublisher && connectionStatus === 'Connected') {
+      const commandValue = `${backgroundColor}_seiretu_middle`;
+      const message = new ROSLIB.Message({
+        data: commandValue
+      });
+      seiretuPublisher.publish(message);
+      console.log(`📏 Published to ${SEIRETU_TOPIC}: "${commandValue}"`);
+      
+      // JointTrajectoryでslider jointの値も更新
+      publishJointTrajectory('middle', backgroundColor);
+    } else {
+      console.warn(`Cannot send seiretu middle command. ROS Status: ${connectionStatus}`);
+    }
+  };
+
+  const handleSeiretuRight = () => {
+    if (seiretuPublisher && connectionStatus === 'Connected') {
+      const commandValue = `${backgroundColor}_seiretu_right`;
+      const message = new ROSLIB.Message({
+        data: commandValue
+      });
+      seiretuPublisher.publish(message);
+      console.log(`📏 Published to ${SEIRETU_TOPIC}: "${commandValue}"`);
+      
+      // JointTrajectoryでslider jointの値も更新
+      publishJointTrajectory('right', backgroundColor);
+    } else {
+      console.warn(`Cannot send seiretu right command. ROS Status: ${connectionStatus}`);
+    }
+  };
+
 
   // 変更：アーム1ゴール位置
   const handleArm1Goal = () => {
@@ -540,19 +648,6 @@ export default function App() {
     }
   };
 
-  // 変更：アーム2初期位置
-  const handleArm2Initial = () => {
-    if (posePublisher && connectionStatus === 'Connected') {
-      const poseValue = armPositions[backgroundColor].arm2.initial;
-      const message = new ROSLIB.Message({
-        data: poseValue
-      });
-      posePublisher.publish(message);
-      console.log(`🎯 Published Arm2 Initial pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
-    } else {
-      console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
-    }
-  };
 
   // 変更：アーム2ゴール位置
   const handleArm2Goal = () => {
@@ -1338,14 +1433,6 @@ export default function App() {
         {selectedArm !== "right" && (
           <div className="arm-controls single-arm">
             <button 
-              className="arm-button initial-button"
-              onClick={handleArm1Initial}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              🏁 初期位置
-            </button>
-            
-            <button 
               className="arm-button goal-button"
               onClick={handleArm1Goal}
               disabled={connectionStatus !== 'Connected'}
@@ -1368,19 +1455,35 @@ export default function App() {
             >
               🖐️ 離す
             </button>
+            
+            <button 
+              className="arm-button seiretu-button seiretu-left"
+              onClick={handleSeiretuLeft}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              📏 左
+            </button>
+            
+            <button 
+              className="arm-button seiretu-button seiretu-middle"
+              onClick={handleSeiretuMiddle}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              📏 中央
+            </button>
+            
+            <button 
+              className="arm-button seiretu-button seiretu-right"
+              onClick={handleSeiretuRight}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              📏 右
+            </button>
           </div>
         )}
         
         {selectedArm !== "left" && (
           <div className="arm-controls single-arm">
-            <button 
-              className="arm-button initial-button"
-              onClick={handleArm2Initial}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              🏁 初期位置
-            </button>
-            
             <button 
               className="arm-button goal-button"
               onClick={handleArm2Goal}
@@ -1403,6 +1506,31 @@ export default function App() {
               disabled={connectionStatus !== 'Connected'}
             >
               🖐️ 離す
+            </button>
+            
+            <button 
+              className="arm-button seiretu-button seiretu-left"
+              onClick={handleSeiretuLeft}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              📏 左
+            </button>
+            
+            <button 
+              className="arm-button seiretu-button seiretu-middle"
+              onClick={handleSeiretuMiddle}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              📏 中央
+            </button>
+            
+            
+            <button 
+              className="arm-button seiretu-button seiretu-right"
+              onClick={handleSeiretuRight}
+              disabled={connectionStatus !== 'Connected'}
+            >
+              📏 右
             </button>
           </div>
         )}

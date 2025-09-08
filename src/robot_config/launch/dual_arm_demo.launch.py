@@ -846,7 +846,7 @@ def generate_launch_description():
     # ## 2. spawnerノードのリストを準備 ##
     # ##################################################################
     spawn_controllers = []
-    for controller in ["left_arm_controller", "right_arm_controller", "left_hand_controller", "right_hand_controller", "seiretu_controller", "joint_state_broadcaster"]:
+    for controller in ["left_arm_controller", "right_arm_controller", "left_hand_controller", "right_hand_controller", "red_seiretu_controller","blue_seiretu_controller", "joint_state_broadcaster"]:
         spawn_controllers.append(
             Node(
                 package="controller_manager",
