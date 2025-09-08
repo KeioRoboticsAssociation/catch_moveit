@@ -1,0 +1,34 @@
+left:
+  trajectory_info:
+    arm_name: left
+    timestamp: 1757316468648831263
+    planner_id: 0.036311225000000003
+    original_points: 1
+    resampled_points: 1
+    sampling_rate: 1000Hz
+  trajectory:
+    joint_names:
+      - left_Revolute_1
+      - left_Revolute_2
+      - left_Revolute_3
+      - left_Revolute_4
+      - left_Revolute_5
+      - left_Revolute_6
+    points:
+      - positions:
+          - -1.3841290117292999
+          - 0.79769837688523759
+          - -0.61596762804133043
+          - -8.7463155705011512e-06
+          - -0.18173567583781836
+          - 1.7574662282041495
+        velocities:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        time_from_start:
+          sec: 0
+          nanosec: 0

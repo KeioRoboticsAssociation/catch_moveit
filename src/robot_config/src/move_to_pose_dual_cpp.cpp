@@ -330,7 +330,7 @@ private:
                 // 全プランナーで統一された高精度設定
                 move_group_interface->setGoalPositionTolerance(0.00001);   // 0.1mm精度
                 move_group_interface->setGoalOrientationTolerance(0.00001); // 0.1mm精度
-                move_group_interface->setNumPlanningAttempts(1);             
+                move_group_interface->setNumPlanningAttempts(5);             
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {

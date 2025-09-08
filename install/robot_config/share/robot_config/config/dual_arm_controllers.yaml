@@ -16,6 +16,9 @@ controller_manager:
     right_hand_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+    seiretu_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
       ros__parameters:
@@ -36,6 +39,8 @@ controller_manager:
           - right_Revolute_6
           - right_Slider_1
           - right_Slider_2
+          - blue_slider
+          - red_slider
 
 left_arm_controller:
   ros__parameters:
@@ -86,6 +91,18 @@ right_hand_controller:
     joints:
       - right_Slider_1
       - right_Slider_2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory
+
+seiretu_controller:
+  ros__parameters:
+    joints:
+      - blue_slider
+      - red_slider
     command_interfaces:
       - position
     state_interfaces:

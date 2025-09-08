@@ -48,3 +48,11 @@ moveit_simple_controller_manager:
     joints:
       - right_Slider_1
       - right_Slider_2
+
+  seiretu_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - red_slider
+      - blue_slider

@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://172.16.91.81:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";
@@ -324,7 +324,6 @@ export default function App() {
     }
   };
 
-  // 変更：Poseボタンクリック時の処理
   const handlePoseButtonClick = (buttonNumber) => {
     if (posePublisher && connectionStatus === 'Connected') {
       if (selectedArm === 'both') {
@@ -374,8 +373,28 @@ export default function App() {
           ...prev.slice(0, 4) // 最新5件のみ保持
         ]);
       } else {
-        // 単一アームモード時の従来の処理
-        const poseValue = buttonPoseValues[backgroundColor][buttonNumber] || `${backgroundColor}_Pose1`;
+        // 単一アームモード (left or right)
+        let poseToPublish = buttonNumber; // デフォルトは元の番号
+
+        if (selectedArm === 'right') {
+          // 右アーム選択時のマッピング
+          if (buttonNumber >= 1 && buttonNumber <= 5) {
+            poseToPublish = buttonNumber + 5; // Pose1-5 -> Pose6-10
+          } else if (buttonNumber >= 6 && buttonNumber <= 10) {
+            poseToPublish = buttonNumber + 10; // Pose6-10 -> Pose16-20
+          } else if (buttonNumber >= 11 && buttonNumber <= 15) {
+            poseToPublish = buttonNumber + 15; // Pose11-15 -> Pose26-30
+          }
+        } else if (selectedArm === 'left') {
+          // 左アーム選択時のマッピング
+          if (buttonNumber >= 6 && buttonNumber <= 10) {
+            poseToPublish = buttonNumber + 5; // Pose6-10 -> Pose11-15
+          } else if (buttonNumber >= 11 && buttonNumber <= 15) {
+            poseToPublish = buttonNumber + 10; // Pose11-15 -> Pose21-25
+          }
+        }
+        
+        const poseValue = buttonPoseValues[backgroundColor][poseToPublish] || `${backgroundColor}_Pose${poseToPublish}`;
         const message = new ROSLIB.Message({
           data: poseValue
         });
