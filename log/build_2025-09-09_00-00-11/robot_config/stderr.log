@@ -1,0 +1,69 @@
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::handleIncomingTargetPose(const string&, const PoseStamped&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:509:44:[m[K [01;31m[Kerror: [m[K‘[01m[Ksync_mutex_[m[K’ was not declared in this scope; did you mean ‘[01m[Ksave_mutex_[m[K’?
+  509 |             std::lock_guard<std::mutex> lk([01;31m[Ksync_mutex_[m[K);
+      |                                            [01;31m[K^~~~~~~~~~~[m[K
+      |                                            [32m[Ksave_mutex_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:511:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_pose_[m[K’ was not declared in this scope
+  511 |                 [01;31m[Kpending_left_pose_[m[K = target_pose;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:512:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_time_[m[K’ was not declared in this scope
+  512 |                 [01;31m[Kpending_left_time_[m[K = now_tp;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:513:17:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_left_pose_[m[K’ was not declared in this scope
+  513 |                 [01;31m[Khas_pending_left_pose_[m[K = true;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:515:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_pose_[m[K’ was not declared in this scope
+  515 |                 [01;31m[Kpending_right_pose_[m[K = target_pose;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:516:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_time_[m[K’ was not declared in this scope
+  516 |                 [01;31m[Kpending_right_time_[m[K = now_tp;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:517:17:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_right_pose_[m[K’ was not declared in this scope
+  517 |                 [01;31m[Khas_pending_right_pose_[m[K = true;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:520:17:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_left_pose_[m[K’ was not declared in this scope
+  520 |             if ([01;31m[Khas_pending_left_pose_[m[K && has_pending_right_pose_) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:520:43:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_right_pose_[m[K’ was not declared in this scope
+  520 |             if (has_pending_left_pose_ && [01;31m[Khas_pending_right_pose_[m[K) {
+      |                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_time_[m[K’ was not declared in this scope
+  521 |                 auto dt = ([01;31m[Kpending_left_time_[m[K > pending_right_time_)
+      |                            [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:49:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_time_[m[K’ was not declared in this scope
+  521 |                 auto dt = (pending_left_time_ > [01;31m[Kpending_right_time_[m[K)
+      |                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:525:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_pose_[m[K’ was not declared in this scope
+  525 |                     left_pose = [01;31m[Kpending_left_pose_[m[K;
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:526:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_pose_[m[K’ was not declared in this scope
+  526 |                     right_pose = [01;31m[Kpending_right_pose_[m[K;
+      |                                  [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:547:48:[m[K [01;31m[Kerror: [m[K‘[01m[Ksync_mutex_[m[K’ was not declared in this scope; did you mean ‘[01m[Ksave_mutex_[m[K’?
+  547 |                 std::lock_guard<std::mutex> lk([01;31m[Ksync_mutex_[m[K);
+      |                                                [01;31m[K^~~~~~~~~~~[m[K
+      |                                                [32m[Ksave_mutex_[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:550:38:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_left_pose_[m[K’ was not declared in this scope
+  550 |                     still_unpaired = [01;31m[Khas_pending_left_pose_[m[K && (!has_pending_right_pose_ || (now_tp == pending_left_time_));
+      |                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:550:66:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_right_pose_[m[K’ was not declared in this scope
+  550 |                     still_unpaired = has_pending_left_pose_ && (![01;31m[Khas_pending_right_pose_[m[K || (now_tp == pending_left_time_));
+      |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:550:104:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_time_[m[K’ was not declared in this scope
+  550 | ll_unpaired = has_pending_left_pose_ && (!has_pending_right_pose_ || (now_tp == [01;31m[Kpending_left_time_[m[K));
+      |                                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:553:38:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_right_pose_[m[K’ was not declared in this scope
+  553 |                     still_unpaired = [01;31m[Khas_pending_right_pose_[m[K && (!has_pending_left_pose_ || (now_tp == pending_right_time_));
+      |                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:553:67:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_left_pose_[m[K’ was not declared in this scope
+  553 |                     still_unpaired = has_pending_right_pose_ && (![01;31m[Khas_pending_left_pose_[m[K || (now_tp == pending_right_time_));
+      |                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:553:104:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_time_[m[K’ was not declared in this scope
+  553 | ll_unpaired = has_pending_right_pose_ && (!has_pending_left_pose_ || (now_tp == [01;31m[Kpending_right_time_[m[K));
+      |                                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

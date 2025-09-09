@@ -20,6 +20,7 @@
 #include <memory>
 #include <chrono>
 #include <mutex>
+#include <optional>
 #include <cmath>
 #include <iomanip>
 #include <yaml-cpp/yaml.h>
@@ -34,6 +35,8 @@ public:
     MoveToPoseDualCpp()
         : Node("move_to_pose_dual_cpp", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true))
     {
+        // Parameters
+        this->declare_parameter<bool>("strict_dual_sync", true); // 両腕の計画が揃うまで実行しない
         // 左アームの初期化スレッド
         left_init_thread_ = std::thread([this]() {
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for left_arm...");
@@ -154,7 +157,7 @@ public:
         right_direct_joints_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
             "/right_direct_joints", 10, std::bind(&MoveToPoseDualCpp::right_direct_joints_callback, this, std::placeholders::_1));
         
-        // High-frequency joint states recording (1000Hz)
+        // Joint states recording (1000Hz - high precision like original)
         joint_states_recording_timer_ = this->create_wall_timer(
             std::chrono::microseconds(1000), // 1000Hz = 1ms
             std::bind(&MoveToPoseDualCpp::recordJointStatesCallback, this));
@@ -169,6 +172,16 @@ public:
         right_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/right_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::right_load_yaml_callback, this, std::placeholders::_1));
         
+        // Unified trajectory loading subscriber
+        unified_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/dual_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::unified_load_yaml_callback, this, std::placeholders::_1));
+        
+        // Joint trajectory publishers
+        left_joint_trajectory_pub_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
+            "/left_arm_controller/joint_trajectory", 10);
+        right_joint_trajectory_pub_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
+            "/right_arm_controller/joint_trajectory", 10);
+        
         // 1000Hz recording control subscribers
         start_recording_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/start_joint_recording", 10, std::bind(&MoveToPoseDualCpp::startRecordingCallback, this, std::placeholders::_1));
@@ -177,8 +190,8 @@ public:
             
         RCLCPP_INFO(this->get_logger(), "Simple servo switching system initialized");
         RCLCPP_INFO(this->get_logger(), "Direct joint states control ready on /left_direct_joints and /right_direct_joints");
-        RCLCPP_INFO(this->get_logger(), "YAML trajectory loading ready on /left_load_trajectory and /right_load_trajectory");
-        RCLCPP_INFO(this->get_logger(), "1000Hz joint states recording ready on /start_joint_recording and /stop_joint_recording");
+        RCLCPP_INFO(this->get_logger(), "YAML trajectory loading ready on /left_load_trajectory, /right_load_trajectory, and /dual_load_trajectory");
+        RCLCPP_INFO(this->get_logger(), "🎯 1000Hz precision joint states recording ready on /start_joint_recording and /stop_joint_recording");
     }
 
     ~MoveToPoseDualCpp()
@@ -257,7 +270,8 @@ private:
         last_left_pose_rpy_ = msg->data;
         left_pose_received_ = true;
 
-        move_to_pose(left_move_group_interface_, target_pose);
+        // Try synchronized execution with right arm if available
+        handleIncomingTargetPose("left", target_pose);
     }
 
     void right_rpy_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
@@ -286,7 +300,8 @@ private:
         last_right_pose_rpy_ = msg->data;
         right_pose_received_ = true;
 
-        move_to_pose(right_move_group_interface_, target_pose);
+        // Try synchronized execution with left arm if available
+        handleIncomingTargetPose("right", target_pose);
     }
 
     void move_to_pose(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface, const geometry_msgs::msg::PoseStamped& target_pose)
@@ -310,27 +325,37 @@ private:
             
             // Stop servo for clean pose execution
             stopServo(arm_name);
-            // std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause - removed for faster response
+            // Allow a brief pause to ensure servo node actually stops and state settles
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
             
             // Apply dynamic collision avoidance settings
             applyDynamicCollisionAvoidance(move_group_interface, arm_name);
             
+            // Always plan from the true current robot state
+            try {
+                move_group_interface->setStartStateToCurrentState();
+            } catch (const std::exception& e) {
+                RCLCPP_WARN(this->get_logger(), "Failed to set start state to current for %s arm: %s", arm_name.c_str(), e.what());
+            }
+
+            // Clear previous pose targets to avoid residual constraints
+            move_group_interface->clearPoseTargets();
             move_group_interface->setPoseTarget(target_pose);
             
             // プランナーをOMPLのRRTConnectに指定
             move_group_interface->setPlanningPipelineId("ompl");
             // 探索方法が異なるプランナーの組み合わせ
-            std::vector<std::string> planners = {"RRTConnectkConfigDefault", "PRMkConfigDefault", "ESTkConfigDefault", "BKPIECEkConfigDefault"};
-            // std::vector<std::string> planners = {"RRTConnectkConfigDefault"};
+            // std::vector<std::string> planners = {"RRTConnectkConfigDefault", "PRMkConfigDefault", "ESTkConfigDefault", "BKPIECEkConfigDefault"};
+            std::vector<std::string> planners = {"RRTStarkConfigDefault"};
             moveit::planning_interface::MoveGroupInterface::Plan my_plan;
             bool success = false;
             
             for (const auto& planner : planners) {
                 move_group_interface->setPlannerId(planner);
                 // 全プランナーで統一された高精度設定
-                move_group_interface->setGoalPositionTolerance(0.00001);   // 0.1mm精度
-                move_group_interface->setGoalOrientationTolerance(0.00001); // 0.1mm精度
-                move_group_interface->setNumPlanningAttempts(5);             
+                move_group_interface->setGoalPositionTolerance(0.000000001);   // 0.1mm精度
+                move_group_interface->setGoalOrientationTolerance(0.0000001); // 0.1mm精度
+                move_group_interface->setNumPlanningAttempts(10);
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
@@ -346,7 +371,7 @@ private:
                 // CHOMP最適化を無効化（10秒の遅延を防ぐため）
                 RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing directly (optimization disabled for speed)", arm_name.c_str());
                 
-                // 軌道を自動保存
+                // 軌道を自動保存（統合記録は軽量化）
                 saveTrajectoryToYaml(my_plan, arm_name);
                 
                 execute_trajectory_directly(move_group_interface, my_plan, arm_name);
@@ -370,23 +395,62 @@ private:
         const moveit::planning_interface::MoveGroupInterface::Plan& plan,
         const std::string& arm_name)
     {
+        // Start automatic recording when trajectory execution begins
+        startJointStatesRecording();
+        
         // アクションクライアントを選択
         auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
         
         if (!action_client) {
             RCLCPP_ERROR(this->get_logger(), "Action client not initialized for %s arm", arm_name.c_str());
+            is_recording_joint_states_ = false;
             return;
         }
 
         // アクションサーバーを待機
         if (!action_client->wait_for_action_server(std::chrono::milliseconds(100))) {
             RCLCPP_ERROR(this->get_logger(), "Action server not available for %s arm", arm_name.c_str());
+            is_recording_joint_states_ = false;
             return;
         }
 
-        // ゴールを作成
+        // ゴールを作成（先頭に現在状態のポイントを追加してスナップ回避）
         auto goal_msg = FollowJointTrajectory::Goal();
         goal_msg.trajectory = plan.trajectory_.joint_trajectory;
+
+        try {
+            // 取得した現在関節値を先頭ポイントとして追加
+            std::vector<double> current_positions;
+            current_positions = move_group_interface->getCurrentJointValues();
+
+            if (!goal_msg.trajectory.joint_names.empty() &&
+                !goal_msg.trajectory.points.empty() &&
+                current_positions.size() == goal_msg.trajectory.points[0].positions.size()) {
+
+                const auto& first = goal_msg.trajectory.points.front();
+                double diff_norm = 0.0;
+                for (size_t i = 0; i < first.positions.size(); ++i) {
+                    double d = first.positions[i] - current_positions[i];
+                    diff_norm += d * d;
+                }
+
+                if (diff_norm > 1e-8) {
+                    trajectory_msgs::msg::JointTrajectoryPoint start_pt;
+                    start_pt.positions = current_positions;
+                    start_pt.time_from_start = rclcpp::Duration::from_seconds(0.0);
+
+                    // 挿入し、元の先頭が0秒なら少し先へずらす
+                    auto original_first = goal_msg.trajectory.points.front();
+                    if (original_first.time_from_start.sec == 0 && original_first.time_from_start.nanosec == 0) {
+                        original_first.time_from_start = rclcpp::Duration::from_seconds(0.05);
+                        goal_msg.trajectory.points[0] = original_first;
+                    }
+                    goal_msg.trajectory.points.insert(goal_msg.trajectory.points.begin(), start_pt);
+                }
+            }
+        } catch (const std::exception& e) {
+            RCLCPP_WARN(this->get_logger(), "Failed to prepend current state point for %s arm: %s", arm_name.c_str(), e.what());
+        }
 
         // 非同期で送信
         auto send_goal_options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
@@ -394,11 +458,22 @@ private:
             [this, arm_name](auto) {
                 RCLCPP_INFO(this->get_logger(), "Goal accepted by %s arm controller", arm_name.c_str());
             };
+        send_goal_options.feedback_callback =
+            [this, arm_name](rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::SharedPtr,
+                             const std::shared_ptr<const FollowJointTrajectory::Feedback>) {
+                // Start unified recording at the moment feedback arrives (movement started)
+                if (!is_recording_unified_) {
+                    startUnifiedTrajectoryRecording("dual");
+                }
+            };
         send_goal_options.result_callback =
             [this, arm_name](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
                 RCLCPP_INFO(this->get_logger(), "Trajectory execution completed for %s arm", arm_name.c_str());
-                stopTrajectoryTracking(arm_name);
                 
+                // Stop automatic recording when trajectory execution completes
+                stopJointStatesRecording(arm_name);
+                
+                stopTrajectoryTracking(arm_name);
                 // Restart servo after trajectory completion for seamless switching
                 std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause
                 startServo(arm_name);
@@ -441,6 +516,183 @@ private:
         }
         
         RCLCPP_INFO(this->get_logger(), "Stopped trajectory tracking for %s arm", arm_name.c_str());
+
+        // If neither arm is executing, stop unified recording immediately
+        if (!left_arm_executing_ && !right_arm_executing_) {
+            if (is_recording_unified_) {
+                stopUnifiedTrajectoryRecording();
+            }
+        }
+    }
+
+    // ---- Strict synchronization for dual-arm starts ----
+    void handleIncomingTargetPose(const std::string& arm_name, const geometry_msgs::msg::PoseStamped& target_pose)
+    {
+        const auto now_tp = std::chrono::steady_clock::now();
+        const bool strict_sync = this->get_parameter("strict_dual_sync").as_bool();
+
+        bool should_plan_sync = false;
+        geometry_msgs::msg::PoseStamped left_pose, right_pose;
+
+        {
+            std::lock_guard<std::mutex> lk(sync_mutex_);
+            if (arm_name == "left") {
+                pending_left_pose_ = target_pose;
+                pending_left_time_ = now_tp;
+                has_pending_left_pose_ = true;
+            } else {
+                pending_right_pose_ = target_pose;
+                pending_right_time_ = now_tp;
+                has_pending_right_pose_ = true;
+            }
+
+            if (has_pending_left_pose_ && has_pending_right_pose_) {
+                // strictモード: 到着時間差に関係なく揃い次第実行
+                left_pose = pending_left_pose_;
+                right_pose = pending_right_pose_;
+                has_pending_left_pose_ = false;
+                has_pending_right_pose_ = false;
+                should_plan_sync = true;
+            }
+        }
+
+        if (should_plan_sync) {
+            std::thread([this, left_pose, right_pose]() {
+                planAndExecuteSynchronized(left_pose, right_pose);
+            }).detach();
+            return;
+        }
+
+        // strictモードでは相手が来るまで待機（単独実行しない）
+        if (!strict_sync) {
+            // 非strictモードのみ単独実行のフォールバック
+            std::thread([this, arm_name, target_pose, now_tp]() {
+                std::this_thread::sleep_for(std::chrono::milliseconds(220));
+                bool still_unpaired = false;
+                {
+                    std::lock_guard<std::mutex> lk(sync_mutex_);
+                    if (arm_name == "left") {
+                        still_unpaired = has_pending_left_pose_ && (!has_pending_right_pose_ || (now_tp == pending_left_time_));
+                        if (still_unpaired) has_pending_left_pose_ = false;
+                    } else {
+                        still_unpaired = has_pending_right_pose_ && (!has_pending_left_pose_ || (now_tp == pending_right_time_));
+                        if (still_unpaired) has_pending_right_pose_ = false;
+                    }
+                }
+                if (still_unpaired) {
+                    if (arm_name == "left") move_to_pose(left_move_group_interface_, target_pose);
+                    else move_to_pose(right_move_group_interface_, target_pose);
+                }
+            }).detach();
+        }
+    }
+
+    void planAndExecuteSynchronized(const geometry_msgs::msg::PoseStamped& left_pose,
+                                    const geometry_msgs::msg::PoseStamped& right_pose)
+    {
+        RCLCPP_INFO(this->get_logger(), "Planning synchronized dual-arm motion");
+
+        // Stop both servos briefly
+        stopServo("left");
+        stopServo("right");
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+        // Prepare planners (simple, consistent settings)
+        auto plan_one = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,
+                               const geometry_msgs::msg::PoseStamped& pose,
+                               const std::string& arm) -> std::optional<moveit::planning_interface::MoveGroupInterface::Plan>
+        {
+            moveit::planning_interface::MoveGroupInterface::Plan plan;
+            try { mgi->setStartStateToCurrentState(); } catch (...) {}
+            mgi->clearPoseTargets();
+            mgi->setPoseTarget(pose);
+            mgi->setPlanningPipelineId("ompl");
+            mgi->setPlannerId("RRTstarKConfigDefault");
+            mgi->setGoalPositionTolerance(0.00001);
+            mgi->setGoalOrientationTolerance(0.00001);
+            mgi->setPlanningTime(0.1);
+            mgi->setNumPlanningAttempts(10);
+            bool ok = (mgi->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
+            if (!ok) return std::nullopt;
+            return plan;
+        };
+
+        auto left_plan_opt = plan_one(left_move_group_interface_, left_pose, "left");
+        auto right_plan_opt = plan_one(right_move_group_interface_, right_pose, "right");
+
+        if (!left_plan_opt || !right_plan_opt) {
+            RCLCPP_WARN(this->get_logger(), "Synchronized planning: one or both plans failed. Falling back to individual execution.");
+            if (left_plan_opt) execute_trajectory_directly(left_move_group_interface_, *left_plan_opt, "left");
+            if (right_plan_opt) execute_trajectory_directly(right_move_group_interface_, *right_plan_opt, "right");
+            return;
+        }
+
+        // Build synchronized goals with common future stamp and prepend current state point
+        auto now_ros = this->get_clock()->now();
+        rclcpp::Time start_time = now_ros + rclcpp::Duration::from_seconds(0.25);
+
+        auto make_goal = [this, start_time](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,
+                                            const moveit::planning_interface::MoveGroupInterface::Plan& plan,
+                                            const std::string& arm) -> FollowJointTrajectory::Goal
+        {
+            FollowJointTrajectory::Goal goal;
+            goal.trajectory = plan.trajectory_.joint_trajectory;
+            // header stamp unified
+            goal.trajectory.header.stamp = start_time;
+
+            // prepend current state point if necessary
+            try {
+                std::vector<double> curr = mgi->getCurrentJointValues();
+                if (!goal.trajectory.points.empty() && curr.size() == goal.trajectory.points[0].positions.size()) {
+                    const auto& f = goal.trajectory.points.front();
+                    double dn = 0.0;
+                    for (size_t i=0;i<f.positions.size();++i){ double d=f.positions[i]-curr[i]; dn+=d*d; }
+                    if (dn > 1e-8) {
+                        trajectory_msgs::msg::JointTrajectoryPoint p0;
+                        p0.positions = curr;
+                        p0.time_from_start = rclcpp::Duration::from_seconds(0.0);
+                        auto fmod = f;
+                        if (fmod.time_from_start.sec==0 && fmod.time_from_start.nanosec==0) {
+                            fmod.time_from_start = rclcpp::Duration::from_seconds(0.05);
+                            goal.trajectory.points[0] = fmod;
+                        }
+                        goal.trajectory.points.insert(goal.trajectory.points.begin(), p0);
+                    }
+                }
+            } catch (...) {}
+
+            return goal;
+        };
+
+        auto left_goal = make_goal(left_move_group_interface_, *left_plan_opt, "left");
+        auto right_goal = make_goal(right_move_group_interface_, *right_plan_opt, "right");
+
+        // Send both goals
+        auto send_one = [this](const std::string& arm,
+                               rclcpp_action::Client<FollowJointTrajectory>::SharedPtr client,
+                               const FollowJointTrajectory::Goal& goal,
+                               const moveit::planning_interface::MoveGroupInterface::Plan& plan)
+        {
+            if (!client->wait_for_action_server(std::chrono::seconds(2))) {
+                RCLCPP_ERROR(this->get_logger(), "Action server not available for %s arm", arm.c_str());
+                return;
+            }
+            auto options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+            options.goal_response_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Goal accepted by %s", arm.c_str()); };
+            options.feedback_callback = [this](auto, const std::shared_ptr<const FollowJointTrajectory::Feedback>) {
+                if (!is_recording_unified_) {
+                    startUnifiedTrajectoryRecording("dual");
+                }
+            };
+            options.result_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); stopTrajectoryTracking(arm); std::this_thread::sleep_for(std::chrono::milliseconds(100)); startServo(arm); };
+            client->async_send_goal(goal, options);
+            updateTrajectoryTracking(plan, arm);
+        };
+
+        send_one("left", left_arm_action_client_, left_goal, *left_plan_opt);
+        send_one("right", right_arm_action_client_, right_goal, *right_plan_opt);
+
+        RCLCPP_INFO(this->get_logger(), "Synchronized dual-arm trajectories sent with common start time");
     }
     
     // 軌道最適化関数
@@ -752,7 +1004,7 @@ private:
             
             // Stop servo for clean pose execution
             stopServo(arm_name);
-            // std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause - removed for faster response
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
             
             // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
@@ -765,6 +1017,10 @@ private:
             RCLCPP_INFO(this->get_logger(), "Pre-planning check - Current: x=%.3f, y=%.3f, z=%.3f", 
                        current_pose_check.pose.position.x, current_pose_check.pose.position.y, current_pose_check.pose.position.z);
             
+            // Always plan from current state
+            try { move_group_interface->setStartStateToCurrentState(); } catch (...) {}
+
+            move_group_interface->clearPoseTargets();
             move_group_interface->setPoseTarget(target_pose);
             
             RCLCPP_INFO(this->get_logger(), "About to plan Pilz LIN motion for %s arm", arm_name.c_str());
@@ -949,18 +1205,32 @@ private:
     // YAML trajectory loading subscribers
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_load_yaml_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_load_yaml_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr unified_load_yaml_sub_;
+    
+    // Joint trajectory publishers for direct control
+    rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr left_joint_trajectory_pub_;
+    rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr right_joint_trajectory_pub_;
     
     // 1000Hz recording control subscribers
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr start_recording_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr stop_recording_sub_;
     
-    // High-frequency joint states recording
+    // High-frequency joint states recording with precision timestamps
     rclcpp::TimerBase::SharedPtr joint_states_recording_timer_;
     rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_states_sub_;
     sensor_msgs::msg::JointState::SharedPtr latest_joint_states_;
     std::vector<sensor_msgs::msg::JointState> recorded_joint_states_;
     std::mutex joint_states_mutex_;
     bool is_recording_joint_states_ = false;
+
+    // --- Dual-arm strict sync buffers ---
+    geometry_msgs::msg::PoseStamped pending_left_pose_;
+    geometry_msgs::msg::PoseStamped pending_right_pose_;
+    std::chrono::steady_clock::time_point pending_left_time_;
+    std::chrono::steady_clock::time_point pending_right_time_;
+    bool has_pending_left_pose_ = false;
+    bool has_pending_right_pose_ = false;
+    std::mutex sync_mutex_;
     
     // Direct joint states control callbacks
     void left_direct_joints_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
@@ -1018,13 +1288,20 @@ private:
             return;
         }
         
-        // Send goal
-        auto future = action_client->async_send_goal(goal);
+        // Track execution and send with feedback
+        moveit::planning_interface::MoveGroupInterface::Plan direct_plan;
+        direct_plan.trajectory_.joint_trajectory = trajectory;
+        updateTrajectoryTracking(direct_plan, arm_name);
+
+        auto options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+        options.feedback_callback = [this](auto, const std::shared_ptr<const FollowJointTrajectory::Feedback>) {
+            if (!is_recording_unified_) startUnifiedTrajectoryRecording("dual");
+        };
+        options.result_callback = [this, arm_name](auto){ RCLCPP_INFO(this->get_logger(), "Execution done for %s (direct joints)", arm_name.c_str()); stopTrajectoryTracking(arm_name); std::this_thread::sleep_for(std::chrono::milliseconds(100)); startServo(arm_name); };
+        action_client->async_send_goal(goal, options);
         RCLCPP_INFO(this->get_logger(), "Direct joint trajectory sent to %s arm controller", arm_name.c_str());
         
         // Save the direct joint trajectory to YAML for future use
-        moveit::planning_interface::MoveGroupInterface::Plan direct_plan;
-        direct_plan.trajectory_.joint_trajectory = trajectory;
         saveTrajectoryToYaml(direct_plan, arm_name + "_direct");
     }
     
@@ -1037,6 +1314,104 @@ private:
     void right_load_yaml_callback(const std_msgs::msg::String::SharedPtr msg)
     {
         loadAndExecuteTrajectory(msg->data, "right");
+    }
+    
+    // Unified trajectory loading callback
+    void unified_load_yaml_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        loadAndExecuteUnifiedTrajectory(msg->data);
+    }
+    
+    // Load and execute unified trajectory from YAML file (both arms simultaneously)
+    void loadAndExecuteUnifiedTrajectory(const std::string& filename)
+    {
+        RCLCPP_INFO(this->get_logger(), "Loading unified trajectory from %s for both arms", filename.c_str());
+        
+        try {
+            YAML::Node yaml_node = YAML::LoadFile(filename);
+            
+            // Check if it's a unified dual-arm trajectory
+            if (!yaml_node["unified_dual_arm"] || !yaml_node["unified_dual_arm"]["trajectory"]) {
+                RCLCPP_ERROR(this->get_logger(), "File %s is not a valid unified dual-arm trajectory", filename.c_str());
+                return;
+            }
+            
+            auto trajectory_data = yaml_node["unified_dual_arm"]["trajectory"];
+            
+            // Create separate trajectories for left and right arms
+            trajectory_msgs::msg::JointTrajectory left_trajectory, right_trajectory;
+            
+            // Set joint names for each arm
+            left_trajectory.joint_names = {
+                "left_Revolute_1", "left_Revolute_2", "left_Revolute_3", 
+                "left_Revolute_4", "left_Revolute_5", "left_Revolute_6"
+            };
+            right_trajectory.joint_names = {
+                "right_Revolute_1", "right_Revolute_2", "right_Revolute_3", 
+                "right_Revolute_4", "right_Revolute_5", "right_Revolute_6"
+            };
+            
+            // Extract points from unified trajectory
+            if (trajectory_data["points"]) {
+                for (const auto& point_data : trajectory_data["points"]) {
+                    trajectory_msgs::msg::JointTrajectoryPoint left_point, right_point;
+                    
+                    // Extract positions and velocities
+                    if (point_data["positions"] && point_data["positions"].size() >= 12) {
+                        // Left arm: indices 0-5
+                        for (int i = 0; i < 6; ++i) {
+                            left_point.positions.push_back(point_data["positions"][i].as<double>());
+                        }
+                        // Right arm: indices 6-11  
+                        for (int i = 6; i < 12; ++i) {
+                            right_point.positions.push_back(point_data["positions"][i].as<double>());
+                        }
+                    }
+                    
+                    if (point_data["velocities"] && point_data["velocities"].size() >= 12) {
+                        // Left arm: indices 0-5
+                        for (int i = 0; i < 6; ++i) {
+                            left_point.velocities.push_back(point_data["velocities"][i].as<double>());
+                        }
+                        // Right arm: indices 6-11
+                        for (int i = 6; i < 12; ++i) {
+                            right_point.velocities.push_back(point_data["velocities"][i].as<double>());
+                        }
+                    }
+                    
+                    // Set time from start
+                    if (point_data["time_from_start"]) {
+                        rclcpp::Duration duration(
+                            point_data["time_from_start"]["sec"].as<int32_t>(),
+                            point_data["time_from_start"]["nanosec"].as<uint32_t>()
+                        );
+                        left_point.time_from_start = duration;
+                        right_point.time_from_start = duration;
+                    }
+                    
+                    left_trajectory.points.push_back(left_point);
+                    right_trajectory.points.push_back(right_point);
+                }
+            }
+            
+            RCLCPP_INFO(this->get_logger(), "Successfully loaded unified trajectory with %zu points", 
+                       left_trajectory.points.size());
+            
+            // Set trajectory headers
+            left_trajectory.header.stamp = this->get_clock()->now();
+            left_trajectory.header.frame_id = "world";
+            right_trajectory.header.stamp = this->get_clock()->now();
+            right_trajectory.header.frame_id = "world";
+            
+            // Publish trajectories simultaneously
+            left_joint_trajectory_pub_->publish(left_trajectory);
+            right_joint_trajectory_pub_->publish(right_trajectory);
+            
+            RCLCPP_INFO(this->get_logger(), "🤖✅ Published unified dual-arm trajectory to controllers");
+            
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to load unified trajectory: %s", e.what());
+        }
     }
     
     // Load and execute trajectory from YAML file
@@ -1087,8 +1462,18 @@ private:
                        first_point.positions[3], first_point.positions[4], first_point.positions[5], first_point.positions[6]);
         }
         
-        // Send goal
-        auto future = action_client->async_send_goal(goal);
+        // Track execution state to allow proper unified recording stop
+        moveit::planning_interface::MoveGroupInterface::Plan pseudo_plan;
+        pseudo_plan.trajectory_.joint_trajectory = trajectory;
+        updateTrajectoryTracking(pseudo_plan, arm_name);
+
+        // Send goal with feedback to start recording when motion starts
+        auto options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+        options.feedback_callback = [this](auto, const std::shared_ptr<const FollowJointTrajectory::Feedback>) {
+            if (!is_recording_unified_) startUnifiedTrajectoryRecording("dual");
+        };
+        options.result_callback = [this, arm_name](auto){ RCLCPP_INFO(this->get_logger(), "Execution done for %s (direct)", arm_name.c_str()); stopTrajectoryTracking(arm_name); std::this_thread::sleep_for(std::chrono::milliseconds(100)); startServo(arm_name); };
+        action_client->async_send_goal(goal, options);
         RCLCPP_INFO(this->get_logger(), "Trajectory goal sent to %s arm controller", arm_name.c_str());
     }
     
@@ -1097,29 +1482,57 @@ private:
     {
         std::lock_guard<std::mutex> lock(joint_states_mutex_);
         latest_joint_states_ = msg;
+        
+        // 統合記録がアクティブな場合、両アームのjoint_statesを記録
+        std::lock_guard<std::mutex> unified_lock(unified_recording_mutex_);
+        if (is_recording_unified_) {
+            unified_joint_states_recording_.push_back(*msg);
+        }
     }
     
-    // 1000Hz recording callback
+    // 1000Hz recording callback（最適化版）
     void recordJointStatesCallback()
     {
-        if (!is_recording_joint_states_ || !latest_joint_states_) {
+        // 早期リターンで処理軽減
+        if (!is_recording_joint_states_ && !is_recording_unified_) {
             return;
         }
         
-        std::lock_guard<std::mutex> lock(joint_states_mutex_);
-        recorded_joint_states_.push_back(*latest_joint_states_);
+        // latest_joint_states_の取得は最小限のロック時間で
+        sensor_msgs::msg::JointState current_state;
+        {
+            std::lock_guard<std::mutex> lock(joint_states_mutex_);
+            if (!latest_joint_states_) {
+                return;
+            }
+            current_state = *latest_joint_states_; // コピー
+        }
+        
+        // 従来の個別記録
+        if (is_recording_joint_states_) {
+            recorded_joint_states_.push_back(current_state);
+        }
+        
+        // 統合記録（try_lockで非ブロッキング）
+        if (is_recording_unified_) {
+            std::unique_lock<std::mutex> unified_lock(unified_recording_mutex_, std::try_to_lock);
+            if (unified_lock.owns_lock()) {
+                unified_joint_states_recording_.push_back(current_state);
+            }
+        }
     }
     
-    // Start high-frequency joint states recording
+    
+    // Start simple joint states recording
     void startJointStatesRecording()
     {
         std::lock_guard<std::mutex> lock(joint_states_mutex_);
         recorded_joint_states_.clear();
         is_recording_joint_states_ = true;
-        RCLCPP_INFO(this->get_logger(), "Started 1000Hz joint states recording");
+        RCLCPP_INFO(this->get_logger(), "🎯 Started recording joint states at 1000Hz");
     }
     
-    // Stop recording and save to YAML
+    // Stop recording and save simple trajectory to YAML
     void stopJointStatesRecording(const std::string& arm_name)
     {
         std::lock_guard<std::mutex> lock(joint_states_mutex_);
@@ -1130,24 +1543,27 @@ private:
             return;
         }
         
-        RCLCPP_INFO(this->get_logger(), "Stopped recording, saved %zu joint states at 1000Hz", recorded_joint_states_.size());
+        RCLCPP_INFO(this->get_logger(), "🎯 Stopped recording: %zu joint states (%.3fs total)", 
+                   recorded_joint_states_.size(), recorded_joint_states_.size() * 0.001);
         
-        // Convert recorded joint states to trajectory
+        // Create trajectory with original 1000Hz timing (1ms intervals)  
         trajectory_msgs::msg::JointTrajectory trajectory;
         trajectory.joint_names = recorded_joint_states_[0].name;
         
         for (size_t i = 0; i < recorded_joint_states_.size(); ++i) {
             trajectory_msgs::msg::JointTrajectoryPoint point;
             point.positions = recorded_joint_states_[i].position;
-            point.velocities = recorded_joint_states_[i].velocity;
-            point.time_from_start = rclcpp::Duration::from_seconds(i * 0.001); // 1000Hz = 1ms間隔
+            
+            // Original 1ms intervals to match recording frequency
+            point.time_from_start = rclcpp::Duration::from_seconds(i * 0.001);
+            
             trajectory.points.push_back(point);
         }
         
         // Save to YAML
         moveit::planning_interface::MoveGroupInterface::Plan recorded_plan;
         recorded_plan.trajectory_.joint_trajectory = trajectory;
-        saveTrajectoryToYaml(recorded_plan, arm_name + "_1000hz");
+        saveTrajectoryToYaml(recorded_plan, arm_name);
     }
     
     // Recording control callbacks
@@ -1235,59 +1651,189 @@ private:
         return resampled_trajectory;
     }
 
-    // 軌道を1000Hz精度で自動的にYAMLファイルに保存
-    void saveTrajectoryToYaml(const moveit::planning_interface::MoveGroupInterface::Plan& plan, const std::string& arm_name) {
-        std::lock_guard<std::mutex> lock(save_mutex_);
+    // 統合軌道記録用の変数
+    std::vector<sensor_msgs::msg::JointState> unified_joint_states_recording_;
+    std::mutex unified_recording_mutex_;
+    bool is_recording_unified_ = false;
+    
+    // 統合された軌道記録を開始（軽量版）
+    void startUnifiedTrajectoryRecording(const std::string& arm_name) {
+        // 非同期で記録開始（メインスレッドをブロックしない）
+        std::thread([this, arm_name]() {
+            std::lock_guard<std::mutex> lock(unified_recording_mutex_);
+            if (!is_recording_unified_) {
+                unified_joint_states_recording_.clear();
+                unified_joint_states_recording_.reserve(10000); // メモリ予約でパフォーマンス向上
+                is_recording_unified_ = true;
+                RCLCPP_INFO(this->get_logger(), "🔴 Started unified recording (%s)", arm_name.c_str());
+            }
+        }).detach();
+    }
+    
+    // 統合された軌道記録を停止して保存
+    void stopUnifiedTrajectoryRecording() {
+        std::lock_guard<std::mutex> lock(unified_recording_mutex_);
+        if (is_recording_unified_) {
+            is_recording_unified_ = false;
+            RCLCPP_INFO(this->get_logger(), "⏹️ Stopped unified recording, recorded %zu states", 
+                       unified_joint_states_recording_.size());
+            
+            if (!unified_joint_states_recording_.empty()) {
+                saveUnifiedTrajectoryToYaml(unified_joint_states_recording_);
+            }
+        }
+    }
+    
+    // 統合軌道をYAMLに保存
+    void saveUnifiedTrajectoryToYaml(const std::vector<sensor_msgs::msg::JointState>& recorded_states) {
         try {
             auto now = this->get_clock()->now();
             std::time_t time_t = now.seconds();
             std::tm* tm = std::localtime(&time_t);
             
-            // ファイル名をタイムスタンプ（秒まで）で生成
             std::stringstream ss;
             ss << "/home/a/ws_moveit2/src/robot_config/path/trajectory_"
                << std::put_time(tm, "%Y%m%d_%H%M%S") << ".yaml";
             std::string filename = ss.str();
             
+            // 統合された軌道を作成
+            trajectory_msgs::msg::JointTrajectory unified_trajectory;
+            
+            // 両アームの全ジョイント名を定義（固定順序）
+            unified_trajectory.joint_names = {
+                "left_Revolute_1", "left_Revolute_2", "left_Revolute_3", 
+                "left_Revolute_4", "left_Revolute_5", "left_Revolute_6",
+                "right_Revolute_1", "right_Revolute_2", "right_Revolute_3", 
+                "right_Revolute_4", "right_Revolute_5", "right_Revolute_6"
+            };
+            
+            // 各記録されたjoint_stateを統合軌道に変換
+            for (size_t i = 0; i < recorded_states.size(); ++i) {
+                const auto& state = recorded_states[i];
+                trajectory_msgs::msg::JointTrajectoryPoint point;
+                
+                // 12個のジョイント値を順序通りに配置
+                point.positions.resize(12, 0.0);
+                point.velocities.resize(12, 0.0);
+                
+                // 記録されたjoint_stateから対応するジョイント値を抽出
+                for (size_t j = 0; j < state.name.size(); ++j) {
+                    const std::string& joint_name = state.name[j];
+                    auto it = std::find(unified_trajectory.joint_names.begin(), 
+                                       unified_trajectory.joint_names.end(), joint_name);
+                    if (it != unified_trajectory.joint_names.end()) {
+                        size_t index = std::distance(unified_trajectory.joint_names.begin(), it);
+                        if (j < state.position.size()) point.positions[index] = state.position[j];
+                        if (j < state.velocity.size()) point.velocities[index] = state.velocity[j];
+                    }
+                }
+                
+                point.time_from_start = rclcpp::Duration::from_seconds(i * 0.001); // 1000Hz = 1ms間隔
+                unified_trajectory.points.push_back(point);
+            }
+            
+            // YAMLファイルに保存
             YAML::Node root_node;
-            try {
-                root_node = YAML::LoadFile(filename);
-            } catch (const YAML::BadFile& e) {
-                // ファイルが存在しない場合は新しいノードを作成
+            YAML::Node trajectory_node;
+            
+            // 軌道情報
+            trajectory_node["trajectory_info"]["type"] = "unified_dual_arm";
+            trajectory_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
+            trajectory_node["trajectory_info"]["total_points"] = unified_trajectory.points.size();
+            trajectory_node["trajectory_info"]["sampling_rate"] = "1000Hz";
+            trajectory_node["trajectory_info"]["duration_seconds"] = 
+                unified_trajectory.points.empty() ? 0.0 : 
+                (unified_trajectory.points.back().time_from_start.sec + 
+                 unified_trajectory.points.back().time_from_start.nanosec * 1e-9);
+            
+            // ジョイント名
+            YAML::Node joint_names_node;
+            for (const auto& name : unified_trajectory.joint_names) {
+                joint_names_node.push_back(name);
             }
-
-            // 1000Hz精度でリサンプリング
-            trajectory_msgs::msg::JointTrajectory resampled_trajectory = resampleTrajectoryTo1000Hz(plan.trajectory_.joint_trajectory);
+            trajectory_node["trajectory"]["joint_names"] = joint_names_node;
             
-            YAML::Node arm_trajectory_node;
-            arm_trajectory_node["trajectory_info"]["arm_name"] = arm_name;
-            arm_trajectory_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
-            arm_trajectory_node["trajectory_info"]["planner_id"] = plan.planning_time_;
-            arm_trajectory_node["trajectory_info"]["original_points"] = plan.trajectory_.joint_trajectory.points.size();
-            arm_trajectory_node["trajectory_info"]["resampled_points"] = resampled_trajectory.points.size();
-            arm_trajectory_node["trajectory_info"]["sampling_rate"] = "1000Hz";
-            
-            // ジョイント名を保存
-            YAML::Node joint_names;
-            for (const auto& name : resampled_trajectory.joint_names) {
-                joint_names.push_back(name);
-            }
-            arm_trajectory_node["trajectory"]["joint_names"] = joint_names;
-            
-            // 1000Hzリサンプリングされた軌道ポイントを保存
-            YAML::Node points;
-            for (size_t i = 0; i < resampled_trajectory.points.size(); ++i) {
-                const auto& point = resampled_trajectory.points[i];
+            // 軌道ポイント
+            YAML::Node points_node;
+            for (const auto& point : unified_trajectory.points) {
                 YAML::Node point_node;
                 
-                // 位置データ
                 YAML::Node positions;
                 for (const auto& pos : point.positions) {
                     positions.push_back(pos);
                 }
                 point_node["positions"] = positions;
                 
-                // 速度データ（存在する場合）
+                YAML::Node velocities;
+                for (const auto& vel : point.velocities) {
+                    velocities.push_back(vel);
+                }
+                point_node["velocities"] = velocities;
+                
+                point_node["time_from_start"]["sec"] = point.time_from_start.sec;
+                point_node["time_from_start"]["nanosec"] = point.time_from_start.nanosec;
+                
+                points_node.push_back(point_node);
+            }
+            trajectory_node["trajectory"]["points"] = points_node;
+            
+            root_node["unified_dual_arm"] = trajectory_node;
+            
+            // ファイル保存
+            std::ofstream file(filename);
+            file << root_node;
+            file.close();
+            
+            RCLCPP_INFO(this->get_logger(), "🤖✅ Unified dual-arm trajectory saved: %s (%zu points, %.2f seconds)", 
+                       filename.c_str(), unified_trajectory.points.size(),
+                       trajectory_node["trajectory_info"]["duration_seconds"].as<double>());
+            
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to save unified trajectory: %s", e.what());
+        }
+    }
+    
+    // 従来の個別保存機能（軽量化版）
+    void saveTrajectoryToYaml(const moveit::planning_interface::MoveGroupInterface::Plan& plan, const std::string& arm_name) {
+        // 個別保存は非同期で実行（軌道実行をブロックしない）
+        std::thread([this, plan, arm_name]() {
+            std::lock_guard<std::mutex> lock(save_mutex_);
+        try {
+            auto now = this->get_clock()->now();
+            std::time_t time_t = now.seconds();
+            std::tm* tm = std::localtime(&time_t);
+            
+            std::stringstream ss;
+            ss << "/home/a/ws_moveit2/src/robot_config/path/individual_" << arm_name << "_"
+               << std::put_time(tm, "%Y%m%d_%H%M%S") << ".yaml";
+            std::string filename = ss.str();
+            
+            YAML::Node root_node;
+            YAML::Node arm_trajectory_node;
+            
+            trajectory_msgs::msg::JointTrajectory resampled_trajectory = resampleTrajectoryTo1000Hz(plan.trajectory_.joint_trajectory);
+            
+            arm_trajectory_node["trajectory_info"]["arm_name"] = arm_name;
+            arm_trajectory_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
+            arm_trajectory_node["trajectory_info"]["original_points"] = plan.trajectory_.joint_trajectory.points.size();
+            arm_trajectory_node["trajectory_info"]["resampled_points"] = resampled_trajectory.points.size();
+            
+            YAML::Node joint_names;
+            for (const auto& name : resampled_trajectory.joint_names) {
+                joint_names.push_back(name);
+            }
+            arm_trajectory_node["trajectory"]["joint_names"] = joint_names;
+            
+            YAML::Node points;
+            for (const auto& point : resampled_trajectory.points) {
+                YAML::Node point_node;
+                
+                YAML::Node positions;
+                for (const auto& pos : point.positions) {
+                    positions.push_back(pos);
+                }
+                point_node["positions"] = positions;
+                
                 if (!point.velocities.empty()) {
                     YAML::Node velocities;
                     for (const auto& vel : point.velocities) {
@@ -1296,28 +1842,27 @@ private:
                     point_node["velocities"] = velocities;
                 }
                 
-                // 時間データ
                 point_node["time_from_start"]["sec"] = point.time_from_start.sec;
                 point_node["time_from_start"]["nanosec"] = point.time_from_start.nanosec;
                 
                 points.push_back(point_node);
             }
             arm_trajectory_node["trajectory"]["points"] = points;
-
-            // arm_nameをキーとしてルートノードに追加
+            
             root_node[arm_name] = arm_trajectory_node;
             
-            // ファイルに書き込み
             std::ofstream file(filename);
             file << root_node;
             file.close();
             
-            RCLCPP_INFO(this->get_logger(), "1000Hz trajectory for %s saved to: %s (%zu→%zu points)", 
-                       arm_name.c_str(), filename.c_str(), plan.trajectory_.joint_trajectory.points.size(), resampled_trajectory.points.size());
+            RCLCPP_INFO(this->get_logger(), "📝 Individual %s trajectory saved: %s (%zu→%zu points)", 
+                       arm_name.c_str(), filename.c_str(), 
+                       plan.trajectory_.joint_trajectory.points.size(), resampled_trajectory.points.size());
             
         } catch (const std::exception& e) {
-            RCLCPP_ERROR(this->get_logger(), "Failed to save trajectory: %s", e.what());
+            RCLCPP_ERROR(this->get_logger(), "Failed to save individual trajectory: %s", e.what());
         }
+        }).detach(); // 非同期実行
     }
     
     // YAMLファイルから軌道を読み込み

@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.1.7:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";
@@ -45,6 +45,7 @@ export default function App() {
   const [redSeiretuControllerPublisher, setRedSeiretuControllerPublisher] = useState(null);
   const [blueSeiretuControllerPublisher, setBlueSeiretuControllerPublisher] = useState(null);
   const [realtimeControlPublisher, setRealtimeControlPublisher] = useState(null);
+  const [dualPosePublisher, setDualPosePublisher] = useState(null);
   const [tapPixelPublisher, setTapPixelPublisher] = useState(null);
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
@@ -81,6 +82,7 @@ export default function App() {
       initializeSeiretuControllerPublishers();
       initializeRealtimeControlPublisher();
       initializeTapPixelPublisher();
+      initializeDualPosePublisher();
     });
 
     ros.current.on('error', (error) => {
@@ -143,6 +145,16 @@ export default function App() {
       messageType: POSE_MESSAGE_TYPE
     });
     setPosePublisher(posePub);
+  };
+
+  // Both-arms atomic publisher ("<LEFT>|<RIGHT>")
+  const initializeDualPosePublisher = () => {
+    const dualPub = new ROSLIB.Topic({
+      ros: ros.current,
+      name: "/dual_button_command",
+      messageType: "std_msgs/msg/String"
+    });
+    setDualPosePublisher(dualPub);
   };
 
   const initializeUpDownPublishers = () => {
@@ -362,7 +374,7 @@ export default function App() {
   const handlePoseButtonClick = (buttonNumber) => {
     if (posePublisher && connectionStatus === 'Connected') {
       if (selectedArm === 'both') {
-        // bothモード時は左右のペアで同時パブリッシュ
+        // bothモード時は左右のペアを1メッセージで原子的に送信
         let leftPoseNumber, rightPoseNumber;
         
         if (buttonNumber <= 5) {
@@ -382,27 +394,27 @@ export default function App() {
         const leftPoseValue = buttonPoseValues[backgroundColor][leftPoseNumber] || `${backgroundColor}_Pose${leftPoseNumber}`;
         const rightPoseValue = buttonPoseValues[backgroundColor][rightPoseNumber] || `${backgroundColor}_Pose${rightPoseNumber}`;
         
-        // 左アーム用にパブリッシュ
-        const leftMessage = new ROSLIB.Message({
-          data: leftPoseValue
-        });
-        posePublisher.publish(leftMessage);
-        console.log(`🎯 Published LEFT pose to ${POSE_TOPIC_NAME}: "${leftPoseValue}"`);
-        
-        // 少し遅延を入れて右アーム用にパブリッシュ
-        setTimeout(() => {
-          const rightMessage = new ROSLIB.Message({
-            data: rightPoseValue
+        // 新トピックに "<LEFT>|<RIGHT>" 形式で送信
+        if (dualPosePublisher) {
+          const bothMessage = new ROSLIB.Message({
+            data: `${leftPoseValue}|${rightPoseValue}`
           });
+          dualPosePublisher.publish(bothMessage);
+          console.log(`🎯 Published DUAL pose to /dual_button_command: "${leftPoseValue}|${rightPoseValue}"`);
+        } else {
+          // フォールバック: 旧方式で2回送信
+          const leftMessage = new ROSLIB.Message({ data: leftPoseValue });
+          posePublisher.publish(leftMessage);
+          const rightMessage = new ROSLIB.Message({ data: rightPoseValue });
           posePublisher.publish(rightMessage);
-          console.log(`🎯 Published RIGHT pose to ${POSE_TOPIC_NAME}: "${rightPoseValue}"`);
-        }, 10);
+          console.log(`🎯 Published LEFT/RIGHT poses to ${POSE_TOPIC_NAME}: "${leftPoseValue}" & "${rightPoseValue}"`);
+        }
         
         // パブリッシュログに追加（両方記録）
         setPublishedCommands(prev => [
           {
             topic: POSE_TOPIC_NAME,
-            message: `${leftPoseValue} + ${rightPoseValue}`,
+            message: `${leftPoseValue} | ${rightPoseValue}`,
             timestamp: new Date().toLocaleTimeString()
           },
           ...prev.slice(0, 4) // 最新5件のみ保持

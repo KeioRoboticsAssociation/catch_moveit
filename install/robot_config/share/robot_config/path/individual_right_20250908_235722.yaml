@@ -1,0 +1,32 @@
+right:
+  trajectory_info:
+    arm_name: right
+    timestamp: 1757343442143283535
+    original_points: 1
+    resampled_points: 1
+  trajectory:
+    joint_names:
+      - right_Revolute_1
+      - right_Revolute_2
+      - right_Revolute_3
+      - right_Revolute_4
+      - right_Revolute_5
+      - right_Revolute_6
+    points:
+      - positions:
+          - 1.4968034855830217
+          - -0.48110676889223059
+          - 0.92087005966233881
+          - -2.1440749452526526e-06
+          - -0.43975977385512172
+          - 1.4983944111512082
+        velocities:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        time_from_start:
+          sec: 0
+          nanosec: 0
