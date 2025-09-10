@@ -114,14 +114,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_4_lower_limit",
-            default_value="-3.14",
+            default_value="0",
             description="Lower limit for left arm Revolute_4 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_4_upper_limit",
-            default_value="3.14",
+            default_value="0",
             description="Upper limit for left arm Revolute_4 joint",
         )
     )
@@ -502,14 +502,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_4_lower_limit",
-            default_value="-3.14",
+            default_value="0",
             description="Lower limit for right arm Revolute_4 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_4_upper_limit",
-            default_value="3.14",
+            default_value="0",
             description="Upper limit for right arm Revolute_4 joint",
         )
     )
@@ -846,7 +846,24 @@ def generate_launch_description():
     # ## 2. spawnerノードのリストを準備 ##
     # ##################################################################
     spawn_controllers = []
-    for controller in ["left_arm_controller", "right_arm_controller", "left_hand_controller", "right_hand_controller", "red_seiretu_controller","blue_seiretu_controller", "joint_state_broadcaster"]:
+    # Spawn joint_state_broadcaster FIRST for faster availability of joint_states
+    spawn_controllers.append(
+        Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["joint_state_broadcaster", "-c", "/controller_manager"],
+            output="screen",
+        )
+    )
+    # Then spawn the remaining controllers
+    for controller in [
+        "left_arm_controller",
+        "right_arm_controller",
+        "left_hand_controller",
+        "right_hand_controller",
+        "red_seiretu_controller",
+        "blue_seiretu_controller",
+    ]:
         spawn_controllers.append(
             Node(
                 package="controller_manager",
@@ -1270,4 +1287,3 @@ def generate_launch_description():
             target_pose_router,  # Add target pose router
         ]
     )
-

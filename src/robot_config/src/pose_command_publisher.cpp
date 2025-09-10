@@ -25,6 +25,10 @@ public:
         right_target_pose_pub_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(
             "/right_target_pose_rpy", 10);
 
+        // Dual-arm composite publisher: [Lx, Ly, Lz, Lr, Lp, Lyaw, Rx, Ry, Rz, Rr, Rp, Ryaw]
+        dual_target_pose_pub_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(
+            "/dual_target_pose_rpy", 10);
+
         loadPoseConfigurations();
 
         RCLCPP_INFO(this->get_logger(), "Pose command publisher node started");
@@ -89,23 +93,26 @@ private:
             return;
         }
 
-        bool ok = true;
-        if (left_pose_configs_.find(left_cmd) != left_pose_configs_.end()) {
-            publishLeftPose(left_cmd);
-        } else {
+        auto l_it = left_pose_configs_.find(left_cmd);
+        auto r_it = right_pose_configs_.find(right_cmd);
+        if (l_it == left_pose_configs_.end()) {
             RCLCPP_WARN(this->get_logger(), "Unknown LEFT command in dual: %s", left_cmd.c_str());
-            ok = false;
+            return;
         }
-
-        if (right_pose_configs_.find(right_cmd) != right_pose_configs_.end()) {
-            publishRightPose(right_cmd);
-        } else {
+        if (r_it == right_pose_configs_.end()) {
             RCLCPP_WARN(this->get_logger(), "Unknown RIGHT command in dual: %s", right_cmd.c_str());
-            ok = false;
+            return;
         }
 
-        if (ok) {
-            RCLCPP_INFO(this->get_logger(), "Published dual poses: LEFT='%s', RIGHT='%s'", left_cmd.c_str(), right_cmd.c_str());
+        // Publish composite dual target to ensure atomic consumption downstream
+        std_msgs::msg::Float64MultiArray dual_msg;
+        dual_msg.data = l_it->second; // 6 elements
+        dual_msg.data.insert(dual_msg.data.end(), r_it->second.begin(), r_it->second.end()); // +6 elements
+        if (dual_msg.data.size() == 12) {
+            dual_target_pose_pub_->publish(dual_msg);
+            RCLCPP_INFO(this->get_logger(), "Published dual composite poses: LEFT='%s', RIGHT='%s'", left_cmd.c_str(), right_cmd.c_str());
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Dual message malformed size=%zu (expected 12)", dual_msg.data.size());
         }
     }
 
@@ -210,6 +217,7 @@ private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr dual_button_command_sub_;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr left_target_pose_pub_;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr right_target_pose_pub_;
+    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr dual_target_pose_pub_;
 
     std::unordered_map<std::string, std::vector<double>> left_pose_configs_;
     std::unordered_map<std::string, std::vector<double>> right_pose_configs_;

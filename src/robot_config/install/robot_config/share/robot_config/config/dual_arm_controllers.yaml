@@ -1,0 +1,123 @@
+# This config file is used by ros2_control
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz
+
+    left_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_hand_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_hand_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    blue_seiretu_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    red_seiretu_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+      ros__parameters:
+        joints:
+          - left_Revolute_1
+          - left_Revolute_2
+          - left_Revolute_3
+          - left_Revolute_4
+          - left_Revolute_5
+          - left_Revolute_6
+          - left_Slider_1
+          - left_Slider_2
+          - right_Revolute_1
+          - right_Revolute_2
+          - right_Revolute_3
+          - right_Revolute_4
+          - right_Revolute_5
+          - right_Revolute_6
+          - right_Slider_1
+          - right_Slider_2
+          - blue_slider
+          - red_slider
+
+left_arm_controller:
+  ros__parameters:
+    joints:
+      - left_Revolute_1
+      - left_Revolute_2
+      - left_Revolute_3
+      - left_Revolute_4
+      - left_Revolute_5
+      - left_Revolute_6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory
+
+right_arm_controller:
+  ros__parameters:
+    joints:
+      - right_Revolute_1
+      - right_Revolute_2
+      - right_Revolute_3
+      - right_Revolute_4
+      - right_Revolute_5
+      - right_Revolute_6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory
+
+left_hand_controller:
+  ros__parameters:
+    joints:
+      - left_Slider_1
+      - left_Slider_2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory
+
+right_hand_controller:
+  ros__parameters:
+    joints:
+      - right_Slider_1
+      - right_Slider_2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory
+
+blue_seiretu_controller:
+  ros__parameters:
+    joints:
+      - blue_slider
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory
+
+red_seiretu_controller:
+  ros__parameters:
+    joints:
+      - red_slider
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory

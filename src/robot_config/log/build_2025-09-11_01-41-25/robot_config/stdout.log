@@ -1,0 +1,73 @@
+Consolidate compiler generated dependencies of target move_to_pose_dual_cpp
+[ 33%] Built target dual_arm_servo_controller
+[ 66%] Built target pose_command_publisher
+[ 83%] Building CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o
+[100%] Linking CXX executable move_to_pose_dual_cpp
+[100%] Built target move_to_pose_dual_cpp
+-- Install configuration: ""
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/spawn_controllers.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/warehouse_db.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/dual_arm_demo.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/moveit_rviz.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/rsp.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/move_group.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/static_virtual_joint_tfs.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/setup_assistant.launch.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/ompl_planning.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_realtime_control.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.srdf
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_controllers.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pilz_cartesian_limits.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_joint_limits.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro.bak
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/right_initial_positions.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/kinematics.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_kinematics.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_gazebo.urdf.xacro
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/ros2_controllers.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_moveit_controllers.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_ompl_planning.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.urdf
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.ros2_control.xacro
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/joint_limits.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pilz_planning.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_gazebo_controllers.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/left_initial_positions.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.srdf
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/moveit_controllers.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/servo.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/moveit.rviz
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/stomp_planning.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.urdf.xacro
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/chomp_planning.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pose_commands.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/initial_positions.yaml
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/path
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/.setup_assistant
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/publish_collision_mesh.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/target_pose_router.py
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/move_to_pose_dual_cpp
+-- Set runtime path of "/home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/move_to_pose_dual_cpp" to ""
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/pose_command_publisher
+-- Set runtime path of "/home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/pose_command_publisher" to ""
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/dual_arm_servo_controller
+-- Set runtime path of "/home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/dual_arm_servo_controller" to ""
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/package_run_dependencies/robot_config
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/parent_prefix_path/robot_config
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/ament_prefix_path.sh
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/ament_prefix_path.dsv
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/path.sh
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/path.dsv
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.bash
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.sh
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.zsh
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.dsv
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/package.dsv
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/packages/robot_config
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/robot_configConfig.cmake
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/robot_configConfig-version.cmake
+-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/package.xml

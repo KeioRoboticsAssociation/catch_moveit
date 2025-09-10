@@ -1,0 +1,773 @@
+[0.000000] (-) TimerEvent: {}
+[0.000348] (-) JobUnselected: {'identifier': 'blue_seiretu_description'}
+[0.000415] (-) JobUnselected: {'identifier': 'catch_gazebo_ros2_control'}
+[0.000447] (-) JobUnselected: {'identifier': 'chomp_motion_planner'}
+[0.000477] (-) JobUnselected: {'identifier': 'd415_rgb_depth_3d'}
+[0.000604] (-) JobUnselected: {'identifier': 'dynamixel_controller'}
+[0.000646] (-) JobUnselected: {'identifier': 'dynamixel_controller_client'}
+[0.000685] (-) JobUnselected: {'identifier': 'dynamixel_controller_gui'}
+[0.000737] (-) JobUnselected: {'identifier': 'dynamixel_sdk'}
+[0.000776] (-) JobUnselected: {'identifier': 'dynamixel_sdk_custom_interfaces'}
+[0.000821] (-) JobUnselected: {'identifier': 'dynamixel_sdk_examples'}
+[0.000887] (-) JobUnselected: {'identifier': 'field_description'}
+[0.000937] (-) JobUnselected: {'identifier': 'hello_moveit'}
+[0.000963] (-) JobUnselected: {'identifier': 'launch_param_builder'}
+[0.000997] (-) JobUnselected: {'identifier': 'moveit'}
+[0.001049] (-) JobUnselected: {'identifier': 'moveit2_tutorials'}
+[0.001075] (-) JobUnselected: {'identifier': 'moveit_chomp_optimizer_adapter'}
+[0.001112] (-) JobUnselected: {'identifier': 'moveit_common'}
+[0.001179] (-) JobUnselected: {'identifier': 'moveit_configs_utils'}
+[0.001206] (-) JobUnselected: {'identifier': 'moveit_core'}
+[0.001233] (-) JobUnselected: {'identifier': 'moveit_hybrid_planning'}
+[0.001259] (-) JobUnselected: {'identifier': 'moveit_kinematics'}
+[0.001323] (-) JobUnselected: {'identifier': 'moveit_planners'}
+[0.001384] (-) JobUnselected: {'identifier': 'moveit_planners_chomp'}
+[0.001410] (-) JobUnselected: {'identifier': 'moveit_planners_ompl'}
+[0.001546] (-) JobUnselected: {'identifier': 'moveit_plugins'}
+[0.001600] (-) JobUnselected: {'identifier': 'moveit_resources'}
+[0.001639] (-) JobUnselected: {'identifier': 'moveit_resources_fanuc_description'}
+[0.001677] (-) JobUnselected: {'identifier': 'moveit_resources_fanuc_moveit_config'}
+[0.001738] (-) JobUnselected: {'identifier': 'moveit_resources_panda_description'}
+[0.001782] (-) JobUnselected: {'identifier': 'moveit_resources_panda_moveit_config'}
+[0.001832] (-) JobUnselected: {'identifier': 'moveit_resources_pr2_description'}
+[0.001857] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_ikfast_manipulator_plugin'}
+[0.001884] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_moveit_config'}
+[0.001919] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_pg70_support'}
+[0.001975] (-) JobUnselected: {'identifier': 'moveit_resources_prbt_support'}
+[0.002003] (-) JobUnselected: {'identifier': 'moveit_ros'}
+[0.002028] (-) JobUnselected: {'identifier': 'moveit_ros_benchmarks'}
+[0.002063] (-) JobUnselected: {'identifier': 'moveit_ros_control_interface'}
+[0.002115] (-) JobUnselected: {'identifier': 'moveit_ros_move_group'}
+[0.002140] (-) JobUnselected: {'identifier': 'moveit_ros_occupancy_map_monitor'}
+[0.002174] (-) JobUnselected: {'identifier': 'moveit_ros_perception'}
+[0.002231] (-) JobUnselected: {'identifier': 'moveit_ros_planning'}
+[0.002259] (-) JobUnselected: {'identifier': 'moveit_ros_planning_interface'}
+[0.002285] (-) JobUnselected: {'identifier': 'moveit_ros_robot_interaction'}
+[0.002311] (-) JobUnselected: {'identifier': 'moveit_ros_visualization'}
+[0.002336] (-) JobUnselected: {'identifier': 'moveit_ros_warehouse'}
+[0.002361] (-) JobUnselected: {'identifier': 'moveit_runtime'}
+[0.002413] (-) JobUnselected: {'identifier': 'moveit_servo'}
+[0.002437] (-) JobUnselected: {'identifier': 'moveit_setup_app_plugins'}
+[0.002462] (-) JobUnselected: {'identifier': 'moveit_setup_assistant'}
+[0.002514] (-) JobUnselected: {'identifier': 'moveit_setup_controllers'}
+[0.002540] (-) JobUnselected: {'identifier': 'moveit_setup_core_plugins'}
+[0.002550] (-) JobUnselected: {'identifier': 'moveit_setup_framework'}
+[0.002558] (-) JobUnselected: {'identifier': 'moveit_setup_srdf_plugins'}
+[0.002565] (-) JobUnselected: {'identifier': 'moveit_simple_controller_manager'}
+[0.002572] (-) JobUnselected: {'identifier': 'moveit_task_constructor_capabilities'}
+[0.002580] (-) JobUnselected: {'identifier': 'moveit_task_constructor_core'}
+[0.002896] (-) JobUnselected: {'identifier': 'moveit_task_constructor_demo'}
+[0.002906] (-) JobUnselected: {'identifier': 'moveit_task_constructor_msgs'}
+[0.002914] (-) JobUnselected: {'identifier': 'moveit_task_constructor_visualization'}
+[0.002922] (-) JobUnselected: {'identifier': 'moveit_visual_tools'}
+[0.002929] (-) JobUnselected: {'identifier': 'mtc_tutorial'}
+[0.002936] (-) JobUnselected: {'identifier': 'object_description'}
+[0.002943] (-) JobUnselected: {'identifier': 'pilz_industrial_motion_planner'}
+[0.002950] (-) JobUnselected: {'identifier': 'pilz_industrial_motion_planner_testutils'}
+[0.002957] (-) JobUnselected: {'identifier': 'realsense2_camera'}
+[0.002964] (-) JobUnselected: {'identifier': 'realsense2_camera_msgs'}
+[0.002971] (-) JobUnselected: {'identifier': 'realsense2_description'}
+[0.002978] (-) JobUnselected: {'identifier': 'realsense2_ros_mqtt_bridge'}
+[0.002985] (-) JobUnselected: {'identifier': 'red_seiretu_description'}
+[0.002992] (-) JobUnselected: {'identifier': 'ros_tcp_endpoint'}
+[0.002998] (-) JobUnselected: {'identifier': 'rosparam_shortcuts'}
+[0.003005] (-) JobUnselected: {'identifier': 'rviz_marker_tools'}
+[0.003012] (-) JobUnselected: {'identifier': 'srdfdom'}
+[0.003018] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.003025] (-) JobUnselected: {'identifier': 'trac_ik_kinematics_plugin'}
+[0.003032] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.003044] (-) JobUnselected: {'identifier': 'urdf_0816_description'}
+[0.003053] (robot_config) JobQueued: {'identifier': 'robot_config', 'dependencies': OrderedDict([('launch_param_builder', '/home/a/ws_moveit2/install/launch_param_builder'), ('moveit_common', '/home/a/ws_moveit2/install/moveit_common'), ('moveit_resources_fanuc_description', '/home/a/ws_moveit2/install/moveit_resources_fanuc_description'), ('moveit_resources_panda_description', '/home/a/ws_moveit2/install/moveit_resources_panda_description'), ('moveit_resources_pr2_description', '/home/a/ws_moveit2/install/moveit_resources_pr2_description'), ('moveit_resources_prbt_support', '/home/a/ws_moveit2/install/moveit_resources_prbt_support'), ('srdfdom', '/home/a/ws_moveit2/install/srdfdom'), ('trac_ik_lib', '/home/a/ws_moveit2/install/trac_ik_lib'), ('moveit_configs_utils', '/home/a/ws_moveit2/install/moveit_configs_utils'), ('moveit_resources_fanuc_moveit_config', '/home/a/ws_moveit2/install/moveit_resources_fanuc_moveit_config'), ('moveit_resources_panda_moveit_config', '/home/a/ws_moveit2/install/moveit_resources_panda_moveit_config'), ('moveit_core', '/home/a/ws_moveit2/install/moveit_core'), ('chomp_motion_planner', '/home/a/ws_moveit2/install/chomp_motion_planner'), ('moveit_resources_prbt_ikfast_manipulator_plugin', '/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin'), ('moveit_ros_occupancy_map_monitor', '/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor'), ('moveit_simple_controller_manager', '/home/a/ws_moveit2/install/moveit_simple_controller_manager'), ('pilz_industrial_motion_planner_testutils', '/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils'), ('trac_ik_kinematics_plugin', '/home/a/ws_moveit2/install/trac_ik_kinematics_plugin'), ('moveit_planners_chomp', '/home/a/ws_moveit2/install/moveit_planners_chomp'), ('moveit_ros_planning', '/home/a/ws_moveit2/install/moveit_ros_planning'), ('moveit_kinematics', '/home/a/ws_moveit2/install/moveit_kinematics'), ('moveit_planners_ompl', '/home/a/ws_moveit2/install/moveit_planners_ompl'), ('moveit_ros_robot_interaction', '/home/a/ws_moveit2/install/moveit_ros_robot_interaction'), ('moveit_ros_warehouse', '/home/a/ws_moveit2/install/moveit_ros_warehouse'), ('moveit_ros_move_group', '/home/a/ws_moveit2/install/moveit_ros_move_group'), ('moveit_resources_prbt_moveit_config', '/home/a/ws_moveit2/install/moveit_resources_prbt_moveit_config'), ('moveit_ros_planning_interface', '/home/a/ws_moveit2/install/moveit_ros_planning_interface'), ('moveit_resources_prbt_pg70_support', '/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support'), ('moveit_ros_visualization', '/home/a/ws_moveit2/install/moveit_ros_visualization'), ('moveit_servo', '/home/a/ws_moveit2/install/moveit_servo'), ('moveit_setup_framework', '/home/a/ws_moveit2/install/moveit_setup_framework'), ('pilz_industrial_motion_planner', '/home/a/ws_moveit2/install/pilz_industrial_motion_planner'), ('moveit_planners', '/home/a/ws_moveit2/install/moveit_planners'), ('moveit_setup_app_plugins', '/home/a/ws_moveit2/install/moveit_setup_app_plugins'), ('moveit_setup_controllers', '/home/a/ws_moveit2/install/moveit_setup_controllers'), ('moveit_setup_core_plugins', '/home/a/ws_moveit2/install/moveit_setup_core_plugins'), ('moveit_setup_srdf_plugins', '/home/a/ws_moveit2/install/moveit_setup_srdf_plugins'), ('moveit_setup_assistant', '/home/a/ws_moveit2/install/moveit_setup_assistant')])}
+[0.003316] (robot_config) JobStarted: {'identifier': 'robot_config'}
+[0.099444] (-) TimerEvent: {}
+[0.114890] (robot_config) JobProgress: {'identifier': 'robot_config', 'progress': 'cmake'}
+[0.115604] (robot_config) JobProgress: {'identifier': 'robot_config', 'progress': 'build'}
+[0.116311] (robot_config) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/a/ws_moveit2/build/robot_config', '--', '-j22', '-l22'], 'cwd': '/home/a/ws_moveit2/build/robot_config', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/a/ws_moveit2/install/moveit_setup_srdf_plugins/lib:/home/a/ws_moveit2/install/moveit_setup_core_plugins/lib:/home/a/ws_moveit2/install/moveit_setup_controllers/lib:/home/a/ws_moveit2/install/moveit_setup_app_plugins/lib:/home/a/ws_moveit2/install/pilz_industrial_motion_planner/lib:/home/a/ws_moveit2/install/moveit_setup_framework/lib:/home/a/ws_moveit2/install/moveit_servo/lib:/home/a/ws_moveit2/install/moveit_ros_visualization/lib:/home/a/ws_moveit2/install/moveit_ros_planning_interface/lib:/home/a/ws_moveit2/install/moveit_ros_move_group/lib:/home/a/ws_moveit2/install/moveit_ros_warehouse/lib:/home/a/ws_moveit2/install/moveit_ros_robot_interaction/lib:/home/a/ws_moveit2/install/moveit_planners_ompl/lib:/home/a/ws_moveit2/install/moveit_kinematics/lib:/home/a/ws_moveit2/install/moveit_ros_planning/lib:/home/a/ws_moveit2/install/moveit_planners_chomp/lib:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin/lib:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils/lib:/home/a/ws_moveit2/install/moveit_simple_controller_manager/lib:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor/lib:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin/lib:/home/a/ws_moveit2/install/chomp_motion_planner/lib:/home/a/ws_moveit2/install/moveit_core/lib:/home/a/ws_moveit2/install/trac_ik_lib/lib:/home/a/ws_moveit2/install/srdfdom/lib:/home/a/ws_moveit2/install/right_arm_ikfast_plugin/lib:/home/a/ws_moveit2/install/moveit_visual_tools/lib:/home/a/ws_moveit2/install/moveit_task_constructor_visualization/lib:/home/a/ws_moveit2/install/moveit_task_constructor_demo/lib:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities/lib:/home/a/ws_moveit2/install/moveit_task_constructor_core/lib:/home/a/ws_moveit2/install/moveit_ros_control_interface/lib:/home/a/ws_moveit2/install/moveit_setup_assistant/lib:/home/a/ws_moveit2/install/moveit_hybrid_planning/lib:/home/a/ws_moveit2/install/moveit_ros_benchmarks/lib:/home/a/ws_moveit2/install/moveit_ros_perception/lib:/home/a/ws_moveit2/install/left_arm_ikfast_plugin/lib:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter/lib:/home/a/ws_moveit2/install/rviz_marker_tools/lib:/home/a/ws_moveit2/install/rosparam_shortcuts/lib:/home/a/ws_moveit2/install/realsense2_camera/lib:/home/a/ws_moveit2/install/realsense2_camera_msgs/lib:/home/a/ws_moveit2/install/moveit_task_constructor_msgs/lib:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces/lib:/home/a/ws_moveit2/install/dynamixel_controller/lib:/home/a/ws_moveit2/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1184'), ('SYSTEMD_EXEC_PID', '1403'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5169'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/a/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:13605'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/ws_moveit2/install/moveit_core/bin:/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/home/a/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1367,unix/a:/tmp/.ICE-unix/1367'), ('INVOCATION_ID', '7735c45a73cb4a32bb6c7dd12d8c5647'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.66LNC3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/urdf_0816_description:/home/a/ws_moveit2/install/trac_ik:/home/a/ws_moveit2/install/robot_config:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin:/home/a/ws_moveit2/install/trac_ik_lib:/home/a/ws_moveit2/install/right_arm_ikfast_plugin:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/a/ws_moveit2/install/moveit_runtime:/home/a/ws_moveit2/install/moveit2_tutorials:/home/a/ws_moveit2/install/moveit:/home/a/ws_moveit2/install/moveit_planners:/home/a/ws_moveit2/install/pilz_industrial_motion_planner:/home/a/ws_moveit2/install/mtc_tutorial:/home/a/ws_moveit2/install/hello_moveit:/home/a/ws_moveit2/install/moveit_visual_tools:/home/a/ws_moveit2/install/moveit_task_constructor_visualization:/home/a/ws_moveit2/install/moveit_task_constructor_demo:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities:/home/a/ws_moveit2/install/moveit_task_constructor_core:/home/a/ws_moveit2/install/moveit_ros_control_interface:/home/a/ws_moveit2/install/moveit_plugins:/home/a/ws_moveit2/install/moveit_simple_controller_manager:/home/a/ws_moveit2/install/moveit_setup_assistant:/home/a/ws_moveit2/install/moveit_setup_srdf_plugins:/home/a/ws_moveit2/install/moveit_setup_core_plugins:/home/a/ws_moveit2/install/moveit_setup_controllers:/home/a/ws_moveit2/install/moveit_setup_app_plugins:/home/a/ws_moveit2/install/moveit_setup_framework:/home/a/ws_moveit2/install/moveit_servo:/home/a/ws_moveit2/install/moveit_ros:/home/a/ws_moveit2/install/moveit_ros_visualization:/home/a/ws_moveit2/install/moveit_hybrid_planning:/home/a/ws_moveit2/install/moveit_ros_planning_interface:/home/a/ws_moveit2/install/moveit_ros_benchmarks:/home/a/ws_moveit2/install/moveit_ros_warehouse:/home/a/ws_moveit2/install/moveit_ros_robot_interaction:/home/a/ws_moveit2/install/moveit_ros_perception:/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/a/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/a/ws_moveit2/install/moveit_ros_move_group:/home/a/ws_moveit2/install/moveit_planners_ompl:/home/a/ws_moveit2/install/left_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_ros_planning:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/a/ws_moveit2/install/moveit_planners_chomp:/home/a/ws_moveit2/install/moveit_kinematics:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/a/ws_moveit2/install/chomp_motion_planner:/home/a/ws_moveit2/install/moveit_core:/home/a/ws_moveit2/install/srdfdom:/home/a/ws_moveit2/install/rviz_marker_tools:/home/a/ws_moveit2/install/rosparam_shortcuts:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/red_seiretu_description:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/realsense2_description:/home/a/ws_moveit2/install/realsense2_camera:/home/a/ws_moveit2/install/realsense2_camera_msgs:/home/a/ws_moveit2/install/object_description:/home/a/ws_moveit2/install/moveit_task_constructor_msgs:/home/a/ws_moveit2/install/moveit_resources_prbt_support:/home/a/ws_moveit2/install/moveit_resources:/home/a/ws_moveit2/install/moveit_resources_pr2_description:/home/a/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/a/ws_moveit2/install/moveit_resources_panda_description:/home/a/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/a/ws_moveit2/install/moveit_resources_fanuc_description:/home/a/ws_moveit2/install/moveit_common:/home/a/ws_moveit2/install/field_description_test:/home/a/ws_moveit2/install/field_description:/home/a/ws_moveit2/install/dynamixel_sdk_examples:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/home/a/ws_moveit2/install/catch_gazebo_ros2_control:/home/a/ws_moveit2/install/blue_seiretu_description:/home/a/ws_moveit2/install/0525_arm_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:53be53a0-a8e0-48c1-9966-49403495e33f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CMAKE_MODULE_PATH', '/home/a/ws_moveit2/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/build/robot_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/a/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/a/ws_moveit2/install/moveit_configs_utils/lib/python3.10/site-packages:/home/a/ws_moveit2/install/launch_param_builder/lib/python3.10/site-packages:/home/a/ws_moveit2/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/srdfdom/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/ros_tcp_endpoint/lib/python3.10/site-packages:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge/lib/python3.10/site-packages:/home/a/ws_moveit2/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages:/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages:/home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/a/ws_moveit2/install/moveit_setup_assistant:/home/a/ws_moveit2/install/moveit_setup_srdf_plugins:/home/a/ws_moveit2/install/moveit_setup_core_plugins:/home/a/ws_moveit2/install/moveit_setup_controllers:/home/a/ws_moveit2/install/moveit_setup_app_plugins:/home/a/ws_moveit2/install/moveit_planners:/home/a/ws_moveit2/install/pilz_industrial_motion_planner:/home/a/ws_moveit2/install/moveit_setup_framework:/home/a/ws_moveit2/install/moveit_servo:/home/a/ws_moveit2/install/moveit_ros_visualization:/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/a/ws_moveit2/install/moveit_ros_planning_interface:/home/a/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/a/ws_moveit2/install/moveit_ros_move_group:/home/a/ws_moveit2/install/moveit_ros_warehouse:/home/a/ws_moveit2/install/moveit_ros_robot_interaction:/home/a/ws_moveit2/install/moveit_planners_ompl:/home/a/ws_moveit2/install/moveit_kinematics:/home/a/ws_moveit2/install/moveit_ros_planning:/home/a/ws_moveit2/install/moveit_planners_chomp:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/a/ws_moveit2/install/moveit_simple_controller_manager:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/a/ws_moveit2/install/chomp_motion_planner:/home/a/ws_moveit2/install/moveit_core:/home/a/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/a/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/a/ws_moveit2/install/trac_ik_lib:/home/a/ws_moveit2/install/srdfdom:/home/a/ws_moveit2/install/moveit_resources_prbt_support:/home/a/ws_moveit2/install/moveit_resources_pr2_description:/home/a/ws_moveit2/install/moveit_resources_panda_description:/home/a/ws_moveit2/install/moveit_resources_fanuc_description:/home/a/ws_moveit2/install/moveit_common:/home/a/ws_moveit2/install/urdf_0816_description:/home/a/ws_moveit2/install/trac_ik:/home/a/ws_moveit2/install/robot_config:/home/a/ws_moveit2/install/right_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_runtime:/home/a/ws_moveit2/install/moveit2_tutorials:/home/a/ws_moveit2/install/moveit:/home/a/ws_moveit2/install/mtc_tutorial:/home/a/ws_moveit2/install/hello_moveit:/home/a/ws_moveit2/install/moveit_visual_tools:/home/a/ws_moveit2/install/moveit_task_constructor_visualization:/home/a/ws_moveit2/install/moveit_task_constructor_demo:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities:/home/a/ws_moveit2/install/moveit_task_constructor_core:/home/a/ws_moveit2/install/moveit_ros_control_interface:/home/a/ws_moveit2/install/moveit_plugins:/home/a/ws_moveit2/install/moveit_ros:/home/a/ws_moveit2/install/moveit_hybrid_planning:/home/a/ws_moveit2/install/moveit_ros_benchmarks:/home/a/ws_moveit2/install/moveit_ros_perception:/home/a/ws_moveit2/install/left_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/a/ws_moveit2/install/rviz_marker_tools:/home/a/ws_moveit2/install/rosparam_shortcuts:/home/a/ws_moveit2/install/red_seiretu_description:/home/a/ws_moveit2/install/realsense2_description:/home/a/ws_moveit2/install/realsense2_camera:/home/a/ws_moveit2/install/realsense2_camera_msgs:/home/a/ws_moveit2/install/object_description:/home/a/ws_moveit2/install/moveit_task_constructor_msgs:/home/a/ws_moveit2/install/moveit_resources:/home/a/ws_moveit2/install/field_description_test:/home/a/ws_moveit2/install/field_description:/home/a/ws_moveit2/install/dynamixel_sdk_examples:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces:/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:/home/a/ws_moveit2/install/catch_gazebo_ros2_control:/home/a/ws_moveit2/install/blue_seiretu_description:/home/a/ws_moveit2/install/0525_arm_description:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble')]), 'shell': False}
+[0.172588] (robot_config) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp\x1b[0m\n'}
+[0.181829] (robot_config) StdoutLine: {'line': b'[ 33%] Built target dual_arm_servo_controller\n'}
+[0.182040] (robot_config) StdoutLine: {'line': b'[ 66%] Built target pose_command_publisher\n'}
+[0.194729] (robot_config) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o\x1b[0m\n'}
+[0.199535] (-) TimerEvent: {}
+[0.299835] (-) TimerEvent: {}
+[0.400202] (-) TimerEvent: {}
+[0.500648] (-) TimerEvent: {}
+[0.601115] (-) TimerEvent: {}
+[0.701599] (-) TimerEvent: {}
+[0.801983] (-) TimerEvent: {}
+[0.902418] (-) TimerEvent: {}
+[1.003028] (-) TimerEvent: {}
+[1.103375] (-) TimerEvent: {}
+[1.203731] (-) TimerEvent: {}
+[1.304072] (-) TimerEvent: {}
+[1.404431] (-) TimerEvent: {}
+[1.504796] (-) TimerEvent: {}
+[1.605136] (-) TimerEvent: {}
+[1.705474] (-) TimerEvent: {}
+[1.805901] (-) TimerEvent: {}
+[1.906307] (-) TimerEvent: {}
+[2.006671] (-) TimerEvent: {}
+[2.107047] (-) TimerEvent: {}
+[2.207401] (-) TimerEvent: {}
+[2.307879] (-) TimerEvent: {}
+[2.408235] (-) TimerEvent: {}
+[2.508590] (-) TimerEvent: {}
+[2.608929] (-) TimerEvent: {}
+[2.709274] (-) TimerEvent: {}
+[2.809624] (-) TimerEvent: {}
+[2.909949] (-) TimerEvent: {}
+[3.010281] (-) TimerEvent: {}
+[3.110618] (-) TimerEvent: {}
+[3.211001] (-) TimerEvent: {}
+[3.311434] (-) TimerEvent: {}
+[3.411795] (-) TimerEvent: {}
+[3.512172] (-) TimerEvent: {}
+[3.612531] (-) TimerEvent: {}
+[3.712958] (-) TimerEvent: {}
+[3.813283] (-) TimerEvent: {}
+[3.913654] (-) TimerEvent: {}
+[4.014029] (-) TimerEvent: {}
+[4.114366] (-) TimerEvent: {}
+[4.117480] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1207:2:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K}\x1b[m\x1b[K\xe2\x80\x99 at end of input\n'}
+[4.117823] (robot_config) StderrLine: {'line': b' 1207 | }\n'}
+[4.117900] (robot_config) StderrLine: {'line': b'      |  \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[4.117960] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:24:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.118018] (robot_config) StderrLine: {'line': b'   24 | \x1b[01;36m\x1b[K{\x1b[m\x1b[K\n'}
+[4.118078] (robot_config) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.127907] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp::MoveToPoseDualCpp()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.128052] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:30:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_rpy_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.128130] (robot_config) StderrLine: {'line': b'   30 |         \x1b[01;31m\x1b[Kleft_rpy_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(\n'}
+[4.128193] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.174213] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:32:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_rpy_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.174419] (robot_config) StderrLine: {'line': b'   32 |         \x1b[01;31m\x1b[Kright_rpy_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(\n'}
+[4.174503] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.184066] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:35:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kdual_rpy_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.184203] (robot_config) StderrLine: {'line': b'   35 |         \x1b[01;31m\x1b[Kdual_rpy_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(\n'}
+[4.184269] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.195916] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:40:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kenable_local_psm_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.196047] (robot_config) StderrLine: {'line': b'   40 |         \x1b[01;31m\x1b[Kenable_local_psm_\x1b[m\x1b[K = this->declare_parameter<bool>("enable_local_planning_scene_monitor", false);\n'}
+[4.196114] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.208084] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:43:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_init_thread_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.208314] (robot_config) StderrLine: {'line': b'   43 |         \x1b[01;31m\x1b[Kleft_init_thread_\x1b[m\x1b[K = std::thread([this]() {\n'}
+[4.208383] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.214442] (-) TimerEvent: {}
+[4.223965] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[4.224094] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:45:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.224168] (robot_config) StderrLine: {'line': b'   45 |             \x1b[01;31m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");\n'}
+[4.224229] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.224303] (robot_config) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[4.246710] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:53:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_hand_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.246884] (robot_config) StderrLine: {'line': b'   53 |             \x1b[01;31m\x1b[Kleft_hand_move_group_interface_\x1b[m\x1b[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");\n'}
+[4.246955] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.260842] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:59:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_pose_received_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.260983] (robot_config) StderrLine: {'line': b'   59 |             if (\x1b[01;31m\x1b[Kleft_pose_received_\x1b[m\x1b[K && last_left_pose_rpy_.size() == 6 && left_move_group_interface_) {\n'}
+[4.261055] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.274150] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:59:40:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_left_pose_rpy_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.274294] (robot_config) StderrLine: {'line': b'   59 |             if (left_pose_received_ && \x1b[01;31m\x1b[Klast_left_pose_rpy_\x1b[m\x1b[K.size() == 6 && left_move_group_interface_) {\n'}
+[4.274362] (robot_config) StderrLine: {'line': b'      |                                        \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.287375] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp::MoveToPoseDualCpp()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.287518] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:79:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_init_thread_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.287593] (robot_config) StderrLine: {'line': b'   79 |         \x1b[01;31m\x1b[Kright_init_thread_\x1b[m\x1b[K = std::thread([this]() {\n'}
+[4.287650] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.303027] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[4.303161] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:81:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.303234] (robot_config) StderrLine: {'line': b'   81 |             \x1b[01;31m\x1b[Kright_move_group_interface_\x1b[m\x1b[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");\n'}
+[4.303291] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.303348] (robot_config) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[4.314544] (-) TimerEvent: {}
+[4.324341] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:89:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_hand_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.324512] (robot_config) StderrLine: {'line': b'   89 |             \x1b[01;31m\x1b[Kright_hand_move_group_interface_\x1b[m\x1b[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");\n'}
+[4.324585] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.339097] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:95:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_pose_received_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.339231] (robot_config) StderrLine: {'line': b'   95 |             if (\x1b[01;31m\x1b[Kright_pose_received_\x1b[m\x1b[K && last_right_pose_rpy_.size() == 6 && right_move_group_interface_) {\n'}
+[4.339297] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.353032] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:95:41:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_right_pose_rpy_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.353123] (robot_config) StderrLine: {'line': b'   95 |             if (right_pose_received_ && \x1b[01;31m\x1b[Klast_right_pose_rpy_\x1b[m\x1b[K.size() == 6 && right_move_group_interface_) {\n'}
+[4.353180] (robot_config) StderrLine: {'line': b'      |                                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.365325] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp::MoveToPoseDualCpp()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.365408] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:115:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_attach_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.365463] (robot_config) StderrLine: {'line': b'  115 |         \x1b[01;31m\x1b[Kleft_attach_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.365526] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.365577] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:116:70:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_attach_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.365642] (robot_config) StderrLine: {'line': b'  116 |             "/left_attach_object", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kleft_attach_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.365697] (robot_config) StderrLine: {'line': b'      |                                                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.376407] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:117:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_detach_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.376559] (robot_config) StderrLine: {'line': b'  117 |         \x1b[01;31m\x1b[Kleft_detach_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.376627] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.376683] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:118:70:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_detach_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.376764] (robot_config) StderrLine: {'line': b'  118 |             "/left_detach_object", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kleft_detach_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.376820] (robot_config) StderrLine: {'line': b'      |                                                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.387873] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:119:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_attach_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.388003] (robot_config) StderrLine: {'line': b'  119 |         \x1b[01;31m\x1b[Kright_attach_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.388070] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.388127] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:120:71:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_attach_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.388185] (robot_config) StderrLine: {'line': b'  120 |             "/right_attach_object", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kright_attach_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.388241] (robot_config) StderrLine: {'line': b'      |                                                                       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.400084] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:121:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_detach_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.400216] (robot_config) StderrLine: {'line': b'  121 |         \x1b[01;31m\x1b[Kright_detach_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.400288] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.400345] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:122:71:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_detach_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.400403] (robot_config) StderrLine: {'line': b'  122 |             "/right_detach_object", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kright_detach_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.400456] (robot_config) StderrLine: {'line': b'      |                                                                       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.410793] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:125:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_up_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.410924] (robot_config) StderrLine: {'line': b'  125 |         \x1b[01;31m\x1b[Kleft_arm_up_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.410992] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.411046] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:126:63:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_up_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.411115] (robot_config) StderrLine: {'line': b'  126 |             "/left_arm_up", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kleft_arm_up_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.411170] (robot_config) StderrLine: {'line': b'      |                                                               \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.414625] (-) TimerEvent: {}
+[4.423576] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:127:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_down_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.423706] (robot_config) StderrLine: {'line': b'  127 |         \x1b[01;31m\x1b[Kleft_arm_down_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.423775] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.423845] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:128:65:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_down_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.423905] (robot_config) StderrLine: {'line': b'  128 |             "/left_arm_down", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kleft_arm_down_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.423959] (robot_config) StderrLine: {'line': b'      |                                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.434759] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:129:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_up_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.434893] (robot_config) StderrLine: {'line': b'  129 |         \x1b[01;31m\x1b[Kright_arm_up_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.434962] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.435018] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:130:64:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_up_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.435090] (robot_config) StderrLine: {'line': b'  130 |             "/right_arm_up", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kright_arm_up_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.435144] (robot_config) StderrLine: {'line': b'      |                                                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.448104] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:131:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_down_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.448269] (robot_config) StderrLine: {'line': b'  131 |         \x1b[01;31m\x1b[Kright_arm_down_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.448338] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.448394] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:132:66:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_down_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.448452] (robot_config) StderrLine: {'line': b'  132 |             "/right_arm_down", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kright_arm_down_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.448523] (robot_config) StderrLine: {'line': b'      |                                                                  \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.460732] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:135:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_open_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.460866] (robot_config) StderrLine: {'line': b'  135 |         \x1b[01;31m\x1b[Kleft_arm_open_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.460935] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.460993] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:136:65:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_open_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.461049] (robot_config) StderrLine: {'line': b'  136 |             "/left_arm_open", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kleft_arm_open_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.461104] (robot_config) StderrLine: {'line': b'      |                                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.473664] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:137:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_close_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.473802] (robot_config) StderrLine: {'line': b'  137 |         \x1b[01;31m\x1b[Kleft_arm_close_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.473868] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.473926] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:138:66:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_close_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.473983] (robot_config) StderrLine: {'line': b'  138 |             "/left_arm_close", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kleft_arm_close_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.474036] (robot_config) StderrLine: {'line': b'      |                                                                  \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.486859] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:139:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_open_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.486999] (robot_config) StderrLine: {'line': b'  139 |         \x1b[01;31m\x1b[Kright_arm_open_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.487067] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.487126] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:140:66:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_open_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.487185] (robot_config) StderrLine: {'line': b'  140 |             "/right_arm_open", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kright_arm_open_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.487243] (robot_config) StderrLine: {'line': b'      |                                                                  \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.500665] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:141:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_close_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.500797] (robot_config) StderrLine: {'line': b'  141 |         \x1b[01;31m\x1b[Kright_arm_close_sub_\x1b[m\x1b[K = this->create_subscription<std_msgs::msg::String>(\n'}
+[4.500863] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.500919] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:142:67:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_close_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.500977] (robot_config) StderrLine: {'line': b'  142 |             "/right_arm_close", 10, std::bind(&MoveToPoseDualCpp::\x1b[01;31m\x1b[Kright_arm_close_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[4.501040] (robot_config) StderrLine: {'line': b'      |                                                                   \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.511611] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:147:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpost_init_timer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.511759] (robot_config) StderrLine: {'line': b'  147 |         \x1b[01;31m\x1b[Kpost_init_timer_\x1b[m\x1b[K = this->create_wall_timer(\n'}
+[4.511829] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.512093] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[4.512216] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:152:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpost_init_timer_\x1b[m\x1b[K\xe2\x80\x99 is not captured\n'}
+[4.512284] (robot_config) StderrLine: {'line': b'  152 |                 \x1b[01;31m\x1b[Kpost_init_timer_\x1b[m\x1b[K->cancel();\n'}
+[4.512340] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.512395] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:149:18:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kthe lambda has no capture-default\n'}
+[4.512449] (robot_config) StderrLine: {'line': b'  149 |             [this\x1b[01;36m\x1b[K]\x1b[m\x1b[K() {\n'}
+[4.512517] (robot_config) StderrLine: {'line': b'      |                  \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[4.512572] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:147:9:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K<typeprefixerror>post_init_timer_\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.512627] (robot_config) StderrLine: {'line': b'  147 |         \x1b[01;36m\x1b[Kpost_init_timer_\x1b[m\x1b[K = this->create_wall_timer(\n'}
+[4.512681] (robot_config) StderrLine: {'line': b'      |         \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.514781] (-) TimerEvent: {}
+[4.528232] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In destructor \xe2\x80\x98\x1b[01m\x1b[Kvirtual MoveToPoseDualCpp::~MoveToPoseDualCpp()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.528376] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:159:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_init_thread_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.528459] (robot_config) StderrLine: {'line': b'  159 |         if (\x1b[01;31m\x1b[Kleft_init_thread_\x1b[m\x1b[K.joinable())\n'}
+[4.528541] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.541057] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:163:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_init_thread_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.541152] (robot_config) StderrLine: {'line': b'  163 |         if (\x1b[01;31m\x1b[Kright_init_thread_\x1b[m\x1b[K.joinable())\n'}
+[4.541217] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.556244] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::do_post_init()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.556365] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:173:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplanning_scene_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kplanning_scene_monitor\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.556438] (robot_config) StderrLine: {'line': b'  173 |         \x1b[01;31m\x1b[Kplanning_scene_interface_\x1b[m\x1b[K = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();\n'}
+[4.556509] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.556573] (robot_config) StderrLine: {'line': b'      |         \x1b[32m\x1b[Kplanning_scene_monitor\x1b[m\x1b[K\n'}
+[4.569818] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:176:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kenable_local_psm_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.569891] (robot_config) StderrLine: {'line': b'  176 |         if (\x1b[01;31m\x1b[Kenable_local_psm_\x1b[m\x1b[K) {\n'}
+[4.569946] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.575926] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:177:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplanning_scene_monitor_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kplanning_scene_monitor\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.575996] (robot_config) StderrLine: {'line': b'  177 |             \x1b[01;31m\x1b[Kplanning_scene_monitor_\x1b[m\x1b[K = std::make_shared<planning_scene_monitor::PlanningSceneMonitor>(\n'}
+[4.576049] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.576100] (robot_config) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kplanning_scene_monitor\x1b[m\x1b[K\n'}
+[4.590778] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_action_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.590860] (robot_config) StderrLine: {'line': b'  192 |         \x1b[01;31m\x1b[Kleft_arm_action_client_\x1b[m\x1b[K = rclcpp_action::create_client<FollowJointTrajectory>(\n'}
+[4.590917] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.591896] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:64:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KFollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.592200] (robot_config) StderrLine: {'line': b'  192 |         left_arm_action_client_ = rclcpp_action::create_client<\x1b[01;31m\x1b[KFollowJointTrajectory\x1b[m\x1b[K>(\n'}
+[4.592276] (robot_config) StderrLine: {'line': b'      |                                                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.592336] (robot_config) StderrLine: {'line': b'      |                                                                \x1b[32m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\n'}
+[4.592392] (robot_config) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7\x1b[m\x1b[K,\n'}
+[4.592445] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16\x1b[m\x1b[K:\n'}
+[4.592518] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.592590] (robot_config) StderrLine: {'line': b' 1309 | typedef struct FollowJointTrajectory \x1b[01;36m\x1b[KFollowJointTrajectory\x1b[m\x1b[K;\n'}
+[4.592645] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.592699] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:86:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kcreate_client<<expression error> >(MoveToPoseDualCpp*, const char [45])\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.592754] (robot_config) StderrLine: {'line': b'  192 |         left_arm_action_client_ = \x1b[01;31m\x1b[Krclcpp_action::create_client<FollowJointTrajectory>(\x1b[m\x1b[K\n'}
+[4.592805] (robot_config) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[4.592855] (robot_config) StderrLine: {'line': b'  193 | \x1b[01;31m\x1b[K            this, "/left_arm_controller/follow_joint_trajectory")\x1b[m\x1b[K;\n'}
+[4.592905] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K                     \n'}
+[4.592955] (robot_config) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38\x1b[m\x1b[K,\n'}
+[4.593004] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58\x1b[m\x1b[K,\n'}
+[4.593055] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6\x1b[m\x1b[K:\n'}
+[4.593104] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.593168] (robot_config) StderrLine: {'line': b'   44 | \x1b[01;36m\x1b[Kcreate_client\x1b[m\x1b[K(\n'}
+[4.593222] (robot_config) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.593273] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[4.593325] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:86:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.593376] (robot_config) StderrLine: {'line': b'  192 |         left_arm_action_client_ = \x1b[01;31m\x1b[Krclcpp_action::create_client<FollowJointTrajectory>(\x1b[m\x1b[K\n'}
+[4.593426] (robot_config) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[4.593477] (robot_config) StderrLine: {'line': b'  193 | \x1b[01;31m\x1b[K            this, "/left_arm_controller/follow_joint_trajectory")\x1b[m\x1b[K;\n'}
+[4.593535] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K                     \n'}
+[4.593587] (robot_config) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38\x1b[m\x1b[K,\n'}
+[4.593637] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58\x1b[m\x1b[K,\n'}
+[4.593686] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6\x1b[m\x1b[K:\n'}
+[4.593735] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(NodeT, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.593790] (robot_config) StderrLine: {'line': b'  105 | \x1b[01;36m\x1b[Kcreate_client\x1b[m\x1b[K(\n'}
+[4.593840] (robot_config) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.593892] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[4.593944] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:86:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.593994] (robot_config) StderrLine: {'line': b'  192 |         left_arm_action_client_ = \x1b[01;31m\x1b[Krclcpp_action::create_client<FollowJointTrajectory>(\x1b[m\x1b[K\n'}
+[4.594043] (robot_config) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[4.594093] (robot_config) StderrLine: {'line': b'  193 | \x1b[01;31m\x1b[K            this, "/left_arm_controller/follow_joint_trajectory")\x1b[m\x1b[K;\n'}
+[4.594142] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K                     \n'}
+[4.606903] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:194:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_action_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.607046] (robot_config) StderrLine: {'line': b'  194 |         \x1b[01;31m\x1b[Kright_arm_action_client_\x1b[m\x1b[K = rclcpp_action::create_client<FollowJointTrajectory>(\n'}
+[4.607114] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.607172] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:194:87:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kcreate_client<FollowJointTrajectory>(MoveToPoseDualCpp*, const char [46])\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.607229] (robot_config) StderrLine: {'line': b'  194 |         right_arm_action_client_ = \x1b[01;31m\x1b[Krclcpp_action::create_client<FollowJointTrajectory>(\x1b[m\x1b[K\n'}
+[4.607282] (robot_config) StderrLine: {'line': b'      |                                    \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[4.607334] (robot_config) StderrLine: {'line': b'  195 | \x1b[01;31m\x1b[K            this, "/right_arm_controller/follow_joint_trajectory")\x1b[m\x1b[K;\n'}
+[4.607391] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K                     \n'}
+[4.607447] (robot_config) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38\x1b[m\x1b[K,\n'}
+[4.607650] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58\x1b[m\x1b[K,\n'}
+[4.607816] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6\x1b[m\x1b[K:\n'}
+[4.607881] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.607949] (robot_config) StderrLine: {'line': b'   44 | \x1b[01;36m\x1b[Kcreate_client\x1b[m\x1b[K(\n'}
+[4.608011] (robot_config) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.608063] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[4.608117] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(NodeT, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.608172] (robot_config) StderrLine: {'line': b'  105 | \x1b[01;36m\x1b[Kcreate_client\x1b[m\x1b[K(\n'}
+[4.608224] (robot_config) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.608275] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[4.614870] (-) TimerEvent: {}
+[4.616091] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:205:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kactions_ready_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.616238] (robot_config) StderrLine: {'line': b'  205 |         \x1b[01;31m\x1b[Kactions_ready_\x1b[m\x1b[K = true;\n'}
+[4.616306] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.629022] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:206:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KattemptFlushPending\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.629156] (robot_config) StderrLine: {'line': b'  206 |         \x1b[01;31m\x1b[KattemptFlushPending\x1b[m\x1b[K();\n'}
+[4.629221] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.645155] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:209:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_servo_start_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.645312] (robot_config) StderrLine: {'line': b'  209 |         \x1b[01;31m\x1b[Kleft_servo_start_client_\x1b[m\x1b[K = this->create_client<std_srvs::srv::Trigger>(\n'}
+[4.645379] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.699222] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:211:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_servo_stop_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.699420] (robot_config) StderrLine: {'line': b'  211 |         \x1b[01;31m\x1b[Kleft_servo_stop_client_\x1b[m\x1b[K = this->create_client<std_srvs::srv::Trigger>(\n'}
+[4.699501] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.714959] (-) TimerEvent: {}
+[4.716092] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:213:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_servo_start_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.716234] (robot_config) StderrLine: {'line': b'  213 |         \x1b[01;31m\x1b[Kright_servo_start_client_\x1b[m\x1b[K = this->create_client<std_srvs::srv::Trigger>(\n'}
+[4.716309] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.732696] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:215:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_servo_stop_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.757763] (robot_config) StderrLine: {'line': b'  215 |         \x1b[01;31m\x1b[Kright_servo_stop_client_\x1b[m\x1b[K = this->create_client<std_srvs::srv::Trigger>(\n'}
+[4.757880] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.757943] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:219:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ktf_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.758011] (robot_config) StderrLine: {'line': b'  219 |         \x1b[01;31m\x1b[Ktf_buffer_\x1b[m\x1b[K = std::make_unique<tf2_ros::Buffer>(this->get_clock());\n'}
+[4.758065] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.758118] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:220:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ktf_listener_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.758173] (robot_config) StderrLine: {'line': b'  220 |         \x1b[01;31m\x1b[Ktf_listener_\x1b[m\x1b[K = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);\n'}
+[4.758224] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.769528] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::stopServo(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.769668] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:228:46:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_servo_stop_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.769736] (robot_config) StderrLine: {'line': b'  228 |         auto client = (arm_name == "left") ? \x1b[01;31m\x1b[Kleft_servo_stop_client_\x1b[m\x1b[K : right_servo_stop_client_;\n'}
+[4.769798] (robot_config) StderrLine: {'line': b'      |                                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.785993] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:228:72:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_servo_stop_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.786133] (robot_config) StderrLine: {'line': b'  228 |         auto client = (arm_name == "left") ? left_servo_stop_client_ : \x1b[01;31m\x1b[Kright_servo_stop_client_\x1b[m\x1b[K;\n'}
+[4.786207] (robot_config) StderrLine: {'line': b'      |                                                                        \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.802702] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::startServo(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.802841] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:246:46:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_servo_start_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.802911] (robot_config) StderrLine: {'line': b'  246 |         auto client = (arm_name == "left") ? \x1b[01;31m\x1b[Kleft_servo_start_client_\x1b[m\x1b[K : right_servo_start_client_;\n'}
+[4.802969] (robot_config) StderrLine: {'line': b'      |                                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.815057] (-) TimerEvent: {}
+[4.818959] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:246:73:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_servo_start_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.819116] (robot_config) StderrLine: {'line': b'  246 |         auto client = (arm_name == "left") ? left_servo_start_client_ : \x1b[01;31m\x1b[Kright_servo_start_client_\x1b[m\x1b[K;\n'}
+[4.819185] (robot_config) StderrLine: {'line': b'      |                                                                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.836497] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::left_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.836639] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:308:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_left_pose_rpy_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.836719] (robot_config) StderrLine: {'line': b'  308 |         \x1b[01;31m\x1b[Klast_left_pose_rpy_\x1b[m\x1b[K = msg->data;\n'}
+[4.836778] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.850240] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:309:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_pose_received_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.850399] (robot_config) StderrLine: {'line': b'  309 |         \x1b[01;31m\x1b[Kleft_pose_received_\x1b[m\x1b[K = true;\n'}
+[4.850472] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.865126] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::right_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.865300] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:338:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_right_pose_rpy_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.865381] (robot_config) StderrLine: {'line': b'  338 |         \x1b[01;31m\x1b[Klast_right_pose_rpy_\x1b[m\x1b[K = msg->data;\n'}
+[4.865440] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.879316] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:339:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_pose_received_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.879452] (robot_config) StderrLine: {'line': b'  339 |         \x1b[01;31m\x1b[Kright_pose_received_\x1b[m\x1b[K = true;\n'}
+[4.879530] (robot_config) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.901938] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[4.902079] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:369:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KapplyDynamicCollisionAvoidance\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.902150] (robot_config) StderrLine: {'line': b'  369 |             \x1b[01;31m\x1b[KapplyDynamicCollisionAvoidance\x1b[m\x1b[K(move_group_interface, arm_name);\n'}
+[4.902208] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.915151] (-) TimerEvent: {}
+[4.922204] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:419:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kexecute_trajectory_directly\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.922339] (robot_config) StderrLine: {'line': b'  419 |                 \x1b[01;31m\x1b[Kexecute_trajectory_directly\x1b[m\x1b[K(move_group_interface, my_plan, arm_name);\n'}
+[4.922408] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.937277] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:425:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KstopTrajectoryTracking\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.937421] (robot_config) StderrLine: {'line': b'  425 |                 \x1b[01;31m\x1b[KstopTrajectoryTracking\x1b[m\x1b[K(arm_name);\n'}
+[4.937501] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.947565] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::handleIncomingTargetPose(const string&, const PoseStamped&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.947735] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:469:44:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ksync_mutex_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.947805] (robot_config) StderrLine: {'line': b'  469 |             std::lock_guard<std::mutex> lk(\x1b[01;31m\x1b[Ksync_mutex_\x1b[m\x1b[K);\n'}
+[4.947866] (robot_config) StderrLine: {'line': b'      |                                            \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.959961] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:471:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_left_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.960100] (robot_config) StderrLine: {'line': b'  471 |                 \x1b[01;31m\x1b[Kpending_left_pose_\x1b[m\x1b[K = target_pose;\n'}
+[4.960166] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.972564] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:472:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_left_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.972707] (robot_config) StderrLine: {'line': b'  472 |                 \x1b[01;31m\x1b[Kpending_left_time_\x1b[m\x1b[K = now_tp;\n'}
+[4.972775] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.987657] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:473:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_pending_left_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.987805] (robot_config) StderrLine: {'line': b'  473 |                 \x1b[01;31m\x1b[Khas_pending_left_pose_\x1b[m\x1b[K = true;\n'}
+[4.987873] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.000769] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:475:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_right_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.000907] (robot_config) StderrLine: {'line': b'  475 |                 \x1b[01;31m\x1b[Kpending_right_pose_\x1b[m\x1b[K = target_pose;\n'}
+[5.000980] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.013626] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:476:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_right_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.013772] (robot_config) StderrLine: {'line': b'  476 |                 \x1b[01;31m\x1b[Kpending_right_time_\x1b[m\x1b[K = now_tp;\n'}
+[5.013842] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.015235] (-) TimerEvent: {}
+[5.028787] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:477:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_pending_right_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.028942] (robot_config) StderrLine: {'line': b'  477 |                 \x1b[01;31m\x1b[Khas_pending_right_pose_\x1b[m\x1b[K = true;\n'}
+[5.029016] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.044414] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:480:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_pending_left_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.044581] (robot_config) StderrLine: {'line': b'  480 |             if (\x1b[01;31m\x1b[Khas_pending_left_pose_\x1b[m\x1b[K && has_pending_right_pose_) {\n'}
+[5.044653] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.059828] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:480:43:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_pending_right_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.059962] (robot_config) StderrLine: {'line': b'  480 |             if (has_pending_left_pose_ && \x1b[01;31m\x1b[Khas_pending_right_pose_\x1b[m\x1b[K) {\n'}
+[5.060030] (robot_config) StderrLine: {'line': b'      |                                           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.072223] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:481:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_left_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.072370] (robot_config) StderrLine: {'line': b'  481 |                 auto dt = (\x1b[01;31m\x1b[Kpending_left_time_\x1b[m\x1b[K > pending_right_time_) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);\n'}
+[5.072440] (robot_config) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.084671] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:481:49:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_right_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.084806] (robot_config) StderrLine: {'line': b'  481 |                 auto dt = (pending_left_time_ > \x1b[01;31m\x1b[Kpending_right_time_\x1b[m\x1b[K) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);\n'}
+[5.084875] (robot_config) StderrLine: {'line': b'      |                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.096134] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:483:30:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_left_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.096268] (robot_config) StderrLine: {'line': b'  483 |                     l_pose = \x1b[01;31m\x1b[Kpending_left_pose_\x1b[m\x1b[K;\n'}
+[5.096338] (robot_config) StderrLine: {'line': b'      |                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.108581] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:484:30:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_right_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.108713] (robot_config) StderrLine: {'line': b'  484 |                     r_pose = \x1b[01;31m\x1b[Kpending_right_pose_\x1b[m\x1b[K;\n'}
+[5.108781] (robot_config) StderrLine: {'line': b'      |                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.115324] (-) TimerEvent: {}
+[5.116836] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[5.116981] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:504:48:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ksync_mutex_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.117053] (robot_config) StderrLine: {'line': b'  504 |                 std::lock_guard<std::mutex> lk(\x1b[01;31m\x1b[Ksync_mutex_\x1b[m\x1b[K);\n'}
+[5.117123] (robot_config) StderrLine: {'line': b'      |                                                \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.131986] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:506:38:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_pending_left_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.132130] (robot_config) StderrLine: {'line': b'  506 |                     still_unpaired = \x1b[01;31m\x1b[Khas_pending_left_pose_\x1b[m\x1b[K && (pending_left_time_ == now_tp);\n'}
+[5.132199] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.144842] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:506:65:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_left_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.144991] (robot_config) StderrLine: {'line': b'  506 |                     still_unpaired = has_pending_left_pose_ && (\x1b[01;31m\x1b[Kpending_left_time_\x1b[m\x1b[K == now_tp);\n'}
+[5.145059] (robot_config) StderrLine: {'line': b'      |                                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.159910] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:509:38:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_pending_right_pose_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.160055] (robot_config) StderrLine: {'line': b'  509 |                     still_unpaired = \x1b[01;31m\x1b[Khas_pending_right_pose_\x1b[m\x1b[K && (pending_right_time_ == now_tp);\n'}
+[5.160125] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.172692] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:509:66:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpending_right_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.172826] (robot_config) StderrLine: {'line': b'  509 |                     still_unpaired = has_pending_right_pose_ && (\x1b[01;31m\x1b[Kpending_right_time_\x1b[m\x1b[K == now_tp);\n'}
+[5.172894] (robot_config) StderrLine: {'line': b'      |                                                                  \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.187398] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:514:51:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.187692] (robot_config) StderrLine: {'line': b'  514 |                 auto mgi = (arm_name == "left") ? \x1b[01;31m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K : right_move_group_interface_;\n'}
+[5.187784] (robot_config) StderrLine: {'line': b'      |                                                   \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.187847] (robot_config) StderrLine: {'line': b'      |                                                   \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[5.202385] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:514:80:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.202549] (robot_config) StderrLine: {'line': b'  514 |                 auto mgi = (arm_name == "left") ? left_move_group_interface_ : \x1b[01;31m\x1b[Kright_move_group_interface_\x1b[m\x1b[K;\n'}
+[5.202624] (robot_config) StderrLine: {'line': b'      |                                                                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.202688] (robot_config) StderrLine: {'line': b'      |                                                                                \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[5.211313] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[5.211480] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:546:27:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.211564] (robot_config) StderrLine: {'line': b'  546 |             if (mgi->plan(\x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K) == moveit::core::MoveItErrorCode::SUCCESS) return true;\n'}
+[5.211623] (robot_config) StderrLine: {'line': b'      |                           \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.215413] (-) TimerEvent: {}
+[5.219159] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:550:31:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.219295] (robot_config) StderrLine: {'line': b'  550 |             return (mgi->plan(\x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K) == moveit::core::MoveItErrorCode::SUCCESS);\n'}
+[5.219364] (robot_config) StderrLine: {'line': b'      |                               \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.234251] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.234393] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:556:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.234433] (robot_config) StderrLine: {'line': b'  556 |         if (\x1b[01;31m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K) {\n'}
+[5.234459] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.234482] (robot_config) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[5.243157] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:558:38:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.243278] (robot_config) StderrLine: {'line': b'  558 |             if (left_ok) left_plan = \x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K;\n'}
+[5.243305] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.259226] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:560:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.259311] (robot_config) StderrLine: {'line': b'  560 |         if (\x1b[01;31m\x1b[Kright_move_group_interface_\x1b[m\x1b[K) {\n'}
+[5.259344] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.259374] (robot_config) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[5.267785] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:562:40:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.267851] (robot_config) StderrLine: {'line': b'  562 |             if (right_ok) right_plan = \x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K;\n'}
+[5.267902] (robot_config) StderrLine: {'line': b'      |                                        \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.269699] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:54:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KFollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.269758] (robot_config) StderrLine: {'line': b'  573 |                                rclcpp_action::Client<\x1b[01;31m\x1b[KFollowJointTrajectory\x1b[m\x1b[K>::SharedPtr client,\n'}
+[5.269807] (robot_config) StderrLine: {'line': b'      |                                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.269857] (robot_config) StderrLine: {'line': b'      |                                                      \x1b[32m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\n'}
+[5.269903] (robot_config) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7\x1b[m\x1b[K,\n'}
+[5.269950] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16\x1b[m\x1b[K:\n'}
+[5.269997] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[5.270045] (robot_config) StderrLine: {'line': b' 1309 | typedef struct FollowJointTrajectory \x1b[01;36m\x1b[KFollowJointTrajectory\x1b[m\x1b[K;\n'}
+[5.270091] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.270137] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:75:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[5.270183] (robot_config) StderrLine: {'line': b'  573 |                                rclcpp_action::Client<FollowJointTrajectory\x1b[01;31m\x1b[K>\x1b[m\x1b[K::SharedPtr client,\n'}
+[5.270229] (robot_config) StderrLine: {'line': b'      |                                                                           \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.270273] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:88:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K,\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K...\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[Kclient\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.270326] (robot_config) StderrLine: {'line': b'  573 |                             rclcpp_action::Client<FollowJointTrajectory>::SharedPtr \x1b[01;31m\x1b[Kclient\x1b[m\x1b[K,\n'}
+[5.270371] (robot_config) StderrLine: {'line': b'      |                                                                                     \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.270416] (robot_config) StderrLine: {'line': b'\n'}
+[5.274656] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[5.274715] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:576:18:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclient\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.274762] (robot_config) StderrLine: {'line': b'  576 |             if (!\x1b[01;31m\x1b[Kclient\x1b[m\x1b[K) {\n'}
+[5.274811] (robot_config) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.279948] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:582:18:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclient\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.280102] (robot_config) StderrLine: {'line': b'  582 |             if (!\x1b[01;31m\x1b[Kclient\x1b[m\x1b[K->wait_for_action_server(std::chrono::seconds(5))) {\n'}
+[5.280170] (robot_config) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.296059] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:583:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRCLCPlocityScalingFactor\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.296193] (robot_config) StderrLine: {'line': b'  583 |                 \x1b[01;31m\x1b[KRCLCPlocityScalingFactor\x1b[m\x1b[K(0.8);\n'}
+[5.296275] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.300181] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:584:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kmgi\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.300315] (robot_config) StderrLine: {'line': b'  584 |             \x1b[01;31m\x1b[Kmgi\x1b[m\x1b[K->setMaxAccelerationScalingFactor(0.8);\n'}
+[5.300382] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[5.308230] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:27:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.308398] (robot_config) StderrLine: {'line': b'  585 |             if (mgi->plan(\x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K) == moveit::core::MoveItErrorCode::SUCCESS) return true;\n'}
+[5.308467] (robot_config) StderrLine: {'line': b'      |                           \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.308539] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:91:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinconsistent types \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kbool\x1b[m\x1b[K\xe2\x80\x99 deduced for lambda return type\n'}
+[5.308598] (robot_config) StderrLine: {'line': b'  585 |         if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return \x1b[01;31m\x1b[Ktrue\x1b[m\x1b[K;\n'}
+[5.308652] (robot_config) StderrLine: {'line': b'      |                                                                                       \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[5.308705] (robot_config) StderrLine: {'line': b'\n'}
+[5.308770] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:91:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreturn-statement with a value, in function returning \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive\x07-fpermissive\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.315509] (-) TimerEvent: {}
+[5.316512] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:589:31:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.316645] (robot_config) StderrLine: {'line': b'  589 |             return (mgi->plan(\x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K) == moveit::core::MoveItErrorCode::SUCCESS);\n'}
+[5.316713] (robot_config) StderrLine: {'line': b'      |                               \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.331210] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:595:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.331350] (robot_config) StderrLine: {'line': b'  595 |         if (\x1b[01;31m\x1b[Kleft_move_group_interface_\x1b[m\x1b[K) {\n'}
+[5.331418] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.331475] (robot_config) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[5.331544] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:596:23:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_one\x1b[m\x1b[K\xe2\x80\x99 is not captured\n'}
+[5.331600] (robot_config) StderrLine: {'line': b'  596 |             left_ok = \x1b[01;31m\x1b[Kplan_one\x1b[m\x1b[K(left_move_group_interface_, left_pose);\n'}
+[5.331654] (robot_config) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.331706] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kthe lambda has no capture-default\n'}
+[5.331757] (robot_config) StderrLine: {'line': b'  572 |         auto send_one = [this\x1b[01;36m\x1b[K]\x1b[m\x1b[K(const std::string& arm,\n'}
+[5.331810] (robot_config) StderrLine: {'line': b'      |                              \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.331859] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:530:14:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[5.331914] (robot_config) StderrLine: {'line': b'  530 |         auto \x1b[01;36m\x1b[Kplan_one\x1b[m\x1b[K = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,\n'}
+[5.331964] (robot_config) StderrLine: {'line': b'      |              \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.332016] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:596:60:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_pose\x1b[m\x1b[K\xe2\x80\x99 is not captured\n'}
+[5.332067] (robot_config) StderrLine: {'line': b'  596 |             left_ok = plan_one(left_move_group_interface_, \x1b[01;31m\x1b[Kleft_pose\x1b[m\x1b[K);\n'}
+[5.332118] (robot_config) StderrLine: {'line': b'      |                                                            \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[5.332177] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kthe lambda has no capture-default\n'}
+[5.332234] (robot_config) StderrLine: {'line': b'  572 |         auto send_one = [this\x1b[01;36m\x1b[K]\x1b[m\x1b[K(const std::string& arm,\n'}
+[5.332285] (robot_config) StderrLine: {'line': b'      |                              \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.332342] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:520:76:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kconst PoseStamped& left_pose\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[5.332397] (robot_config) StderrLine: {'line': b'  520 |     void planAndExecuteSynchronized(\x1b[01;36m\x1b[Kconst geometry_msgs::msg::PoseStamped& left_pose\x1b[m\x1b[K,\n'}
+[5.332447] (robot_config) StderrLine: {'line': b'      |                                     \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~\x1b[m\x1b[K\n'}
+[5.339284] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:597:38:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.339416] (robot_config) StderrLine: {'line': b'  597 |             if (left_ok) left_plan = \x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K;\n'}
+[5.339484] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.354694] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:599:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_move_group_interface_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.354851] (robot_config) StderrLine: {'line': b'  599 |         if (\x1b[01;31m\x1b[Kright_move_group_interface_\x1b[m\x1b[K) {\n'}
+[5.354920] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.354979] (robot_config) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kget_node_graph_interface\x1b[m\x1b[K\n'}
+[5.355034] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_one\x1b[m\x1b[K\xe2\x80\x99 is not captured\n'}
+[5.355091] (robot_config) StderrLine: {'line': b'  600 |             right_ok = \x1b[01;31m\x1b[Kplan_one\x1b[m\x1b[K(right_move_group_interface_, right_pose);\n'}
+[5.355141] (robot_config) StderrLine: {'line': b'      |                        \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.355192] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kthe lambda has no capture-default\n'}
+[5.355245] (robot_config) StderrLine: {'line': b'  572 |         auto send_one = [this\x1b[01;36m\x1b[K]\x1b[m\x1b[K(const std::string& arm,\n'}
+[5.355298] (robot_config) StderrLine: {'line': b'      |                              \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.355348] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:530:14:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KMoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[5.355404] (robot_config) StderrLine: {'line': b'  530 |         auto \x1b[01;36m\x1b[Kplan_one\x1b[m\x1b[K = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,\n'}
+[5.355469] (robot_config) StderrLine: {'line': b'      |              \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.355533] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:62:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_pose\x1b[m\x1b[K\xe2\x80\x99 is not captured\n'}
+[5.355589] (robot_config) StderrLine: {'line': b'  600 |             right_ok = plan_one(right_move_group_interface_, \x1b[01;31m\x1b[Kright_pose\x1b[m\x1b[K);\n'}
+[5.355640] (robot_config) StderrLine: {'line': b'      |                                                              \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.355691] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kthe lambda has no capture-default\n'}
+[5.355741] (robot_config) StderrLine: {'line': b'  572 |         auto send_one = [this\x1b[01;36m\x1b[K]\x1b[m\x1b[K(const std::string& arm,\n'}
+[5.355791] (robot_config) StderrLine: {'line': b'      |                              \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[5.355842] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:76:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kconst PoseStamped& right_pose\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[5.355893] (robot_config) StderrLine: {'line': b'  521 |                                     \x1b[01;36m\x1b[Kconst geometry_msgs::msg::PoseStamped& right_pose\x1b[m\x1b[K)\n'}
+[5.355944] (robot_config) StderrLine: {'line': b'      |                                     \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.362768] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:601:40:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan_buffer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.362900] (robot_config) StderrLine: {'line': b'  601 |             if (right_ok) right_plan = \x1b[01;31m\x1b[Kplan_buffer_\x1b[m\x1b[K;\n'}
+[5.362968] (robot_config) StderrLine: {'line': b'      |                                        \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.364349] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:54:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KFollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.364499] (robot_config) StderrLine: {'line': b'  612 |                                rclcpp_action::Client<\x1b[01;31m\x1b[KFollowJointTrajectory\x1b[m\x1b[K>::SharedPtr client,\n'}
+[5.364575] (robot_config) StderrLine: {'line': b'      |                                                      \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.364636] (robot_config) StderrLine: {'line': b'      |                                                      \x1b[32m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\n'}
+[5.364695] (robot_config) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7\x1b[m\x1b[K,\n'}
+[5.364751] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16\x1b[m\x1b[K:\n'}
+[5.364805] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[5.364865] (robot_config) StderrLine: {'line': b' 1309 | typedef struct FollowJointTrajectory \x1b[01;36m\x1b[KFollowJointTrajectory\x1b[m\x1b[K;\n'}
+[5.364916] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.364966] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:75:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[5.365018] (robot_config) StderrLine: {'line': b'  612 |                                rclcpp_action::Client<FollowJointTrajectory\x1b[01;31m\x1b[K>\x1b[m\x1b[K::SharedPtr client,\n'}
+[5.365068] (robot_config) StderrLine: {'line': b'      |                                                                           \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.365118] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:88:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K,\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K...\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[Kclient\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.365170] (robot_config) StderrLine: {'line': b'  612 |                             rclcpp_action::Client<FollowJointTrajectory>::SharedPtr \x1b[01;31m\x1b[Kclient\x1b[m\x1b[K,\n'}
+[5.365221] (robot_config) StderrLine: {'line': b'      |                                                                                     \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.365270] (robot_config) StderrLine: {'line': b'\n'}
+[5.368960] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[5.369078] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:615:18:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclient\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.369138] (robot_config) StderrLine: {'line': b'  615 |             if (!\x1b[01;31m\x1b[Kclient\x1b[m\x1b[K) {\n'}
+[5.369189] (robot_config) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.373759] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:621:18:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclient\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.373892] (robot_config) StderrLine: {'line': b'  621 |             if (!\x1b[01;31m\x1b[Kclient\x1b[m\x1b[K->wait_for_action_server(std::chrono::seconds(5))) {\n'}
+[5.373960] (robot_config) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.374185] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:627:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KFollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[5.374309] (robot_config) StderrLine: {'line': b'  627 |             auto goal = \x1b[01;31m\x1b[KFollowJointTrajectory\x1b[m\x1b[K::Goal();\n'}
+[5.374375] (robot_config) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.378079] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:628:31:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kplan\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.378207] (robot_config) StderrLine: {'line': b'  628 |             goal.trajectory = \x1b[01;31m\x1b[Kplan\x1b[m\x1b[K.trajectory_.joint_trajectory;\n'}
+[5.378270] (robot_config) StderrLine: {'line': b'      |                               \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[5.379014] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:629:50:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KFollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.379156] (robot_config) StderrLine: {'line': b'  629 |             auto options = rclcpp_action::Client<\x1b[01;31m\x1b[KFollowJointTrajectory\x1b[m\x1b[K>::SendGoalOptions();\n'}
+[5.379226] (robot_config) StderrLine: {'line': b'      |                                                  \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.379287] (robot_config) StderrLine: {'line': b'      |                                                  \x1b[32m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\n'}
+[5.379340] (robot_config) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7\x1b[m\x1b[K,\n'}
+[5.379395] (robot_config) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16\x1b[m\x1b[K:\n'}
+[5.379449] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcontrol_msgs::action::FollowJointTrajectory\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[5.379518] (robot_config) StderrLine: {'line': b' 1309 | typedef struct FollowJointTrajectory \x1b[01;36m\x1b[KFollowJointTrajectory\x1b[m\x1b[K;\n'}
+[5.379577] (robot_config) StderrLine: {'line': b'      |                                      \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.379628] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:629:71:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[5.379886] (robot_config) StderrLine: {'line': b'  629 |             auto options = rclcpp_action::Client<FollowJointTrajectory\x1b[01;31m\x1b[K>\x1b[m\x1b[K::SendGoalOptions();\n'}
+[5.379971] (robot_config) StderrLine: {'line': b'      |                                                                       \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.380031] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[5.380078] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:631:136:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kthere are no arguments to \xe2\x80\x98\x1b[01m\x1b[KstopTrajectoryTracking\x1b[m\x1b[K\xe2\x80\x99 that depend on a template parameter, so a declaration of \xe2\x80\x98\x1b[01m\x1b[KstopTrajectoryTracking\x1b[m\x1b[K\xe2\x80\x99 must be available [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive\x07-fpermissive\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.380123] (robot_config) StderrLine: {'line': b'  631 | { RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); \x1b[01;31m\x1b[KstopTrajectoryTracking\x1b[m\x1b[K(arm); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo(arm); };\n'}
+[5.380161] (robot_config) StderrLine: {'line': b'      |                                                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.380198] (robot_config) StderrLine: {'line': b'\n'}
+[5.380235] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:631:136:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K(if you use \xe2\x80\x98\x1b[01m\x1b[K-fpermissive\x1b[m\x1b[K\xe2\x80\x99, G++ will accept your code, but allowing the use of an undeclared name is deprecated)\n'}
+[5.384250] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[5.384343] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:632:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclient\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.384390] (robot_config) StderrLine: {'line': b'  632 |             \x1b[01;31m\x1b[Kclient\x1b[m\x1b[K->async_send_goal(goal, options);\n'}
+[5.384429] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.399872] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:633:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KupdateTrajectoryTracking\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.400008] (robot_config) StderrLine: {'line': b'  633 |             \x1b[01;31m\x1b[KupdateTrajectoryTracking\x1b[m\x1b[K(plan, arm);\n'}
+[5.400075] (robot_config) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.414543] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[5.414687] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:636:41:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kleft_arm_action_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.414760] (robot_config) StderrLine: {'line': b'  636 |         if (left_ok)  send_one("left",  \x1b[01;31m\x1b[Kleft_arm_action_client_\x1b[m\x1b[K,  left_plan);\n'}
+[5.414819] (robot_config) StderrLine: {'line': b'      |                                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.415601] (-) TimerEvent: {}
+[5.429115] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:637:41:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kright_arm_action_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.429247] (robot_config) StderrLine: {'line': b'  637 |         if (right_ok) send_one("right", \x1b[01;31m\x1b[Kright_arm_action_client_\x1b[m\x1b[K, right_plan);\n'}
+[5.429316] (robot_config) StderrLine: {'line': b'      |                                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.429678] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.429823] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:642:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K,\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.429895] (robot_config) StderrLine: {'line': b'  642 |     \x1b[01;31m\x1b[Kvoid\x1b[m\x1b[K execute_trajectory_directly(\n'}
+[5.429956] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[5.430016] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:694:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.430072] (robot_config) StderrLine: {'line': b'  694 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.430125] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.430181] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:712:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.430243] (robot_config) StderrLine: {'line': b'  712 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.430294] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.430348] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.430633] (robot_config) StderrLine: {'line': b'  726 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.430720] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.430780] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:756:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.430837] (robot_config) StderrLine: {'line': b'  756 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.430890] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.430944] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:762:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.430997] (robot_config) StderrLine: {'line': b'  762 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.431048] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.431098] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:768:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.431149] (robot_config) StderrLine: {'line': b'  768 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.431198] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.431248] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:774:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.431298] (robot_config) StderrLine: {'line': b'  774 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.431347] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.431398] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:780:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.431449] (robot_config) StderrLine: {'line': b'  780 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.431510] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.431565] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:808:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.431615] (robot_config) StderrLine: {'line': b'  808 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.431665] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.431713] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:863:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.431772] (robot_config) StderrLine: {'line': b'  863 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.431813] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.431850] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:870:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.431888] (robot_config) StderrLine: {'line': b'  870 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.431926] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.431963] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432001] (robot_config) StderrLine: {'line': b'  876 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432037] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432073] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432111] (robot_config) StderrLine: {'line': b'  882 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432148] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432188] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:889:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432226] (robot_config) StderrLine: {'line': b'  889 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432264] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432301] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:950:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432338] (robot_config) StderrLine: {'line': b'  950 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432376] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432413] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1009:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432451] (robot_config) StderrLine: {'line': b' 1009 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432490] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432532] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1015:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432570] (robot_config) StderrLine: {'line': b' 1015 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432608] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432645] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1021:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432678] (robot_config) StderrLine: {'line': b' 1021 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432702] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432727] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1027:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432751] (robot_config) StderrLine: {'line': b' 1027 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432775] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.432798] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1033:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.432821] (robot_config) StderrLine: {'line': b' 1033 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.432843] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.476559] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kempty parentheses were disambiguated as a function declaration [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wvexing-parse\x07-Wvexing-parse\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.476759] (robot_config) StderrLine: {'line': b' 1166 |     bool isReady\x1b[01;35m\x1b[K()\x1b[m\x1b[K const { return joint_state_ready_ && actions_ready_; }\n'}
+[5.476829] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[5.476887] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kremove parentheses to default-initialize a variable\n'}
+[5.476943] (robot_config) StderrLine: {'line': b' 1166 |     bool isReady\x1b[01;36m\x1b[K()\x1b[m\x1b[K const { return joint_state_ready_ && actions_ready_; }\n'}
+[5.476998] (robot_config) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~\x1b[m\x1b[K\n'}
+[5.477048] (robot_config) StderrLine: {'line': b'      |                 \x1b[31m\x1b[K--\x1b[m\x1b[K\n'}
+[5.477099] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kor replace parentheses with braces to value-initialize a variable\n'}
+[5.477152] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:26:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.477205] (robot_config) StderrLine: {'line': b' 1166 |     bool isReady() const \x1b[01;31m\x1b[K{\x1b[m\x1b[K return joint_state_ready_ && actions_ready_; }\n'}
+[5.477255] (robot_config) StderrLine: {'line': b'      |                          \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.477306] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1169:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[5.477357] (robot_config) StderrLine: {'line': b' 1169 |     \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[5.477405] (robot_config) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.479071] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:\x1b[m\x1b[K At global scope:\n'}
+[5.479205] (robot_config) StderrLine: {'line': b'\x1b[01m\x1b[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1207:2:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected unqualified-id at end of input\n'}
+[5.479273] (robot_config) StderrLine: {'line': b' 1207 | }\n'}
+[5.479341] (robot_config) StderrLine: {'line': b'      |  \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[5.515707] (-) TimerEvent: {}
+[5.616004] (-) TimerEvent: {}
+[5.716335] (-) TimerEvent: {}
+[5.816684] (-) TimerEvent: {}
+[5.917010] (-) TimerEvent: {}
+[6.017329] (-) TimerEvent: {}
+[6.117669] (-) TimerEvent: {}
+[6.218005] (-) TimerEvent: {}
+[6.318343] (-) TimerEvent: {}
+[6.418692] (-) TimerEvent: {}
+[6.519031] (-) TimerEvent: {}
+[6.619364] (-) TimerEvent: {}
+[6.719713] (-) TimerEvent: {}
+[6.820052] (-) TimerEvent: {}
+[6.920393] (-) TimerEvent: {}
+[7.020758] (-) TimerEvent: {}
+[7.121094] (-) TimerEvent: {}
+[7.221453] (-) TimerEvent: {}
+[7.321818] (-) TimerEvent: {}
+[7.422161] (-) TimerEvent: {}
+[7.522514] (-) TimerEvent: {}
+[7.622965] (-) TimerEvent: {}
+[7.723311] (-) TimerEvent: {}
+[7.823701] (-) TimerEvent: {}
+[7.924045] (-) TimerEvent: {}
+[7.988314] (robot_config) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1\n'}
+[7.988658] (robot_config) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2\n'}
+[7.989036] (robot_config) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[7.992307] (robot_config) CommandEnded: {'returncode': 2}
+[8.000720] (robot_config) JobEnded: {'identifier': 'robot_config', 'rc': 2}
+[8.011067] (-) EventReactorShutdown: {}

@@ -1,0 +1,511 @@
+[0.008s] Invoking command in '/home/a/ws_moveit2/src/robot_config/build/robot_config': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/src/robot_config/build/robot_config -- -j22 -l22
+[0.044s] Consolidate compiler generated dependencies of target dual_arm_servo_controller
+[0.046s] Consolidate compiler generated dependencies of target pose_command_publisher
+[0.048s] Consolidate compiler generated dependencies of target move_to_pose_dual_cpp
+[0.056s] [ 33%] Built target dual_arm_servo_controller
+[0.058s] [ 66%] Built target pose_command_publisher
+[0.065s] [ 83%] Building CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o
+[4.081s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1222:2: error: expected ‘}’ at end of input
+[4.081s]  1222 | }
+[4.081s]       |  ^
+[4.081s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:25:1: note: to match this ‘{’
+[4.081s]    25 | {
+[4.081s]       | ^
+[4.093s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor ‘MoveToPoseDualCpp::MoveToPoseDualCpp()’:
+[4.093s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:31:9: error: ‘left_rpy_sub_’ was not declared in this scope
+[4.093s]    31 |         left_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+[4.093s]       |         ^~~~~~~~~~~~~
+[4.141s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:33:9: error: ‘right_rpy_sub_’ was not declared in this scope
+[4.141s]    33 |         right_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+[4.141s]       |         ^~~~~~~~~~~~~~
+[4.152s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:36:9: error: ‘dual_rpy_sub_’ was not declared in this scope
+[4.152s]    36 |         dual_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+[4.152s]       |         ^~~~~~~~~~~~~
+[4.165s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:41:9: error: ‘joint_state_sub_’ was not declared in this scope
+[4.166s]    41 |         joint_state_sub_ = this->create_subscription<sensor_msgs::msg::JointState>(
+[4.166s]       |         ^~~~~~~~~~~~~~~~
+[4.182s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[4.182s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:44:22: error: ‘joint_state_ready_’ was not declared in this scope
+[4.182s]    44 |                 if (!joint_state_ready_) {
+[4.182s]       |                      ^~~~~~~~~~~~~~~~~~
+[4.198s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:47:21: error: ‘attemptFlushPending’ was not declared in this scope
+[4.198s]    47 |                     attemptFlushPending();
+[4.198s]       |                     ^~~~~~~~~~~~~~~~~~~
+[4.245s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor ‘MoveToPoseDualCpp::MoveToPoseDualCpp()’:
+[4.245s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:53:9: error: ‘enable_local_psm_’ was not declared in this scope
+[4.245s]    53 |         enable_local_psm_ = this->declare_parameter<bool>("enable_local_planning_scene_monitor", false);
+[4.245s]       |         ^~~~~~~~~~~~~~~~~
+[4.261s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:56:9: error: ‘left_init_thread_’ was not declared in this scope
+[4.261s]    56 |         left_init_thread_ = std::thread([this]() {
+[4.261s]       |         ^~~~~~~~~~~~~~~~~
+[4.280s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[4.280s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:58:13: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[4.280s]    58 |             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
+[4.280s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[4.280s]       |             get_node_graph_interface
+[4.310s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:66:13: error: ‘left_hand_move_group_interface_’ was not declared in this scope
+[4.311s]    66 |             left_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");
+[4.311s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[4.329s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:72:17: error: ‘left_pose_received_’ was not declared in this scope
+[4.330s]    72 |             if (left_pose_received_ && last_left_pose_rpy_.size() == 6 && left_move_group_interface_) {
+[4.330s]       |                 ^~~~~~~~~~~~~~~~~~~
+[4.347s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:72:40: error: ‘last_left_pose_rpy_’ was not declared in this scope
+[4.347s]    72 |             if (left_pose_received_ && last_left_pose_rpy_.size() == 6 && left_move_group_interface_) {
+[4.347s]       |                                        ^~~~~~~~~~~~~~~~~~~
+[4.366s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor ‘MoveToPoseDualCpp::MoveToPoseDualCpp()’:
+[4.366s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:92:9: error: ‘right_init_thread_’ was not declared in this scope
+[4.366s]    92 |         right_init_thread_ = std::thread([this]() {
+[4.366s]       |         ^~~~~~~~~~~~~~~~~~
+[4.388s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[4.388s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:94:13: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[4.388s]    94 |             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
+[4.388s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[4.388s]       |             get_node_graph_interface
+[4.418s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:102:13: error: ‘right_hand_move_group_interface_’ was not declared in this scope
+[4.418s]   102 |             right_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");
+[4.418s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[4.439s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:17: error: ‘right_pose_received_’ was not declared in this scope
+[4.439s]   108 |             if (right_pose_received_ && last_right_pose_rpy_.size() == 6 && right_move_group_interface_) {
+[4.439s]       |                 ^~~~~~~~~~~~~~~~~~~~
+[4.458s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:41: error: ‘last_right_pose_rpy_’ was not declared in this scope
+[4.459s]   108 |             if (right_pose_received_ && last_right_pose_rpy_.size() == 6 && right_move_group_interface_) {
+[4.459s]       |                                         ^~~~~~~~~~~~~~~~~~~~
+[4.476s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor ‘MoveToPoseDualCpp::MoveToPoseDualCpp()’:
+[4.476s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:128:9: error: ‘left_attach_sub_’ was not declared in this scope
+[4.476s]   128 |         left_attach_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.476s]       |         ^~~~~~~~~~~~~~~~
+[4.476s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:129:70: error: ‘left_attach_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.476s]   129 |             "/left_attach_object", 10, std::bind(&MoveToPoseDualCpp::left_attach_callback, this, std::placeholders::_1));
+[4.476s]       |                                                                      ^~~~~~~~~~~~~~~~~~~~
+[4.492s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:130:9: error: ‘left_detach_sub_’ was not declared in this scope
+[4.493s]   130 |         left_detach_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.493s]       |         ^~~~~~~~~~~~~~~~
+[4.493s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:131:70: error: ‘left_detach_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.493s]   131 |             "/left_detach_object", 10, std::bind(&MoveToPoseDualCpp::left_detach_callback, this, std::placeholders::_1));
+[4.493s]       |                                                                      ^~~~~~~~~~~~~~~~~~~~
+[4.510s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:132:9: error: ‘right_attach_sub_’ was not declared in this scope
+[4.510s]   132 |         right_attach_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.510s]       |         ^~~~~~~~~~~~~~~~~
+[4.510s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:133:71: error: ‘right_attach_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.510s]   133 |             "/right_attach_object", 10, std::bind(&MoveToPoseDualCpp::right_attach_callback, this, std::placeholders::_1));
+[4.510s]       |                                                                       ^~~~~~~~~~~~~~~~~~~~~
+[4.526s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:134:9: error: ‘right_detach_sub_’ was not declared in this scope
+[4.527s]   134 |         right_detach_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.527s]       |         ^~~~~~~~~~~~~~~~~
+[4.527s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:135:71: error: ‘right_detach_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.527s]   135 |             "/right_detach_object", 10, std::bind(&MoveToPoseDualCpp::right_detach_callback, this, std::placeholders::_1));
+[4.527s]       |                                                                       ^~~~~~~~~~~~~~~~~~~~~
+[4.542s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:138:9: error: ‘left_arm_up_sub_’ was not declared in this scope
+[4.542s]   138 |         left_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.543s]       |         ^~~~~~~~~~~~~~~~
+[4.543s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:139:63: error: ‘left_arm_up_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.543s]   139 |             "/left_arm_up", 10, std::bind(&MoveToPoseDualCpp::left_arm_up_callback, this, std::placeholders::_1));
+[4.543s]       |                                                               ^~~~~~~~~~~~~~~~~~~~
+[4.562s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:140:9: error: ‘left_arm_down_sub_’ was not declared in this scope
+[4.562s]   140 |         left_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.562s]       |         ^~~~~~~~~~~~~~~~~~
+[4.562s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:141:65: error: ‘left_arm_down_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.562s]   141 |             "/left_arm_down", 10, std::bind(&MoveToPoseDualCpp::left_arm_down_callback, this, std::placeholders::_1));
+[4.562s]       |                                                                 ^~~~~~~~~~~~~~~~~~~~~~
+[4.578s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:142:9: error: ‘right_arm_up_sub_’ was not declared in this scope
+[4.578s]   142 |         right_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.579s]       |         ^~~~~~~~~~~~~~~~~
+[4.579s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:143:64: error: ‘right_arm_up_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.579s]   143 |             "/right_arm_up", 10, std::bind(&MoveToPoseDualCpp::right_arm_up_callback, this, std::placeholders::_1));
+[4.579s]       |                                                                ^~~~~~~~~~~~~~~~~~~~~
+[4.598s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:144:9: error: ‘right_arm_down_sub_’ was not declared in this scope
+[4.598s]   144 |         right_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.599s]       |         ^~~~~~~~~~~~~~~~~~~
+[4.599s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:145:66: error: ‘right_arm_down_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.599s]   145 |             "/right_arm_down", 10, std::bind(&MoveToPoseDualCpp::right_arm_down_callback, this, std::placeholders::_1));
+[4.599s]       |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+[4.619s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:148:9: error: ‘left_arm_open_sub_’ was not declared in this scope
+[4.619s]   148 |         left_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.619s]       |         ^~~~~~~~~~~~~~~~~~
+[4.619s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:149:65: error: ‘left_arm_open_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.619s]   149 |             "/left_arm_open", 10, std::bind(&MoveToPoseDualCpp::left_arm_open_callback, this, std::placeholders::_1));
+[4.619s]       |                                                                 ^~~~~~~~~~~~~~~~~~~~~~
+[4.639s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:150:9: error: ‘left_arm_close_sub_’ was not declared in this scope
+[4.639s]   150 |         left_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.639s]       |         ^~~~~~~~~~~~~~~~~~~
+[4.639s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:151:66: error: ‘left_arm_close_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.639s]   151 |             "/left_arm_close", 10, std::bind(&MoveToPoseDualCpp::left_arm_close_callback, this, std::placeholders::_1));
+[4.640s]       |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+[4.660s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:152:9: error: ‘right_arm_open_sub_’ was not declared in this scope
+[4.660s]   152 |         right_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.660s]       |         ^~~~~~~~~~~~~~~~~~~
+[4.660s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:153:66: error: ‘right_arm_open_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.660s]   153 |             "/right_arm_open", 10, std::bind(&MoveToPoseDualCpp::right_arm_open_callback, this, std::placeholders::_1));
+[4.660s]       |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+[4.688s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:154:9: error: ‘right_arm_close_sub_’ was not declared in this scope
+[4.688s]   154 |         right_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(
+[4.688s]       |         ^~~~~~~~~~~~~~~~~~~~
+[4.688s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:155:67: error: ‘right_arm_close_callback’ is not a member of ‘MoveToPoseDualCpp’
+[4.688s]   155 |             "/right_arm_close", 10, std::bind(&MoveToPoseDualCpp::right_arm_close_callback, this, std::placeholders::_1));
+[4.688s]       |                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+[4.699s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:160:9: error: ‘post_init_timer_’ was not declared in this scope
+[4.699s]   160 |         post_init_timer_ = this->create_wall_timer(
+[4.699s]       |         ^~~~~~~~~~~~~~~~
+[4.700s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[4.700s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:165:17: error: ‘post_init_timer_’ is not captured
+[4.700s]   165 |                 post_init_timer_->cancel();
+[4.700s]       |                 ^~~~~~~~~~~~~~~~
+[4.700s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:162:18: note: the lambda has no capture-default
+[4.700s]   162 |             [this]() {
+[4.700s]       |                  ^
+[4.700s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:160:9: note: ‘<typeprefixerror>post_init_timer_’ declared here
+[4.700s]   160 |         post_init_timer_ = this->create_wall_timer(
+[4.700s]       |         ^~~~~~~~~~~~~~~~
+[4.724s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In destructor ‘virtual MoveToPoseDualCpp::~MoveToPoseDualCpp()’:
+[4.724s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:172:13: error: ‘left_init_thread_’ was not declared in this scope
+[4.725s]   172 |         if (left_init_thread_.joinable())
+[4.725s]       |             ^~~~~~~~~~~~~~~~~
+[4.745s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:176:13: error: ‘right_init_thread_’ was not declared in this scope
+[4.745s]   176 |         if (right_init_thread_.joinable())
+[4.745s]       |             ^~~~~~~~~~~~~~~~~~
+[4.769s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::do_post_init()’:
+[4.769s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:188:9: error: ‘planning_scene_interface_’ was not declared in this scope; did you mean ‘planning_scene_monitor’?
+[4.769s]   188 |         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+[4.769s]       |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+[4.769s]       |         planning_scene_monitor
+[4.791s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:191:13: error: ‘enable_local_psm_’ was not declared in this scope
+[4.791s]   191 |         if (enable_local_psm_) {
+[4.791s]       |             ^~~~~~~~~~~~~~~~~
+[4.801s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:13: error: ‘planning_scene_monitor_’ was not declared in this scope; did you mean ‘planning_scene_monitor’?
+[4.801s]   192 |             planning_scene_monitor_ = std::make_shared<planning_scene_monitor::PlanningSceneMonitor>(
+[4.801s]       |             ^~~~~~~~~~~~~~~~~~~~~~~
+[4.801s]       |             planning_scene_monitor
+[4.825s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:207:9: error: ‘left_arm_action_client_’ was not declared in this scope
+[4.825s]   207 |         left_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
+[4.825s]       |         ^~~~~~~~~~~~~~~~~~~~~~~
+[4.870s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:209:9: error: ‘right_arm_action_client_’ was not declared in this scope
+[4.870s]   209 |         right_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
+[4.870s]       |         ^~~~~~~~~~~~~~~~~~~~~~~~
+[4.886s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:220:9: error: ‘actions_ready_’ was not declared in this scope
+[4.886s]   220 |         actions_ready_ = true;
+[4.886s]       |         ^~~~~~~~~~~~~~
+[4.909s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:221:9: error: ‘attemptFlushPending’ was not declared in this scope
+[4.909s]   221 |         attemptFlushPending();
+[4.909s]       |         ^~~~~~~~~~~~~~~~~~~
+[4.936s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:224:9: error: ‘left_servo_start_client_’ was not declared in this scope
+[4.936s]   224 |         left_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
+[4.936s]       |         ^~~~~~~~~~~~~~~~~~~~~~~~
+[5.017s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:226:9: error: ‘left_servo_stop_client_’ was not declared in this scope
+[5.017s]   226 |         left_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
+[5.017s]       |         ^~~~~~~~~~~~~~~~~~~~~~~
+[5.047s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:228:9: error: ‘right_servo_start_client_’ was not declared in this scope
+[5.047s]   228 |         right_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
+[5.047s]       |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+[5.076s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:230:9: error: ‘right_servo_stop_client_’ was not declared in this scope
+[5.076s]   230 |         right_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
+[5.076s]       |         ^~~~~~~~~~~~~~~~~~~~~~~~
+[5.088s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:234:9: error: ‘tf_buffer_’ was not declared in this scope
+[5.088s]   234 |         tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
+[5.088s]       |         ^~~~~~~~~~
+[5.113s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:235:9: error: ‘tf_listener_’ was not declared in this scope
+[5.113s]   235 |         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+[5.113s]       |         ^~~~~~~~~~~~
+[5.143s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::stopServo(const string&)’:
+[5.143s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:243:46: error: ‘left_servo_stop_client_’ was not declared in this scope
+[5.143s]   243 |         auto client = (arm_name == "left") ? left_servo_stop_client_ : right_servo_stop_client_;
+[5.143s]       |                                              ^~~~~~~~~~~~~~~~~~~~~~~
+[5.173s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:243:72: error: ‘right_servo_stop_client_’ was not declared in this scope
+[5.173s]   243 |         auto client = (arm_name == "left") ? left_servo_stop_client_ : right_servo_stop_client_;
+[5.173s]       |                                                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+[5.205s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::startServo(const string&)’:
+[5.205s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:261:46: error: ‘left_servo_start_client_’ was not declared in this scope
+[5.205s]   261 |         auto client = (arm_name == "left") ? left_servo_start_client_ : right_servo_start_client_;
+[5.205s]       |                                              ^~~~~~~~~~~~~~~~~~~~~~~~
+[5.236s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:261:73: error: ‘right_servo_start_client_’ was not declared in this scope
+[5.236s]   261 |         auto client = (arm_name == "left") ? left_servo_start_client_ : right_servo_start_client_;
+[5.236s]       |                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+[5.268s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::left_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)’:
+[5.268s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:323:9: error: ‘last_left_pose_rpy_’ was not declared in this scope
+[5.268s]   323 |         last_left_pose_rpy_ = msg->data;
+[5.268s]       |         ^~~~~~~~~~~~~~~~~~~
+[5.294s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:324:9: error: ‘left_pose_received_’ was not declared in this scope
+[5.294s]   324 |         left_pose_received_ = true;
+[5.294s]       |         ^~~~~~~~~~~~~~~~~~~
+[5.323s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::right_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)’:
+[5.323s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:353:9: error: ‘last_right_pose_rpy_’ was not declared in this scope
+[5.323s]   353 |         last_right_pose_rpy_ = msg->data;
+[5.324s]       |         ^~~~~~~~~~~~~~~~~~~~
+[5.351s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:354:9: error: ‘right_pose_received_’ was not declared in this scope
+[5.351s]   354 |         right_pose_received_ = true;
+[5.351s]       |         ^~~~~~~~~~~~~~~~~~~~
+[5.397s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[5.398s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:384:13: error: ‘applyDynamicCollisionAvoidance’ was not declared in this scope
+[5.398s]   384 |             applyDynamicCollisionAvoidance(move_group_interface, arm_name);
+[5.398s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[5.438s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:434:17: error: ‘execute_trajectory_directly’ was not declared in this scope
+[5.438s]   434 |                 execute_trajectory_directly(move_group_interface, my_plan, arm_name);
+[5.438s]       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[5.470s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:440:17: error: ‘stopTrajectoryTracking’ was not declared in this scope
+[5.470s]   440 |                 stopTrajectoryTracking(arm_name);
+[5.470s]       |                 ^~~~~~~~~~~~~~~~~~~~~~
+[5.490s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::handleIncomingTargetPose(const string&, const PoseStamped&)’:
+[5.491s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:484:44: error: ‘sync_mutex_’ was not declared in this scope
+[5.491s]   484 |             std::lock_guard<std::mutex> lk(sync_mutex_);
+[5.491s]       |                                            ^~~~~~~~~~~
+[5.516s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:486:17: error: ‘pending_left_pose_’ was not declared in this scope
+[5.516s]   486 |                 pending_left_pose_ = target_pose;
+[5.516s]       |                 ^~~~~~~~~~~~~~~~~~
+[5.543s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:487:17: error: ‘pending_left_time_’ was not declared in this scope
+[5.543s]   487 |                 pending_left_time_ = now_tp;
+[5.543s]       |                 ^~~~~~~~~~~~~~~~~~
+[5.575s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:488:17: error: ‘has_pending_left_pose_’ was not declared in this scope
+[5.576s]   488 |                 has_pending_left_pose_ = true;
+[5.576s]       |                 ^~~~~~~~~~~~~~~~~~~~~~
+[5.604s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:490:17: error: ‘pending_right_pose_’ was not declared in this scope
+[5.604s]   490 |                 pending_right_pose_ = target_pose;
+[5.604s]       |                 ^~~~~~~~~~~~~~~~~~~
+[5.632s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:491:17: error: ‘pending_right_time_’ was not declared in this scope
+[5.632s]   491 |                 pending_right_time_ = now_tp;
+[5.632s]       |                 ^~~~~~~~~~~~~~~~~~~
+[5.664s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:492:17: error: ‘has_pending_right_pose_’ was not declared in this scope
+[5.664s]   492 |                 has_pending_right_pose_ = true;
+[5.664s]       |                 ^~~~~~~~~~~~~~~~~~~~~~~
+[5.697s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:495:17: error: ‘has_pending_left_pose_’ was not declared in this scope
+[5.697s]   495 |             if (has_pending_left_pose_ && has_pending_right_pose_) {
+[5.697s]       |                 ^~~~~~~~~~~~~~~~~~~~~~
+[5.729s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:495:43: error: ‘has_pending_right_pose_’ was not declared in this scope
+[5.729s]   495 |             if (has_pending_left_pose_ && has_pending_right_pose_) {
+[5.729s]       |                                           ^~~~~~~~~~~~~~~~~~~~~~~
+[5.757s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:496:28: error: ‘pending_left_time_’ was not declared in this scope
+[5.757s]   496 |                 auto dt = (pending_left_time_ > pending_right_time_) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);
+[5.757s]       |                            ^~~~~~~~~~~~~~~~~~
+[5.785s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:496:49: error: ‘pending_right_time_’ was not declared in this scope
+[5.785s]   496 |                 auto dt = (pending_left_time_ > pending_right_time_) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);
+[5.785s]       |                                                 ^~~~~~~~~~~~~~~~~~~
+[5.811s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:498:30: error: ‘pending_left_pose_’ was not declared in this scope
+[5.811s]   498 |                     l_pose = pending_left_pose_;
+[5.811s]       |                              ^~~~~~~~~~~~~~~~~~
+[5.839s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:499:30: error: ‘pending_right_pose_’ was not declared in this scope
+[5.839s]   499 |                     r_pose = pending_right_pose_;
+[5.839s]       |                              ^~~~~~~~~~~~~~~~~~~
+[5.858s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[5.858s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:519:48: error: ‘sync_mutex_’ was not declared in this scope
+[5.858s]   519 |                 std::lock_guard<std::mutex> lk(sync_mutex_);
+[5.858s]       |                                                ^~~~~~~~~~~
+[5.891s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:38: error: ‘has_pending_left_pose_’ was not declared in this scope
+[5.891s]   521 |                     still_unpaired = has_pending_left_pose_ && (pending_left_time_ == now_tp);
+[5.891s]       |                                      ^~~~~~~~~~~~~~~~~~~~~~
+[5.919s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:65: error: ‘pending_left_time_’ was not declared in this scope
+[5.919s]   521 |                     still_unpaired = has_pending_left_pose_ && (pending_left_time_ == now_tp);
+[5.919s]       |                                                                 ^~~~~~~~~~~~~~~~~~
+[5.952s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:524:38: error: ‘has_pending_right_pose_’ was not declared in this scope
+[5.952s]   524 |                     still_unpaired = has_pending_right_pose_ && (pending_right_time_ == now_tp);
+[5.952s]       |                                      ^~~~~~~~~~~~~~~~~~~~~~~
+[5.980s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:524:66: error: ‘pending_right_time_’ was not declared in this scope
+[5.980s]   524 |                     still_unpaired = has_pending_right_pose_ && (pending_right_time_ == now_tp);
+[5.980s]       |                                                                  ^~~~~~~~~~~~~~~~~~~
+[6.012s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:529:51: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[6.012s]   529 |                 auto mgi = (arm_name == "left") ? left_move_group_interface_ : right_move_group_interface_;
+[6.012s]       |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[6.012s]       |                                                   get_node_graph_interface
+[6.045s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:529:80: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[6.045s]   529 |                 auto mgi = (arm_name == "left") ? left_move_group_interface_ : right_move_group_interface_;
+[6.045s]       |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[6.045s]       |                                                                                get_node_graph_interface
+[6.065s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[6.065s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:561:27: error: ‘plan_buffer_’ was not declared in this scope
+[6.065s]   561 |             if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;
+[6.065s]       |                           ^~~~~~~~~~~~
+[6.083s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:565:31: error: ‘plan_buffer_’ was not declared in this scope
+[6.083s]   565 |             return (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS);
+[6.083s]       |                               ^~~~~~~~~~~~
+[6.115s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)’:
+[6.115s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:571:13: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[6.116s]   571 |         if (left_move_group_interface_) {
+[6.116s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[6.116s]       |             get_node_graph_interface
+[6.134s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:38: error: ‘plan_buffer_’ was not declared in this scope
+[6.134s]   573 |             if (left_ok) left_plan = plan_buffer_;
+[6.134s]       |                                      ^~~~~~~~~~~~
+[6.167s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:575:13: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[6.167s]   575 |         if (right_move_group_interface_) {
+[6.167s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[6.167s]       |             get_node_graph_interface
+[6.185s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:577:40: error: ‘plan_buffer_’ was not declared in this scope
+[6.185s]   577 |             if (right_ok) right_plan = plan_buffer_;
+[6.185s]       |                                        ^~~~~~~~~~~~
+[6.222s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[6.222s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:598:17: error: ‘RCLCPlocityScalingFactor’ was not declared in this scope
+[6.222s]   598 |                 RCLCPlocityScalingFactor(0.8);
+[6.222s]       |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+[6.232s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:599:13: error: ‘mgi’ was not declared in this scope
+[6.232s]   599 |             mgi->setMaxAccelerationScalingFactor(0.8);
+[6.232s]       |             ^~~
+[6.250s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:27: error: ‘plan_buffer_’ was not declared in this scope
+[6.251s]   600 |             if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;
+[6.251s]       |                           ^~~~~~~~~~~~
+[6.251s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:91: error: inconsistent types ‘void’ and ‘bool’ deduced for lambda return type
+[6.251s]   600 |             if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;
+[6.251s]       |                                                                                           ^~~~
+[6.251s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:91: error: return-statement with a value, in function returning ‘void’ [-fpermissive]
+[6.269s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:604:31: error: ‘plan_buffer_’ was not declared in this scope
+[6.269s]   604 |             return (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS);
+[6.269s]       |                               ^~~~~~~~~~~~
+[6.300s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:610:13: error: ‘left_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[6.301s]   610 |         if (left_move_group_interface_) {
+[6.301s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[6.301s]       |             get_node_graph_interface
+[6.301s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:611:23: error: ‘plan_one’ is not captured
+[6.301s]   611 |             left_ok = plan_one(left_move_group_interface_, left_pose);
+[6.301s]       |                       ^~~~~~~~
+[6.301s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default
+[6.301s]   587 |         auto send_one = [this](const std::string& arm,
+[6.301s]       |                              ^
+[6.301s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:545:14: note: ‘MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one’ declared here
+[6.301s]   545 |         auto plan_one = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,
+[6.301s]       |              ^~~~~~~~
+[6.301s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:611:60: error: ‘left_pose’ is not captured
+[6.301s]   611 |             left_ok = plan_one(left_move_group_interface_, left_pose);
+[6.301s]       |                                                            ^~~~~~~~~
+[6.301s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default
+[6.301s]   587 |         auto send_one = [this](const std::string& arm,
+[6.302s]       |                              ^
+[6.302s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:535:76: note: ‘const PoseStamped& left_pose’ declared here
+[6.302s]   535 |     void planAndExecuteSynchronized(const geometry_msgs::msg::PoseStamped& left_pose,
+[6.302s]       |                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+[6.319s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:38: error: ‘plan_buffer_’ was not declared in this scope
+[6.319s]   612 |             if (left_ok) left_plan = plan_buffer_;
+[6.319s]       |                                      ^~~~~~~~~~~~
+[6.352s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:614:13: error: ‘right_move_group_interface_’ was not declared in this scope; did you mean ‘get_node_graph_interface’?
+[6.352s]   614 |         if (right_move_group_interface_) {
+[6.352s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[6.352s]       |             get_node_graph_interface
+[6.352s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:615:24: error: ‘plan_one’ is not captured
+[6.352s]   615 |             right_ok = plan_one(right_move_group_interface_, right_pose);
+[6.352s]       |                        ^~~~~~~~
+[6.352s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default
+[6.352s]   587 |         auto send_one = [this](const std::string& arm,
+[6.352s]       |                              ^
+[6.353s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:545:14: note: ‘MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one’ declared here
+[6.353s]   545 |         auto plan_one = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,
+[6.353s]       |              ^~~~~~~~
+[6.353s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:615:62: error: ‘right_pose’ is not captured
+[6.353s]   615 |             right_ok = plan_one(right_move_group_interface_, right_pose);
+[6.353s]       |                                                              ^~~~~~~~~~
+[6.353s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default
+[6.353s]   587 |         auto send_one = [this](const std::string& arm,
+[6.353s]       |                              ^
+[6.353s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:536:76: note: ‘const PoseStamped& right_pose’ declared here
+[6.353s]   536 |                                     const geometry_msgs::msg::PoseStamped& right_pose)
+[6.353s]       |                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+[6.370s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:616:40: error: ‘plan_buffer_’ was not declared in this scope
+[6.370s]   616 |             if (right_ok) right_plan = plan_buffer_;
+[6.370s]       |                                        ^~~~~~~~~~~~
+[6.383s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[6.383s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:136: error: there are no arguments to ‘stopTrajectoryTracking’ that depend on a template parameter, so a declaration of ‘stopTrajectoryTracking’ must be available [-fpermissive]
+[6.383s]   646 |             options.result_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); stopTrajectoryTracking(arm); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo(arm); };
+[6.383s]       |                                                                                                                                        ^~~~~~~~~~~~~~~~~~~~~~
+[6.383s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:136: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+[6.417s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In instantiation of ‘MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)> [with auto:41 = rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult]’:
+[6.417s] /usr/include/c++/11/type_traits:2530:26:   required by substitution of ‘template<class _Fn, class ... _Args> static std::__result_of_success<decltype (declval<_Fn>()((declval<_Args>)()...)), std::__invoke_other> std::__result_of_other_impl::_S_test(int) [with _Fn = MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&; _Args = {const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&}]’
+[6.417s] /usr/include/c++/11/type_traits:2541:55:   required from ‘struct std::__result_of_impl<false, false, MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&>’
+[6.417s] /usr/include/c++/11/bits/std_function.h:348:9:   recursively required by substitution of ‘template<class _Result, class _Ret> struct std::__is_invocable_impl<_Result, _Ret, true, std::__void_t<typename _CTp::type> > [with _Result = std::__invoke_result<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&>; _Ret = void]’
+[6.417s] /usr/include/c++/11/bits/std_function.h:348:9:   required from ‘struct std::function<void(const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&)>::_Callable<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, std::__invoke_result<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&> >’
+[6.417s] /usr/include/c++/11/bits/std_function.h:353:8:   required by substitution of ‘template<class _Res, class ... _ArgTypes> template<class _Cond, class _Tp> using _Requires = std::__enable_if_t<_Cond::value, _Tp> [with _Cond = std::function<void(const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&)>::_Callable<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, std::__invoke_result<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&> >; _Tp = void; _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&}]’
+[6.417s] /usr/include/c++/11/bits/std_function.h:434:9:   required by substitution of ‘template<class _Functor, class _Constraints> std::function<void(const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&)>::function(_Functor&&) [with _Functor = MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>; _Constraints = <missing>]’
+[6.417s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:242:   required from here
+[6.417s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:158: error: ‘stopTrajectoryTracking’ was not declared in this scope
+[6.418s]   646 |             options.result_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); stopTrajectoryTracking(arm); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo(arm); };
+[6.418s]       |                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~^~~~~
+[6.456s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[6.456s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:648:13: error: ‘updateTrajectoryTracking’ was not declared in this scope
+[6.456s]   648 |             updateTrajectoryTracking(plan, arm);
+[6.456s]       |             ^~~~~~~~~~~~~~~~~~~~~~~~
+[6.490s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:
+[6.491s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:651:41: error: ‘left_arm_action_client_’ was not declared in this scope
+[6.491s]   651 |         if (left_ok)  send_one("left",  left_arm_action_client_,  left_plan);
+[6.491s]       |                                         ^~~~~~~~~~~~~~~~~~~~~~~
+[6.525s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:652:41: error: ‘right_arm_action_client_’ was not declared in this scope
+[6.525s]   652 |         if (right_ok) send_one("right", right_arm_action_client_, right_plan);
+[6.525s]       |                                         ^~~~~~~~~~~~~~~~~~~~~~~~
+[6.526s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function ‘void MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)’:
+[6.527s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:657:5: error: expected ‘,’ or ‘;’ before ‘void’
+[6.527s]   657 |     void execute_trajectory_directly(
+[6.527s]       |     ^~~~
+[6.527s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:709:5: error: a function-definition is not allowed here before ‘{’ token
+[6.527s]   709 |     {
+[6.527s]       |     ^
+[6.527s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:727:5: error: a function-definition is not allowed here before ‘{’ token
+[6.527s]   727 |     {
+[6.527s]       |     ^
+[6.527s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:741:5: error: a function-definition is not allowed here before ‘{’ token
+[6.527s]   741 |     {
+[6.527s]       |     ^
+[6.527s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:771:5: error: a function-definition is not allowed here before ‘{’ token
+[6.527s]   771 |     {
+[6.527s]       |     ^
+[6.528s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:777:5: error: a function-definition is not allowed here before ‘{’ token
+[6.528s]   777 |     {
+[6.528s]       |     ^
+[6.528s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:783:5: error: a function-definition is not allowed here before ‘{’ token
+[6.528s]   783 |     {
+[6.528s]       |     ^
+[6.528s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:789:5: error: a function-definition is not allowed here before ‘{’ token
+[6.528s]   789 |     {
+[6.528s]       |     ^
+[6.528s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:795:5: error: a function-definition is not allowed here before ‘{’ token
+[6.528s]   795 |     {
+[6.528s]       |     ^
+[6.528s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:823:5: error: a function-definition is not allowed here before ‘{’ token
+[6.528s]   823 |     {
+[6.528s]       |     ^
+[6.528s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:878:5: error: a function-definition is not allowed here before ‘{’ token
+[6.529s]   878 |     {
+[6.529s]       |     ^
+[6.529s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:885:5: error: a function-definition is not allowed here before ‘{’ token
+[6.529s]   885 |     {
+[6.529s]       |     ^
+[6.529s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:891:5: error: a function-definition is not allowed here before ‘{’ token
+[6.529s]   891 |     {
+[6.529s]       |     ^
+[6.529s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:897:5: error: a function-definition is not allowed here before ‘{’ token
+[6.529s]   897 |     {
+[6.529s]       |     ^
+[6.529s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:904:5: error: a function-definition is not allowed here before ‘{’ token
+[6.529s]   904 |     {
+[6.529s]       |     ^
+[6.529s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:965:5: error: a function-definition is not allowed here before ‘{’ token
+[6.529s]   965 |     {
+[6.530s]       |     ^
+[6.530s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1024:5: error: a function-definition is not allowed here before ‘{’ token
+[6.530s]  1024 |     {
+[6.530s]       |     ^
+[6.530s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1030:5: error: a function-definition is not allowed here before ‘{’ token
+[6.530s]  1030 |     {
+[6.530s]       |     ^
+[6.530s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1036:5: error: a function-definition is not allowed here before ‘{’ token
+[6.530s]  1036 |     {
+[6.530s]       |     ^
+[6.530s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1042:5: error: a function-definition is not allowed here before ‘{’ token
+[6.530s]  1042 |     {
+[6.530s]       |     ^
+[6.530s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1048:5: error: a function-definition is not allowed here before ‘{’ token
+[6.530s]  1048 |     {
+[6.530s]       |     ^
+[6.532s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:17: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]
+[6.532s]  1181 |     bool isReady() const { return joint_state_ready_ && actions_ready_; }
+[6.533s]       |                 ^~
+[6.533s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:17: note: remove parentheses to default-initialize a variable
+[6.533s]  1181 |     bool isReady() const { return joint_state_ready_ && actions_ready_; }
+[6.533s]       |                 ^~
+[6.533s]       |                 --
+[6.534s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:17: note: or replace parentheses with braces to value-initialize a variable
+[6.534s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:26: error: a function-definition is not allowed here before ‘{’ token
+[6.534s]  1181 |     bool isReady() const { return joint_state_ready_ && actions_ready_; }
+[6.534s]       |                          ^
+[6.534s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1184:5: error: a function-definition is not allowed here before ‘{’ token
+[6.534s]  1184 |     {
+[6.534s]       |     ^
+[6.539s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: At global scope:
+[6.539s] /home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1222:2: error: expected unqualified-id at end of input
+[6.539s]  1222 | }
+[6.539s]       |  ^
+[13.301s] gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+[13.301s] gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+[13.302s] gmake: *** [Makefile:146: all] Error 2
+[13.305s] Invoked command in '/home/a/ws_moveit2/src/robot_config/build/robot_config' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/src/robot_config/build/robot_config -- -j22 -l22

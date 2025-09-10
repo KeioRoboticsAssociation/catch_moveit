@@ -1,0 +1,84 @@
+# ボタン-軌道ファイルマッピング設定
+# Pose/Goalボタンに対応する軌道YAMLファイルを指定
+# Red/Blueフィールドごとに異なる軌道ファイルを設定可能
+
+# 赤フィールド用のPoseボタンマッピング
+red_pose_mappings:
+  pose1: "red_trajectory_pose1.yaml"
+  pose2: "red_trajectory_pose2.yaml"
+  pose3: "red_trajectory_pose3.yaml"
+  pose4: "red_trajectory_pose4.yaml"
+  pose5: "red_trajectory_pose5.yaml"
+  pose6: "red_trajectory_pose6.yaml"
+  pose7: "red_trajectory_pose7.yaml"
+  pose8: "red_trajectory_pose8.yaml"
+  pose9: "red_trajectory_pose9.yaml"
+  pose10: "red_trajectory_pose10.yaml"
+  pose11: "red_trajectory_pose11.yaml"
+  pose12: "red_trajectory_pose12.yaml"
+  pose13: "red_trajectory_pose13.yaml"
+  pose14: "red_trajectory_pose14.yaml"
+  pose15: "red_trajectory_pose15.yaml"
+
+# 青フィールド用のPoseボタンマッピング
+blue_pose_mappings:
+  pose1: "blue_trajectory_pose1.yaml"
+  pose2: "blue_trajectory_pose2.yaml"
+  pose3: "blue_trajectory_pose3.yaml"
+  pose4: "blue_trajectory_pose4.yaml"
+  pose5: "blue_trajectory_pose5.yaml"
+  pose6: "blue_trajectory_pose6.yaml"
+  pose7: "blue_trajectory_pose7.yaml"
+  pose8: "blue_trajectory_pose8.yaml"
+  pose9: "blue_trajectory_pose9.yaml"
+  pose10: "blue_trajectory_pose10.yaml"
+  pose11: "blue_trajectory_pose11.yaml"
+  pose12: "blue_trajectory_pose12.yaml"
+  pose13: "blue_trajectory_pose13.yaml"
+  pose14: "blue_trajectory_pose14.yaml"
+  pose15: "blue_trajectory_pose15.yaml"
+
+# 赤フィールド用のGoalボタンマッピング
+red_goal_mappings:
+  goal1: "red_trajectory_goal1.yaml"
+  goal2: "red_trajectory_goal2.yaml"
+  goal3: "red_trajectory_goal3.yaml"
+  goal4: "red_trajectory_goal4.yaml"
+  goal5: "red_trajectory_goal5.yaml"
+  goal6: "red_trajectory_goal6.yaml"
+  goal7: "red_trajectory_goal7.yaml"
+  goal8: "red_trajectory_goal8.yaml"
+  goal9: "red_trajectory_goal9.yaml"
+  goal10: "red_trajectory_goal10.yaml"
+  goal11: "red_trajectory_goal11.yaml"
+  goal12: "red_trajectory_goal12.yaml"
+  goal13: "red_trajectory_goal13.yaml"
+  goal14: "red_trajectory_goal14.yaml"
+  goal15: "red_trajectory_goal15.yaml"
+
+# 青フィールド用のGoalボタンマッピング
+blue_goal_mappings:
+  goal1: "blue_trajectory_goal1.yaml"
+  goal2: "blue_trajectory_goal2.yaml"
+  goal3: "blue_trajectory_goal3.yaml"
+  goal4: "blue_trajectory_goal4.yaml"
+  goal5: "blue_trajectory_goal5.yaml"
+  goal6: "blue_trajectory_goal6.yaml"
+  goal7: "blue_trajectory_goal7.yaml"
+  goal8: "blue_trajectory_goal8.yaml"
+  goal9: "blue_trajectory_goal9.yaml"
+  goal10: "blue_trajectory_goal10.yaml"
+  goal11: "blue_trajectory_goal11.yaml"
+  goal12: "blue_trajectory_goal12.yaml"
+  goal13: "blue_trajectory_goal13.yaml"
+  goal14: "blue_trajectory_goal14.yaml"
+  goal15: "blue_trajectory_goal15.yaml"
+
+# 軌道ファイルの保存ディレクトリ
+trajectory_directory: "/home/a/ws_moveit2/src/robot_config/path/"
+
+# デフォルト設定
+default_settings:
+  enable_trajectory_mode: true
+  fallback_to_pose_command: true  # マッピングがない場合は通常のpose commandを使用
+  recording_trigger: "planning_based"  # planning_based | button_based

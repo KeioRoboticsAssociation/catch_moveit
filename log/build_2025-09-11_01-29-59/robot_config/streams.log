@@ -1,0 +1,609 @@
+[0.114s] Invoking command in '/home/a/ws_moveit2/build/robot_config': AMENT_PREFIX_PATH=/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/urdf_0816_description:/home/a/ws_moveit2/install/trac_ik:/home/a/ws_moveit2/install/robot_config:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin:/home/a/ws_moveit2/install/trac_ik_lib:/home/a/ws_moveit2/install/right_arm_ikfast_plugin:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/a/ws_moveit2/install/moveit_runtime:/home/a/ws_moveit2/install/moveit2_tutorials:/home/a/ws_moveit2/install/moveit:/home/a/ws_moveit2/install/moveit_planners:/home/a/ws_moveit2/install/pilz_industrial_motion_planner:/home/a/ws_moveit2/install/mtc_tutorial:/home/a/ws_moveit2/install/hello_moveit:/home/a/ws_moveit2/install/moveit_visual_tools:/home/a/ws_moveit2/install/moveit_task_constructor_visualization:/home/a/ws_moveit2/install/moveit_task_constructor_demo:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities:/home/a/ws_moveit2/install/moveit_task_constructor_core:/home/a/ws_moveit2/install/moveit_ros_control_interface:/home/a/ws_moveit2/install/moveit_plugins:/home/a/ws_moveit2/install/moveit_simple_controller_manager:/home/a/ws_moveit2/install/moveit_setup_assistant:/home/a/ws_moveit2/install/moveit_setup_srdf_plugins:/home/a/ws_moveit2/install/moveit_setup_core_plugins:/home/a/ws_moveit2/install/moveit_setup_controllers:/home/a/ws_moveit2/install/moveit_setup_app_plugins:/home/a/ws_moveit2/install/moveit_setup_framework:/home/a/ws_moveit2/install/moveit_servo:/home/a/ws_moveit2/install/moveit_ros:/home/a/ws_moveit2/install/moveit_ros_visualization:/home/a/ws_moveit2/install/moveit_hybrid_planning:/home/a/ws_moveit2/install/moveit_ros_planning_interface:/home/a/ws_moveit2/install/moveit_ros_benchmarks:/home/a/ws_moveit2/install/moveit_ros_warehouse:/home/a/ws_moveit2/install/moveit_ros_robot_interaction:/home/a/ws_moveit2/install/moveit_ros_perception:/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/a/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/a/ws_moveit2/install/moveit_ros_move_group:/home/a/ws_moveit2/install/moveit_planners_ompl:/home/a/ws_moveit2/install/left_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_ros_planning:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/a/ws_moveit2/install/moveit_planners_chomp:/home/a/ws_moveit2/install/moveit_kinematics:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/a/ws_moveit2/install/chomp_motion_planner:/home/a/ws_moveit2/install/moveit_core:/home/a/ws_moveit2/install/srdfdom:/home/a/ws_moveit2/install/rviz_marker_tools:/home/a/ws_moveit2/install/rosparam_shortcuts:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/red_seiretu_description:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/realsense2_description:/home/a/ws_moveit2/install/realsense2_camera:/home/a/ws_moveit2/install/realsense2_camera_msgs:/home/a/ws_moveit2/install/object_description:/home/a/ws_moveit2/install/moveit_task_constructor_msgs:/home/a/ws_moveit2/install/moveit_resources_prbt_support:/home/a/ws_moveit2/install/moveit_resources:/home/a/ws_moveit2/install/moveit_resources_pr2_description:/home/a/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/a/ws_moveit2/install/moveit_resources_panda_description:/home/a/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/a/ws_moveit2/install/moveit_resources_fanuc_description:/home/a/ws_moveit2/install/moveit_common:/home/a/ws_moveit2/install/field_description_test:/home/a/ws_moveit2/install/field_description:/home/a/ws_moveit2/install/dynamixel_sdk_examples:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/home/a/ws_moveit2/install/catch_gazebo_ros2_control:/home/a/ws_moveit2/install/blue_seiretu_description:/home/a/ws_moveit2/install/0525_arm_description:/opt/ros/humble CMAKE_PREFIX_PATH=/home/a/ws_moveit2/install/moveit_setup_assistant:/home/a/ws_moveit2/install/moveit_setup_srdf_plugins:/home/a/ws_moveit2/install/moveit_setup_core_plugins:/home/a/ws_moveit2/install/moveit_setup_controllers:/home/a/ws_moveit2/install/moveit_setup_app_plugins:/home/a/ws_moveit2/install/moveit_planners:/home/a/ws_moveit2/install/pilz_industrial_motion_planner:/home/a/ws_moveit2/install/moveit_setup_framework:/home/a/ws_moveit2/install/moveit_servo:/home/a/ws_moveit2/install/moveit_ros_visualization:/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/a/ws_moveit2/install/moveit_ros_planning_interface:/home/a/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/a/ws_moveit2/install/moveit_ros_move_group:/home/a/ws_moveit2/install/moveit_ros_warehouse:/home/a/ws_moveit2/install/moveit_ros_robot_interaction:/home/a/ws_moveit2/install/moveit_planners_ompl:/home/a/ws_moveit2/install/moveit_kinematics:/home/a/ws_moveit2/install/moveit_ros_planning:/home/a/ws_moveit2/install/moveit_planners_chomp:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/a/ws_moveit2/install/moveit_simple_controller_manager:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/a/ws_moveit2/install/chomp_motion_planner:/home/a/ws_moveit2/install/moveit_core:/home/a/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/a/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/a/ws_moveit2/install/trac_ik_lib:/home/a/ws_moveit2/install/srdfdom:/home/a/ws_moveit2/install/moveit_resources_prbt_support:/home/a/ws_moveit2/install/moveit_resources_pr2_description:/home/a/ws_moveit2/install/moveit_resources_panda_description:/home/a/ws_moveit2/install/moveit_resources_fanuc_description:/home/a/ws_moveit2/install/moveit_common:/home/a/ws_moveit2/install/urdf_0816_description:/home/a/ws_moveit2/install/trac_ik:/home/a/ws_moveit2/install/robot_config:/home/a/ws_moveit2/install/right_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_runtime:/home/a/ws_moveit2/install/moveit2_tutorials:/home/a/ws_moveit2/install/moveit:/home/a/ws_moveit2/install/mtc_tutorial:/home/a/ws_moveit2/install/hello_moveit:/home/a/ws_moveit2/install/moveit_visual_tools:/home/a/ws_moveit2/install/moveit_task_constructor_visualization:/home/a/ws_moveit2/install/moveit_task_constructor_demo:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities:/home/a/ws_moveit2/install/moveit_task_constructor_core:/home/a/ws_moveit2/install/moveit_ros_control_interface:/home/a/ws_moveit2/install/moveit_plugins:/home/a/ws_moveit2/install/moveit_ros:/home/a/ws_moveit2/install/moveit_hybrid_planning:/home/a/ws_moveit2/install/moveit_ros_benchmarks:/home/a/ws_moveit2/install/moveit_ros_perception:/home/a/ws_moveit2/install/left_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/a/ws_moveit2/install/rviz_marker_tools:/home/a/ws_moveit2/install/rosparam_shortcuts:/home/a/ws_moveit2/install/red_seiretu_description:/home/a/ws_moveit2/install/realsense2_description:/home/a/ws_moveit2/install/realsense2_camera:/home/a/ws_moveit2/install/realsense2_camera_msgs:/home/a/ws_moveit2/install/object_description:/home/a/ws_moveit2/install/moveit_task_constructor_msgs:/home/a/ws_moveit2/install/moveit_resources:/home/a/ws_moveit2/install/field_description_test:/home/a/ws_moveit2/install/field_description:/home/a/ws_moveit2/install/dynamixel_sdk_examples:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces:/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:/home/a/ws_moveit2/install/catch_gazebo_ros2_control:/home/a/ws_moveit2/install/blue_seiretu_description:/home/a/ws_moveit2/install/0525_arm_description:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble LD_LIBRARY_PATH=/home/a/ws_moveit2/install/moveit_setup_srdf_plugins/lib:/home/a/ws_moveit2/install/moveit_setup_core_plugins/lib:/home/a/ws_moveit2/install/moveit_setup_controllers/lib:/home/a/ws_moveit2/install/moveit_setup_app_plugins/lib:/home/a/ws_moveit2/install/pilz_industrial_motion_planner/lib:/home/a/ws_moveit2/install/moveit_setup_framework/lib:/home/a/ws_moveit2/install/moveit_servo/lib:/home/a/ws_moveit2/install/moveit_ros_visualization/lib:/home/a/ws_moveit2/install/moveit_ros_planning_interface/lib:/home/a/ws_moveit2/install/moveit_ros_move_group/lib:/home/a/ws_moveit2/install/moveit_ros_warehouse/lib:/home/a/ws_moveit2/install/moveit_ros_robot_interaction/lib:/home/a/ws_moveit2/install/moveit_planners_ompl/lib:/home/a/ws_moveit2/install/moveit_kinematics/lib:/home/a/ws_moveit2/install/moveit_ros_planning/lib:/home/a/ws_moveit2/install/moveit_planners_chomp/lib:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin/lib:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils/lib:/home/a/ws_moveit2/install/moveit_simple_controller_manager/lib:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor/lib:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin/lib:/home/a/ws_moveit2/install/chomp_motion_planner/lib:/home/a/ws_moveit2/install/moveit_core/lib:/home/a/ws_moveit2/install/trac_ik_lib/lib:/home/a/ws_moveit2/install/srdfdom/lib:/home/a/ws_moveit2/install/right_arm_ikfast_plugin/lib:/home/a/ws_moveit2/install/moveit_visual_tools/lib:/home/a/ws_moveit2/install/moveit_task_constructor_visualization/lib:/home/a/ws_moveit2/install/moveit_task_constructor_demo/lib:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities/lib:/home/a/ws_moveit2/install/moveit_task_constructor_core/lib:/home/a/ws_moveit2/install/moveit_ros_control_interface/lib:/home/a/ws_moveit2/install/moveit_setup_assistant/lib:/home/a/ws_moveit2/install/moveit_hybrid_planning/lib:/home/a/ws_moveit2/install/moveit_ros_benchmarks/lib:/home/a/ws_moveit2/install/moveit_ros_perception/lib:/home/a/ws_moveit2/install/left_arm_ikfast_plugin/lib:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter/lib:/home/a/ws_moveit2/install/rviz_marker_tools/lib:/home/a/ws_moveit2/install/rosparam_shortcuts/lib:/home/a/ws_moveit2/install/realsense2_camera/lib:/home/a/ws_moveit2/install/realsense2_camera_msgs/lib:/home/a/ws_moveit2/install/moveit_task_constructor_msgs/lib:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces/lib:/home/a/ws_moveit2/install/dynamixel_controller/lib:/home/a/ws_moveit2/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/a/ws_moveit2/install/moveit_configs_utils/lib/python3.10/site-packages:/home/a/ws_moveit2/install/launch_param_builder/lib/python3.10/site-packages:/home/a/ws_moveit2/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/srdfdom/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/ros_tcp_endpoint/lib/python3.10/site-packages:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge/lib/python3.10/site-packages:/home/a/ws_moveit2/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages:/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages:/home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/a/ws_moveit2/build/robot_config -- -j22 -l22
+[0.169s] [35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[0.179s] [ 33%] Built target dual_arm_servo_controller
+[0.179s] [ 66%] Built target pose_command_publisher
+[0.192s] [ 83%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[4.114s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1207:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[4.115s]  1207 | }
+[4.115s]       |  [01;31m[K^[m[K
+[4.115s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:24:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[4.115s]    24 | [01;36m[K{[m[K
+[4.115s]       | [01;36m[K^[m[K
+[4.125s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[4.125s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:30:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_rpy_sub_[m[K’ was not declared in this scope
+[4.125s]    30 |         [01;31m[Kleft_rpy_sub_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+[4.125s]       |         [01;31m[K^~~~~~~~~~~~~[m[K
+[4.171s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:32:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_rpy_sub_[m[K’ was not declared in this scope
+[4.171s]    32 |         [01;31m[Kright_rpy_sub_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+[4.171s]       |         [01;31m[K^~~~~~~~~~~~~~[m[K
+[4.181s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:35:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kdual_rpy_sub_[m[K’ was not declared in this scope
+[4.181s]    35 |         [01;31m[Kdual_rpy_sub_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+[4.181s]       |         [01;31m[K^~~~~~~~~~~~~[m[K
+[4.193s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:40:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kenable_local_psm_[m[K’ was not declared in this scope
+[4.193s]    40 |         [01;31m[Kenable_local_psm_[m[K = this->declare_parameter<bool>("enable_local_planning_scene_monitor", false);
+[4.193s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[4.205s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:43:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_init_thread_[m[K’ was not declared in this scope
+[4.205s]    43 |         [01;31m[Kleft_init_thread_[m[K = std::thread([this]() {
+[4.205s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[4.221s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[4.221s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:45:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[4.221s]    45 |             [01;31m[Kleft_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");
+[4.221s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.221s]       |             [32m[Kget_node_graph_interface[m[K
+[4.244s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:53:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_hand_move_group_interface_[m[K’ was not declared in this scope
+[4.244s]    53 |             [01;31m[Kleft_hand_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");
+[4.244s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.258s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:59:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose_received_[m[K’ was not declared in this scope
+[4.258s]    59 |             if ([01;31m[Kleft_pose_received_[m[K && last_left_pose_rpy_.size() == 6 && left_move_group_interface_) {
+[4.258s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.271s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:59:40:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_left_pose_rpy_[m[K’ was not declared in this scope
+[4.271s]    59 |             if (left_pose_received_ && [01;31m[Klast_left_pose_rpy_[m[K.size() == 6 && left_move_group_interface_) {
+[4.271s]       |                                        [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.284s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[4.284s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:79:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_init_thread_[m[K’ was not declared in this scope
+[4.284s]    79 |         [01;31m[Kright_init_thread_[m[K = std::thread([this]() {
+[4.284s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[4.300s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[4.300s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:81:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[4.300s]    81 |             [01;31m[Kright_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");
+[4.300s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.300s]       |             [32m[Kget_node_graph_interface[m[K
+[4.321s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:89:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_hand_move_group_interface_[m[K’ was not declared in this scope
+[4.321s]    89 |             [01;31m[Kright_hand_move_group_interface_[m[K = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");
+[4.321s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.336s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:95:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose_received_[m[K’ was not declared in this scope
+[4.336s]    95 |             if ([01;31m[Kright_pose_received_[m[K && last_right_pose_rpy_.size() == 6 && right_move_group_interface_) {
+[4.336s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.350s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:95:41:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_right_pose_rpy_[m[K’ was not declared in this scope
+[4.350s]    95 |             if (right_pose_received_ && [01;31m[Klast_right_pose_rpy_[m[K.size() == 6 && right_move_group_interface_) {
+[4.350s]       |                                         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.362s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In constructor ‘[01m[KMoveToPoseDualCpp::MoveToPoseDualCpp()[m[K’:
+[4.362s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:115:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_attach_sub_[m[K’ was not declared in this scope
+[4.362s]   115 |         [01;31m[Kleft_attach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.362s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[4.362s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:116:70:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_attach_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.362s]   116 |             "/left_attach_object", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_attach_callback[m[K, this, std::placeholders::_1));
+[4.362s]       |                                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.373s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:117:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_detach_sub_[m[K’ was not declared in this scope
+[4.373s]   117 |         [01;31m[Kleft_detach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.373s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[4.373s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:118:70:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_detach_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.373s]   118 |             "/left_detach_object", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_detach_callback[m[K, this, std::placeholders::_1));
+[4.374s]       |                                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.385s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:119:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_attach_sub_[m[K’ was not declared in this scope
+[4.385s]   119 |         [01;31m[Kright_attach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.385s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[4.385s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:120:71:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_attach_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.385s]   120 |             "/right_attach_object", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_attach_callback[m[K, this, std::placeholders::_1));
+[4.385s]       |                                                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[4.397s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:121:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_detach_sub_[m[K’ was not declared in this scope
+[4.397s]   121 |         [01;31m[Kright_detach_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.397s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[4.397s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:122:71:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_detach_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.397s]   122 |             "/right_detach_object", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_detach_callback[m[K, this, std::placeholders::_1));
+[4.397s]       |                                                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[4.408s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:125:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_up_sub_[m[K’ was not declared in this scope
+[4.408s]   125 |         [01;31m[Kleft_arm_up_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.408s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[4.408s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:126:63:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_up_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.408s]   126 |             "/left_arm_up", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_arm_up_callback[m[K, this, std::placeholders::_1));
+[4.408s]       |                                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.420s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:127:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_down_sub_[m[K’ was not declared in this scope
+[4.420s]   127 |         [01;31m[Kleft_arm_down_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.420s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[4.421s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:128:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_down_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.421s]   128 |             "/left_arm_down", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_arm_down_callback[m[K, this, std::placeholders::_1));
+[4.421s]       |                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.432s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:129:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_up_sub_[m[K’ was not declared in this scope
+[4.432s]   129 |         [01;31m[Kright_arm_up_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.432s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[4.432s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:130:64:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_up_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.432s]   130 |             "/right_arm_up", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_arm_up_callback[m[K, this, std::placeholders::_1));
+[4.432s]       |                                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[4.445s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:131:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_down_sub_[m[K’ was not declared in this scope
+[4.445s]   131 |         [01;31m[Kright_arm_down_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.445s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.445s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:132:66:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_down_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.445s]   132 |             "/right_arm_down", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_arm_down_callback[m[K, this, std::placeholders::_1));
+[4.445s]       |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.458s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:135:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_open_sub_[m[K’ was not declared in this scope
+[4.458s]   135 |         [01;31m[Kleft_arm_open_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.458s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[4.458s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:136:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_open_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.458s]   136 |             "/left_arm_open", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_arm_open_callback[m[K, this, std::placeholders::_1));
+[4.458s]       |                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.470s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:137:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_close_sub_[m[K’ was not declared in this scope
+[4.471s]   137 |         [01;31m[Kleft_arm_close_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.471s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.471s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:138:66:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_close_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.471s]   138 |             "/left_arm_close", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kleft_arm_close_callback[m[K, this, std::placeholders::_1));
+[4.471s]       |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.484s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:139:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_open_sub_[m[K’ was not declared in this scope
+[4.484s]   139 |         [01;31m[Kright_arm_open_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.484s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.484s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:140:66:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_open_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.484s]   140 |             "/right_arm_open", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_arm_open_callback[m[K, this, std::placeholders::_1));
+[4.484s]       |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.497s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:141:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_close_sub_[m[K’ was not declared in this scope
+[4.498s]   141 |         [01;31m[Kright_arm_close_sub_[m[K = this->create_subscription<std_msgs::msg::String>(
+[4.498s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.498s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:142:67:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_close_callback[m[K’ is not a member of ‘[01m[KMoveToPoseDualCpp[m[K’
+[4.498s]   142 |             "/right_arm_close", 10, std::bind(&MoveToPoseDualCpp::[01;31m[Kright_arm_close_callback[m[K, this, std::placeholders::_1));
+[4.498s]       |                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.508s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:147:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kpost_init_timer_[m[K’ was not declared in this scope
+[4.508s]   147 |         [01;31m[Kpost_init_timer_[m[K = this->create_wall_timer(
+[4.509s]       |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[4.509s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[4.509s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:152:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpost_init_timer_[m[K’ is not captured
+[4.509s]   152 |                 [01;31m[Kpost_init_timer_[m[K->cancel();
+[4.509s]       |                 [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[4.509s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:149:18:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+[4.509s]   149 |             [this[01;36m[K][m[K() {
+[4.509s]       |                  [01;36m[K^[m[K
+[4.509s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:147:9:[m[K [01;36m[Knote: [m[K‘[01m[K<typeprefixerror>post_init_timer_[m[K’ declared here
+[4.509s]   147 |         [01;36m[Kpost_init_timer_[m[K = this->create_wall_timer(
+[4.509s]       |         [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[4.525s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In destructor ‘[01m[Kvirtual MoveToPoseDualCpp::~MoveToPoseDualCpp()[m[K’:
+[4.525s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:159:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_init_thread_[m[K’ was not declared in this scope
+[4.525s]   159 |         if ([01;31m[Kleft_init_thread_[m[K.joinable())
+[4.525s]       |             [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[4.538s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:163:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_init_thread_[m[K’ was not declared in this scope
+[4.538s]   163 |         if ([01;31m[Kright_init_thread_[m[K.joinable())
+[4.538s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[4.553s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::do_post_init()[m[K’:
+[4.553s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:173:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_monitor[m[K’?
+[4.553s]   173 |         [01;31m[Kplanning_scene_interface_[m[K = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+[4.553s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.553s]       |         [32m[Kplanning_scene_monitor[m[K
+[4.567s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:176:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kenable_local_psm_[m[K’ was not declared in this scope
+[4.567s]   176 |         if ([01;31m[Kenable_local_psm_[m[K) {
+[4.567s]       |             [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[4.573s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:177:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_monitor_[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_monitor[m[K’?
+[4.573s]   177 |             [01;31m[Kplanning_scene_monitor_[m[K = std::make_shared<planning_scene_monitor::PlanningSceneMonitor>(
+[4.573s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.573s]       |             [32m[Kplanning_scene_monitor[m[K
+[4.588s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_action_client_[m[K’ was not declared in this scope
+[4.588s]   192 |         [01;31m[Kleft_arm_action_client_[m[K = rclcpp_action::create_client<FollowJointTrajectory>(
+[4.588s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.589s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:64:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ was not declared in this scope; did you mean ‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’?
+[4.589s]   192 |         left_arm_action_client_ = rclcpp_action::create_client<[01;31m[KFollowJointTrajectory[m[K>(
+[4.589s]       |                                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[4.589s]       |                                                                [32m[Kcontrol_msgs::action::FollowJointTrajectory[m[K
+[4.589s] In file included from [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7[m[K,
+[4.589s]                  from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16[m[K:
+[4.589s] [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:[m[K [01;36m[Knote: [m[K‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’ declared here
+[4.589s]  1309 | typedef struct FollowJointTrajectory [01;36m[KFollowJointTrajectory[m[K;
+[4.589s]       |                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[4.589s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:86:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcreate_client<<expression error> >(MoveToPoseDualCpp*, const char [45])[m[K’
+[4.589s]   192 |         left_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+[4.590s]       |                                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[4.590s]   193 | [01;31m[K            this, "/left_arm_controller/follow_joint_trajectory")[m[K;
+[4.590s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+[4.590s] In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38[m[K,
+[4.590s]                  from [01m[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58[m[K,
+[4.590s]                  from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6[m[K:
+[4.590s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+[4.590s]    44 | [01;36m[Kcreate_client[m[K(
+[4.590s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[4.590s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[4.590s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:86:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[4.590s]   192 |         left_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+[4.590s]       |                                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[4.590s]   193 | [01;31m[K            this, "/left_arm_controller/follow_joint_trajectory")[m[K;
+[4.590s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+[4.590s] In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38[m[K,
+[4.590s]                  from [01m[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58[m[K,
+[4.590s]                  from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6[m[K:
+[4.590s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(NodeT, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+[4.591s]   105 | [01;36m[Kcreate_client[m[K(
+[4.591s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[4.591s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[4.591s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:86:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[4.591s]   192 |         left_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+[4.591s]       |                                   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[4.591s]   193 | [01;31m[K            this, "/left_arm_controller/follow_joint_trajectory")[m[K;
+[4.591s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+[4.604s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:194:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_action_client_[m[K’ was not declared in this scope
+[4.604s]   194 |         [01;31m[Kright_arm_action_client_[m[K = rclcpp_action::create_client<FollowJointTrajectory>(
+[4.604s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.604s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:194:87:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcreate_client<FollowJointTrajectory>(MoveToPoseDualCpp*, const char [46])[m[K’
+[4.604s]   194 |         right_arm_action_client_ = [01;31m[Krclcpp_action::create_client<FollowJointTrajectory>([m[K
+[4.604s]       |                                    [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[4.604s]   195 | [01;31m[K            this, "/right_arm_controller/follow_joint_trajectory")[m[K;
+[4.604s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                     
+[4.604s] In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38[m[K,
+[4.604s]                  from [01m[K/home/a/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:58[m[K,
+[4.605s]                  from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:6[m[K:
+[4.605s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+[4.605s]    44 | [01;36m[Kcreate_client[m[K(
+[4.605s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[4.605s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[4.605s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::create_client(NodeT, const string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+[4.605s]   105 | [01;36m[Kcreate_client[m[K(
+[4.605s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[4.605s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[4.613s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:205:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kactions_ready_[m[K’ was not declared in this scope
+[4.613s]   205 |         [01;31m[Kactions_ready_[m[K = true;
+[4.613s]       |         [01;31m[K^~~~~~~~~~~~~~[m[K
+[4.626s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:206:9:[m[K [01;31m[Kerror: [m[K‘[01m[KattemptFlushPending[m[K’ was not declared in this scope
+[4.626s]   206 |         [01;31m[KattemptFlushPending[m[K();
+[4.626s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.642s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:209:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_servo_start_client_[m[K’ was not declared in this scope
+[4.642s]   209 |         [01;31m[Kleft_servo_start_client_[m[K = this->create_client<std_srvs::srv::Trigger>(
+[4.642s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.696s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:211:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_servo_stop_client_[m[K’ was not declared in this scope
+[4.696s]   211 |         [01;31m[Kleft_servo_stop_client_[m[K = this->create_client<std_srvs::srv::Trigger>(
+[4.696s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.713s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:213:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_servo_start_client_[m[K’ was not declared in this scope
+[4.713s]   213 |         [01;31m[Kright_servo_start_client_[m[K = this->create_client<std_srvs::srv::Trigger>(
+[4.713s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.754s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:215:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_servo_stop_client_[m[K’ was not declared in this scope
+[4.755s]   215 |         [01;31m[Kright_servo_stop_client_[m[K = this->create_client<std_srvs::srv::Trigger>(
+[4.755s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.755s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:219:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ktf_buffer_[m[K’ was not declared in this scope
+[4.755s]   219 |         [01;31m[Ktf_buffer_[m[K = std::make_unique<tf2_ros::Buffer>(this->get_clock());
+[4.755s]       |         [01;31m[K^~~~~~~~~~[m[K
+[4.755s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:220:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ktf_listener_[m[K’ was not declared in this scope
+[4.755s]   220 |         [01;31m[Ktf_listener_[m[K = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+[4.755s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[4.766s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::stopServo(const string&)[m[K’:
+[4.766s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:228:46:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_servo_stop_client_[m[K’ was not declared in this scope
+[4.766s]   228 |         auto client = (arm_name == "left") ? [01;31m[Kleft_servo_stop_client_[m[K : right_servo_stop_client_;
+[4.767s]       |                                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.783s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:228:72:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_servo_stop_client_[m[K’ was not declared in this scope
+[4.783s]   228 |         auto client = (arm_name == "left") ? left_servo_stop_client_ : [01;31m[Kright_servo_stop_client_[m[K;
+[4.783s]       |                                                                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.799s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::startServo(const string&)[m[K’:
+[4.800s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:246:46:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_servo_start_client_[m[K’ was not declared in this scope
+[4.800s]   246 |         auto client = (arm_name == "left") ? [01;31m[Kleft_servo_start_client_[m[K : right_servo_start_client_;
+[4.800s]       |                                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.816s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:246:73:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_servo_start_client_[m[K’ was not declared in this scope
+[4.816s]   246 |         auto client = (arm_name == "left") ? left_servo_start_client_ : [01;31m[Kright_servo_start_client_[m[K;
+[4.816s]       |                                                                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.833s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::left_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[4.833s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:308:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_left_pose_rpy_[m[K’ was not declared in this scope
+[4.833s]   308 |         [01;31m[Klast_left_pose_rpy_[m[K = msg->data;
+[4.833s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.847s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:309:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose_received_[m[K’ was not declared in this scope
+[4.847s]   309 |         [01;31m[Kleft_pose_received_[m[K = true;
+[4.847s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.862s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::right_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[4.862s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:338:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_right_pose_rpy_[m[K’ was not declared in this scope
+[4.862s]   338 |         [01;31m[Klast_right_pose_rpy_[m[K = msg->data;
+[4.862s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.876s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:339:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose_received_[m[K’ was not declared in this scope
+[4.876s]   339 |         [01;31m[Kright_pose_received_[m[K = true;
+[4.876s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.899s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[4.899s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:369:13:[m[K [01;31m[Kerror: [m[K‘[01m[KapplyDynamicCollisionAvoidance[m[K’ was not declared in this scope
+[4.899s]   369 |             [01;31m[KapplyDynamicCollisionAvoidance[m[K(move_group_interface, arm_name);
+[4.899s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.919s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:419:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kexecute_trajectory_directly[m[K’ was not declared in this scope
+[4.919s]   419 |                 [01;31m[Kexecute_trajectory_directly[m[K(move_group_interface, my_plan, arm_name);
+[4.919s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.934s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:425:17:[m[K [01;31m[Kerror: [m[K‘[01m[KstopTrajectoryTracking[m[K’ was not declared in this scope
+[4.934s]   425 |                 [01;31m[KstopTrajectoryTracking[m[K(arm_name);
+[4.934s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.944s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::handleIncomingTargetPose(const string&, const PoseStamped&)[m[K’:
+[4.944s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:469:44:[m[K [01;31m[Kerror: [m[K‘[01m[Ksync_mutex_[m[K’ was not declared in this scope
+[4.945s]   469 |             std::lock_guard<std::mutex> lk([01;31m[Ksync_mutex_[m[K);
+[4.945s]       |                                            [01;31m[K^~~~~~~~~~~[m[K
+[4.957s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:471:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_pose_[m[K’ was not declared in this scope
+[4.957s]   471 |                 [01;31m[Kpending_left_pose_[m[K = target_pose;
+[4.957s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[4.969s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:472:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_time_[m[K’ was not declared in this scope
+[4.969s]   472 |                 [01;31m[Kpending_left_time_[m[K = now_tp;
+[4.969s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[4.984s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:473:17:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_left_pose_[m[K’ was not declared in this scope
+[4.985s]   473 |                 [01;31m[Khas_pending_left_pose_[m[K = true;
+[4.985s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.998s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:475:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_pose_[m[K’ was not declared in this scope
+[4.998s]   475 |                 [01;31m[Kpending_right_pose_[m[K = target_pose;
+[4.998s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[5.010s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:476:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_time_[m[K’ was not declared in this scope
+[5.011s]   476 |                 [01;31m[Kpending_right_time_[m[K = now_tp;
+[5.011s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[5.026s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:477:17:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_right_pose_[m[K’ was not declared in this scope
+[5.026s]   477 |                 [01;31m[Khas_pending_right_pose_[m[K = true;
+[5.026s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.041s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:480:17:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_left_pose_[m[K’ was not declared in this scope
+[5.041s]   480 |             if ([01;31m[Khas_pending_left_pose_[m[K && has_pending_right_pose_) {
+[5.041s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.057s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:480:43:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_right_pose_[m[K’ was not declared in this scope
+[5.057s]   480 |             if (has_pending_left_pose_ && [01;31m[Khas_pending_right_pose_[m[K) {
+[5.057s]       |                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.069s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:481:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_time_[m[K’ was not declared in this scope
+[5.069s]   481 |                 auto dt = ([01;31m[Kpending_left_time_[m[K > pending_right_time_) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);
+[5.069s]       |                            [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[5.081s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:481:49:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_time_[m[K’ was not declared in this scope
+[5.082s]   481 |                 auto dt = (pending_left_time_ > [01;31m[Kpending_right_time_[m[K) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);
+[5.082s]       |                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[5.093s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:483:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_pose_[m[K’ was not declared in this scope
+[5.093s]   483 |                     l_pose = [01;31m[Kpending_left_pose_[m[K;
+[5.093s]       |                              [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[5.105s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:484:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_pose_[m[K’ was not declared in this scope
+[5.105s]   484 |                     r_pose = [01;31m[Kpending_right_pose_[m[K;
+[5.106s]       |                              [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[5.114s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[5.114s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:504:48:[m[K [01;31m[Kerror: [m[K‘[01m[Ksync_mutex_[m[K’ was not declared in this scope
+[5.114s]   504 |                 std::lock_guard<std::mutex> lk([01;31m[Ksync_mutex_[m[K);
+[5.114s]       |                                                [01;31m[K^~~~~~~~~~~[m[K
+[5.129s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:506:38:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_left_pose_[m[K’ was not declared in this scope
+[5.129s]   506 |                     still_unpaired = [01;31m[Khas_pending_left_pose_[m[K && (pending_left_time_ == now_tp);
+[5.129s]       |                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.142s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:506:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_left_time_[m[K’ was not declared in this scope
+[5.142s]   506 |                     still_unpaired = has_pending_left_pose_ && ([01;31m[Kpending_left_time_[m[K == now_tp);
+[5.142s]       |                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[5.157s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:509:38:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_pending_right_pose_[m[K’ was not declared in this scope
+[5.157s]   509 |                     still_unpaired = [01;31m[Khas_pending_right_pose_[m[K && (pending_right_time_ == now_tp);
+[5.157s]       |                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.169s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:509:66:[m[K [01;31m[Kerror: [m[K‘[01m[Kpending_right_time_[m[K’ was not declared in this scope
+[5.170s]   509 |                     still_unpaired = has_pending_right_pose_ && ([01;31m[Kpending_right_time_[m[K == now_tp);
+[5.170s]       |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[5.184s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:514:51:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[5.184s]   514 |                 auto mgi = (arm_name == "left") ? [01;31m[Kleft_move_group_interface_[m[K : right_move_group_interface_;
+[5.185s]       |                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.185s]       |                                                   [32m[Kget_node_graph_interface[m[K
+[5.199s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:514:80:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[5.199s]   514 |                 auto mgi = (arm_name == "left") ? left_move_group_interface_ : [01;31m[Kright_move_group_interface_[m[K;
+[5.199s]       |                                                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.199s]       |                                                                                [32m[Kget_node_graph_interface[m[K
+[5.208s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[5.208s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:546:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.208s]   546 |             if (mgi->plan([01;31m[Kplan_buffer_[m[K) == moveit::core::MoveItErrorCode::SUCCESS) return true;
+[5.208s]       |                           [01;31m[K^~~~~~~~~~~~[m[K
+[5.216s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:550:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.216s]   550 |             return (mgi->plan([01;31m[Kplan_buffer_[m[K) == moveit::core::MoveItErrorCode::SUCCESS);
+[5.216s]       |                               [01;31m[K^~~~~~~~~~~~[m[K
+[5.231s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)[m[K’:
+[5.231s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:556:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[5.231s]   556 |         if ([01;31m[Kleft_move_group_interface_[m[K) {
+[5.231s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.231s]       |             [32m[Kget_node_graph_interface[m[K
+[5.240s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:558:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.240s]   558 |             if (left_ok) left_plan = [01;31m[Kplan_buffer_[m[K;
+[5.240s]       |                                      [01;31m[K^~~~~~~~~~~~[m[K
+[5.256s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:560:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[5.256s]   560 |         if ([01;31m[Kright_move_group_interface_[m[K) {
+[5.256s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.256s]       |             [32m[Kget_node_graph_interface[m[K
+[5.265s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:562:40:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.265s]   562 |             if (right_ok) right_plan = [01;31m[Kplan_buffer_[m[K;
+[5.265s]       |                                        [01;31m[K^~~~~~~~~~~~[m[K
+[5.266s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:54:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ was not declared in this scope; did you mean ‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’?
+[5.266s]   573 |                                rclcpp_action::Client<[01;31m[KFollowJointTrajectory[m[K>::SharedPtr client,
+[5.267s]       |                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.267s]       |                                                      [32m[Kcontrol_msgs::action::FollowJointTrajectory[m[K
+[5.267s] In file included from [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7[m[K,
+[5.267s]                  from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16[m[K:
+[5.267s] [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:[m[K [01;36m[Knote: [m[K‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’ declared here
+[5.267s]  1309 | typedef struct FollowJointTrajectory [01;36m[KFollowJointTrajectory[m[K;
+[5.267s]       |                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.267s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:75:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.267s]   573 |                                rclcpp_action::Client<FollowJointTrajectory[01;31m[K>[m[K::SharedPtr client,
+[5.267s]       |                                                                           [01;31m[K^[m[K
+[5.267s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:88:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[Kclient[m[K’
+[5.267s]   573 |                             rclcpp_action::Client<FollowJointTrajectory>::SharedPtr [01;31m[Kclient[m[K,
+[5.267s]       |                                                                                     [01;31m[K^~~~~~[m[K
+[5.267s] 
+[5.271s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[5.271s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:576:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kclient[m[K’ was not declared in this scope
+[5.271s]   576 |             if (![01;31m[Kclient[m[K) {
+[5.272s]       |                  [01;31m[K^~~~~~[m[K
+[5.277s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:582:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kclient[m[K’ was not declared in this scope
+[5.277s]   582 |             if (![01;31m[Kclient[m[K->wait_for_action_server(std::chrono::seconds(5))) {
+[5.277s]       |                  [01;31m[K^~~~~~[m[K
+[5.293s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:583:17:[m[K [01;31m[Kerror: [m[K‘[01m[KRCLCPlocityScalingFactor[m[K’ was not declared in this scope
+[5.293s]   583 |                 [01;31m[KRCLCPlocityScalingFactor[m[K(0.8);
+[5.293s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.297s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:584:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kmgi[m[K’ was not declared in this scope
+[5.297s]   584 |             [01;31m[Kmgi[m[K->setMaxAccelerationScalingFactor(0.8);
+[5.297s]       |             [01;31m[K^~~[m[K
+[5.305s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.305s]   585 |             if (mgi->plan([01;31m[Kplan_buffer_[m[K) == moveit::core::MoveItErrorCode::SUCCESS) return true;
+[5.305s]       |                           [01;31m[K^~~~~~~~~~~~[m[K
+[5.305s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:91:[m[K [01;31m[Kerror: [m[Kinconsistent types ‘[01m[Kvoid[m[K’ and ‘[01m[Kbool[m[K’ deduced for lambda return type
+[5.305s]   585 |         if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return [01;31m[Ktrue[m[K;
+[5.305s]       |                                                                                       [01;31m[K^~~~[m[K
+[5.305s] 
+[5.305s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:585:91:[m[K [01;31m[Kerror: [m[Kreturn-statement with a value, in function returning ‘[01m[Kvoid[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[5.313s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:589:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.313s]   589 |             return (mgi->plan([01;31m[Kplan_buffer_[m[K) == moveit::core::MoveItErrorCode::SUCCESS);
+[5.313s]       |                               [01;31m[K^~~~~~~~~~~~[m[K
+[5.328s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:595:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[5.328s]   595 |         if ([01;31m[Kleft_move_group_interface_[m[K) {
+[5.328s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.328s]       |             [32m[Kget_node_graph_interface[m[K
+[5.328s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:596:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_one[m[K’ is not captured
+[5.328s]   596 |             left_ok = [01;31m[Kplan_one[m[K(left_move_group_interface_, left_pose);
+[5.328s]       |                       [01;31m[K^~~~~~~~[m[K
+[5.328s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+[5.328s]   572 |         auto send_one = [this[01;36m[K][m[K(const std::string& arm,
+[5.329s]       |                              [01;36m[K^[m[K
+[5.329s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:530:14:[m[K [01;36m[Knote: [m[K‘[01m[KMoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one[m[K’ declared here
+[5.329s]   530 |         auto [01;36m[Kplan_one[m[K = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,
+[5.329s]       |              [01;36m[K^~~~~~~~[m[K
+[5.329s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:596:60:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_pose[m[K’ is not captured
+[5.329s]   596 |             left_ok = plan_one(left_move_group_interface_, [01;31m[Kleft_pose[m[K);
+[5.329s]       |                                                            [01;31m[K^~~~~~~~~[m[K
+[5.329s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+[5.329s]   572 |         auto send_one = [this[01;36m[K][m[K(const std::string& arm,
+[5.329s]       |                              [01;36m[K^[m[K
+[5.329s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:520:76:[m[K [01;36m[Knote: [m[K‘[01m[Kconst PoseStamped& left_pose[m[K’ declared here
+[5.329s]   520 |     void planAndExecuteSynchronized([01;36m[Kconst geometry_msgs::msg::PoseStamped& left_pose[m[K,
+[5.329s]       |                                     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[5.336s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:597:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.336s]   597 |             if (left_ok) left_plan = [01;31m[Kplan_buffer_[m[K;
+[5.336s]       |                                      [01;31m[K^~~~~~~~~~~~[m[K
+[5.351s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:599:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_move_group_interface_[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_graph_interface[m[K’?
+[5.352s]   599 |         if ([01;31m[Kright_move_group_interface_[m[K) {
+[5.352s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.352s]       |             [32m[Kget_node_graph_interface[m[K
+[5.352s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_one[m[K’ is not captured
+[5.352s]   600 |             right_ok = [01;31m[Kplan_one[m[K(right_move_group_interface_, right_pose);
+[5.352s]       |                        [01;31m[K^~~~~~~~[m[K
+[5.352s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+[5.352s]   572 |         auto send_one = [this[01;36m[K][m[K(const std::string& arm,
+[5.352s]       |                              [01;36m[K^[m[K
+[5.352s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:530:14:[m[K [01;36m[Knote: [m[K‘[01m[KMoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one[m[K’ declared here
+[5.352s]   530 |         auto [01;36m[Kplan_one[m[K = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,
+[5.352s]       |              [01;36m[K^~~~~~~~[m[K
+[5.352s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:62:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_pose[m[K’ is not captured
+[5.352s]   600 |             right_ok = plan_one(right_move_group_interface_, [01;31m[Kright_pose[m[K);
+[5.352s]       |                                                              [01;31m[K^~~~~~~~~~[m[K
+[5.352s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:572:30:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+[5.352s]   572 |         auto send_one = [this[01;36m[K][m[K(const std::string& arm,
+[5.353s]       |                              [01;36m[K^[m[K
+[5.353s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:76:[m[K [01;36m[Knote: [m[K‘[01m[Kconst PoseStamped& right_pose[m[K’ declared here
+[5.353s]   521 |                                     [01;36m[Kconst geometry_msgs::msg::PoseStamped& right_pose[m[K)
+[5.353s]       |                                     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~[m[K
+[5.360s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:601:40:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan_buffer_[m[K’ was not declared in this scope
+[5.360s]   601 |             if (right_ok) right_plan = [01;31m[Kplan_buffer_[m[K;
+[5.360s]       |                                        [01;31m[K^~~~~~~~~~~~[m[K
+[5.361s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:54:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ was not declared in this scope; did you mean ‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’?
+[5.361s]   612 |                                rclcpp_action::Client<[01;31m[KFollowJointTrajectory[m[K>::SharedPtr client,
+[5.361s]       |                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.361s]       |                                                      [32m[Kcontrol_msgs::action::FollowJointTrajectory[m[K
+[5.361s] In file included from [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7[m[K,
+[5.361s]                  from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16[m[K:
+[5.362s] [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:[m[K [01;36m[Knote: [m[K‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’ declared here
+[5.362s]  1309 | typedef struct FollowJointTrajectory [01;36m[KFollowJointTrajectory[m[K;
+[5.362s]       |                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.362s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:75:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.362s]   612 |                                rclcpp_action::Client<FollowJointTrajectory[01;31m[K>[m[K::SharedPtr client,
+[5.362s]       |                                                                           [01;31m[K^[m[K
+[5.362s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:88:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[Kclient[m[K’
+[5.362s]   612 |                             rclcpp_action::Client<FollowJointTrajectory>::SharedPtr [01;31m[Kclient[m[K,
+[5.362s]       |                                                                                     [01;31m[K^~~~~~[m[K
+[5.362s] 
+[5.366s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[5.366s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:615:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kclient[m[K’ was not declared in this scope
+[5.366s]   615 |             if (![01;31m[Kclient[m[K) {
+[5.366s]       |                  [01;31m[K^~~~~~[m[K
+[5.371s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:621:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kclient[m[K’ was not declared in this scope
+[5.371s]   621 |             if (![01;31m[Kclient[m[K->wait_for_action_server(std::chrono::seconds(5))) {
+[5.371s]       |                  [01;31m[K^~~~~~[m[K
+[5.371s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:627:25:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ has not been declared
+[5.371s]   627 |             auto goal = [01;31m[KFollowJointTrajectory[m[K::Goal();
+[5.371s]       |                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.375s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:628:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kplan[m[K’ was not declared in this scope
+[5.375s]   628 |             goal.trajectory = [01;31m[Kplan[m[K.trajectory_.joint_trajectory;
+[5.375s]       |                               [01;31m[K^~~~[m[K
+[5.376s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:629:50:[m[K [01;31m[Kerror: [m[K‘[01m[KFollowJointTrajectory[m[K’ was not declared in this scope; did you mean ‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’?
+[5.376s]   629 |             auto options = rclcpp_action::Client<[01;31m[KFollowJointTrajectory[m[K>::SendGoalOptions();
+[5.376s]       |                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.376s]       |                                                  [32m[Kcontrol_msgs::action::FollowJointTrajectory[m[K
+[5.376s] In file included from [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/follow_joint_trajectory.hpp:7[m[K,
+[5.376s]                  from [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:16[m[K:
+[5.376s] [01m[K/opt/ros/humble/include/control_msgs/control_msgs/action/detail/follow_joint_trajectory__struct.hpp:1309:38:[m[K [01;36m[Knote: [m[K‘[01m[Kcontrol_msgs::action::FollowJointTrajectory[m[K’ declared here
+[5.376s]  1309 | typedef struct FollowJointTrajectory [01;36m[KFollowJointTrajectory[m[K;
+[5.376s]       |                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[5.377s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:629:71:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.377s]   629 |             auto options = rclcpp_action::Client<FollowJointTrajectory[01;31m[K>[m[K::SendGoalOptions();
+[5.377s]       |                                                                       [01;31m[K^[m[K
+[5.377s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[5.377s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:631:136:[m[K [01;31m[Kerror: [m[Kthere are no arguments to ‘[01m[KstopTrajectoryTracking[m[K’ that depend on a template parameter, so a declaration of ‘[01m[KstopTrajectoryTracking[m[K’ must be available [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[5.377s]   631 | { RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); [01;31m[KstopTrajectoryTracking[m[K(arm); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo(arm); };
+[5.377s]       |                                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.377s] 
+[5.377s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:631:136:[m[K [01;36m[Knote: [m[K(if you use ‘[01m[K-fpermissive[m[K’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+[5.381s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[5.381s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:632:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kclient[m[K’ was not declared in this scope
+[5.381s]   632 |             [01;31m[Kclient[m[K->async_send_goal(goal, options);
+[5.381s]       |             [01;31m[K^~~~~~[m[K
+[5.397s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:633:13:[m[K [01;31m[Kerror: [m[K‘[01m[KupdateTrajectoryTracking[m[K’ was not declared in this scope
+[5.397s]   633 |             [01;31m[KupdateTrajectoryTracking[m[K(plan, arm);
+[5.397s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.411s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[5.411s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:636:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_arm_action_client_[m[K’ was not declared in this scope
+[5.411s]   636 |         if (left_ok)  send_one("left",  [01;31m[Kleft_arm_action_client_[m[K,  left_plan);
+[5.412s]       |                                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.426s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:637:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_arm_action_client_[m[K’ was not declared in this scope
+[5.426s]   637 |         if (right_ok) send_one("right", [01;31m[Kright_arm_action_client_[m[K, right_plan);
+[5.426s]       |                                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.426s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)[m[K’:
+[5.427s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:642:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Kvoid[m[K’
+[5.427s]   642 |     [01;31m[Kvoid[m[K execute_trajectory_directly(
+[5.427s]       |     [01;31m[K^~~~[m[K
+[5.427s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:694:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.427s]   694 |     [01;31m[K{[m[K
+[5.427s]       |     [01;31m[K^[m[K
+[5.427s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:712:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.427s]   712 |     [01;31m[K{[m[K
+[5.427s]       |     [01;31m[K^[m[K
+[5.427s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:726:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.427s]   726 |     [01;31m[K{[m[K
+[5.427s]       |     [01;31m[K^[m[K
+[5.428s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:756:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.428s]   756 |     [01;31m[K{[m[K
+[5.428s]       |     [01;31m[K^[m[K
+[5.428s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:762:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.428s]   762 |     [01;31m[K{[m[K
+[5.428s]       |     [01;31m[K^[m[K
+[5.428s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:768:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.428s]   768 |     [01;31m[K{[m[K
+[5.428s]       |     [01;31m[K^[m[K
+[5.428s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:774:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.428s]   774 |     [01;31m[K{[m[K
+[5.428s]       |     [01;31m[K^[m[K
+[5.428s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:780:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.428s]   780 |     [01;31m[K{[m[K
+[5.428s]       |     [01;31m[K^[m[K
+[5.428s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:808:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.428s]   808 |     [01;31m[K{[m[K
+[5.428s]       |     [01;31m[K^[m[K
+[5.428s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:863:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.428s]   863 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:870:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]   870 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:876:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]   876 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:882:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]   882 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:889:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]   889 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:950:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]   950 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1009:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]  1009 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1015:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]  1015 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1021:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]  1021 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1027:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.429s]  1027 |     [01;31m[K{[m[K
+[5.429s]       |     [01;31m[K^[m[K
+[5.429s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1033:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.430s]  1033 |     [01;31m[K{[m[K
+[5.430s]       |     [01;31m[K^[m[K
+[5.473s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:17:[m[K [01;35m[Kwarning: [m[Kempty parentheses were disambiguated as a function declaration [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wvexing-parse-Wvexing-parse]8;;[m[K]
+[5.473s]  1166 |     bool isReady[01;35m[K()[m[K const { return joint_state_ready_ && actions_ready_; }
+[5.474s]       |                 [01;35m[K^~[m[K
+[5.474s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:17:[m[K [01;36m[Knote: [m[Kremove parentheses to default-initialize a variable
+[5.474s]  1166 |     bool isReady[01;36m[K()[m[K const { return joint_state_ready_ && actions_ready_; }
+[5.474s]       |                 [01;36m[K^~[m[K
+[5.474s]       |                 [31m[K--[m[K
+[5.474s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:17:[m[K [01;36m[Knote: [m[Kor replace parentheses with braces to value-initialize a variable
+[5.474s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1166:26:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.474s]  1166 |     bool isReady() const [01;31m[K{[m[K return joint_state_ready_ && actions_ready_; }
+[5.474s]       |                          [01;31m[K^[m[K
+[5.474s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1169:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.474s]  1169 |     [01;31m[K{[m[K
+[5.474s]       |     [01;31m[K^[m[K
+[5.476s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K At global scope:
+[5.476s] [01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1207:2:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+[5.476s]  1207 | }
+[5.476s]       |  [01;31m[K^[m[K
+[7.985s] gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+[7.985s] gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+[7.986s] gmake: *** [Makefile:146: all] Error 2
+[7.989s] Invoked command in '/home/a/ws_moveit2/build/robot_config' returned '2': AMENT_PREFIX_PATH=/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/urdf_0816_description:/home/a/ws_moveit2/install/trac_ik:/home/a/ws_moveit2/install/robot_config:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin:/home/a/ws_moveit2/install/trac_ik_lib:/home/a/ws_moveit2/install/right_arm_ikfast_plugin:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/a/ws_moveit2/install/moveit_runtime:/home/a/ws_moveit2/install/moveit2_tutorials:/home/a/ws_moveit2/install/moveit:/home/a/ws_moveit2/install/moveit_planners:/home/a/ws_moveit2/install/pilz_industrial_motion_planner:/home/a/ws_moveit2/install/mtc_tutorial:/home/a/ws_moveit2/install/hello_moveit:/home/a/ws_moveit2/install/moveit_visual_tools:/home/a/ws_moveit2/install/moveit_task_constructor_visualization:/home/a/ws_moveit2/install/moveit_task_constructor_demo:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities:/home/a/ws_moveit2/install/moveit_task_constructor_core:/home/a/ws_moveit2/install/moveit_ros_control_interface:/home/a/ws_moveit2/install/moveit_plugins:/home/a/ws_moveit2/install/moveit_simple_controller_manager:/home/a/ws_moveit2/install/moveit_setup_assistant:/home/a/ws_moveit2/install/moveit_setup_srdf_plugins:/home/a/ws_moveit2/install/moveit_setup_core_plugins:/home/a/ws_moveit2/install/moveit_setup_controllers:/home/a/ws_moveit2/install/moveit_setup_app_plugins:/home/a/ws_moveit2/install/moveit_setup_framework:/home/a/ws_moveit2/install/moveit_servo:/home/a/ws_moveit2/install/moveit_ros:/home/a/ws_moveit2/install/moveit_ros_visualization:/home/a/ws_moveit2/install/moveit_hybrid_planning:/home/a/ws_moveit2/install/moveit_ros_planning_interface:/home/a/ws_moveit2/install/moveit_ros_benchmarks:/home/a/ws_moveit2/install/moveit_ros_warehouse:/home/a/ws_moveit2/install/moveit_ros_robot_interaction:/home/a/ws_moveit2/install/moveit_ros_perception:/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/a/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/a/ws_moveit2/install/moveit_ros_move_group:/home/a/ws_moveit2/install/moveit_planners_ompl:/home/a/ws_moveit2/install/left_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_ros_planning:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/a/ws_moveit2/install/moveit_planners_chomp:/home/a/ws_moveit2/install/moveit_kinematics:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/a/ws_moveit2/install/chomp_motion_planner:/home/a/ws_moveit2/install/moveit_core:/home/a/ws_moveit2/install/srdfdom:/home/a/ws_moveit2/install/rviz_marker_tools:/home/a/ws_moveit2/install/rosparam_shortcuts:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/red_seiretu_description:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/realsense2_description:/home/a/ws_moveit2/install/realsense2_camera:/home/a/ws_moveit2/install/realsense2_camera_msgs:/home/a/ws_moveit2/install/object_description:/home/a/ws_moveit2/install/moveit_task_constructor_msgs:/home/a/ws_moveit2/install/moveit_resources_prbt_support:/home/a/ws_moveit2/install/moveit_resources:/home/a/ws_moveit2/install/moveit_resources_pr2_description:/home/a/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/a/ws_moveit2/install/moveit_resources_panda_description:/home/a/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/a/ws_moveit2/install/moveit_resources_fanuc_description:/home/a/ws_moveit2/install/moveit_common:/home/a/ws_moveit2/install/field_description_test:/home/a/ws_moveit2/install/field_description:/home/a/ws_moveit2/install/dynamixel_sdk_examples:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/home/a/ws_moveit2/install/catch_gazebo_ros2_control:/home/a/ws_moveit2/install/blue_seiretu_description:/home/a/ws_moveit2/install/0525_arm_description:/opt/ros/humble CMAKE_PREFIX_PATH=/home/a/ws_moveit2/install/moveit_setup_assistant:/home/a/ws_moveit2/install/moveit_setup_srdf_plugins:/home/a/ws_moveit2/install/moveit_setup_core_plugins:/home/a/ws_moveit2/install/moveit_setup_controllers:/home/a/ws_moveit2/install/moveit_setup_app_plugins:/home/a/ws_moveit2/install/moveit_planners:/home/a/ws_moveit2/install/pilz_industrial_motion_planner:/home/a/ws_moveit2/install/moveit_setup_framework:/home/a/ws_moveit2/install/moveit_servo:/home/a/ws_moveit2/install/moveit_ros_visualization:/home/a/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/a/ws_moveit2/install/moveit_ros_planning_interface:/home/a/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/a/ws_moveit2/install/moveit_ros_move_group:/home/a/ws_moveit2/install/moveit_ros_warehouse:/home/a/ws_moveit2/install/moveit_ros_robot_interaction:/home/a/ws_moveit2/install/moveit_planners_ompl:/home/a/ws_moveit2/install/moveit_kinematics:/home/a/ws_moveit2/install/moveit_ros_planning:/home/a/ws_moveit2/install/moveit_planners_chomp:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/a/ws_moveit2/install/moveit_simple_controller_manager:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/a/ws_moveit2/install/chomp_motion_planner:/home/a/ws_moveit2/install/moveit_core:/home/a/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/a/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/a/ws_moveit2/install/trac_ik_lib:/home/a/ws_moveit2/install/srdfdom:/home/a/ws_moveit2/install/moveit_resources_prbt_support:/home/a/ws_moveit2/install/moveit_resources_pr2_description:/home/a/ws_moveit2/install/moveit_resources_panda_description:/home/a/ws_moveit2/install/moveit_resources_fanuc_description:/home/a/ws_moveit2/install/moveit_common:/home/a/ws_moveit2/install/urdf_0816_description:/home/a/ws_moveit2/install/trac_ik:/home/a/ws_moveit2/install/robot_config:/home/a/ws_moveit2/install/right_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_runtime:/home/a/ws_moveit2/install/moveit2_tutorials:/home/a/ws_moveit2/install/moveit:/home/a/ws_moveit2/install/mtc_tutorial:/home/a/ws_moveit2/install/hello_moveit:/home/a/ws_moveit2/install/moveit_visual_tools:/home/a/ws_moveit2/install/moveit_task_constructor_visualization:/home/a/ws_moveit2/install/moveit_task_constructor_demo:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities:/home/a/ws_moveit2/install/moveit_task_constructor_core:/home/a/ws_moveit2/install/moveit_ros_control_interface:/home/a/ws_moveit2/install/moveit_plugins:/home/a/ws_moveit2/install/moveit_ros:/home/a/ws_moveit2/install/moveit_hybrid_planning:/home/a/ws_moveit2/install/moveit_ros_benchmarks:/home/a/ws_moveit2/install/moveit_ros_perception:/home/a/ws_moveit2/install/left_arm_ikfast_plugin:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/a/ws_moveit2/install/rviz_marker_tools:/home/a/ws_moveit2/install/rosparam_shortcuts:/home/a/ws_moveit2/install/red_seiretu_description:/home/a/ws_moveit2/install/realsense2_description:/home/a/ws_moveit2/install/realsense2_camera:/home/a/ws_moveit2/install/realsense2_camera_msgs:/home/a/ws_moveit2/install/object_description:/home/a/ws_moveit2/install/moveit_task_constructor_msgs:/home/a/ws_moveit2/install/moveit_resources:/home/a/ws_moveit2/install/field_description_test:/home/a/ws_moveit2/install/field_description:/home/a/ws_moveit2/install/dynamixel_sdk_examples:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces:/home/a/ws_moveit2/install/dynamixel_controller:/home/a/ws_moveit2/install/dynamixel_sdk:/home/a/ws_moveit2/install/catch_gazebo_ros2_control:/home/a/ws_moveit2/install/blue_seiretu_description:/home/a/ws_moveit2/install/0525_arm_description:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble LD_LIBRARY_PATH=/home/a/ws_moveit2/install/moveit_setup_srdf_plugins/lib:/home/a/ws_moveit2/install/moveit_setup_core_plugins/lib:/home/a/ws_moveit2/install/moveit_setup_controllers/lib:/home/a/ws_moveit2/install/moveit_setup_app_plugins/lib:/home/a/ws_moveit2/install/pilz_industrial_motion_planner/lib:/home/a/ws_moveit2/install/moveit_setup_framework/lib:/home/a/ws_moveit2/install/moveit_servo/lib:/home/a/ws_moveit2/install/moveit_ros_visualization/lib:/home/a/ws_moveit2/install/moveit_ros_planning_interface/lib:/home/a/ws_moveit2/install/moveit_ros_move_group/lib:/home/a/ws_moveit2/install/moveit_ros_warehouse/lib:/home/a/ws_moveit2/install/moveit_ros_robot_interaction/lib:/home/a/ws_moveit2/install/moveit_planners_ompl/lib:/home/a/ws_moveit2/install/moveit_kinematics/lib:/home/a/ws_moveit2/install/moveit_ros_planning/lib:/home/a/ws_moveit2/install/moveit_planners_chomp/lib:/home/a/ws_moveit2/install/trac_ik_kinematics_plugin/lib:/home/a/ws_moveit2/install/pilz_industrial_motion_planner_testutils/lib:/home/a/ws_moveit2/install/moveit_simple_controller_manager/lib:/home/a/ws_moveit2/install/moveit_ros_occupancy_map_monitor/lib:/home/a/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin/lib:/home/a/ws_moveit2/install/chomp_motion_planner/lib:/home/a/ws_moveit2/install/moveit_core/lib:/home/a/ws_moveit2/install/trac_ik_lib/lib:/home/a/ws_moveit2/install/srdfdom/lib:/home/a/ws_moveit2/install/right_arm_ikfast_plugin/lib:/home/a/ws_moveit2/install/moveit_visual_tools/lib:/home/a/ws_moveit2/install/moveit_task_constructor_visualization/lib:/home/a/ws_moveit2/install/moveit_task_constructor_demo/lib:/home/a/ws_moveit2/install/moveit_task_constructor_capabilities/lib:/home/a/ws_moveit2/install/moveit_task_constructor_core/lib:/home/a/ws_moveit2/install/moveit_ros_control_interface/lib:/home/a/ws_moveit2/install/moveit_setup_assistant/lib:/home/a/ws_moveit2/install/moveit_hybrid_planning/lib:/home/a/ws_moveit2/install/moveit_ros_benchmarks/lib:/home/a/ws_moveit2/install/moveit_ros_perception/lib:/home/a/ws_moveit2/install/left_arm_ikfast_plugin/lib:/home/a/ws_moveit2/install/moveit_chomp_optimizer_adapter/lib:/home/a/ws_moveit2/install/rviz_marker_tools/lib:/home/a/ws_moveit2/install/rosparam_shortcuts/lib:/home/a/ws_moveit2/install/realsense2_camera/lib:/home/a/ws_moveit2/install/realsense2_camera_msgs/lib:/home/a/ws_moveit2/install/moveit_task_constructor_msgs/lib:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces/lib:/home/a/ws_moveit2/install/dynamixel_controller/lib:/home/a/ws_moveit2/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/a/ws_moveit2/install/moveit_configs_utils/lib/python3.10/site-packages:/home/a/ws_moveit2/install/launch_param_builder/lib/python3.10/site-packages:/home/a/ws_moveit2/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/srdfdom/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/ros_tcp_endpoint/lib/python3.10/site-packages:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge/lib/python3.10/site-packages:/home/a/ws_moveit2/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_controller_gui/lib/python3.10/site-packages:/home/a/ws_moveit2/install/dynamixel_controller/local/lib/python3.10/dist-packages:/home/a/ws_moveit2/install/dynamixel_controller_client/lib/python3.10/site-packages:/home/a/ws_moveit2/install/d415_rgb_depth_3d/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/a/ws_moveit2/build/robot_config -- -j22 -l22

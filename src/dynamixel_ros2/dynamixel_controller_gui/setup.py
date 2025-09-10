@@ -12,7 +12,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/test_gui.launch.py']),
     ],
-    install_requires=['setuptools', 'tkinter'],
+    install_requires=['setuptools', 'tkinter', 'matplotlib'],
     zip_safe=True,
     maintainer='imanoob',
     maintainer_email='ymrs1122@gmail.com',

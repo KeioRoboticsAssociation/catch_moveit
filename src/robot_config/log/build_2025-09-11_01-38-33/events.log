@@ -1,0 +1,642 @@
+[0.000000] (-) TimerEvent: {}
+[0.000086] (robot_config) JobQueued: {'identifier': 'robot_config', 'dependencies': OrderedDict()}
+[0.000440] (robot_config) JobStarted: {'identifier': 'robot_config'}
+[0.008448] (robot_config) JobProgress: {'identifier': 'robot_config', 'progress': 'cmake'}
+[0.009245] (robot_config) Command: {'cmd': ['/usr/bin/cmake', '/home/a/ws_moveit2/src/robot_config', '-DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/src/robot_config/install/robot_config'], 'cwd': '/home/a/ws_moveit2/src/robot_config/build/robot_config', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1184'), ('SYSTEMD_EXEC_PID', '1403'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5169'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:13605'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.local/bin:/tmp/.tmpvixp3I:/home/a/.nvm/versions/node/v22.18.0/lib/node_modules/@openai/codex/node_modules/@vscode/ripgrep/bin:/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/home/a/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1367,unix/a:/tmp/.ICE-unix/1367'), ('INVOCATION_ID', '7735c45a73cb4a32bb6c7dd12d8c5647'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.66LNC3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:a43b1970-c717-4988-b271-261a941dc780'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/src/robot_config/build/robot_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/a/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CODEX_MANAGED_BY_NPM', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.019223] (robot_config) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.097677] (robot_config) StdoutLine: {'line': b'-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.099756] (-) TimerEvent: {}
+[0.113453] (robot_config) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.114651] (robot_config) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.117619] (robot_config) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.122540] (robot_config) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.128852] (robot_config) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.146334] (robot_config) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.146841] (robot_config) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.199888] (-) TimerEvent: {}
+[0.213254] (robot_config) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.239055] (robot_config) StdoutLine: {'line': b'-- Found rclcpp_action: 16.0.14 (/opt/ros/humble/share/rclcpp_action/cmake)\n'}
+[0.261183] (robot_config) StdoutLine: {'line': b'-- Found moveit_msgs: 2.2.1 (/opt/ros/humble/share/moveit_msgs/cmake)\n'}
+[0.300012] (-) TimerEvent: {}
+[0.343614] (robot_config) StdoutLine: {'line': b'-- Found moveit_core: 2.5.9 (/opt/ros/humble/share/moveit_core/cmake)\n'}
+[0.363426] (robot_config) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[0.388437] (robot_config) StdoutLine: {'line': b'-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[0.394514] (robot_config) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[0.400402] (-) TimerEvent: {}
+[0.407833] (robot_config) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[0.475059] (robot_config) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[0.494815] (robot_config) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[0.494922] (robot_config) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.500498] (-) TimerEvent: {}
+[0.570064] (robot_config) StdoutLine: {'line': b'-- Found moveit_ros_planning: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning/cmake)\n'}
+[0.573252] (robot_config) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[0.588979] (robot_config) StdoutLine: {'line': b'-- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)\n'}
+[0.592035] (robot_config) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[0.600603] (-) TimerEvent: {}
+[0.603418] (robot_config) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[0.618187] (robot_config) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[0.644518] (robot_config) StdoutLine: {'line': b'-- Found control_msgs: 4.8.0 (/opt/ros/humble/share/control_msgs/cmake)\n'}
+[0.700712] (-) TimerEvent: {}
+[0.713120] (robot_config) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.730358] (robot_config) StdoutLine: {'line': b'-- Generating done\n'}
+[0.736255] (robot_config) StdoutLine: {'line': b'-- Build files have been written to: /home/a/ws_moveit2/src/robot_config/build/robot_config\n'}
+[0.744379] (robot_config) CommandEnded: {'returncode': 0}
+[0.746706] (robot_config) JobProgress: {'identifier': 'robot_config', 'progress': 'build'}
+[0.746732] (robot_config) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/a/ws_moveit2/src/robot_config/build/robot_config', '--', '-j22', '-l22'], 'cwd': '/home/a/ws_moveit2/src/robot_config/build/robot_config', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1184'), ('SYSTEMD_EXEC_PID', '1403'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5169'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:13605'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.local/bin:/tmp/.tmpvixp3I:/home/a/.nvm/versions/node/v22.18.0/lib/node_modules/@openai/codex/node_modules/@vscode/ripgrep/bin:/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/home/a/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1367,unix/a:/tmp/.ICE-unix/1367'), ('INVOCATION_ID', '7735c45a73cb4a32bb6c7dd12d8c5647'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.66LNC3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:a43b1970-c717-4988-b271-261a941dc780'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/src/robot_config/build/robot_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/a/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CODEX_MANAGED_BY_NPM', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.792869] (robot_config) StdoutLine: {'line': b'[ 16%] Building CXX object CMakeFiles/pose_command_publisher.dir/src/pose_command_publisher.cpp.o\n'}
+[0.794256] (robot_config) StdoutLine: {'line': b'[ 33%] Building CXX object CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.o\n'}
+[0.794766] (robot_config) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o\n'}
+[0.800784] (-) TimerEvent: {}
+[0.900962] (-) TimerEvent: {}
+[1.001191] (-) TimerEvent: {}
+[1.101408] (-) TimerEvent: {}
+[1.201650] (-) TimerEvent: {}
+[1.301861] (-) TimerEvent: {}
+[1.402059] (-) TimerEvent: {}
+[1.502257] (-) TimerEvent: {}
+[1.602489] (-) TimerEvent: {}
+[1.702712] (-) TimerEvent: {}
+[1.802930] (-) TimerEvent: {}
+[1.903165] (-) TimerEvent: {}
+[2.003461] (-) TimerEvent: {}
+[2.103762] (-) TimerEvent: {}
+[2.204003] (-) TimerEvent: {}
+[2.304230] (-) TimerEvent: {}
+[2.404434] (-) TimerEvent: {}
+[2.504667] (-) TimerEvent: {}
+[2.604906] (-) TimerEvent: {}
+[2.705133] (-) TimerEvent: {}
+[2.805354] (-) TimerEvent: {}
+[2.905588] (-) TimerEvent: {}
+[3.005828] (-) TimerEvent: {}
+[3.106054] (-) TimerEvent: {}
+[3.206293] (-) TimerEvent: {}
+[3.306521] (-) TimerEvent: {}
+[3.406750] (-) TimerEvent: {}
+[3.506991] (-) TimerEvent: {}
+[3.607245] (-) TimerEvent: {}
+[3.707541] (-) TimerEvent: {}
+[3.807820] (-) TimerEvent: {}
+[3.908109] (-) TimerEvent: {}
+[4.008414] (-) TimerEvent: {}
+[4.108709] (-) TimerEvent: {}
+[4.208975] (-) TimerEvent: {}
+[4.309213] (-) TimerEvent: {}
+[4.409469] (-) TimerEvent: {}
+[4.509712] (-) TimerEvent: {}
+[4.609949] (-) TimerEvent: {}
+[4.710199] (-) TimerEvent: {}
+[4.810452] (-) TimerEvent: {}
+[4.910717] (-) TimerEvent: {}
+[5.010970] (-) TimerEvent: {}
+[5.111198] (-) TimerEvent: {}
+[5.199893] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1222:2: error: expected \xe2\x80\x98}\xe2\x80\x99 at end of input\n'}
+[5.200185] (robot_config) StderrLine: {'line': b' 1222 | }\n'}
+[5.200293] (robot_config) StderrLine: {'line': b'      |  ^\n'}
+[5.200383] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:25:1: note: to match this \xe2\x80\x98{\xe2\x80\x99\n'}
+[5.200472] (robot_config) StderrLine: {'line': b'   25 | {\n'}
+[5.200557] (robot_config) StderrLine: {'line': b'      | ^\n'}
+[5.211325] (-) TimerEvent: {}
+[5.212409] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor \xe2\x80\x98MoveToPoseDualCpp::MoveToPoseDualCpp()\xe2\x80\x99:\n'}
+[5.212628] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:31:9: error: \xe2\x80\x98left_rpy_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.212731] (robot_config) StderrLine: {'line': b'   31 |         left_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(\n'}
+[5.212817] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~\n'}
+[5.262835] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:33:9: error: \xe2\x80\x98right_rpy_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.263083] (robot_config) StderrLine: {'line': b'   33 |         right_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(\n'}
+[5.263181] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~\n'}
+[5.275143] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:36:9: error: \xe2\x80\x98dual_rpy_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.275379] (robot_config) StderrLine: {'line': b'   36 |         dual_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(\n'}
+[5.275472] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~\n'}
+[5.289309] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:41:9: error: \xe2\x80\x98joint_state_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.289587] (robot_config) StderrLine: {'line': b'   41 |         joint_state_sub_ = this->create_subscription<sensor_msgs::msg::JointState>(\n'}
+[5.289698] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~\n'}
+[5.306980] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[5.307262] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:44:22: error: \xe2\x80\x98joint_state_ready_\xe2\x80\x99 was not declared in this scope\n'}
+[5.307359] (robot_config) StderrLine: {'line': b'   44 |                 if (!joint_state_ready_) {\n'}
+[5.307443] (robot_config) StderrLine: {'line': b'      |                      ^~~~~~~~~~~~~~~~~~\n'}
+[5.311454] (-) TimerEvent: {}
+[5.325260] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:47:21: error: \xe2\x80\x98attemptFlushPending\xe2\x80\x99 was not declared in this scope\n'}
+[5.325497] (robot_config) StderrLine: {'line': b'   47 |                     attemptFlushPending();\n'}
+[5.325592] (robot_config) StderrLine: {'line': b'      |                     ^~~~~~~~~~~~~~~~~~~\n'}
+[5.372136] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor \xe2\x80\x98MoveToPoseDualCpp::MoveToPoseDualCpp()\xe2\x80\x99:\n'}
+[5.372361] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:53:9: error: \xe2\x80\x98enable_local_psm_\xe2\x80\x99 was not declared in this scope\n'}
+[5.372431] (robot_config) StderrLine: {'line': b'   53 |         enable_local_psm_ = this->declare_parameter<bool>("enable_local_planning_scene_monitor", false);\n'}
+[5.372489] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~\n'}
+[5.388067] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:56:9: error: \xe2\x80\x98left_init_thread_\xe2\x80\x99 was not declared in this scope\n'}
+[5.388219] (robot_config) StderrLine: {'line': b'   56 |         left_init_thread_ = std::thread([this]() {\n'}
+[5.388286] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~\n'}
+[5.407138] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[5.407365] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:58:13: error: \xe2\x80\x98left_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[5.407461] (robot_config) StderrLine: {'line': b'   58 |             left_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_arm");\n'}
+[5.407543] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.407619] (robot_config) StderrLine: {'line': b'      |             get_node_graph_interface\n'}
+[5.411537] (-) TimerEvent: {}
+[5.436923] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:66:13: error: \xe2\x80\x98left_hand_move_group_interface_\xe2\x80\x99 was not declared in this scope\n'}
+[5.437136] (robot_config) StderrLine: {'line': b'   66 |             left_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "left_hand");\n'}
+[5.437231] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.455041] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:72:17: error: \xe2\x80\x98left_pose_received_\xe2\x80\x99 was not declared in this scope\n'}
+[5.455270] (robot_config) StderrLine: {'line': b'   72 |             if (left_pose_received_ && last_left_pose_rpy_.size() == 6 && left_move_group_interface_) {\n'}
+[5.455370] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~\n'}
+[5.472329] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:72:40: error: \xe2\x80\x98last_left_pose_rpy_\xe2\x80\x99 was not declared in this scope\n'}
+[5.472515] (robot_config) StderrLine: {'line': b'   72 |             if (left_pose_received_ && last_left_pose_rpy_.size() == 6 && left_move_group_interface_) {\n'}
+[5.472611] (robot_config) StderrLine: {'line': b'      |                                        ^~~~~~~~~~~~~~~~~~~\n'}
+[5.490440] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor \xe2\x80\x98MoveToPoseDualCpp::MoveToPoseDualCpp()\xe2\x80\x99:\n'}
+[5.490555] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:92:9: error: \xe2\x80\x98right_init_thread_\xe2\x80\x99 was not declared in this scope\n'}
+[5.490588] (robot_config) StderrLine: {'line': b'   92 |         right_init_thread_ = std::thread([this]() {\n'}
+[5.490614] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~\n'}
+[5.511239] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[5.511408] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:94:13: error: \xe2\x80\x98right_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[5.511473] (robot_config) StderrLine: {'line': b'   94 |             right_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_arm");\n'}
+[5.511530] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.511583] (-) TimerEvent: {}
+[5.511602] (robot_config) StderrLine: {'line': b'      |             get_node_graph_interface\n'}
+[5.539716] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:102:13: error: \xe2\x80\x98right_hand_move_group_interface_\xe2\x80\x99 was not declared in this scope\n'}
+[5.539889] (robot_config) StderrLine: {'line': b'  102 |             right_hand_move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(rclcpp::Node::SharedPtr(this, [](rclcpp::Node*){}), "right_hand");\n'}
+[5.539958] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.558972] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:17: error: \xe2\x80\x98right_pose_received_\xe2\x80\x99 was not declared in this scope\n'}
+[5.559193] (robot_config) StderrLine: {'line': b'  108 |             if (right_pose_received_ && last_right_pose_rpy_.size() == 6 && right_move_group_interface_) {\n'}
+[5.559262] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~\n'}
+[5.577968] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:108:41: error: \xe2\x80\x98last_right_pose_rpy_\xe2\x80\x99 was not declared in this scope\n'}
+[5.578183] (robot_config) StderrLine: {'line': b'  108 |             if (right_pose_received_ && last_right_pose_rpy_.size() == 6 && right_move_group_interface_) {\n'}
+[5.578261] (robot_config) StderrLine: {'line': b'      |                                         ^~~~~~~~~~~~~~~~~~~~\n'}
+[5.594114] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In constructor \xe2\x80\x98MoveToPoseDualCpp::MoveToPoseDualCpp()\xe2\x80\x99:\n'}
+[5.594317] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:128:9: error: \xe2\x80\x98left_attach_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.594387] (robot_config) StderrLine: {'line': b'  128 |         left_attach_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.594444] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~\n'}
+[5.594498] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:129:70: error: \xe2\x80\x98left_attach_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.594554] (robot_config) StderrLine: {'line': b'  129 |             "/left_attach_object", 10, std::bind(&MoveToPoseDualCpp::left_attach_callback, this, std::placeholders::_1));\n'}
+[5.594609] (robot_config) StderrLine: {'line': b'      |                                                                      ^~~~~~~~~~~~~~~~~~~~\n'}
+[5.608700] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:130:9: error: \xe2\x80\x98left_detach_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.608894] (robot_config) StderrLine: {'line': b'  130 |         left_detach_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.608968] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~\n'}
+[5.609028] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:131:70: error: \xe2\x80\x98left_detach_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.609104] (robot_config) StderrLine: {'line': b'  131 |             "/left_detach_object", 10, std::bind(&MoveToPoseDualCpp::left_detach_callback, this, std::placeholders::_1));\n'}
+[5.609163] (robot_config) StderrLine: {'line': b'      |                                                                      ^~~~~~~~~~~~~~~~~~~~\n'}
+[5.611670] (-) TimerEvent: {}
+[5.624364] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:132:9: error: \xe2\x80\x98right_attach_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.624547] (robot_config) StderrLine: {'line': b'  132 |         right_attach_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.624616] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~\n'}
+[5.624684] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:133:71: error: \xe2\x80\x98right_attach_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.624742] (robot_config) StderrLine: {'line': b'  133 |             "/right_attach_object", 10, std::bind(&MoveToPoseDualCpp::right_attach_callback, this, std::placeholders::_1));\n'}
+[5.624797] (robot_config) StderrLine: {'line': b'      |                                                                       ^~~~~~~~~~~~~~~~~~~~~\n'}
+[5.639892] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:134:9: error: \xe2\x80\x98right_detach_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.640095] (robot_config) StderrLine: {'line': b'  134 |         right_detach_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.640163] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~\n'}
+[5.640221] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:135:71: error: \xe2\x80\x98right_detach_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.640277] (robot_config) StderrLine: {'line': b'  135 |             "/right_detach_object", 10, std::bind(&MoveToPoseDualCpp::right_detach_callback, this, std::placeholders::_1));\n'}
+[5.640331] (robot_config) StderrLine: {'line': b'      |                                                                       ^~~~~~~~~~~~~~~~~~~~~\n'}
+[5.654476] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:138:9: error: \xe2\x80\x98left_arm_up_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.654683] (robot_config) StderrLine: {'line': b'  138 |         left_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.654756] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~\n'}
+[5.654814] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:139:63: error: \xe2\x80\x98left_arm_up_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.654870] (robot_config) StderrLine: {'line': b'  139 |             "/left_arm_up", 10, std::bind(&MoveToPoseDualCpp::left_arm_up_callback, this, std::placeholders::_1));\n'}
+[5.654936] (robot_config) StderrLine: {'line': b'      |                                                               ^~~~~~~~~~~~~~~~~~~~\n'}
+[5.671583] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:140:9: error: \xe2\x80\x98left_arm_down_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.671773] (robot_config) StderrLine: {'line': b'  140 |         left_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.671830] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~\n'}
+[5.671875] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:141:65: error: \xe2\x80\x98left_arm_down_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.671932] (robot_config) StderrLine: {'line': b'  141 |             "/left_arm_down", 10, std::bind(&MoveToPoseDualCpp::left_arm_down_callback, this, std::placeholders::_1));\n'}
+[5.671981] (robot_config) StderrLine: {'line': b'      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.686616] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:142:9: error: \xe2\x80\x98right_arm_up_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.686825] (robot_config) StderrLine: {'line': b'  142 |         right_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.686895] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~\n'}
+[5.686951] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:143:64: error: \xe2\x80\x98right_arm_up_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.687008] (robot_config) StderrLine: {'line': b'  143 |             "/right_arm_up", 10, std::bind(&MoveToPoseDualCpp::right_arm_up_callback, this, std::placeholders::_1));\n'}
+[5.687064] (robot_config) StderrLine: {'line': b'      |                                                                ^~~~~~~~~~~~~~~~~~~~~\n'}
+[5.704337] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:144:9: error: \xe2\x80\x98right_arm_down_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.704533] (robot_config) StderrLine: {'line': b'  144 |         right_arm_down_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.704605] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~\n'}
+[5.704674] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:145:66: error: \xe2\x80\x98right_arm_down_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.704731] (robot_config) StderrLine: {'line': b'  145 |             "/right_arm_down", 10, std::bind(&MoveToPoseDualCpp::right_arm_down_callback, this, std::placeholders::_1));\n'}
+[5.704788] (robot_config) StderrLine: {'line': b'      |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.711766] (-) TimerEvent: {}
+[5.721003] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:148:9: error: \xe2\x80\x98left_arm_open_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.721182] (robot_config) StderrLine: {'line': b'  148 |         left_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.721251] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~\n'}
+[5.721307] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:149:65: error: \xe2\x80\x98left_arm_open_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.721364] (robot_config) StderrLine: {'line': b'  149 |             "/left_arm_open", 10, std::bind(&MoveToPoseDualCpp::left_arm_open_callback, this, std::placeholders::_1));\n'}
+[5.721419] (robot_config) StderrLine: {'line': b'      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.738215] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:150:9: error: \xe2\x80\x98left_arm_close_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.738402] (robot_config) StderrLine: {'line': b'  150 |         left_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.738472] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~\n'}
+[5.738527] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:151:66: error: \xe2\x80\x98left_arm_close_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.738610] (robot_config) StderrLine: {'line': b'  151 |             "/left_arm_close", 10, std::bind(&MoveToPoseDualCpp::left_arm_close_callback, this, std::placeholders::_1));\n'}
+[5.738678] (robot_config) StderrLine: {'line': b'      |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.754693] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:152:9: error: \xe2\x80\x98right_arm_open_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.754888] (robot_config) StderrLine: {'line': b'  152 |         right_arm_open_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.754957] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~\n'}
+[5.755016] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:153:66: error: \xe2\x80\x98right_arm_open_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.755077] (robot_config) StderrLine: {'line': b'  153 |             "/right_arm_open", 10, std::bind(&MoveToPoseDualCpp::right_arm_open_callback, this, std::placeholders::_1));\n'}
+[5.755133] (robot_config) StderrLine: {'line': b'      |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.772160] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:154:9: error: \xe2\x80\x98right_arm_close_sub_\xe2\x80\x99 was not declared in this scope\n'}
+[5.772351] (robot_config) StderrLine: {'line': b'  154 |         right_arm_close_sub_ = this->create_subscription<std_msgs::msg::String>(\n'}
+[5.772409] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~\n'}
+[5.772456] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:155:67: error: \xe2\x80\x98right_arm_close_callback\xe2\x80\x99 is not a member of \xe2\x80\x98MoveToPoseDualCpp\xe2\x80\x99\n'}
+[5.772502] (robot_config) StderrLine: {'line': b'  155 |             "/right_arm_close", 10, std::bind(&MoveToPoseDualCpp::right_arm_close_callback, this, std::placeholders::_1));\n'}
+[5.772547] (robot_config) StderrLine: {'line': b'      |                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.786466] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:160:9: error: \xe2\x80\x98post_init_timer_\xe2\x80\x99 was not declared in this scope\n'}
+[5.786659] (robot_config) StderrLine: {'line': b'  160 |         post_init_timer_ = this->create_wall_timer(\n'}
+[5.786725] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~\n'}
+[5.786777] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[5.786828] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:165:17: error: \xe2\x80\x98post_init_timer_\xe2\x80\x99 is not captured\n'}
+[5.786880] (robot_config) StderrLine: {'line': b'  165 |                 post_init_timer_->cancel();\n'}
+[5.786929] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~\n'}
+[5.786977] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:162:18: note: the lambda has no capture-default\n'}
+[5.787026] (robot_config) StderrLine: {'line': b'  162 |             [this]() {\n'}
+[5.787071] (robot_config) StderrLine: {'line': b'      |                  ^\n'}
+[5.787117] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:160:9: note: \xe2\x80\x98<typeprefixerror>post_init_timer_\xe2\x80\x99 declared here\n'}
+[5.787164] (robot_config) StderrLine: {'line': b'  160 |         post_init_timer_ = this->create_wall_timer(\n'}
+[5.787208] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~\n'}
+[5.806546] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In destructor \xe2\x80\x98virtual MoveToPoseDualCpp::~MoveToPoseDualCpp()\xe2\x80\x99:\n'}
+[5.806711] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:172:13: error: \xe2\x80\x98left_init_thread_\xe2\x80\x99 was not declared in this scope\n'}
+[5.806786] (robot_config) StderrLine: {'line': b'  172 |         if (left_init_thread_.joinable())\n'}
+[5.806844] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~\n'}
+[5.811867] (-) TimerEvent: {}
+[5.822964] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:176:13: error: \xe2\x80\x98right_init_thread_\xe2\x80\x99 was not declared in this scope\n'}
+[5.823161] (robot_config) StderrLine: {'line': b'  176 |         if (right_init_thread_.joinable())\n'}
+[5.823229] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~\n'}
+[5.843305] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::do_post_init()\xe2\x80\x99:\n'}
+[5.843544] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:188:9: error: \xe2\x80\x98planning_scene_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98planning_scene_monitor\xe2\x80\x99?\n'}
+[5.843617] (robot_config) StderrLine: {'line': b'  188 |         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();\n'}
+[5.843688] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.843744] (robot_config) StderrLine: {'line': b'      |         planning_scene_monitor\n'}
+[5.861856] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:191:13: error: \xe2\x80\x98enable_local_psm_\xe2\x80\x99 was not declared in this scope\n'}
+[5.862029] (robot_config) StderrLine: {'line': b'  191 |         if (enable_local_psm_) {\n'}
+[5.862094] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~\n'}
+[5.870838] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:192:13: error: \xe2\x80\x98planning_scene_monitor_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98planning_scene_monitor\xe2\x80\x99?\n'}
+[5.870991] (robot_config) StderrLine: {'line': b'  192 |             planning_scene_monitor_ = std::make_shared<planning_scene_monitor::PlanningSceneMonitor>(\n'}
+[5.871040] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.871090] (robot_config) StderrLine: {'line': b'      |             planning_scene_monitor\n'}
+[5.892133] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:207:9: error: \xe2\x80\x98left_arm_action_client_\xe2\x80\x99 was not declared in this scope\n'}
+[5.892234] (robot_config) StderrLine: {'line': b'  207 |         left_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(\n'}
+[5.892297] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.911952] (-) TimerEvent: {}
+[5.933220] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:209:9: error: \xe2\x80\x98right_arm_action_client_\xe2\x80\x99 was not declared in this scope\n'}
+[5.933304] (robot_config) StderrLine: {'line': b'  209 |         right_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(\n'}
+[5.933361] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[5.948537] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:220:9: error: \xe2\x80\x98actions_ready_\xe2\x80\x99 was not declared in this scope\n'}
+[5.948614] (robot_config) StderrLine: {'line': b'  220 |         actions_ready_ = true;\n'}
+[5.948679] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~\n'}
+[5.970117] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:221:9: error: \xe2\x80\x98attemptFlushPending\xe2\x80\x99 was not declared in this scope\n'}
+[5.970273] (robot_config) StderrLine: {'line': b'  221 |         attemptFlushPending();\n'}
+[5.970358] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~\n'}
+[5.997540] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:224:9: error: \xe2\x80\x98left_servo_start_client_\xe2\x80\x99 was not declared in this scope\n'}
+[5.997761] (robot_config) StderrLine: {'line': b'  224 |         left_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(\n'}
+[5.997832] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.012080] (-) TimerEvent: {}
+[6.079299] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:226:9: error: \xe2\x80\x98left_servo_stop_client_\xe2\x80\x99 was not declared in this scope\n'}
+[6.079494] (robot_config) StderrLine: {'line': b'  226 |         left_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(\n'}
+[6.079556] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.105178] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:228:9: error: \xe2\x80\x98right_servo_start_client_\xe2\x80\x99 was not declared in this scope\n'}
+[6.105389] (robot_config) StderrLine: {'line': b'  228 |         right_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(\n'}
+[6.105461] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.112171] (-) TimerEvent: {}
+[6.129149] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:230:9: error: \xe2\x80\x98right_servo_stop_client_\xe2\x80\x99 was not declared in this scope\n'}
+[6.129353] (robot_config) StderrLine: {'line': b'  230 |         right_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(\n'}
+[6.129422] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.139404] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:234:9: error: \xe2\x80\x98tf_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[6.139561] (robot_config) StderrLine: {'line': b'  234 |         tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());\n'}
+[6.139653] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~\n'}
+[6.159796] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:235:9: error: \xe2\x80\x98tf_listener_\xe2\x80\x99 was not declared in this scope\n'}
+[6.160034] (robot_config) StderrLine: {'line': b'  235 |         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);\n'}
+[6.160103] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~\n'}
+[6.186705] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::stopServo(const string&)\xe2\x80\x99:\n'}
+[6.186989] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:243:46: error: \xe2\x80\x98left_servo_stop_client_\xe2\x80\x99 was not declared in this scope\n'}
+[6.187097] (robot_config) StderrLine: {'line': b'  243 |         auto client = (arm_name == "left") ? left_servo_stop_client_ : right_servo_stop_client_;\n'}
+[6.187189] (robot_config) StderrLine: {'line': b'      |                                              ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.212306] (-) TimerEvent: {}
+[6.218521] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:243:72: error: \xe2\x80\x98right_servo_stop_client_\xe2\x80\x99 was not declared in this scope\n'}
+[6.218808] (robot_config) StderrLine: {'line': b'  243 |         auto client = (arm_name == "left") ? left_servo_stop_client_ : right_servo_stop_client_;\n'}
+[6.218913] (robot_config) StderrLine: {'line': b'      |                                                                        ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.253534] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::startServo(const string&)\xe2\x80\x99:\n'}
+[6.253853] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:261:46: error: \xe2\x80\x98left_servo_start_client_\xe2\x80\x99 was not declared in this scope\n'}
+[6.253971] (robot_config) StderrLine: {'line': b'  261 |         auto client = (arm_name == "left") ? left_servo_start_client_ : right_servo_start_client_;\n'}
+[6.254067] (robot_config) StderrLine: {'line': b'      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.287585] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:261:73: error: \xe2\x80\x98right_servo_start_client_\xe2\x80\x99 was not declared in this scope\n'}
+[6.287882] (robot_config) StderrLine: {'line': b'  261 |         auto client = (arm_name == "left") ? left_servo_start_client_ : right_servo_start_client_;\n'}
+[6.288015] (robot_config) StderrLine: {'line': b'      |                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.312442] (-) TimerEvent: {}
+[6.323746] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::left_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)\xe2\x80\x99:\n'}
+[6.324048] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:323:9: error: \xe2\x80\x98last_left_pose_rpy_\xe2\x80\x99 was not declared in this scope\n'}
+[6.324180] (robot_config) StderrLine: {'line': b'  323 |         last_left_pose_rpy_ = msg->data;\n'}
+[6.324281] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~\n'}
+[6.353355] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:324:9: error: \xe2\x80\x98left_pose_received_\xe2\x80\x99 was not declared in this scope\n'}
+[6.353651] (robot_config) StderrLine: {'line': b'  324 |         left_pose_received_ = true;\n'}
+[6.353764] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~\n'}
+[6.385284] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::right_rpy_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)\xe2\x80\x99:\n'}
+[6.385632] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:353:9: error: \xe2\x80\x98last_right_pose_rpy_\xe2\x80\x99 was not declared in this scope\n'}
+[6.385771] (robot_config) StderrLine: {'line': b'  353 |         last_right_pose_rpy_ = msg->data;\n'}
+[6.385878] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~\n'}
+[6.412575] (-) TimerEvent: {}
+[6.415921] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:354:9: error: \xe2\x80\x98right_pose_received_\xe2\x80\x99 was not declared in this scope\n'}
+[6.416187] (robot_config) StderrLine: {'line': b'  354 |         right_pose_received_ = true;\n'}
+[6.416306] (robot_config) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~\n'}
+[6.465052] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[6.465377] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:384:13: error: \xe2\x80\x98applyDynamicCollisionAvoidance\xe2\x80\x99 was not declared in this scope\n'}
+[6.465532] (robot_config) StderrLine: {'line': b'  384 |             applyDynamicCollisionAvoidance(move_group_interface, arm_name);\n'}
+[6.465666] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.507453] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:434:17: error: \xe2\x80\x98execute_trajectory_directly\xe2\x80\x99 was not declared in this scope\n'}
+[6.507798] (robot_config) StderrLine: {'line': b'  434 |                 execute_trajectory_directly(move_group_interface, my_plan, arm_name);\n'}
+[6.507928] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.512679] (-) TimerEvent: {}
+[6.540704] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:440:17: error: \xe2\x80\x98stopTrajectoryTracking\xe2\x80\x99 was not declared in this scope\n'}
+[6.541005] (robot_config) StderrLine: {'line': b'  440 |                 stopTrajectoryTracking(arm_name);\n'}
+[6.541125] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.562871] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::handleIncomingTargetPose(const string&, const PoseStamped&)\xe2\x80\x99:\n'}
+[6.563199] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:484:44: error: \xe2\x80\x98sync_mutex_\xe2\x80\x99 was not declared in this scope\n'}
+[6.563336] (robot_config) StderrLine: {'line': b'  484 |             std::lock_guard<std::mutex> lk(sync_mutex_);\n'}
+[6.563448] (robot_config) StderrLine: {'line': b'      |                                            ^~~~~~~~~~~\n'}
+[6.590063] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:486:17: error: \xe2\x80\x98pending_left_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.590363] (robot_config) StderrLine: {'line': b'  486 |                 pending_left_pose_ = target_pose;\n'}
+[6.590482] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~\n'}
+[6.612817] (-) TimerEvent: {}
+[6.618316] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:487:17: error: \xe2\x80\x98pending_left_time_\xe2\x80\x99 was not declared in this scope\n'}
+[6.618659] (robot_config) StderrLine: {'line': b'  487 |                 pending_left_time_ = now_tp;\n'}
+[6.618824] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~\n'}
+[6.650999] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:488:17: error: \xe2\x80\x98has_pending_left_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.651356] (robot_config) StderrLine: {'line': b'  488 |                 has_pending_left_pose_ = true;\n'}
+[6.651502] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.680351] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:490:17: error: \xe2\x80\x98pending_right_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.680726] (robot_config) StderrLine: {'line': b'  490 |                 pending_right_pose_ = target_pose;\n'}
+[6.680874] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~\n'}
+[6.711876] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:491:17: error: \xe2\x80\x98pending_right_time_\xe2\x80\x99 was not declared in this scope\n'}
+[6.712200] (robot_config) StderrLine: {'line': b'  491 |                 pending_right_time_ = now_tp;\n'}
+[6.712336] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~\n'}
+[6.712883] (-) TimerEvent: {}
+[6.748540] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:492:17: error: \xe2\x80\x98has_pending_right_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.748919] (robot_config) StderrLine: {'line': b'  492 |                 has_pending_right_pose_ = true;\n'}
+[6.749060] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.782492] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:495:17: error: \xe2\x80\x98has_pending_left_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.782860] (robot_config) StderrLine: {'line': b'  495 |             if (has_pending_left_pose_ && has_pending_right_pose_) {\n'}
+[6.783014] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.813065] (-) TimerEvent: {}
+[6.817303] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:495:43: error: \xe2\x80\x98has_pending_right_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.817640] (robot_config) StderrLine: {'line': b'  495 |             if (has_pending_left_pose_ && has_pending_right_pose_) {\n'}
+[6.817796] (robot_config) StderrLine: {'line': b'      |                                           ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.846009] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:496:28: error: \xe2\x80\x98pending_left_time_\xe2\x80\x99 was not declared in this scope\n'}
+[6.846377] (robot_config) StderrLine: {'line': b'  496 |                 auto dt = (pending_left_time_ > pending_right_time_) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);\n'}
+[6.846592] (robot_config) StderrLine: {'line': b'      |                            ^~~~~~~~~~~~~~~~~~\n'}
+[6.874979] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:496:49: error: \xe2\x80\x98pending_right_time_\xe2\x80\x99 was not declared in this scope\n'}
+[6.875388] (robot_config) StderrLine: {'line': b'  496 |                 auto dt = (pending_left_time_ > pending_right_time_) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);\n'}
+[6.875554] (robot_config) StderrLine: {'line': b'      |                                                 ^~~~~~~~~~~~~~~~~~~\n'}
+[6.902610] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:498:30: error: \xe2\x80\x98pending_left_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.902993] (robot_config) StderrLine: {'line': b'  498 |                     l_pose = pending_left_pose_;\n'}
+[6.903178] (robot_config) StderrLine: {'line': b'      |                              ^~~~~~~~~~~~~~~~~~\n'}
+[6.913194] (-) TimerEvent: {}
+[6.931891] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:499:30: error: \xe2\x80\x98pending_right_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.932265] (robot_config) StderrLine: {'line': b'  499 |                     r_pose = pending_right_pose_;\n'}
+[6.932426] (robot_config) StderrLine: {'line': b'      |                              ^~~~~~~~~~~~~~~~~~~\n'}
+[6.952867] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[6.953268] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:519:48: error: \xe2\x80\x98sync_mutex_\xe2\x80\x99 was not declared in this scope\n'}
+[6.953449] (robot_config) StderrLine: {'line': b'  519 |                 std::lock_guard<std::mutex> lk(sync_mutex_);\n'}
+[6.953602] (robot_config) StderrLine: {'line': b'      |                                                ^~~~~~~~~~~\n'}
+[6.988158] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:38: error: \xe2\x80\x98has_pending_left_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[6.988559] (robot_config) StderrLine: {'line': b'  521 |                     still_unpaired = has_pending_left_pose_ && (pending_left_time_ == now_tp);\n'}
+[6.988796] (robot_config) StderrLine: {'line': b'      |                                      ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.013375] (-) TimerEvent: {}
+[7.017709] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:521:65: error: \xe2\x80\x98pending_left_time_\xe2\x80\x99 was not declared in this scope\n'}
+[7.018081] (robot_config) StderrLine: {'line': b'  521 |                     still_unpaired = has_pending_left_pose_ && (pending_left_time_ == now_tp);\n'}
+[7.018260] (robot_config) StderrLine: {'line': b'      |                                                                 ^~~~~~~~~~~~~~~~~~\n'}
+[7.043094] (robot_config) StdoutLine: {'line': b'[ 66%] Linking CXX executable pose_command_publisher\n'}
+[7.054156] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:524:38: error: \xe2\x80\x98has_pending_right_pose_\xe2\x80\x99 was not declared in this scope\n'}
+[7.054537] (robot_config) StderrLine: {'line': b'  524 |                     still_unpaired = has_pending_right_pose_ && (pending_right_time_ == now_tp);\n'}
+[7.054743] (robot_config) StderrLine: {'line': b'      |                                      ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.085639] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:524:66: error: \xe2\x80\x98pending_right_time_\xe2\x80\x99 was not declared in this scope\n'}
+[7.086042] (robot_config) StderrLine: {'line': b'  524 |                     still_unpaired = has_pending_right_pose_ && (pending_right_time_ == now_tp);\n'}
+[7.086221] (robot_config) StderrLine: {'line': b'      |                                                                  ^~~~~~~~~~~~~~~~~~~\n'}
+[7.113543] (-) TimerEvent: {}
+[7.129480] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:529:51: error: \xe2\x80\x98left_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[7.129916] (robot_config) StderrLine: {'line': b'  529 |                 auto mgi = (arm_name == "left") ? left_move_group_interface_ : right_move_group_interface_;\n'}
+[7.130111] (robot_config) StderrLine: {'line': b'      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.130277] (robot_config) StderrLine: {'line': b'      |                                                   get_node_graph_interface\n'}
+[7.169517] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:529:80: error: \xe2\x80\x98right_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[7.169967] (robot_config) StderrLine: {'line': b'  529 |                 auto mgi = (arm_name == "left") ? left_move_group_interface_ : right_move_group_interface_;\n'}
+[7.170156] (robot_config) StderrLine: {'line': b'      |                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.170311] (robot_config) StderrLine: {'line': b'      |                                                                                get_node_graph_interface\n'}
+[7.193306] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[7.193733] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:561:27: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.193932] (robot_config) StderrLine: {'line': b'  561 |             if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;\n'}
+[7.194093] (robot_config) StderrLine: {'line': b'      |                           ^~~~~~~~~~~~\n'}
+[7.213713] (-) TimerEvent: {}
+[7.216358] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:565:31: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.216761] (robot_config) StderrLine: {'line': b'  565 |             return (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS);\n'}
+[7.216951] (robot_config) StderrLine: {'line': b'      |                               ^~~~~~~~~~~~\n'}
+[7.261764] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)\xe2\x80\x99:\n'}
+[7.262048] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:571:13: error: \xe2\x80\x98left_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[7.262143] (robot_config) StderrLine: {'line': b'  571 |         if (left_move_group_interface_) {\n'}
+[7.262223] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.262296] (robot_config) StderrLine: {'line': b'      |             get_node_graph_interface\n'}
+[7.284836] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:573:38: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.285071] (robot_config) StderrLine: {'line': b'  573 |             if (left_ok) left_plan = plan_buffer_;\n'}
+[7.285154] (robot_config) StderrLine: {'line': b'      |                                      ^~~~~~~~~~~~\n'}
+[7.313817] (-) TimerEvent: {}
+[7.329209] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:575:13: error: \xe2\x80\x98right_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[7.329468] (robot_config) StderrLine: {'line': b'  575 |         if (right_move_group_interface_) {\n'}
+[7.329565] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.329667] (robot_config) StderrLine: {'line': b'      |             get_node_graph_interface\n'}
+[7.354226] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:577:40: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.354665] (robot_config) StderrLine: {'line': b'  577 |             if (right_ok) right_plan = plan_buffer_;\n'}
+[7.354861] (robot_config) StderrLine: {'line': b'      |                                        ^~~~~~~~~~~~\n'}
+[7.402758] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[7.403245] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:598:17: error: \xe2\x80\x98RCLCPlocityScalingFactor\xe2\x80\x99 was not declared in this scope\n'}
+[7.403472] (robot_config) StderrLine: {'line': b'  598 |                 RCLCPlocityScalingFactor(0.8);\n'}
+[7.403667] (robot_config) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.413974] (-) TimerEvent: {}
+[7.416035] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:599:13: error: \xe2\x80\x98mgi\xe2\x80\x99 was not declared in this scope\n'}
+[7.416418] (robot_config) StderrLine: {'line': b'  599 |             mgi->setMaxAccelerationScalingFactor(0.8);\n'}
+[7.416604] (robot_config) StderrLine: {'line': b'      |             ^~~\n'}
+[7.440942] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:27: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.441364] (robot_config) StderrLine: {'line': b'  600 |             if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;\n'}
+[7.441546] (robot_config) StderrLine: {'line': b'      |                           ^~~~~~~~~~~~\n'}
+[7.441760] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:91: error: inconsistent types \xe2\x80\x98void\xe2\x80\x99 and \xe2\x80\x98bool\xe2\x80\x99 deduced for lambda return type\n'}
+[7.441935] (robot_config) StderrLine: {'line': b'  600 |             if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;\n'}
+[7.442094] (robot_config) StderrLine: {'line': b'      |                                                                                           ^~~~\n'}
+[7.442246] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:600:91: error: return-statement with a value, in function returning \xe2\x80\x98void\xe2\x80\x99 [-fpermissive]\n'}
+[7.465235] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:604:31: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.465699] (robot_config) StderrLine: {'line': b'  604 |             return (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS);\n'}
+[7.465971] (robot_config) StderrLine: {'line': b'      |                               ^~~~~~~~~~~~\n'}
+[7.514098] (-) TimerEvent: {}
+[7.515885] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:610:13: error: \xe2\x80\x98left_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[7.516120] (robot_config) StderrLine: {'line': b'  610 |         if (left_move_group_interface_) {\n'}
+[7.516222] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.516309] (robot_config) StderrLine: {'line': b'      |             get_node_graph_interface\n'}
+[7.516395] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:611:23: error: \xe2\x80\x98plan_one\xe2\x80\x99 is not captured\n'}
+[7.516478] (robot_config) StderrLine: {'line': b'  611 |             left_ok = plan_one(left_move_group_interface_, left_pose);\n'}
+[7.516560] (robot_config) StderrLine: {'line': b'      |                       ^~~~~~~~\n'}
+[7.516659] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default\n'}
+[7.516751] (robot_config) StderrLine: {'line': b'  587 |         auto send_one = [this](const std::string& arm,\n'}
+[7.516830] (robot_config) StderrLine: {'line': b'      |                              ^\n'}
+[7.516906] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:545:14: note: \xe2\x80\x98MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one\xe2\x80\x99 declared here\n'}
+[7.517022] (robot_config) StderrLine: {'line': b'  545 |         auto plan_one = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,\n'}
+[7.517102] (robot_config) StderrLine: {'line': b'      |              ^~~~~~~~\n'}
+[7.517180] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:611:60: error: \xe2\x80\x98left_pose\xe2\x80\x99 is not captured\n'}
+[7.517259] (robot_config) StderrLine: {'line': b'  611 |             left_ok = plan_one(left_move_group_interface_, left_pose);\n'}
+[7.517336] (robot_config) StderrLine: {'line': b'      |                                                            ^~~~~~~~~\n'}
+[7.517415] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default\n'}
+[7.517495] (robot_config) StderrLine: {'line': b'  587 |         auto send_one = [this](const std::string& arm,\n'}
+[7.517570] (robot_config) StderrLine: {'line': b'      |                              ^\n'}
+[7.517667] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:535:76: note: \xe2\x80\x98const PoseStamped& left_pose\xe2\x80\x99 declared here\n'}
+[7.517748] (robot_config) StderrLine: {'line': b'  535 |     void planAndExecuteSynchronized(const geometry_msgs::msg::PoseStamped& left_pose,\n'}
+[7.517827] (robot_config) StderrLine: {'line': b'      |                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~\n'}
+[7.542511] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:612:38: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.542776] (robot_config) StderrLine: {'line': b'  612 |             if (left_ok) left_plan = plan_buffer_;\n'}
+[7.542882] (robot_config) StderrLine: {'line': b'      |                                      ^~~~~~~~~~~~\n'}
+[7.593811] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:614:13: error: \xe2\x80\x98right_move_group_interface_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98get_node_graph_interface\xe2\x80\x99?\n'}
+[7.594222] (robot_config) StderrLine: {'line': b'  614 |         if (right_move_group_interface_) {\n'}
+[7.594418] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.594584] (robot_config) StderrLine: {'line': b'      |             get_node_graph_interface\n'}
+[7.594757] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:615:24: error: \xe2\x80\x98plan_one\xe2\x80\x99 is not captured\n'}
+[7.594921] (robot_config) StderrLine: {'line': b'  615 |             right_ok = plan_one(right_move_group_interface_, right_pose);\n'}
+[7.595078] (robot_config) StderrLine: {'line': b'      |                        ^~~~~~~~\n'}
+[7.595235] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default\n'}
+[7.595390] (robot_config) StderrLine: {'line': b'  587 |         auto send_one = [this](const std::string& arm,\n'}
+[7.595544] (robot_config) StderrLine: {'line': b'      |                              ^\n'}
+[7.595711] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:545:14: note: \xe2\x80\x98MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(std::shared_ptr<moveit::planning_interface::MoveGroupInterface>, const PoseStamped&)> plan_one\xe2\x80\x99 declared here\n'}
+[7.595877] (robot_config) StderrLine: {'line': b'  545 |         auto plan_one = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,\n'}
+[7.596031] (robot_config) StderrLine: {'line': b'      |              ^~~~~~~~\n'}
+[7.596174] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:615:62: error: \xe2\x80\x98right_pose\xe2\x80\x99 is not captured\n'}
+[7.596318] (robot_config) StderrLine: {'line': b'  615 |             right_ok = plan_one(right_move_group_interface_, right_pose);\n'}
+[7.596465] (robot_config) StderrLine: {'line': b'      |                                                              ^~~~~~~~~~\n'}
+[7.596607] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:587:30: note: the lambda has no capture-default\n'}
+[7.596748] (robot_config) StderrLine: {'line': b'  587 |         auto send_one = [this](const std::string& arm,\n'}
+[7.596881] (robot_config) StderrLine: {'line': b'      |                              ^\n'}
+[7.596996] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:536:76: note: \xe2\x80\x98const PoseStamped& right_pose\xe2\x80\x99 declared here\n'}
+[7.597153] (robot_config) StderrLine: {'line': b'  536 |                                     const geometry_msgs::msg::PoseStamped& right_pose)\n'}
+[7.597302] (robot_config) StderrLine: {'line': b'      |                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~\n'}
+[7.614233] (-) TimerEvent: {}
+[7.622200] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:616:40: error: \xe2\x80\x98plan_buffer_\xe2\x80\x99 was not declared in this scope\n'}
+[7.622494] (robot_config) StderrLine: {'line': b'  616 |             if (right_ok) right_plan = plan_buffer_;\n'}
+[7.622610] (robot_config) StderrLine: {'line': b'      |                                        ^~~~~~~~~~~~\n'}
+[7.640138] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[7.640529] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:136: error: there are no arguments to \xe2\x80\x98stopTrajectoryTracking\xe2\x80\x99 that depend on a template parameter, so a declaration of \xe2\x80\x98stopTrajectoryTracking\xe2\x80\x99 must be available [-fpermissive]\n'}
+[7.640710] (robot_config) StderrLine: {'line': b'  646 |             options.result_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); stopTrajectoryTracking(arm); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo(arm); };\n'}
+[7.640901] (robot_config) StderrLine: {'line': b'      |                                                                                                                                        ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.641046] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:136: note: (if you use \xe2\x80\x98-fpermissive\xe2\x80\x99, G++ will accept your code, but allowing the use of an undeclared name is deprecated)\n'}
+[7.693676] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In instantiation of \xe2\x80\x98MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)> [with auto:41 = rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult]\xe2\x80\x99:\n'}
+[7.694134] (robot_config) StderrLine: {'line': b'/usr/include/c++/11/type_traits:2530:26:   required by substitution of \xe2\x80\x98template<class _Fn, class ... _Args> static std::__result_of_success<decltype (declval<_Fn>()((declval<_Args>)()...)), std::__invoke_other> std::__result_of_other_impl::_S_test(int) [with _Fn = MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&; _Args = {const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&}]\xe2\x80\x99\n'}
+[7.694359] (robot_config) StderrLine: {'line': b'/usr/include/c++/11/type_traits:2541:55:   required from \xe2\x80\x98struct std::__result_of_impl<false, false, MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&>\xe2\x80\x99\n'}
+[7.694582] (robot_config) StderrLine: {'line': b'/usr/include/c++/11/bits/std_function.h:348:9:   recursively required by substitution of \xe2\x80\x98template<class _Result, class _Ret> struct std::__is_invocable_impl<_Result, _Ret, true, std::__void_t<typename _CTp::type> > [with _Result = std::__invoke_result<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&>; _Ret = void]\xe2\x80\x99\n'}
+[7.694810] (robot_config) StderrLine: {'line': b'/usr/include/c++/11/bits/std_function.h:348:9:   required from \xe2\x80\x98struct std::function<void(const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&)>::_Callable<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, std::__invoke_result<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&> >\xe2\x80\x99\n'}
+[7.695020] (robot_config) StderrLine: {'line': b'/usr/include/c++/11/bits/std_function.h:353:8:   required by substitution of \xe2\x80\x98template<class _Res, class ... _ArgTypes> template<class _Cond, class _Tp> using _Requires = std::__enable_if_t<_Cond::value, _Tp> [with _Cond = std::function<void(const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&)>::_Callable<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>, std::__invoke_result<MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>&, const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&> >; _Tp = void; _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&}]\xe2\x80\x99\n'}
+[7.695236] (robot_config) StderrLine: {'line': b'/usr/include/c++/11/bits/std_function.h:434:9:   required by substitution of \xe2\x80\x98template<class _Functor, class _Constraints> std::function<void(const rclcpp_action::ClientGoalHandle<control_msgs::action::FollowJointTrajectory>::WrappedResult&)>::function(_Functor&&) [with _Functor = MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(const string&, rclcpp_action::Client<control_msgs::action::FollowJointTrajectory>::SharedPtr, const moveit::planning_interface::MoveGroupInterface::Plan&)>::<lambda(auto:41)>; _Constraints = <missing>]\xe2\x80\x99\n'}
+[7.695439] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:242:   required from here\n'}
+[7.695581] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:646:158: error: \xe2\x80\x98stopTrajectoryTracking\xe2\x80\x99 was not declared in this scope\n'}
+[7.696031] (robot_config) StderrLine: {'line': b'  646 |             options.result_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); stopTrajectoryTracking(arm); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo(arm); };\n'}
+[7.696313] (robot_config) StderrLine: {'line': b'      |                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~^~~~~\n'}
+[7.706787] (robot_config) StdoutLine: {'line': b'[ 66%] Built target pose_command_publisher\n'}
+[7.714354] (-) TimerEvent: {}
+[7.758698] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[7.759196] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:648:13: error: \xe2\x80\x98updateTrajectoryTracking\xe2\x80\x99 was not declared in this scope\n'}
+[7.759423] (robot_config) StderrLine: {'line': b'  648 |             updateTrajectoryTracking(plan, arm);\n'}
+[7.759612] (robot_config) StderrLine: {'line': b'      |             ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.813518] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In lambda function:\n'}
+[7.814025] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:651:41: error: \xe2\x80\x98left_arm_action_client_\xe2\x80\x99 was not declared in this scope\n'}
+[7.814247] (robot_config) StderrLine: {'line': b'  651 |         if (left_ok)  send_one("left",  left_arm_action_client_,  left_plan);\n'}
+[7.814428] (-) TimerEvent: {}
+[7.814485] (robot_config) StderrLine: {'line': b'      |                                         ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.870140] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:652:41: error: \xe2\x80\x98right_arm_action_client_\xe2\x80\x99 was not declared in this scope\n'}
+[7.870661] (robot_config) StderrLine: {'line': b'  652 |         if (right_ok) send_one("right", right_arm_action_client_, right_plan);\n'}
+[7.871134] (robot_config) StderrLine: {'line': b'      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[7.872404] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: In member function \xe2\x80\x98void MoveToPoseDualCpp::planAndExecuteSynchronized(const PoseStamped&, const PoseStamped&)\xe2\x80\x99:\n'}
+[7.872616] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:657:5: error: expected \xe2\x80\x98,\xe2\x80\x99 or \xe2\x80\x98;\xe2\x80\x99 before \xe2\x80\x98void\xe2\x80\x99\n'}
+[7.872765] (robot_config) StderrLine: {'line': b'  657 |     void execute_trajectory_directly(\n'}
+[7.872876] (robot_config) StderrLine: {'line': b'      |     ^~~~\n'}
+[7.872983] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:709:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.873092] (robot_config) StderrLine: {'line': b'  709 |     {\n'}
+[7.873232] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.873344] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:727:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.873449] (robot_config) StderrLine: {'line': b'  727 |     {\n'}
+[7.873553] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.873671] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:741:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.873783] (robot_config) StderrLine: {'line': b'  741 |     {\n'}
+[7.873886] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.873986] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:771:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.874086] (robot_config) StderrLine: {'line': b'  771 |     {\n'}
+[7.874187] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.874288] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:777:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.874389] (robot_config) StderrLine: {'line': b'  777 |     {\n'}
+[7.874489] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.874586] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:783:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.874705] (robot_config) StderrLine: {'line': b'  783 |     {\n'}
+[7.874807] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.874904] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:789:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.875003] (robot_config) StderrLine: {'line': b'  789 |     {\n'}
+[7.875102] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.875207] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:795:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.875339] (robot_config) StderrLine: {'line': b'  795 |     {\n'}
+[7.875445] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.875548] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:823:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.875689] (robot_config) StderrLine: {'line': b'  823 |     {\n'}
+[7.875798] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.875900] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:878:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.876012] (robot_config) StderrLine: {'line': b'  878 |     {\n'}
+[7.876122] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.876221] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:885:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.876323] (robot_config) StderrLine: {'line': b'  885 |     {\n'}
+[7.876420] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.876520] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:891:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.876619] (robot_config) StderrLine: {'line': b'  891 |     {\n'}
+[7.876744] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.876846] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:897:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.876947] (robot_config) StderrLine: {'line': b'  897 |     {\n'}
+[7.877043] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.877144] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:904:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.877243] (robot_config) StderrLine: {'line': b'  904 |     {\n'}
+[7.877341] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.877445] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:965:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.877555] (robot_config) StderrLine: {'line': b'  965 |     {\n'}
+[7.877670] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.877778] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1024:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.877880] (robot_config) StderrLine: {'line': b' 1024 |     {\n'}
+[7.877979] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.878082] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1030:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.878187] (robot_config) StderrLine: {'line': b' 1030 |     {\n'}
+[7.878291] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.878390] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1036:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.878493] (robot_config) StderrLine: {'line': b' 1036 |     {\n'}
+[7.878592] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.878705] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1042:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.878807] (robot_config) StderrLine: {'line': b' 1042 |     {\n'}
+[7.878907] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.879011] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1048:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.879112] (robot_config) StderrLine: {'line': b' 1048 |     {\n'}
+[7.879214] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.881006] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:17: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]\n'}
+[7.881299] (robot_config) StderrLine: {'line': b' 1181 |     bool isReady() const { return joint_state_ready_ && actions_ready_; }\n'}
+[7.881433] (robot_config) StderrLine: {'line': b'      |                 ^~\n'}
+[7.881553] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:17: note: remove parentheses to default-initialize a variable\n'}
+[7.881705] (robot_config) StderrLine: {'line': b' 1181 |     bool isReady() const { return joint_state_ready_ && actions_ready_; }\n'}
+[7.881813] (robot_config) StderrLine: {'line': b'      |                 ^~\n'}
+[7.881919] (robot_config) StderrLine: {'line': b'      |                 --\n'}
+[7.882023] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:17: note: or replace parentheses with braces to value-initialize a variable\n'}
+[7.882127] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1181:26: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.882231] (robot_config) StderrLine: {'line': b' 1181 |     bool isReady() const { return joint_state_ready_ && actions_ready_; }\n'}
+[7.882333] (robot_config) StderrLine: {'line': b'      |                          ^\n'}
+[7.882434] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1184:5: error: a function-definition is not allowed here before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[7.882535] (robot_config) StderrLine: {'line': b' 1184 |     {\n'}
+[7.882651] (robot_config) StderrLine: {'line': b'      |     ^\n'}
+[7.890686] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp: At global scope:\n'}
+[7.891029] (robot_config) StderrLine: {'line': b'/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1222:2: error: expected unqualified-id at end of input\n'}
+[7.891164] (robot_config) StderrLine: {'line': b' 1222 | }\n'}
+[7.891278] (robot_config) StderrLine: {'line': b'      |  ^\n'}
+[7.914587] (-) TimerEvent: {}
+[8.014914] (-) TimerEvent: {}
+[8.115272] (-) TimerEvent: {}
+[8.184246] (robot_config) StdoutLine: {'line': b'[ 83%] Linking CXX executable dual_arm_servo_controller\n'}
+[8.215532] (-) TimerEvent: {}
+[8.316046] (-) TimerEvent: {}
+[8.416419] (-) TimerEvent: {}
+[8.516777] (-) TimerEvent: {}
+[8.617196] (-) TimerEvent: {}
+[8.717749] (-) TimerEvent: {}
+[8.818271] (-) TimerEvent: {}
+[8.918754] (-) TimerEvent: {}
+[9.019235] (-) TimerEvent: {}
+[9.119804] (-) TimerEvent: {}
+[9.220410] (-) TimerEvent: {}
+[9.321151] (-) TimerEvent: {}
+[9.421819] (-) TimerEvent: {}
+[9.522445] (-) TimerEvent: {}
+[9.623096] (-) TimerEvent: {}
+[9.634930] (robot_config) StdoutLine: {'line': b'[ 83%] Built target dual_arm_servo_controller\n'}
+[9.723338] (-) TimerEvent: {}

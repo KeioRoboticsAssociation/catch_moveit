@@ -1,0 +1,25 @@
+# Dual Arm Realtime Control Configuration
+
+# Control Parameters
+control_frequency: 20.0        # Control loop frequency in Hz
+velocity_scale: 0.1           # Velocity scaling factor (0.0 - 1.0)
+timeout_duration: 0.5         # Command timeout in seconds
+
+# Safety Parameters
+position_limits:
+  x_min: -1.2
+  x_max: 1.2
+  y_min: -1.2
+  y_max: 1.2
+  z_min: 0.0
+  z_max: 1.8
+
+# MoveIt Parameters
+planning_time: 0.1            # Planning time in seconds
+max_velocity_scaling: 0.3     # Maximum velocity scaling factor
+max_acceleration_scaling: 0.3 # Maximum acceleration scaling factor
+
+# Cartesian Path Parameters
+eef_step: 0.01               # End effector step size for cartesian planning
+jump_threshold: 0.0          # Jump threshold (0.0 to disable)
+min_path_fraction: 0.5       # Minimum fraction of path that must be planned

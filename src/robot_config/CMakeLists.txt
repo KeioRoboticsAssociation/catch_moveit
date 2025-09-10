@@ -6,7 +6,7 @@ find_package(ament_cmake REQUIRED)
 # Find dependencies
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
-find_package(moveit_servo REQUIRED)
+find_package(moveit_servo QUIET)
 find_package(moveit_msgs REQUIRED)
 find_package(moveit_core REQUIRED)
 find_package(moveit_ros_planning REQUIRED)
@@ -20,8 +20,8 @@ find_package(tf2_ros REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(yaml-cpp REQUIRED)
-find_package(moveit_planners_chomp REQUIRED)
-find_package(stomp REQUIRED)
+find_package(moveit_planners_chomp QUIET)
+find_package(stomp QUIET)
 find_package(ament_index_cpp REQUIRED)
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/launch")
@@ -58,8 +58,6 @@ ament_target_dependencies(
   std_srvs
   tf2_geometry_msgs
   control_msgs
-  moveit_planners_chomp
-  stomp
   ament_index_cpp
 )
 
@@ -113,9 +111,12 @@ install(TARGETS
 )
 
 # Export plugin dependencies
-ament_export_dependencies(
-  moveit_planners_chomp
-  stomp
-)
+# Optional exports if available
+if(moveit_planners_chomp_FOUND)
+  ament_export_dependencies(moveit_planners_chomp)
+endif()
+if(stomp_FOUND)
+  ament_export_dependencies(stomp)
+endif()
 
 ament_package()

@@ -1,0 +1,340 @@
+[0.000000] (-) TimerEvent: {}
+[0.000556] (robot_config) JobQueued: {'identifier': 'robot_config', 'dependencies': OrderedDict()}
+[0.000711] (robot_config) JobStarted: {'identifier': 'robot_config'}
+[0.006427] (robot_config) JobProgress: {'identifier': 'robot_config', 'progress': 'cmake'}
+[0.007460] (robot_config) JobProgress: {'identifier': 'robot_config', 'progress': 'build'}
+[0.008582] (robot_config) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/a/ws_moveit2/src/robot_config/build/robot_config', '--', '-j22', '-l22'], 'cwd': '/home/a/ws_moveit2/src/robot_config/build/robot_config', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1184'), ('SYSTEMD_EXEC_PID', '1403'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5169'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:13605'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.local/bin:/tmp/.tmpvixp3I:/home/a/.nvm/versions/node/v22.18.0/lib/node_modules/@openai/codex/node_modules/@vscode/ripgrep/bin:/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/home/a/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1367,unix/a:/tmp/.ICE-unix/1367'), ('INVOCATION_ID', '7735c45a73cb4a32bb6c7dd12d8c5647'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.66LNC3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:a43b1970-c717-4988-b271-261a941dc780'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/src/robot_config/build/robot_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/a/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CODEX_MANAGED_BY_NPM', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.051613] (robot_config) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target move_to_pose_dual_cpp\n'}
+[0.052803] (robot_config) StdoutLine: {'line': b'[ 33%] Built target dual_arm_servo_controller\n'}
+[0.054460] (robot_config) StdoutLine: {'line': b'[ 66%] Built target pose_command_publisher\n'}
+[0.064682] (robot_config) StdoutLine: {'line': b'[ 83%] Building CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o\n'}
+[0.099668] (-) TimerEvent: {}
+[0.199938] (-) TimerEvent: {}
+[0.300244] (-) TimerEvent: {}
+[0.400607] (-) TimerEvent: {}
+[0.500837] (-) TimerEvent: {}
+[0.601066] (-) TimerEvent: {}
+[0.701282] (-) TimerEvent: {}
+[0.801545] (-) TimerEvent: {}
+[0.901783] (-) TimerEvent: {}
+[1.002033] (-) TimerEvent: {}
+[1.102258] (-) TimerEvent: {}
+[1.202480] (-) TimerEvent: {}
+[1.302710] (-) TimerEvent: {}
+[1.402942] (-) TimerEvent: {}
+[1.503159] (-) TimerEvent: {}
+[1.603447] (-) TimerEvent: {}
+[1.703683] (-) TimerEvent: {}
+[1.803906] (-) TimerEvent: {}
+[1.904135] (-) TimerEvent: {}
+[2.004405] (-) TimerEvent: {}
+[2.104630] (-) TimerEvent: {}
+[2.204846] (-) TimerEvent: {}
+[2.305062] (-) TimerEvent: {}
+[2.405284] (-) TimerEvent: {}
+[2.505504] (-) TimerEvent: {}
+[2.605730] (-) TimerEvent: {}
+[2.705943] (-) TimerEvent: {}
+[2.806199] (-) TimerEvent: {}
+[2.906442] (-) TimerEvent: {}
+[3.006656] (-) TimerEvent: {}
+[3.106868] (-) TimerEvent: {}
+[3.207077] (-) TimerEvent: {}
+[3.307307] (-) TimerEvent: {}
+[3.407509] (-) TimerEvent: {}
+[3.507739] (-) TimerEvent: {}
+[3.607970] (-) TimerEvent: {}
+[3.708186] (-) TimerEvent: {}
+[3.808356] (-) TimerEvent: {}
+[3.908592] (-) TimerEvent: {}
+[4.008797] (-) TimerEvent: {}
+[4.109003] (-) TimerEvent: {}
+[4.209215] (-) TimerEvent: {}
+[4.309431] (-) TimerEvent: {}
+[4.409641] (-) TimerEvent: {}
+[4.509878] (-) TimerEvent: {}
+[4.610136] (-) TimerEvent: {}
+[4.710400] (-) TimerEvent: {}
+[4.810659] (-) TimerEvent: {}
+[4.910908] (-) TimerEvent: {}
+[5.011166] (-) TimerEvent: {}
+[5.111447] (-) TimerEvent: {}
+[5.211703] (-) TimerEvent: {}
+[5.311934] (-) TimerEvent: {}
+[5.412158] (-) TimerEvent: {}
+[5.512394] (-) TimerEvent: {}
+[5.612630] (-) TimerEvent: {}
+[5.712862] (-) TimerEvent: {}
+[5.813096] (-) TimerEvent: {}
+[5.913333] (-) TimerEvent: {}
+[6.013575] (-) TimerEvent: {}
+[6.113844] (-) TimerEvent: {}
+[6.214132] (-) TimerEvent: {}
+[6.314342] (-) TimerEvent: {}
+[6.414680] (-) TimerEvent: {}
+[6.514954] (-) TimerEvent: {}
+[6.615213] (-) TimerEvent: {}
+[6.715506] (-) TimerEvent: {}
+[6.815795] (-) TimerEvent: {}
+[6.916087] (-) TimerEvent: {}
+[7.016405] (-) TimerEvent: {}
+[7.116749] (-) TimerEvent: {}
+[7.217044] (-) TimerEvent: {}
+[7.317345] (-) TimerEvent: {}
+[7.417668] (-) TimerEvent: {}
+[7.518004] (-) TimerEvent: {}
+[7.618353] (-) TimerEvent: {}
+[7.718662] (-) TimerEvent: {}
+[7.818983] (-) TimerEvent: {}
+[7.919343] (-) TimerEvent: {}
+[8.019734] (-) TimerEvent: {}
+[8.120095] (-) TimerEvent: {}
+[8.220523] (-) TimerEvent: {}
+[8.320855] (-) TimerEvent: {}
+[8.421193] (-) TimerEvent: {}
+[8.521552] (-) TimerEvent: {}
+[8.621965] (-) TimerEvent: {}
+[8.722517] (-) TimerEvent: {}
+[8.822876] (-) TimerEvent: {}
+[8.923270] (-) TimerEvent: {}
+[9.023691] (-) TimerEvent: {}
+[9.124124] (-) TimerEvent: {}
+[9.224608] (-) TimerEvent: {}
+[9.324958] (-) TimerEvent: {}
+[9.425464] (-) TimerEvent: {}
+[9.525761] (-) TimerEvent: {}
+[9.626044] (-) TimerEvent: {}
+[9.726330] (-) TimerEvent: {}
+[9.826607] (-) TimerEvent: {}
+[9.926926] (-) TimerEvent: {}
+[10.027234] (-) TimerEvent: {}
+[10.127610] (-) TimerEvent: {}
+[10.227858] (-) TimerEvent: {}
+[10.328180] (-) TimerEvent: {}
+[10.428443] (-) TimerEvent: {}
+[10.528706] (-) TimerEvent: {}
+[10.628969] (-) TimerEvent: {}
+[10.729242] (-) TimerEvent: {}
+[10.829529] (-) TimerEvent: {}
+[10.929761] (-) TimerEvent: {}
+[11.030007] (-) TimerEvent: {}
+[11.130245] (-) TimerEvent: {}
+[11.230489] (-) TimerEvent: {}
+[11.330718] (-) TimerEvent: {}
+[11.430948] (-) TimerEvent: {}
+[11.531169] (-) TimerEvent: {}
+[11.631395] (-) TimerEvent: {}
+[11.731693] (-) TimerEvent: {}
+[11.831990] (-) TimerEvent: {}
+[11.932225] (-) TimerEvent: {}
+[12.032485] (-) TimerEvent: {}
+[12.132709] (-) TimerEvent: {}
+[12.232947] (-) TimerEvent: {}
+[12.333183] (-) TimerEvent: {}
+[12.433435] (-) TimerEvent: {}
+[12.533657] (-) TimerEvent: {}
+[12.633873] (-) TimerEvent: {}
+[12.734092] (-) TimerEvent: {}
+[12.834351] (-) TimerEvent: {}
+[12.934606] (-) TimerEvent: {}
+[13.034855] (-) TimerEvent: {}
+[13.135091] (-) TimerEvent: {}
+[13.235347] (-) TimerEvent: {}
+[13.335585] (-) TimerEvent: {}
+[13.435899] (-) TimerEvent: {}
+[13.536133] (-) TimerEvent: {}
+[13.636434] (-) TimerEvent: {}
+[13.736681] (-) TimerEvent: {}
+[13.836928] (-) TimerEvent: {}
+[13.937171] (-) TimerEvent: {}
+[14.037430] (-) TimerEvent: {}
+[14.137654] (-) TimerEvent: {}
+[14.237862] (-) TimerEvent: {}
+[14.338095] (-) TimerEvent: {}
+[14.438331] (-) TimerEvent: {}
+[14.538564] (-) TimerEvent: {}
+[14.638792] (-) TimerEvent: {}
+[14.739021] (-) TimerEvent: {}
+[14.839274] (-) TimerEvent: {}
+[14.939495] (-) TimerEvent: {}
+[15.039737] (-) TimerEvent: {}
+[15.139962] (-) TimerEvent: {}
+[15.240198] (-) TimerEvent: {}
+[15.340472] (-) TimerEvent: {}
+[15.440692] (-) TimerEvent: {}
+[15.540921] (-) TimerEvent: {}
+[15.641162] (-) TimerEvent: {}
+[15.741408] (-) TimerEvent: {}
+[15.841668] (-) TimerEvent: {}
+[15.941914] (-) TimerEvent: {}
+[16.042219] (-) TimerEvent: {}
+[16.142467] (-) TimerEvent: {}
+[16.242690] (-) TimerEvent: {}
+[16.342907] (-) TimerEvent: {}
+[16.443112] (-) TimerEvent: {}
+[16.543349] (-) TimerEvent: {}
+[16.643577] (-) TimerEvent: {}
+[16.743786] (-) TimerEvent: {}
+[16.844001] (-) TimerEvent: {}
+[16.944236] (-) TimerEvent: {}
+[17.044475] (-) TimerEvent: {}
+[17.144687] (-) TimerEvent: {}
+[17.244892] (-) TimerEvent: {}
+[17.345105] (-) TimerEvent: {}
+[17.445332] (-) TimerEvent: {}
+[17.545558] (-) TimerEvent: {}
+[17.645761] (-) TimerEvent: {}
+[17.745975] (-) TimerEvent: {}
+[17.846203] (-) TimerEvent: {}
+[17.946422] (-) TimerEvent: {}
+[18.046636] (-) TimerEvent: {}
+[18.146852] (-) TimerEvent: {}
+[18.247066] (-) TimerEvent: {}
+[18.347286] (-) TimerEvent: {}
+[18.447502] (-) TimerEvent: {}
+[18.547737] (-) TimerEvent: {}
+[18.648040] (-) TimerEvent: {}
+[18.748278] (-) TimerEvent: {}
+[18.848482] (-) TimerEvent: {}
+[18.948708] (-) TimerEvent: {}
+[19.049001] (-) TimerEvent: {}
+[19.149296] (-) TimerEvent: {}
+[19.249510] (-) TimerEvent: {}
+[19.349791] (-) TimerEvent: {}
+[19.450010] (-) TimerEvent: {}
+[19.550296] (-) TimerEvent: {}
+[19.650504] (-) TimerEvent: {}
+[19.750790] (-) TimerEvent: {}
+[19.851029] (-) TimerEvent: {}
+[19.951259] (-) TimerEvent: {}
+[20.054149] (-) TimerEvent: {}
+[20.154339] (-) TimerEvent: {}
+[20.254564] (-) TimerEvent: {}
+[20.354786] (-) TimerEvent: {}
+[20.455012] (-) TimerEvent: {}
+[20.555239] (-) TimerEvent: {}
+[20.655459] (-) TimerEvent: {}
+[20.755677] (-) TimerEvent: {}
+[20.855900] (-) TimerEvent: {}
+[20.956129] (-) TimerEvent: {}
+[21.056360] (-) TimerEvent: {}
+[21.156585] (-) TimerEvent: {}
+[21.256809] (-) TimerEvent: {}
+[21.357050] (-) TimerEvent: {}
+[21.457286] (-) TimerEvent: {}
+[21.557508] (-) TimerEvent: {}
+[21.657731] (-) TimerEvent: {}
+[21.757960] (-) TimerEvent: {}
+[21.858189] (-) TimerEvent: {}
+[21.958418] (-) TimerEvent: {}
+[22.058633] (-) TimerEvent: {}
+[22.158849] (-) TimerEvent: {}
+[22.259071] (-) TimerEvent: {}
+[22.359306] (-) TimerEvent: {}
+[22.459609] (-) TimerEvent: {}
+[22.559860] (-) TimerEvent: {}
+[22.660100] (-) TimerEvent: {}
+[22.760416] (-) TimerEvent: {}
+[22.860645] (-) TimerEvent: {}
+[22.960870] (-) TimerEvent: {}
+[23.061088] (-) TimerEvent: {}
+[23.161309] (-) TimerEvent: {}
+[23.261537] (-) TimerEvent: {}
+[23.361777] (-) TimerEvent: {}
+[23.462015] (-) TimerEvent: {}
+[23.562260] (-) TimerEvent: {}
+[23.662624] (-) TimerEvent: {}
+[23.762872] (-) TimerEvent: {}
+[23.854759] (robot_config) StdoutLine: {'line': b'[100%] Linking CXX executable move_to_pose_dual_cpp\n'}
+[23.862957] (-) TimerEvent: {}
+[23.963162] (-) TimerEvent: {}
+[24.063418] (-) TimerEvent: {}
+[24.163659] (-) TimerEvent: {}
+[24.263907] (-) TimerEvent: {}
+[24.364139] (-) TimerEvent: {}
+[24.464389] (-) TimerEvent: {}
+[24.564645] (-) TimerEvent: {}
+[24.664894] (-) TimerEvent: {}
+[24.765140] (-) TimerEvent: {}
+[24.865399] (-) TimerEvent: {}
+[24.965656] (-) TimerEvent: {}
+[25.065894] (-) TimerEvent: {}
+[25.166135] (-) TimerEvent: {}
+[25.266377] (-) TimerEvent: {}
+[25.366631] (-) TimerEvent: {}
+[25.466878] (-) TimerEvent: {}
+[25.500268] (robot_config) StdoutLine: {'line': b'[100%] Built target move_to_pose_dual_cpp\n'}
+[25.514069] (robot_config) CommandEnded: {'returncode': 0}
+[25.514951] (robot_config) JobProgress: {'identifier': 'robot_config', 'progress': 'install'}
+[25.527837] (robot_config) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/a/ws_moveit2/src/robot_config/build/robot_config'], 'cwd': '/home/a/ws_moveit2/src/robot_config/build/robot_config', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'a'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/a'), ('OLDPWD', '/home/a/ws_moveit2'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/a/.nvm/versions/node/v22.18.0/bin'), ('NVM_INC', '/home/a/.nvm/versions/node/v22.18.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1184'), ('SYSTEMD_EXEC_PID', '1403'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5169'), ('NVM_DIR', '/home/a/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'a'), ('JOURNAL_STREAM', '8:13605'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'a'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/a/.local/bin:/tmp/.tmpvixp3I:/home/a/.nvm/versions/node/v22.18.0/lib/node_modules/@openai/codex/node_modules/@vscode/ripgrep/bin:/home/a/.nvm/versions/node/v22.18.0/bin:/opt/ros/humble/bin:/home/a/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/a:@/tmp/.ICE-unix/1367,unix/a:/tmp/.ICE-unix/1367'), ('INVOCATION_ID', '7735c45a73cb4a32bb6c7dd12d8c5647'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.66LNC3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:a43b1970-c717-4988-b271-261a941dc780'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/a/ws_moveit2/src/robot_config/build/robot_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/a/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CODEX_MANAGED_BY_NPM', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[25.536904] (robot_config) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[25.537367] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch\n'}
+[25.537679] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/spawn_controllers.launch.py\n'}
+[25.538012] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/warehouse_db.launch.py\n'}
+[25.538352] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/dual_arm_demo.launch.py\n'}
+[25.538674] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/moveit_rviz.launch.py\n'}
+[25.538950] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/rsp.launch.py\n'}
+[25.539198] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/move_group.launch.py\n'}
+[25.539501] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/static_virtual_joint_tfs.launch.py\n'}
+[25.539665] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/setup_assistant.launch.py\n'}
+[25.539863] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config\n'}
+[25.540047] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/ompl_planning.yaml\n'}
+[25.540123] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_realtime_control.yaml\n'}
+[25.540311] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.srdf\n'}
+[25.540376] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_controllers.yaml\n'}
+[25.540439] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pilz_cartesian_limits.yaml\n'}
+[25.540501] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_joint_limits.yaml\n'}
+[25.540563] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro.bak\n'}
+[25.540625] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/right_initial_positions.yaml\n'}
+[25.540686] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/kinematics.yaml\n'}
+[25.540746] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_kinematics.yaml\n'}
+[25.540805] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_gazebo.urdf.xacro\n'}
+[25.540868] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/ros2_controllers.yaml\n'}
+[25.540930] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro\n'}
+[25.540987] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_moveit_controllers.yaml\n'}
+[25.541056] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_ompl_planning.yaml\n'}
+[25.541112] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.urdf\n'}
+[25.541170] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.ros2_control.xacro\n'}
+[25.541229] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/joint_limits.yaml\n'}
+[25.541298] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pilz_planning.yaml\n'}
+[25.541354] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_gazebo_controllers.yaml\n'}
+[25.541466] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/left_initial_positions.yaml\n'}
+[25.541537] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.srdf\n'}
+[25.541595] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/moveit_controllers.yaml\n'}
+[25.541653] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/servo.yaml\n'}
+[25.541708] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/moveit.rviz\n'}
+[25.541761] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/stomp_planning.yaml\n'}
+[25.541901] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.urdf.xacro\n'}
+[25.541961] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/chomp_planning.yaml\n'}
+[25.542019] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pose_commands.yaml\n'}
+[25.542077] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/initial_positions.yaml\n'}
+[25.542357] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/path\n'}
+[25.542429] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/.setup_assistant\n'}
+[25.542486] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/publish_collision_mesh.py\n'}
+[25.542540] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/target_pose_router.py\n'}
+[25.542593] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/move_to_pose_dual_cpp\n'}
+[25.549191] (robot_config) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/move_to_pose_dual_cpp" to ""\n'}
+[25.549292] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/pose_command_publisher\n'}
+[25.552590] (robot_config) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/pose_command_publisher" to ""\n'}
+[25.552723] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/dual_arm_servo_controller\n'}
+[25.555567] (robot_config) StdoutLine: {'line': b'-- Set runtime path of "/home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/dual_arm_servo_controller" to ""\n'}
+[25.555701] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/package_run_dependencies/robot_config\n'}
+[25.555867] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/parent_prefix_path/robot_config\n'}
+[25.556010] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/ament_prefix_path.sh\n'}
+[25.556118] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/ament_prefix_path.dsv\n'}
+[25.556226] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/path.sh\n'}
+[25.556348] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/path.dsv\n'}
+[25.556472] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.bash\n'}
+[25.556582] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.sh\n'}
+[25.556692] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.zsh\n'}
+[25.556840] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.dsv\n'}
+[25.556897] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/package.dsv\n'}
+[25.557006] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/packages/robot_config\n'}
+[25.557137] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[25.557255] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/robot_configConfig.cmake\n'}
+[25.557372] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/robot_configConfig-version.cmake\n'}
+[25.557475] (robot_config) StdoutLine: {'line': b'-- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/package.xml\n'}
+[25.559094] (robot_config) CommandEnded: {'returncode': 0}
+[25.567914] (-) TimerEvent: {}
+[25.578097] (robot_config) JobEnded: {'identifier': 'robot_config', 'rc': 0}
+[25.578966] (-) EventReactorShutdown: {}

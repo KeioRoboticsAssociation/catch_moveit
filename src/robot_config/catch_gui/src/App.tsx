@@ -50,7 +50,7 @@ export default function App() {
   const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw");
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
-  const [selectedArm, setSelectedArm] = useState<"left" | "right" | "both">("left");
+  const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [timeLeft, setTimeLeft] = useState(180); // 3分 = 180秒
   
@@ -372,92 +372,40 @@ export default function App() {
   };
 
   const handlePoseButtonClick = (buttonNumber) => {
-    if (posePublisher && connectionStatus === 'Connected') {
-      if (selectedArm === 'both') {
-        // bothモード時は左右のペアを1メッセージで原子的に送信
-        let leftPoseNumber, rightPoseNumber;
-        
-        if (buttonNumber <= 5) {
-          // Pose1-5: そのままとPose6-10
-          leftPoseNumber = buttonNumber;
-          rightPoseNumber = buttonNumber + 5;
-        } else if (buttonNumber <= 10) {
-          // Pose6-10: Pose11-15とPose16-20
-          leftPoseNumber = buttonNumber + 5;
-          rightPoseNumber = buttonNumber + 10;
-        } else {
-          // Pose11-15: Pose21-25とPose26-30
-          leftPoseNumber = buttonNumber + 10;
-          rightPoseNumber = buttonNumber + 15;
-        }
-        
-        const leftPoseValue = buttonPoseValues[backgroundColor][leftPoseNumber] || `${backgroundColor}_Pose${leftPoseNumber}`;
-        const rightPoseValue = buttonPoseValues[backgroundColor][rightPoseNumber] || `${backgroundColor}_Pose${rightPoseNumber}`;
-        
-        // 新トピックに "<LEFT>|<RIGHT>" 形式で送信
-        if (dualPosePublisher) {
-          const bothMessage = new ROSLIB.Message({
-            data: `${leftPoseValue}|${rightPoseValue}`
-          });
-          dualPosePublisher.publish(bothMessage);
-          console.log(`🎯 Published DUAL pose to /dual_button_command: "${leftPoseValue}|${rightPoseValue}"`);
-        } else {
-          // フォールバック: 旧方式で2回送信
-          const leftMessage = new ROSLIB.Message({ data: leftPoseValue });
-          posePublisher.publish(leftMessage);
-          const rightMessage = new ROSLIB.Message({ data: rightPoseValue });
-          posePublisher.publish(rightMessage);
-          console.log(`🎯 Published LEFT/RIGHT poses to ${POSE_TOPIC_NAME}: "${leftPoseValue}" & "${rightPoseValue}"`);
-        }
-        
-        // パブリッシュログに追加（両方記録）
-        setPublishedCommands(prev => [
-          {
-            topic: POSE_TOPIC_NAME,
-            message: `${leftPoseValue} | ${rightPoseValue}`,
-            timestamp: new Date().toLocaleTimeString()
-          },
-          ...prev.slice(0, 4) // 最新5件のみ保持
-        ]);
-      } else {
-        // 単一アームモード (left or right)
-        let poseToPublish = buttonNumber; // デフォルトは元の番号
-
-        if (selectedArm === 'right') {
-          // 右アーム選択時のマッピング
-          if (buttonNumber >= 1 && buttonNumber <= 5) {
-            poseToPublish = buttonNumber + 5; // Pose1-5 -> Pose6-10
-          } else if (buttonNumber >= 6 && buttonNumber <= 10) {
-            poseToPublish = buttonNumber + 10; // Pose6-10 -> Pose16-20
-          } else if (buttonNumber >= 11 && buttonNumber <= 15) {
-            poseToPublish = buttonNumber + 15; // Pose11-15 -> Pose26-30
-          }
-        } else if (selectedArm === 'left') {
-          // 左アーム選択時のマッピング
-          if (buttonNumber >= 6 && buttonNumber <= 10) {
-            poseToPublish = buttonNumber + 5; // Pose6-10 -> Pose11-15
-          } else if (buttonNumber >= 11 && buttonNumber <= 15) {
-            poseToPublish = buttonNumber + 10; // Pose11-15 -> Pose21-25
-          }
-        }
-        
-        const poseValue = buttonPoseValues[backgroundColor][poseToPublish] || `${backgroundColor}_Pose${poseToPublish}`;
-        const message = new ROSLIB.Message({
-          data: poseValue
-        });
-        posePublisher.publish(message);
-        console.log(`🎯 Published pose to ${POSE_TOPIC_NAME}: "${poseValue}"`);
-        
-        // パブリッシュログに追加
-        setPublishedCommands(prev => [
-          {
-            topic: POSE_TOPIC_NAME,
-            message: poseValue,
-            timestamp: new Date().toLocaleTimeString()
-          },
-          ...prev.slice(0, 4) // 最新5件のみ保持
-        ]);
+    if ((posePublisher || dualPosePublisher) && connectionStatus === 'Connected') {
+      let leftPoseNumber, rightPoseNumber;
+      
+      if (buttonNumber >= 1 && buttonNumber <= 5) {
+        // Pose1-5: そのままとPose6-10
+        leftPoseNumber = buttonNumber;
+        rightPoseNumber = buttonNumber + 5;
+      } else if (buttonNumber >= 6 && buttonNumber <= 10) {
+        // Pose6-10: Pose11-15とPose16-20
+        leftPoseNumber = buttonNumber + 5;
+        rightPoseNumber = buttonNumber + 10;
+      } else if (buttonNumber >= 11 && buttonNumber <= 15) {
+        // Pose11-15: Pose21-25とPose26-30
+        leftPoseNumber = buttonNumber + 10;
+        rightPoseNumber = buttonNumber + 15;
       }
+      
+      const leftPoseValue = buttonPoseValues[backgroundColor][leftPoseNumber] || `${backgroundColor}_Pose${leftPoseNumber}`;
+      const rightPoseValue = buttonPoseValues[backgroundColor][rightPoseNumber] || `${backgroundColor}_Pose${rightPoseNumber}`;
+
+      // 両腕モードではアトミックなdualコマンドを使用
+      if (selectedArm === 'both' && dualPosePublisher) {
+        const payload = `${leftPoseValue}|${rightPoseValue}`;
+        const dualMsg = new ROSLIB.Message({ data: payload });
+        dualPosePublisher.publish(dualMsg);
+        console.log(`🤝 Published dual pose to /dual_button_command: "${payload}"`);
+      } else {
+        // 片腕モードは従来通り個別送信
+        const targetValue = selectedArm === 'left' ? leftPoseValue : rightPoseValue;
+        const msg = new ROSLIB.Message({ data: targetValue });
+        posePublisher.publish(msg);
+        console.log(`🎯 Published pose to ${POSE_TOPIC_NAME}: "${targetValue}"`);
+      }
+      
     } else {
       console.warn(`Cannot send pose. ROS Status: ${connectionStatus}`);
     }
@@ -613,6 +561,26 @@ export default function App() {
     }
   };
 
+  const handleSeiretuBoth = (position: 'left' | 'middle' | 'right') => {
+    if (seiretuPublisher && connectionStatus === 'Connected' && selectedArm === 'both') {
+      // backgroundColorに応じて適切な整列機にコマンドを送信
+      const commandValue = `${backgroundColor}_seiretu_${position}`;
+      
+      const message = new ROSLIB.Message({
+        data: commandValue
+      });
+      
+      seiretuPublisher.publish(message);
+      console.log(`📏 Published to ${SEIRETU_TOPIC}: "${commandValue}"`);
+      
+      // JointTrajectoryでslider jointの値も更新
+      publishJointTrajectory(position, backgroundColor);
+    } else {
+      console.warn(`Cannot send seiretu both command. ROS Status: ${connectionStatus}`);
+    }
+  };
+
+
   const handleSeiretuMiddle = () => {
     if (seiretuPublisher && connectionStatus === 'Connected') {
       const commandValue = `${backgroundColor}_seiretu_middle`;
@@ -726,6 +694,20 @@ export default function App() {
     return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   };
 
+  const handleGoalButtonClick = (goalNumber) => {
+    if (posePublisher && connectionStatus === 'Connected') {
+      // 背景色に応じたGoal値を取得
+      const goalValue = `${backgroundColor}_Goal${goalNumber}`;
+      const message = new ROSLIB.Message({
+        data: goalValue
+      });
+      posePublisher.publish(message);
+      console.log(`🎯 Published goal to ${POSE_TOPIC_NAME}: "${goalValue}"`);
+    } else {
+      console.warn(`Cannot send goal. ROS Status: ${connectionStatus}`);
+    }
+  };
+
   const GridButton = ({ buttonNumber }) => (
     <button 
       className="grid-button"
@@ -734,6 +716,25 @@ export default function App() {
     >
       {`Pose ${buttonNumber}`}
     </button>
+  );
+
+  const GridButtonPair = ({ buttonNumber }) => (
+    <>
+      <button 
+        className="grid-button pose-button"
+        onClick={() => handlePoseButtonClick(buttonNumber)}
+        disabled={connectionStatus !== 'Connected'}
+      >
+        {`Pose ${buttonNumber}`}
+      </button>
+      <button 
+        className="grid-button goal-button"
+        onClick={() => handleGoalButtonClick(buttonNumber)}
+        disabled={connectionStatus !== 'Connected'}
+      >
+        {`Goal ${buttonNumber}`}
+      </button>
+    </>
   );
 
   // 新しいリアルタイム制御開始関数
@@ -1024,53 +1025,55 @@ export default function App() {
           </div>
         )}
       </div>
-      <div className="side-controls-expanded">
-        <div className="controller-section-horizontal">
-          <div className="left-controller-section">
-            <YawController />
-            <DPadController />
-          </div>
-          <div className="right-controller-section">
-            {selectedArm !== "right" && (
-              <div className="up-down-buttons vertical">
-                <button 
-                  className="up-down-button up-button"
-                  onClick={handleArm1UpButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬆️ LEFT UP
-                </button>
-                <button 
-                  className="up-down-button down-button"
-                  onClick={handleArm1DownButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬇️ LEFT DOWN
-                </button>
-              </div>
-            )}
-            
-            {selectedArm !== "left" && (
-              <div className="up-down-buttons vertical">
-                <button 
-                  className="up-down-button up-button"
-                  onClick={handleArm2UpButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬆️ RIGHT UP
-                </button>
-                <button 
-                  className="up-down-button down-button"
-                  onClick={handleArm2DownButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬇️ RIGHT DOWN
-                </button>
-              </div>
-            )}
+      {selectedArm !== "both" && (
+        <div className="side-controls-expanded">
+          <div className="controller-section-horizontal">
+            <div className="left-controller-section">
+              <YawController />
+              <DPadController />
+            </div>
+            <div className="right-controller-section">
+              {selectedArm !== "right" && (
+                <div className="up-down-buttons vertical">
+                  <button 
+                    className="up-down-button up-button"
+                    onClick={handleArm1UpButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬆️ LEFT UP
+                  </button>
+                  <button 
+                    className="up-down-button down-button"
+                    onClick={handleArm1DownButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬇️ LEFT DOWN
+                  </button>
+                </div>
+              )}
+              
+              {selectedArm !== "left" && (
+                <div className="up-down-buttons vertical">
+                  <button 
+                    className="up-down-button up-button"
+                    onClick={handleArm2UpButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬆️ RIGHT UP
+                  </button>
+                  <button 
+                    className="up-down-button down-button"
+                    onClick={handleArm2DownButtonClick}
+                    disabled={connectionStatus !== 'Connected'}
+                  >
+                    ⬇️ RIGHT DOWN
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 
@@ -1282,17 +1285,26 @@ export default function App() {
           <div className="camera-view-container">
             <div className="camera-image-wrapper" style={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column', padding: '0' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', height: '100%', width: '100%' }}>
-                <div className="pose-grid" style={{ 
+                <div className={selectedArm === "both" ? "pose-grid-both" : "pose-grid"} style={{ 
                   gap: 'clamp(0.3rem, 0.5vw, 0.6rem)',
                   flex: '1',
                   width: '100%'
                 }}>
-                  {getVisiblePoses().map((buttonNumber) => (
-                    <GridButton 
-                      key={buttonNumber} 
-                      buttonNumber={buttonNumber}
-                    />
-                  ))}
+                  {selectedArm === "both" ? (
+                    getVisiblePoses().map((buttonNumber) => (
+                      <GridButtonPair 
+                        key={buttonNumber} 
+                        buttonNumber={buttonNumber}
+                      />
+                    ))
+                  ) : (
+                    getVisiblePoses().map((buttonNumber) => (
+                      <GridButton 
+                        key={buttonNumber} 
+                        buttonNumber={buttonNumber}
+                      />
+                    ))
+                  )}
                 </div>
                 
                 {/* トピック監視GUI */}
@@ -1390,87 +1402,87 @@ export default function App() {
               </div>
             </div>
 
-            <div className="side-controls-expanded">
-              <div className="controller-section-horizontal">
-                <div className="left-controller-section">
-                  <YawController />
-                  <DPadController />
-                </div>
-                <div className="right-controller-section">
-                  {selectedArm !== "right" && (
-                    <div className="up-down-buttons vertical">
-                      <button 
-                        className="up-down-button up-button"
-                        onClick={handleArm1UpButtonClick}
-                        disabled={connectionStatus !== 'Connected'}
-                      >
-                        ⬆️ LEFT UP
-                      </button>
-                      <button 
-                        className="up-down-button down-button"
-                        onClick={handleArm1DownButtonClick}
-                        disabled={connectionStatus !== 'Connected'}
-                      >
-                        ⬇️ LEFT DOWN
-                      </button>
-                    </div>
-                  )}
-                  
-                  {selectedArm !== "left" && (
-                    <div className="up-down-buttons vertical">
-                      <button 
-                        className="up-down-button up-button"
-                        onClick={handleArm2UpButtonClick}
-                        disabled={connectionStatus !== 'Connected'}
-                      >
-                        ⬆️ RIGHT UP
-                      </button>
-                      <button 
-                        className="up-down-button down-button"
-                        onClick={handleArm2DownButtonClick}
-                        disabled={connectionStatus !== 'Connected'}
-                      >
-                        ⬇️ RIGHT DOWN
-                      </button>
-                    </div>
-                  )}
+            {selectedArm !== "both" && (
+              <div className="side-controls-expanded">
+                <div className="controller-section-horizontal">
+                  <div className="left-controller-section">
+                    <YawController />
+                    <DPadController />
+                  </div>
+                  <div className="right-controller-section">
+                    {selectedArm !== "right" && (
+                      <div className="up-down-buttons vertical">
+                        <button 
+                          className="up-down-button up-button"
+                          onClick={handleArm1UpButtonClick}
+                          disabled={connectionStatus !== 'Connected'}
+                        >
+                          ⬆️ LEFT UP
+                        </button>
+                        <button 
+                          className="up-down-button down-button"
+                          onClick={handleArm1DownButtonClick}
+                          disabled={connectionStatus !== 'Connected'}
+                        >
+                          ⬇️ LEFT DOWN
+                        </button>
+                      </div>
+                    )}
+                    
+                    {selectedArm !== "left" && (
+                      <div className="up-down-buttons vertical">
+                        <button 
+                          className="up-down-button up-button"
+                          onClick={handleArm2UpButtonClick}
+                          disabled={connectionStatus !== 'Connected'}
+                        >
+                          ⬆️ RIGHT UP
+                        </button>
+                        <button 
+                          className="up-down-button down-button"
+                          onClick={handleArm2DownButtonClick}
+                          disabled={connectionStatus !== 'Connected'}
+                        >
+                          ⬇️ RIGHT DOWN
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         )}
       </div>
 
       <div className="bottom-control-area">
-        {selectedArm !== "right" && (
+        {selectedArm === "both" ? (
           <div className="arm-controls single-arm">
             <button 
-              className="arm-button goal-button"
-              onClick={handleArm1Goal}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              🎯 ゴール
-            </button>
-            
-            <button 
               className="arm-button grab-button"
-              onClick={handleArm1Grab}
+              onClick={() => {
+                handleArm1Grab();
+                setTimeout(() => handleArm2Grab(), 50);
+              }}
               disabled={connectionStatus !== 'Connected'}
             >
-              ✊ 掴む
+              ✊ 両手で掴む
             </button>
             
             <button 
               className="arm-button release-button"
-              onClick={handleArm1Release}
+              onClick={() => {
+                handleArm1Release();
+                setTimeout(() => handleArm2Release(), 50);
+              }}
               disabled={connectionStatus !== 'Connected'}
             >
-              🖐️ 離す
+              🖐️ 両手で離す
             </button>
             
             <button 
               className="arm-button seiretu-button seiretu-left"
-              onClick={handleSeiretuLeft}
+              onClick={() => handleSeiretuBoth('left')}
               disabled={connectionStatus !== 'Connected'}
             >
               📏 左
@@ -1478,7 +1490,7 @@ export default function App() {
             
             <button 
               className="arm-button seiretu-button seiretu-middle"
-              onClick={handleSeiretuMiddle}
+              onClick={() => handleSeiretuBoth('middle')}
               disabled={connectionStatus !== 'Connected'}
             >
               📏 中央
@@ -1486,65 +1498,140 @@ export default function App() {
             
             <button 
               className="arm-button seiretu-button seiretu-right"
-              onClick={handleSeiretuRight}
+              onClick={() => handleSeiretuBoth('right')}
               disabled={connectionStatus !== 'Connected'}
             >
               📏 右
             </button>
-          </div>
-        )}
-        
-        {selectedArm !== "left" && (
-          <div className="arm-controls single-arm">
+            
             <button 
-              className="arm-button goal-button"
-              onClick={handleArm2Goal}
+              className="arm-button up-button"
+              onClick={() => {
+                handleArm1UpButtonClick();
+                setTimeout(() => handleArm2UpButtonClick(), 50);
+              }}
               disabled={connectionStatus !== 'Connected'}
             >
-              🎯 ゴール
+              ⬆️ UP
             </button>
             
             <button 
-              className="arm-button grab-button"
-              onClick={handleArm2Grab}
+              className="arm-button down-button"
+              onClick={() => {
+                handleArm1DownButtonClick();
+                setTimeout(() => handleArm2DownButtonClick(), 50);
+              }}
               disabled={connectionStatus !== 'Connected'}
             >
-              ✊ 掴む
-            </button>
-            
-            <button 
-              className="arm-button release-button"
-              onClick={handleArm2Release}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              🖐️ 離す
-            </button>
-            
-            <button 
-              className="arm-button seiretu-button seiretu-left"
-              onClick={handleSeiretuLeft}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              📏 左
-            </button>
-            
-            <button 
-              className="arm-button seiretu-button seiretu-middle"
-              onClick={handleSeiretuMiddle}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              📏 中央
-            </button>
-            
-            
-            <button 
-              className="arm-button seiretu-button seiretu-right"
-              onClick={handleSeiretuRight}
-              disabled={connectionStatus !== 'Connected'}
-            >
-              📏 右
+              ⬇️ DOWN
             </button>
           </div>
+        ) : (
+          <>
+            {selectedArm !== "right" && (
+              <div className="arm-controls single-arm">
+                <button 
+                  className="arm-button goal-button"
+                  onClick={handleArm1Goal}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  🎯 ゴール
+                </button>
+                
+                <button 
+                  className="arm-button grab-button"
+                  onClick={handleArm1Grab}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ✊ 掴む
+                </button>
+                
+                <button 
+                  className="arm-button release-button"
+                  onClick={handleArm1Release}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  🖐️ 離す
+                </button>
+                
+                <button 
+                  className="arm-button seiretu-button seiretu-left"
+                  onClick={handleSeiretuLeft}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  📏 左
+                </button>
+                
+                <button 
+                  className="arm-button seiretu-button seiretu-middle"
+                  onClick={handleSeiretuMiddle}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  📏 中央
+                </button>
+                
+                <button 
+                  className="arm-button seiretu-button seiretu-right"
+                  onClick={handleSeiretuRight}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  📏 右
+                </button>
+              </div>
+            )}
+            
+            {selectedArm !== "left" && (
+              <div className="arm-controls single-arm">
+                <button 
+                  className="arm-button goal-button"
+                  onClick={handleArm2Goal}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  🎯 ゴール
+                </button>
+                
+                <button 
+                  className="arm-button grab-button"
+                  onClick={handleArm2Grab}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  ✊ 掴む
+                </button>
+                
+                <button 
+                  className="arm-button release-button"
+                  onClick={handleArm2Release}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  🖐️ 離す
+                </button>
+                
+                <button 
+                  className="arm-button seiretu-button seiretu-left"
+                  onClick={handleSeiretuLeft}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  📏 左
+                </button>
+                
+                <button 
+                  className="arm-button seiretu-button seiretu-middle"
+                  onClick={handleSeiretuMiddle}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  📏 中央
+                </button>
+                
+                <button 
+                  className="arm-button seiretu-button seiretu-right"
+                  onClick={handleSeiretuRight}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  📏 右
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

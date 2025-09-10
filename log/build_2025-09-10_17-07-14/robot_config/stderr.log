@@ -1,0 +1,13 @@
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::fastDualPoseCallback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1643:13:[m[K [01;31m[Kerror: [m[K‘[01m[KexecuteTrajectoryFromYAML[m[K’ was not declared in this scope; did you mean ‘[01m[KexecuteTrajectoryDirectly[m[K’?
+ 1643 |             [01;31m[KexecuteTrajectoryFromYAML[m[K(trajectory_file, "dual");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[KexecuteTrajectoryDirectly[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::fastDualGoalCallback(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1680:13:[m[K [01;31m[Kerror: [m[K‘[01m[KexecuteTrajectoryFromYAML[m[K’ was not declared in this scope; did you mean ‘[01m[KexecuteTrajectoryDirectly[m[K’?
+ 1680 |             [01;31m[KexecuteTrajectoryFromYAML[m[K(trajectory_file, "dual");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[KexecuteTrajectoryDirectly[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

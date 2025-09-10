@@ -1,0 +1,24 @@
+[ 33%] Built target pose_command_publisher
+[ 66%] Built target dual_arm_servo_controller
+[ 83%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1512:67:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Krclcpp::Subscription<sensor_msgs::msg::JointState_<std::allocator<void> > >::SharedPtr MoveToPoseDualCpp::joint_states_sub_[m[K’
+ 1512 |     rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr [01;31m[Kjoint_states_sub_[m[K;
+      |                                                                   [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1465:67:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Krclcpp::Subscription<sensor_msgs::msg::JointState_<std::allocator<void> > >::SharedPtr MoveToPoseDualCpp::joint_states_sub_[m[K’
+ 1465 |     rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr [01;36m[Kjoint_states_sub_[m[K;
+      |                                                                   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::executeStage1_LinUpMovement()[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1195:9:[m[K [01;31m[Kerror: [m[K‘[01m[KexecuteSimultaneousMovement[m[K’ was not declared in this scope
+ 1195 |         [01;31m[KexecuteSimultaneousMovement[m[K(left_up_pose, right_up_pose, "LIN_UP");
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::executeStage2_OmplHorizontalMovement(const PoseStamped&, const PoseStamped&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1224:9:[m[K [01;31m[Kerror: [m[K‘[01m[KexecuteSimultaneousMovement[m[K’ was not declared in this scope
+ 1224 |         [01;31m[KexecuteSimultaneousMovement[m[K(left_above_target, right_above_target, "OMPL_3D");
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::executeStage3_LinDownMovement(const PoseStamped&, const PoseStamped&)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1243:9:[m[K [01;31m[Kerror: [m[K‘[01m[KexecuteSimultaneousMovement[m[K’ was not declared in this scope
+ 1243 |         [01;31m[KexecuteSimultaneousMovement[m[K(target_left, target_right, "LIN_DOWN");
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

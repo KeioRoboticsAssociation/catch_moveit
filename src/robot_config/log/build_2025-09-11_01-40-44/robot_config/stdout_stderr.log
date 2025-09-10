@@ -1,0 +1,13 @@
+[ 33%] Built target dual_arm_servo_controller
+Consolidate compiler generated dependencies of target move_to_pose_dual_cpp
+[ 66%] Built target pose_command_publisher
+[ 83%] Building CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:1105:78: error: redeclaration of ‘using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory’
+ 1105 |     using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
+      |                                                                              ^
+/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:183:11: note: previous declaration ‘using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory’
+  183 |     using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
+      |           ^~~~~~~~~~~~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
