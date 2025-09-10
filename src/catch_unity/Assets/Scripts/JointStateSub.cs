@@ -137,6 +137,10 @@ public class JointStateSubscriber : MonoBehaviour
                 {
                     drive.target = (float)(targetAngleRad / 0.024 * 0.026);
                 }
+                else if (jointName == "red_slider" || jointName == "blue_slider")
+                {
+                    drive.target = (float)targetAngleRad ;
+                }
                 else
                 {
                     drive.target = (float)targetAngleRad * Mathf.Rad2Deg;

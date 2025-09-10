@@ -661,12 +661,6 @@ robot_config_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 robot_config_SOURCE_DIR:STATIC=/home/a/ws_moveit2/src/robot_config
 
-//The directory containing a CMake configuration file for rosbag2_cpp.
-rosbag2_cpp_DIR:PATH=/opt/ros/humble/share/rosbag2_cpp/cmake
-
-//The directory containing a CMake configuration file for rosbag2_storage.
-rosbag2_storage_DIR:PATH=/opt/ros/humble/share/rosbag2_storage/cmake
-
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/humble/share/rosgraph_msgs/cmake
 
@@ -745,9 +739,6 @@ std_srvs_DIR:PATH=/opt/ros/humble/share/std_srvs/cmake
 //The directory containing a CMake configuration file for stomp.
 stomp_DIR:PATH=/opt/ros/humble/lib/cmake/stomp
 
-//The directory containing a CMake configuration file for stomp_moveit.
-stomp_moveit_DIR:PATH=stomp_moveit_DIR-NOTFOUND
-
 //The directory containing a CMake configuration file for tcb_span.
 tcb_span_DIR:PATH=/opt/ros/humble/share/tcb_span/cmake
 
@@ -807,9 +798,6 @@ yaml-cpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp
 
 //The directory containing a CMake configuration file for yaml.
 yaml_DIR:PATH=/opt/ros/humble/cmake
-
-//The directory containing a CMake configuration file for yaml_cpp_vendor.
-yaml_cpp_vendor_DIR:PATH=/opt/ros/humble/share/yaml_cpp_vendor/cmake
 
 
 ########################

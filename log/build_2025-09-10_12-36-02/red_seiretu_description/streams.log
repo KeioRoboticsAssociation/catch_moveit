@@ -1,0 +1,49 @@
+[0.907s] Invoking command in '/home/a/ws_moveit2/build/red_seiretu_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake /home/a/ws_moveit2/src/red_seiretu_description -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/red_seiretu_description
+[1.118s] -- The C compiler identification is GNU 11.4.0
+[1.118s] -- The CXX compiler identification is GNU 11.4.0
+[1.119s] -- Detecting C compiler ABI info
+[1.119s] -- Detecting C compiler ABI info - done
+[1.119s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.119s] -- Detecting C compile features
+[1.119s] -- Detecting C compile features - done
+[1.119s] -- Detecting CXX compiler ABI info
+[1.219s] -- Detecting CXX compiler ABI info - done
+[1.219s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.221s] -- Detecting CXX compile features
+[1.221s] -- Detecting CXX compile features - done
+[1.260s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.341s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.469s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[1.662s] -- Configuring done
+[1.665s] -- Generating done
+[1.665s] -- Build files have been written to: /home/a/ws_moveit2/build/red_seiretu_description
+[1.700s] Invoked command in '/home/a/ws_moveit2/build/red_seiretu_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake /home/a/ws_moveit2/src/red_seiretu_description -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/red_seiretu_description
+[1.700s] Invoking command in '/home/a/ws_moveit2/build/red_seiretu_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/build/red_seiretu_description -- -j22 -l22
+[1.743s] Invoked command in '/home/a/ws_moveit2/build/red_seiretu_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/build/red_seiretu_description -- -j22 -l22
+[1.746s] Invoking command in '/home/a/ws_moveit2/build/red_seiretu_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --install /home/a/ws_moveit2/build/red_seiretu_description
+[1.757s] -- Install configuration: ""
+[1.757s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/meshes
+[1.758s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/meshes/base_link.stl
+[1.767s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/meshes/red_seiretu_2.stl
+[1.770s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/urdf
+[1.770s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/urdf/red_seiretu.trans
+[1.771s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/urdf/materials.xacro
+[1.771s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/urdf/red_seiretu.xacro
+[1.771s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/launch
+[1.771s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/launch/robot_description.launch.py
+[1.771s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/ament_index/resource_index/package_run_dependencies/red_seiretu_description
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/ament_index/resource_index/parent_prefix_path/red_seiretu_description
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/environment/ament_prefix_path.sh
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/environment/ament_prefix_path.dsv
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/environment/path.sh
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/environment/path.dsv
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/local_setup.bash
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/local_setup.sh
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/local_setup.zsh
+[1.772s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/local_setup.dsv
+[1.773s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/package.dsv
+[1.773s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/ament_index/resource_index/packages/red_seiretu_description
+[1.773s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/cmake/red_seiretu_descriptionConfig.cmake
+[1.773s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/cmake/red_seiretu_descriptionConfig-version.cmake
+[1.773s] -- Installing: /home/a/ws_moveit2/install/red_seiretu_description/share/red_seiretu_description/package.xml
+[1.783s] Invoked command in '/home/a/ws_moveit2/build/red_seiretu_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --install /home/a/ws_moveit2/build/red_seiretu_description

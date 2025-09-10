@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/blue_seiretu_description
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/blue_seiretu_description
@@ -82,6 +82,6 @@ CMakeFiles/blue_seiretu_description_uninstall.dir/clean:
 .PHONY : CMakeFiles/blue_seiretu_description_uninstall.dir/clean
 
 CMakeFiles/blue_seiretu_description_uninstall.dir/depend:
-	cd /home/a/ws_moveit2/build/blue_seiretu_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description /home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description /home/a/ws_moveit2/build/blue_seiretu_description /home/a/ws_moveit2/build/blue_seiretu_description /home/a/ws_moveit2/build/blue_seiretu_description/CMakeFiles/blue_seiretu_description_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/a/ws_moveit2/build/blue_seiretu_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/blue_seiretu_description /home/a/ws_moveit2/src/blue_seiretu_description /home/a/ws_moveit2/build/blue_seiretu_description /home/a/ws_moveit2/build/blue_seiretu_description /home/a/ws_moveit2/build/blue_seiretu_description/CMakeFiles/blue_seiretu_description_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/blue_seiretu_description_uninstall.dir/depend
 

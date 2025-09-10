@@ -549,19 +549,19 @@
     <!-- Blue Seiretu Robot (temporarily disabled for debugging) -->
     <link name="blue_seiretu_base_link">
         <inertial>
-            <origin rpy="0 0 0" xyz="1.8626252290206704 -0.5308186921199336 0.016889068327243004"/>
+            <origin xyz="1.8626252290206704 -0.5308186921199336 0.016889068327242983" rpy="0 0 0"/>
             <mass value="2.198783634355126"/>
-            <inertia ixx="0.002972" ixy="-0.002307" ixz="0.004032" iyy="0.126512" iyz="0.000304" izz="0.127755"/>
+            <inertia ixx="0.002972" iyy="0.126512" izz="0.127755" ixy="-0.002307" iyz="0.000304" ixz="0.004032"/>
         </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://blue_seiretu_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <material name="blue_seiretu_steel_satin"/>
+            <material name="steel_satin"/>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://blue_seiretu_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -570,19 +570,19 @@
 
     <link name="blue_seiretu_1">
         <inertial>
-            <origin rpy="0 0 0" xyz="0.06569597903167557 -0.1195516608327013 0.09204470816379795"/>
+            <origin xyz="0.12169597903167509 -0.11955166083269919 0.09204470816379676" rpy="0 0 0"/>
             <mass value="0.22394819815220426"/>
-            <inertia ixx="0.000651" ixy="-1.4e-05" ixz="-3.1e-05" iyy="0.000188" iyz="3.8e-05" izz="0.000754"/>
+            <inertia ixx="0.000651" iyy="0.000188" izz="0.000754" ixy="-1.4e-05" iyz="3.8e-05" ixz="-3.1e-05"/>
         </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="0.023506 0.51118 -0.019391"/>
+            <origin xyz="0.343506 0.51118 -0.019391" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://blue_seiretu_description/meshes/blue_seiretu_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <material name="blue_seiretu_steel_satin"/>
+            <material name="steel_satin"/>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="0.023506 0.51118 -0.019391"/>
+            <origin xyz="0.343506 0.51118 -0.019391" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://blue_seiretu_description/meshes/blue_seiretu_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -596,29 +596,29 @@
     </joint>
 
     <joint name="blue_slider" type="prismatic">
-        <origin rpy="0 0 0" xyz="-0.023506 -0.51118 0.019391"/>
+        <origin xyz="-0.343506 -0.51118 0.019391" rpy="0 0 0"/>
         <parent link="blue_seiretu_base_link"/>
         <child link="blue_seiretu_1"/>
         <axis xyz="1.0 -0.0 0.0"/>
-        <limit effort="100" lower="-0.457" upper="0.0" velocity="100"/>
+        <limit upper="0.193" lower="-0.193" effort="100" velocity="100"/>
     </joint>
 
     <!-- Red Seiretu Robot -->
     <link name="red_seiretu_base_link">
         <inertial>
-            <origin rpy="0 0 0" xyz="1.8626252290206704 -0.5308186921199336 0.016889068327243004"/>
+            <origin xyz="1.8626252290206704 -0.5308186921199336 0.016889068327242983" rpy="0 0 0"/>
             <mass value="2.198783634355126"/>
-            <inertia ixx="0.002972" ixy="-0.002307" ixz="0.004032" iyy="0.126512" iyz="0.000304" izz="0.127755"/>
+            <inertia ixx="0.002972" iyy="0.126512" izz="0.127755" ixy="-0.002307" iyz="0.000304" ixz="0.004032"/>
         </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://red_seiretu_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <material name="red_seiretu_steel_satin"/>
+            <material name="steel_satin"/>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://red_seiretu_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -627,19 +627,19 @@
 
     <link name="red_seiretu_2">
         <inertial>
-            <origin rpy="0 0 0" xyz="0.06569597903167557 -0.1195516608327013 0.09204470816379795"/>
+            <origin xyz="0.12169597903168072 -0.11955166083270086 0.09204470816379565" rpy="0 0 0"/>
             <mass value="0.22394819815220426"/>
-            <inertia ixx="0.000651" ixy="-1.4e-05" ixz="-3.1e-05" iyy="0.000188" iyz="3.8e-05" izz="0.000754"/>
+            <inertia ixx="0.000651" iyy="0.000188" izz="0.000754" ixy="-1.4e-05" iyz="3.8e-05" ixz="-3.1e-05"/>
         </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="0.023506 0.51118 -0.019391"/>
+            <origin xyz="-1.916494 0.51118 -0.019391" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://red_seiretu_description/meshes/red_seiretu_2.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <material name="red_seiretu_steel_satin"/>
+            <material name="steel_satin"/>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="0.023506 0.51118 -0.019391"/>
+            <origin xyz="-1.916494 0.51118 -0.019391" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://red_seiretu_description/meshes/red_seiretu_2.stl" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -675,11 +675,11 @@
     </joint>
 
     <joint name="red_slider" type="prismatic">
-        <origin rpy="0 0 0" xyz="-0.023506 -0.51118 0.019391"/>
+        <origin xyz="1.916494 -0.51118 0.019391" rpy="0 0 0"/>
         <parent link="red_seiretu_base_link"/>
         <child link="red_seiretu_2"/>
-        <axis xyz="1.0 -0.0 0.0"/>
-        <limit effort="100" lower="-0.457" upper="0.0" velocity="100"/>
+        <axis xyz="1.0 0.0 -0.0"/>
+        <limit upper="0.193" lower="-0.193" effort="100" velocity="100"/>
     </joint>
 
     <ros2_control name="seiretu_robot" type="system">

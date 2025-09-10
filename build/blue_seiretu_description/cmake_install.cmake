@@ -1,4 +1,4 @@
-# Install script for directory: /home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description
+# Install script for directory: /home/a/ws_moveit2/src/blue_seiretu_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,9 +44,9 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/blue_seiretu_description" TYPE DIRECTORY FILES
-    "/home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description/meshes"
-    "/home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description/urdf"
-    "/home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description/launch"
+    "/home/a/ws_moveit2/src/blue_seiretu_description/meshes"
+    "/home/a/ws_moveit2/src/blue_seiretu_description/urdf"
+    "/home/a/ws_moveit2/src/blue_seiretu_description/launch"
     )
 endif()
 
@@ -106,7 +106,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/blue_seiretu_description" TYPE FILE FILES "/home/a/ws_moveit2/src/blue_seiretu_description-20250907T180500Z-1-001/blue_seiretu_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/blue_seiretu_description" TYPE FILE FILES "/home/a/ws_moveit2/src/blue_seiretu_description/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

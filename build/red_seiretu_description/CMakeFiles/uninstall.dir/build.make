@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/red_seiretu_description-20250907T180457Z-1-001/red_seiretu_description
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/red_seiretu_description
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/red_seiretu_description
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/a/ws_moveit2/build/red_seiretu_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/red_seiretu_description-20250907T180457Z-1-001/red_seiretu_description /home/a/ws_moveit2/src/red_seiretu_description-20250907T180457Z-1-001/red_seiretu_description /home/a/ws_moveit2/build/red_seiretu_description /home/a/ws_moveit2/build/red_seiretu_description /home/a/ws_moveit2/build/red_seiretu_description/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/a/ws_moveit2/build/red_seiretu_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/a/ws_moveit2/src/red_seiretu_description /home/a/ws_moveit2/src/red_seiretu_description /home/a/ws_moveit2/build/red_seiretu_description /home/a/ws_moveit2/build/red_seiretu_description /home/a/ws_moveit2/build/red_seiretu_description/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

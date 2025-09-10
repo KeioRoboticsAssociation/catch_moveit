@@ -565,13 +565,13 @@ export default function App() {
     // ポジションに応じてslider値を設定
     switch(position) {
       case 'left':
-        sliderValue = -0.071;
+        sliderValue = 0.193;
         break;
       case 'middle':
-        sliderValue = -0.264;
+        sliderValue = 0.0;
         break;
       case 'right':
-        sliderValue = -0.457;
+        sliderValue = -0.193;
         break;
       default:
         sliderValue = 0.0;
