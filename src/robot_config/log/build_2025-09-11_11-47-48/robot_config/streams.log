@@ -1,0 +1,75 @@
+[0.009s] Invoking command in '/home/a/ws_moveit2/src/robot_config/build/robot_config': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/src/robot_config/build/robot_config -- -j22 -l22
+[0.054s] [ 33%] Built target dual_arm_servo_controller
+[0.055s] [ 66%] Built target pose_command_publisher
+[0.055s] Consolidate compiler generated dependencies of target move_to_pose_dual_cpp
+[0.072s] [ 83%] Building CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o
+[17.422s] [100%] Linking CXX executable move_to_pose_dual_cpp
+[18.907s] [100%] Built target move_to_pose_dual_cpp
+[18.934s] Invoked command in '/home/a/ws_moveit2/src/robot_config/build/robot_config' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/src/robot_config/build/robot_config -- -j22 -l22
+[18.945s] Invoking command in '/home/a/ws_moveit2/src/robot_config/build/robot_config': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/a/ws_moveit2/src/robot_config/build/robot_config
+[18.956s] -- Install configuration: ""
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/spawn_controllers.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/warehouse_db.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/dual_arm_demo.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/moveit_rviz.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/rsp.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/move_group.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/static_virtual_joint_tfs.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/launch/setup_assistant.launch.py
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/ompl_planning.yaml
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_realtime_control.yaml
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.srdf
+[18.957s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_controllers.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pilz_cartesian_limits.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_joint_limits.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro.bak
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/right_initial_positions.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/kinematics.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_kinematics.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_gazebo.urdf.xacro
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/ros2_controllers.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.urdf.xacro
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_moveit_controllers.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_ompl_planning.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.urdf
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.ros2_control.xacro
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/joint_limits.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pilz_planning.yaml
+[18.958s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm_gazebo_controllers.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/left_initial_positions.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/0525_arm.srdf
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/moveit_controllers.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/servo.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/moveit.rviz
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/stomp_planning.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/dual_arm.urdf.xacro
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/chomp_planning.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/pose_commands.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/config/initial_positions.yaml
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/path
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/.setup_assistant
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/publish_collision_mesh.py
+[18.959s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/target_pose_router.py
+[18.959s] -- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/move_to_pose_dual_cpp
+[18.969s] -- Set runtime path of "/home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/move_to_pose_dual_cpp" to ""
+[18.969s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/pose_command_publisher
+[18.969s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/lib/robot_config/dual_arm_servo_controller
+[18.969s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/package_run_dependencies/robot_config
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/parent_prefix_path/robot_config
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/ament_prefix_path.sh
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/ament_prefix_path.dsv
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/path.sh
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/environment/path.dsv
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.bash
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.sh
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.zsh
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/local_setup.dsv
+[18.970s] -- Installing: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/package.dsv
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/ament_index/resource_index/packages/robot_config
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/ament_cmake_export_dependencies-extras.cmake
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/robot_configConfig.cmake
+[18.970s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/cmake/robot_configConfig-version.cmake
+[18.971s] -- Up-to-date: /home/a/ws_moveit2/src/robot_config/install/robot_config/share/robot_config/package.xml
+[18.972s] Invoked command in '/home/a/ws_moveit2/src/robot_config/build/robot_config' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/a/ws_moveit2/src/robot_config/build/robot_config

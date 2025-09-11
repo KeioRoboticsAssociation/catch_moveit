@@ -23,26 +23,9 @@ controller_manager:
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
-      ros__parameters:
-        joints:
-          - left_Revolute_1
-          - left_Revolute_2
-          - left_Revolute_3
-          - left_Revolute_4
-          - left_Revolute_5
-          - left_Revolute_6
-          - left_Slider_1
-          - left_Slider_2
-          - right_Revolute_1
-          - right_Revolute_2
-          - right_Revolute_3
-          - right_Revolute_4
-          - right_Revolute_5
-          - right_Revolute_6
-          - right_Slider_1
-          - right_Slider_2
-          - blue_slider
-          - red_slider
+
+    dual_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
 left_arm_controller:
   ros__parameters:
@@ -115,6 +98,30 @@ red_seiretu_controller:
   ros__parameters:
     joints:
       - red_slider
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_ns: follow_joint_trajectory
+
+# JointStateBroadcaster publishes all state interfaces; explicit joints list is not required here.
+
+dual_arm_controller:
+  ros__parameters:
+    joints:
+      - left_Revolute_1
+      - left_Revolute_2
+      - left_Revolute_3
+      - left_Revolute_4
+      - left_Revolute_5
+      - left_Revolute_6
+      - right_Revolute_1
+      - right_Revolute_2
+      - right_Revolute_3
+      - right_Revolute_4
+      - right_Revolute_5
+      - right_Revolute_6
     command_interfaces:
       - position
     state_interfaces:

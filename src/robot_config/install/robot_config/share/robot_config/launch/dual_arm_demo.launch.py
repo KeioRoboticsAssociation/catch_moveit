@@ -3,6 +3,7 @@ import yaml
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription, ExecuteProcess, TimerAction
 from launch.event_handlers import OnProcessStart
+from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
@@ -35,6 +36,13 @@ def generate_launch_description():
             "field",
             default_value="red",
             description="Field type: 'red' for red team position, 'blue' for blue team position",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "use_dual_controller",
+            default_value="false",
+            description="If true, spawn dual_arm_controller and use merged trajectory execution",
         )
     )
     # Declare arguments for left arm initial positions
@@ -845,6 +853,8 @@ def generate_launch_description():
     # ##################################################################
     # ## 2. spawnerノードのリストを準備 ##
     # ##################################################################
+    use_dual_controller = LaunchConfiguration('use_dual_controller', default='false')
+
     spawn_controllers = []
     # Spawn joint_state_broadcaster FIRST for faster availability of joint_states
     spawn_controllers.append(
@@ -855,20 +865,45 @@ def generate_launch_description():
             output="screen",
         )
     )
-    # Then spawn the remaining controllers
-    for controller in [
-        "left_arm_controller",
-        "right_arm_controller",
-        "left_hand_controller",
-        "right_hand_controller",
-        "red_seiretu_controller",
-        "blue_seiretu_controller",
-    ]:
+
+    # Conditionally spawn controllers based on use_dual_controller
+    # When dual is enabled: spawn dual_arm_controller, hands, seiretu
+    # When dual is disabled: spawn left/right arm controllers, hands, seiretu
+    # Use conditional Nodes instead of OpaqueFunction for robustness
+    spawn_controllers.append(
+        Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["dual_arm_controller", "-c", "/controller_manager"],
+            condition=IfCondition(use_dual_controller),
+            output="screen",
+        )
+    )
+    spawn_controllers.append(
+        Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["left_arm_controller", "-c", "/controller_manager"],
+            condition=UnlessCondition(use_dual_controller),
+            output="screen",
+        )
+    )
+    spawn_controllers.append(
+        Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["right_arm_controller", "-c", "/controller_manager"],
+            condition=UnlessCondition(use_dual_controller),
+            output="screen",
+        )
+    )
+    # Hands + seiretu always
+    for ctl in ["left_hand_controller", "right_hand_controller", "red_seiretu_controller", "blue_seiretu_controller"]:
         spawn_controllers.append(
             Node(
                 package="controller_manager",
                 executable="spawner",
-                arguments=[controller, "-c", "/controller_manager"],
+                arguments=[ctl, "-c", "/controller_manager"],
                 output="screen",
             )
         )
@@ -1067,6 +1102,7 @@ def generate_launch_description():
             moveit_config.robot_description,
             moveit_config.robot_description_semantic,
             moveit_config.robot_description_kinematics,
+            {"use_dual_controller": use_dual_controller},
         ],
     )
 

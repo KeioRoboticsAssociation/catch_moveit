@@ -25,8 +25,11 @@ class MoveToPoseDualCpp : public rclcpp::Node
 {
 public:
     MoveToPoseDualCpp()
-        : Node("move_to_pose_dual_cpp", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true))
+        : Node("move_to_pose_dual_cpp", rclcpp::NodeOptions().allow_undeclared_parameters(true))
     {
+        // Declare known parameters once (others may be injected but ignored)
+        this->declare_parameter<bool>("use_dual_controller", false);
+        this->declare_parameter<bool>("enable_local_planning_scene_monitor", false);
         // Subscribe to pose targets early to avoid missing first messages
         left_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
             "/left_target_pose_rpy", 10, std::bind(&MoveToPoseDualCpp::left_rpy_callback, this, std::placeholders::_1));
@@ -50,7 +53,8 @@ public:
         );
 
         // Parameter to enable/disable local PlanningSceneMonitor (heavy)
-        enable_local_psm_ = this->declare_parameter<bool>("enable_local_planning_scene_monitor", false);
+        enable_local_psm_ = false;
+        (void)this->get_parameter("enable_local_planning_scene_monitor", enable_local_psm_);
 
         // 左アームの初期化スレッド
         left_init_thread_ = std::thread([this]() {
@@ -511,25 +515,8 @@ private:
             return;
         }
 
-        // Single-arm fallback after the pairing window: if partner didn't arrive, execute singly
-        std::thread([this, arm_name, target_pose, now_tp, window]() {
-            std::this_thread::sleep_for(window);
-            bool still_unpaired = false;
-            {
-                std::lock_guard<std::mutex> lk(sync_mutex_);
-                if (arm_name == "left") {
-                    still_unpaired = has_pending_left_pose_ && (pending_left_time_ == now_tp);
-                    if (still_unpaired) has_pending_left_pose_ = false;
-                } else {
-                    still_unpaired = has_pending_right_pose_ && (pending_right_time_ == now_tp);
-                    if (still_unpaired) has_pending_right_pose_ = false;
-                }
-            }
-            if (still_unpaired) {
-                auto mgi = (arm_name == "left") ? left_move_group_interface_ : right_move_group_interface_;
-                move_to_pose(mgi, target_pose);
-            }
-        }).detach();
+        // No single-arm fallback to guarantee dual-only execution
+        (void)arm_name; (void)target_pose; (void)now_tp; (void)window;
     }
 
     void planAndExecuteSynchronized(const geometry_msgs::msg::PoseStamped& left_pose,
@@ -554,10 +541,10 @@ private:
             mgi->setPlannerId("RRTConnectkConfigDefault");
             mgi->setGoalPositionTolerance(0.0001);
             mgi->setGoalOrientationTolerance(0.0001);
-            mgi->setPlanningTime(0.1);
+            mgi->setPlanningTime(0.3);
             mgi->setNumPlanningAttempts(20);
-            mgi->setMaxVelocityScalingFactor(0.8);
-            mgi->setMaxAccelerationScalingFactor(0.8);
+            mgi->setMaxVelocityScalingFactor(1);
+            mgi->setMaxAccelerationScalingFactor(1);
             if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;
             // Escalate
             mgi->setPlanningTime(0.1);
@@ -577,10 +564,85 @@ private:
             if (right_ok) right_plan = plan_buffer_;
         }
 
-        if (!left_ok && !right_ok) {
-            RCLCPP_ERROR(this->get_logger(), "Both synchronized plans failed. Aborting.");
+        // Enforce both-or-none: only execute when both plans are valid
+        if (!(left_ok && right_ok)) {
+            RCLCPP_ERROR(this->get_logger(), "Dual-sync requires both plans. Aborting execution (left_ok=%d right_ok=%d)", left_ok, right_ok);
             startServo("left");
             startServo("right");
+            return;
+        }
+
+        // Use dual-arm controller if available/desired; else fall back to per-arm
+        bool use_dual = false;
+        if (this->has_parameter("use_dual_controller")) {
+            try { use_dual = this->get_parameter("use_dual_controller").as_bool(); } catch (...) {}
+        }
+        if (use_dual) {
+            // Build merged 12-joint trajectory from left and right plans
+            trajectory_msgs::msg::JointTrajectory merged;
+            const auto & lj = left_plan.trajectory_.joint_trajectory;
+            const auto & rj = right_plan.trajectory_.joint_trajectory;
+            merged.joint_names = lj.joint_names;
+            merged.joint_names.insert(merged.joint_names.end(), rj.joint_names.begin(), rj.joint_names.end());
+
+            // Collect unique times
+            std::vector<double> times;
+            auto collect_times = [&times](const trajectory_msgs::msg::JointTrajectory & jt){
+                for (const auto & pt : jt.points) {
+                    double t = pt.time_from_start.sec + pt.time_from_start.nanosec * 1e-9;
+                    times.push_back(t);
+                }
+            };
+            collect_times(lj);
+            collect_times(rj);
+            std::sort(times.begin(), times.end());
+            times.erase(std::unique(times.begin(), times.end()), times.end());
+
+            auto sample = [](const trajectory_msgs::msg::JointTrajectory & jt, double t)->std::vector<double>{
+                if (jt.points.empty()) return {};
+                const auto & pts = jt.points;
+                if (t <= (pts.front().time_from_start.sec + pts.front().time_from_start.nanosec*1e-9))
+                    return pts.front().positions;
+                for (size_t i=1; i<pts.size(); ++i) {
+                    double ti = pts[i].time_from_start.sec + pts[i].time_from_start.nanosec*1e-9;
+                    if (t <= ti) return pts[i-1].positions; // zero-order hold
+                }
+                return pts.back().positions;
+            };
+
+            for (double t : times) {
+                trajectory_msgs::msg::JointTrajectoryPoint p;
+                auto lp = sample(lj, t);
+                auto rp = sample(rj, t);
+                if (lp.empty() || rp.empty()) continue;
+                p.positions = lp;
+                p.positions.insert(p.positions.end(), rp.begin(), rp.end());
+                // set time_from_start with small delay to ensure controllers are ready
+                double s = t + 0.01; // 0.01s start delay
+                p.time_from_start.sec = static_cast<int32_t>(s);
+                p.time_from_start.nanosec = static_cast<uint32_t>((s - p.time_from_start.sec) * 1e9);
+                merged.points.push_back(p);
+            }
+
+            // Send to dual controller
+            if (!dual_arm_action_client_) {
+                dual_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
+                    this, "/dual_arm_controller/follow_joint_trajectory");
+            }
+            if (!dual_arm_action_client_->wait_for_action_server(std::chrono::seconds(3))) {
+                RCLCPP_ERROR(this->get_logger(), "Dual arm action server unavailable");
+                startServo("left"); startServo("right");
+                return;
+            }
+            auto goal = FollowJointTrajectory::Goal();
+            goal.trajectory = merged;
+            auto options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+            options.goal_response_callback = [this](auto){ RCLCPP_INFO(this->get_logger(), "[DUAL] Goal accepted"); };
+            options.result_callback = [this](auto){ RCLCPP_INFO(this->get_logger(), "[DUAL] Execution done"); stopTrajectoryTracking("left"); stopTrajectoryTracking("right"); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo("left"); startServo("right"); };
+            dual_arm_action_client_->async_send_goal(goal, options);
+            updateTrajectoryTracking(left_plan, "left");
+            updateTrajectoryTracking(right_plan, "right");
+            RCLCPP_INFO(this->get_logger(), "Dispatched merged trajectory to dual_arm_controller");
             return;
         }
 
@@ -610,7 +672,7 @@ private:
         // Ensure truly simultaneous start by scheduling same future start time
         auto now = this->get_clock()->now();
         // Add small latency margin to allow both goals to be sent before start
-        auto start_time = now + rclcpp::Duration::from_seconds(0.2);
+        auto start_time = now + rclcpp::Duration::from_seconds(0.01);
         if (left_ok) {
             left_plan.trajectory_.joint_trajectory.header.stamp = start_time;
         }
@@ -618,8 +680,20 @@ private:
             right_plan.trajectory_.joint_trajectory.header.stamp = start_time;
         }
 
-        if (left_ok)  send_one("left",  left_arm_action_client_,  left_plan);
-        if (right_ok) send_one("right", right_arm_action_client_, right_plan);
+        // Align start times by adding the same offset to time_from_start of all points
+        const double start_delay_sec = 0.01;
+        auto add_delay = [start_delay_sec](trajectory_msgs::msg::JointTrajectory & jt){
+            for (auto & pt : jt.points) {
+                const double s = pt.time_from_start.sec + start_delay_sec + pt.time_from_start.nanosec * 1e-9;
+                pt.time_from_start.sec = static_cast<int32_t>(s);
+                pt.time_from_start.nanosec = static_cast<uint32_t>((s - pt.time_from_start.sec) * 1e9);
+            }
+        };
+        add_delay(left_plan.trajectory_.joint_trajectory);
+        add_delay(right_plan.trajectory_.joint_trajectory);
+
+        send_one("left",  left_arm_action_client_,  left_plan);
+        send_one("right", right_arm_action_client_, right_plan);
 
         RCLCPP_INFO(this->get_logger(), "Synchronized dual-arm trajectories sent (short planning)");
     }
@@ -1115,6 +1189,7 @@ private:
     // Action clients for direct trajectory execution
     rclcpp_action::Client<FollowJointTrajectory>::SharedPtr left_arm_action_client_;
     rclcpp_action::Client<FollowJointTrajectory>::SharedPtr right_arm_action_client_;
+    rclcpp_action::Client<FollowJointTrajectory>::SharedPtr dual_arm_action_client_;
     
     // Track current trajectories for collision avoidance
     std::mutex trajectory_mutex_;
