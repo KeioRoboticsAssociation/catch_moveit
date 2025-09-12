@@ -363,7 +363,7 @@ private:
                 move_group_interface->setGoalPositionTolerance(0.001);   // 1mm精度
                 move_group_interface->setGoalOrientationTolerance(0.001); // 1mm精度
                 move_group_interface->setNumPlanningAttempts(10);
-                move_group_interface->setPlanningTime(0.3);
+                move_group_interface->setPlanningTime(0.15); // 150ms以内に収める
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
@@ -423,6 +423,8 @@ private:
             } else {
                 RCLCPP_ERROR(this->get_logger(), "FALLBACK execute() FAILED for %s arm (code=%d)", arm_name.c_str(), static_cast<int>(ec.val));
             }
+            // Clear execution tracking in any case
+            stopTrajectoryTracking(arm_name);
             // After any execution path, restart servo for realtime control
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
             startServo(arm_name);
@@ -552,14 +554,17 @@ private:
                     }
                 } else if (result.code == ResultCode::ABORTED) {
                     RCLCPP_ERROR(this->get_logger(), "Trajectory execution ABORTED for %s arm — invoking fallback execute()", arm_name.c_str());
+                    stopTrajectoryTracking(arm_name);
                     execute_with_move_group_fallback(move_group_interface, plan, arm_name, "aborted");
                     return;
                 } else if (result.code == ResultCode::CANCELED) {
                     RCLCPP_WARN(this->get_logger(), "Trajectory execution CANCELED for %s arm — invoking fallback execute()", arm_name.c_str());
+                    stopTrajectoryTracking(arm_name);
                     execute_with_move_group_fallback(move_group_interface, plan, arm_name, "canceled");
                     return;
                 } else {
                     RCLCPP_ERROR(this->get_logger(), "Trajectory execution finished with unknown result for %s arm — invoking fallback execute()", arm_name.c_str());
+                    stopTrajectoryTracking(arm_name);
                     execute_with_move_group_fallback(move_group_interface, plan, arm_name, "unknown result");
                     return;
                 }
@@ -594,6 +599,32 @@ private:
         }
         
         RCLCPP_INFO(this->get_logger(), "Updated trajectory tracking for %s arm", arm_name.c_str());
+
+        // Watchdog: clear executing flag if no result after (traj_duration + buffer)
+        double traj_sec = 0.0;
+        if (!plan.trajectory_.joint_trajectory.points.empty()) {
+            const auto& last = plan.trajectory_.joint_trajectory.points.back();
+            traj_sec = static_cast<double>(last.time_from_start.sec) + static_cast<double>(last.time_from_start.nanosec) / 1e9;
+        }
+        double buffer_sec = 1.0; // safety margin
+        auto start_snapshot = (arm_name == "left") ? left_execution_start_ : right_execution_start_;
+        std::thread([this, arm_name, traj_sec, buffer_sec, start_snapshot]() {
+            auto sleep_ms = static_cast<int>((traj_sec + buffer_sec) * 1000.0);
+            if (sleep_ms < 300) sleep_ms = 300; // minimum wait
+            std::this_thread::sleep_for(std::chrono::milliseconds(sleep_ms));
+            std::lock_guard<std::mutex> lk(trajectory_mutex_);
+            if (arm_name == "left") {
+                if (left_arm_executing_ && left_execution_start_ == start_snapshot) {
+                    left_arm_executing_ = false;
+                    RCLCPP_WARN(this->get_logger(), "Watchdog cleared executing flag for left arm");
+                }
+            } else {
+                if (right_arm_executing_ && right_execution_start_ == start_snapshot) {
+                    right_arm_executing_ = false;
+                    RCLCPP_WARN(this->get_logger(), "Watchdog cleared executing flag for right arm");
+                }
+            }
+        }).detach();
     }
 
     void stopTrajectoryTracking(const std::string& arm_name)
