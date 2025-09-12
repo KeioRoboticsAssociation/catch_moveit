@@ -23,6 +23,13 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
+            "rviz",
+            default_value="true",
+            description="Launch RViz. Options: true, false",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "rviz_config",
             default_value=PathJoinSubstitution(
                 [FindPackageShare("robot_config"), "config", "moveit.rviz"]
@@ -539,6 +546,7 @@ def generate_launch_description():
 
     # Initialize Arguments FIRST
     use_sim_time = LaunchConfiguration("use_sim_time")
+    rviz = LaunchConfiguration("rviz")
     rviz_config = LaunchConfiguration("rviz_config")
     field = LaunchConfiguration("field")
     box_coordinates = LaunchConfiguration("box_coordinates")
@@ -889,24 +897,6 @@ def generate_launch_description():
         arguments=["--ros-log-level", "info"],
     )
 
-    # RViz
-    rviz_node = Node(
-    package="rviz2",
-    executable="rviz2",
-    name="rviz2",
-    output="log",
-    arguments=["-d", rviz_config],
-    parameters=[
-        moveit_config.robot_description,
-        moveit_config.robot_description_semantic,
-        moveit_config.robot_description_kinematics,
-        moveit_config.joint_limits,
-        # Explicitly set planning pipeline
-        {"default_planning_pipeline": "ompl"},
-        # Pass the full planning pipeline configuration
-        moveit_config.planning_pipelines,
-    ],
-    )
     # Static TF
     static_tf = Node(
         package="tf2_ros",
@@ -1224,34 +1214,58 @@ def generate_launch_description():
         output='screen'
     )
     
+    # Create node list with conditional RViz
+    nodes_to_launch = [
+        robot_state_publisher,
+        move_group_node,
+        static_tf,
+        # ros2_control_node と イベントハンドラを起動リストに追加
+        ros2_control_node,
+        delay_spawn_controllers,
+        left_servo_node,
+        right_servo_node,
+        joy_node,
+        move_to_pose_dual_cpp_node, # Add the new dual arm node
+        # Additional nodes
+        rosbridge_websocket,
+        rosapi_node,
+        ros_tcp_endpoint,  # Add the ROS TCP Endpoint for Unity
+        npm_run_dev,
+        pose_command_publisher_node,  # Add pose command publisher node
+        dual_arm_servo_control_node,  # Add dual arm servo control node
+        web_video_server_node,  # Add web video server for camera streaming
+        realsense_launch,  # Add RealSense camera launch
+        d415_rgb_depth_3d_launch,  # Add D415 RGB depth 3D launch
+        camera_static_tf,  # Add camera static transform
+        publish_collision_mesh_node,
+        dynamixel_controller_node,  # Add Dynamixel controller
+        dynamixel_gui_node,  # Add Dynamixel GUI
+        target_pose_router,  # Add target pose router
+    ]
+    
+    # Add RViz conditionally based on rviz parameter
+    from launch.conditions import IfCondition
+    rviz_node_conditional = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        output="log",
+        arguments=["-d", rviz_config],
+        parameters=[
+            moveit_config.robot_description,
+            moveit_config.robot_description_semantic,
+            moveit_config.robot_description_kinematics,
+            moveit_config.joint_limits,
+            # Explicitly set planning pipeline
+            {"default_planning_pipeline": "ompl"},
+            # Pass the full planning pipeline configuration
+            moveit_config.planning_pipelines,
+        ],
+        condition=IfCondition(rviz)
+    )
+    
+    nodes_to_launch.append(rviz_node_conditional)
+    
     return LaunchDescription(
-        declared_arguments
-        + [
-            robot_state_publisher,
-            move_group_node,
-            rviz_node,
-            static_tf,
-            # ros2_control_node と イベントハンドラを起動リストに追加
-            ros2_control_node,
-            delay_spawn_controllers,
-            left_servo_node,
-            right_servo_node,
-            joy_node,
-            move_to_pose_dual_cpp_node, # Add the new dual arm node
-            # Additional nodes
-            rosbridge_websocket,
-            rosapi_node,
-            ros_tcp_endpoint,  # Add the ROS TCP Endpoint for Unity
-            npm_run_dev,
-            pose_command_publisher_node,  # Add pose command publisher node
-            dual_arm_servo_control_node,  # Add dual arm servo control node
-            web_video_server_node,  # Add web video server for camera streaming
-            realsense_launch,  # Add RealSense camera launch
-            d415_rgb_depth_3d_launch,  # Add D415 RGB depth 3D launch
-            camera_static_tf,  # Add camera static transform
-            publish_collision_mesh_node,
-            dynamixel_controller_node,  # Add Dynamixel controller
-            dynamixel_gui_node,  # Add Dynamixel GUI
-            target_pose_router,  # Add target pose router
-        ]
+        declared_arguments + nodes_to_launch
     )
