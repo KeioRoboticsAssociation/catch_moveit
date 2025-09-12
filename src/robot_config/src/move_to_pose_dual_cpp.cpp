@@ -360,10 +360,10 @@ private:
             for (const auto& planner : planners) {
                 move_group_interface->setPlannerId(planner);
                 // 全プランナーで統一された高精度設定
-                move_group_interface->setGoalPositionTolerance(0.001);   // 1mm精度
-                move_group_interface->setGoalOrientationTolerance(0.001); // 1mm精度
+                move_group_interface->setGoalPositionTolerance(0.0001);   // 1mm精度
+                move_group_interface->setGoalOrientationTolerance(0.0001); // 1mm精度
                 move_group_interface->setNumPlanningAttempts(10);
-                move_group_interface->setPlanningTime(0.15); // 150ms以内に収める
+                move_group_interface->setPlanningTime(0.3); // 300ms以内に収める
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
@@ -763,29 +763,90 @@ private:
 
     void left_arm_up_callback(const std_msgs::msg::String::SharedPtr msg)
     {
-        RCLCPP_INFO(this->get_logger(), "Left arm up command received, calling move_arm_z with z=%.3f", arm_up_z_value_);
-        move_arm_z("left", arm_up_z_value_);
-        RCLCPP_INFO(this->get_logger(), "move_arm_z call completed");
+        RCLCPP_INFO(this->get_logger(), "Left arm up command received, moving relatively by +%.3fm", arm_up_z_value_);
+        move_arm_z_relative("left", arm_up_z_value_);
+        RCLCPP_INFO(this->get_logger(), "relative move_arm_z call completed");
     }
 
     void left_arm_down_callback(const std_msgs::msg::String::SharedPtr msg)
     {
-        RCLCPP_INFO(this->get_logger(), "Left arm down command received");
-        move_arm_z("left", arm_down_z_value_);
+        RCLCPP_INFO(this->get_logger(), "Left arm down command received, moving relatively by %.3fm", arm_down_z_value_);
+        move_arm_z_relative("left", arm_down_z_value_);
     }
 
     void right_arm_up_callback(const std_msgs::msg::String::SharedPtr msg)
     {
-        RCLCPP_INFO(this->get_logger(), "Right arm up command received");
-        move_arm_z("right", arm_up_z_value_);
+        RCLCPP_INFO(this->get_logger(), "Right arm up command received, moving relatively by +%.3fm", arm_up_z_value_);
+        move_arm_z_relative("right", arm_up_z_value_);
     }
 
     void right_arm_down_callback(const std_msgs::msg::String::SharedPtr msg)
     {
-        RCLCPP_INFO(this->get_logger(), "Right arm down command received");
-        move_arm_z("right", arm_down_z_value_);
+        RCLCPP_INFO(this->get_logger(), "Right arm down command received, moving relatively by %.3fm", arm_down_z_value_);
+        move_arm_z_relative("right", arm_down_z_value_);
     }
 
+    
+    void move_arm_z_relative(const std::string& arm_name, double relative_z)
+    {
+        RCLCPP_INFO(this->get_logger(), "move_arm_z_relative called for %s arm with relative_z=%.3f", arm_name.c_str(), relative_z);
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface;
+
+        if (arm_name == "left") {
+            move_group_interface = left_move_group_interface_;
+        } else if (arm_name == "right") {
+            move_group_interface = right_move_group_interface_;
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Invalid arm name: %s", arm_name.c_str());
+            return;
+        }
+
+        if (!move_group_interface) {
+            RCLCPP_ERROR(this->get_logger(), "MoveGroupInterface not initialized for %s arm", arm_name.c_str());
+            return;
+        }
+
+        // Get current pose using TF2 directly from EndEffector frame
+        geometry_msgs::msg::PoseStamped current_pose;
+        std::string target_frame = arm_name + "_EndEffector_1";
+        
+        try {
+            // Get transform from world to EndEffector
+            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform(
+                "world", target_frame, tf2::TimePointZero, tf2::durationFromSec(1.0));
+                
+            // Convert transform to PoseStamped
+            current_pose.header.frame_id = "world";
+            current_pose.header.stamp = this->get_clock()->now();
+            current_pose.pose.position.x = transform.transform.translation.x;
+            current_pose.pose.position.y = transform.transform.translation.y;
+            current_pose.pose.position.z = transform.transform.translation.z;
+            current_pose.pose.orientation = transform.transform.rotation;
+            
+            RCLCPP_INFO(this->get_logger(), "Got current pose via TF2 for %s arm: x=%.3f, y=%.3f, z=%.3f", 
+                       arm_name.c_str(), current_pose.pose.position.x, 
+                       current_pose.pose.position.y, current_pose.pose.position.z);
+                       
+        } catch (const tf2::TransformException & ex) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to get current pose via TF2 for %s arm: %s", arm_name.c_str(), ex.what());
+            return;
+        }
+
+        // Create target pose with relative z-coordinate change, keeping current x, y, and orientation
+        geometry_msgs::msg::PoseStamped target_pose = current_pose;
+        target_pose.header.stamp = this->get_clock()->now();
+        double target_z = current_pose.pose.position.z + relative_z;  // Add relative z value to current z
+        target_pose.pose.position.z = target_z;
+
+        // Execute z-movement directly
+        RCLCPP_INFO(this->get_logger(), "Executing relative z-movement for %s arm from z=%.3f to z=%.3f (relative: %+.3f)", 
+                   arm_name.c_str(), current_pose.pose.position.z, target_z, relative_z);
+        RCLCPP_INFO(this->get_logger(), "Target pose: x=%.3f, y=%.3f, z=%.3f, qx=%.3f, qy=%.3f, qz=%.3f, qw=%.3f",
+                   target_pose.pose.position.x, target_pose.pose.position.y, target_pose.pose.position.z,
+                   target_pose.pose.orientation.x, target_pose.pose.orientation.y, 
+                   target_pose.pose.orientation.z, target_pose.pose.orientation.w);
+        executeZMoveCommand(move_group_interface, target_pose, arm_name, target_z);
+    }
     
     void move_arm_z(const std::string& arm_name, double target_z)
     {
@@ -861,8 +922,10 @@ private:
             // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
             move_group_interface->setPlannerId("LIN");
-            move_group_interface->setPlanningTime(0.1);
-            move_group_interface->setNumPlanningAttempts(3);
+            move_group_interface->setPlanningTime(0.5);  // Increased planning time
+            move_group_interface->setNumPlanningAttempts(5);  // More attempts
+            move_group_interface->setGoalPositionTolerance(0.0001);  // More tolerant
+            move_group_interface->setGoalOrientationTolerance(0.0001);  // More tolerant
             
             // Ensure we have a valid start state even if current_state_monitor lags
             bool start_state_set = false;
@@ -901,9 +964,11 @@ private:
                 
                 // Fallback to OMPL RRTConnect planner
                 move_group_interface->setPlanningPipelineId("ompl");
-                move_group_interface->setPlannerId("RRTConnect");
-                move_group_interface->setPlanningTime(5.0);
-                move_group_interface->setNumPlanningAttempts(3);
+                move_group_interface->setPlannerId("RRTConnectkConfigDefault");
+                move_group_interface->setPlanningTime(10.0);  // More time for complex planning
+                move_group_interface->setNumPlanningAttempts(10);  // More attempts
+                move_group_interface->setGoalPositionTolerance(0.01);  // More tolerant
+                move_group_interface->setGoalOrientationTolerance(0.1);  // More tolerant
                 move_group_interface->setPoseTarget(target_pose);
                 
                 bool ompl_success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
@@ -1031,10 +1096,10 @@ private:
     bool left_pose_received_ = false;
     bool right_pose_received_ = false;
     
-    // Configurable z-coordinate values for arm up/down
-    double arm_up_z_value_ = 0.2;   // Absolute z coordinate for arm up position
-    double arm_down_z_value_ = 0.086; // Absolute z coordinate for arm down position
-    
+    // Configurable z-coordinate values for arm up/down - now used as relative distances
+    double arm_up_z_value_ = 0.1;   // Relative z distance to move up (in meters)
+    double arm_down_z_value_ = -0.1; // Relative z distance to move down (in meters)
+
     // Action clients for direct trajectory execution
     using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
     rclcpp_action::Client<FollowJointTrajectory>::SharedPtr left_arm_action_client_;
