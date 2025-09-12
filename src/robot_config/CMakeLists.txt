@@ -23,6 +23,7 @@ find_package(yaml-cpp REQUIRED)
 find_package(moveit_planners_chomp QUIET)
 find_package(stomp QUIET)
 find_package(ament_index_cpp REQUIRED)
+find_package(controller_manager_msgs REQUIRED)
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/launch")
   install(
@@ -59,6 +60,7 @@ ament_target_dependencies(
   tf2_geometry_msgs
   control_msgs
   ament_index_cpp
+  controller_manager_msgs
 )
 
 # Link yaml-cpp library

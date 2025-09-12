@@ -14,20 +14,11 @@ public:
             "/button_command", 10,
             std::bind(&PoseCommandPublisher::buttonCommandCallback, this, std::placeholders::_1));
 
-        // Both-arms atomic command ("<LEFT>|<RIGHT>")
-        dual_button_command_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "/dual_button_command", 10,
-            std::bind(&PoseCommandPublisher::dualButtonCommandCallback, this, std::placeholders::_1));
-
         left_target_pose_pub_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(
             "/left_target_pose_rpy", 10);
 
         right_target_pose_pub_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(
             "/right_target_pose_rpy", 10);
-
-        // Dual-arm composite publisher: [Lx, Ly, Lz, Lr, Lp, Lyaw, Rx, Ry, Rz, Rr, Rp, Ryaw]
-        dual_target_pose_pub_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(
-            "/dual_target_pose_rpy", 10);
 
         loadPoseConfigurations();
 
@@ -50,69 +41,6 @@ private:
         else
         {
             RCLCPP_WARN(this->get_logger(), "Unknown command: %s", command.c_str());
-        }
-    }
-
-    // Format: "<LEFT_CMD>|<RIGHT_CMD>" (whitespace optional)
-    void dualButtonCommandCallback(const std_msgs::msg::String::SharedPtr msg)
-    {
-        std::string payload = msg->data;
-
-        // Normalize by removing surrounding spaces
-        auto trim = [](std::string &s) {
-            auto not_space = [](int ch){ return !std::isspace(ch); };
-            s.erase(s.begin(), std::find_if(s.begin(), s.end(), not_space));
-            s.erase(std::find_if(s.rbegin(), s.rend(), not_space).base(), s.end());
-        };
-
-        // Try split by '|', then fallback to '+' to be tolerant
-        auto split_once = [](const std::string& s, char delim) -> std::pair<std::string,std::string> {
-            auto pos = s.find(delim);
-            if (pos == std::string::npos) return {s, std::string{}};
-            return {s.substr(0, pos), s.substr(pos+1)};
-        };
-
-        std::string left_cmd, right_cmd;
-        {
-            auto p = split_once(payload, '|');
-            left_cmd = p.first;
-            right_cmd = p.second;
-            if (right_cmd.empty()) {
-                // Fallback to '+'
-                p = split_once(payload, '+');
-                left_cmd = p.first;
-                right_cmd = p.second;
-            }
-        }
-
-        trim(left_cmd);
-        trim(right_cmd);
-
-        if (left_cmd.empty() || right_cmd.empty()) {
-            RCLCPP_WARN(this->get_logger(), "dual_button_command malformed: '%s' (expected '<LEFT>|<RIGHT>')", payload.c_str());
-            return;
-        }
-
-        auto l_it = left_pose_configs_.find(left_cmd);
-        auto r_it = right_pose_configs_.find(right_cmd);
-        if (l_it == left_pose_configs_.end()) {
-            RCLCPP_WARN(this->get_logger(), "Unknown LEFT command in dual: %s", left_cmd.c_str());
-            return;
-        }
-        if (r_it == right_pose_configs_.end()) {
-            RCLCPP_WARN(this->get_logger(), "Unknown RIGHT command in dual: %s", right_cmd.c_str());
-            return;
-        }
-
-        // Publish composite dual target to ensure atomic consumption downstream
-        std_msgs::msg::Float64MultiArray dual_msg;
-        dual_msg.data = l_it->second; // 6 elements
-        dual_msg.data.insert(dual_msg.data.end(), r_it->second.begin(), r_it->second.end()); // +6 elements
-        if (dual_msg.data.size() == 12) {
-            dual_target_pose_pub_->publish(dual_msg);
-            RCLCPP_INFO(this->get_logger(), "Published dual composite poses: LEFT='%s', RIGHT='%s'", left_cmd.c_str(), right_cmd.c_str());
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Dual message malformed size=%zu (expected 12)", dual_msg.data.size());
         }
     }
 
@@ -214,10 +142,8 @@ private:
     }
 
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr button_command_sub_;
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr dual_button_command_sub_;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr left_target_pose_pub_;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr right_target_pose_pub_;
-    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr dual_target_pose_pub_;
 
     std::unordered_map<std::string, std::vector<double>> left_pose_configs_;
     std::unordered_map<std::string, std::vector<double>> right_pose_configs_;

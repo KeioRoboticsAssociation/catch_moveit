@@ -2,7 +2,6 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <std_msgs/msg/float64_multi_array.hpp>
 #include <std_msgs/msg/string.hpp>
-#include <sensor_msgs/msg/joint_state.hpp>
 #include <std_srvs/srv/trigger.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
@@ -16,46 +15,27 @@
 #include <trajectory_msgs/msg/joint_trajectory.hpp>
 #include <control_msgs/action/follow_joint_trajectory.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
+#include <sensor_msgs/msg/joint_state.hpp>
+#include <controller_manager_msgs/srv/switch_controller.hpp>
+#include <controller_manager_msgs/srv/list_controllers.hpp>
 #include <thread>
 #include <memory>
 #include <chrono>
 #include <mutex>
+#include <cmath>
+#include <iomanip>
+#include <yaml-cpp/yaml.h>
+#include <fstream>
+#include <ament_index_cpp/get_package_share_directory.hpp>
+#include <numeric>
+#include <algorithm>
 
 class MoveToPoseDualCpp : public rclcpp::Node
 {
 public:
     MoveToPoseDualCpp()
-        : Node("move_to_pose_dual_cpp", rclcpp::NodeOptions().allow_undeclared_parameters(true))
+        : Node("move_to_pose_dual_cpp", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true))
     {
-        // Declare known parameters once (others may be injected but ignored)
-        this->declare_parameter<bool>("use_dual_controller", false);
-        this->declare_parameter<bool>("enable_local_planning_scene_monitor", false);
-        // Subscribe to pose targets early to avoid missing first messages
-        left_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-            "/left_target_pose_rpy", 10, std::bind(&MoveToPoseDualCpp::left_rpy_callback, this, std::placeholders::_1));
-        right_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-            "/right_target_pose_rpy", 10, std::bind(&MoveToPoseDualCpp::right_rpy_callback, this, std::placeholders::_1));
-        // Dual composite target (12 elements)
-        dual_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-            "/dual_target_pose_rpy", 10, std::bind(&MoveToPoseDualCpp::dual_rpy_callback, this, std::placeholders::_1));
-        RCLCPP_INFO(this->get_logger(), "Ready to receive targets on /left_target_pose_rpy and /right_target_pose_rpy");
-
-        // Joint state readiness gate
-        joint_state_sub_ = this->create_subscription<sensor_msgs::msg::JointState>(
-            "/joint_states", 10,
-            [this](const sensor_msgs::msg::JointState::SharedPtr) {
-                if (!joint_state_ready_) {
-                    joint_state_ready_ = true;
-                    RCLCPP_INFO(this->get_logger(), "Joint states received - system ready");
-                    attemptFlushPending();
-                }
-            }
-        );
-
-        // Parameter to enable/disable local PlanningSceneMonitor (heavy)
-        enable_local_psm_ = false;
-        (void)this->get_parameter("enable_local_planning_scene_monitor", enable_local_psm_);
-
         // 左アームの初期化スレッド
         left_init_thread_ = std::thread([this]() {
             RCLCPP_INFO(this->get_logger(), "Initializing MoveGroupInterface for left_arm...");
@@ -72,24 +52,11 @@ public:
             left_hand_move_group_interface_->setPlannerId("RRTConnect");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for left_hand initialized.");
 
-            // 初期化中に受信したターゲットがあればフラッシュ実行
-            if (left_pose_received_ && last_left_pose_rpy_.size() == 6 && left_move_group_interface_) {
-                tf2::Quaternion q;
-                q.setRPY(last_left_pose_rpy_[3], last_left_pose_rpy_[4], last_left_pose_rpy_[5]);
-                geometry_msgs::msg::PoseStamped target_pose;
-                target_pose.header.frame_id = "world";
-                target_pose.header.stamp = this->get_clock()->now();
-                target_pose.pose.position.x = last_left_pose_rpy_[0];
-                target_pose.pose.position.y = last_left_pose_rpy_[1];
-                target_pose.pose.position.z = last_left_pose_rpy_[2];
-                target_pose.pose.orientation = tf2::toMsg(q);
-                RCLCPP_INFO(this->get_logger(), "Flushing buffered left target pose after initialization");
-                move_to_pose(left_move_group_interface_, target_pose);
-                left_pose_received_ = false; // 一度消化
-            }
+            // 左アーム用RPYサブスクライバ
+            left_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+                "/left_target_pose_rpy", 10, std::bind(&MoveToPoseDualCpp::left_rpy_callback, this, std::placeholders::_1));
 
-            // 初回プランナウォームアップ
-            prewarmPlanner(left_move_group_interface_, "left");
+            RCLCPP_INFO(this->get_logger(), "Ready to receive targets on /left_target_pose_rpy");
         });
 
         // 右アームの初期化スレッド
@@ -108,35 +75,14 @@ public:
             right_hand_move_group_interface_->setPlannerId("RRTConnect");
             RCLCPP_INFO(this->get_logger(), "MoveGroupInterface for right_hand initialized.");
 
-            // 初期化中に受信したターゲットがあればフラッシュ実行
-            if (right_pose_received_ && last_right_pose_rpy_.size() == 6 && right_move_group_interface_) {
-                tf2::Quaternion q;
-                q.setRPY(last_right_pose_rpy_[3], last_right_pose_rpy_[4], last_right_pose_rpy_[5]);
-                geometry_msgs::msg::PoseStamped target_pose;
-                target_pose.header.frame_id = "world";
-                target_pose.header.stamp = this->get_clock()->now();
-                target_pose.pose.position.x = last_right_pose_rpy_[0];
-                target_pose.pose.position.y = last_right_pose_rpy_[1];
-                target_pose.pose.position.z = last_right_pose_rpy_[2];
-                target_pose.pose.orientation = tf2::toMsg(q);
-                RCLCPP_INFO(this->get_logger(), "Flushing buffered right target pose after initialization");
-                move_to_pose(right_move_group_interface_, target_pose);
-                right_pose_received_ = false; // 一度消化
-            }
+            // 右アーム用RPYサブスクライバ
+            right_rpy_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+                "/right_target_pose_rpy", 10, std::bind(&MoveToPoseDualCpp::right_rpy_callback, this, std::placeholders::_1));
 
-            // 初回プランナウォームアップ
-            prewarmPlanner(right_move_group_interface_, "right");
+            RCLCPP_INFO(this->get_logger(), "Ready to receive targets on /right_target_pose_rpy");
         });
 
-        // Attach/detach subscribers
-        left_attach_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "/left_attach_object", 10, std::bind(&MoveToPoseDualCpp::left_attach_callback, this, std::placeholders::_1));
-        left_detach_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "/left_detach_object", 10, std::bind(&MoveToPoseDualCpp::left_detach_callback, this, std::placeholders::_1));
-        right_attach_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "/right_attach_object", 10, std::bind(&MoveToPoseDualCpp::right_attach_callback, this, std::placeholders::_1));
-        right_detach_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "/right_detach_object", 10, std::bind(&MoveToPoseDualCpp::right_detach_callback, this, std::placeholders::_1));
+        
 
         // Arm up/down subscribers
         left_arm_up_sub_ = this->create_subscription<std_msgs::msg::String>(
@@ -159,16 +105,80 @@ public:
             "/right_arm_close", 10, std::bind(&MoveToPoseDualCpp::right_arm_close_callback, this, std::placeholders::_1));
 
         RCLCPP_INFO(this->get_logger(), "Ready to receive attach/detach, arm up/down, and gripper open/close commands");
+        
+        // Initialize PlanningSceneInterface after node initialization
+        planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+        
+        // Initialize Planning Scene Monitor for real-time robot state updates
+        planning_scene_monitor_ = std::make_shared<planning_scene_monitor::PlanningSceneMonitor>(
+            shared_from_this(), "robot_description");
+        
+        if (planning_scene_monitor_) {
+            planning_scene_monitor_->startSceneMonitor();
+            planning_scene_monitor_->startWorldGeometryMonitor();
+            planning_scene_monitor_->startStateMonitor();
+            RCLCPP_INFO(this->get_logger(), "Planning Scene Monitor initialized and started");
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Failed to initialize Planning Scene Monitor");
+        }
+        
+        // Initialize action clients for direct trajectory execution
+        left_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
+            this, "/left_arm_controller/follow_joint_trajectory");
+        right_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
+            this, "/right_arm_controller/follow_joint_trajectory");
+            
+        // Initialize servo control service clients for simple switching
+        left_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/left_servo_node/start_servo");
+        left_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/left_servo_node/stop_servo");
+        right_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/right_servo_node/start_servo");
+        right_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
+            "/right_servo_node/stop_servo");
 
-        // Defer heavy initializations until after the executor starts spinning
-        post_init_timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(100),
-            [this]() {
-                do_post_init();
-                // run only once
-                post_init_timer_->cancel();
-            }
-        );
+        // Controller manager service clients
+        switch_controller_client_ = this->create_client<controller_manager_msgs::srv::SwitchController>(
+            "/controller_manager/switch_controller");
+        list_controllers_client_ = this->create_client<controller_manager_msgs::srv::ListControllers>(
+            "/controller_manager/list_controllers");
+            
+        // Initialize TF2 for direct pose retrieval
+        tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
+        tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+        
+        // Direct joint states control subscribers
+        left_direct_joints_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+            "/left_direct_joints", 10, std::bind(&MoveToPoseDualCpp::left_direct_joints_callback, this, std::placeholders::_1));
+        right_direct_joints_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+            "/right_direct_joints", 10, std::bind(&MoveToPoseDualCpp::right_direct_joints_callback, this, std::placeholders::_1));
+        
+        // High-frequency joint states recording (1000Hz)
+        joint_states_recording_timer_ = this->create_wall_timer(
+            std::chrono::microseconds(1000), // 1000Hz = 1ms
+            std::bind(&MoveToPoseDualCpp::recordJointStatesCallback, this));
+        
+        // Joint states subscribers for high-frequency recording
+        joint_states_sub_ = this->create_subscription<sensor_msgs::msg::JointState>(
+            "/joint_states", 10, std::bind(&MoveToPoseDualCpp::jointStatesCallback, this, std::placeholders::_1));
+            
+        // YAML trajectory loading subscribers
+        left_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/left_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::left_load_yaml_callback, this, std::placeholders::_1));
+        right_load_yaml_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/right_load_trajectory", 10, std::bind(&MoveToPoseDualCpp::right_load_yaml_callback, this, std::placeholders::_1));
+        
+        // 1000Hz recording control subscribers
+        start_recording_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/start_joint_recording", 10, std::bind(&MoveToPoseDualCpp::startRecordingCallback, this, std::placeholders::_1));
+        stop_recording_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/stop_joint_recording", 10, std::bind(&MoveToPoseDualCpp::stopRecordingCallback, this, std::placeholders::_1));
+            
+        RCLCPP_INFO(this->get_logger(), "Simple servo switching system initialized");
+        RCLCPP_INFO(this->get_logger(), "Direct joint states control ready on /left_direct_joints and /right_direct_joints");
+        RCLCPP_INFO(this->get_logger(), "YAML trajectory loading ready on /left_load_trajectory and /right_load_trajectory");
+        RCLCPP_INFO(this->get_logger(), "1000Hz joint states recording ready on /start_joint_recording and /stop_joint_recording");
     }
 
     ~MoveToPoseDualCpp()
@@ -184,63 +194,6 @@ public:
     }
 
 private:
-    using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
-
-    void do_post_init()
-    {
-        // Initialize PlanningSceneInterface
-        planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
-
-        // Optionally initialize local Planning Scene Monitor (skip by default to speed startup)
-        if (enable_local_psm_) {
-            planning_scene_monitor_ = std::make_shared<planning_scene_monitor::PlanningSceneMonitor>(
-                shared_from_this(), "robot_description");
-            if (planning_scene_monitor_) {
-                planning_scene_monitor_->startSceneMonitor();
-                planning_scene_monitor_->startWorldGeometryMonitor();
-                planning_scene_monitor_->startStateMonitor();
-                RCLCPP_INFO(this->get_logger(), "Planning Scene Monitor initialized and started");
-            } else {
-                RCLCPP_ERROR(this->get_logger(), "Failed to initialize Planning Scene Monitor");
-            }
-        } else {
-            RCLCPP_INFO(this->get_logger(), "Local PlanningSceneMonitor disabled (enable with param enable_local_planning_scene_monitor=true)");
-        }
-
-        // Initialize action clients for direct trajectory execution
-        left_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
-            this, "/left_arm_controller/follow_joint_trajectory");
-        right_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
-            this, "/right_arm_controller/follow_joint_trajectory");
-
-        // Proactively connect to action servers to reduce first-goal latency
-        if (left_arm_action_client_) {
-            left_arm_action_client_->wait_for_action_server(std::chrono::seconds(5));
-        }
-        if (right_arm_action_client_) {
-            right_arm_action_client_->wait_for_action_server(std::chrono::seconds(5));
-        }
-
-        actions_ready_ = true;
-        attemptFlushPending();
-
-        // Initialize servo control service clients for simple switching
-        left_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
-            "/left_servo_node/start_servo");
-        left_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
-            "/left_servo_node/stop_servo");
-        right_servo_start_client_ = this->create_client<std_srvs::srv::Trigger>(
-            "/right_servo_node/start_servo");
-        right_servo_stop_client_ = this->create_client<std_srvs::srv::Trigger>(
-            "/right_servo_node/stop_servo");
-
-        // Initialize TF2 for direct pose retrieval
-        tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
-        tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
-
-        RCLCPP_INFO(this->get_logger(), "Simple servo switching system initialized");
-    }
-
     // Simple servo control helper functions
     void stopServo(const std::string& arm_name)
     {
@@ -278,29 +231,6 @@ private:
         }
     }
 
-    void dual_rpy_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
-    {
-        if (msg->data.size() != 12) {
-            RCLCPP_ERROR(this->get_logger(), "Dual target requires 12 values, got %zu", msg->data.size());
-            return;
-        }
-        // left
-        tf2::Quaternion ql; ql.setRPY(msg->data[3], msg->data[4], msg->data[5]);
-        geometry_msgs::msg::PoseStamped l_pose;
-        l_pose.header.frame_id = "world"; l_pose.header.stamp = this->get_clock()->now();
-        l_pose.pose.position.x = msg->data[0]; l_pose.pose.position.y = msg->data[1]; l_pose.pose.position.z = msg->data[2];
-        l_pose.pose.orientation = tf2::toMsg(ql);
-        // right
-        tf2::Quaternion qr; qr.setRPY(msg->data[9], msg->data[10], msg->data[11]);
-        geometry_msgs::msg::PoseStamped r_pose;
-        r_pose.header.frame_id = "world"; r_pose.header.stamp = this->get_clock()->now();
-        r_pose.pose.position.x = msg->data[6]; r_pose.pose.position.y = msg->data[7]; r_pose.pose.position.z = msg->data[8];
-        r_pose.pose.orientation = tf2::toMsg(qr);
-
-        // Execute strictly synchronized planning/execution
-        planAndExecuteSynchronized(l_pose, r_pose);
-    }
-
     void left_rpy_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
     {
         RCLCPP_INFO(this->get_logger(), "Received target on /left_target_pose_rpy");
@@ -327,8 +257,7 @@ private:
         last_left_pose_rpy_ = msg->data;
         left_pose_received_ = true;
 
-        // Attempt synchronized execution with right arm if available
-        handleIncomingTargetPose("left", target_pose);
+        move_to_pose(left_move_group_interface_, target_pose);
     }
 
     void right_rpy_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
@@ -357,8 +286,7 @@ private:
         last_right_pose_rpy_ = msg->data;
         right_pose_received_ = true;
 
-        // Attempt synchronized execution with left arm if available
-        handleIncomingTargetPose("right", target_pose);
+        move_to_pose(right_move_group_interface_, target_pose);
     }
 
     void move_to_pose(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface, const geometry_msgs::msg::PoseStamped& target_pose)
@@ -370,6 +298,15 @@ private:
 
         std::string arm_name = (move_group_interface->getName() == "left_arm") ? "left" : "right";
         RCLCPP_INFO(this->get_logger(), "move_to_pose called for %s arm", arm_name.c_str());
+        // Serialize execution per arm: if executing, ignore new goal to avoid race-induced rejection
+        {
+            std::lock_guard<std::mutex> lock(trajectory_mutex_);
+            bool busy = (arm_name == "left") ? left_arm_executing_ : right_arm_executing_;
+            if (busy) {
+                RCLCPP_WARN(this->get_logger(), "%s arm is currently executing; new pose is ignored to avoid conflicts", arm_name.c_str());
+                return;
+            }
+        }
         
         executeCommand(move_group_interface, target_pose, arm_name);
     }
@@ -379,63 +316,80 @@ private:
         // 非同期実行のためのスレッドを作成
         std::thread([this, move_group_interface, target_pose, arm_name]() {
             RCLCPP_INFO(this->get_logger(), "Executing pose command for %s arm with servo coordination", arm_name.c_str());
+            // Capture EE pose before planning/execution to detect "no movement" cases
+            geometry_msgs::msg::PoseStamped ee_pose_before = move_group_interface->getCurrentPose();
             
             // Stop servo for clean pose execution
             stopServo(arm_name);
-            std::this_thread::sleep_for(std::chrono::milliseconds(60)); // Brief pause to ensure servo fully stops
+            // Brief pause to ensure servo/controllers settle before planning/execution (shortened for responsiveness)
+            std::this_thread::sleep_for(std::chrono::milliseconds(60));
             
             // Apply dynamic collision avoidance settings
-            applyDynamicCollisionAvoidance(move_group_interface, arm_name);
-            
-            // Fresh state and frame, then set target
-            try { move_group_interface->setStartStateToCurrentState(); } catch (...) {}
-            move_group_interface->setPoseReferenceFrame("world");
+            // applyDynamicCollisionAvoidance(move_group_interface, arm_name);
+
+            // Ensure we have a valid start state even if current_state_monitor lags
+            bool start_state_set = false;
+            try {
+                auto cs = move_group_interface->getCurrentState(1.5);
+                if (cs) {
+                    move_group_interface->setStartState(*cs);
+                    start_state_set = true;
+                }
+            } catch (...) {}
+            if (!start_state_set && planning_scene_monitor_) {
+                planning_scene_monitor::LockedPlanningSceneRO locked_scene(planning_scene_monitor_);
+                if (locked_scene) {
+                    move_group_interface->setStartState(locked_scene->getCurrentState());
+                    start_state_set = true;
+                    RCLCPP_WARN(this->get_logger(), "Using PlanningScene current state as start (joint state monitor lagging)");
+                }
+            }
+            if (!start_state_set) {
+                RCLCPP_WARN(this->get_logger(), "Proceeding without fresh start state; check joint_states and clock sync");
+            }
+
             move_group_interface->setPoseTarget(target_pose);
             
-            // OMPL only, immediate planning
-            bool success = false;
-            moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+            // プランナーをOMPLのRRTConnect中心に指定（高速優先）
             move_group_interface->setPlanningPipelineId("ompl");
-            move_group_interface->setPlanningTime(0.25);
-            move_group_interface->setNumPlanningAttempts(2);
-            // Position tolerance 0.1mm
-            move_group_interface->setGoalPositionTolerance(0.0001);
-            move_group_interface->setGoalOrientationTolerance(0.1); // relax orientation tol for solvability
-            move_group_interface->setMaxVelocityScalingFactor(0.6);
-            move_group_interface->setMaxAccelerationScalingFactor(0.6);
-            // 探索方法が異なるプランナーの組み合わせ（軽量順）
-            std::vector<std::string> planners = {"RRTConnectkConfigDefault", "BKPIECEkConfigDefault", "PRMkConfigDefault"};
+            // 高速プランナー優先。RRTConnect→PRMの順（少数）
+            std::vector<std::string> planners = {"RRTConnectkConfigDefault", "PRMkConfigDefault"};
+            moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+            bool success = false;
             
             for (const auto& planner : planners) {
                 move_group_interface->setPlannerId(planner);
-                // Keep the relaxed tolerances set above
+                // 全プランナーで統一された高精度設定
+                move_group_interface->setGoalPositionTolerance(0.001);   // 1mm精度
+                move_group_interface->setGoalOrientationTolerance(0.001); // 1mm精度
+                move_group_interface->setNumPlanningAttempts(10);
+                move_group_interface->setPlanningTime(0.3);
+
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
-                    RCLCPP_INFO(this->get_logger(), "%s planner succeeded for %s (OMPL)", planner.c_str(), arm_name.c_str());
+                    RCLCPP_INFO(this->get_logger(), "%s planner succeeded for %s with 0.001 tolerance", planner.c_str(), arm_name.c_str());
                     break;
                 } else {
                     RCLCPP_WARN(this->get_logger(), "%s planner failed for %s, trying next...", planner.c_str(), arm_name.c_str());
                 }
             }
 
-            // Escalate planning time/attempts if fast path failed completely
-            if (!success) {
-                move_group_interface->setPlanningTime(1.0);
-                move_group_interface->setNumPlanningAttempts(6);
-                for (const auto& planner : planners) {
-                    move_group_interface->setPlannerId(planner);
-                    if (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS) {
-                        success = true;
-                        RCLCPP_INFO(this->get_logger(), "Escalated planning succeeded (OMPL %s) for %s", planner.c_str(), arm_name.c_str());
-                        break;
-                    }
-                }
-            }
-
             if (success)
             {
-                RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing via direct trajectory.", arm_name.c_str());
-                execute_trajectory_directly(move_group_interface, my_plan, arm_name);
+                // CHOMP最適化を無効化（10秒の遅延を防ぐため）
+                RCLCPP_INFO(this->get_logger(), "Planner found a plan for %s, executing directly (optimization disabled for speed)", arm_name.c_str());
+                
+                // 軌道を自動保存
+                // saveTrajectoryToYaml(my_plan, arm_name);
+                
+                // Validate planned trajectory contains points
+                if (my_plan.trajectory_.joint_trajectory.points.empty()) {
+                    RCLCPP_ERROR(this->get_logger(), "Planned trajectory for %s has no points, abort execution", arm_name.c_str());
+                    stopTrajectoryTracking(arm_name);
+                    startServo(arm_name);
+                    return;
+                }
+                execute_trajectory_directly(move_group_interface, my_plan, arm_name, ee_pose_before, 0);
             }
             else
             {
@@ -451,293 +405,168 @@ private:
         }).detach();  // スレッドをデタッチして非同期実行
     }
 
-    // 初回のプランニング遅延を抑えるための軽いウォームアップ
-    void prewarmPlanner(const std::shared_ptr<moveit::planning_interface::MoveGroupInterface>& mgi,
-                        const std::string& arm_name)
+    // Helper: fallback execution via MoveGroupInterface when action execution fails
+    void execute_with_move_group_fallback(
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
+        const moveit::planning_interface::MoveGroupInterface::Plan& plan,
+        const std::string& arm_name,
+        const std::string& reason)
     {
-        if (!mgi) return;
-        try {
-            mgi->setStartStateToCurrentState();
-            geometry_msgs::msg::PoseStamped current_pose = mgi->getCurrentPose();
-            mgi->setPoseReferenceFrame("world");
-            mgi->clearPoseTargets();
-            mgi->setPoseTarget(current_pose);
-            mgi->setPlanningPipelineId("ompl");
-            mgi->setPlannerId("RRTConnectkConfigDefault");
-            mgi->setPlanningTime(0.2);
-            mgi->setNumPlanningAttempts(1);
-            moveit::planning_interface::MoveGroupInterface::Plan warm_plan;
-            (void) mgi->plan(warm_plan); // 結果は使わない。プラグイン/シーンの初期化を済ませる目的
-            RCLCPP_INFO(this->get_logger(), "Prewarmed planner for %s arm", arm_name.c_str());
-        } catch (...) {
-            RCLCPP_WARN(this->get_logger(), "Prewarm planner failed for %s arm (ignored)", arm_name.c_str());
-        }
-    }
-
-    // --- Dual-arm synchronization: pair nearly-simultaneous targets ---
-    void handleIncomingTargetPose(const std::string& arm_name, const geometry_msgs::msg::PoseStamped& target_pose)
-    {
-        const auto now_tp = std::chrono::steady_clock::now();
-        // Larger pairing window to ensure dual commands synchronize reliably
-        const auto window = std::chrono::milliseconds(1000);
-
-        bool should_sync = false;
-        geometry_msgs::msg::PoseStamped l_pose, r_pose;
-
-        {
-            std::lock_guard<std::mutex> lk(sync_mutex_);
-            if (arm_name == "left") {
-                pending_left_pose_ = target_pose;
-                pending_left_time_ = now_tp;
-                has_pending_left_pose_ = true;
+        // Run fallback execute asynchronously to avoid blocking callbacks
+        std::thread([this, move_group_interface, plan, arm_name, reason]() {
+            RCLCPP_WARN(this->get_logger(), "FALLBACK: Executing via MoveGroupInterface for %s arm (reason: %s)", arm_name.c_str(), reason.c_str());
+            // Ensure controller is active just in case
+            ensureArmControllerActive(arm_name);
+            auto ec = move_group_interface->execute(plan);
+            if (ec == moveit::core::MoveItErrorCode::SUCCESS) {
+                RCLCPP_INFO(this->get_logger(), "FALLBACK execute() SUCCEEDED for %s arm", arm_name.c_str());
             } else {
-                pending_right_pose_ = target_pose;
-                pending_right_time_ = now_tp;
-                has_pending_right_pose_ = true;
+                RCLCPP_ERROR(this->get_logger(), "FALLBACK execute() FAILED for %s arm (code=%d)", arm_name.c_str(), static_cast<int>(ec.val));
             }
-
-            if (has_pending_left_pose_ && has_pending_right_pose_) {
-                auto dt = (pending_left_time_ > pending_right_time_) ? (pending_left_time_ - pending_right_time_) : (pending_right_time_ - pending_left_time_);
-                if (dt <= window) {
-                    l_pose = pending_left_pose_;
-                    r_pose = pending_right_pose_;
-                    has_pending_left_pose_ = false;
-                    has_pending_right_pose_ = false;
-                    should_sync = true;
-                }
-            }
-        }
-
-        if (should_sync) {
-            std::thread([this, l_pose, r_pose]() {
-                planAndExecuteSynchronized(l_pose, r_pose);
-            }).detach();
-            return;
-        }
-
-        // No single-arm fallback to guarantee dual-only execution
-        (void)arm_name; (void)target_pose; (void)now_tp; (void)window;
+            // After any execution path, restart servo for realtime control
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            startServo(arm_name);
+        }).detach();
     }
 
-    void planAndExecuteSynchronized(const geometry_msgs::msg::PoseStamped& left_pose,
-                                    const geometry_msgs::msg::PoseStamped& right_pose)
+    // Utility: compute translational distance between two poses
+    double posePositionDistance(const geometry_msgs::msg::Pose& a, const geometry_msgs::msg::Pose& b)
     {
-        RCLCPP_INFO(this->get_logger(), "Planning synchronized dual-arm motion (short-time)");
+        const double dx = a.position.x - b.position.x;
+        const double dy = a.position.y - b.position.y;
+        const double dz = a.position.z - b.position.z;
+        return std::sqrt(dx*dx + dy*dy + dz*dz);
+    }
 
-        // Stop both servos and wait briefly
-        stopServo("left");
-        stopServo("right");
-        std::this_thread::sleep_for(std::chrono::milliseconds(60));
-
-        auto plan_one = [this](std::shared_ptr<moveit::planning_interface::MoveGroupInterface> mgi,
-                               const geometry_msgs::msg::PoseStamped& pose) -> bool
-        {
-            try { mgi->setStartStateToCurrentState(); } catch (...) {}
-            mgi->setPoseReferenceFrame("world");
-            mgi->clearPoseTargets();
-            mgi->setPoseTarget(pose);
-            // OMPL only with 0.1mm position tolerance
-            mgi->setPlanningPipelineId("ompl");
-            mgi->setPlannerId("RRTConnectkConfigDefault");
-            mgi->setGoalPositionTolerance(0.0001);
-            mgi->setGoalOrientationTolerance(0.0001);
-            mgi->setPlanningTime(0.3);
-            mgi->setNumPlanningAttempts(20);
-            mgi->setMaxVelocityScalingFactor(1);
-            mgi->setMaxAccelerationScalingFactor(1);
-            if (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS) return true;
-            // Escalate
-            mgi->setPlanningTime(0.1);
-            mgi->setPlannerId("PRMkConfigDefault");
-            return (mgi->plan(plan_buffer_) == moveit::core::MoveItErrorCode::SUCCESS);
-        };
-
-        moveit::planning_interface::MoveGroupInterface::Plan left_plan, right_plan;
-        bool left_ok = false, right_ok = false;
-
-        if (left_move_group_interface_) {
-            left_ok = plan_one(left_move_group_interface_, left_pose);
-            if (left_ok) left_plan = plan_buffer_;
-        }
-        if (right_move_group_interface_) {
-            right_ok = plan_one(right_move_group_interface_, right_pose);
-            if (right_ok) right_plan = plan_buffer_;
-        }
-
-        // Enforce both-or-none: only execute when both plans are valid
-        if (!(left_ok && right_ok)) {
-            RCLCPP_ERROR(this->get_logger(), "Dual-sync requires both plans. Aborting execution (left_ok=%d right_ok=%d)", left_ok, right_ok);
-            startServo("left");
-            startServo("right");
-            return;
-        }
-
-        // Use dual-arm controller if available/desired; else fall back to per-arm
-        bool use_dual = false;
-        if (this->has_parameter("use_dual_controller")) {
-            try { use_dual = this->get_parameter("use_dual_controller").as_bool(); } catch (...) {}
-        }
-        if (use_dual) {
-            // Build merged 12-joint trajectory from left and right plans
-            trajectory_msgs::msg::JointTrajectory merged;
-            const auto & lj = left_plan.trajectory_.joint_trajectory;
-            const auto & rj = right_plan.trajectory_.joint_trajectory;
-            merged.joint_names = lj.joint_names;
-            merged.joint_names.insert(merged.joint_names.end(), rj.joint_names.begin(), rj.joint_names.end());
-
-            // Collect unique times
-            std::vector<double> times;
-            auto collect_times = [&times](const trajectory_msgs::msg::JointTrajectory & jt){
-                for (const auto & pt : jt.points) {
-                    double t = pt.time_from_start.sec + pt.time_from_start.nanosec * 1e-9;
-                    times.push_back(t);
-                }
-            };
-            collect_times(lj);
-            collect_times(rj);
-            std::sort(times.begin(), times.end());
-            times.erase(std::unique(times.begin(), times.end()), times.end());
-
-            auto sample = [](const trajectory_msgs::msg::JointTrajectory & jt, double t)->std::vector<double>{
-                if (jt.points.empty()) return {};
-                const auto & pts = jt.points;
-                if (t <= (pts.front().time_from_start.sec + pts.front().time_from_start.nanosec*1e-9))
-                    return pts.front().positions;
-                for (size_t i=1; i<pts.size(); ++i) {
-                    double ti = pts[i].time_from_start.sec + pts[i].time_from_start.nanosec*1e-9;
-                    if (t <= ti) return pts[i-1].positions; // zero-order hold
-                }
-                return pts.back().positions;
-            };
-
-            for (double t : times) {
-                trajectory_msgs::msg::JointTrajectoryPoint p;
-                auto lp = sample(lj, t);
-                auto rp = sample(rj, t);
-                if (lp.empty() || rp.empty()) continue;
-                p.positions = lp;
-                p.positions.insert(p.positions.end(), rp.begin(), rp.end());
-                // set time_from_start with small delay to ensure controllers are ready
-                double s = t + 0.01; // 0.01s start delay
-                p.time_from_start.sec = static_cast<int32_t>(s);
-                p.time_from_start.nanosec = static_cast<uint32_t>((s - p.time_from_start.sec) * 1e9);
-                merged.points.push_back(p);
-            }
-
-            // Send to dual controller
-            if (!dual_arm_action_client_) {
-                dual_arm_action_client_ = rclcpp_action::create_client<FollowJointTrajectory>(
-                    this, "/dual_arm_controller/follow_joint_trajectory");
-            }
-            if (!dual_arm_action_client_->wait_for_action_server(std::chrono::seconds(3))) {
-                RCLCPP_ERROR(this->get_logger(), "Dual arm action server unavailable");
-                startServo("left"); startServo("right");
-                return;
-            }
-            auto goal = FollowJointTrajectory::Goal();
-            goal.trajectory = merged;
-            auto options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
-            options.goal_response_callback = [this](auto){ RCLCPP_INFO(this->get_logger(), "[DUAL] Goal accepted"); };
-            options.result_callback = [this](auto){ RCLCPP_INFO(this->get_logger(), "[DUAL] Execution done"); stopTrajectoryTracking("left"); stopTrajectoryTracking("right"); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo("left"); startServo("right"); };
-            dual_arm_action_client_->async_send_goal(goal, options);
-            updateTrajectoryTracking(left_plan, "left");
-            updateTrajectoryTracking(right_plan, "right");
-            RCLCPP_INFO(this->get_logger(), "Dispatched merged trajectory to dual_arm_controller");
-            return;
-        }
-
-        auto send_one = [this](const std::string& arm,
-                               rclcpp_action::Client<FollowJointTrajectory>::SharedPtr client,
-                               const moveit::planning_interface::MoveGroupInterface::Plan& plan)
-        {
-            if (!client) {
-                RCLCPP_ERROR(this->get_logger(), "Action client missing for %s", arm.c_str());
-                startServo(arm);
-                return;
-            }
-            if (!client->wait_for_action_server(std::chrono::seconds(5))) {
-                RCLCPP_ERROR(this->get_logger(), "Action server not available for %s arm", arm.c_str());
-                startServo(arm);
-                return;
-            }
-            auto goal = FollowJointTrajectory::Goal();
-            goal.trajectory = plan.trajectory_.joint_trajectory;
-            auto options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
-            options.goal_response_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Goal accepted by %s", arm.c_str()); };
-            options.result_callback = [this, arm](auto){ RCLCPP_INFO(this->get_logger(), "[SYNC] Execution done for %s", arm.c_str()); stopTrajectoryTracking(arm); std::this_thread::sleep_for(std::chrono::milliseconds(80)); startServo(arm); };
-            client->async_send_goal(goal, options);
-            updateTrajectoryTracking(plan, arm);
-        };
-
-        // Ensure truly simultaneous start by scheduling same future start time
-        auto now = this->get_clock()->now();
-        // Add small latency margin to allow both goals to be sent before start
-        auto start_time = now + rclcpp::Duration::from_seconds(0.01);
-        if (left_ok) {
-            left_plan.trajectory_.joint_trajectory.header.stamp = start_time;
-        }
-        if (right_ok) {
-            right_plan.trajectory_.joint_trajectory.header.stamp = start_time;
-        }
-
-        // Align start times by adding the same offset to time_from_start of all points
-        const double start_delay_sec = 0.01;
-        auto add_delay = [start_delay_sec](trajectory_msgs::msg::JointTrajectory & jt){
-            for (auto & pt : jt.points) {
-                const double s = pt.time_from_start.sec + start_delay_sec + pt.time_from_start.nanosec * 1e-9;
-                pt.time_from_start.sec = static_cast<int32_t>(s);
-                pt.time_from_start.nanosec = static_cast<uint32_t>((s - pt.time_from_start.sec) * 1e9);
-            }
-        };
-        add_delay(left_plan.trajectory_.joint_trajectory);
-        add_delay(right_plan.trajectory_.joint_trajectory);
-
-        send_one("left",  left_arm_action_client_,  left_plan);
-        send_one("right", right_arm_action_client_, right_plan);
-
-        RCLCPP_INFO(this->get_logger(), "Synchronized dual-arm trajectories sent (short planning)");
+    // Utility: compute angular distance between two orientations (radians)
+    double poseOrientationAngle(const geometry_msgs::msg::Pose& a, const geometry_msgs::msg::Pose& b)
+    {
+        tf2::Quaternion qa, qb;
+        tf2::fromMsg(a.orientation, qa);
+        tf2::fromMsg(b.orientation, qb);
+        tf2::Quaternion q_rel = qa.inverse() * qb; // rotation from a to b
+        q_rel.normalize();
+        double w = static_cast<double>(q_rel.getW());
+        if (w > 1.0) w = 1.0;
+        if (w < -1.0) w = -1.0;
+        double angle = 2.0 * std::acos(w); // in [0, pi]
+        return angle;
     }
 
     void execute_trajectory_directly(
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
         const moveit::planning_interface::MoveGroupInterface::Plan& plan,
-        const std::string& arm_name)
+        const std::string& arm_name,
+        const geometry_msgs::msg::PoseStamped& ee_pose_before,
+        int retry_count)
     {
+        // Ensure the arm's FollowJointTrajectory controller is active
+        ensureArmControllerActive(arm_name);
+        // Wait briefly until controller is reported active to avoid goal rejection (balanced)
+        const std::string ctrl_name = (arm_name == "left") ? "left_arm_controller" : "right_arm_controller";
+        for (int i = 0; i < 8; ++i) { // up to ~240ms
+            if (isControllerActive(ctrl_name)) break;
+            std::this_thread::sleep_for(std::chrono::milliseconds(30));
+        }
         // アクションクライアントを選択
         auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
         
         if (!action_client) {
             RCLCPP_ERROR(this->get_logger(), "Action client not initialized for %s arm", arm_name.c_str());
-            // Stop済みであれば必ず再開しておく
-            startServo(arm_name);
+            // Ensure servo is restarted if execution path aborts early
+            execute_with_move_group_fallback(move_group_interface, plan, arm_name, "action client null");
             return;
         }
 
-        // アクションサーバーを待機（初回起動安定化のため余裕を持つ）
-        if (!action_client->wait_for_action_server(std::chrono::seconds(5))) {
+        // アクションサーバーを待機（十分な待機時間）
+        if (!action_client->wait_for_action_server(std::chrono::seconds(2))) {
             RCLCPP_ERROR(this->get_logger(), "Action server not available for %s arm", arm_name.c_str());
-            // サーバ未準備時もServoを再開して、後続の操作を阻害しない
-            startServo(arm_name);
+            execute_with_move_group_fallback(move_group_interface, plan, arm_name, "action server unavailable");
             return;
         }
 
         // ゴールを作成
         auto goal_msg = FollowJointTrajectory::Goal();
         goal_msg.trajectory = plan.trajectory_.joint_trajectory;
+        // Timestamping to avoid stale rejection with moderate margin (increase on retry)
+        const double kInitialShift = (retry_count > 0) ? 0.7 : 0.35; // seconds
+        goal_msg.trajectory.header.stamp = this->now();
+        shiftTrajectoryTimes(goal_msg.trajectory, kInitialShift);
 
         // 非同期で送信
         auto send_goal_options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
         send_goal_options.goal_response_callback =
-            [this, arm_name](auto) {
-                RCLCPP_INFO(this->get_logger(), "Goal accepted by %s arm controller", arm_name.c_str());
+            [this, move_group_interface, plan, arm_name, ee_pose_before, retry_count](auto goal_handle) {
+                if (!goal_handle) {
+                    RCLCPP_ERROR(this->get_logger(), "Goal REJECTED by %s arm controller — retrying with larger offset, then fallback", arm_name.c_str());
+                    stopTrajectoryTracking(arm_name);
+                    // Retry once with a slightly larger future shift
+                    try {
+                        auto action_client_retry = (arm_name == std::string("left")) ? left_arm_action_client_ : right_arm_action_client_;
+                        if (action_client_retry && action_client_retry->action_server_is_ready()) {
+                            auto retry_goal = FollowJointTrajectory::Goal();
+                            retry_goal.trajectory = plan.trajectory_.joint_trajectory;
+                            constexpr double kRetryShift = 0.7; // seconds
+                            retry_goal.trajectory.header.stamp = this->now();
+                            shiftTrajectoryTimes(retry_goal.trajectory, kRetryShift);
+                            auto opts = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+                            opts.result_callback = [this, move_group_interface, plan, arm_name, ee_pose_before](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
+                                using ResultCode = rclcpp_action::ResultCode;
+                                if (result.code == ResultCode::SUCCEEDED) {
+                                    RCLCPP_INFO(this->get_logger(), "Retry trajectory execution completed for %s arm", arm_name.c_str());
+                                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                                    startServo(arm_name);
+                                } else {
+                                    RCLCPP_ERROR(this->get_logger(), "Retry execution failed for %s arm; invoking fallback execute()", arm_name.c_str());
+                                    execute_with_move_group_fallback(move_group_interface, plan, arm_name, "retry failed");
+                                }
+                            };
+                            action_client_retry->async_send_goal(retry_goal, opts);
+                            return;
+                        }
+                    } catch (...) {
+                        // Ignore and go to fallback
+                    }
+                    // Fallback if retry path not taken
+                    execute_with_move_group_fallback(move_group_interface, plan, arm_name, "goal rejected");
+                } else {
+                    RCLCPP_INFO(this->get_logger(), "Goal accepted by %s arm controller", arm_name.c_str());
+                }
             };
         send_goal_options.result_callback =
-            [this, arm_name](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
-                RCLCPP_INFO(this->get_logger(), "Trajectory execution completed for %s arm", arm_name.c_str());
+            [this, move_group_interface, plan, arm_name, ee_pose_before, retry_count](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
+                using ResultCode = rclcpp_action::ResultCode;
+                if (result.code == ResultCode::SUCCEEDED) {
+                    RCLCPP_INFO(this->get_logger(), "Trajectory execution completed for %s arm", arm_name.c_str());
+                    // Detect if EE pose effectively didn't change; if so, auto re-execute once
+                    geometry_msgs::msg::PoseStamped ee_pose_after = move_group_interface->getCurrentPose();
+                    const double pos_d = posePositionDistance(ee_pose_before.pose, ee_pose_after.pose);
+                    const double ang_d = poseOrientationAngle(ee_pose_before.pose, ee_pose_after.pose);
+                    const double pos_thresh = 0.001; // 1 mm
+                    const double ang_thresh = 0.01;  // ~0.57 deg
+                    if (pos_d < pos_thresh && ang_d < ang_thresh && retry_count < 1) {
+                        RCLCPP_WARN(this->get_logger(), "No effective motion detected (dpos=%.4f, dang=%.4f rad). Auto re-executing once for %s arm.", pos_d, ang_d, arm_name.c_str());
+                        // Re-exec without restarting servo; use increased time shift via retry_count+1
+                        execute_trajectory_directly(move_group_interface, plan, arm_name, ee_pose_before, retry_count + 1);
+                        return; // Do not stop tracking or restart servo yet
+                    }
+                } else if (result.code == ResultCode::ABORTED) {
+                    RCLCPP_ERROR(this->get_logger(), "Trajectory execution ABORTED for %s arm — invoking fallback execute()", arm_name.c_str());
+                    execute_with_move_group_fallback(move_group_interface, plan, arm_name, "aborted");
+                    return;
+                } else if (result.code == ResultCode::CANCELED) {
+                    RCLCPP_WARN(this->get_logger(), "Trajectory execution CANCELED for %s arm — invoking fallback execute()", arm_name.c_str());
+                    execute_with_move_group_fallback(move_group_interface, plan, arm_name, "canceled");
+                    return;
+                } else {
+                    RCLCPP_ERROR(this->get_logger(), "Trajectory execution finished with unknown result for %s arm — invoking fallback execute()", arm_name.c_str());
+                    execute_with_move_group_fallback(move_group_interface, plan, arm_name, "unknown result");
+                    return;
+                }
                 stopTrajectoryTracking(arm_name);
                 
-                // Restart servo after trajectory completion for seamless switching
-                std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause
+                // Restart servo after trajectory completion or failure
+                std::this_thread::sleep_for(std::chrono::milliseconds(100));
                 startServo(arm_name);
                 RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm - ready for realtime control", arm_name.c_str());
             };
@@ -780,6 +609,96 @@ private:
         RCLCPP_INFO(this->get_logger(), "Stopped trajectory tracking for %s arm", arm_name.c_str());
     }
     
+    // 軌道最適化関数
+    bool optimizeTrajectory(
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
+        const moveit::planning_interface::MoveGroupInterface::Plan& original_plan,
+        moveit::planning_interface::MoveGroupInterface::Plan& optimized_plan,
+        const std::string& arm_name)
+    {
+        // 超高速最適化開始（ログ最小限）
+        
+        // 最適化手法のリスト（優先順位順・高速化のためCHOMPのみ）
+        std::vector<std::string> optimization_methods = {"chomp"};  // STOMPはより時間がかかるため除外
+        
+        for (const auto& method : optimization_methods) {
+            // ログは最小限に（高速化のため）
+            
+            try {
+                // プランニングパイプラインを最適化手法に切り替え
+                move_group_interface->setPlanningPipelineId(method);
+                
+                // 最適化のためのパラメータ設定（超高速・軽量化）
+                if (method == "chomp") {
+                    move_group_interface->setPlanningTime(0.05);  // CHOMP超高速最適化
+                    move_group_interface->setNumPlanningAttempts(1);  // 1回のみの試行
+                    move_group_interface->setMaxVelocityScalingFactor(1.0);
+                    move_group_interface->setMaxAccelerationScalingFactor(1.0);
+                } else if (method == "stomp") {
+                    move_group_interface->setPlanningTime(0.05); // STOMP超高速最適化
+                    move_group_interface->setNumPlanningAttempts(1);  // 1回のみの試行
+                    move_group_interface->setMaxVelocityScalingFactor(1.0);
+                    move_group_interface->setMaxAccelerationScalingFactor(1.0);
+                }
+                
+                // 元の軌道の終点を目標として設定
+                const auto& last_point = original_plan.trajectory_.joint_trajectory.points.back();
+                move_group_interface->setJointValueTarget(last_point.positions);
+                
+                // 軌道計画実行
+                bool success = (move_group_interface->plan(optimized_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+                
+                if (success) {
+                    // 最適化成功（計算は省略して高速化）
+                    RCLCPP_INFO(this->get_logger(), "%s optimization ✓ for %s arm", method.c_str(), arm_name.c_str());
+                    return true;
+                } else {
+                    // 失敗時は静かに次へ（高速化のため）
+                    continue;
+                }
+                
+            } catch (const std::exception& e) {
+                RCLCPP_ERROR(this->get_logger(), "Exception during %s optimization for %s arm: %s", 
+                            method.c_str(), arm_name.c_str(), e.what());
+            }
+        }
+        
+        // 最適化失敗（静かに元の軌道を使用）
+        return false;
+    }
+    
+    // 軌道の長さを計算する補助関数
+    double calculateTrajectoryLength(const moveit::planning_interface::MoveGroupInterface::Plan& plan)
+    {
+        double total_length = 0.0;
+        const auto& points = plan.trajectory_.joint_trajectory.points;
+        
+        for (size_t i = 1; i < points.size(); ++i) {
+            double segment_length = 0.0;
+            for (size_t j = 0; j < points[i].positions.size(); ++j) {
+                double diff = points[i].positions[j] - points[i-1].positions[j];
+                segment_length += diff * diff;
+            }
+            total_length += std::sqrt(segment_length);
+        }
+        
+        return total_length;
+    }
+    
+    // Shift all trajectory point times by a fixed offset to ensure the
+    // first point is in the future relative to the header.stamp.
+    void shiftTrajectoryTimes(trajectory_msgs::msg::JointTrajectory& traj, double offset_sec)
+    {
+        const int64_t add_nsec = static_cast<int64_t>(offset_sec * 1e9);
+        for (auto& pt : traj.points) {
+            int64_t cur = static_cast<int64_t>(pt.time_from_start.sec) * 1000000000ll + pt.time_from_start.nanosec;
+            cur += add_nsec;
+            if (cur < 0) cur = 0;
+            pt.time_from_start.sec = static_cast<int32_t>(cur / 1000000000ll);
+            pt.time_from_start.nanosec = static_cast<uint32_t>(cur % 1000000000ll);
+        }
+    }
+    
 
     void applyDynamicCollisionAvoidance(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface, const std::string& arm_name)
     {
@@ -803,118 +722,11 @@ private:
                 }
             }
             
-            // より慎重（ただし過度に厳密でない）なプランニング設定
-            move_group_interface->setGoalPositionTolerance(0.004);
-            move_group_interface->setGoalOrientationTolerance(0.04);
-            move_group_interface->setPlanningTime(0.6);
-            move_group_interface->setNumPlanningAttempts(3);
-        }
-    }
-
-    void left_attach_callback(const std_msgs::msg::String::SharedPtr msg)
-    {
-        RCLCPP_INFO(this->get_logger(), "Attaching object '%s' to left arm", msg->data.c_str());
-        attachMeshObject(msg->data, "left");
-    }
-
-    void left_detach_callback(const std_msgs::msg::String::SharedPtr msg)
-    {
-        RCLCPP_INFO(this->get_logger(), "Detaching object '%s' from left arm", msg->data.c_str());
-        detachMeshObject(msg->data, "left");
-    }
-
-    void right_attach_callback(const std_msgs::msg::String::SharedPtr msg)
-    {
-        RCLCPP_INFO(this->get_logger(), "Attaching object '%s' to right arm", msg->data.c_str());
-        attachMeshObject(msg->data, "right");
-    }
-
-    void right_detach_callback(const std_msgs::msg::String::SharedPtr msg)
-    {
-        RCLCPP_INFO(this->get_logger(), "Detaching object '%s' from right arm", msg->data.c_str());
-        detachMeshObject(msg->data, "right");
-    }
-
-    void attachMeshObject(const std::string& object_id, const std::string& arm_name)
-    {
-        if (arm_name == "left" && left_move_group_interface_) {
-            // Simple attach without extra touch links to avoid collision issues
-            std::vector<std::string> touch_links = {"left_EndEffector_1"};
-            left_move_group_interface_->attachObject(object_id, "left_EndEffector_1", touch_links);
-            
-            // Set planning parameters for attached object
-            left_move_group_interface_->setGoalPositionTolerance(0.01); // 1cm tolerance
-            left_move_group_interface_->setGoalOrientationTolerance(0.1); // ~6 degree tolerance
-            left_move_group_interface_->setPlanningTime(10.0); // More planning time
-            
-            RCLCPP_INFO(this->get_logger(), "Attached mesh object '%s' to left arm", object_id.c_str());
-        } else if (arm_name == "right" && right_move_group_interface_) {
-            std::vector<std::string> touch_links = {"right_EndEffector_1"};  
-            right_move_group_interface_->attachObject(object_id, "right_EndEffector_1", touch_links);
-            
-            // Set planning parameters for attached object
-            right_move_group_interface_->setGoalPositionTolerance(0.01);
-            right_move_group_interface_->setGoalOrientationTolerance(0.1);
-            right_move_group_interface_->setPlanningTime(10.0);
-            
-            RCLCPP_INFO(this->get_logger(), "Attached mesh object '%s' to right arm", object_id.c_str());
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Cannot attach object: MoveGroupInterface not initialized for %s arm", arm_name.c_str());
-        }
-    }
-
-    void detachMeshObject(const std::string& object_id, const std::string& arm_name)
-    {
-        if (arm_name == "left" && left_move_group_interface_) {
-            // First detach from robot
-            left_move_group_interface_->detachObject(object_id);
-            
-            // Then remove completely from world using PlanningSceneInterface
-            if (planning_scene_interface_) {
-                std::vector<std::string> object_ids = {object_id};
-                planning_scene_interface_->removeCollisionObjects(object_ids);
-                RCLCPP_INFO(this->get_logger(), "Removed mesh object '%s' from world", object_id.c_str());
-            }
-            
-            // Reset planning parameters to default values after detach
-            left_move_group_interface_->setGoalPositionTolerance(0.001); // Back to 1mm precision
-            left_move_group_interface_->setGoalOrientationTolerance(0.01); // Back to ~0.6 degrees
-            left_move_group_interface_->setPlanningTime(5.0); // Back to default planning time
-            
-            // Clear any cached planning scene state
-            left_move_group_interface_->clearPoseTargets();
-            left_move_group_interface_->stop(); // Stop any ongoing motion
-            
-            // Small delay to ensure planning scene is updated
-            rclcpp::sleep_for(std::chrono::milliseconds(200));
-            
-            RCLCPP_INFO(this->get_logger(), "Detached and removed mesh object '%s' from left arm", object_id.c_str());
-        } else if (arm_name == "right" && right_move_group_interface_) {
-            // First detach from robot
-            right_move_group_interface_->detachObject(object_id);
-            
-            // Then remove completely from world using PlanningSceneInterface
-            if (planning_scene_interface_) {
-                std::vector<std::string> object_ids = {object_id};
-                planning_scene_interface_->removeCollisionObjects(object_ids);
-                RCLCPP_INFO(this->get_logger(), "Removed mesh object '%s' from world", object_id.c_str());
-            }
-            
-            // Reset planning parameters to default values after detach
-            right_move_group_interface_->setGoalPositionTolerance(0.001);
-            right_move_group_interface_->setGoalOrientationTolerance(0.01);
-            right_move_group_interface_->setPlanningTime(5.0);
-            
-            // Clear any cached planning scene state
-            right_move_group_interface_->clearPoseTargets();
-            right_move_group_interface_->stop(); // Stop any ongoing motion
-            
-            // Small delay to ensure planning scene is updated
-            rclcpp::sleep_for(std::chrono::milliseconds(200));
-            
-            RCLCPP_INFO(this->get_logger(), "Detached and removed mesh object '%s' from right arm", object_id.c_str());
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Cannot detach object: MoveGroupInterface not initialized for %s arm", arm_name.c_str());
+            // より慎重なプランニング設定
+            move_group_interface->setGoalPositionTolerance(0.0001);
+            move_group_interface->setGoalOrientationTolerance(0.0001);
+            move_group_interface->setPlanningTime(0.3);
+            move_group_interface->setNumPlanningAttempts(2);
         }
     }
 
@@ -1021,10 +833,26 @@ private:
             move_group_interface->setPlanningTime(0.1);
             move_group_interface->setNumPlanningAttempts(3);
             
-            // Check current state before planning
-            geometry_msgs::msg::PoseStamped current_pose_check = move_group_interface->getCurrentPose();
-            RCLCPP_INFO(this->get_logger(), "Pre-planning check - Current: x=%.3f, y=%.3f, z=%.3f", 
-                       current_pose_check.pose.position.x, current_pose_check.pose.position.y, current_pose_check.pose.position.z);
+            // Ensure we have a valid start state even if current_state_monitor lags
+            bool start_state_set = false;
+            try {
+                auto cs = move_group_interface->getCurrentState(1.5);
+                if (cs) {
+                    move_group_interface->setStartState(*cs);
+                    start_state_set = true;
+                }
+            } catch (...) {}
+            if (!start_state_set && planning_scene_monitor_) {
+                planning_scene_monitor::LockedPlanningSceneRO locked_scene(planning_scene_monitor_);
+                if (locked_scene) {
+                    move_group_interface->setStartState(locked_scene->getCurrentState());
+                    start_state_set = true;
+                    RCLCPP_WARN(this->get_logger(), "Using PlanningScene current state as start (joint state monitor lagging)");
+                }
+            }
+            if (!start_state_set) {
+                RCLCPP_WARN(this->get_logger(), "Proceeding without fresh start state; check joint_states and clock sync");
+            }
             
             move_group_interface->setPoseTarget(target_pose);
             
@@ -1035,7 +863,8 @@ private:
 
             if (success) {
                 RCLCPP_INFO(this->get_logger(), "Pilz LIN planner found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
-                execute_trajectory_directly(move_group_interface, my_plan, arm_name);
+                geometry_msgs::msg::PoseStamped ee_pose_before = move_group_interface->getCurrentPose();
+                execute_trajectory_directly(move_group_interface, my_plan, arm_name, ee_pose_before, 0);
             } else {
                 RCLCPP_WARN(this->get_logger(), "Pilz LIN planning failed for %s arm z-movement, trying OMPL RRTConnect.", arm_name.c_str());
                 
@@ -1050,7 +879,8 @@ private:
                 
                 if (ompl_success) {
                     RCLCPP_INFO(this->get_logger(), "OMPL RRTConnect found a plan for %s arm z-movement, executing via direct trajectory.", arm_name.c_str());
-                    execute_trajectory_directly(move_group_interface, my_plan, arm_name);
+                    geometry_msgs::msg::PoseStamped ee_pose_before = move_group_interface->getCurrentPose();
+                    execute_trajectory_directly(move_group_interface, my_plan, arm_name, ee_pose_before, 0);
                 } else {
                     RCLCPP_ERROR(this->get_logger(), "Both Pilz LIN and OMPL RRTConnect planning failed for %s arm z-movement.", arm_name.c_str());
                     stopTrajectoryTracking(arm_name);
@@ -1147,11 +977,6 @@ private:
 
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr left_rpy_sub_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr right_rpy_sub_;
-    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr dual_rpy_sub_;
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_attach_sub_;
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_detach_sub_;
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_attach_sub_;
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_detach_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_up_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_down_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_up_sub_;
@@ -1160,7 +985,6 @@ private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_arm_close_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_open_sub_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_arm_close_sub_;
-    rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_state_sub_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> left_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> right_move_group_interface_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> left_hand_move_group_interface_;
@@ -1169,48 +993,31 @@ private:
     planning_scene_monitor::PlanningSceneMonitorPtr planning_scene_monitor_;
     std::thread left_init_thread_;
     std::thread right_init_thread_;
-    rclcpp::TimerBase::SharedPtr post_init_timer_;
-    bool enable_local_psm_ = false;
     
     // Store last received poses for arm up/down functionality
     std::vector<double> last_left_pose_rpy_;
     std::vector<double> last_right_pose_rpy_;
     bool left_pose_received_ = false;
     bool right_pose_received_ = false;
-    bool joint_state_ready_ = false;
-    bool actions_ready_ = false;
-    std::vector<double> pending_dual_pose_;
-    bool has_pending_dual_pose_ = false;
     
     // Configurable z-coordinate values for arm up/down
     double arm_up_z_value_ = 0.2;   // Absolute z coordinate for arm up position
     double arm_down_z_value_ = 0.086; // Absolute z coordinate for arm down position
     
     // Action clients for direct trajectory execution
+    using FollowJointTrajectory = control_msgs::action::FollowJointTrajectory;
     rclcpp_action::Client<FollowJointTrajectory>::SharedPtr left_arm_action_client_;
     rclcpp_action::Client<FollowJointTrajectory>::SharedPtr right_arm_action_client_;
-    rclcpp_action::Client<FollowJointTrajectory>::SharedPtr dual_arm_action_client_;
     
     // Track current trajectories for collision avoidance
     std::mutex trajectory_mutex_;
+    std::mutex save_mutex_;
     moveit::planning_interface::MoveGroupInterface::Plan current_left_plan_;
     moveit::planning_interface::MoveGroupInterface::Plan current_right_plan_;
     bool left_arm_executing_ = false;
     bool right_arm_executing_ = false;
     std::chrono::steady_clock::time_point left_execution_start_;
     std::chrono::steady_clock::time_point right_execution_start_;
-
-    // Dual-arm sync state
-    std::mutex sync_mutex_;
-    geometry_msgs::msg::PoseStamped pending_left_pose_;
-    geometry_msgs::msg::PoseStamped pending_right_pose_;
-    bool has_pending_left_pose_ = false;
-    bool has_pending_right_pose_ = false;
-    std::chrono::steady_clock::time_point pending_left_time_;
-    std::chrono::steady_clock::time_point pending_right_time_;
-
-    // Shared plan buffer for small lambdas
-    moveit::planning_interface::MoveGroupInterface::Plan plan_buffer_;
     
     // Servo control service clients for simple switching
     rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr left_servo_start_client_;
@@ -1221,37 +1028,551 @@ private:
     // TF2 for direct pose retrieval
     std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
-    
-    bool isReady() const { return joint_state_ready_ && actions_ready_; }
 
-    void attemptFlushPending()
+    // Controller manager clients
+    rclcpp::Client<controller_manager_msgs::srv::SwitchController>::SharedPtr switch_controller_client_;
+    rclcpp::Client<controller_manager_msgs::srv::ListControllers>::SharedPtr list_controllers_client_;
+    
+    // Direct joint states control subscribers
+    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr left_direct_joints_sub_;
+    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr right_direct_joints_sub_;
+    
+    // YAML trajectory loading subscribers
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr left_load_yaml_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr right_load_yaml_sub_;
+    
+    // 1000Hz recording control subscribers
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr start_recording_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr stop_recording_sub_;
+    
+    // High-frequency joint states recording
+    rclcpp::TimerBase::SharedPtr joint_states_recording_timer_;
+    rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_states_sub_;
+    sensor_msgs::msg::JointState::SharedPtr latest_joint_states_;
+    std::vector<sensor_msgs::msg::JointState> recorded_joint_states_;
+    std::mutex joint_states_mutex_;
+    bool is_recording_joint_states_ = false;
+    
+    // Direct joint states control callbacks
+    void left_direct_joints_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
     {
-        if (!isReady()) return;
-        // Flush dual if pending
-        bool do_dual = false;
-        std::vector<double> dual;
-        {
-            std::lock_guard<std::mutex> lk(sync_mutex_);
-            if (has_pending_dual_pose_ && pending_dual_pose_.size() == 12) {
-                dual = pending_dual_pose_;
-                has_pending_dual_pose_ = false;
-                do_dual = true;
-            }
+        if (msg->data.size() != 6) {
+            RCLCPP_ERROR(this->get_logger(), "Left arm requires exactly 6 joint values, received %zu", msg->data.size());
+            return;
         }
-        if (do_dual) {
-            tf2::Quaternion ql; ql.setRPY(dual[3], dual[4], dual[5]);
-            geometry_msgs::msg::PoseStamped l_pose;
-            l_pose.header.frame_id = "world"; l_pose.header.stamp = this->get_clock()->now();
-            l_pose.pose.position.x = dual[0]; l_pose.pose.position.y = dual[1]; l_pose.pose.position.z = dual[2];
-            l_pose.pose.orientation = tf2::toMsg(ql);
-            tf2::Quaternion qr; qr.setRPY(dual[9], dual[10], dual[11]);
-            geometry_msgs::msg::PoseStamped r_pose;
-            r_pose.header.frame_id = "world"; r_pose.header.stamp = this->get_clock()->now();
-            r_pose.pose.position.x = dual[6]; r_pose.pose.position.y = dual[7]; r_pose.pose.position.z = dual[8];
-            r_pose.pose.orientation = tf2::toMsg(qr);
-            planAndExecuteSynchronized(l_pose, r_pose);
+        
+        executeDirectJoints("left", msg->data);
+    }
+    
+    void right_direct_joints_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
+    {
+        if (msg->data.size() != 6) {
+            RCLCPP_ERROR(this->get_logger(), "Right arm requires exactly 6 joint values, received %zu", msg->data.size());
+            return;
+        }
+        
+        executeDirectJoints("right", msg->data);
+    }
+    
+    // Direct joint states execution function
+    void executeDirectJoints(const std::string& arm_name, const std::vector<double>& joint_values)
+    {
+        RCLCPP_INFO(this->get_logger(), "Executing direct joint states for %s arm", arm_name.c_str());
+        ensureArmControllerActive(arm_name);
+        
+        // Create a simple trajectory with just the target joint positions
+        trajectory_msgs::msg::JointTrajectory trajectory;
+        
+        // Set joint names based on arm
+        if (arm_name == "left") {
+            trajectory.joint_names = {"left_Revolute_1", "left_Revolute_2", "left_Revolute_3", 
+                                     "left_Revolute_4", "left_Revolute_5", "left_Revolute_6"};
+        } else {
+            trajectory.joint_names = {"right_Revolute_1", "right_Revolute_2", "right_Revolute_3", 
+                                     "right_Revolute_4", "right_Revolute_5", "right_Revolute_6"};
+        }
+        
+        // Create trajectory point
+        trajectory_msgs::msg::JointTrajectoryPoint point;
+        point.positions = joint_values;
+        point.time_from_start = rclcpp::Duration::from_seconds(2.0);  // 2秒で移動
+        trajectory.points.push_back(point);
+        
+        // Create action goal
+        auto goal = FollowJointTrajectory::Goal();
+        goal.trajectory = trajectory;
+        // Fast start with moderate margin
+        constexpr double kDirectShift = 0.35; // seconds
+        goal.trajectory.header.stamp = this->now();
+        shiftTrajectoryTimes(goal.trajectory, kDirectShift);
+        
+        // Select appropriate action client
+        auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
+        
+        if (!action_client->wait_for_action_server(std::chrono::seconds(2))) {
+            RCLCPP_ERROR(this->get_logger(), "Action server for %s arm not available", arm_name.c_str());
+            startServo(arm_name);
+            return;
+        }
+        
+        // Send goal with robust callbacks
+        auto send_goal_options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+        send_goal_options.goal_response_callback = [this, arm_name](auto goal_handle) {
+            if (!goal_handle) {
+                RCLCPP_ERROR(this->get_logger(), "Direct joint goal REJECTED for %s arm", arm_name.c_str());
+                stopTrajectoryTracking(arm_name);
+                startServo(arm_name);
+            } else {
+                RCLCPP_INFO(this->get_logger(), "Direct joint goal accepted for %s arm", arm_name.c_str());
+            }
+        };
+        send_goal_options.result_callback = [this, arm_name](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
+            using ResultCode = rclcpp_action::ResultCode;
+            if (result.code == ResultCode::SUCCEEDED) {
+                RCLCPP_INFO(this->get_logger(), "Direct joint execution completed for %s arm", arm_name.c_str());
+            } else if (result.code == ResultCode::ABORTED) {
+                RCLCPP_ERROR(this->get_logger(), "Direct joint execution ABORTED for %s arm", arm_name.c_str());
+            } else if (result.code == ResultCode::CANCELED) {
+                RCLCPP_WARN(this->get_logger(), "Direct joint execution CANCELED for %s arm", arm_name.c_str());
+            }
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            startServo(arm_name);
+        };
+        action_client->async_send_goal(goal, send_goal_options);
+        RCLCPP_INFO(this->get_logger(), "Direct joint trajectory sent to %s arm controller", arm_name.c_str());
+        
+        // Save the direct joint trajectory to YAML for future use
+        moveit::planning_interface::MoveGroupInterface::Plan direct_plan;
+        direct_plan.trajectory_.joint_trajectory = trajectory;
+        // saveTrajectoryToYaml(direct_plan, arm_name + "_direct");
+    }
+    
+    // YAML trajectory loading callbacks
+    void left_load_yaml_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        loadAndExecuteTrajectory(msg->data, "left");
+    }
+    
+    void right_load_yaml_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        loadAndExecuteTrajectory(msg->data, "right");
+    }
+    
+    // Load and execute trajectory from YAML file
+    void loadAndExecuteTrajectory(const std::string& filename, const std::string& arm_name)
+    {
+        RCLCPP_INFO(this->get_logger(), "Loading trajectory from %s for %s arm", filename.c_str(), arm_name.c_str());
+        
+        moveit::planning_interface::MoveGroupInterface::Plan loaded_plan;
+        if (loadTrajectoryFromYaml(filename, loaded_plan)) {
+            RCLCPP_INFO(this->get_logger(), "Successfully loaded trajectory with %zu points for %s arm", 
+                       loaded_plan.trajectory_.joint_trajectory.points.size(), arm_name.c_str());
+            
+            // 直接アクションサーバーを使用して実行
+            executeTrajectoryDirectly(loaded_plan.trajectory_.joint_trajectory, arm_name);
+            
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Failed to load trajectory from %s for %s arm", filename.c_str(), arm_name.c_str());
         }
     }
+    
+    // Direct trajectory execution using action server
+    void executeTrajectoryDirectly(const trajectory_msgs::msg::JointTrajectory& trajectory, const std::string& arm_name)
+    {
+        RCLCPP_INFO(this->get_logger(), "Executing trajectory directly for %s arm with %zu points", 
+                   arm_name.c_str(), trajectory.points.size());
+        ensureArmControllerActive(arm_name);
+        
+        // Create action goal
+        auto goal = FollowJointTrajectory::Goal();
+        goal.trajectory = trajectory;
+        
+        // Select appropriate action client
+        auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
+        
+        if (!action_client->wait_for_action_server(std::chrono::seconds(2))) {
+            RCLCPP_ERROR(this->get_logger(), "Action server for %s arm not available", arm_name.c_str());
+            startServo(arm_name);
+            return;
+        }
+        
+        // Print trajectory details for debugging
+        RCLCPP_INFO(this->get_logger(), "Joint names: [%s]", 
+                   std::accumulate(trajectory.joint_names.begin(), trajectory.joint_names.end(), std::string{},
+                   [](const std::string& a, const std::string& b) { return a.empty() ? b : a + ", " + b; }).c_str());
+        
+        if (!trajectory.points.empty()) {
+            const auto& first_point = trajectory.points[0];
+            RCLCPP_INFO(this->get_logger(), "First point positions: [%.3f, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f]",
+                       first_point.positions[0], first_point.positions[1], first_point.positions[2],
+                       first_point.positions[3], first_point.positions[4], first_point.positions[5], first_point.positions[6]);
+        }
+        
+        // Send goal with robust callbacks
+        auto send_goal_options = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
+        send_goal_options.goal_response_callback = [this, arm_name](auto goal_handle) {
+            if (!goal_handle) {
+                RCLCPP_ERROR(this->get_logger(), "Trajectory goal REJECTED for %s arm", arm_name.c_str());
+                stopTrajectoryTracking(arm_name);
+                startServo(arm_name);
+            } else {
+                RCLCPP_INFO(this->get_logger(), "Trajectory goal accepted for %s arm", arm_name.c_str());
+            }
+        };
+        send_goal_options.result_callback = [this, arm_name](const rclcpp_action::ClientGoalHandle<FollowJointTrajectory>::WrappedResult & result) {
+            using ResultCode = rclcpp_action::ResultCode;
+            if (result.code == ResultCode::SUCCEEDED) {
+                RCLCPP_INFO(this->get_logger(), "Trajectory execution completed for %s arm", arm_name.c_str());
+            } else if (result.code == ResultCode::ABORTED) {
+                RCLCPP_ERROR(this->get_logger(), "Trajectory execution ABORTED for %s arm", arm_name.c_str());
+            } else if (result.code == ResultCode::CANCELED) {
+                RCLCPP_WARN(this->get_logger(), "Trajectory execution CANCELED for %s arm", arm_name.c_str());
+            }
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            startServo(arm_name);
+        };
+        action_client->async_send_goal(goal, send_goal_options);
+        RCLCPP_INFO(this->get_logger(), "Trajectory goal sent to %s arm controller", arm_name.c_str());
+    }
+    
+    // Joint states callback for high-frequency recording
+    void jointStatesCallback(const sensor_msgs::msg::JointState::SharedPtr msg)
+    {
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        latest_joint_states_ = msg;
+    }
+    
+    // 1000Hz recording callback
+    void recordJointStatesCallback()
+    {
+        if (!is_recording_joint_states_ || !latest_joint_states_) {
+            return;
+        }
+        
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        recorded_joint_states_.push_back(*latest_joint_states_);
+    }
+    
+    // Start high-frequency joint states recording
+    void startJointStatesRecording()
+    {
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        recorded_joint_states_.clear();
+        is_recording_joint_states_ = true;
+        RCLCPP_INFO(this->get_logger(), "Started 1000Hz joint states recording");
+    }
+    
+    // Stop recording and save to YAML
+    void stopJointStatesRecording(const std::string& arm_name)
+    {
+        std::lock_guard<std::mutex> lock(joint_states_mutex_);
+        is_recording_joint_states_ = false;
+        
+        if (recorded_joint_states_.empty()) {
+            RCLCPP_WARN(this->get_logger(), "No joint states recorded");
+            return;
+        }
+        
+        RCLCPP_INFO(this->get_logger(), "Stopped recording, saved %zu joint states at 1000Hz", recorded_joint_states_.size());
+        
+        // Convert recorded joint states to trajectory
+        trajectory_msgs::msg::JointTrajectory trajectory;
+        trajectory.joint_names = recorded_joint_states_[0].name;
+        
+        for (size_t i = 0; i < recorded_joint_states_.size(); ++i) {
+            trajectory_msgs::msg::JointTrajectoryPoint point;
+            point.positions = recorded_joint_states_[i].position;
+            point.velocities = recorded_joint_states_[i].velocity;
+            point.time_from_start = rclcpp::Duration::from_seconds(i * 0.001); // 1000Hz = 1ms間隔
+            trajectory.points.push_back(point);
+        }
+        
+        // Save to YAML
+        moveit::planning_interface::MoveGroupInterface::Plan recorded_plan;
+        recorded_plan.trajectory_.joint_trajectory = trajectory;
+        // saveTrajectoryToYaml(recorded_plan, arm_name + "_1000hz");
+    }
+    
+    // Recording control callbacks
+    void startRecordingCallback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        startJointStatesRecording();
+    }
+    
+    void stopRecordingCallback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        stopJointStatesRecording(msg->data); // msg->data should contain arm name (e.g., "left" or "right")
+    }
+
+    // Query controller state
+    bool isControllerActive(const std::string& name)
+    {
+        if (!list_controllers_client_) return false;
+        if (!list_controllers_client_->wait_for_service(std::chrono::milliseconds(200))) return false;
+        auto req = std::make_shared<controller_manager_msgs::srv::ListControllers::Request>();
+        auto fut = list_controllers_client_->async_send_request(req);
+        if (fut.wait_for(std::chrono::milliseconds(500)) != std::future_status::ready) return false;
+        auto resp = fut.get();
+        for (const auto& s : resp->controller) {
+            if (s.name == name) {
+                return (s.state == "active");
+            }
+        }
+        return false;
+    }
+
+    // Try to activate the FollowJointTrajectory controller for the given arm
+    void ensureArmControllerActive(const std::string& arm_name)
+    {
+        if (!switch_controller_client_) {
+            return;
+        }
+        if (!switch_controller_client_->wait_for_service(std::chrono::milliseconds(200))) {
+            RCLCPP_WARN(this->get_logger(), "controller_manager switch service not available (skipping)" );
+            return;
+        }
+
+        auto req = std::make_shared<controller_manager_msgs::srv::SwitchController::Request>();
+        std::string ctrl;
+        if (arm_name == "left") {
+            ctrl = "left_arm_controller";
+        } else if (arm_name == "right") {
+            ctrl = "right_arm_controller";
+        } else {
+            ctrl = arm_name + std::string("_arm_controller");
+        }
+
+        // Skip switching if already active to avoid noisy warnings
+        if (isControllerActive(ctrl)) {
+            RCLCPP_DEBUG(this->get_logger(), "%s already active; skipping switch", ctrl.c_str());
+            return;
+        }
+
+        // Humble API: activate_controllers/deactivate_controllers + strictness/start_asap/timeout may exist
+        req->activate_controllers = {ctrl};
+        // Leave deactivate empty; Servo is stopped via service already
+        // Best effort parameters if present in this distro
+        // Some distros require these fields; if not present they are ignored at compile time
+        // req->strictness = 2; // STRICT
+        // req->start_asap = true;
+        // req->timeout = rclcpp::Duration::from_seconds(1.0);
+
+        auto fut = switch_controller_client_->async_send_request(req);
+        if (fut.wait_for(std::chrono::milliseconds(800)) == std::future_status::ready) {
+            auto resp = fut.get();
+            if (resp->ok) {
+                RCLCPP_INFO(this->get_logger(), "Requested activation of %s", ctrl.c_str());
+            } else {
+                RCLCPP_WARN(this->get_logger(), "Failed to activate %s via controller_manager", ctrl.c_str());
+            }
+        } else {
+            RCLCPP_WARN(this->get_logger(), "Timeout switching controller for %s", ctrl.c_str());
+        }
+    }
+
+    // Convert trajectory to 1000Hz precision
+    trajectory_msgs::msg::JointTrajectory resampleTrajectoryTo1000Hz(const trajectory_msgs::msg::JointTrajectory& original_trajectory) {
+        trajectory_msgs::msg::JointTrajectory resampled_trajectory;
+        resampled_trajectory.joint_names = original_trajectory.joint_names;
+        
+        if (original_trajectory.points.empty()) {
+            return resampled_trajectory;
+        }
+        
+        // Calculate total trajectory time
+        double total_time = original_trajectory.points.back().time_from_start.sec + 
+                           original_trajectory.points.back().time_from_start.nanosec * 1e-9;
+        
+        // Generate 1000Hz samples (every 0.001 seconds)
+        const double dt = 0.001; // 1000Hz
+        int num_samples = static_cast<int>(total_time / dt) + 1;
+        
+        RCLCPP_INFO(this->get_logger(), "Resampling trajectory from %zu points to %d points at 1000Hz over %.2f seconds", 
+                   original_trajectory.points.size(), num_samples, total_time);
+        
+        for (int i = 0; i < num_samples; ++i) {
+            double target_time = i * dt;
+            trajectory_msgs::msg::JointTrajectoryPoint interpolated_point;
+            
+            // Find surrounding points in original trajectory
+            size_t idx = 0;
+            for (size_t j = 0; j < original_trajectory.points.size() - 1; ++j) {
+                double point_time = original_trajectory.points[j].time_from_start.sec + 
+                                   original_trajectory.points[j].time_from_start.nanosec * 1e-9;
+                if (point_time <= target_time) {
+                    idx = j;
+                } else {
+                    break;
+                }
+            }
+            
+            if (idx >= original_trajectory.points.size() - 1) {
+                // Use last point
+                interpolated_point = original_trajectory.points.back();
+            } else {
+                // Linear interpolation between points
+                const auto& p1 = original_trajectory.points[idx];
+                const auto& p2 = original_trajectory.points[idx + 1];
+                
+                double t1 = p1.time_from_start.sec + p1.time_from_start.nanosec * 1e-9;
+                double t2 = p2.time_from_start.sec + p2.time_from_start.nanosec * 1e-9;
+                
+                double alpha = (target_time - t1) / (t2 - t1);
+                if (alpha < 0) alpha = 0;
+                if (alpha > 1) alpha = 1;
+                
+                // Interpolate positions
+                interpolated_point.positions.resize(p1.positions.size());
+                for (size_t j = 0; j < p1.positions.size(); ++j) {
+                    interpolated_point.positions[j] = p1.positions[j] + alpha * (p2.positions[j] - p1.positions[j]);
+                }
+                
+                // Interpolate velocities if available
+                if (!p1.velocities.empty() && !p2.velocities.empty()) {
+                    interpolated_point.velocities.resize(p1.velocities.size());
+                    for (size_t j = 0; j < p1.velocities.size(); ++j) {
+                        interpolated_point.velocities[j] = p1.velocities[j] + alpha * (p2.velocities[j] - p1.velocities[j]);
+                    }
+                }
+            }
+            
+            // Set time
+            interpolated_point.time_from_start = rclcpp::Duration::from_seconds(target_time);
+            resampled_trajectory.points.push_back(interpolated_point);
+        }
+        
+        return resampled_trajectory;
+    }
+
+    // 軌道を1000Hz精度で自動的にYAMLファイルに保存
+    void saveTrajectoryToYaml(const moveit::planning_interface::MoveGroupInterface::Plan& plan, const std::string& arm_name) {
+        std::lock_guard<std::mutex> lock(save_mutex_);
+        try {
+            auto now = this->get_clock()->now();
+            std::time_t time_t = now.seconds();
+            std::tm* tm = std::localtime(&time_t);
+            
+            // ファイル名をタイムスタンプ（秒まで）で生成
+            std::stringstream ss;
+            ss << "/home/a/ws_moveit2/src/robot_config/path/trajectory_"
+               << std::put_time(tm, "%Y%m%d_%H%M%S") << ".yaml";
+            std::string filename = ss.str();
+            
+            YAML::Node root_node;
+            try {
+                root_node = YAML::LoadFile(filename);
+            } catch (const YAML::BadFile& e) {
+                // ファイルが存在しない場合は新しいノードを作成
+            }
+
+            // 1000Hz精度でリサンプリング
+            trajectory_msgs::msg::JointTrajectory resampled_trajectory = resampleTrajectoryTo1000Hz(plan.trajectory_.joint_trajectory);
+            
+            YAML::Node arm_trajectory_node;
+            arm_trajectory_node["trajectory_info"]["arm_name"] = arm_name;
+            arm_trajectory_node["trajectory_info"]["timestamp"] = static_cast<int64_t>(now.nanoseconds());
+            arm_trajectory_node["trajectory_info"]["planner_id"] = plan.planning_time_;
+            arm_trajectory_node["trajectory_info"]["original_points"] = plan.trajectory_.joint_trajectory.points.size();
+            arm_trajectory_node["trajectory_info"]["resampled_points"] = resampled_trajectory.points.size();
+            arm_trajectory_node["trajectory_info"]["sampling_rate"] = "1000Hz";
+            
+            // ジョイント名を保存
+            YAML::Node joint_names;
+            for (const auto& name : resampled_trajectory.joint_names) {
+                joint_names.push_back(name);
+            }
+            arm_trajectory_node["trajectory"]["joint_names"] = joint_names;
+            
+            // 1000Hzリサンプリングされた軌道ポイントを保存
+            YAML::Node points;
+            for (size_t i = 0; i < resampled_trajectory.points.size(); ++i) {
+                const auto& point = resampled_trajectory.points[i];
+                YAML::Node point_node;
+                
+                // 位置データ
+                YAML::Node positions;
+                for (const auto& pos : point.positions) {
+                    positions.push_back(pos);
+                }
+                point_node["positions"] = positions;
+                
+                // 速度データ（存在する場合）
+                if (!point.velocities.empty()) {
+                    YAML::Node velocities;
+                    for (const auto& vel : point.velocities) {
+                        velocities.push_back(vel);
+                    }
+                    point_node["velocities"] = velocities;
+                }
+                
+                // 時間データ
+                point_node["time_from_start"]["sec"] = point.time_from_start.sec;
+                point_node["time_from_start"]["nanosec"] = point.time_from_start.nanosec;
+                
+                points.push_back(point_node);
+            }
+            arm_trajectory_node["trajectory"]["points"] = points;
+
+            // arm_nameをキーとしてルートノードに追加
+            root_node[arm_name] = arm_trajectory_node;
+            
+            // ファイルに書き込み
+            std::ofstream file(filename);
+            file << root_node;
+            file.close();
+            
+            RCLCPP_INFO(this->get_logger(), "1000Hz trajectory for %s saved to: %s (%zu→%zu points)", 
+                       arm_name.c_str(), filename.c_str(), plan.trajectory_.joint_trajectory.points.size(), resampled_trajectory.points.size());
+            
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to save trajectory: %s", e.what());
+        }
+    }
+    
+    // YAMLファイルから軌道を読み込み
+    bool loadTrajectoryFromYaml(const std::string& filename, moveit::planning_interface::MoveGroupInterface::Plan& plan) {
+        try {
+            YAML::Node yaml_node = YAML::LoadFile(filename);
+            
+            // ジョイント名を復元
+            plan.trajectory_.joint_trajectory.joint_names.clear();
+            for (const auto& name : yaml_node["trajectory"]["joint_names"]) {
+                plan.trajectory_.joint_trajectory.joint_names.push_back(name.as<std::string>());
+            }
+            
+            // 軌道ポイントを復元
+            plan.trajectory_.joint_trajectory.points.clear();
+            for (const auto& point_yaml : yaml_node["trajectory"]["points"]) {
+                trajectory_msgs::msg::JointTrajectoryPoint point;
+                
+                // 位置データ復元
+                for (const auto& pos : point_yaml["positions"]) {
+                    point.positions.push_back(pos.as<double>());
+                }
+                
+                // 速度データ復元（存在する場合）
+                if (point_yaml["velocities"]) {
+                    for (const auto& vel : point_yaml["velocities"]) {
+                        point.velocities.push_back(vel.as<double>());
+                    }
+                }
+                
+                // 時間データ復元
+                point.time_from_start.sec = point_yaml["time_from_start"]["sec"].as<int32_t>();
+                point.time_from_start.nanosec = point_yaml["time_from_start"]["nanosec"].as<uint32_t>();
+                
+                plan.trajectory_.joint_trajectory.points.push_back(point);
+            }
+            
+            RCLCPP_INFO(this->get_logger(), "Trajectory loaded from: %s", filename.c_str());
+            return true;
+            
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to load trajectory from %s: %s", filename.c_str(), e.what());
+            return false;
+        }
+    }
+    
 };
 
 int main(int argc, char *argv[])

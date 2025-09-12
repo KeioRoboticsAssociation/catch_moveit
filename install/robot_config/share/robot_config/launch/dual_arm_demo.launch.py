@@ -3,7 +3,6 @@ import yaml
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, RegisterEventHandler, IncludeLaunchDescription, ExecuteProcess, TimerAction
 from launch.event_handlers import OnProcessStart
-from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
@@ -36,13 +35,6 @@ def generate_launch_description():
             "field",
             default_value="red",
             description="Field type: 'red' for red team position, 'blue' for blue team position",
-        )
-    )
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "use_dual_controller",
-            default_value="false",
-            description="If true, spawn dual_arm_controller and use merged trajectory execution",
         )
     )
     # Declare arguments for left arm initial positions
@@ -122,14 +114,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_4_lower_limit",
-            default_value="0",
+            default_value="-3.14",
             description="Lower limit for left arm Revolute_4 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_4_upper_limit",
-            default_value="0",
+            default_value="3.14",
             description="Upper limit for left arm Revolute_4 joint",
         )
     )
@@ -510,14 +502,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_4_lower_limit",
-            default_value="0",
+            default_value="-3.14",
             description="Lower limit for right arm Revolute_4 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_4_upper_limit",
-            default_value="0",
+            default_value="3.14",
             description="Upper limit for right arm Revolute_4 joint",
         )
     )
@@ -611,7 +603,7 @@ def generate_launch_description():
     right_Revolute_1_xyz = LaunchConfiguration("right_Revolute_1_xyz")
     right_Revolute_1_rpy = PythonExpression([
         '"0 0 -1.57" if "', field, '" == "red" else ',
-        '"0 0 -1.57" if "', field, '" == "blue" else "',
+        '"0 0 1.57" if "', field, '" == "blue" else "',
         LaunchConfiguration("right_Revolute_1_rpy"), '"'
     ])
     right_Revolute_2_xyz = LaunchConfiguration("right_Revolute_2_xyz")
@@ -676,7 +668,7 @@ def generate_launch_description():
     def get_box_coordinates(field_value):
         """Get box coordinates based on field parameter"""
         # Current box_coordinates split into blue (first 24) and red (last 24)
-        full_coordinates = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        full_coordinates = [0.135,-0.1795,0.3,0.135,-0.1795,0.3,0.135,-0.1795,0.5,0.135,-0.1795,0.5,1.485,-0.1795,0.3,1.485,-0.1795,0.3,1.485,-0.1795,0.5,1.485,-0.1795,0.5]
 
         blue_coordinates = full_coordinates  # First 24 values for blue
         red_coordinates = full_coordinates  # Last 24 values for red
@@ -798,7 +790,7 @@ def generate_launch_description():
         .robot_description_kinematics(file_path="config/dual_arm_kinematics.yaml")
         .joint_limits(file_path="config/dual_arm_joint_limits.yaml")
         .planning_pipelines(
-            pipelines=["ompl", "pilz_industrial_motion_planner","chomp","stomp"],
+            pipelines=["ompl", "pilz_industrial_motion_planner"],
             default_planning_pipeline="ompl"
         )
         .trajectory_execution(
@@ -853,57 +845,13 @@ def generate_launch_description():
     # ##################################################################
     # ## 2. spawnerノードのリストを準備 ##
     # ##################################################################
-    use_dual_controller = LaunchConfiguration('use_dual_controller', default='false')
-
     spawn_controllers = []
-    # Spawn joint_state_broadcaster FIRST for faster availability of joint_states
-    spawn_controllers.append(
-        Node(
-            package="controller_manager",
-            executable="spawner",
-            arguments=["joint_state_broadcaster", "-c", "/controller_manager"],
-            output="screen",
-        )
-    )
-
-    # Conditionally spawn controllers based on use_dual_controller
-    # When dual is enabled: spawn dual_arm_controller, hands, seiretu
-    # When dual is disabled: spawn left/right arm controllers, hands, seiretu
-    # Use conditional Nodes instead of OpaqueFunction for robustness
-    spawn_controllers.append(
-        Node(
-            package="controller_manager",
-            executable="spawner",
-            arguments=["dual_arm_controller", "-c", "/controller_manager"],
-            condition=IfCondition(use_dual_controller),
-            output="screen",
-        )
-    )
-    spawn_controllers.append(
-        Node(
-            package="controller_manager",
-            executable="spawner",
-            arguments=["left_arm_controller", "-c", "/controller_manager"],
-            condition=UnlessCondition(use_dual_controller),
-            output="screen",
-        )
-    )
-    spawn_controllers.append(
-        Node(
-            package="controller_manager",
-            executable="spawner",
-            arguments=["right_arm_controller", "-c", "/controller_manager"],
-            condition=UnlessCondition(use_dual_controller),
-            output="screen",
-        )
-    )
-    # Hands + seiretu always
-    for ctl in ["left_hand_controller", "right_hand_controller", "red_seiretu_controller", "blue_seiretu_controller"]:
+    for controller in ["left_arm_controller", "right_arm_controller", "left_hand_controller", "right_hand_controller", "red_seiretu_controller","blue_seiretu_controller","joint_state_broadcaster"]:
         spawn_controllers.append(
             Node(
                 package="controller_manager",
                 executable="spawner",
-                arguments=[ctl, "-c", "/controller_manager"],
+                arguments=[controller, "-c", "/controller_manager"],
                 output="screen",
             )
         )
@@ -933,16 +881,10 @@ def generate_launch_description():
             {"planning_scene_monitor_options.publish_state_updates": True},
             {"planning_scene_monitor_options.publish_transforms_updates": True},
             {"planning_scene_monitor_options.octomap_resolution": 0.0},
-            {"planning_scene_monitor_options.default_attached_padd": 0.0},
-            {"planning_scene_monitor_options.default_robot_padd": 0.0},
             # Set OMPL random seed for reproducible planning
             {"ompl/random_seed": 42},
             # Explicitly set planning pipeline
             {"default_planning_pipeline": "ompl"},
-            # Disable trajectory execution monitoring to prevent repetitive execution
-            {"trajectory_execution.execution_duration_monitoring": False},
-            {"trajectory_execution.allowed_execution_duration_scaling": 10.0},
-            {"trajectory_execution.allowed_goal_duration_margin": 30.0},
         ],
         arguments=["--ros-log-level", "info"],
     )
@@ -1102,7 +1044,6 @@ def generate_launch_description():
             moveit_config.robot_description,
             moveit_config.robot_description_semantic,
             moveit_config.robot_description_kinematics,
-            {"use_dual_controller": use_dual_controller},
         ],
     )
 
@@ -1282,13 +1223,6 @@ def generate_launch_description():
         name='target_pose_router',
         output='screen'
     )
-
-
-
-
-
-
-
     
     return LaunchDescription(
         declared_arguments
@@ -1304,8 +1238,6 @@ def generate_launch_description():
             right_servo_node,
             joy_node,
             move_to_pose_dual_cpp_node, # Add the new dual arm node
-            # Seiretu robots are now integrated into main robot_description
-            # No separate publishers needed
             # Additional nodes
             rosbridge_websocket,
             rosapi_node,

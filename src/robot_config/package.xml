@@ -52,6 +52,7 @@
   <depend>pilz_industrial_motion_planner</depend>
   <depend>trac_ik_kinematics_plugin</depend>
   <depend>yaml-cpp</depend>
+  <depend>controller_manager_msgs</depend>
 
   <export>
       <build_type>ament_cmake</build_type>

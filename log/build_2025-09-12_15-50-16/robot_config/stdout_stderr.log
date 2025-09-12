@@ -1,0 +1,12 @@
+[35m[1mConsolidate compiler generated dependencies of target move_to_pose_dual_cpp[0m
+[ 33%] Built target pose_command_publisher
+[ 66%] Built target dual_arm_servo_controller
+[ 83%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In lambda function:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:334:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kcs[m[K’ was not declared in this scope; did you mean ‘[01m[Kcos[m[K’?
+  334 |                 if ([01;31m[Kcs[m[K) {
+      |                     [01;31m[K^~[m[K
+      |                     [32m[Kcos[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

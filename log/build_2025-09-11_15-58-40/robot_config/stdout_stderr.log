@@ -1,0 +1,14 @@
+[ 33%] Built target pose_command_publisher
+[ 66%] Built target dual_arm_servo_controller
+[ 83%] [32mBuilding CXX object CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o[0m
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:[m[K In member function ‘[01m[Kvoid MoveToPoseDualCpp::enforceExactFinalPose(trajectory_msgs::msg::JointTrajectory&, const PoseStamped&, std::shared_ptr<moveit::planning_interface::MoveGroupInterface>)[m[K’:
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:570:9:[m[K [01;31m[Kerror: [m[K‘[01m[Krobot_state[m[K’ has not been declared
+  570 |         [01;31m[Krobot_state[m[K::RobotState target_state(*move_group->getCurrentState());
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/a/ws_moveit2/src/robot_config/src/move_to_pose_dual_cpp.cpp:571:13:[m[K [01;31m[Kerror: [m[K‘[01m[Ktarget_state[m[K’ was not declared in this scope; did you mean ‘[01m[Ktarget_pose[m[K’?
+  571 |         if ([01;31m[Ktarget_state[m[K.setFromIK(move_group->getRobotModel()->getJointModelGroup(move_group->getName()), target_pose.pose)) {
+      |             [01;31m[K^~~~~~~~~~~~[m[K
+      |             [32m[Ktarget_pose[m[K
+gmake[2]: *** [CMakeFiles/move_to_pose_dual_cpp.dir/build.make:76: CMakeFiles/move_to_pose_dual_cpp.dir/src/move_to_pose_dual_cpp.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/move_to_pose_dual_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
