@@ -1,0 +1,28 @@
+In file included from [01m[K/home/a/ws_moveit2/src/MAVLink_ros2/src/servo_controller.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/MAVLink_ros2/include/stm32_mavlink_interface/servo_controller.hpp:10:10:[m[K [01;31m[Kfatal error: [m[Kmavlink/c_library_v2/common/mavlink.h: No such file or directory
+   10 | #include [01;31m[K"mavlink/c_library_v2/common/mavlink.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/a/ws_moveit2/src/MAVLink_ros2/src/robomaster_controller.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/MAVLink_ros2/include/stm32_mavlink_interface/robomaster_controller.hpp:13:10:[m[K [01;31m[Kfatal error: [m[Kmavlink/c_library_v2/common/mavlink.h: No such file or directory
+   13 | #include [01;31m[K"mavlink/c_library_v2/common/mavlink.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mavlink_serial_node.dir/build.make:90: CMakeFiles/mavlink_serial_node.dir/src/servo_controller.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/mavlink_serial_node.dir/build.make:118: CMakeFiles/mavlink_serial_node.dir/src/robomaster_controller.cpp.o] Error 1
+In file included from [01m[K/home/a/ws_moveit2/src/MAVLink_ros2/src/encoder_interface.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/MAVLink_ros2/include/stm32_mavlink_interface/encoder_interface.hpp:11:10:[m[K [01;31m[Kfatal error: [m[Kmavlink/c_library_v2/common/mavlink.h: No such file or directory
+   11 | #include [01;31m[K"mavlink/c_library_v2/common/mavlink.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mavlink_serial_node.dir/build.make:104: CMakeFiles/mavlink_serial_node.dir/src/encoder_interface.cpp.o] Error 1
+In file included from [01m[K/home/a/ws_moveit2/src/MAVLink_ros2/src/mavlink_serial_node.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/MAVLink_ros2/include/stm32_mavlink_interface/mavlink_serial_node.hpp:14:10:[m[K [01;31m[Kfatal error: [m[Kmavlink/c_library_v2/common/mavlink.h: No such file or directory
+   14 | #include [01;31m[K"mavlink/c_library_v2/common/mavlink.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mavlink_serial_node.dir/build.make:76: CMakeFiles/mavlink_serial_node.dir/src/mavlink_serial_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:593: CMakeFiles/mavlink_serial_node.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

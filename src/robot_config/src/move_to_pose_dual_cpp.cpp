@@ -329,7 +329,7 @@ private:
             // Ensure we have a valid start state even if current_state_monitor lags
             bool start_state_set = false;
             try {
-                auto cs = move_group_interface->getCurrentState(1.5);
+                auto cs = move_group_interface->getCurrentState(0.3);
                 if (cs) {
                     move_group_interface->setStartState(*cs);
                     start_state_set = true;
@@ -362,7 +362,7 @@ private:
                 move_group_interface->setGoalPositionTolerance(0.0001);
                 move_group_interface->setGoalOrientationTolerance(0.0001);
                 move_group_interface->setNumPlanningAttempts(10);
-                move_group_interface->setPlanningTime(0.3);
+                move_group_interface->setPlanningTime(0.1);
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
@@ -397,7 +397,7 @@ private:
                 stopTrajectoryTracking(arm_name);
                 
                 // Restart servo even after planning failure for continuous control
-                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                std::this_thread::sleep_for(std::chrono::milliseconds(50));
                 startServo(arm_name);
                 RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm after planning failure", arm_name.c_str());
             }
@@ -425,7 +425,7 @@ private:
             // Clear execution tracking in any case
             stopTrajectoryTracking(arm_name);
             // After any execution path, restart servo for realtime control
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(30));
             startServo(arm_name);
         }).detach();
     }
@@ -464,7 +464,7 @@ private:
         // Stop servo just-in-time for clean trajectory execution
         stopServo(arm_name);
         // Minimal settle time
-        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
         
         // Ensure the arm's FollowJointTrajectory controller is active
         ensureArmControllerActive(arm_name);
@@ -520,7 +520,7 @@ private:
                                 using ResultCode = rclcpp_action::ResultCode;
                                 if (result.code == ResultCode::SUCCEEDED) {
                                     RCLCPP_INFO(this->get_logger(), "Retry trajectory execution completed for %s arm", arm_name.c_str());
-                                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                                    std::this_thread::sleep_for(std::chrono::milliseconds(30));
                                     startServo(arm_name);
                                 } else {
                                     RCLCPP_ERROR(this->get_logger(), "Retry execution failed for %s arm; invoking fallback execute()", arm_name.c_str());
@@ -575,7 +575,7 @@ private:
                 stopTrajectoryTracking(arm_name);
                 
                 // Restart servo after trajectory completion or failure
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                std::this_thread::sleep_for(std::chrono::milliseconds(30));
                 startServo(arm_name);
                 RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm - ready for realtime control", arm_name.c_str());
             };
@@ -924,15 +924,15 @@ private:
             // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
             move_group_interface->setPlannerId("LIN");
-            move_group_interface->setPlanningTime(0.5);  // Increased planning time
-            move_group_interface->setNumPlanningAttempts(5);  // More attempts
+            move_group_interface->setPlanningTime(0.1);  // Fast planning time
+            move_group_interface->setNumPlanningAttempts(3);  // Fewer attempts for speed
             move_group_interface->setGoalPositionTolerance(0.0001);  // More tolerant
             move_group_interface->setGoalOrientationTolerance(0.0001);  // More tolerant
             
             // Ensure we have a valid start state even if current_state_monitor lags
             bool start_state_set = false;
             try {
-                auto cs = move_group_interface->getCurrentState(1.5);
+                auto cs = move_group_interface->getCurrentState(0.3);
                 if (cs) {
                     move_group_interface->setStartState(*cs);
                     start_state_set = true;
@@ -984,7 +984,7 @@ private:
                     stopTrajectoryTracking(arm_name);
                     
                     // Restart servo even after planning failure for continuous control
-                    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                    std::this_thread::sleep_for(std::chrono::milliseconds(50));
                     startServo(arm_name);
                     RCLCPP_INFO(this->get_logger(), "Servo restarted for %s arm after z-movement planning failure", arm_name.c_str());
                 }
@@ -1233,7 +1233,7 @@ private:
             } else if (result.code == ResultCode::CANCELED) {
                 RCLCPP_WARN(this->get_logger(), "Direct joint execution CANCELED for %s arm", arm_name.c_str());
             }
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(30));
             startServo(arm_name);
         };
         action_client->async_send_goal(goal, send_goal_options);
@@ -1326,7 +1326,7 @@ private:
             } else if (result.code == ResultCode::CANCELED) {
                 RCLCPP_WARN(this->get_logger(), "Trajectory execution CANCELED for %s arm", arm_name.c_str());
             }
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(30));
             startServo(arm_name);
         };
         action_client->async_send_goal(goal, send_goal_options);

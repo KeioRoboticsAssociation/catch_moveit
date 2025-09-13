@@ -1,0 +1,49 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from stm32_mavlink_interface/msg/EncoderState.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module stm32_mavlink_interface {
+  module msg {
+    @verbatim (language="comment", text=
+      "Encoder state message")
+    struct EncoderState {
+      @verbatim (language="comment", text=
+        "Header with timestamp")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Encoder ID")
+      uint8 encoder_id;
+
+      @verbatim (language="comment", text=
+        "Current encoder position in counts")
+      int32 position;
+
+      @verbatim (language="comment", text=
+        "Current angle in radians")
+      float angle_rad;
+
+      @verbatim (language="comment", text=
+        "Current angle in degrees")
+      float angle_deg;
+
+      @verbatim (language="comment", text=
+        "Number of complete revolutions")
+      uint32 revolutions;
+
+      @verbatim (language="comment", text=
+        "Z-index pulse detected")
+      boolean z_detected;
+
+      @verbatim (language="comment", text=
+        "Encoder status")
+      uint8 status;
+
+      @verbatim (language="comment", text=
+        "Error count")
+      uint32 error_count;
+    };
+  };
+};

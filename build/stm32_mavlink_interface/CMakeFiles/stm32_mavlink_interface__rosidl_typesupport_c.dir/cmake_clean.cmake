@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/encoder_config__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/encoder_config__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/encoder_state__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/encoder_state__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_command__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_command__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_config__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_config__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_state__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_state__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/servo_command__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/servo_command__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/servo_state__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/msg/servo_state__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/get_robomaster_motor_config__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/get_robomaster_motor_config__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/set_encoder_config__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/set_encoder_config__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/set_robomaster_motor_config__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/set_robomaster_motor_config__type_support.cpp.o.d"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/set_servo_config__type_support.cpp.o"
+  "CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/stm32_mavlink_interface/srv/set_servo_config__type_support.cpp.o.d"
+  "libstm32_mavlink_interface__rosidl_typesupport_c.pdb"
+  "libstm32_mavlink_interface__rosidl_typesupport_c.so"
+  "rosidl_typesupport_c/stm32_mavlink_interface/msg/encoder_config__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/msg/encoder_state__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_command__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_config__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/msg/robomaster_motor_state__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/msg/servo_command__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/msg/servo_state__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/srv/get_robomaster_motor_config__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/srv/set_encoder_config__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/srv/set_robomaster_motor_config__type_support.cpp"
+  "rosidl_typesupport_c/stm32_mavlink_interface/srv/set_servo_config__type_support.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/stm32_mavlink_interface__rosidl_typesupport_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

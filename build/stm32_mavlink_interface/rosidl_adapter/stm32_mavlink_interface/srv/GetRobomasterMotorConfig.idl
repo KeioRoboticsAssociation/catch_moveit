@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from stm32_mavlink_interface/srv/GetRobomasterMotorConfig.srv
+// generated code does not contain a copyright notice
+
+#include "stm32_mavlink_interface/msg/RobomasterMotorConfig.idl"
+
+module stm32_mavlink_interface {
+  module srv {
+    @verbatim (language="comment", text=
+      "Service to get RoboMaster motor configuration")
+    struct GetRobomasterMotorConfig_Request {
+      @verbatim (language="comment", text=
+        "Request" "\n"
+        "Motor ID (1-8)")
+      uint8 motor_id;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct GetRobomasterMotorConfig_Response {
+      @verbatim (language="comment", text=
+        "Configuration was retrieved successfully")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "Motor configuration")
+      stm32_mavlink_interface::msg::RobomasterMotorConfig config;
+
+      @verbatim (language="comment", text=
+        "Status or error message")
+      string message;
+    };
+  };
+};

@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from stm32_mavlink_interface/msg/EncoderConfig.msg
+// generated code does not contain a copyright notice
+
+
+module stm32_mavlink_interface {
+  module msg {
+    @verbatim (language="comment", text=
+      "Encoder configuration message")
+    struct EncoderConfig {
+      @verbatim (language="comment", text=
+        "Encoder ID")
+      uint8 encoder_id;
+
+      @verbatim (language="comment", text=
+        "Counts per revolution")
+      uint16 cpr;
+
+      @verbatim (language="comment", text=
+        "Invert A signal")
+      boolean invert_a;
+
+      @verbatim (language="comment", text=
+        "Invert B signal")
+      boolean invert_b;
+
+      @verbatim (language="comment", text=
+        "Use Z index signal")
+      boolean use_z;
+
+      @verbatim (language="comment", text=
+        "Watchdog timeout in milliseconds")
+      uint32 watchdog_timeout_ms;
+
+      @verbatim (language="comment", text=
+        "Position offset")
+      int32 offset_counts;
+
+      @verbatim (language="comment", text=
+        "Enable position wrap-around")
+      boolean wrap_around;
+    };
+  };
+};

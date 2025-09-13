@@ -1,0 +1,114 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from stm32_mavlink_interface/msg/RobomasterMotorConfig.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module stm32_mavlink_interface {
+  module msg {
+    module RobomasterMotorConfig_Constants {
+      const uint8 FAILSAFE_HOLD_POSITION = 0;
+      const uint8 FAILSAFE_BRAKE = 1;
+      const uint8 FAILSAFE_DISABLE_OUTPUT = 2;
+    };
+    @verbatim (language="comment", text=
+      "RoboMaster Motor Configuration Message" "\n"
+      "Configuration parameters for RoboMaster motors")
+    struct RobomasterMotorConfig {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Motor identification" "\n"
+        "Motor ID (1-8)")
+      uint8 motor_id;
+
+      @verbatim (language="comment", text=
+        "Physical limits" "\n"
+        "Maximum velocity in RPS")
+      float max_velocity_rps;
+
+      @verbatim (language="comment", text=
+        "Maximum acceleration in RPS^2")
+      float max_acceleration_rps2;
+
+      @verbatim (language="comment", text=
+        "Maximum current in milliamps")
+      int16 max_current_ma;
+
+      @verbatim (language="comment", text=
+        "Minimum current in milliamps")
+      int16 min_current_ma;
+
+      @verbatim (language="comment", text=
+        "Position limits" "\n"
+        "Minimum position in radians")
+      float min_position_rad;
+
+      @verbatim (language="comment", text=
+        "Maximum position in radians")
+      float max_position_rad;
+
+      @verbatim (language="comment", text=
+        "Enable position limits")
+      boolean position_limits_enabled;
+
+      @verbatim (language="comment", text=
+        "Safety settings" "\n"
+        "Watchdog timeout in milliseconds")
+      uint32 watchdog_timeout_ms;
+
+      @verbatim (language="comment", text=
+        "Maximum temperature in Celsius")
+      uint8 max_temperature_celsius;
+
+      uint8 failsafe_behavior;
+
+      @verbatim (language="comment", text=
+        "PID control parameters" "\n"
+        "Position P gain")
+      float position_kp;
+
+      @verbatim (language="comment", text=
+        "Position I gain")
+      float position_ki;
+
+      @verbatim (language="comment", text=
+        "Position D gain")
+      float position_kd;
+
+      @verbatim (language="comment", text=
+        "Velocity P gain")
+      float velocity_kp;
+
+      @verbatim (language="comment", text=
+        "Velocity I gain")
+      float velocity_ki;
+
+      @verbatim (language="comment", text=
+        "Velocity D gain")
+      float velocity_kd;
+
+      @verbatim (language="comment", text=
+        "Startup settings" "\n"
+        "Initial position on startup")
+      float startup_position_rad;
+
+      @verbatim (language="comment", text=
+        "Startup control mode (0=current, 1=velocity, 2=position)")
+      uint8 startup_mode;
+
+      @verbatim (language="comment", text=
+        "Start in disabled state")
+      boolean start_disabled;
+
+      @verbatim (language="comment", text=
+        "Direction and offset" "\n"
+        "Invert rotation direction")
+      boolean direction_inverted;
+
+      @verbatim (language="comment", text=
+        "Position offset in radians")
+      float position_offset_rad;
+    };
+  };
+};

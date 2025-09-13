@@ -1,0 +1,37 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from stm32_mavlink_interface/srv/SetEncoderConfig.srv
+// generated code does not contain a copyright notice
+
+
+module stm32_mavlink_interface {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct SetEncoderConfig_Request {
+      uint8 encoder_id;
+
+      uint16 cpr;
+
+      boolean invert_a;
+
+      boolean invert_b;
+
+      boolean use_z;
+
+      uint32 watchdog_timeout_ms;
+
+      int32 offset_counts;
+
+      boolean wrap_around;
+
+      boolean save_to_flash;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct SetEncoderConfig_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

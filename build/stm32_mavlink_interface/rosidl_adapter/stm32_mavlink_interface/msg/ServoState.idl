@@ -1,0 +1,43 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from stm32_mavlink_interface/msg/ServoState.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module stm32_mavlink_interface {
+  module msg {
+    @verbatim (language="comment", text=
+      "Servo state feedback message")
+    struct ServoState {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Servo ID")
+      uint8 servo_id;
+
+      @verbatim (language="comment", text=
+        "Current angle in degrees")
+      float current_angle_deg;
+
+      @verbatim (language="comment", text=
+        "Target angle in degrees")
+      float target_angle_deg;
+
+      @verbatim (language="comment", text=
+        "Current PWM pulse width")
+      uint16 pulse_us;
+
+      @verbatim (language="comment", text=
+        "Servo enabled state")
+      boolean enabled;
+
+      @verbatim (language="comment", text=
+        "Status code (0=OK, 1=NOT_INITIALIZED, 2=TIMER_ERROR, 3=OUT_OF_RANGE, 4=TIMEOUT, 5=CONFIG_ERROR)")
+      uint8 status;
+
+      @verbatim (language="comment", text=
+        "Total error count")
+      uint32 error_count;
+    };
+  };
+};
