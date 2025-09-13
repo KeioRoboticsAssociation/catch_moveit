@@ -1391,6 +1391,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "CMakeFiles/robot_config_uninstall.dir/DependInfo.cmake"
   "CMakeFiles/move_to_pose_dual_cpp.dir/DependInfo.cmake"
+  "CMakeFiles/dual_arm_trajectory_recorder.dir/DependInfo.cmake"
   "CMakeFiles/pose_command_publisher.dir/DependInfo.cmake"
   "CMakeFiles/dual_arm_servo_controller.dir/DependInfo.cmake"
+  "CMakeFiles/simple_trajectory_recorder.dir/DependInfo.cmake"
   )

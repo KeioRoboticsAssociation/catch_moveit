@@ -1,0 +1,115 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-f9c72e7ff7e1fd4fcd06.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "robot_config",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "dual_arm_servo_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dual_arm_servo_controller-3f4280b966adfc3e01c6.json",
+					"name" : "dual_arm_servo_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dual_arm_trajectory_recorder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dual_arm_trajectory_recorder-bcbbc572792bb210ba1b.json",
+					"name" : "dual_arm_trajectory_recorder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "move_to_pose_dual_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-move_to_pose_dual_cpp-1e824d9dcda50ba360b2.json",
+					"name" : "move_to_pose_dual_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pose_command_publisher::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pose_command_publisher-1c74cb41c80c45438269.json",
+					"name" : "pose_command_publisher",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robot_config_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robot_config_uninstall-51f46f5143e8b2c12701.json",
+					"name" : "robot_config_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "simple_trajectory_recorder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_trajectory_recorder-ed4eea1a419cb04c2feb.json",
+					"name" : "simple_trajectory_recorder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-91e7ccd0a8dc74c655b7.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/a/ws_moveit2/build/robot_config",
+		"source" : "/home/a/ws_moveit2/src/robot_config"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

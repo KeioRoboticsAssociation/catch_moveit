@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.100.3:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.1.7:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";
@@ -783,7 +783,7 @@ export default function App() {
   const DPadController = () => {
     // フィールドに応じて方向を調整
     const getLinearValues = (baseX: number, baseY: number) => {
-      const multiplier = backgroundColor === "red" ? 1 : -1;
+      const multiplier = backgroundColor === "red" ? -1 : -1;
       return {
         x: baseX * multiplier,
         y: baseY * multiplier
@@ -797,14 +797,14 @@ export default function App() {
           <button 
             className="dpad-button dpad-up"
             onMouseDown={() => {
-              const values = getLinearValues(-1.0, 0);
+              const values = getLinearValues(-2.0, 0);
               startRealtimeControl(values.x, values.y, 0);
             }}
             onMouseUp={() => stopRealtimeControl()}
             onMouseLeave={() => stopRealtimeControl()}
             onTouchStart={(e) => {
               e.preventDefault();
-              const values = getLinearValues(-1.0, 0);
+              const values = getLinearValues(-2.0, 0);
               startRealtimeControl(values.x, values.y, 0);
             }}
             onTouchEnd={(e) => {
@@ -819,14 +819,14 @@ export default function App() {
           <button 
             className="dpad-button dpad-left"
             onMouseDown={() => {
-              const values = getLinearValues(0, -1.0);
+              const values = getLinearValues(0, -2.0);
               startRealtimeControl(values.x, values.y, 0);
             }}
             onMouseUp={() => stopRealtimeControl()}
             onMouseLeave={() => stopRealtimeControl()}
             onTouchStart={(e) => {
               e.preventDefault();
-              const values = getLinearValues(0, -1.0);
+              const values = getLinearValues(0, -2.0);
               startRealtimeControl(values.x, values.y, 0);
             }}
             onTouchEnd={(e) => {
@@ -843,14 +843,14 @@ export default function App() {
           <button 
             className="dpad-button dpad-right"
             onMouseDown={() => {
-              const values = getLinearValues(0, 1.0);
+              const values = getLinearValues(0, 2.0);
               startRealtimeControl(values.x, values.y, 0);
             }}
             onMouseUp={() => stopRealtimeControl()}
             onMouseLeave={() => stopRealtimeControl()}
             onTouchStart={(e) => {
               e.preventDefault();
-              const values = getLinearValues(0, 1.0);
+              const values = getLinearValues(0, 2.0);
               startRealtimeControl(values.x, values.y, 0);
             }}
             onTouchEnd={(e) => {
@@ -866,14 +866,14 @@ export default function App() {
             <button 
               className="dpad-button dpad-down"
               onMouseDown={() => {
-                const values = getLinearValues(1.0, 0);
+                const values = getLinearValues(2.0, 0);
                 startRealtimeControl(values.x, values.y, 0);
               }}
               onMouseUp={() => stopRealtimeControl()}
               onMouseLeave={() => stopRealtimeControl()}
               onTouchStart={(e) => {
                 e.preventDefault();
-                const values = getLinearValues(1.0, 0);
+                const values = getLinearValues(2.0, 0);
                 startRealtimeControl(values.x, values.y, 0);
               }}
               onTouchEnd={(e) => {
@@ -896,12 +896,12 @@ export default function App() {
       <div className="yaw-buttons-container">
         <button 
           className="yaw-button yaw-left"
-          onMouseDown={() => startRealtimeControl(0, 0, 2.0)}
+          onMouseDown={() => startRealtimeControl(0, 0, 4.0)}
           onMouseUp={() => stopRealtimeControl()}
           onMouseLeave={() => stopRealtimeControl()}
           onTouchStart={(e) => {
             e.preventDefault();
-            startRealtimeControl(0, 0, 2.0);
+            startRealtimeControl(0, 0, 4.0);
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
@@ -927,12 +927,12 @@ export default function App() {
         </button>
         <button 
           className="yaw-button yaw-right"
-          onMouseDown={() => startRealtimeControl(0, 0, -2.0)}
+          onMouseDown={() => startRealtimeControl(0, 0, -4.0)}
           onMouseUp={() => stopRealtimeControl()}
           onMouseLeave={() => stopRealtimeControl()}
           onTouchStart={(e) => {
             e.preventDefault();
-            startRealtimeControl(0, 0, -2.0);
+            startRealtimeControl(0, 0, -4.0);
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
@@ -1228,8 +1228,8 @@ export default function App() {
     </div>
   );
   return (
-    <div 
-      className="app-container"
+    <div
+      className="app-container no-select"
       data-background={backgroundColor}
     >
       <header className="app-header">

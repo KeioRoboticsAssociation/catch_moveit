@@ -5,6 +5,7 @@
 /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/rsp.launch.py
 /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/move_group.launch.py
 /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/static_virtual_joint_tfs.launch.py
+/home/a/ws_moveit2/install/robot_config/share/robot_config/launch/dual_arm_trajectory_recorder.launch.py
 /home/a/ws_moveit2/install/robot_config/share/robot_config/launch/setup_assistant.launch.py
 /home/a/ws_moveit2/install/robot_config/share/robot_config/config/ompl_planning.yaml
 /home/a/ws_moveit2/install/robot_config/share/robot_config/config/dual_arm_realtime_control.yaml
@@ -40,8 +41,10 @@
 /home/a/ws_moveit2/install/robot_config/lib/robot_config/publish_collision_mesh.py
 /home/a/ws_moveit2/install/robot_config/lib/robot_config/target_pose_router.py
 /home/a/ws_moveit2/install/robot_config/lib/robot_config/move_to_pose_dual_cpp
+/home/a/ws_moveit2/install/robot_config/lib/robot_config/dual_arm_trajectory_recorder
 /home/a/ws_moveit2/install/robot_config/lib/robot_config/pose_command_publisher
 /home/a/ws_moveit2/install/robot_config/lib/robot_config/dual_arm_servo_controller
+/home/a/ws_moveit2/install/robot_config/lib/robot_config/simple_trajectory_recorder
 /home/a/ws_moveit2/install/robot_config/share/ament_index/resource_index/package_run_dependencies/robot_config
 /home/a/ws_moveit2/install/robot_config/share/ament_index/resource_index/parent_prefix_path/robot_config
 /home/a/ws_moveit2/install/robot_config/share/robot_config/environment/ament_prefix_path.sh

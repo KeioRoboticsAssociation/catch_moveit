@@ -43,10 +43,10 @@ class MAVLinkControllerClient(Node):
     def motor_control_callback(self):
         """モーター制御コマンドを送信"""
         # ID5: left_Revolute_1
-        self.send_motor_command(5, self.left_revolute_1_pos * 4096 / 3.14)
+        self.send_motor_command(5, self.left_revolute_1_pos)
 
         # ID6: right_Revolute_1
-        self.send_motor_command(6, self.right_revolute_1_pos * 4096 / 3.14)
+        self.send_motor_command(6, self.right_revolute_1_pos)
 
     def send_motor_command(self, motor_id, target_position):
         """モーターに制御コマンドを送信"""

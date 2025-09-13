@@ -1,0 +1,16 @@
+In file included from /opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155,
+                 from /home/a/ws_moveit2/src/robot_config/src/simple_trajectory_recorder.cpp:1:
+/home/a/ws_moveit2/src/robot_config/src/simple_trajectory_recorder.cpp: In member function ‘void SimpleTrajectoryRecorder::printUsageInstructions()’:
+/home/a/ws_moveit2/src/robot_config/src/simple_trajectory_recorder.cpp:85:35: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+   85 |         RCLCPP_INFO(get_logger(), "");
+      |                                   ^~

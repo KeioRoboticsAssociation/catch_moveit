@@ -64,8 +64,10 @@ CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/robot_config
 
 # The main recursive "all" target.
 all: CMakeFiles/move_to_pose_dual_cpp.dir/all
+all: CMakeFiles/dual_arm_trajectory_recorder.dir/all
 all: CMakeFiles/pose_command_publisher.dir/all
 all: CMakeFiles/dual_arm_servo_controller.dir/all
+all: CMakeFiles/simple_trajectory_recorder.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,8 +78,10 @@ preinstall:
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/robot_config_uninstall.dir/clean
 clean: CMakeFiles/move_to_pose_dual_cpp.dir/clean
+clean: CMakeFiles/dual_arm_trajectory_recorder.dir/clean
 clean: CMakeFiles/pose_command_publisher.dir/clean
 clean: CMakeFiles/dual_arm_servo_controller.dir/clean
+clean: CMakeFiles/simple_trajectory_recorder.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -139,7 +143,7 @@ CMakeFiles/robot_config_uninstall.dir/clean:
 CMakeFiles/move_to_pose_dual_cpp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_dual_cpp.dir/build.make CMakeFiles/move_to_pose_dual_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_to_pose_dual_cpp.dir/build.make CMakeFiles/move_to_pose_dual_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/a/ws_moveit2/build/robot_config/CMakeFiles --progress-num=3,4 "Built target move_to_pose_dual_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/a/ws_moveit2/build/robot_config/CMakeFiles --progress-num=5,6 "Built target move_to_pose_dual_cpp"
 .PHONY : CMakeFiles/move_to_pose_dual_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -159,13 +163,39 @@ CMakeFiles/move_to_pose_dual_cpp.dir/clean:
 .PHONY : CMakeFiles/move_to_pose_dual_cpp.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/dual_arm_trajectory_recorder.dir
+
+# All Build rule for target.
+CMakeFiles/dual_arm_trajectory_recorder.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_trajectory_recorder.dir/build.make CMakeFiles/dual_arm_trajectory_recorder.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_trajectory_recorder.dir/build.make CMakeFiles/dual_arm_trajectory_recorder.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/a/ws_moveit2/build/robot_config/CMakeFiles --progress-num=3,4 "Built target dual_arm_trajectory_recorder"
+.PHONY : CMakeFiles/dual_arm_trajectory_recorder.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dual_arm_trajectory_recorder.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/a/ws_moveit2/build/robot_config/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dual_arm_trajectory_recorder.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/a/ws_moveit2/build/robot_config/CMakeFiles 0
+.PHONY : CMakeFiles/dual_arm_trajectory_recorder.dir/rule
+
+# Convenience name for target.
+dual_arm_trajectory_recorder: CMakeFiles/dual_arm_trajectory_recorder.dir/rule
+.PHONY : dual_arm_trajectory_recorder
+
+# clean rule for target.
+CMakeFiles/dual_arm_trajectory_recorder.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_trajectory_recorder.dir/build.make CMakeFiles/dual_arm_trajectory_recorder.dir/clean
+.PHONY : CMakeFiles/dual_arm_trajectory_recorder.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/pose_command_publisher.dir
 
 # All Build rule for target.
 CMakeFiles/pose_command_publisher.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/a/ws_moveit2/build/robot_config/CMakeFiles --progress-num=5,6 "Built target pose_command_publisher"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/a/ws_moveit2/build/robot_config/CMakeFiles --progress-num=7,8 "Built target pose_command_publisher"
 .PHONY : CMakeFiles/pose_command_publisher.dir/all
 
 # Build rule for subdir invocation for target.
@@ -209,6 +239,32 @@ dual_arm_servo_controller: CMakeFiles/dual_arm_servo_controller.dir/rule
 CMakeFiles/dual_arm_servo_controller.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_servo_controller.dir/build.make CMakeFiles/dual_arm_servo_controller.dir/clean
 .PHONY : CMakeFiles/dual_arm_servo_controller.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/simple_trajectory_recorder.dir
+
+# All Build rule for target.
+CMakeFiles/simple_trajectory_recorder.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_trajectory_recorder.dir/build.make CMakeFiles/simple_trajectory_recorder.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_trajectory_recorder.dir/build.make CMakeFiles/simple_trajectory_recorder.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/a/ws_moveit2/build/robot_config/CMakeFiles --progress-num=9,10 "Built target simple_trajectory_recorder"
+.PHONY : CMakeFiles/simple_trajectory_recorder.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/simple_trajectory_recorder.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/a/ws_moveit2/build/robot_config/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/simple_trajectory_recorder.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/a/ws_moveit2/build/robot_config/CMakeFiles 0
+.PHONY : CMakeFiles/simple_trajectory_recorder.dir/rule
+
+# Convenience name for target.
+simple_trajectory_recorder: CMakeFiles/simple_trajectory_recorder.dir/rule
+.PHONY : simple_trajectory_recorder
+
+# clean rule for target.
+CMakeFiles/simple_trajectory_recorder.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_trajectory_recorder.dir/build.make CMakeFiles/simple_trajectory_recorder.dir/clean
+.PHONY : CMakeFiles/simple_trajectory_recorder.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

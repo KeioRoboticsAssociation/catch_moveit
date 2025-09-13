@@ -72,6 +72,37 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+# Add the executable for the dual_arm_trajectory_recorder node
+add_executable(dual_arm_trajectory_recorder src/dual_arm_trajectory_recorder.cpp)
+
+# Add dependencies for the dual_arm_trajectory_recorder node
+ament_target_dependencies(
+  dual_arm_trajectory_recorder
+  rclcpp
+  rclcpp_action
+  moveit_core
+  moveit_ros_planning
+  moveit_ros_planning_interface
+  moveit_ros_move_group
+  sensor_msgs
+  control_msgs
+  std_srvs
+  geometry_msgs
+  tf2_ros
+  std_msgs
+  tf2_geometry_msgs
+  controller_manager_msgs
+  ament_index_cpp
+)
+
+target_link_libraries(dual_arm_trajectory_recorder yaml-cpp)
+
+# Install the dual_arm_trajectory_recorder node
+install(TARGETS
+  dual_arm_trajectory_recorder
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 # Add the executable for the pose_command_publisher node
 add_executable(pose_command_publisher src/pose_command_publisher.cpp)
 
@@ -109,6 +140,27 @@ ament_target_dependencies(
 # Install the dual_arm_servo_controller node
 install(TARGETS
   dual_arm_servo_controller
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Add the executable for the simple_trajectory_recorder node
+add_executable(simple_trajectory_recorder src/simple_trajectory_recorder.cpp)
+
+# Add dependencies for the simple_trajectory_recorder node
+ament_target_dependencies(
+  simple_trajectory_recorder
+  rclcpp
+  sensor_msgs
+  std_msgs
+  trajectory_msgs
+)
+
+# Link yaml-cpp library
+target_link_libraries(simple_trajectory_recorder yaml-cpp)
+
+# Install the simple_trajectory_recorder node
+install(TARGETS
+  simple_trajectory_recorder
   DESTINATION lib/${PROJECT_NAME}
 )
 

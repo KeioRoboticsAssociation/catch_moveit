@@ -1037,6 +1037,29 @@ def generate_launch_description():
         ],
     )
 
+    # SimpleTrajectoryRecorderノード
+    simple_trajectory_recorder_node = TimerAction(
+        period=3.0,  # MoveIt起動後3秒遅延
+        actions=[
+            Node(
+                package="robot_config",
+                executable="simple_trajectory_recorder",
+                name="simple_trajectory_recorder",
+                output="screen",
+                parameters=[
+                    {"use_sim_time": use_sim_time},
+                ],
+                remappings=[
+                    ('/joint_states', '/joint_states'),
+                    ('/record', '/record'),
+                    ('/stop', '/stop'),
+                    ('/replay', '/replay'),
+                    ('/recorder/status', '/recorder/status'),
+                ]
+            )
+        ]
+    )
+
     # Node to publish collision mesh (optimized for reliable mesh display)
     publish_collision_mesh_node = TimerAction(
         period=5.0,  # 5 second delay to ensure stable initialization
@@ -1226,6 +1249,7 @@ def generate_launch_description():
         right_servo_node,
         joy_node,
         move_to_pose_dual_cpp_node, # Add the new dual arm node
+        simple_trajectory_recorder_node,  # Add simple trajectory recorder node
         # Additional nodes
         rosbridge_websocket,
         rosapi_node,

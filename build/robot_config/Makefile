@@ -211,6 +211,19 @@ move_to_pose_dual_cpp/fast:
 .PHONY : move_to_pose_dual_cpp/fast
 
 #=============================================================================
+# Target rules for targets named dual_arm_trajectory_recorder
+
+# Build rule for target.
+dual_arm_trajectory_recorder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dual_arm_trajectory_recorder
+.PHONY : dual_arm_trajectory_recorder
+
+# fast build rule for target.
+dual_arm_trajectory_recorder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_trajectory_recorder.dir/build.make CMakeFiles/dual_arm_trajectory_recorder.dir/build
+.PHONY : dual_arm_trajectory_recorder/fast
+
+#=============================================================================
 # Target rules for targets named pose_command_publisher
 
 # Build rule for target.
@@ -236,6 +249,19 @@ dual_arm_servo_controller/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_servo_controller.dir/build.make CMakeFiles/dual_arm_servo_controller.dir/build
 .PHONY : dual_arm_servo_controller/fast
 
+#=============================================================================
+# Target rules for targets named simple_trajectory_recorder
+
+# Build rule for target.
+simple_trajectory_recorder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simple_trajectory_recorder
+.PHONY : simple_trajectory_recorder
+
+# fast build rule for target.
+simple_trajectory_recorder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_trajectory_recorder.dir/build.make CMakeFiles/simple_trajectory_recorder.dir/build
+.PHONY : simple_trajectory_recorder/fast
+
 src/dual_arm_servo_controller.o: src/dual_arm_servo_controller.cpp.o
 .PHONY : src/dual_arm_servo_controller.o
 
@@ -259,6 +285,30 @@ src/dual_arm_servo_controller.s: src/dual_arm_servo_controller.cpp.s
 src/dual_arm_servo_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_servo_controller.dir/build.make CMakeFiles/dual_arm_servo_controller.dir/src/dual_arm_servo_controller.cpp.s
 .PHONY : src/dual_arm_servo_controller.cpp.s
+
+src/dual_arm_trajectory_recorder.o: src/dual_arm_trajectory_recorder.cpp.o
+.PHONY : src/dual_arm_trajectory_recorder.o
+
+# target to build an object file
+src/dual_arm_trajectory_recorder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_trajectory_recorder.dir/build.make CMakeFiles/dual_arm_trajectory_recorder.dir/src/dual_arm_trajectory_recorder.cpp.o
+.PHONY : src/dual_arm_trajectory_recorder.cpp.o
+
+src/dual_arm_trajectory_recorder.i: src/dual_arm_trajectory_recorder.cpp.i
+.PHONY : src/dual_arm_trajectory_recorder.i
+
+# target to preprocess a source file
+src/dual_arm_trajectory_recorder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_trajectory_recorder.dir/build.make CMakeFiles/dual_arm_trajectory_recorder.dir/src/dual_arm_trajectory_recorder.cpp.i
+.PHONY : src/dual_arm_trajectory_recorder.cpp.i
+
+src/dual_arm_trajectory_recorder.s: src/dual_arm_trajectory_recorder.cpp.s
+.PHONY : src/dual_arm_trajectory_recorder.s
+
+# target to generate assembly for a file
+src/dual_arm_trajectory_recorder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dual_arm_trajectory_recorder.dir/build.make CMakeFiles/dual_arm_trajectory_recorder.dir/src/dual_arm_trajectory_recorder.cpp.s
+.PHONY : src/dual_arm_trajectory_recorder.cpp.s
 
 src/move_to_pose_dual_cpp.o: src/move_to_pose_dual_cpp.cpp.o
 .PHONY : src/move_to_pose_dual_cpp.o
@@ -308,6 +358,30 @@ src/pose_command_publisher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pose_command_publisher.dir/build.make CMakeFiles/pose_command_publisher.dir/src/pose_command_publisher.cpp.s
 .PHONY : src/pose_command_publisher.cpp.s
 
+src/simple_trajectory_recorder.o: src/simple_trajectory_recorder.cpp.o
+.PHONY : src/simple_trajectory_recorder.o
+
+# target to build an object file
+src/simple_trajectory_recorder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_trajectory_recorder.dir/build.make CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o
+.PHONY : src/simple_trajectory_recorder.cpp.o
+
+src/simple_trajectory_recorder.i: src/simple_trajectory_recorder.cpp.i
+.PHONY : src/simple_trajectory_recorder.i
+
+# target to preprocess a source file
+src/simple_trajectory_recorder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_trajectory_recorder.dir/build.make CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.i
+.PHONY : src/simple_trajectory_recorder.cpp.i
+
+src/simple_trajectory_recorder.s: src/simple_trajectory_recorder.cpp.s
+.PHONY : src/simple_trajectory_recorder.s
+
+# target to generate assembly for a file
+src/simple_trajectory_recorder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_trajectory_recorder.dir/build.make CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.s
+.PHONY : src/simple_trajectory_recorder.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -324,17 +398,25 @@ help:
 	@echo "... robot_config_uninstall"
 	@echo "... uninstall"
 	@echo "... dual_arm_servo_controller"
+	@echo "... dual_arm_trajectory_recorder"
 	@echo "... move_to_pose_dual_cpp"
 	@echo "... pose_command_publisher"
+	@echo "... simple_trajectory_recorder"
 	@echo "... src/dual_arm_servo_controller.o"
 	@echo "... src/dual_arm_servo_controller.i"
 	@echo "... src/dual_arm_servo_controller.s"
+	@echo "... src/dual_arm_trajectory_recorder.o"
+	@echo "... src/dual_arm_trajectory_recorder.i"
+	@echo "... src/dual_arm_trajectory_recorder.s"
 	@echo "... src/move_to_pose_dual_cpp.o"
 	@echo "... src/move_to_pose_dual_cpp.i"
 	@echo "... src/move_to_pose_dual_cpp.s"
 	@echo "... src/pose_command_publisher.o"
 	@echo "... src/pose_command_publisher.i"
 	@echo "... src/pose_command_publisher.s"
+	@echo "... src/simple_trajectory_recorder.o"
+	@echo "... src/simple_trajectory_recorder.i"
+	@echo "... src/simple_trajectory_recorder.s"
 .PHONY : help
 
 
