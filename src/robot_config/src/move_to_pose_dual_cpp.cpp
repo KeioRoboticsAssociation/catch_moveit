@@ -154,10 +154,11 @@ public:
         right_direct_joints_sub_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
             "/right_direct_joints", 10, std::bind(&MoveToPoseDualCpp::right_direct_joints_callback, this, std::placeholders::_1));
         
-        // High-frequency joint states recording (1000Hz)
-        joint_states_recording_timer_ = this->create_wall_timer(
-            std::chrono::microseconds(1000), // 1000Hz = 1ms
-            std::bind(&MoveToPoseDualCpp::recordJointStatesCallback, this));
+        // Disable high-frequency joint states recording by default to reduce CPU load
+        // (Can be re-enabled by adding a parameterized flag in the future)
+        // joint_states_recording_timer_ = this->create_wall_timer(
+        //     std::chrono::microseconds(1000), // 1000Hz = 1ms
+        //     std::bind(&MoveToPoseDualCpp::recordJointStatesCallback, this));
         
         // Joint states subscribers for high-frequency recording
         joint_states_sub_ = this->create_subscription<sensor_msgs::msg::JointState>(
@@ -319,10 +320,8 @@ private:
             // Capture EE pose before planning/execution to detect "no movement" cases
             geometry_msgs::msg::PoseStamped ee_pose_before = move_group_interface->getCurrentPose();
             
-            // Stop servo for clean pose execution
-            stopServo(arm_name);
-            // Brief pause to ensure servo/controllers settle before planning/execution (shortened for responsiveness)
-            std::this_thread::sleep_for(std::chrono::milliseconds(60));
+            // For responsiveness, do not stop servo before planning.
+            // We'll stop it just-in-time when sending to the controller.
             
             // Apply dynamic collision avoidance settings
             // applyDynamicCollisionAvoidance(move_group_interface, arm_name);
@@ -352,18 +351,18 @@ private:
             
             // プランナーをOMPLのRRTConnect中心に指定（高速優先）
             move_group_interface->setPlanningPipelineId("ompl");
-            // 高速プランナー優先。RRTConnect→PRMの順（少数）
+            // 既存構成を維持（プランナー構成は変更しない）
             std::vector<std::string> planners = {"RRTConnectkConfigDefault", "PRMkConfigDefault"};
             moveit::planning_interface::MoveGroupInterface::Plan my_plan;
             bool success = false;
             
             for (const auto& planner : planners) {
                 move_group_interface->setPlannerId(planner);
-                // 全プランナーで統一された高精度設定
-                move_group_interface->setGoalPositionTolerance(0.0001);   // 1mm精度
-                move_group_interface->setGoalOrientationTolerance(0.0001); // 1mm精度
+                // 既存の高精度設定を維持（プランナー関連は変更しない）
+                move_group_interface->setGoalPositionTolerance(0.0001);
+                move_group_interface->setGoalOrientationTolerance(0.0001);
                 move_group_interface->setNumPlanningAttempts(10);
-                move_group_interface->setPlanningTime(0.3); // 300ms以内に収める
+                move_group_interface->setPlanningTime(0.3);
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {
@@ -462,13 +461,18 @@ private:
         const geometry_msgs::msg::PoseStamped& ee_pose_before,
         int retry_count)
     {
+        // Stop servo just-in-time for clean trajectory execution
+        stopServo(arm_name);
+        // Minimal settle time
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+        
         // Ensure the arm's FollowJointTrajectory controller is active
         ensureArmControllerActive(arm_name);
-        // Wait briefly until controller is reported active to avoid goal rejection (balanced)
+        // Wait briefly until controller is reported active to avoid goal rejection (short)
         const std::string ctrl_name = (arm_name == "left") ? "left_arm_controller" : "right_arm_controller";
-        for (int i = 0; i < 8; ++i) { // up to ~240ms
+        for (int i = 0; i < 4; ++i) { // up to ~100ms
             if (isControllerActive(ctrl_name)) break;
-            std::this_thread::sleep_for(std::chrono::milliseconds(30));
+            std::this_thread::sleep_for(std::chrono::milliseconds(25));
         }
         // アクションクライアントを選択
         auto action_client = (arm_name == "left") ? left_arm_action_client_ : right_arm_action_client_;
@@ -490,8 +494,8 @@ private:
         // ゴールを作成
         auto goal_msg = FollowJointTrajectory::Goal();
         goal_msg.trajectory = plan.trajectory_.joint_trajectory;
-        // Timestamping to avoid stale rejection with moderate margin (increase on retry)
-        const double kInitialShift = (retry_count > 0) ? 0.7 : 0.35; // seconds
+        // Timestamping with short margin for responsiveness (increase on retry)
+        const double kInitialShift = (retry_count > 0) ? 0.5 : 0.2; // seconds
         goal_msg.trajectory.header.stamp = this->now();
         shiftTrajectoryTimes(goal_msg.trajectory, kInitialShift);
 
@@ -508,7 +512,7 @@ private:
                         if (action_client_retry && action_client_retry->action_server_is_ready()) {
                             auto retry_goal = FollowJointTrajectory::Goal();
                             retry_goal.trajectory = plan.trajectory_.joint_trajectory;
-                            constexpr double kRetryShift = 0.7; // seconds
+                            constexpr double kRetryShift = 0.5; // seconds
                             retry_goal.trajectory.header.stamp = this->now();
                             shiftTrajectoryTimes(retry_goal.trajectory, kRetryShift);
                             auto opts = rclcpp_action::Client<FollowJointTrajectory>::SendGoalOptions();
@@ -606,7 +610,7 @@ private:
             const auto& last = plan.trajectory_.joint_trajectory.points.back();
             traj_sec = static_cast<double>(last.time_from_start.sec) + static_cast<double>(last.time_from_start.nanosec) / 1e9;
         }
-        double buffer_sec = 1.0; // safety margin
+        double buffer_sec = 0.5; // safety margin tightened for quicker recovery
         auto start_snapshot = (arm_name == "left") ? left_execution_start_ : right_execution_start_;
         std::thread([this, arm_name, traj_sec, buffer_sec, start_snapshot]() {
             auto sleep_ms = static_cast<int>((traj_sec + buffer_sec) * 1000.0);
@@ -915,9 +919,7 @@ private:
         std::thread([this, move_group_interface, target_pose, arm_name]() {
             RCLCPP_INFO(this->get_logger(), "Executing %s arm z-movement with servo coordination", arm_name.c_str());
             
-            // Stop servo for clean pose execution
-            stopServo(arm_name);
-            // std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Brief pause - removed for faster response
+            // For responsiveness, don't stop servo before planning; execute_trajectory_directly will handle just-in-time stop.
             
             // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
@@ -1197,8 +1199,8 @@ private:
         // Create action goal
         auto goal = FollowJointTrajectory::Goal();
         goal.trajectory = trajectory;
-        // Fast start with moderate margin
-        constexpr double kDirectShift = 0.35; // seconds
+        // Fast start with short margin
+        constexpr double kDirectShift = 0.2; // seconds
         goal.trajectory.header.stamp = this->now();
         shiftTrajectoryTimes(goal.trajectory, kDirectShift);
         

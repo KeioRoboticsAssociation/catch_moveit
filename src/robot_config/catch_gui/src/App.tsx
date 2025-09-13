@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.1.7:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.100.3:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";
@@ -388,7 +388,8 @@ export default function App() {
     if (posePublisher && connectionStatus === 'Connected') {
       const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
       const color = cap(backgroundColor); // Red / Blue
-      const goalValue = `${color}_Goal${buttonNumber}`;
+      const arm = selectedArm; // left / right
+      const goalValue = `${color}_${arm}_Goal${buttonNumber}`;
       const message = new ROSLIB.Message({ data: goalValue });
       posePublisher.publish(message);
       console.log(`🎯 Published goal to ${POSE_TOPIC_NAME}: "${goalValue}"`);
