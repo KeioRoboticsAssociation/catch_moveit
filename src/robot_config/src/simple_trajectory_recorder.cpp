@@ -62,7 +62,7 @@ public:
             std::bind(&SimpleTrajectoryRecorder::replayCallback, this, std::placeholders::_1));
 
         joint_states_sub_ = create_subscription<sensor_msgs::msg::JointState>(
-            "/joint_states", 10,
+            "/joint_states", 100,
             std::bind(&SimpleTrajectoryRecorder::jointStatesCallback, this, std::placeholders::_1));
 
         // Publishers
