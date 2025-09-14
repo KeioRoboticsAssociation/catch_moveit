@@ -65,7 +65,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_2_lower_limit",
-            default_value="-1.570796",
+            default_value="-1.5",
             description="Lower limit for left arm Revolute_2 joint",
         )
     )
@@ -453,7 +453,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "right_Revolute_2_lower_limit",
-            default_value="-1.570796",
+            default_value="-1.5",
             description="Lower limit for right arm Revolute_2 joint",
         )
     )
