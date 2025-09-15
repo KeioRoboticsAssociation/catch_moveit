@@ -352,7 +352,7 @@ private:
             // プランナーをOMPLのRRTConnect中心に指定（高速優先）
             move_group_interface->setPlanningPipelineId("ompl");
             // 既存構成を維持（プランナー構成は変更しない）
-            std::vector<std::string> planners = {"RRTConnectkConfigDefault", "PRMkConfigDefault"};
+            std::vector<std::string> planners = {"RRTstarkConfigDefault","RRTconnectkConfigDefault", "PRMkConfigDefault","ESTkConfigDefault", "LBKPIECEkConfigDefault"};
             moveit::planning_interface::MoveGroupInterface::Plan my_plan;
             bool success = false;
             
@@ -362,7 +362,7 @@ private:
                 move_group_interface->setGoalPositionTolerance(0.0001);
                 move_group_interface->setGoalOrientationTolerance(0.0001);
                 move_group_interface->setNumPlanningAttempts(10);
-                move_group_interface->setPlanningTime(0.1);
+                move_group_interface->setPlanningTime(1);
 
                 success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
                 if (success) {

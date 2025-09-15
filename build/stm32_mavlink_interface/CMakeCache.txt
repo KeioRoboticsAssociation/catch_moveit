@@ -568,7 +568,7 @@ stm32_mavlink_interface_BINARY_DIR:STATIC=/home/a/ws_moveit2/build/stm32_mavlink
 stm32_mavlink_interface_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-stm32_mavlink_interface_SOURCE_DIR:STATIC=/home/a/ws_moveit2/src/MAVLink_ros2
+stm32_mavlink_interface_SOURCE_DIR:STATIC=/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2
 
 //Dependencies for the target
 stm32_mavlink_interface__rosidl_generator_c_LIB_DEPENDS:STATIC=general;std_msgs::std_msgs__rosidl_generator_c;general;builtin_interfaces::builtin_interfaces__rosidl_generator_c;general;sensor_msgs::sensor_msgs__rosidl_generator_c;general;geometry_msgs::geometry_msgs__rosidl_generator_c;general;rosidl_runtime_c::rosidl_runtime_c;general;rcutils::rcutils;
@@ -701,7 +701,7 @@ CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/a/ws_moveit2/src/MAVLink_ros2
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

@@ -1,4 +1,4 @@
-# Install script for directory: /home/a/ws_moveit2/src/MAVLink_ros2
+# Install script for directory: /home/a/ws_moveit2/src/MAVLink/MAVLink_ros2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -400,35 +400,35 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/msg/ServoCommand.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/msg/ServoCommand.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/msg/ServoState.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/msg/ServoState.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/msg/EncoderState.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/msg/EncoderState.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/msg/EncoderConfig.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/msg/EncoderConfig.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/msg/RobomasterMotorCommand.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/msg/RobomasterMotorCommand.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/msg/RobomasterMotorState.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/msg/RobomasterMotorState.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/msg/RobomasterMotorConfig.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/msg" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/msg/RobomasterMotorConfig.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/srv/SetServoConfig.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/srv/SetServoConfig.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -440,7 +440,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/srv/SetEncoderConfig.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/srv/SetEncoderConfig.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -452,7 +452,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/srv/SetRobomasterMotorConfig.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/srv/SetRobomasterMotorConfig.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -464,7 +464,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/srv/GetRobomasterMotorConfig.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface/srv" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/srv/GetRobomasterMotorConfig.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -497,13 +497,13 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface" TYPE DIRECTORY FILES
-    "/home/a/ws_moveit2/src/MAVLink_ros2/launch"
-    "/home/a/ws_moveit2/src/MAVLink_ros2/config"
+    "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/launch"
+    "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/config"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/MAVLink_ros2/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -758,7 +758,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_ros2/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_mavlink_interface" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

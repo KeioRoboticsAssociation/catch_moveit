@@ -57,7 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/MAVLink_gui_ros2
+CMAKE_SOURCE_DIR = /home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/a/ws_moveit2/build/mavlink_gui_tester
@@ -223,6 +223,30 @@ mavlink_gui_tester_node_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node_autogen.dir/build.make CMakeFiles/mavlink_gui_tester_node_autogen.dir/build
 .PHONY : mavlink_gui_tester_node_autogen/fast
 
+include/mavlink_gui_tester/moc_mavlink_gui_widget.o: include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.o
+.PHONY : include/mavlink_gui_tester/moc_mavlink_gui_widget.o
+
+# target to build an object file
+include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.o
+.PHONY : include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.o
+
+include/mavlink_gui_tester/moc_mavlink_gui_widget.i: include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.i
+.PHONY : include/mavlink_gui_tester/moc_mavlink_gui_widget.i
+
+# target to preprocess a source file
+include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.i
+.PHONY : include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.i
+
+include/mavlink_gui_tester/moc_mavlink_gui_widget.s: include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.s
+.PHONY : include/mavlink_gui_tester/moc_mavlink_gui_widget.s
+
+# target to generate assembly for a file
+include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.s
+.PHONY : include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.s
+
 mavlink_gui_tester_node_autogen/mocs_compilation.o: mavlink_gui_tester_node_autogen/mocs_compilation.cpp.o
 .PHONY : mavlink_gui_tester_node_autogen/mocs_compilation.o
 
@@ -246,6 +270,30 @@ mavlink_gui_tester_node_autogen/mocs_compilation.s: mavlink_gui_tester_node_auto
 mavlink_gui_tester_node_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/mavlink_gui_tester_node_autogen/mocs_compilation.cpp.s
 .PHONY : mavlink_gui_tester_node_autogen/mocs_compilation.cpp.s
+
+src/line_graph_widget.o: src/line_graph_widget.cpp.o
+.PHONY : src/line_graph_widget.o
+
+# target to build an object file
+src/line_graph_widget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/src/line_graph_widget.cpp.o
+.PHONY : src/line_graph_widget.cpp.o
+
+src/line_graph_widget.i: src/line_graph_widget.cpp.i
+.PHONY : src/line_graph_widget.i
+
+# target to preprocess a source file
+src/line_graph_widget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/src/line_graph_widget.cpp.i
+.PHONY : src/line_graph_widget.cpp.i
+
+src/line_graph_widget.s: src/line_graph_widget.cpp.s
+.PHONY : src/line_graph_widget.s
+
+# target to generate assembly for a file
+src/line_graph_widget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/src/line_graph_widget.cpp.s
+.PHONY : src/line_graph_widget.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -295,30 +343,6 @@ src/mavlink_gui_widget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/src/mavlink_gui_widget.cpp.s
 .PHONY : src/mavlink_gui_widget.cpp.s
 
-src/moc_mavlink_gui_widget.o: src/moc_mavlink_gui_widget.cpp.o
-.PHONY : src/moc_mavlink_gui_widget.o
-
-# target to build an object file
-src/moc_mavlink_gui_widget.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/src/moc_mavlink_gui_widget.cpp.o
-.PHONY : src/moc_mavlink_gui_widget.cpp.o
-
-src/moc_mavlink_gui_widget.i: src/moc_mavlink_gui_widget.cpp.i
-.PHONY : src/moc_mavlink_gui_widget.i
-
-# target to preprocess a source file
-src/moc_mavlink_gui_widget.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/src/moc_mavlink_gui_widget.cpp.i
-.PHONY : src/moc_mavlink_gui_widget.cpp.i
-
-src/moc_mavlink_gui_widget.s: src/moc_mavlink_gui_widget.cpp.s
-.PHONY : src/moc_mavlink_gui_widget.s
-
-# target to generate assembly for a file
-src/moc_mavlink_gui_widget.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mavlink_gui_tester_node.dir/build.make CMakeFiles/mavlink_gui_tester_node.dir/src/moc_mavlink_gui_widget.cpp.s
-.PHONY : src/moc_mavlink_gui_widget.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -336,18 +360,21 @@ help:
 	@echo "... mavlink_gui_tester_uninstall"
 	@echo "... uninstall"
 	@echo "... mavlink_gui_tester_node"
+	@echo "... include/mavlink_gui_tester/moc_mavlink_gui_widget.o"
+	@echo "... include/mavlink_gui_tester/moc_mavlink_gui_widget.i"
+	@echo "... include/mavlink_gui_tester/moc_mavlink_gui_widget.s"
 	@echo "... mavlink_gui_tester_node_autogen/mocs_compilation.o"
 	@echo "... mavlink_gui_tester_node_autogen/mocs_compilation.i"
 	@echo "... mavlink_gui_tester_node_autogen/mocs_compilation.s"
+	@echo "... src/line_graph_widget.o"
+	@echo "... src/line_graph_widget.i"
+	@echo "... src/line_graph_widget.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/mavlink_gui_widget.o"
 	@echo "... src/mavlink_gui_widget.i"
 	@echo "... src/mavlink_gui_widget.s"
-	@echo "... src/moc_mavlink_gui_widget.o"
-	@echo "... src/moc_mavlink_gui_widget.i"
-	@echo "... src/moc_mavlink_gui_widget.s"
 .PHONY : help
 
 

@@ -428,7 +428,7 @@ mavlink_gui_tester_BINARY_DIR:STATIC=/home/a/ws_moveit2/build/mavlink_gui_tester
 mavlink_gui_tester_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-mavlink_gui_tester_SOURCE_DIR:STATIC=/home/a/ws_moveit2/src/MAVLink_gui_ros2
+mavlink_gui_tester_SOURCE_DIR:STATIC=/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2
 
 //Path to a library.
 pkgcfg_lib__OPENSSL_crypto:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
@@ -645,7 +645,7 @@ CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/a/ws_moveit2/src/MAVLink_gui_ros2
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

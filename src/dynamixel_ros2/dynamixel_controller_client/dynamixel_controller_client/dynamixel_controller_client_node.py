@@ -9,7 +9,12 @@ class DynamixelControllerClient(Node):
     ids = [1,2,3,4,5,6]
     def __init__(self):
         super().__init__('dynamixel_controller_client')
-        
+
+        # Get arm_mode parameter
+        self.declare_parameter('arm_mode', 'dual')
+        self.arm_mode = self.get_parameter('arm_mode').get_parameter_value().string_value
+        self.get_logger().info(f'Arm mode: {self.arm_mode}')
+
         # joint_states データを保存する変数
         self.joint_positions = {}
         self.joint_velocities = {}
@@ -49,17 +54,67 @@ class DynamixelControllerClient(Node):
         msg.command = DynamixelController.SYNC_WRITE
         msg.address = 116  # GOAL_POSITION アドレス
         msg.length = 4     # 4バイト
-        msg.ids = self.ids # 全てのモーター
 
-        # 各モーターの目標位置
-        target_positions = {
-            1: 2048 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
-            2: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
-            3: 3072 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
-            4: int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
-            5: 3072 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
-            6: 57 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 910),   # joint6 (RS485, XL430)
-        }
+        # arm_modeに基づいてIDを設定
+        if self.arm_mode == "dual":
+            msg.ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        elif self.arm_mode == "left":
+            msg.ids = [1, 2, 3, 4, 5, 6]
+        elif self.arm_mode == "right":
+            msg.ids = [7, 8, 9, 10, 11, 12]
+        else:
+            msg.ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]  # Default to dual
+
+        # 各モーターの目標位置 - arm_modeに基づいて設定
+        if self.arm_mode == "dual":
+            target_positions = {
+                1: 2048 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
+                2: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
+                3: 3072 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+                4: int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+                5: 3072 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
+                6: 57 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 910),   # joint6 (RS485, XL430)
+                7: 2048 - int(self.joint_positions.get("right_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
+                8: 3072 - int(self.joint_positions.get("right_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
+                9: 3072 + int(self.joint_positions.get("right_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+                10: int(self.joint_positions.get("right_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+                11: 3072 + int(self.joint_positions.get("right_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
+                12: 57 - int(self.joint_positions.get("right_Slider_1", 0.0) / 0.024 * 910),   # joint6 (RS485, XL430)
+            }
+        elif self.arm_mode == "left":
+            target_positions = {
+                1: 2048 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
+                2: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
+                3: 3072 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+                4: int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+                5: 3072 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
+                6: 57 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 910),   # joint6 (RS485, XL430)
+            }
+        elif self.arm_mode == "right":
+            target_positions = {
+                7: 2048 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
+                8: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
+                9: 3072 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+                10: int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+                11: 3072 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
+                12: 57 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 910),   # joint6 (RS485, XL430)
+            }
+        else:
+            # Default to dual mode
+            target_positions = {
+                1: 2048 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
+                2: 3072 - int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
+                3: 3072 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+                4: int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+                5: 3072 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
+                6: 57 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 910),   # joint6 (RS485, XL430)
+                7: 2048 - int(self.joint_positions.get("right_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
+                8: 3072 - int(self.joint_positions.get("right_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
+                9: 3072 + int(self.joint_positions.get("right_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+                10: int(self.joint_positions.get("right_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
+                11: 3072 + int(self.joint_positions.get("right_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
+                12: 57 - int(self.joint_positions.get("right_Slider_1", 0.0) / 0.024 * 910),   # joint6 (RS485, XL430)
+            }
         
         # 各モーターの位置データを4バイトずつ結合（Extended Position Control用）
         msg.data = []

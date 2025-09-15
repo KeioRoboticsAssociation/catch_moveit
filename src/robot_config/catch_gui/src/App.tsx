@@ -52,13 +52,11 @@ export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
   const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
-  const [isTimerRunning, setIsTimerRunning] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(180); // 3分 = 180秒
+  const [mode, setMode] = useState<"dual" | "single">("dual");
 
   const ros = useRef(null);
   const publisher = useRef(null);
   const listener = useRef(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const realtimeControlInterval = useRef<NodeJS.Timeout | null>(null);
   const currentRealtimeCommand = useRef<{x: number, y: number, z: number}>({x: 0, y: 0, z: 0});
 
@@ -98,33 +96,12 @@ export default function App() {
         }
         ros.current.close();
       }
-      // タイマーをクリア
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
       // リアルタイム制御のintervalもクリア
       if (realtimeControlInterval.current) {
         clearInterval(realtimeControlInterval.current);
       }
     };
   }, []);
-
-  // タイマーの useEffect
-  useEffect(() => {
-    if (isTimerRunning && timeLeft > 0) {
-      timerRef.current = setInterval(() => {
-        setTimeLeft(prevTime => prevTime - 1);
-      }, 1000);
-    } else if (timeLeft === 0) {
-      setIsTimerRunning(false);
-    }
-
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
-  }, [isTimerRunning, timeLeft]);
 
   const initializePublisher = () => {
     publisher.current = new ROSLIB.Topic({
@@ -666,31 +643,33 @@ export default function App() {
     }
   };
 
-  const toggleTimer = () => {
-    if (isTimerRunning) {
-      // Stopボタンを押したときに3分に戻す
-      setIsTimerRunning(false);
-      setTimeLeft(180); // 3分 = 180秒
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    } else {
-      setIsTimerRunning(true);
+  // Mode toggle function
+  const toggleMode = () => {
+    setMode(prevMode => prevMode === "dual" ? "single" : "dual");
+  };
+
+  // Single mode pose command function
+  const sendSinglePoseCommand = (buttonNum: number) => {
+    if (posePublisher && connectionStatus === 'Connected') {
+      const fieldColor = backgroundColor === "red" ? "Red" : "Blue";
+      const message = new ROSLIB.Message({
+        data: `Single_${fieldColor}_Pose${buttonNum}`
+      });
+      posePublisher.publish(message);
+      console.log(`Published: Single_${fieldColor}_Pose${buttonNum}`);
     }
   };
 
-  const resetTimer = () => {
-    setIsTimerRunning(false);
-    setTimeLeft(180); // 3分 = 180秒
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
+  // Single mode goal command function
+  const sendSingleGoalCommand = (goalNum: number) => {
+    if (posePublisher && connectionStatus === 'Connected') {
+      const fieldColor = backgroundColor === "red" ? "Red" : "Blue";
+      const message = new ROSLIB.Message({
+        data: `Single_${fieldColor}_Goal${goalNum}`
+      });
+      posePublisher.publish(message);
+      console.log(`Published: Single_${fieldColor}_Goal${goalNum}`);
     }
-  };
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
   const getVisiblePoses = () => {
@@ -1262,20 +1241,46 @@ export default function App() {
           >
             🎨 Field: {backgroundColor === "red" ? "赤" : "青"}
           </button>
-          <button 
-            className={`toggle-button timer-toggle ${isTimerRunning ? 'timer-running' : ''}`}
-            onClick={toggleTimer}
+          <button
+            className={`toggle-button mode-toggle`}
+            onClick={toggleMode}
           >
-            ⏱️ {isTimerRunning ? "Stop" : "Start"}
+            🔢 {mode === "dual" ? "dual" : "single"}
           </button>
-          <div className="timer-display">
-            {formatTime(timeLeft)}
-          </div>
         </div>
       </header>
       
       <div className="pose-grid-container">
-        {isCameraOpen ? (
+        {mode === "single" ? (
+          // Single mode: 3x10 Pose button grid + Goal buttons
+          <div className="single-mode-container">
+            <div className="pose-grid-single">
+              {Array.from({ length: 30 }, (_, index) => (
+                <button
+                  key={index}
+                  className="pose-button-single"
+                  onClick={() => sendSinglePoseCommand(index + 1)}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  Pose{index + 1}
+                </button>
+              ))}
+            </div>
+            {/* Goal buttons for single mode - placed below pose buttons */}
+            <div className="goal-buttons-container-single">
+              {Array.from({ length: 5 }, (_, index) => (
+                <button
+                  key={index}
+                  className="goal-button-single"
+                  onClick={() => sendSingleGoalCommand(index + 1)}
+                  disabled={connectionStatus !== 'Connected'}
+                >
+                  Goal{index + 1}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : isCameraOpen ? (
           <div className="camera-view-container">
             <div className="camera-image-wrapper">
               {/* カメラ画像（Poseエリアの代わりに表示） */}

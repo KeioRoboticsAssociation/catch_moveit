@@ -1,0 +1,21 @@
+In file included from [01m[K/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/src/main.cpp:3[m[K:
+[01m[K/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/include/mavlink_gui_tester/mavlink_gui_widget.hpp:44:10:[m[K [01;31m[Kfatal error: [m[Kmavlink.h: No such file or directory
+   44 | #include [01;31m[K<mavlink.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mavlink_gui_tester_node.dir/build.make:94: CMakeFiles/mavlink_gui_tester_node.dir/src/main.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/a/ws_moveit2/build/mavlink_gui_tester/include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp:10[m[K:
+[01m[K/home/a/ws_moveit2/build/mavlink_gui_tester/include/mavlink_gui_tester/../../../../src/MAVLink/MAVLink_gui_ros2/include/mavlink_gui_tester/mavlink_gui_widget.hpp:44:10:[m[K [01;31m[Kfatal error: [m[Kmavlink.h: No such file or directory
+   44 | #include [01;31m[K<mavlink.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/src/mavlink_gui_widget.cpp:1[m[K:
+[01m[K/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/include/mavlink_gui_tester/mavlink_gui_widget.hpp:44:10:[m[K [01;31m[Kfatal error: [m[Kmavlink.h: No such file or directory
+   44 | #include [01;31m[K<mavlink.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mavlink_gui_tester_node.dir/build.make:136: CMakeFiles/mavlink_gui_tester_node.dir/include/mavlink_gui_tester/moc_mavlink_gui_widget.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/mavlink_gui_tester_node.dir/build.make:108: CMakeFiles/mavlink_gui_tester_node.dir/src/mavlink_gui_widget.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/mavlink_gui_tester_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

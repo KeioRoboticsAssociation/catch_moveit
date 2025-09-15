@@ -44,6 +44,13 @@ def generate_launch_description():
             description="Field type: 'red' for red team position, 'blue' for blue team position",
         )
     )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "arm",
+            default_value="dual",
+            description="Arm configuration: 'dual' for both arms, 'left' for left arm only, 'right' for right arm only",
+        )
+    )
     # Declare arguments for left arm initial positions
     # Declare arguments for left arm joint limits
     
@@ -549,6 +556,7 @@ def generate_launch_description():
     rviz = LaunchConfiguration("rviz")
     rviz_config = LaunchConfiguration("rviz_config")
     field = LaunchConfiguration("field")
+    arm = LaunchConfiguration("arm")
     box_coordinates = LaunchConfiguration("box_coordinates")
     
     # Initialize arguments for left arm joint limits
@@ -586,8 +594,12 @@ def generate_launch_description():
     # Initialize arguments for left arm joint origins
     left_Revolute_1_xyz = LaunchConfiguration("left_Revolute_1_xyz")
     left_Revolute_1_rpy = PythonExpression([
-        '"0 0 1.57" if "', field, '" == "red" else ',
-        '"0 0 1.57" if "', field, '" == "blue" else "',
+        '"0 0 1.57" if "', arm, '" == "dual" and "', field, '" == "red" else ',
+        '"0 0 1.57" if "', arm, '" == "dual" and "', field, '" == "blue" else ',
+        '"0 0 1.57" if "', arm, '" == "left" and "', field, '" == "red" else ',
+        '"0 0 1.57" if "', arm, '" == "left" and "', field, '" == "blue" else ',
+        '"0 0 -1.57" if "', arm, '" == "right" and "', field, '" == "red" else ',
+        '"0 0 -1.57" if "', arm, '" == "right" and "', field, '" == "blue" else "',
         LaunchConfiguration("left_Revolute_1_rpy"), '"'
     ])
     left_Revolute_2_xyz = LaunchConfiguration("left_Revolute_2_xyz")
@@ -631,25 +643,33 @@ def generate_launch_description():
     right_Slider_2_xyz = LaunchConfiguration("right_Slider_2_xyz")
     right_Slider_2_rpy = LaunchConfiguration("right_Slider_2_rpy")
     
-    # Set arm positions dynamically based on field parameter
+    # Set arm positions dynamically based on field and arm parameters
     left_origin_xyz = PythonExpression([
-        '"1.62 -0.359 0" if "', field, '" == "red" else ',
-        '"0 0 0" if "', field, '" == "blue" else "', 
+        '"1.62 -0.359 0" if "', arm, '" == "dual" and "', field, '" == "red" else ',
+        '"0 0 0" if "', arm, '" == "dual" and "', field, '" == "blue" else ',
+        '"1.62 -0.1795 0" if "', arm, '" == "left" and "', field, '" == "red" else ',
+        '"0 -0.1795 0" if "', arm, '" == "left" and "', field, '" == "blue" else ',
+        '"1.62 -0.1795 0" if "', arm, '" == "right" and "', field, '" == "red" else ',
+        '"0 -0.1795 0" if "', arm, '" == "right" and "', field, '" == "blue" else "',
         LaunchConfiguration("left_origin_xyz"), '"'
     ])
-    
+
     right_origin_xyz = PythonExpression([
-        '"1.62 0 0" if "', field, '" == "red" else ',
-        '"0 -0.359 0" if "', field, '" == "blue" else "',
+        '"1.62 0 0" if "', arm, '" == "dual" and "', field, '" == "red" else ',
+        '"0 -0.359 0" if "', arm, '" == "dual" and "', field, '" == "blue" else ',
+        '"1000 1000 1000" if "', arm, '" == "left" and "', field, '" == "red" else ',
+        '"1000 1000 1000" if "', arm, '" == "left" and "', field, '" == "blue" else ',
+        '"1000 1000 1000" if "', arm, '" == "right" and "', field, '" == "red" else ',
+        '"1000 1000 1000" if "', arm, '" == "right" and "', field, '" == "blue" else "',
         LaunchConfiguration("right_origin_xyz"), '"'
     ])
-    
+
     left_origin_rpy = PythonExpression([
         '"0 0 3.141592" if "', field, '" == "red" else ',
         '"0 0 0" if "', field, '" == "blue" else "',
         LaunchConfiguration("left_origin_rpy"), '"'
     ])
-    
+
     right_origin_rpy = PythonExpression([
         '"0 0 -3.141592" if "', field, '" == "red" else ',
         '"0 0 0" if "', field, '" == "blue" else "',
@@ -668,19 +688,28 @@ def generate_launch_description():
         else:
             return red_positions
     
-    # Get field value (need to extract from LaunchConfiguration)
+    # Get field and arm values (need to extract from LaunchConfiguration)
     import os
     field_value = os.environ.get('FIELD', 'red')  # Default to red
+    arm_value = os.environ.get('ARM', 'dual')  # Default to dual
     
-    # Define box coordinates for different field types
-    def get_box_coordinates(field_value):
-        """Get box coordinates based on field parameter"""
-        # Current box_coordinates split into blue (first 24) and red (last 24)
-        full_coordinates = [0.135,-0.1795,0.3,0.135,-0.1795,0.3,0.135,-0.1795,0.5,0.135,-0.1795,0.5,1.485,-0.1795,0.3,1.485,-0.1795,0.3,1.485,-0.1795,0.5,1.485,-0.1795,0.5]
+    # Define box coordinates for different field and arm types
+    def get_box_coordinates(field_value, arm_value):
+        """Get box coordinates based on field and arm parameters"""
+        # Different coordinates based on arm configuration
+        if arm_value == "dual":
+            full_coordinates = [0.135,-0.1795,0.3,0.135,-0.1795,0.3,0.135,-0.1795,0.5,0.135,-0.1795,0.5,1.485,-0.1795,0.3,1.485,-0.1795,0.3,1.485,-0.1795,0.5,1.485,-0.1795,0.5]
+        elif arm_value == "left":
+            full_coordinates = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        elif arm_value == "right":
+            full_coordinates = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        else:
+            # Default to dual
+            full_coordinates = [0.135,-0.1795,0.3,0.135,-0.1795,0.3,0.135,-0.1795,0.5,0.135,-0.1795,0.5,1.485,-0.1795,0.3,1.485,-0.1795,0.3,1.485,-0.1795,0.5,1.485,-0.1795,0.5]
 
-        blue_coordinates = full_coordinates  # First 24 values for blue
-        red_coordinates = full_coordinates  # Last 24 values for red
-        
+        blue_coordinates = full_coordinates  # Values for blue
+        red_coordinates = full_coordinates  # Values for red
+
         if field_value == "blue":
             return blue_coordinates
         else:
@@ -689,25 +718,27 @@ def generate_launch_description():
     # Get box_coordinates value from command line (or use field-based default)
     box_coordinates_value = None  # Will be set based on field or command line
     
-    # Check command line arguments for both field and box_coordinates parameters
+    # Check command line arguments for field, arm, and box_coordinates parameters
     import sys
     for arg in sys.argv:
         if arg.startswith('field:='):
             field_value = arg.split(':=')[1]
+        elif arg.startswith('arm:='):
+            arm_value = arg.split(':=')[1]
         elif arg.startswith('box_coordinates:='):
             box_coordinates_value = arg.split(':=')[1]
     
-    # If no box_coordinates specified via command line, use field-based default
+    # If no box_coordinates specified via command line, use field and arm based default
     if box_coordinates_value is None:
-        box_coordinates_list = get_box_coordinates(field_value)
+        box_coordinates_list = get_box_coordinates(field_value, arm_value)
     else:
         # Convert box_coordinates string to list of floats
         try:
             box_coordinates_list = [float(x.strip()) for x in box_coordinates_value.split(',')]
         except ValueError:
             print(f"Warning: Invalid box_coordinates format: {box_coordinates_value}")
-            # Use field-based default values
-            box_coordinates_list = get_box_coordinates(field_value)
+            # Use field and arm based default values
+            box_coordinates_list = get_box_coordinates(field_value, arm_value)
     # Set object positions based on field
     object_mesh_positions = get_object_positions(field_value)
     
@@ -1218,7 +1249,10 @@ def generate_launch_description():
         executable="dynamixel_controller_node",
         name="dynamixel_controller_node",
         output="screen",
-        parameters=["/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/config/bus_config.yaml"],
+        parameters=[
+            "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/config/bus_config.yaml",
+            {"arm_mode": arm_value}
+        ],
     )
 
     # Dynamixel GUI node

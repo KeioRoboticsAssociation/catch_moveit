@@ -1,4 +1,4 @@
-# Install script for directory: /home/a/ws_moveit2/src/MAVLink_gui_ros2
+# Install script for directory: /home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -63,11 +63,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/MAVLink_gui_ros2/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mavlink_gui_tester/launch/" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/MAVLink_gui_ros2/launch/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mavlink_gui_tester/launch/" TYPE DIRECTORY FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/launch/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -126,7 +126,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mavlink_gui_tester" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink_gui_ros2/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mavlink_gui_tester" TYPE FILE FILES "/home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

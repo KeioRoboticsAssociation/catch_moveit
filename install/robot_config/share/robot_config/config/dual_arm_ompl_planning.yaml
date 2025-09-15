@@ -152,8 +152,8 @@ left_arm:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    - FMTkConfigDefault
-    - BFMTkConfigDefault
+    # - FMTkConfigDefault  # Disabled due to crashes
+    # - BFMTkConfigDefault  # Disabled due to crashes
     - PDSTkConfigDefault
     - STRIDEkConfigDefault
     - BiTRRTkConfigDefault

@@ -1,0 +1,8 @@
+[0.711s] Invoking command in '/home/a/ws_moveit2/build/mavlink_gui_tester': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/mavlink_controller_client:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/build/mavlink_gui_tester -- -j22 -l22
+[0.900s] [ 16%] [34m[1mAutomatic MOC and UIC for target mavlink_gui_tester_node[0m
+[0.900s] [ 16%] Built target mavlink_gui_tester_node_autogen
+[0.900s] [ 33%] [32mBuilding CXX object CMakeFiles/mavlink_gui_tester_node.dir/src/moc_mavlink_gui_widget.cpp.o[0m
+[0.900s] [ 50%] [32mBuilding CXX object CMakeFiles/mavlink_gui_tester_node.dir/src/main.cpp.o[0m
+[0.900s] [ 66%] [32mBuilding CXX object CMakeFiles/mavlink_gui_tester_node.dir/src/mavlink_gui_widget.cpp.o[0m
+[3.581s] [ 83%] [32m[1mLinking CXX executable mavlink_gui_tester_node[0m
+[3.969s] [100%] Built target mavlink_gui_tester_node

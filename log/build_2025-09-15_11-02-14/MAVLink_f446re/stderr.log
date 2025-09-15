@@ -1,0 +1,12 @@
+[31mCMake Error at CMakeLists.txt:30 (include):
+  include could not find requested file:
+
+    cmake/gcc-arm-none-eabi.cmake
+
+[0m
+[0mBuild type: Debug[0m
+[31mCMake Error at CMakeLists.txt:46 (add_subdirectory):
+  add_subdirectory given source "cmake/stm32cubemx" which is not an existing
+  directory.
+
+[0m

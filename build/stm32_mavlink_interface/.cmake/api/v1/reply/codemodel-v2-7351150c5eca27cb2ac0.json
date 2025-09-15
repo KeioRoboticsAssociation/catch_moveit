@@ -1,0 +1,242 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-3b03352f23086f3c1c7d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "stm32_mavlink_interface__py",
+					"jsonFile" : "directory-stm32_mavlink_interface__py-c2bab2330f7e1843f3b1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/a/ws_moveit2/build/stm32_mavlink_interface/stm32_mavlink_interface__py",
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "stm32_mavlink_interface",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_stm32_mavlink_interface_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_stm32_mavlink_interface_egg-fbd9d0a9f689b55b725d.json",
+					"name" : "ament_cmake_python_build_stm32_mavlink_interface_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_stm32_mavlink_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_stm32_mavlink_interface-945d47511b65eb82500a.json",
+					"name" : "ament_cmake_python_copy_stm32_mavlink_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mavlink_serial_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mavlink_serial_node-0fc60b33aa1edad4d3a9.json",
+					"name" : "mavlink_serial_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface-68b552de29b6c3540b5f.json",
+					"name" : "stm32_mavlink_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__cpp-343e499530a2b744f775.json",
+					"name" : "stm32_mavlink_interface__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "stm32_mavlink_interface__py::@2fc20c915f22015b2153",
+					"jsonFile" : "target-stm32_mavlink_interface__py-a39dc355986193bc41f8.json",
+					"name" : "stm32_mavlink_interface__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_generator_c-d76b7591ed104a565009.json",
+					"name" : "stm32_mavlink_interface__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_generator_py-6c57f81a4e7e75f86b72.json",
+					"name" : "stm32_mavlink_interface__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_c-a9ba312dc4f01b7a2c72.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_c__pyext-251b8c77e58608ab294a.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_cpp-96f151cff31ce53954c7.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_fastrtps_c-9a99ac41880778508114.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_fastrtps_c__pyext-a86c87633ff8151619bf.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_fastrtps_cpp-b7e09155c68e7cddfb06.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_introspection_c-fdc862d69a175a660147.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_introspection_c__pyext-6f53f81bedab1f74ef00.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface__rosidl_typesupport_introspection_cpp-0d1bb7d14f867e405298.json",
+					"name" : "stm32_mavlink_interface__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stm32_mavlink_interface_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stm32_mavlink_interface_uninstall-7096f4b0df8d816bfced.json",
+					"name" : "stm32_mavlink_interface_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-495c0ee1a1e9005b61e5.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/a/ws_moveit2/build/stm32_mavlink_interface",
+		"source" : "/home/a/ws_moveit2/src/MAVLink/MAVLink_ros2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

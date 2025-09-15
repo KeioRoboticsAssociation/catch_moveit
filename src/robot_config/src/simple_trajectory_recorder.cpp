@@ -31,6 +31,8 @@ private:
     rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr right_traj_pub_;
     rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr left_hand_pub_;
     rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr right_hand_pub_;
+    rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr red_seiretu_pub_;
+    rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr blue_seiretu_pub_;
 
     // Recording data
     std::vector<RecordedJointState> recorded_data_;
@@ -62,7 +64,7 @@ public:
             std::bind(&SimpleTrajectoryRecorder::replayCallback, this, std::placeholders::_1));
 
         joint_states_sub_ = create_subscription<sensor_msgs::msg::JointState>(
-            "/joint_states", 100,
+            "/joint_states", 10,
             std::bind(&SimpleTrajectoryRecorder::jointStatesCallback, this, std::placeholders::_1));
 
         // Publishers
@@ -75,6 +77,10 @@ public:
             "/left_hand_controller/joint_trajectory", 10);
         right_hand_pub_ = create_publisher<trajectory_msgs::msg::JointTrajectory>(
             "/right_hand_controller/joint_trajectory", 10);
+        red_seiretu_pub_ = create_publisher<trajectory_msgs::msg::JointTrajectory>(
+            "/red_seiretu_controller/joint_trajectory", 10);
+        blue_seiretu_pub_ = create_publisher<trajectory_msgs::msg::JointTrajectory>(
+            "/blue_seiretu_controller/joint_trajectory", 10);
 
         RCLCPP_INFO(get_logger(), "SimpleTrajectoryRecorder initialized");
         publishStatus("READY - Send /record to start recording");
@@ -255,11 +261,13 @@ public:
             auto points = root["trajectory_points"];
             RCLCPP_INFO(get_logger(), "Loading %zu trajectory points", points.size());
 
-            // Separate left and right arm/hand trajectories
+            // Separate left and right arm/hand trajectories and seiretu controllers
             std::vector<RecordedJointState> left_trajectory;
             std::vector<RecordedJointState> right_trajectory;
             std::vector<RecordedJointState> left_hand_trajectory;
             std::vector<RecordedJointState> right_hand_trajectory;
+            std::vector<RecordedJointState> red_seiretu_trajectory;
+            std::vector<RecordedJointState> blue_seiretu_trajectory;
 
             for (const auto& point : points) {
                 RecordedJointState state;
@@ -271,21 +279,26 @@ public:
                     state.velocities = point["velocities"].as<std::vector<double>>();
                 }
 
-                // Check if this contains left/right arm/hand joints
+                // Check if this contains left/right arm/hand joints and seiretu joints
                 bool has_left_arm = false, has_right_arm = false;
                 bool has_left_hand = false, has_right_hand = false;
+                bool has_red_seiretu = false, has_blue_seiretu = false;
 
                 for (const auto& joint_name : state.joint_names) {
                     if (joint_name.find("left_Revolute_") == 0) has_left_arm = true;
                     if (joint_name.find("right_Revolute_") == 0) has_right_arm = true;
                     if (joint_name.find("left_Slider_") == 0) has_left_hand = true;
                     if (joint_name.find("right_Slider_") == 0) has_right_hand = true;
+                    if (joint_name == "red_slider") has_red_seiretu = true;
+                    if (joint_name == "blue_slider") has_blue_seiretu = true;
                 }
 
                 if (has_left_arm) left_trajectory.push_back(state);
                 if (has_right_arm) right_trajectory.push_back(state);
                 if (has_left_hand) left_hand_trajectory.push_back(state);
                 if (has_right_hand) right_hand_trajectory.push_back(state);
+                if (has_red_seiretu) red_seiretu_trajectory.push_back(state);
+                if (has_blue_seiretu) blue_seiretu_trajectory.push_back(state);
             }
 
             // Create and publish trajectory messages
@@ -311,6 +324,18 @@ public:
                 auto right_hand_msg = createTrajectoryMessage(right_hand_trajectory, "right_Slider");
                 right_hand_pub_->publish(right_hand_msg);
                 RCLCPP_INFO(get_logger(), "Published right hand trajectory (%zu points)", right_hand_trajectory.size());
+            }
+
+            if (!red_seiretu_trajectory.empty()) {
+                auto red_seiretu_msg = createTrajectoryMessage(red_seiretu_trajectory, "red_slider");
+                red_seiretu_pub_->publish(red_seiretu_msg);
+                RCLCPP_INFO(get_logger(), "Published red seiretu trajectory (%zu points)", red_seiretu_trajectory.size());
+            }
+
+            if (!blue_seiretu_trajectory.empty()) {
+                auto blue_seiretu_msg = createTrajectoryMessage(blue_seiretu_trajectory, "blue_slider");
+                blue_seiretu_pub_->publish(blue_seiretu_msg);
+                RCLCPP_INFO(get_logger(), "Published blue seiretu trajectory (%zu points)", blue_seiretu_trajectory.size());
             }
 
             return true;

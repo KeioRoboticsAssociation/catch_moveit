@@ -1,0 +1,85 @@
+[0.011s] Invoking command in '/home/a/ws_moveit2/build/mavlink_gui_tester': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/mavlink_controller_client:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake /home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2 -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/mavlink_gui_tester
+[0.095s] -- The C compiler identification is GNU 11.4.0
+[0.162s] -- The CXX compiler identification is GNU 11.4.0
+[0.168s] -- Detecting C compiler ABI info
+[0.237s] -- Detecting C compiler ABI info - done
+[0.241s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.242s] -- Detecting C compile features
+[0.242s] -- Detecting C compile features - done
+[0.244s] -- Detecting CXX compiler ABI info
+[0.315s] -- Detecting CXX compiler ABI info - done
+[0.319s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.320s] -- Detecting CXX compile features
+[0.320s] -- Detecting CXX compile features - done
+[0.325s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.452s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.557s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.614s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.624s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.634s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.649s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.669s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.725s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.731s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.842s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.866s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.902s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.917s] -- Looking for pthread.h
+[0.989s] -- Looking for pthread.h - found
+[0.990s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.056s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.057s] -- Found Threads: TRUE  
+[1.102s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.112s] -- Found diagnostic_msgs: 4.9.0 (/opt/ros/humble/share/diagnostic_msgs/cmake)
+[1.126s] -- Found rclcpp_action: 16.0.14 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.165s] -- Found rclcpp_components: 16.0.14 (/opt/ros/humble/share/rclcpp_components/cmake)
+[1.221s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.291s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.292s] -- Configured cppcheck include dirs: /home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2/include
+[1.292s] -- Configured cppcheck exclude dirs and/or files: 
+[1.292s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.293s] -- Added test 'lint_cmake' to check CMake code style
+[1.294s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.296s] -- Added test 'uncrustify' to check C / C++ code style
+[1.296s] -- Configured uncrustify additional arguments: 
+[1.297s] -- Added test 'xmllint' to check XML markup files
+[1.299s] -- Configuring done
+[1.329s] -- Generating done
+[1.331s] -- Build files have been written to: /home/a/ws_moveit2/build/mavlink_gui_tester
+[1.339s] Invoked command in '/home/a/ws_moveit2/build/mavlink_gui_tester' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/mavlink_controller_client:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake /home/a/ws_moveit2/src/MAVLink/MAVLink_gui_ros2 -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/mavlink_gui_tester
+[1.341s] Invoking command in '/home/a/ws_moveit2/build/mavlink_gui_tester': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/mavlink_controller_client:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/build/mavlink_gui_tester -- -j22 -l22
+[1.391s] [ 16%] [34m[1mAutomatic MOC and UIC for target mavlink_gui_tester_node[0m
+[1.424s] [ 16%] Built target mavlink_gui_tester_node_autogen
+[1.453s] [ 33%] [32mBuilding CXX object CMakeFiles/mavlink_gui_tester_node.dir/src/moc_mavlink_gui_widget.cpp.o[0m
+[1.454s] [ 66%] [32mBuilding CXX object CMakeFiles/mavlink_gui_tester_node.dir/src/mavlink_gui_widget.cpp.o[0m
+[1.454s] [ 66%] [32mBuilding CXX object CMakeFiles/mavlink_gui_tester_node.dir/mavlink_gui_tester_node_autogen/mocs_compilation.cpp.o[0m
+[1.454s] [ 83%] [32mBuilding CXX object CMakeFiles/mavlink_gui_tester_node.dir/src/main.cpp.o[0m
+[4.499s] [100%] [32m[1mLinking CXX executable mavlink_gui_tester_node[0m
+[6.871s] [100%] Built target mavlink_gui_tester_node
+[7.010s] Invoked command in '/home/a/ws_moveit2/build/mavlink_gui_tester' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/mavlink_controller_client:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --build /home/a/ws_moveit2/build/mavlink_gui_tester -- -j22 -l22
+[7.118s] Invoking command in '/home/a/ws_moveit2/build/mavlink_gui_tester': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/mavlink_controller_client:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --install /home/a/ws_moveit2/build/mavlink_gui_tester
+[7.210s] -- Install configuration: ""
+[7.211s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/lib/mavlink_gui_tester/mavlink_gui_tester_node
+[7.212s] -- Set runtime path of "/home/a/ws_moveit2/install/mavlink_gui_tester/lib/mavlink_gui_tester/mavlink_gui_tester_node" to ""
+[7.213s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/include/
+[7.214s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/include//mavlink_gui_tester
+[7.214s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/include//mavlink_gui_tester/mavlink_gui_node.hpp
+[7.222s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/include//mavlink_gui_tester/mavlink_gui_widget.hpp
+[7.224s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/launch/
+[7.225s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/launch//mavlink_gui_tester.launch.py
+[7.225s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/ament_index/resource_index/package_run_dependencies/mavlink_gui_tester
+[7.226s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/ament_index/resource_index/parent_prefix_path/mavlink_gui_tester
+[7.230s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/environment/ament_prefix_path.sh
+[7.231s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/environment/ament_prefix_path.dsv
+[7.231s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/environment/path.sh
+[7.232s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/environment/path.dsv
+[7.232s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/local_setup.bash
+[7.233s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/local_setup.sh
+[7.234s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/local_setup.zsh
+[7.235s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/local_setup.dsv
+[7.235s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/package.dsv
+[7.236s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/ament_index/resource_index/packages/mavlink_gui_tester
+[7.237s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/cmake/mavlink_gui_testerConfig.cmake
+[7.238s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/cmake/mavlink_gui_testerConfig-version.cmake
+[7.239s] -- Installing: /home/a/ws_moveit2/install/mavlink_gui_tester/share/mavlink_gui_tester/package.xml
+[7.254s] Invoked command in '/home/a/ws_moveit2/build/mavlink_gui_tester' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/a/ws_moveit2/install/mavlink_controller_client:/home/a/ws_moveit2/install/moveit_configs_utils:/home/a/ws_moveit2/install/ros_tcp_endpoint:/home/a/ws_moveit2/install/realsense2_ros_mqtt_bridge:/home/a/ws_moveit2/install/launch_param_builder:/home/a/ws_moveit2/install/dynamixel_controller_gui:/home/a/ws_moveit2/install/dynamixel_controller_client:/home/a/ws_moveit2/install/d415_rgb_depth_3d:/opt/ros/humble /usr/bin/cmake --install /home/a/ws_moveit2/build/mavlink_gui_tester
