@@ -58,7 +58,7 @@ export default function App() {
   const publisher = useRef(null);
   const listener = useRef(null);
   const realtimeControlInterval = useRef<NodeJS.Timeout | null>(null);
-  const currentRealtimeCommand = useRef<{x: number, y: number, z: number}>({x: 0, y: 0, z: 0});
+  const currentRealtimeCommand = useRef<{x: number, y: number, z: number, angular_z?: number}>({x: 0, y: 0, z: 0});
 
   useEffect(() => {
     ros.current = new ROSLIB.Ros({
@@ -691,25 +691,26 @@ export default function App() {
   );
 
   // 新しいリアルタイム制御開始関数
-  const startRealtimeControl = (linear_x: number, linear_y: number, angular_z: number) => {
+  const startRealtimeControl = (linear_x: number, linear_y: number, linear_z: number, angular_z: number = 0) => {
     if (ros.current && connectionStatus === 'Connected') {
       // 現在のコマンドを更新
-      currentRealtimeCommand.current = { x: linear_x, y: linear_y, z: angular_z };
-      
+      currentRealtimeCommand.current = { x: linear_x, y: linear_y, z: linear_z, angular_z: angular_z };
+
       // 既存のインターバルがあればクリア
       if (realtimeControlInterval.current) {
         clearInterval(realtimeControlInterval.current);
       }
-      
+
       // 即座に最初のメッセージを送信
-      publishRealtimeControlMessage(linear_x, linear_y, angular_z);
-      
+      publishRealtimeControlMessage(linear_x, linear_y, linear_z, angular_z);
+
       // 継続的にメッセージを送信（高速周期）
       realtimeControlInterval.current = setInterval(() => {
         publishRealtimeControlMessage(
           currentRealtimeCommand.current.x,
           currentRealtimeCommand.current.y,
-          currentRealtimeCommand.current.z
+          currentRealtimeCommand.current.z,
+          currentRealtimeCommand.current.angular_z || 0
         );
       }, 20);
     }
@@ -722,16 +723,16 @@ export default function App() {
       clearInterval(realtimeControlInterval.current);
       realtimeControlInterval.current = null;
     }
-    
+
     // 停止メッセージを送信
     publishRealtimeControlMessage(0, 0, 0);
-    
+
     // 現在のコマンドをリセット
     currentRealtimeCommand.current = { x: 0, y: 0, z: 0 };
   };
 
   // 実際のメッセージ送信関数
-  const publishRealtimeControlMessage = (linear_x: number, linear_y: number, angular_z: number) => {
+  const publishRealtimeControlMessage = (linear_x: number, linear_y: number, linear_z: number, angular_z: number = 0) => {
     if (ros.current && connectionStatus === 'Connected') {
       // アーム選択に応じて事前生成したpublisherを使用
       const publisher = selectedArm === "left" ? leftRealtimeControlPublisher : rightRealtimeControlPublisher;
@@ -741,7 +742,7 @@ export default function App() {
         linear: {
           x: linear_x,
           y: linear_y,
-          z: 0.0
+          z: linear_z
         },
         angular: {
           x: 0.0,
@@ -750,11 +751,9 @@ export default function App() {
         }
       });
       publisher.publish(message);
-      
-      // ログは最初の送信時のみ出力
-      if (linear_x !== 0 || linear_y !== 0 || angular_z !== 0) {
-        console.log(`🎮 Real-time control (${selectedArm} arm): linear(${linear_x}, ${linear_y}), angular(${angular_z})`);
-      }
+
+      // ログ出力（デバッグ用）
+      console.log(`🎮 Real-time control (${selectedArm} arm): linear(${linear_x}, ${linear_y}, ${linear_z}), angular(${angular_z})`);
     }
   };
 
@@ -875,12 +874,12 @@ export default function App() {
       <div className="yaw-buttons-container">
         <button 
           className="yaw-button yaw-left"
-          onMouseDown={() => startRealtimeControl(0, 0, 4.0)}
+          onMouseDown={() => startRealtimeControl(0, 0, 0, 4.0)}
           onMouseUp={() => stopRealtimeControl()}
           onMouseLeave={() => stopRealtimeControl()}
           onTouchStart={(e) => {
             e.preventDefault();
-            startRealtimeControl(0, 0, 4.0);
+            startRealtimeControl(0, 0, 0, 4.0);
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
@@ -906,12 +905,12 @@ export default function App() {
         </button>
         <button 
           className="yaw-button yaw-right"
-          onMouseDown={() => startRealtimeControl(0, 0, -4.0)}
+          onMouseDown={() => startRealtimeControl(0, 0, 0, -4.0)}
           onMouseUp={() => stopRealtimeControl()}
           onMouseLeave={() => stopRealtimeControl()}
           onTouchStart={(e) => {
             e.preventDefault();
-            startRealtimeControl(0, 0, -4.0);
+            startRealtimeControl(0, 0, 0, -4.0);
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
@@ -968,43 +967,42 @@ export default function App() {
             <DPadController />
           </div>
           <div className="right-controller-section">
-            {selectedArm === "left" && (
-              <div className="up-down-buttons vertical">
-                <button 
-                  className="up-down-button up-button"
-                  onClick={handleArm1UpButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬆️ UP
-                </button>
-                <button 
-                  className="up-down-button down-button"
-                  onClick={handleArm1DownButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬇️ DOWN
-                </button>
-              </div>
-            )}
-            
-            {selectedArm === "right" && (
-              <div className="up-down-buttons vertical">
-                <button 
-                  className="up-down-button up-button"
-                  onClick={handleArm2UpButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬆️ UP
-                </button>
-                <button 
-                  className="up-down-button down-button"
-                  onClick={handleArm2DownButtonClick}
-                  disabled={connectionStatus !== 'Connected'}
-                >
-                  ⬇️ DOWN
-                </button>
-              </div>
-            )}
+            <div className="up-down-buttons vertical">
+              <button
+                className="up-down-button up-button"
+                onMouseDown={() => startRealtimeControl(0, 0, 1.0)}
+                onMouseUp={() => stopRealtimeControl()}
+                onMouseLeave={() => stopRealtimeControl()}
+                onTouchStart={(e) => {
+                  e.preventDefault();
+                  startRealtimeControl(0, 0, 1.0);
+                }}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  stopRealtimeControl();
+                }}
+                disabled={connectionStatus !== 'Connected'}
+              >
+                ⬆️ UP
+              </button>
+              <button
+                className="up-down-button down-button"
+                onMouseDown={() => startRealtimeControl(0, 0, -1.0)}
+                onMouseUp={() => stopRealtimeControl()}
+                onMouseLeave={() => stopRealtimeControl()}
+                onTouchStart={(e) => {
+                  e.preventDefault();
+                  startRealtimeControl(0, 0, -1.0);
+                }}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  stopRealtimeControl();
+                }}
+                disabled={connectionStatus !== 'Connected'}
+              >
+                ⬇️ DOWN
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1312,43 +1310,42 @@ export default function App() {
                     <DPadController />
                   </div>
                   <div className="right-controller-section">
-                    {selectedArm === "left" && (
-                      <div className="up-down-buttons vertical">
-                        <button 
-                          className="up-down-button up-button"
-                          onClick={handleArm1UpButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬆️ UP
-                        </button>
-                        <button 
-                          className="up-down-button down-button"
-                          onClick={handleArm1DownButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬇️ DOWN
-                        </button>
-                      </div>
-                    )}
-                    
-                    {selectedArm === "right" && (
-                      <div className="up-down-buttons vertical">
-                        <button 
-                          className="up-down-button up-button"
-                          onClick={handleArm2UpButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬆️ UP
-                        </button>
-                        <button 
-                          className="up-down-button down-button"
-                          onClick={handleArm2DownButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬇️ DOWN
-                        </button>
-                      </div>
-                    )}
+                    <div className="up-down-buttons vertical">
+                      <button
+                        className="up-down-button up-button"
+                        onMouseDown={() => startRealtimeControl(0, 0, 1.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, 0, 1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬆️ UP
+                      </button>
+                      <button
+                        className="up-down-button down-button"
+                        onMouseDown={() => startRealtimeControl(0, 0, -1.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, 0, -1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬇️ DOWN
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1413,43 +1410,42 @@ export default function App() {
                     <DPadController />
                   </div>
                   <div className="right-controller-section">
-                    {selectedArm === "left" && (
-                      <div className="up-down-buttons vertical">
-                        <button 
-                          className="up-down-button up-button"
-                          onClick={handleArm1UpButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬆️ UP
-                        </button>
-                        <button 
-                          className="up-down-button down-button"
-                          onClick={handleArm1DownButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬇️ DOWN
-                        </button>
-                      </div>
-                    )}
-                    
-                    {selectedArm === "right" && (
-                      <div className="up-down-buttons vertical">
-                        <button 
-                          className="up-down-button up-button"
-                          onClick={handleArm2UpButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬆️ UP
-                        </button>
-                        <button 
-                          className="up-down-button down-button"
-                          onClick={handleArm2DownButtonClick}
-                          disabled={connectionStatus !== 'Connected'}
-                        >
-                          ⬇️ DOWN
-                        </button>
-                      </div>
-                    )}
+                    <div className="up-down-buttons vertical">
+                      <button
+                        className="up-down-button up-button"
+                        onMouseDown={() => startRealtimeControl(0, 0, 1.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, 0, 1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬆️ UP
+                      </button>
+                      <button
+                        className="up-down-button down-button"
+                        onMouseDown={() => startRealtimeControl(0, 0, -1.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, 0, -1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬇️ DOWN
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

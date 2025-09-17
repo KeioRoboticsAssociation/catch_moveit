@@ -135,6 +135,8 @@ ament_target_dependencies(
   geometry_msgs
   std_msgs
   std_srvs
+  tf2_ros
+  tf2_geometry_msgs
 )
 
 # Install the dual_arm_servo_controller node

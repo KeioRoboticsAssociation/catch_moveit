@@ -836,20 +836,8 @@ private:
             return;
         }
 
-        // Create target pose with relative z-coordinate change, keeping current x, y, and orientation
-        geometry_msgs::msg::PoseStamped target_pose = current_pose;
-        target_pose.header.stamp = this->get_clock()->now();
-        double target_z = current_pose.pose.position.z + relative_z;  // Add relative z value to current z
-        target_pose.pose.position.z = target_z;
-
-        // Execute z-movement directly
-        RCLCPP_INFO(this->get_logger(), "Executing relative z-movement for %s arm from z=%.3f to z=%.3f (relative: %+.3f)", 
-                   arm_name.c_str(), current_pose.pose.position.z, target_z, relative_z);
-        RCLCPP_INFO(this->get_logger(), "Target pose: x=%.3f, y=%.3f, z=%.3f, qx=%.3f, qy=%.3f, qz=%.3f, qw=%.3f",
-                   target_pose.pose.position.x, target_pose.pose.position.y, target_pose.pose.position.z,
-                   target_pose.pose.orientation.x, target_pose.pose.orientation.y, 
-                   target_pose.pose.orientation.z, target_pose.pose.orientation.w);
-        executeZMoveCommand(move_group_interface, target_pose, arm_name, target_z);
+        // Execute gradual z-movement for better reliability and collision avoidance
+        executeGradualZMove(move_group_interface, current_pose, relative_z, arm_name);
     }
     
     void move_arm_z(const std::string& arm_name, double target_z)
@@ -912,7 +900,79 @@ private:
         executeZMoveCommand(move_group_interface, target_pose, arm_name, target_z);
     }
     
-    void executeZMoveCommand(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface, 
+    void executeGradualZMove(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
+                            const geometry_msgs::msg::PoseStamped& start_pose, double total_relative_z, const std::string& arm_name)
+    {
+        const double step_size = 0.015;  // 1.5cm steps for safety
+        const int max_steps = std::abs(total_relative_z) / step_size;
+        const double actual_step = total_relative_z / std::max(1, max_steps);
+
+        RCLCPP_INFO(this->get_logger(), "Starting gradual z-movement for %s arm: total=%.3f, steps=%d, step_size=%.3f",
+                   arm_name.c_str(), total_relative_z, max_steps, actual_step);
+
+        geometry_msgs::msg::PoseStamped current_target = start_pose;
+
+        for (int step = 1; step <= max_steps; step++) {
+            // Calculate next step position
+            current_target.pose.position.z = start_pose.pose.position.z + (actual_step * step);
+            current_target.header.stamp = this->get_clock()->now();
+
+            RCLCPP_INFO(this->get_logger(), "Step %d/%d: Moving %s arm to z=%.3f",
+                       step, max_steps, arm_name.c_str(), current_target.pose.position.z);
+
+            // Execute single step
+            bool step_success = executeSingleZStep(move_group_interface, current_target, arm_name);
+
+            if (!step_success) {
+                RCLCPP_ERROR(this->get_logger(), "Gradual z-movement failed at step %d/%d for %s arm",
+                           step, max_steps, arm_name.c_str());
+                return;
+            }
+
+            // Small delay between steps for stability
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+
+        RCLCPP_INFO(this->get_logger(), "Gradual z-movement completed successfully for %s arm", arm_name.c_str());
+    }
+
+    bool executeSingleZStep(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
+                           const geometry_msgs::msg::PoseStamped& target_pose, const std::string& arm_name)
+    {
+        // Configure for fast, reliable planning
+        move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
+        move_group_interface->setPlannerId("LIN");
+        move_group_interface->setPlanningTime(0.1);  // Quick planning
+        move_group_interface->setNumPlanningAttempts(3);
+        move_group_interface->setGoalPositionTolerance(0.001);
+        move_group_interface->setGoalOrientationTolerance(0.001);
+
+        move_group_interface->setPoseTarget(target_pose);
+
+        moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+        bool success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+
+        if (success) {
+            auto result = move_group_interface->execute(my_plan);
+            return (result == moveit::core::MoveItErrorCode::SUCCESS);
+        } else {
+            // Fallback to OMPL if Pilz fails
+            RCLCPP_WARN(this->get_logger(), "Pilz LIN failed for step, trying OMPL for %s arm", arm_name.c_str());
+            move_group_interface->setPlanningPipelineId("ompl");
+            move_group_interface->setPlannerId("RRTConnect");
+            move_group_interface->setPlanningTime(1.0);
+
+            success = (move_group_interface->plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+            if (success) {
+                auto result = move_group_interface->execute(my_plan);
+                return (result == moveit::core::MoveItErrorCode::SUCCESS);
+            }
+        }
+
+        return false;
+    }
+
+    void executeZMoveCommand(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface,
                             const geometry_msgs::msg::PoseStamped& target_pose, const std::string& arm_name, double target_z)
     {
         // 非同期実行でz-movementを実行
