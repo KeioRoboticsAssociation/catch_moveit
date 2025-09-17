@@ -6,5 +6,5 @@ CXX_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROSIDL_TYPESUPPORT_FASTRTPS_C_B
 
 CXX_INCLUDES = -I/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/include -I/home/a/ws_moveit2/install/dynamixel_sdk/include -I/home/a/ws_moveit2/build/dynamixel_controller/rosidl_typesupport_fastrtps_c -I/home/a/ws_moveit2/build/dynamixel_controller/rosidl_generator_c -isystem /opt/ros/humble/include/fastcdr -isystem /opt/ros/humble/include/rosidl_runtime_c -isystem /opt/ros/humble/include/rcutils -isystem /opt/ros/humble/include/rosidl_typesupport_interface -isystem /opt/ros/humble/include/rosidl_runtime_cpp -isystem /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/humble/include/rmw -isystem /opt/ros/humble/include/rosidl_typesupport_fastrtps_c -isystem /opt/ros/humble/include/std_msgs -isystem /opt/ros/humble/include/builtin_interfaces
 
-CXX_FLAGS = -fPIC -Wall -Wextra -Wpedantic -std=gnu++14
+CXX_FLAGS = -g -fPIC -Wall -Wextra -Wpedantic -std=gnu++14
 

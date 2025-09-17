@@ -1,0 +1,139 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-7120cd38a8aa35c8564c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3
+					]
+				},
+				{
+					"build" : "lib/CppLinuxSerial",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.CppLinuxSerial-f8ca823cc85b8892ce16.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "lib/CppLinuxSerial"
+				},
+				{
+					"build" : "lib/CppLinuxSerial/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.CppLinuxSerial.src-bda02dd9894ffeff51b8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/CppLinuxSerial/src",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "rogilink_flex",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2
+					],
+					"name" : "CppLinuxSerial",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "CppLinuxSerial::@0c936cd5da8b8f644882",
+					"jsonFile" : "target-CppLinuxSerial-09d3df9005219c99a779.json",
+					"name" : "CppLinuxSerial",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rogilink_flex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rogilink_flex-519a3bcc6758502a2dd0.json",
+					"name" : "rogilink_flex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rogilink_flex_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rogilink_flex_uninstall-d3c2fdc66602052a32a0.json",
+					"name" : "rogilink_flex_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-0a0859eb45a317e9527f.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/a/ws_moveit2/build/rogilink_flex",
+		"source" : "/home/a/ws_moveit2/src/rogilinkFlex-ros2/rogilink_flex"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

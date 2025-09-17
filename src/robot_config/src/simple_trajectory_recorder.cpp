@@ -9,6 +9,8 @@
 #include <mutex>
 #include <vector>
 #include <cmath>
+#include <regex>
+#include <sstream>
 
 struct RecordedJointState {
     double timestamp;
@@ -94,6 +96,7 @@ public:
         RCLCPP_INFO(get_logger(), "  Start recording: ros2 topic pub /record std_msgs/msg/String \"data: 'my_trajectory'\" --once");
         RCLCPP_INFO(get_logger(), "  Stop recording:  ros2 topic pub /stop std_msgs/msg/String \"data: ''\" --once");
         RCLCPP_INFO(get_logger(), "  Replay:          ros2 topic pub /replay std_msgs/msg/String \"data: 'my_trajectory.yaml'\" --once");
+        RCLCPP_INFO(get_logger(), "  Replay (speed):  ros2 topic pub /replay std_msgs/msg/String \"data: 'my_trajectory.yaml,speed=2.0'\" --once");
         RCLCPP_INFO(get_logger(), "");
         RCLCPP_INFO(get_logger(), "Workflow:");
         RCLCPP_INFO(get_logger(), "  1. Send /record command");
@@ -151,10 +154,34 @@ public:
     }
 
     void replayCallback(const std_msgs::msg::String::SharedPtr msg) {
-        std::string filename = msg->data;
-        if (filename.empty()) {
+        std::string input_data = msg->data;
+        if (input_data.empty()) {
             RCLCPP_ERROR(get_logger(), "Please specify filename to replay");
             return;
+        }
+
+        // Parse input data for filename and optional speed parameter
+        std::string filename;
+        double speed_multiplier = 1.0;  // Default speed
+
+        // Check if speed parameter is specified (format: "filename,speed=X.X")
+        size_t comma_pos = input_data.find(',');
+        if (comma_pos != std::string::npos) {
+            filename = input_data.substr(0, comma_pos);
+            std::string speed_part = input_data.substr(comma_pos + 1);
+
+            // Extract speed value using regex
+            std::regex speed_regex("speed=([0-9]+\\.?[0-9]*)");
+            std::smatch match;
+            if (std::regex_search(speed_part, match, speed_regex)) {
+                speed_multiplier = std::stod(match[1].str());
+                if (speed_multiplier <= 0.0) {
+                    RCLCPP_WARN(get_logger(), "Invalid speed multiplier: %f. Using default 1.0", speed_multiplier);
+                    speed_multiplier = 1.0;
+                }
+            }
+        } else {
+            filename = input_data;
         }
 
         // Add .yaml extension if not present
@@ -167,10 +194,13 @@ public:
             filename = "/home/a/ws_moveit2/src/robot_config/path/" + filename;
         }
 
-        RCLCPP_INFO(get_logger(), "Replaying trajectory from: %s", filename.c_str());
+        RCLCPP_INFO(get_logger(), "Replaying trajectory from: %s at %fx speed",
+                   filename.c_str(), speed_multiplier);
 
-        if (loadAndReplay(filename)) {
-            publishStatus("REPLAYING: " + filename);
+        if (loadAndReplay(filename, speed_multiplier)) {
+            std::ostringstream ss;
+            ss << "REPLAYING: " << filename << " (speed=" << speed_multiplier << "x)";
+            publishStatus(ss.str());
         } else {
             publishStatus("REPLAY_FAILED: " + filename);
         }
@@ -249,7 +279,7 @@ public:
         RCLCPP_INFO(get_logger(), "Saved trajectory to: %s", filename.c_str());
     }
 
-    bool loadAndReplay(const std::string& filename) {
+    bool loadAndReplay(const std::string& filename, double speed_multiplier = 1.0) {
         try {
             YAML::Node root = YAML::LoadFile(filename);
 
@@ -303,39 +333,39 @@ public:
 
             // Create and publish trajectory messages
             if (!left_trajectory.empty()) {
-                auto left_traj_msg = createTrajectoryMessage(left_trajectory, "left_Revolute");
+                auto left_traj_msg = createTrajectoryMessage(left_trajectory, "left_Revolute", speed_multiplier);
                 left_traj_pub_->publish(left_traj_msg);
-                RCLCPP_INFO(get_logger(), "Published left arm trajectory (%zu points)", left_trajectory.size());
+                RCLCPP_INFO(get_logger(), "Published left arm trajectory (%zu points) at %fx speed", left_trajectory.size(), speed_multiplier);
             }
 
             if (!right_trajectory.empty()) {
-                auto right_traj_msg = createTrajectoryMessage(right_trajectory, "right_Revolute");
+                auto right_traj_msg = createTrajectoryMessage(right_trajectory, "right_Revolute", speed_multiplier);
                 right_traj_pub_->publish(right_traj_msg);
-                RCLCPP_INFO(get_logger(), "Published right arm trajectory (%zu points)", right_trajectory.size());
+                RCLCPP_INFO(get_logger(), "Published right arm trajectory (%zu points) at %fx speed", right_trajectory.size(), speed_multiplier);
             }
 
             if (!left_hand_trajectory.empty()) {
-                auto left_hand_msg = createTrajectoryMessage(left_hand_trajectory, "left_Slider");
+                auto left_hand_msg = createTrajectoryMessage(left_hand_trajectory, "left_Slider", speed_multiplier);
                 left_hand_pub_->publish(left_hand_msg);
-                RCLCPP_INFO(get_logger(), "Published left hand trajectory (%zu points)", left_hand_trajectory.size());
+                RCLCPP_INFO(get_logger(), "Published left hand trajectory (%zu points) at %fx speed", left_hand_trajectory.size(), speed_multiplier);
             }
 
             if (!right_hand_trajectory.empty()) {
-                auto right_hand_msg = createTrajectoryMessage(right_hand_trajectory, "right_Slider");
+                auto right_hand_msg = createTrajectoryMessage(right_hand_trajectory, "right_Slider", speed_multiplier);
                 right_hand_pub_->publish(right_hand_msg);
-                RCLCPP_INFO(get_logger(), "Published right hand trajectory (%zu points)", right_hand_trajectory.size());
+                RCLCPP_INFO(get_logger(), "Published right hand trajectory (%zu points) at %fx speed", right_hand_trajectory.size(), speed_multiplier);
             }
 
             if (!red_seiretu_trajectory.empty()) {
-                auto red_seiretu_msg = createTrajectoryMessage(red_seiretu_trajectory, "red_slider");
+                auto red_seiretu_msg = createTrajectoryMessage(red_seiretu_trajectory, "red_slider", speed_multiplier);
                 red_seiretu_pub_->publish(red_seiretu_msg);
-                RCLCPP_INFO(get_logger(), "Published red seiretu trajectory (%zu points)", red_seiretu_trajectory.size());
+                RCLCPP_INFO(get_logger(), "Published red seiretu trajectory (%zu points) at %fx speed", red_seiretu_trajectory.size(), speed_multiplier);
             }
 
             if (!blue_seiretu_trajectory.empty()) {
-                auto blue_seiretu_msg = createTrajectoryMessage(blue_seiretu_trajectory, "blue_slider");
+                auto blue_seiretu_msg = createTrajectoryMessage(blue_seiretu_trajectory, "blue_slider", speed_multiplier);
                 blue_seiretu_pub_->publish(blue_seiretu_msg);
-                RCLCPP_INFO(get_logger(), "Published blue seiretu trajectory (%zu points)", blue_seiretu_trajectory.size());
+                RCLCPP_INFO(get_logger(), "Published blue seiretu trajectory (%zu points) at %fx speed", blue_seiretu_trajectory.size(), speed_multiplier);
             }
 
             return true;
@@ -347,7 +377,7 @@ public:
     }
 
     trajectory_msgs::msg::JointTrajectory createTrajectoryMessage(
-        const std::vector<RecordedJointState>& trajectory, const std::string& arm_prefix) {
+        const std::vector<RecordedJointState>& trajectory, const std::string& arm_prefix, double speed_multiplier = 1.0) {
 
         trajectory_msgs::msg::JointTrajectory traj_msg;
 
@@ -410,15 +440,17 @@ public:
                 }
             }
 
-            point.time_from_start = rclcpp::Duration::from_seconds(compressed_time);
+            // Apply speed multiplier by dividing the time (higher speed = less time)
+            double adjusted_time = compressed_time / speed_multiplier;
+            point.time_from_start = rclcpp::Duration::from_seconds(adjusted_time);
             traj_msg.points.push_back(point);
 
             last_original_time = state.timestamp;
 
             // Debug: Print first few and last few timestamps
             if (i < 3 || i >= trajectory.size() - 3) {
-                RCLCPP_INFO(get_logger(), "Point %zu: original=%.3fs -> compressed=%.3fs",
-                           i, state.timestamp, compressed_time);
+                RCLCPP_INFO(get_logger(), "Point %zu: original=%.3fs -> compressed=%.3fs -> adjusted=%.3fs (speed=%fx)",
+                           i, state.timestamp, compressed_time, adjusted_time, speed_multiplier);
             }
         }
 

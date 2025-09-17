@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
+#include <mutex>
 
 #include "rclcpp/rclcpp.hpp"
 #include "dynamixel_controller/msg/dynamixel_command.hpp"
@@ -42,6 +43,9 @@ private:
     // Bus configuration
     std::unordered_set<uint8_t> ttl_ids_;
     std::unordered_set<uint8_t> rs485_ids_;
+
+    // Thread safety
+    std::mutex bus_mutex_;
 
     // デバイスパラメータ（例：モータID、プロトコルバージョン）
     const int dxl_id_ = 1;

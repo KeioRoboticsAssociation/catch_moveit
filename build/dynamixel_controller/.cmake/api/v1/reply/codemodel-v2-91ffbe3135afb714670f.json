@@ -1,0 +1,242 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-62d1367c7f403aa5f91d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "dynamixel_controller__py",
+					"jsonFile" : "directory-dynamixel_controller__py-Debug-e3a134fba003333da494.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/a/ws_moveit2/build/dynamixel_controller/dynamixel_controller__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "dynamixel_controller",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_dynamixel_controller_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_dynamixel_controller_egg-Debug-e9d8689627fc493242a6.json",
+					"name" : "ament_cmake_python_build_dynamixel_controller_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_dynamixel_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_dynamixel_controller-Debug-94f0bdde5e6a97f79bcd.json",
+					"name" : "ament_cmake_python_copy_dynamixel_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller-Debug-992313257ed15908db57.json",
+					"name" : "dynamixel_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__cpp-Debug-ac9221a2ee895e97925f.json",
+					"name" : "dynamixel_controller__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "dynamixel_controller__py::@d8775f45f4979a084fb0",
+					"jsonFile" : "target-dynamixel_controller__py-Debug-8a1c4f69c6f21331c25c.json",
+					"name" : "dynamixel_controller__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_generator_c-Debug-d539ec990e332a505474.json",
+					"name" : "dynamixel_controller__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_generator_py-Debug-12cce6e0cf696f036f9a.json",
+					"name" : "dynamixel_controller__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_c-Debug-d1e88fafbdee4100e9c7.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_c__pyext-Debug-de80a0e079d44407dbe2.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_cpp-Debug-b45468a06bef422babce.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_fastrtps_c-Debug-05a01b6723c691187f16.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_fastrtps_c__pyext-Debug-83176c9570acc36bce0d.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_fastrtps_cpp-Debug-51016e8b6fc926c6ba7e.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_introspection_c-Debug-1ae16b28cd8591c5f86d.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_introspection_c__pyext-Debug-1d17d96c0e0e5a9524a5.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller__rosidl_typesupport_introspection_cpp-Debug-2c38fde9a563d368042f.json",
+					"name" : "dynamixel_controller__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller_node-Debug-2ff2df2bcf4d6a0c740a.json",
+					"name" : "dynamixel_controller_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_controller_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_controller_uninstall-Debug-a427e75627a681f593e5.json",
+					"name" : "dynamixel_controller_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-d59c78f32270304c3a40.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/a/ws_moveit2/build/dynamixel_controller",
+		"source" : "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

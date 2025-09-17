@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from rogilink_flex_interfaces/msg/Frame.msg
+// generated code does not contain a copyright notice
+
+
+module rogilink_flex_interfaces {
+  module msg {
+    struct Frame {
+      @default (value=0)
+      uint8 frame_id;
+
+      @default (value=0)
+      uint8 device_id;
+
+      sequence<uint8> data;
+
+      string topic;
+    };
+  };
+};

@@ -1,0 +1,56 @@
+running egg_info
+creating ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info
+writing ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/PKG-INFO
+writing dependency_links to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/dependency_links.txt
+writing entry points to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/entry_points.txt
+writing requirements to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/requires.txt
+writing top-level names to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/top_level.txt
+writing manifest file '../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/SOURCES.txt'
+reading manifest file '../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/SOURCES.txt'
+writing manifest file '../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/a/ws_moveit2/build/rogilink_flex_gui/build
+creating /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib
+creating /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui
+copying rogilink_flex_gui/gui.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui
+copying rogilink_flex_gui/__init__.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui
+creating /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules
+copying rogilink_flex_gui/modules/transmission_widget.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules
+copying rogilink_flex_gui/modules/console.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules
+copying rogilink_flex_gui/modules/main_widget.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules
+copying rogilink_flex_gui/modules/__init__.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules
+copying rogilink_flex_gui/modules/style_sheet.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules
+copying rogilink_flex_gui/modules/reception_widget.py -> /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules
+running install
+running install_lib
+creating /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui
+creating /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules/transmission_widget.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules/console.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules/main_widget.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules/__init__.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules/style_sheet.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/modules/reception_widget.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/gui.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui
+copying /home/a/ws_moveit2/build/rogilink_flex_gui/build/lib/rogilink_flex_gui/__init__.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules/transmission_widget.py to transmission_widget.cpython-310.pyc
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules/console.py to console.cpython-310.pyc
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules/main_widget.py to main_widget.cpython-310.pyc
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules/style_sheet.py to style_sheet.cpython-310.pyc
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/modules/reception_widget.py to reception_widget.cpython-310.pyc
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/gui.py to gui.cpython-310.pyc
+byte-compiling /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/a/ws_moveit2/install/rogilink_flex_gui/share/ament_index
+creating /home/a/ws_moveit2/install/rogilink_flex_gui/share/ament_index/resource_index
+creating /home/a/ws_moveit2/install/rogilink_flex_gui/share/ament_index/resource_index/packages
+copying resource/rogilink_flex_gui -> /home/a/ws_moveit2/install/rogilink_flex_gui/share/ament_index/resource_index/packages
+copying package.xml -> /home/a/ws_moveit2/install/rogilink_flex_gui/share/rogilink_flex_gui
+copying launch/gui.launch.py -> /home/a/ws_moveit2/install/rogilink_flex_gui/share/rogilink_flex_gui
+running install_egg_info
+Copying ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info to /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui-0.0.0-py3.10.egg-info
+running install_scripts
+Installing gui script to /home/a/ws_moveit2/install/rogilink_flex_gui/lib/rogilink_flex_gui
+writing list of installed files to '/home/a/ws_moveit2/build/rogilink_flex_gui/install.log'

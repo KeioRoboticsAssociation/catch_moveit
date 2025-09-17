@@ -1,0 +1,102 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"lib/CppLinuxSerial/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/CppLinuxSerial/src/libCppLinuxSerial.a"
+			],
+			"targetId" : "CppLinuxSerial::@0c936cd5da8b8f644882",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/CppLinuxSerial",
+			"exportName" : "CppLinuxSerialTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "CppLinuxSerial::@0c936cd5da8b8f644882",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"lib/CppLinuxSerial/src/CMakeFiles/Export/lib/cmake/CppLinuxSerial/CppLinuxSerialTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"lib/CppLinuxSerial/src/../include/CppLinuxSerial"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/CppLinuxSerial",
+			"paths" : 
+			[
+				"/home/a/ws_moveit2/build/rogilink_flex/lib/CppLinuxSerial/src/CppLinuxSerialConfig.cmake",
+				"/home/a/ws_moveit2/build/rogilink_flex/lib/CppLinuxSerial/src/CppLinuxSerialConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib/CppLinuxSerial/src",
+		"source" : "lib/CppLinuxSerial/src"
+	}
+}

@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import './App.css';
 
 // --- ROS 2 接続設定 ---
-const ROSBRIDGE_SERVER_URL = "ws://192.168.100.3:9090";
+const ROSBRIDGE_SERVER_URL = "ws://192.168.10.102:9090";
 const COMMAND_TOPIC_NAME = "/robot_command";
 const COMMAND_MESSAGE_TYPE = "std_msgs/msg/String";
 const POSE_TOPIC_NAME = "/button_command";
@@ -48,7 +48,7 @@ export default function App() {
   const [leftRealtimeControlPublisher, setLeftRealtimeControlPublisher] = useState<ROSLIB.Topic | null>(null);
   const [rightRealtimeControlPublisher, setRightRealtimeControlPublisher] = useState<ROSLIB.Topic | null>(null);
   const [tapPixelPublisher, setTapPixelPublisher] = useState(null);
-  const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.10.151:8080/stream?topic=/camera/camera/color/image_raw");
+  const [cameraImageUrl, setCameraImageUrl] = useState<string>("http://192.168.100.3:8080/stream?topic=/camera/camera/color/image_raw");
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
   const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
@@ -1171,7 +1171,7 @@ export default function App() {
           📷 カメラ映像 (大画面) - クリックで座標表示
         </h2>
         <img 
-          src="http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw" 
+          src="http://192.168.100.3:8080/stream?topic=/camera/camera/color/image_raw" 
           alt="Camera Feed Large View" 
           className={selectedArm === "left" ? "camera-image-left-large" : "camera-image-right-large"}
           style={{ 
@@ -1190,7 +1190,7 @@ export default function App() {
             console.log('カメライン映像読み込みエラー (大画面)');
             const img = e.target as HTMLImageElement;
             setTimeout(() => {
-              img.src = "http://192.168.10.102:8080/stream?topic=/camera/camera/color/image_raw";
+              img.src = "http://192.168.100.3:8080/stream?topic=/camera/camera/color/image_raw";
             }, 3000);
           }}
         />

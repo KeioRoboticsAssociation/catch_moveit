@@ -1,0 +1,74 @@
+{
+    "device_id": 0,
+    "reception_messages":
+    [
+        {
+            "id": 1,
+            "name": "INFO",
+            "type": "str",
+            "args": "message"
+        },
+        {
+            "id": 2,
+            "name": "WARN",
+            "type": "str",
+            "args": "message"
+        },
+        {
+            "id": 3,
+            "name": "FATAL",
+            "type": "str",
+            "args": "message"
+        },
+        {
+            "id": 4,
+            "name": "YAW",
+            "type": "float32, float32",
+            "args": "rad1,rad2"
+        },
+        {
+            "id": 5,
+            "name": "WTT12L",
+            "type": "uint8",
+            "args": "event"
+        },
+        {
+            "id": 6,
+            "name": "ARM_STATE",
+            "type": "uint8",
+            "args": "event"
+        },
+        {
+            "id": 7,
+            "name": "MOTOR_CONFIG",
+            "type": "uint8, float32, float32, float32, float32, float32",
+            "args": "motor_id, kp, ki, kd, max_vel, max_accel"
+        }
+    ],
+    "transmission_messages" : [
+        {
+            "id": 1,
+            "name": "STEER",
+            "type": "float32, float32, float32",
+            "args": "steer_theta1, steer_theta2, steer_theta3"
+        },
+        {
+            "id": 2,
+            "name": "SERVO",
+            "type": "float32, float32",
+            "args": "arm_pwm, shoot_pwm"
+        },
+        {
+            "id": 3,
+            "name": "VACUUM",
+            "type": "float32, float32",
+            "args": "vacuum_pwm, ans"
+        },
+        {
+            "id": 4,
+            "name": "YAW",
+            "type": "float32, float32",
+            "args": "rad1,rad2"
+        }
+    ]
+}

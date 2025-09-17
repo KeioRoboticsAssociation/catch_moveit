@@ -741,8 +741,49 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc
+  /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/c++/11/regex \
+  /usr/include/c++/11/bitset \
+  /usr/include/c++/11/stack \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/stl_stack.h \
+  /usr/include/c++/11/bits/regex_constants.h \
+  /usr/include/c++/11/bits/regex_error.h \
+  /usr/include/c++/11/bits/regex_automaton.h \
+  /usr/include/c++/11/bits/regex_automaton.tcc \
+  /usr/include/c++/11/bits/regex_scanner.h \
+  /usr/include/c++/11/bits/regex_scanner.tcc \
+  /usr/include/c++/11/bits/regex_compiler.h \
+  /usr/include/c++/11/bits/regex_compiler.tcc \
+  /usr/include/c++/11/bits/regex.h \
+  /usr/include/c++/11/bits/regex.tcc \
+  /usr/include/c++/11/bits/regex_executor.h \
+  /usr/include/c++/11/bits/regex_executor.tcc
 
+
+/usr/include/c++/11/bits/regex_executor.h:
+
+/usr/include/c++/11/bits/regex_compiler.tcc:
+
+/usr/include/c++/11/bits/regex_compiler.h:
+
+/usr/include/c++/11/bits/regex_scanner.h:
+
+/usr/include/c++/11/bits/regex_automaton.h:
+
+/usr/include/c++/11/bits/regex_constants.h:
+
+/usr/include/c++/11/bits/stl_stack.h:
+
+/usr/include/c++/11/bits/deque.tcc:
+
+/usr/include/c++/11/bits/stl_deque.h:
+
+/usr/include/c++/11/deque:
+
+/usr/include/c++/11/regex:
 
 /usr/include/c++/11/bits/fstream.tcc:
 
@@ -759,6 +800,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 /usr/include/yaml-cpp/node/iterator.h:
 
 /usr/include/yaml-cpp/node/detail/node_iterator.h:
+
+/usr/include/c++/11/stack:
 
 /usr/include/yaml-cpp/node/detail/node_data.h:
 
@@ -955,6 +998,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__builder.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__traits.hpp:
+
+/usr/include/c++/11/bits/regex_executor.tcc:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/integer_range__struct.hpp:
 
@@ -1498,6 +1543,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 
 /usr/include/c++/11/bits/concept_check.h:
 
+/usr/include/c++/11/bits/regex_error.h:
+
 /usr/include/c++/11/atomic:
 
 /usr/include/pthread.h:
@@ -1529,6 +1576,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
 /usr/include/c++/11/tuple:
+
+/usr/include/c++/11/bits/regex.h:
 
 /opt/ros/humble/include/rcl/rcl/network_flow_endpoints.h:
 
@@ -1806,6 +1855,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 
 /opt/ros/humble/include/rmw/rmw/ret_types.h:
 
+/usr/include/c++/11/bits/regex_scanner.tcc:
+
 /usr/include/c++/11/bits/stream_iterator.h:
 
 /opt/ros/humble/include/rcl/rcl/log_level.h:
@@ -1924,6 +1975,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 
 /opt/ros/humble/include/rcl/rcl/domain_id.h:
 
+/usr/include/c++/11/bitset:
+
 /opt/ros/humble/include/rcl/rcl/service.h:
 
 /opt/ros/humble/include/rcl/rcl/subscription.h:
@@ -1935,6 +1988,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
 
 /opt/ros/humble/include/rcl/rcl/time.h:
+
+/usr/include/c++/11/bits/regex_automaton.tcc:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp:
 
@@ -1977,6 +2032,8 @@ CMakeFiles/simple_trajectory_recorder.dir/src/simple_trajectory_recorder.cpp.o: 
 /opt/ros/humble/include/rclcpp/rclcpp/contexts/default_context.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/guard_condition.hpp:
+
+/usr/include/c++/11/bits/regex.tcc:
 
 /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:
 

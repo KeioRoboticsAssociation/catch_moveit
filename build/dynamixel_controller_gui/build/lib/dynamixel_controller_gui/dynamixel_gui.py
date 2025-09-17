@@ -521,11 +521,11 @@ class DynamixelGUI(Node):
             msg.data = []
             self.tx_publisher.publish(msg)
             
-            # Small delay between pings
-            time.sleep(0.01)
+            # Small delay between pings to prevent bus overwhelm
+            time.sleep(0.1)
             
-        # Update GUI in main thread
-        self.root.after(2000, lambda: self._finish_scan(found_motors))
+        # Update GUI in main thread - increased delay to allow for slower scanning
+        self.root.after(3000, lambda: self._finish_scan(found_motors))
         
     def _finish_scan(self, found_motors):
         """Finish the scan and update GUI"""

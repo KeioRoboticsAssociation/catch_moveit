@@ -1,0 +1,21 @@
+[0.636s] Invoking command in '/home/a/ws_moveit2/src/rogilinkFlex-ros2/rogilink_flex_gui': PYTHONPATH=/home/a/ws_moveit2/build/rogilink_flex_gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/rogilink_flex_gui build --build-base /home/a/ws_moveit2/build/rogilink_flex_gui/build install --record /home/a/ws_moveit2/build/rogilink_flex_gui/install.log --single-version-externally-managed install_data
+[0.808s] running egg_info
+[0.809s] writing ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/PKG-INFO
+[0.809s] writing dependency_links to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/dependency_links.txt
+[0.809s] writing entry points to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/entry_points.txt
+[0.809s] writing requirements to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/requires.txt
+[0.809s] writing top-level names to ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/top_level.txt
+[0.810s] reading manifest file '../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/SOURCES.txt'
+[0.811s] writing manifest file '../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info/SOURCES.txt'
+[0.811s] running build
+[0.811s] running build_py
+[0.811s] running install
+[0.811s] running install_lib
+[0.812s] running install_data
+[0.812s] running install_egg_info
+[0.813s] removing '/home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui-0.0.0-py3.10.egg-info' (and everything under it)
+[0.814s] Copying ../../../build/rogilink_flex_gui/rogilink_flex_gui.egg-info to /home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages/rogilink_flex_gui-0.0.0-py3.10.egg-info
+[0.814s] running install_scripts
+[0.828s] Installing gui script to /home/a/ws_moveit2/install/rogilink_flex_gui/lib/rogilink_flex_gui
+[0.828s] writing list of installed files to '/home/a/ws_moveit2/build/rogilink_flex_gui/install.log'
+[0.850s] Invoked command in '/home/a/ws_moveit2/src/rogilinkFlex-ros2/rogilink_flex_gui' returned '0': PYTHONPATH=/home/a/ws_moveit2/build/rogilink_flex_gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/a/ws_moveit2/install/rogilink_flex_gui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/rogilink_flex_gui build --build-base /home/a/ws_moveit2/build/rogilink_flex_gui/build install --record /home/a/ws_moveit2/build/rogilink_flex_gui/install.log --single-version-externally-managed install_data

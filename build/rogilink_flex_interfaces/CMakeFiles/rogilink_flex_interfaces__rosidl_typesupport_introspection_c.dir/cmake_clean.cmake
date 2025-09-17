@@ -1,0 +1,21 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/rogilink_flex_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rogilink_flex_interfaces/msg/detail/frame__type_support.c.o"
+  "CMakeFiles/rogilink_flex_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rogilink_flex_interfaces/msg/detail/frame__type_support.c.o.d"
+  "CMakeFiles/rogilink_flex_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/get_config__type_support.c.o"
+  "CMakeFiles/rogilink_flex_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/get_config__type_support.c.o.d"
+  "CMakeFiles/rogilink_flex_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/is_connected__type_support.c.o"
+  "CMakeFiles/rogilink_flex_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/is_connected__type_support.c.o.d"
+  "librogilink_flex_interfaces__rosidl_typesupport_introspection_c.pdb"
+  "librogilink_flex_interfaces__rosidl_typesupport_introspection_c.so"
+  "rosidl_typesupport_introspection_c/rogilink_flex_interfaces/msg/detail/frame__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/rogilink_flex_interfaces/msg/detail/frame__type_support.c"
+  "rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/get_config__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/get_config__type_support.c"
+  "rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/is_connected__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/rogilink_flex_interfaces/srv/detail/is_connected__type_support.c"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/rogilink_flex_interfaces__rosidl_typesupport_introspection_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

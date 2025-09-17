@@ -647,8 +647,8 @@ def generate_launch_description():
     left_origin_xyz = PythonExpression([
         '"1.62 -0.359 0" if "', arm, '" == "dual" and "', field, '" == "red" else ',
         '"0 0 0" if "', arm, '" == "dual" and "', field, '" == "blue" else ',
-        '"1.62 -0.1795 0" if "', arm, '" == "left" and "', field, '" == "red" else ',
-        '"0 -0.1795 0" if "', arm, '" == "left" and "', field, '" == "blue" else ',
+        '"1.609 -0.1795 0" if "', arm, '" == "left" and "', field, '" == "red" else ',
+        '"0.011 -0.1795 0" if "', arm, '" == "left" and "', field, '" == "blue" else ',
         '"1.62 -0.1795 0" if "', arm, '" == "right" and "', field, '" == "red" else ',
         '"0 -0.1795 0" if "', arm, '" == "right" and "', field, '" == "blue" else "',
         LaunchConfiguration("left_origin_xyz"), '"'
@@ -700,7 +700,7 @@ def generate_launch_description():
         if arm_value == "dual":
             full_coordinates = [0.135,-0.1795,0.3,0.135,-0.1795,0.3,0.135,-0.1795,0.5,0.135,-0.1795,0.5,1.485,-0.1795,0.3,1.485,-0.1795,0.3,1.485,-0.1795,0.5,1.485,-0.1795,0.5]
         elif arm_value == "left":
-            full_coordinates = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+            full_coordinates = [10.0,10.0,0.0,10.0,10.0,0.0,10.0,-10.0,0.0,10.0,-10.0,0.0,-10.0,10.0,0.0,-10.0,10.0,0.0,-10.0,-10.0,0.0,-10.0,-10.0,0.0]
         elif arm_value == "right":
             full_coordinates = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
         else:
@@ -1211,7 +1211,7 @@ def generate_launch_description():
 
     # D415 RGB depth 3D launch with dynamic camera position based on field
     camera_position_x = PythonExpression([
-        '"1.69" if "', field, '" == "red" else ',
+        '"1.62" if "', field, '" == "red" else ',
         '"0.0" if "', field, '" == "blue" else "0.00"'
     ])
     
@@ -1244,16 +1244,16 @@ def generate_launch_description():
     )
 
     # Dynamixel controller node
-    dynamixel_controller_node = Node(
-        package="dynamixel_controller",
-        executable="dynamixel_controller_node",
-        name="dynamixel_controller_node",
-        output="screen",
-        parameters=[
-            "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/config/bus_config.yaml",
-            {"arm_mode": arm_value}
-        ],
-    )
+    # dynamixel_controller_node = Node(
+    #     package="dynamixel_controller",
+    #     executable="dynamixel_controller_node",
+    #     name="dynamixel_controller_node",
+    #     output="screen",
+    #     parameters=[
+    #         "/home/a/ws_moveit2/src/dynamixel_ros2/dynamixel_controller/config/bus_config.yaml",
+    #         {"arm_mode": arm_value}
+    #     ],
+    # )
 
     # Dynamixel GUI node
     dynamixel_gui_node = Node(
@@ -1270,6 +1270,34 @@ def generate_launch_description():
         name='target_pose_router',
         output='screen'
     )
+
+    # Rogilink Flex GUI launch
+    # rogilink_flex_gui_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         PathJoinSubstitution([
+    #             FindPackageShare("rogilink_flex_gui"),
+    #             "gui.launch.py"
+    #         ])
+    #     ]),
+    #     launch_arguments={
+    #         "config_path": "/home/a/ws_moveit2/src/MAVLink/config/config.json"
+    #     }.items()
+    # )
+
+    # Mavlink GUI tester launch
+    # mavlink_gui_tester_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         PathJoinSubstitution([
+    #             FindPackageShare("mavlink_gui_tester"),
+    #             "launch",
+    #             "mavlink_gui_tester.launch.py"
+    #         ])
+    #     ]),
+    #     launch_arguments={
+    #         "serial_port": "/dev/ttyACM0",
+    #         "baudrate": "115200"
+    #     }.items()
+    # )
     
     # Create node list with conditional RViz
     nodes_to_launch = [
@@ -1296,9 +1324,11 @@ def generate_launch_description():
         d415_rgb_depth_3d_launch,  # Add D415 RGB depth 3D launch
         camera_static_tf,  # Add camera static transform
         publish_collision_mesh_node,
-        dynamixel_controller_node,  # Add Dynamixel controller
+        # dynamixel_controller_node,  # Add Dynamixel controller
         dynamixel_gui_node,  # Add Dynamixel GUI
         target_pose_router,  # Add target pose router
+        # rogilink_flex_gui_launch,  # Add Rogilink Flex GUI
+        # mavlink_gui_tester_launch,  # Add Mavlink GUI tester
     ]
     
     # Add RViz conditionally based on rviz parameter

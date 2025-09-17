@@ -17,7 +17,7 @@
 
 // 接続情報のマクロ（必要に応じて調整）
 #define BAUDRATE 57600
-#define DEVICE_NAME "/dev/ttyUSB0"
+#define DEVICE_NAME "/dev/USB-u2d2"
 
 // メッセージ定義のショートカット
 #define MSG dynamixel_controller::msg::DynamixelController

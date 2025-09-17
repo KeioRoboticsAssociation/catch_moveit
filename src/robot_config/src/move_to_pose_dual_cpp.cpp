@@ -924,10 +924,10 @@ private:
             // Configure Pilz LIN planner with simple settings
             move_group_interface->setPlanningPipelineId("pilz_industrial_motion_planner");
             move_group_interface->setPlannerId("LIN");
-            move_group_interface->setPlanningTime(0.1);  // Fast planning time
-            move_group_interface->setNumPlanningAttempts(3);  // Fewer attempts for speed
-            move_group_interface->setGoalPositionTolerance(0.0001);  // More tolerant
-            move_group_interface->setGoalOrientationTolerance(0.0001);  // More tolerant
+            move_group_interface->setPlanningTime(0.3);  // Fast planning time
+            move_group_interface->setNumPlanningAttempts(10);  // More attempts for better success rate
+            move_group_interface->setGoalPositionTolerance(0.001);  // More tolerant
+            move_group_interface->setGoalOrientationTolerance(0.001);  // More tolerant
             
             // Ensure we have a valid start state even if current_state_monitor lags
             bool start_state_set = false;

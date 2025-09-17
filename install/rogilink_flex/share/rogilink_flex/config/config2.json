@@ -1,0 +1,22 @@
+{
+  "devices": [
+    {
+      "device_id": 0,
+      "reception_messages": [
+        { "id": 1, "name": "a", "type": "c_float" }
+      ],
+      "transmission_messages": [
+        { "id": 1, "name": "a", "type": "c_float" }
+      ]
+    },
+    {
+      "device_id": 1,
+      "reception_messages": [
+        { "id": 1, "name": "b", "type": "c_float" }
+      ],
+      "transmission_messages": [
+        { "id": 1, "name": "b", "type": "c_float" }
+      ]
+    }
+  ]
+}

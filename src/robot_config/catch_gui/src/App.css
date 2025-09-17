@@ -753,9 +753,9 @@ html, body {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: clamp(0.5rem, 1vw, 1rem);
+  gap: clamp(0.3rem, 0.8vw, 0.8rem);
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   height: 100%;
   max-height: 400px;
 }
@@ -764,17 +764,19 @@ html, body {
 .pose-button-single {
   background: linear-gradient(145deg, #3498db, #2980b9);
   border: 2px solid #2980b9;
-  border-radius: clamp(8px, 1vw, 12px);
+  border-radius: clamp(6px, 0.8vw, 10px);
   color: white;
-  font-size: clamp(0.7rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.6rem, 1.2vw, 1rem);
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: clamp(60px, 8vh, 100px);
+  min-height: clamp(50px, 7vh, 80px);
+  max-width: clamp(60px, 8vw, 90px);
+  padding: clamp(0.2rem, 0.5vh, 0.5rem);
   user-select: none;
 }
 
