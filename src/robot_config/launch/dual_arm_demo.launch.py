@@ -58,14 +58,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_1_lower_limit",
-            default_value="-3.141592",
+            default_value="-4",
             description="Lower limit for left arm Revolute_1 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_1_upper_limit",
-            default_value="1.57",
+            default_value="4",
             description="Upper limit for left arm Revolute_1 joint",
         )
     )
@@ -1337,7 +1337,6 @@ def generate_launch_description():
     
     # Add RViz conditionally based on rviz parameter
     from launch.conditions import IfCondition
-    from launch.substitutions import PythonExpression
     rviz_node_conditional = Node(
         package="rviz2",
         executable="rviz2",
@@ -1354,7 +1353,7 @@ def generate_launch_description():
             # Pass the full planning pipeline configuration
             moveit_config.planning_pipelines,
         ],
-        condition=IfCondition(PythonExpression(['"', rviz, '" == "true"']))
+        condition=IfCondition(rviz)
     )
     
     nodes_to_launch.append(rviz_node_conditional)
