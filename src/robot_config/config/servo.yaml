@@ -60,3 +60,7 @@ check_collisions: true # Check collisions?
 collision_check_rate: 5.0 # [Hz] Collision-checking can easily bog down a CPU if done too often.
 self_collision_proximity_threshold: 0.01 # Start decelerating when a collision is this far [m]
 scene_collision_proximity_threshold: 0.03 # Start decelerating when a collision is this far [m]
+
+## Advanced collision behavior - allow escape movements
+halt_all_joints_in_cartesian_mode: false # If false, only halt joints that would increase collision risk
+halt_all_joints_in_joint_mode: false # If false, only halt specific joints that would worsen collision

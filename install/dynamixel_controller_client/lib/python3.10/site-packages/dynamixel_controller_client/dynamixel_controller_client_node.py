@@ -6,7 +6,7 @@ from sensor_msgs.msg import JointState
 from dynamixel_controller.msg import DynamixelController, DynamixelResponse, DynamixelCommand  # C++ノードで定義したメッセージをインポート
 
 class DynamixelControllerClient(Node):
-    ids = [0,1,2,3,4,5,6]
+    ids = [0,1,2,3,4,5,6,7]
     def __init__(self):
         super().__init__('dynamixel_controller_client')
         
@@ -359,13 +359,14 @@ class DynamixelControllerClient(Node):
 
         # 各モーターの目標位置
         target_positions = {
-            0: 1390 + int(self.joint_positions.get("left_Revolute_1", 0.0) * 2048 / 3.14),   # joint0 (TTL,XM540)   
+            0: 880 + int(self.joint_positions.get("left_Revolute_1", 0.0) * 2048 / 3.14),   # joint0 (TTL,XM540)   
             1: 2090 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
             2: 3020 + int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
-            3: 1536 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
+            3: 3584 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
             4: 1024 - int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
             5: 1024 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
             6: 2048 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 842),   # joint6 (RS485, XL430)
+            7: 2090 + int(self.joint_positions.get("right_Revolute_1", 0.0) * 2048 / 3.14),  # joint7 (TTL,XM540)
         }
         
         # 各モーターの位置データを4バイトずつ結合（Extended Position Control用）
@@ -385,7 +386,7 @@ class DynamixelControllerClient(Node):
         msg.command = DynamixelController.SYNC_READ
         msg.address = 132   # PRESENT_POSITION アドレス
         msg.length = 4      # 4バイト
-        msg.ids = [1, 2, 3, 4, 5, 6]
+        msg.ids = [0,1, 2, 3, 4, 5, 6,7 ]
         msg.data = []       # SYNC_READでは空
         
         self.tx_publisher.publish(msg)

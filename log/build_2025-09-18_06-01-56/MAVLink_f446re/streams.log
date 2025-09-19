@@ -1,0 +1,30 @@
+[0.252s] Invoking command in '/home/a/ws_moveit2/build/MAVLink_f446re': /usr/bin/cmake /home/a/ws_moveit2/src/MAVLink/MAVLink_f446re -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/MAVLink_f446re
+[0.925s] -- The C compiler identification is GNU 11.4.0
+[0.925s] -- The CXX compiler identification is GNU 11.4.0
+[0.925s] -- The ASM compiler identification is GNU
+[0.925s] -- Found assembler: /usr/bin/cc
+[0.925s] -- Detecting C compiler ABI info
+[0.925s] -- Detecting C compiler ABI info - done
+[0.926s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.926s] -- Detecting C compile features
+[0.926s] -- Detecting C compile features - done
+[0.926s] -- Detecting CXX compiler ABI info
+[0.926s] -- Detecting CXX compiler ABI info - done
+[0.926s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.926s] -- Detecting CXX compile features
+[0.926s] -- Detecting CXX compile features - done
+[0.926s] -- Configuring incomplete, errors occurred!
+[0.926s] See also "/home/a/ws_moveit2/build/MAVLink_f446re/CMakeFiles/CMakeOutput.log".
+[0.926s] [31mCMake Error at CMakeLists.txt:30 (include):
+[0.926s]   include could not find requested file:
+[0.926s] 
+[0.926s]     cmake/gcc-arm-none-eabi.cmake
+[0.927s] 
+[0.927s] [0m
+[0.927s] [0mBuild type: Debug[0m
+[0.927s] [31mCMake Error at CMakeLists.txt:46 (add_subdirectory):
+[0.927s]   add_subdirectory given source "cmake/stm32cubemx" which is not an existing
+[0.927s]   directory.
+[0.927s] 
+[0.927s] [0m
+[0.959s] Invoked command in '/home/a/ws_moveit2/build/MAVLink_f446re' returned '1': /usr/bin/cmake /home/a/ws_moveit2/src/MAVLink/MAVLink_f446re -DCMAKE_INSTALL_PREFIX=/home/a/ws_moveit2/install/MAVLink_f446re
