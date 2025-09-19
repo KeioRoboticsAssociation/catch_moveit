@@ -1346,6 +1346,42 @@ export default function App() {
                         ⬇️ DOWN
                       </button>
                     </div>
+                    <div className="arrow-buttons">
+                      <button
+                        className="arrow-button left-arrow"
+                        onMouseDown={() => startRealtimeControl(0, 1.0, 0, 3.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, 1.0, 0, 1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬅
+                      </button>
+                      <button
+                        className="arrow-button right-arrow"
+                        onMouseDown={() => startRealtimeControl(0, -1.0, 0, -3.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, -1.0, 0, -1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ➡
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1444,6 +1480,42 @@ export default function App() {
                         disabled={connectionStatus !== 'Connected'}
                       >
                         ⬇️ DOWN
+                      </button>
+                    </div>
+                    <div className="arrow-buttons">
+                      <button
+                        className="arrow-button left-arrow"
+                        onMouseDown={() => startRealtimeControl(0, 1.0, 0, 1.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, 1.0, 0, 1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ⬅
+                      </button>
+                      <button
+                        className="arrow-button right-arrow"
+                        onMouseDown={() => startRealtimeControl(0, -1.0, 0, -1.0)}
+                        onMouseUp={() => stopRealtimeControl()}
+                        onMouseLeave={() => stopRealtimeControl()}
+                        onTouchStart={(e) => {
+                          e.preventDefault();
+                          startRealtimeControl(0, -1.0, 0, -1.0);
+                        }}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          stopRealtimeControl();
+                        }}
+                        disabled={connectionStatus !== 'Connected'}
+                      >
+                        ➡
                       </button>
                     </div>
                   </div>

@@ -18,7 +18,7 @@ class DynamixelControllerClient(Node):
         
         
         # 命令送信用トピック
-        self.tx_publisher = self.create_publisher(DynamixelCommand, 'dynamixel_tx', 10)
+        self.tx_publisher = self.create_publisher(DynamixelCommand, 'dynamixel_tx', 100)
         # 初期化時に全モーターをリブート後、トルクオン
         # self.reboot_all_motors()
         # self.enable_torque()
@@ -40,7 +40,7 @@ class DynamixelControllerClient(Node):
         )
         
         # 5秒ごとに SYNC_WRITE 命令, 1秒ごとに SYNC_READ 命令を送信するタイマー
-        self.write_timer = self.create_timer(0.1, self.write_callback)
+        self.write_timer = self.create_timer(0.01, self.write_callback)
         self.read_timer = self.create_timer(1.0, self.read_callback)
     
     # def reboot_all_motors(self):
@@ -359,14 +359,14 @@ class DynamixelControllerClient(Node):
 
         # 各モーターの目標位置
         target_positions = {
-            0: 880 + int(self.joint_positions.get("left_Revolute_1", 0.0) * 2048 / 3.14),   # joint0 (TTL,XM540)   
-            1: 2090 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.14),   # joint1 (TTL,XM540)
-            2: 3020 + int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.14),   # joint2 (TTL, XM540)
-            3: 3584 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.14),   # joint3 (RS485, XL430)
-            4: 1024 - int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.14),   # joint4 (RS485, XL430)
-            5: 1024 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.14),   # joint5 (RS485, XL430)
-            6: 2048 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 842),   # joint6 (RS485, XL430)
-            7: 2090 + int(self.joint_positions.get("right_Revolute_1", 0.0) * 2048 / 3.14),  # joint7 (TTL,XM540)
+            0: 880 + int(self.joint_positions.get("left_Revolute_1", 0.0) * 2048 / 3.141592),   # joint0 (TTL,XM540)   
+            1: 2090 + int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.141592),   # joint1 (TTL,XM540)
+            2: 3020 + int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.141592),   # joint2 (TTL, XM540)
+            3: 3584 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.141592),   # joint3 (RS485, XL430)
+            4: 1024 - int(self.joint_positions.get("left_Revolute_5", 0.0) * 2048 / 3.141592),   # joint4 (RS485, XL430)
+            5: 1024 + int(self.joint_positions.get("left_Revolute_6", 0.0) * 2048 / 3.141592),   # joint5 (RS485, XL430)
+            6: 2048 - int(self.joint_positions.get("left_Slider_1", 0.0) / 0.024 * 748),   # joint6 (RS485, XL430)
+            7: 2090 - int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.141592),   # joint7 (TTL,XM540)
         }
         
         # 各モーターの位置データを4バイトずつ結合（Extended Position Control用）

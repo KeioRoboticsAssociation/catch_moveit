@@ -16,7 +16,7 @@
 #include "dynamixel_controller/msg/dynamixel_controller.hpp"
 
 // 接続情報のマクロ（必要に応じて調整）
-#define BAUDRATE 57600
+#define BAUDRATE 115200
 #define DEVICE_NAME "/dev/USB-u2d2"
 
 // メッセージ定義のショートカット

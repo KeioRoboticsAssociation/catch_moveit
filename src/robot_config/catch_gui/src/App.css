@@ -1884,3 +1884,95 @@ html, body {
     width: clamp(100px, 20vw, 140px);
   }
 }
+
+/* 左右矢印ボタンのスタイル */
+.arrow-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  margin-top: clamp(0.5rem, 1vh, 1rem);
+  width: 100%;
+}
+
+.arrow-button {
+  background: linear-gradient(145deg, #f39c12, #e67e22);
+  border: clamp(1.5px, 0.2vh, 2px) solid #e67e22;
+  border-radius: clamp(8px, 1vw, 12px);
+  color: white;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 clamp(2px, 0.4vh, 4px) clamp(6px, 1.2vw, 12px) rgba(243, 156, 18, 0.4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(45px, 8vw, 70px);
+  height: clamp(45px, 8vw, 70px);
+  min-width: clamp(45px, 8vw, 70px);
+  min-height: clamp(45px, 8vw, 70px);
+  max-width: clamp(45px, 8vw, 70px);
+  max-height: clamp(45px, 8vw, 70px);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+.arrow-button:hover:not(:disabled) {
+  background: linear-gradient(145deg, #e67e22, #d68910);
+  transform: translateY(clamp(-1px, -0.2vh, -2px));
+  box-shadow: 0 clamp(3px, 0.6vh, 6px) clamp(8px, 1.5vw, 15px) rgba(243, 156, 18, 0.5);
+}
+
+.arrow-button:active:not(:disabled) {
+  transform: translateY(clamp(0.5px, 0.1vh, 1px));
+  box-shadow: 0 clamp(1px, 0.2vh, 2px) clamp(3px, 0.6vw, 8px) rgba(243, 156, 18, 0.3);
+  background: linear-gradient(145deg, #d68910, #b7950b);
+}
+
+.arrow-button:disabled {
+  background: linear-gradient(145deg, #bdc3c7, #95a5a6);
+  border-color: #7f8c8d;
+  color: #ecf0f1;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 clamp(1px, 0.1vh, 2px) clamp(3px, 0.5vw, 6px) rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブ対応 - 矢印ボタン */
+@media (max-width: 768px) {
+  .arrow-buttons {
+    gap: clamp(0.3rem, 0.8vw, 0.8rem);
+    margin-top: clamp(0.3rem, 0.8vh, 0.8rem);
+  }
+
+  .arrow-button {
+    width: clamp(35px, 6vw, 55px);
+    height: clamp(35px, 6vw, 55px);
+    min-width: clamp(35px, 6vw, 55px);
+    min-height: clamp(35px, 6vw, 55px);
+    max-width: clamp(35px, 6vw, 55px);
+    max-height: clamp(35px, 6vw, 55px);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .arrow-buttons {
+    gap: clamp(0.2rem, 0.6vw, 0.6rem);
+    margin-top: clamp(0.2rem, 0.6vh, 0.6rem);
+  }
+
+  .arrow-button {
+    width: clamp(28px, 5vw, 45px);
+    height: clamp(28px, 5vw, 45px);
+    min-width: clamp(28px, 5vw, 45px);
+    min-height: clamp(28px, 5vw, 45px);
+    max-width: clamp(28px, 5vw, 45px);
+    max-height: clamp(28px, 5vw, 45px);
+    font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+  }
+}
