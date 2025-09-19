@@ -53,6 +53,7 @@ export default function App() {
   const [clickedCoordinates, setClickedCoordinates] = useState<{x: number, y: number} | null>(null);
   const [selectedArm, setSelectedArm] = useState<"left" | "right">("left");
   const [mode, setMode] = useState<"dual" | "single">("dual");
+  const [isControllerEnabled, setIsControllerEnabled] = useState<boolean>(true);
 
   const ros = useRef(null);
   const publisher = useRef(null);
@@ -648,6 +649,11 @@ export default function App() {
     setMode(prevMode => prevMode === "dual" ? "single" : "dual");
   };
 
+  // Controller toggle function
+  const toggleController = () => {
+    setIsControllerEnabled(prev => !prev);
+  };
+
   // Single mode pose command function
   const sendSinglePoseCommand = (buttonNum: number) => {
     if (posePublisher && connectionStatus === 'Connected') {
@@ -738,22 +744,29 @@ export default function App() {
       const publisher = selectedArm === "left" ? leftRealtimeControlPublisher : rightRealtimeControlPublisher;
       if (!publisher) return;
 
+      // コントローラーがオフの場合は値に0.2を乗じる
+      const multiplier = isControllerEnabled ? 1.0 : 0.2;
+      const adjustedLinearX = linear_x * multiplier;
+      const adjustedLinearY = linear_y * multiplier;
+      const adjustedLinearZ = linear_z * multiplier;
+      const adjustedAngularZ = angular_z * multiplier;
+
       const message = new ROSLIB.Message({
         linear: {
-          x: linear_x,
-          y: linear_y,
-          z: linear_z
+          x: adjustedLinearX,
+          y: adjustedLinearY,
+          z: adjustedLinearZ
         },
         angular: {
           x: 0.0,
           y: 0.0,
-          z: angular_z
+          z: adjustedAngularZ
         }
       });
       publisher.publish(message);
 
       // ログ出力（デバッグ用）
-      console.log(`🎮 Real-time control (${selectedArm} arm): linear(${linear_x}, ${linear_y}, ${linear_z}), angular(${angular_z})`);
+      console.log(`🎮 Real-time control (${selectedArm} arm, ${isControllerEnabled ? 'ON' : 'OFF'}): linear(${adjustedLinearX}, ${adjustedLinearY}, ${adjustedLinearZ}), angular(${adjustedAngularZ})`);
     }
   };
 
@@ -770,6 +783,14 @@ export default function App() {
 
     return (
       <div className="dpad-container">
+        <div className="controller-toggle-container">
+          <button
+            className={`controller-toggle-button ${isControllerEnabled ? 'enabled' : 'disabled'}`}
+            onClick={toggleController}
+          >
+            {isControllerEnabled ? '🟢 ON' : '🔴 OFF'}
+          </button>
+        </div>
         <div className="dpad">
           {/* 上 */}
           <button 

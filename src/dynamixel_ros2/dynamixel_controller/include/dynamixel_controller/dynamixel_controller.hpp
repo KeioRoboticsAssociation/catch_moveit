@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
-#include <mutex>
 
 #include "rclcpp/rclcpp.hpp"
 #include "dynamixel_controller/msg/dynamixel_command.hpp"
@@ -23,14 +22,13 @@ private:
     void instruction_callback(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
     // 指定命令に対する応答データを publish する
     void publish_response(uint8_t instruction_code, const std::vector<uint8_t> & ids, const std::vector<uint8_t> & errors, const std::vector<uint8_t> & data);
-    
+
     // Command handlers for Dynamixel protocol
     void handle_ping_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
     void handle_read_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
     void handle_write_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
     void handle_sync_read_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
     void handle_sync_write_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
-    void handle_reboot_command(const dynamixel_controller::msg::DynamixelCommand::SharedPtr msg);
 
     // ROS インターフェース
     rclcpp::Subscription<dynamixel_controller::msg::DynamixelCommand>::SharedPtr instruction_subscriber_;
@@ -43,9 +41,6 @@ private:
     // Bus configuration
     std::unordered_set<uint8_t> ttl_ids_;
     std::unordered_set<uint8_t> rs485_ids_;
-
-    // Thread safety
-    std::mutex bus_mutex_;
 
     // デバイスパラメータ（例：モータID、プロトコルバージョン）
     const int dxl_id_ = 1;

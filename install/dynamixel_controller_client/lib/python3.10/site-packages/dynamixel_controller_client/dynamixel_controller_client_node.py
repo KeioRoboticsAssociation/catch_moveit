@@ -359,7 +359,7 @@ class DynamixelControllerClient(Node):
 
         # 各モーターの目標位置
         target_positions = {
-            0: 880 + int(self.joint_positions.get("left_Revolute_1", 0.0) * 2048 / 3.141592),   # joint0 (TTL,XM540)   
+            0: 2928 + int(self.joint_positions.get("left_Revolute_1", 0.0) * 2048 / 3.141592),   # joint0 (TTL,XM540)   
             1: 2090 + int(self.joint_positions.get("left_Revolute_2", 0.0) * 2048 / 3.141592),   # joint1 (TTL,XM540)
             2: 3020 + int(self.joint_positions.get("left_Revolute_3", 0.0) * 2048 / 3.141592),   # joint2 (TTL, XM540)
             3: 3584 + int(self.joint_positions.get("left_Revolute_4", 0.0) * 2048 / 3.141592),   # joint3 (RS485, XL430)

@@ -58,14 +58,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_1_lower_limit",
-            default_value="-4",
+            default_value="-3.14",
             description="Lower limit for left arm Revolute_1 joint",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "left_Revolute_1_upper_limit",
-            default_value="4",
+            default_value="3.14",
             description="Upper limit for left arm Revolute_1 joint",
         )
     )
@@ -597,7 +597,7 @@ def generate_launch_description():
         '"0 0 1.57" if "', arm, '" == "dual" and "', field, '" == "red" else ',
         '"0 0 1.57" if "', arm, '" == "dual" and "', field, '" == "blue" else ',
         '"0 0 1.57" if "', arm, '" == "left" and "', field, '" == "red" else ',
-        '"0 0 1.57" if "', arm, '" == "left" and "', field, '" == "blue" else ',
+        '"0 0 -1.57" if "', arm, '" == "left" and "', field, '" == "blue" else ',
         '"0 0 -1.57" if "', arm, '" == "right" and "', field, '" == "red" else ',
         '"0 0 -1.57" if "', arm, '" == "right" and "', field, '" == "blue" else "',
         LaunchConfiguration("left_Revolute_1_rpy"), '"'
@@ -989,7 +989,7 @@ def generate_launch_description():
                     "check_collisions": False,
                     "collision_check_rate": 10.0,
                     "self_collision_proximity_threshold": 0.01,
-                    "scene_collision_proximity_threshold": 0.02,
+                    "scene_collision_proximity_threshold": 0.3,
                     "halt_all_joints_in_cartesian_mode": False,  # If false, only halt joints that would increase collision risk
                     "halt_all_joints_in_joint_mode": False     # If false, only halt specific joints that would worsen collision
                 }
@@ -1040,7 +1040,7 @@ def generate_launch_description():
                     "check_collisions": True,
                     "collision_check_rate": 10.0,
                     "self_collision_proximity_threshold": 0.01,
-                    "scene_collision_proximity_threshold": 0.02,
+                    "scene_collision_proximity_threshold": 0.3,
                     "halt_all_joints_in_cartesian_mode": False,  # If false, only halt joints that would increase collision risk
                     "halt_all_joints_in_joint_mode": False     # If false, only halt specific joints that would worsen collision
                 }
